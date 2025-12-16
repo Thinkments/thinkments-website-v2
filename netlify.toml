@@ -1,0 +1,33 @@
+[build]
+  command = "npm install && npm run build"
+  publish = "build"
+  functions = "src/netlify/functions"
+
+# Redirect www to non-www (canonical domain)
+[[redirects]]
+  from = "https://www.thinkments.com/*"
+  to = "https://thinkments.com/:splat"
+  status = 301
+  force = true
+
+# SPA routing - redirect all routes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API Functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Password protect ONLY admin pages (requires Netlify Pro)
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Basic-Auth = "admin:ThinkMents2025"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@netlify/functions"]

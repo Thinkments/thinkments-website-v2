@@ -1,0 +1,979 @@
+[
+  {
+    "id": 1,
+    "slug": "seo-mistakes-killing-website-traffic",
+    "title": "10 SEO Mistakes That Are Killing Your Website Traffic",
+    "excerpt": "Discover the most common SEO errors that businesses make and learn how to fix them to boost your search rankings and drive more organic traffic.",
+    "author": "Corey Spicer",
+    "date": "2024-08-20",
+    "category": "seo",
+    "readTime": "8 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "SEO",
+      "Website Traffic",
+      "Search Rankings",
+      "Google Analytics"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "complete-guide-social-media-marketing-2025",
+    "title": "The Complete Guide to Social Media Marketing in 2025",
+    "excerpt": "Learn the latest social media strategies that are driving results for businesses. From platform selection to content creation, we cover it all.",
+    "author": "Corey Spicer",
+    "date": "2024-08-21",
+    "category": "social-media",
+    "readTime": "12 min read",
+    "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
+    "tags": [
+      "Social Media",
+      "Marketing Strategy",
+      "Content Creation",
+      "Platform Analytics"
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "voice-search-seo-optimization-guide",
+    "title": "Voice Search SEO: Optimizing for the Future of Search",
+    "excerpt": "Prepare your website for voice search dominance. Learn how to optimize content for voice queries, featured snippets, and conversational search patterns.",
+    "author": "Corey Spicer",
+    "date": "2024-09-15",
+    "category": "seo",
+    "readTime": "6 min read",
+    "image": "https://images.unsplash.com/photo-1659355751133-763bd796eeb2?w=800&h=400&fit=crop",
+    "tags": [
+      "Voice Search",
+      "SEO Strategy",
+      "Featured Snippets",
+      "Conversational AI"
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "facebook-ads-advanced-campaign-strategies",
+    "title": "Facebook Ads That Convert: Advanced Campaign Strategies",
+    "excerpt": "Master Facebook advertising with proven campaign strategies. Learn audience targeting, ad creative optimization, and budget management for maximum ROI.",
+    "author": "Corey Spicer",
+    "date": "2024-09-16",
+    "category": "social-media",
+    "readTime": "8 min read",
+    "image": "https://images.unsplash.com/photo-1615494937386-5532d6f5cb25?w=800&h=400&fit=crop",
+    "tags": [
+      "Facebook Ads",
+      "Paid Social",
+      "Campaign Optimization",
+      "ROI Marketing"
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "ux-ui-design-principles-conversions",
+    "title": "UX/UI Design Principles That Drive Conversions",
+    "excerpt": "Create user experiences that convert visitors into customers. Learn essential design principles, usability best practices, and conversion optimization techniques.",
+    "author": "Corey Spicer",
+    "date": "2025-01-22",
+    "category": "web-design",
+    "readTime": "7 min read",
+    "image": "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=800&h=400&fit=crop",
+    "tags": [
+      "UX Design",
+      "UI Design",
+      "Conversion Optimization",
+      "User Experience"
+    ]
+  },
+  {
+    "id": 303,
+    "slug": "google-ads-hacks-unlocking-the-full-potential",
+    "title": "Google Ads Hacks: Unlocking the Full Potential of Your PPC Campaigns",
+    "excerpt": "Discover powerful Google Ads optimization strategies that maximize ROI and reduce wasted ad spend. Learn expert PPC tactics from ThinkMents to dominate your market.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "digital-marketing",
+    "readTime": "15 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Google Ads",
+      "PPC",
+      "Digital Marketing",
+      "ROI Optimization",
+      "Ad Campaigns"
+    ]
+  },
+  {
+    "id": 304,
+    "slug": "is-your-website-working-hard-enough-for-you",
+    "title": "Is Your Website Working Hard Enough for You?",
+    "excerpt": "Learn how to evaluate your website\\",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "web-design",
+    "readTime": "12 min read",
+    "image": "https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Website Optimization",
+      "ROI",
+      "Conversion Rate",
+      "Web Design",
+      "Analytics",
+      "User Experience"
+    ]
+  },
+  {
+    "id": 305,
+    "slug": "instagram-marketing-business-growth",
+    "title": "Instagram Marketing for Business Growth: The Complete Guide",
+    "excerpt": "Master Instagram marketing to drive real business results. Learn proven strategies for content creation, engagement, Stories, Reels, and converting followers into customers.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "social-media",
+    "readTime": "14 min read",
+    "image": "https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Instagram Marketing",
+      "Social Media",
+      "Content Strategy",
+      "Business Growth",
+      "Reels"
+    ]
+  },
+  {
+    "id": 49,
+    "slug": "cross-platform-marketing-integration-strategies",
+    "title": "Cross-Platform Marketing Integration for Maximum Impact",
+    "excerpt": "Create cohesive marketing experiences across all channels. Learn integration strategies, message consistency, and campaign coordination for better results.",
+    "author": "Corey Spicer",
+    "date": "2024-10-07",
+    "category": "marketing",
+    "readTime": "8 min read",
+    "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
+    "tags": [
+      "Marketing Integration",
+      "Multi-Channel",
+      "Campaign Coordination",
+      "Digital Marketing"
+    ]
+  },
+  {
+    "id": 50,
+    "slug": "customer-retention-loyalty-programs-guide",
+    "title": "Customer Retention and Loyalty Programs That Work",
+    "excerpt": "Build lasting customer relationships that drive repeat business. Learn retention strategies, loyalty program design, and customer lifetime value optimization.",
+    "author": "Corey Spicer",
+    "date": "2024-10-08",
+    "category": "crm",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
+    "tags": [
+      "Customer Retention",
+      "Loyalty Programs",
+      "Customer Experience",
+      "CRM"
+    ]
+  },
+  {
+    "id": 306,
+    "slug": "graphic-design-services-from-thinkments-unlocking-your-businesss-visual-potential",
+    "title": "Graphic Design Services from ThinkMents: Unlocking Your Business\\",
+    "excerpt": "Discover how professional graphic design transforms your business brand. Learn about logo design, brand identity, marketing materials, and visual strategy from ThinkMents.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "web-design",
+    "readTime": "13 min read",
+    "image": "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Graphic Design",
+      "Branding",
+      "Logo Design",
+      "Visual Identity",
+      "Marketing Materials"
+    ]
+  },
+  {
+    "id": 307,
+    "slug": "decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks",
+    "title": "Decatur Businesses: Level Up Your Local SEO with ThinkMents",
+    "excerpt": "Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "seo",
+    "readTime": "15 min read",
+    "image": "https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Local SEO",
+      "Decatur Business",
+      "Google Business Profile",
+      "Wise County"
+    ]
+  },
+  {
+    "id": 308,
+    "slug": "the-fundamentals-of-digital-marketing-grow-your-business-with-thinkments",
+    "title": "The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents",
+    "excerpt": "Master digital marketing fundamentals to grow your business. Learn essential strategies for SEO, social media, content marketing, paid advertising, and building an integrated digital presence.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "digital-marketing",
+    "readTime": "16 min read",
+    "image": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Digital Marketing",
+      "SEO",
+      "Social Media",
+      "Content Marketing",
+      "Business Growth"
+    ]
+  },
+  {
+    "id": 309,
+    "slug": "what-steps-can-you-take-to-elevate-your-digital-presence",
+    "title": "What Steps Can You Take to Elevate Your Digital Presence?",
+    "excerpt": "Transform your digital presence with proven strategies. Learn how to build a professional website, optimize for search engines, leverage social media, and create compelling content that attracts customers.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "digital-marketing",
+    "readTime": "14 min read",
+    "image": "https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Digital Presence",
+      "Website Design",
+      "SEO",
+      "Social Media",
+      "Online Marketing"
+    ]
+  },
+  {
+    "id": 310,
+    "slug": "thinkments-virtual-tours-and-your-restaurant",
+    "title": "ThinkMents Virtual Tours and Your Restaurant: Bring Your Dining Experience Online",
+    "excerpt": "Discover how virtual tours transform restaurant marketing by showcasing your ambiance, building trust, and attracting more diners. Learn why ThinkMents virtual tours give your restaurant a competitive edge.",
+    "author": "Corey Spicer",
+    "date": "2025-01-24",
+    "category": "virtual-tours",
+    "readTime": "13 min read",
+    "image": "https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
+    "tags": [
+      "Virtual Tours",
+      "Restaurant Marketing",
+      "Google Business Profile",
+      "Customer Experience"
+    ]
+  },
+  {
+    "id": 20,
+    "slug": "tiktok-marketing-gen-z-millennials",
+    "title": "TikTok Marketing: Reaching Gen Z and Millennial Audiences",
+    "excerpt": "Tap into TikTok\\",
+    "author": "Corey Spicer",
+    "date": "2024-09-08",
+    "category": "social-media",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&h=400&fit=crop",
+    "tags": [
+      "TikTok",
+      "Gen Z Marketing",
+      "Social Media",
+      "Video Marketing"
+    ]
+  },
+  {
+    "id": 15,
+    "slug": "linkedin-marketing-b2b-businesses",
+    "title": "LinkedIn Marketing for B2B Businesses",
+    "excerpt": "Leverage LinkedIn to generate B2B leads and build professional relationships. Learn content strategies, networking tactics, and advertising best practices.",
+    "author": "Corey Spicer",
+    "date": "2024-09-03",
+    "category": "social-media",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
+    "tags": [
+      "LinkedIn",
+      "B2B Marketing",
+      "Lead Generation",
+      "Professional Networking"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "local-seo-strategies-small-businesses",
+    "title": "Local SEO Strategies for Small Businesses",
+    "excerpt": "Dominate local search results with these proven strategies. Perfect for small businesses looking to attract more customers from their local area.",
+    "author": "Corey Spicer",
+    "date": "2024-08-24",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&h=400&fit=crop",
+    "tags": [
+      "Local SEO",
+      "Small Business",
+      "Google My Business",
+      "Local Search"
+    ]
+  },
+  {
+    "id": 14,
+    "slug": "technical-seo-foundation-search-success",
+    "title": "Technical SEO: The Foundation of Search Success",
+    "excerpt": "Master technical SEO to improve your website\\",
+    "author": "Corey Spicer",
+    "date": "2024-09-02",
+    "category": "seo",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop",
+    "tags": [
+      "Technical SEO",
+      "Site Speed",
+      "Crawlability",
+      "Website Optimization"
+    ]
+  },
+  {
+    "id": 16,
+    "slug": "content-seo-optimization-guide",
+    "title": "Content SEO Optimization: The Complete Guide",
+    "excerpt": "Create content that ranks with our comprehensive SEO optimization guide. Learn keyword research, on-page optimization, and content strategy.",
+    "author": "Corey Spicer",
+    "date": "2024-09-04",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
+    "tags": [
+      "Content SEO",
+      "On-Page SEO",
+      "Keyword Research",
+      "Content Strategy"
+    ]
+  },
+  {
+    "id": 30,
+    "slug": "video-seo-youtube-optimization-guide",
+    "title": "Video SEO and YouTube Optimization Guide",
+    "excerpt": "Maximize your video visibility with our comprehensive SEO guide. Learn YouTube optimization, video content strategy, and ranking factors.",
+    "author": "Corey Spicer",
+    "date": "2024-09-18",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&h=400&fit=crop",
+    "tags": [
+      "Video SEO",
+      "YouTube",
+      "Video Marketing",
+      "Content Optimization"
+    ]
+  },
+  {
+    "id": 32,
+    "slug": "ecommerce-seo-organic-traffic-guide",
+    "title": "E-commerce SEO: Driving Organic Traffic to Your Online Store",
+    "excerpt": "Increase organic traffic to your e-commerce store with proven SEO strategies. Learn product page optimization, technical SEO, and link building.",
+    "author": "Corey Spicer",
+    "date": "2024-09-20",
+    "category": "seo",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
+    "tags": [
+      "E-commerce SEO",
+      "Online Store",
+      "Product Optimization",
+      "Organic Traffic"
+    ]
+  },
+  {
+    "id": 33,
+    "slug": "ecommerce-seo-driving-sales-through-search",
+    "title": "E-commerce SEO: Driving Sales Through Search",
+    "excerpt": "Convert search traffic into sales with advanced e-commerce SEO tactics. Master product optimization, user experience, and conversion strategies.",
+    "author": "Corey Spicer",
+    "date": "2024-09-21",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=400&fit=crop",
+    "tags": [
+      "E-commerce",
+      "SEO",
+      "Conversion Optimization",
+      "Sales"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "web-design-trends-2025",
+    "title": "Web Design Trends to Watch in 2025",
+    "excerpt": "Stay ahead of the curve with the latest web design trends. From AI-powered personalization to immersive 3D experiences, discover what\\",
+    "author": "Corey Spicer",
+    "date": "2024-08-22",
+    "category": "web-design",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=400&fit=crop",
+    "tags": [
+      "Web Design",
+      "Design Trends",
+      "UX",
+      "Innovation"
+    ]
+  },
+  {
+    "id": 22,
+    "slug": "psychology-color-web-design",
+    "title": "The Psychology of Color in Web Design",
+    "excerpt": "Understand how color choices impact user behavior and conversions. Learn color theory, psychology, and strategic implementation for your website.",
+    "author": "Corey Spicer",
+    "date": "2024-09-10",
+    "category": "web-design",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop",
+    "tags": [
+      "Color Psychology",
+      "Web Design",
+      "UX",
+      "Conversion Optimization"
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "mobile-first-design-optimization-guide",
+    "title": "Mobile-First Design: Complete Optimization Guide",
+    "excerpt": "Master mobile-first design principles to create exceptional mobile experiences. Learn responsive strategies, touch optimization, and performance best practices.",
+    "author": "Corey Spicer",
+    "date": "2024-09-11",
+    "category": "web-design",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
+    "tags": [
+      "Mobile Design",
+      "Responsive Design",
+      "UX",
+      "Performance"
+    ]
+  },
+  {
+    "id": 24,
+    "slug": "landing-page-optimization-higher-conversions",
+    "title": "Landing Page Optimization for Higher Conversions",
+    "excerpt": "Boost conversion rates with optimized landing pages. Learn design principles, copywriting strategies, and testing methods that drive results.",
+    "author": "Corey Spicer",
+    "date": "2024-09-12",
+    "category": "web-design",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Landing Pages",
+      "Conversion Optimization",
+      "CRO",
+      "Web Design"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "measure-roi-digital-marketing-campaigns",
+    "title": "How to Measure ROI on Your Digital Marketing Campaigns",
+    "excerpt": "Learn to accurately measure and improve marketing ROI. Discover tracking methods, attribution models, and optimization strategies for better results.",
+    "author": "Corey Spicer",
+    "date": "2024-08-25",
+    "category": "marketing-strategy",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "ROI",
+      "Marketing Analytics",
+      "Campaign Measurement",
+      "Attribution"
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "building-strong-brand-identity-digital-age",
+    "title": "Building a Strong Brand Identity in the Digital Age",
+    "excerpt": "Create a memorable brand identity that resonates with your audience. Learn brand strategy, visual identity, messaging, and consistency across channels.",
+    "author": "Corey Spicer",
+    "date": "2024-08-27",
+    "category": "marketing-strategy",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=800&h=400&fit=crop",
+    "tags": [
+      "Brand Identity",
+      "Branding",
+      "Brand Strategy",
+      "Digital Marketing"
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "marketing-automation-streamlining-guide",
+    "title": "Marketing Automation: Streamlining Your Marketing Efforts",
+    "excerpt": "Increase efficiency with marketing automation. Learn platforms, workflow automation, lead nurturing, and best practices for automated marketing success.",
+    "author": "Corey Spicer",
+    "date": "2024-09-01",
+    "category": "marketing-strategy",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    "tags": [
+      "Marketing Automation",
+      "Workflow Automation",
+      "Lead Nurturing",
+      "Efficiency"
+    ]
+  },
+  {
+    "id": 17,
+    "slug": "marketing-automation-workflows-convert",
+    "title": "Marketing Automation Workflows That Convert",
+    "excerpt": "Create high-converting automation workflows. Learn advanced segmentation, behavioral triggers, and optimization strategies for maximum conversions.",
+    "author": "Corey Spicer",
+    "date": "2024-09-05",
+    "category": "marketing-strategy",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop",
+    "tags": [
+      "Marketing Automation",
+      "Conversion Optimization",
+      "Workflows",
+      "Lead Nurturing"
+    ]
+  },
+  {
+    "id": 34,
+    "slug": "ai-digital-marketing-tools-strategies-2025",
+    "title": "AI in Digital Marketing: Tools and Strategies for 2025",
+    "excerpt": "Leverage artificial intelligence to transform your marketing. Explore AI tools, automation strategies, and future trends in AI-powered marketing.",
+    "author": "Corey Spicer",
+    "date": "2024-09-22",
+    "category": "marketing-strategy",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
+    "tags": [
+      "Artificial Intelligence",
+      "AI Marketing",
+      "Marketing Tools",
+      "Automation"
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "content-marketing-strategy-that-converts",
+    "title": "Content Marketing Strategy That Actually Converts",
+    "excerpt": "Build a content marketing strategy that drives real business results. Learn content planning, creation, distribution, and measurement for conversions.",
+    "author": "Corey Spicer",
+    "date": "2024-08-28",
+    "category": "content-marketing",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=400&fit=crop",
+    "tags": [
+      "Content Marketing",
+      "Content Strategy",
+      "Conversions",
+      "Lead Generation"
+    ]
+  },
+  {
+    "id": 19,
+    "slug": "video-marketing-compelling-content-guide",
+    "title": "Video Marketing: Creating Compelling Video Content",
+    "excerpt": "Master video marketing with our complete guide. Learn video types, production tips, optimization strategies, and distribution methods that engage audiences.",
+    "author": "Corey Spicer",
+    "date": "2024-09-07",
+    "category": "content-marketing",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=400&fit=crop",
+    "tags": [
+      "Video Marketing",
+      "Content Creation",
+      "YouTube",
+      "Video Strategy"
+    ]
+  },
+  {
+    "id": 25,
+    "slug": "blogging-for-business-traffic-leads",
+    "title": "Blogging for Business: Driving Traffic and Leads",
+    "excerpt": "Build a successful business blog that attracts traffic and generates leads. Learn content strategy, SEO optimization, and lead generation tactics.",
+    "author": "Corey Spicer",
+    "date": "2024-09-13",
+    "category": "content-marketing",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop",
+    "tags": [
+      "Blogging",
+      "Content Marketing",
+      "Traffic Generation",
+      "Lead Generation"
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "podcast-marketing-audience-brand-growth",
+    "title": "Podcast Marketing: Building Audience and Brand Growth",
+    "excerpt": "Launch and grow a successful business podcast. Learn content strategy, production tips, distribution methods, and audience building tactics.",
+    "author": "Corey Spicer",
+    "date": "2024-09-17",
+    "category": "content-marketing",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=400&fit=crop",
+    "tags": [
+      "Podcast Marketing",
+      "Audio Content",
+      "Audience Building",
+      "Brand Growth"
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "email-marketing-best-practices-2025",
+    "title": "Email Marketing Best Practices for 2025",
+    "excerpt": "Master email marketing with current best practices. Learn segmentation, personalization, automation, and strategies that drive engagement and conversions.",
+    "author": "Corey Spicer",
+    "date": "2024-08-29",
+    "category": "email-marketing",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop",
+    "tags": [
+      "Email Marketing",
+      "Marketing Automation",
+      "Personalization",
+      "Engagement"
+    ]
+  },
+  {
+    "id": 18,
+    "slug": "email-list-building-subscriber-growth",
+    "title": "Email List Building: Growing Your Subscriber Base",
+    "excerpt": "Build a valuable email list with proven growth strategies. Learn lead magnets, opt-in optimization, and tactics for acquiring engaged subscribers.",
+    "author": "Corey Spicer",
+    "date": "2024-09-06",
+    "category": "email-marketing",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=800&h=400&fit=crop",
+    "tags": [
+      "Email List Building",
+      "Lead Generation",
+      "Subscribers",
+      "Growth"
+    ]
+  },
+  {
+    "id": 26,
+    "slug": "sms-marketing-mobile-customer-engagement",
+    "title": "SMS Marketing: Engaging Customers on Mobile",
+    "excerpt": "Reach customers instantly with SMS marketing. Learn compliance, best practices, automation, and strategies for effective text message marketing.",
+    "author": "Corey Spicer",
+    "date": "2024-09-14",
+    "category": "email-marketing",
+    "readTime": "8 min read",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
+    "tags": [
+      "SMS Marketing",
+      "Text Message Marketing",
+      "Mobile Marketing",
+      "Customer Engagement"
+    ]
+  },
+  {
+    "id": 31,
+    "slug": "email-deliverability-best-practices-guide",
+    "title": "Email Deliverability: Best Practices Guide",
+    "excerpt": "Ensure your emails reach the inbox. Master technical requirements, sender reputation, content optimization, and monitoring for maximum deliverability.",
+    "author": "Corey Spicer",
+    "date": "2024-09-19",
+    "category": "email-marketing",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=800&h=400&fit=crop",
+    "tags": [
+      "Email Deliverability",
+      "Email Marketing",
+      "Technical SEO",
+      "Sender Reputation"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "google-analytics-4-essential-guide",
+    "title": "Google Analytics 4: The Essential Guide",
+    "excerpt": "Master Google Analytics 4 with our comprehensive guide. Learn setup, reporting, analysis, and insights to make data-driven marketing decisions.",
+    "author": "Corey Spicer",
+    "date": "2024-08-26",
+    "category": "analytics",
+    "readTime": "12 min read",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    "tags": [
+      "Google Analytics 4",
+      "Analytics",
+      "Data Analysis",
+      "Reporting"
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "data-driven-marketing-analytics-guide",
+    "title": "Data-Driven Marketing: Analytics and Insights Guide",
+    "excerpt": "Transform marketing with data-driven decision making. Learn analytics frameworks, tools, measurement strategies, and optimization techniques.",
+    "author": "Corey Spicer",
+    "date": "2024-08-30",
+    "category": "analytics",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    "tags": [
+      "Data-Driven Marketing",
+      "Analytics",
+      "Marketing Metrics",
+      "Optimization"
+    ]
+  },
+  {
+    "id": 21,
+    "slug": "marketing-attribution-customer-journey-guide",
+    "title": "Marketing Attribution: Understanding the Customer Journey",
+    "excerpt": "Master marketing attribution to understand what drives conversions. Learn attribution models, tools, and strategies for accurate performance measurement.",
+    "author": "Corey Spicer",
+    "date": "2024-09-09",
+    "category": "analytics",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Marketing Attribution",
+      "Customer Journey",
+      "Analytics",
+      "ROI Measurement"
+    ]
+  },
+  {
+    "id": 35,
+    "slug": "content-marketing-roi-measurement-strategies",
+    "title": "Content Marketing ROI: Measurement Strategies",
+    "excerpt": "Measure and prove content marketing ROI. Learn tracking methods, attribution strategies, and metrics that demonstrate content\\",
+    "author": "Corey Spicer",
+    "date": "2024-09-23",
+    "category": "analytics",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    "tags": [
+      "Content Marketing ROI",
+      "Analytics",
+      "Measurement",
+      "Content Strategy"
+    ]
+  },
+  {
+    "id": 36,
+    "slug": "google-analytics-4-setup-optimization-guide",
+    "title": "Google Analytics 4: Setup and Optimization Guide",
+    "excerpt": "Set up GA4 correctly for accurate tracking and insights. Learn configuration, event tracking, conversions, and optimization best practices.",
+    "author": "Corey Spicer",
+    "date": "2024-09-24",
+    "category": "analytics",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    "tags": [
+      "Google Analytics 4",
+      "Setup",
+      "Configuration",
+      "Tracking"
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "conversion-rate-optimization-guide",
+    "title": "Conversion Rate Optimization: The Complete Guide",
+    "excerpt": "Increase conversions without increasing traffic. Learn CRO methodology, testing strategies, and optimization tactics that boost conversion rates.",
+    "author": "Corey Spicer",
+    "date": "2024-08-31",
+    "category": "conversion-optimization",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Conversion Optimization",
+      "CRO",
+      "Testing",
+      "User Experience"
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "website-performance-optimization-guide",
+    "title": "Website Performance Optimization Guide",
+    "excerpt": "Speed up your website for better user experience and SEO. Learn technical optimization, image optimization, and performance monitoring strategies.",
+    "author": "Corey Spicer",
+    "date": "2024-09-15",
+    "category": "conversion-optimization",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Website Performance",
+      "Page Speed",
+      "Technical Optimization",
+      "User Experience"
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "conversion-rate-optimization-testing-guide",
+    "title": "Conversion Rate Optimization: Testing and Implementation",
+    "excerpt": "Run effective A/B tests and optimization experiments. Learn testing methodology, tools, analysis, and implementation for continuous improvement.",
+    "author": "Corey Spicer",
+    "date": "2024-09-16",
+    "category": "conversion-optimization",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    "tags": [
+      "A/B Testing",
+      "CRO",
+      "Optimization",
+      "Experimentation"
+    ]
+  },
+  {
+    "id": 37,
+    "slug": "google-ads-mastery-ppc-strategies",
+    "title": "Google Ads Mastery: PPC Strategies for Success",
+    "excerpt": "Master Google Ads with proven strategies. Learn campaign structure, bidding, optimization, and advanced tactics for profitable PPC advertising.",
+    "author": "Corey Spicer",
+    "date": "2024-09-25",
+    "category": "paid-advertising",
+    "readTime": "12 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Google Ads",
+      "PPC",
+      "Paid Advertising",
+      "Search Ads"
+    ]
+  },
+  {
+    "id": 38,
+    "slug": "retargeting-campaigns-converting-lost-visitors",
+    "title": "Retargeting Campaigns: Converting Lost Visitors",
+    "excerpt": "Bring back lost visitors with effective retargeting. Learn audience segmentation, creative strategies, and optimization for maximum conversions.",
+    "author": "Corey Spicer",
+    "date": "2024-09-26",
+    "category": "paid-advertising",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "tags": [
+      "Retargeting",
+      "Remarketing",
+      "Paid Advertising",
+      "Conversion Optimization"
+    ]
+  },
+  {
+    "id": 39,
+    "slug": "influencer-marketing-authentic-reach-guide",
+    "title": "Influencer Marketing: Building Authentic Reach",
+    "excerpt": "Partner with influencers to expand reach and build trust. Learn influencer selection, campaign management, and measurement for authentic marketing.",
+    "author": "Corey Spicer",
+    "date": "2024-09-27",
+    "category": "partnerships",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
+    "tags": [
+      "Influencer Marketing",
+      "Partnerships",
+      "Social Media",
+      "Brand Awareness"
+    ]
+  },
+  {
+    "id": 40,
+    "slug": "affiliate-marketing-profitable-partnership-programs",
+    "title": "Affiliate Marketing: Building Profitable Partnership Programs",
+    "excerpt": "Scale growth through affiliate partnerships. Learn program setup, affiliate recruitment, management, and optimization for maximum revenue.",
+    "author": "Corey Spicer",
+    "date": "2024-09-28",
+    "category": "partnerships",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
+    "tags": [
+      "Affiliate Marketing",
+      "Partnerships",
+      "Revenue Growth",
+      "Performance Marketing"
+    ]
+  },
+  {
+    "id": 41,
+    "slug": "influencer-marketing-campaign-management",
+    "title": "Influencer Marketing: Campaign Management Best Practices",
+    "excerpt": "Execute successful influencer campaigns from planning to measurement. Learn workflow, creative direction, compliance, and performance optimization.",
+    "author": "Corey Spicer",
+    "date": "2024-09-29",
+    "category": "partnerships",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
+    "tags": [
+      "Influencer Marketing",
+      "Campaign Management",
+      "Social Media",
+      "Partnerships"
+    ]
+  },
+  {
+    "id": 42,
+    "slug": "b2b-lead-generation-strategies-2025",
+    "title": "B2B Lead Generation Strategies for 2025",
+    "excerpt": "Generate quality B2B leads with proven strategies. Learn demand generation, content marketing, outreach, and tactics that fill your sales pipeline.",
+    "author": "Corey Spicer",
+    "date": "2024-09-30",
+    "category": "partnerships",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop",
+    "tags": [
+      "B2B Marketing",
+      "Lead Generation",
+      "Demand Generation",
+      "Sales"
+    ]
+  },
+  {
+    "id": 43,
+    "slug": "mobile-app-marketing-user-acquisition",
+    "title": "Mobile App Marketing: User Acquisition Strategies",
+    "excerpt": "Acquire and retain mobile app users with proven strategies. Learn app store optimization, paid acquisition, and retention tactics for app growth.",
+    "author": "Corey Spicer",
+    "date": "2024-10-01",
+    "category": "partnerships",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
+    "tags": [
+      "Mobile App Marketing",
+      "User Acquisition",
+      "App Store Optimization",
+      "Retention"
+    ]
+  },
+  {
+    "id": 44,
+    "slug": "local-business-reputation-management-guide",
+    "title": "Local Business Reputation Management Guide",
+    "excerpt": "Protect and enhance your local business reputation. Learn review management, response strategies, and tactics for building trust and credibility.",
+    "author": "Corey Spicer",
+    "date": "2024-10-02",
+    "category": "partnerships",
+    "readTime": "9 min read",
+    "image": "https://images.unsplash.com/photo-1553484771-047a44eee27e?w=800&h=400&fit=crop",
+    "tags": [
+      "Reputation Management",
+      "Reviews",
+      "Local Business",
+      "Customer Trust"
+    ]
+  },
+  {
+    "id": 45,
+    "slug": "social-media-crisis-management-strategies",
+    "title": "Social Media Crisis Management: Proven Strategies to Protect Your Brand (2025)",
+    "excerpt": "Learn how to prevent, identify, and manage social media crises with proven strategies for communication, rapid response, and post-crisis recovery. Complete framework + real examples.",
+    "author": "Corey Spicer",
+    "date": "2024-10-03",
+    "category": "partnerships",
+    "readTime": "12 min read",
+    "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
+    "tags": [
+      "Crisis Management",
+      "Social Media",
+      "Reputation Management",
+      "Communications",
+      "Brand Protection"
+    ]
+  }
+]

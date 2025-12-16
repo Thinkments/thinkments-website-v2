@@ -1,0 +1,85 @@
+/* ThinkMents Admin Dashboard Colors */
+
+:root {
+  /* Admin Brand Colors */
+  --admin-primary: #1E3A5F;
+  --admin-primary-hover: #152d4a;
+  --admin-accent: #00B4D8;
+  --admin-accent-hover: #0096b8;
+  --admin-secondary: #FF6B35;
+  --admin-secondary-hover: #e55525;
+  --admin-bg: #F8F9FA;
+  --admin-card: #FFFFFF;
+  --admin-border: #E0E4E8;
+  --admin-text-primary: #1E3A5F;
+  --admin-text-secondary: #6C757D;
+  --admin-sidebar-width: 260px;
+  --admin-sidebar-collapsed: 80px;
+  --admin-header-height: 64px;
+}
+
+/* Admin Dashboard Specific Styles */
+.admin-layout {
+  background-color: var(--admin-bg);
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background-color: var(--admin-primary);
+  color: white;
+  width: var(--admin-sidebar-width);
+  transition: width 0.3s ease;
+}
+
+.admin-sidebar.collapsed {
+  width: var(--admin-sidebar-collapsed);
+}
+
+.admin-header {
+  background-color: var(--admin-card);
+  border-bottom: 1px solid var(--admin-border);
+  height: var(--admin-header-height);
+}
+
+.admin-card {
+  background-color: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.admin-btn-primary {
+  background-color: var(--admin-accent);
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.admin-btn-primary:hover {
+  background-color: var(--admin-accent-hover);
+}
+
+.admin-btn-secondary {
+  background-color: var(--admin-secondary);
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.admin-btn-secondary:hover {
+  background-color: var(--admin-secondary-hover);
+}
+
+.admin-stat-card {
+  background: linear-gradient(135deg, var(--admin-primary) 0%, var(--admin-accent) 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.admin-badge-blue { background-color: var(--admin-primary); }
+.admin-badge-teal { background-color: var(--admin-accent); }
+.admin-badge-orange { background-color: var(--admin-secondary); }
+.admin-badge-gray { background-color: #6C757D; }
