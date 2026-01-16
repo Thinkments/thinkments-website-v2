@@ -293,20 +293,20 @@ export default function Header() {
           </nav>
 
           {/* Right Section - Desktop */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex flex-col items-center gap-1.5">
             {/* Phone Number */}
             <a 
               href="tel:9403151023" 
-              className="text-base text-white/70 flex items-center gap-2 hover:text-white transition-colors duration-200"
+              className="text-sm text-white/90 flex items-center gap-1.5 hover:text-[#F7B928] transition-colors duration-200 font-medium"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5" />
               <span>(940) 315-1023</span>
             </a>
 
             {/* CTA Button */}
             <Button 
               asChild 
-              className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap"
+              className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-base"
             >
               <Link to="/free-consultation">Free Consultation</Link>
             </Button>

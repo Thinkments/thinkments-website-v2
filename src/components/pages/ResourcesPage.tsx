@@ -173,7 +173,7 @@ export default function ResourcesPage() {
       </div>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative py-24 md:py-32 px-4 overflow-hidden bg-gradient-to-br from-[#1E3A5F] via-[#1E3A5F] to-[#0F2942]">
+      <section ref={heroRef} className="relative py-16 md:py-32 px-4 overflow-hidden bg-gradient-to-br from-[#1E3A5F] via-[#1E3A5F] to-[#0F2942]">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -192,11 +192,11 @@ export default function ResourcesPage() {
               FREE RESOURCES SINCE 2002
             </Badge>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Marketing Resources & Tools
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed mb-8">
               Actionable guides, templates, and tools to help your business grow online
             </p>
 
@@ -246,7 +246,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Resource Categories */}
-      <section ref={categoriesRef} className="py-20 bg-gray-50">
+      <section ref={categoriesRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -280,7 +280,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Featured Resources */}
-      <section ref={featuredRef} className="py-20 bg-white">
+      <section ref={featuredRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -325,7 +325,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Tools & Calculators */}
-      <section ref={toolsRef} className="py-20 bg-gray-50">
+      <section ref={toolsRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -383,7 +383,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Educational Content */}
-      <section ref={educationalRef} className="py-20 bg-white">
+      <section ref={educationalRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -433,7 +433,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* FAQ */}
-      <section ref={faqRef} className="py-20 bg-gray-50">
+      <section ref={faqRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -469,7 +469,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Resource Request */}
-      <section ref={requestRef} className="py-20 bg-white">
+      <section ref={requestRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -513,7 +513,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section ref={newsletterRef} className="py-20 bg-[#FF6B35] relative overflow-hidden">
+      <section ref={newsletterRef} className="py-16 md:py-20 bg-[#FF6B35] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -599,7 +599,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Why We Share */}
-      <section ref={whyShareRef} className="py-20 bg-white">
+      <section ref={whyShareRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -642,7 +642,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* CTA */}
-      <section ref={ctaRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
+      <section ref={ctaRef} className="py-16 md:py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

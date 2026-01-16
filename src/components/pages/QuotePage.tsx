@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { ArrowRight, ArrowLeft } from 'lucide-react@0.487.0';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';

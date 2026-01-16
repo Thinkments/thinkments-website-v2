@@ -151,7 +151,7 @@ export default function ContactPage() {
       ]} />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-[#F8F9FA] py-20 md:py-24 px-4 overflow-hidden">
+      <section ref={heroRef} className="relative bg-[#F8F9FA] py-16 md:py-24 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -167,10 +167,10 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-4xl md:text-6xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Let&apos;s Start a Conversation
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Whether you have a quick question or want to discuss a complete marketing strategy, we&apos;re here to help. No pressure, no jargon—just honest advice.
             </p>
           </motion.div>
@@ -225,7 +225,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content - Two Columns */}
-      <section ref={formRef} className="py-20 px-4 bg-white">
+      <section ref={formRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Left Column - Contact Form (60%) */}
@@ -236,7 +236,7 @@ export default function ContactPage() {
               className="lg:col-span-3"
             >
               <Card className="shadow-xl">
-                <CardContent className="p-8 md:p-10">
+                <CardContent className="p-6 md:p-10">
                   <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
                     Send Us a Message
                   </h2>
@@ -615,7 +615,7 @@ export default function ContactPage() {
       </section>
 
       {/* Alternative Contact Section */}
-      <section ref={alternativeRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={alternativeRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -623,7 +623,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Other Ways to Connect
             </h2>
           </motion.div>
@@ -724,17 +724,17 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 px-4 bg-[#1E3A5F]">
+      <section ref={ctaRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F]">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
               Ready to Grow Your Business?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-lg md:text-xl text-white/90 mb-8">
               Let&apos;s talk about how we can help you achieve your goals.
             </p>
             <Button

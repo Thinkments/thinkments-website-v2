@@ -820,7 +820,7 @@ export default function WebDevelopmentPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Ready for a Website That Drives Results?
             </h2>
             <p className="text-xl text-white/90 mb-8">
@@ -831,7 +831,7 @@ export default function WebDevelopmentPage() {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] px-8"
+                className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white px-8"
               >
                 <Link to="/free-consultation">
                   Schedule a Free Web Consultation

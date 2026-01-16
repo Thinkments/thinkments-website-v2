@@ -205,7 +205,7 @@ export default function TeamPage() {
       </section>
 
       {/* Our Leadership */}
-      <section ref={leadershipRef} className="py-20 bg-gray-50">
+      <section ref={leadershipRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -256,7 +256,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Philosophy */}
-      <section ref={philosophyRef} className="py-20 bg-white">
+      <section ref={philosophyRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -337,7 +337,7 @@ export default function TeamPage() {
       </section>
 
       {/* Expertise Areas */}
-      <section ref={expertiseRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white">
+      <section ref={expertiseRef} className="py-16 md:py-20 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -442,7 +442,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Values */}
-      <section ref={valuesRef} className="py-20 bg-gray-50">
+      <section ref={valuesRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -499,7 +499,7 @@ export default function TeamPage() {
       </section>
 
       {/* Working With Our Team */}
-      <section ref={workingWithRef} className="py-20 bg-white">
+      <section ref={workingWithRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -580,7 +580,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Tenure & Stability */}
-      <section ref={tenureRef} className="py-20 bg-gray-50">
+      <section ref={tenureRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -632,7 +632,7 @@ export default function TeamPage() {
       </section>
 
       {/* Certifications & Credentials */}
-      <section ref={certificationsRef} className="py-20 bg-white">
+      <section ref={certificationsRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -680,7 +680,7 @@ export default function TeamPage() {
       </section>
 
       {/* Join Our Team Callout */}
-      <section ref={joinRef} className="py-20 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] text-white">
+      <section ref={joinRef} className="py-16 md:py-20 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -710,7 +710,7 @@ export default function TeamPage() {
       </section>
 
       {/* FAQ */}
-      <section ref={faqRef} className="py-20 bg-gray-50">
+      <section ref={faqRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -768,7 +768,7 @@ export default function TeamPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
+      <section ref={ctaRef} className="py-16 md:py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

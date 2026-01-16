@@ -84,7 +84,7 @@ export default function FreeConsultationPage() {
       />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-[#1E3A5F] py-20 md:py-32 px-4 overflow-hidden">
+      <section ref={heroRef} className="relative bg-[#1E3A5F] py-16 md:py-32 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -113,12 +113,12 @@ export default function FreeConsultationPage() {
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Get a Free Marketing Strategy Session
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-white/90 mb-16 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-2xl text-white/90 mb-16 max-w-4xl mx-auto leading-relaxed">
               In just 30 minutes, we&apos;ll analyze your current marketing, identify opportunities, and give you actionable recommendations—whether you hire us or not.
             </p>
 
@@ -185,7 +185,7 @@ export default function FreeConsultationPage() {
       </section>
 
       {/* Two Columns - Scheduling & What to Expect */}
-      <section ref={schedulingRef} className="py-20 px-4 bg-white">
+      <section ref={schedulingRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column - Scheduling */}
@@ -195,7 +195,7 @@ export default function FreeConsultationPage() {
               transition={{ duration: 0.6 }}
             >
               <Card className="shadow-xl">
-                <CardContent className="p-8 md:p-10">
+                <CardContent className="p-6 md:p-10">
                   <div className="flex items-center gap-3 mb-6">
                     <Calendar className="w-8 h-8 text-[#00B4D8]" />
                     <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -295,7 +295,7 @@ export default function FreeConsultationPage() {
       </section>
 
       {/* Social Proof Section */}
-      <section ref={socialProofRef} className="py-20 px-4 bg-white border-y border-gray-200">
+      <section ref={socialProofRef} className="py-16 md:py-20 px-4 bg-white border-y border-gray-200">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -404,7 +404,7 @@ export default function FreeConsultationPage() {
       </section>
 
       {/* What We Can Help With Section */}
-      <section className="py-20 px-4 bg-[#F8F9FA]">
+      <section className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -493,7 +493,7 @@ export default function FreeConsultationPage() {
       </section>
 
       {/* What We'll Cover - Agenda Section */}
-      <section ref={agendaRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={agendaRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -598,7 +598,7 @@ export default function FreeConsultationPage() {
       </section>
 
       {/* FAQ Section */}
-      <section ref={faqRef} className="py-20 px-4 bg-white">
+      <section ref={faqRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -668,7 +668,7 @@ export default function FreeConsultationPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section ref={ctaRef} className="py-20 px-4 bg-[#FF6B35] relative overflow-hidden">
+      <section ref={ctaRef} className="py-16 md:py-20 px-4 bg-[#FF6B35] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{

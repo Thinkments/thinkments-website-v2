@@ -791,189 +791,110 @@ export default function MarketingSEOPage() {
         </div>
       </section>
 
-      {/* Who This Is For */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <Users className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Who Marketing & SEO Is For
-              </h2>
-              <p className="text-xl text-gray-600">
-                Our integrated marketing and SEO services deliver the best results for these business types
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="border-l-4 border-l-[#00B4D8]">
-                <CardContent className="p-6">
-                  <h3 className="text-lg text-[#1E3A5F] mb-2">Small to Mid-Sized Businesses</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Companies that need professional marketing but can't justify a full in-house team. We become your marketing department.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-[#00B4D8]">
-                <CardContent className="p-6">
-                  <h3 className="text-lg text-[#1E3A5F] mb-2">Local Service Businesses</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Plumbers, electricians, HVAC, legal, dental, medical practices—service businesses that rely on local customers finding them online.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-[#00B4D8]">
-                <CardContent className="p-6">
-                  <h3 className="text-lg text-[#1E3A5F] mb-2">E-commerce & Retail</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Online stores and retail businesses that need to attract qualified traffic and convert visitors into customers.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-[#00B4D8]">
-                <CardContent className="p-6">
-                  <h3 className="text-lg text-[#1E3A5F] mb-2">B2B Companies</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Professional services, manufacturers, and B2B businesses that need to generate qualified leads through search and content marketing.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-[#00B4D8]">
-                <CardContent className="p-6">
-                  <h3 className="text-lg text-[#1E3A5F] mb-2">Multi-Location Businesses</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Franchises and businesses with multiple locations that need coordinated marketing across all properties.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-l-[#00B4D8]">
-                <CardContent className="p-6">
-                  <h3 className="text-lg text-[#1E3A5F] mb-2">Growing Businesses</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Companies ready to scale who need marketing infrastructure that supports sustainable growth.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="mt-8 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white rounded-lg p-6">
-              <p className="text-lg leading-relaxed text-center">
-                <strong>If your business depends on customers finding you online, marketing and SEO are essential investments.</strong> Whether you're in North Texas or anywhere across our 31-state service area, we tailor strategies to your market, competition, and business goals.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
+      {/* FAQ Section */}
       <section ref={faqRef} className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isFaqInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
+            className="text-center mb-12"
           >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Frequently Asked Questions
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get answers to common questions about digital marketing
+            </p>
+          </motion.div>
 
-            <div className="space-y-6">
-              {faqs.map((faq, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isFaqInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                >
-                  <Card className="hover:shadow-lg transition-shadow duration-300">
-                    <CardContent className="p-6">
-                      <h3 className="text-lg text-[#1E3A5F] mb-3">{faq.question}</h3>
-                      <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {faqs.map((faq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isFaqInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <Card className="hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
 
-            <div className="mt-8 text-center">
-              <p className="text-gray-600 mb-4">Explore related services:</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
-                <Link to="/google-business-profile">
-                  <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white">
-                    Google Business Profile
-                  </Button>
-                </Link>
-                <Link to="/analytics-reporting">
-                  <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white">
-                    Analytics & Reporting
-                  </Button>
-                </Link>
-              </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isFaqInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 mb-6">
+              Need help with a specific aspect of digital marketing?
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/web-development" className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold underline">
+                Web Development
+              </Link>
+              <span className="text-gray-400">|</span>
+              <Link to="/strategic-consulting" className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold underline">
+                Strategic Consulting
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
+      <section ref={ctaRef} className="py-20 bg-[#1E3A5F]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center text-white"
           >
-            <h2 className="text-3xl md:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Ready to Grow Your Business with Marketing & SEO?
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Ready to Grow Your Business Online?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Let's build a strategy that attracts customers, generates leads, and increases revenue.
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Schedule a free digital marketing consultation to discuss your goals and discover how we can help you achieve them.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button 
-                asChild 
-                size="lg"
-                className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white px-8"
-              >
-                <Link to="/free-consultation">
-                  Schedule a Free Marketing Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <Button asChild size="lg" className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8">
+                <Link to="/free-consultation">Get Free Marketing Audit</Link>
               </Button>
-              <a 
-                href="tel:9403151023"
-                className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
-              >
-                <Phone className="w-5 h-5" />
-                <span className="text-lg">(940) 315-1023</span>
-              </a>
+              <div className="flex items-center gap-3 text-white/90">
+                <span>Or call</span>
+                <a href="tel:9403151023" className="flex items-center gap-2 font-semibold hover:text-[#00B4D8] transition-colors">
+                  <Phone className="w-5 h-5" />
+                  (940) 315-1023
+                </a>
+              </div>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-6 text-white/80">
+            
+            <div className="flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
-                <span>20+ Years Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
-                <span>Integrated Marketing & SEO</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
+                <Star className="w-5 h-5 text-[#00B4D8]" />
                 <span>5.0 Google Rating</span>
               </div>
+              <span className="text-white/40">|</span>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
-                <span>Serving 31 States</span>
+                <span>103+ Reviews</span>
+              </div>
+              <span className="text-white/40">|</span>
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-[#00B4D8]" />
+                <span>20+ Years Experience</span>
               </div>
             </div>
           </motion.div>

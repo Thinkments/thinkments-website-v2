@@ -146,11 +146,11 @@ export default function ServicesPage() {
         transition={{ duration: 0.5 }}
       >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl mb-6"
+              className="text-3xl md:text-5xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -163,7 +163,7 @@ export default function ServicesPage() {
             </motion.h1>
             
             <motion.p
-              className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -194,7 +194,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -272,7 +272,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             className="max-w-3xl mx-auto"
@@ -281,13 +281,13 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl mb-6">
+            <h2 className="text-2xl md:text-4xl mb-6">
               Ready to Transform Your{' '}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Digital Presence?
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">
               Let's discuss how our comprehensive digital marketing services can 
               help your business achieve its goals and dominate your market.
             </p>

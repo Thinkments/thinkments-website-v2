@@ -207,7 +207,7 @@ export default function CareersPage() {
       </section>
 
       {/* Why Work at ThinkMents */}
-      <section ref={whyWorkRef} className="py-20 bg-gray-50">
+      <section ref={whyWorkRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -300,7 +300,7 @@ export default function CareersPage() {
       </section>
 
       {/* Our Culture */}
-      <section ref={cultureRef} className="py-20 bg-white">
+      <section ref={cultureRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -384,7 +384,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits & Perks */}
-      <section ref={benefitsRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white">
+      <section ref={benefitsRef} className="py-16 md:py-20 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -512,7 +512,7 @@ export default function CareersPage() {
       </section>
 
       {/* Who We're Looking For */}
-      <section ref={whoWeWantRef} className="py-20 bg-gray-50">
+      <section ref={whoWeWantRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -562,7 +562,7 @@ export default function CareersPage() {
       </section>
 
       {/* Departments & Roles */}
-      <section ref={departmentsRef} className="py-20 bg-white">
+      <section ref={departmentsRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -649,7 +649,7 @@ export default function CareersPage() {
       </section>
 
       {/* Current Openings */}
-      <section ref={openingsRef} className="py-20 bg-gray-50">
+      <section ref={openingsRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -684,7 +684,7 @@ export default function CareersPage() {
       </section>
 
       {/* Application Process */}
-      <section ref={processRef} className="py-20 bg-white">
+      <section ref={processRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -755,7 +755,7 @@ export default function CareersPage() {
       </section>
 
       {/* FAQ */}
-      <section ref={faqRef} className="py-20 bg-gray-50">
+      <section ref={faqRef} className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -791,7 +791,7 @@ export default function CareersPage() {
       </section>
 
       {/* Testimonials from Team */}
-      <section ref={testimonialsRef} className="py-20 bg-white">
+      <section ref={testimonialsRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -842,7 +842,7 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
+      <section ref={ctaRef} className="py-16 md:py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

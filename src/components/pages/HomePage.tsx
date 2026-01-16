@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* SECTION 1: Hero Section (Enhanced) */}
       <section 
         ref={heroRef}
-        className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden"
       >
         {/* Hero Background Image */}
         <div 
@@ -144,17 +144,17 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               {/* Main Headline */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Digital Marketing Agency in Texas
               </h1>
 
               {/* Subheadline */}
-              <p className="text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed">
+              <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed">
                 Trusted experience + Digital innovation = <span className="text-[#F7B928]">Golden results</span>
               </p>
 
               {/* Stats Row */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10 max-w-4xl mx-auto">
                 {[
                   { stat: '20+', label: 'Years' },
                   { stat: '31', label: 'States' },
@@ -196,7 +196,7 @@ export default function HomePage() {
                   asChild 
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white/20 font-semibold text-lg px-10"
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] backdrop-blur-sm font-semibold text-lg px-10"
                 >
                   <a href="tel:9403151023" className="flex items-center gap-2">
                     <Phone className="w-5 h-5" />
@@ -231,23 +231,23 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 2: Audience Pathways (NEW) */}
-      <section ref={pathwaysRef} className="py-20 bg-white">
+      <section ref={pathwaysRef} className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isPathwaysInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Tailored Solutions for Your Business
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Whether you're a local business in Decatur or a growing enterprise, we have the expertise to help you succeed.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             {/* SMB/Local Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -306,23 +306,23 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 3: Problem/Solution Navigation (NEW) */}
-      <section ref={problemsRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844]">
+      <section ref={problemsRef} className="py-12 md:py-20 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isProblemsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               What Challenge Can We Solve For You?
             </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
               Click on your biggest challenge and discover how we can help you overcome it.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {[
               { 
                 icon: SearchCheck, 
@@ -378,23 +378,23 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 4: Services Overview (Enhanced) */}
-      <section ref={servicesRef} className="py-20 bg-white">
+      <section ref={servicesRef} className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isServicesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive digital marketing solutions designed to drive measurable results for your business.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
             {[
               {
                 icon: Target,
@@ -486,23 +486,23 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 5: Why Choose ThinkMents (NEW) */}
-      <section ref={whyChooseRef} className="py-20 bg-[#F8F9FA]">
+      <section ref={whyChooseRef} className="py-12 md:py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isWhyChooseInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Why Partner With ThinkMents?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               We're not just another digital marketing agency. We're your growth partner, committed to your success.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: Award,
@@ -555,7 +555,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 6: Trust Signals */}
-      <section ref={trustRef} className="py-16 bg-white">
+      <section ref={trustRef} className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -596,23 +596,23 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 7: Featured Resources (NEW) */}
-      <section ref={resourcesRef} className="py-20 bg-gradient-to-br from-[#00B4D8]/5 to-[#1E3A5F]/5">
+      <section ref={resourcesRef} className="py-12 md:py-20 bg-gradient-to-br from-[#00B4D8]/5 to-[#1E3A5F]/5">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isResourcesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Learn From Our Experts
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Explore our resources to discover how we can help your business grow.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
               {
                 icon: FileText,
@@ -671,7 +671,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 8 & 9: Final CTA Section (Enhanced) */}
-      <section ref={ctaRef} className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844] relative overflow-hidden">
+      <section ref={ctaRef} className="py-16 md:py-24 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844] relative overflow-hidden">
         {/* Decorative Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -687,10 +687,10 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Ready to Grow Your Business?
             </h2>
-            <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
               Whether you're a local shop in Decatur or a nationwide enterprise, we're ready to help you achieve your goals. Let's start with a free consultation.
             </p>
 
@@ -706,7 +706,7 @@ export default function HomePage() {
                 asChild 
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10 font-semibold text-lg px-10"
+                className="border-2 border-white/30 text-white hover:bg-white hover:text-[#1E3A5F] backdrop-blur-sm font-semibold text-lg px-10"
               >
                 <a href="tel:9403151023" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />

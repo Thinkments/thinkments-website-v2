@@ -761,6 +761,7 @@ export default function ImmersiveExperiencesPage() {
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-12">
+              <HelpCircle className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
               <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Frequently Asked Questions
               </h2>
@@ -850,7 +851,7 @@ export default function ImmersiveExperiencesPage() {
             <div className="flex flex-wrap justify-center gap-6 text-white/80">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
-                <span>Pioneers of Virtual Tours Since 2002</span>
+                <span>Pioneers Since 2002</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
@@ -858,7 +859,7 @@ export default function ImmersiveExperiencesPage() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
-                <span>Industry-Leading Results</span>
+                <span>Fast Turnaround</span>
               </div>
             </div>
           </motion.div>

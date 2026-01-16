@@ -135,7 +135,7 @@ export default function SocialMediaPage() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[70dvh] flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: 'url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGRhc2hib2FyZCUyMGFuYWx5dGljc3xlbnwxfHx8fDE3NjUyOTcwMjN8MA&ixlib=rb-4.1.0&q=80&w=1080)',
           backgroundSize: 'cover',

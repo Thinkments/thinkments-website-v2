@@ -174,7 +174,7 @@ export default function DigitalMarketingPage() {
       answer: 'Yes. We optimize what you have or can recommend improvements. We also offer web development if you need a new site.'
     },
     {
-      question: 'How do I know if it\'s working?',
+      question: 'How do you know if it\'s working?',
       answer: 'We set up comprehensive tracking from day one. You\'ll see exactly how many leads, calls, and sales come from each marketing channel.'
     }
   ];
@@ -318,7 +318,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Comprehensive Services Section */}
-      <section ref={servicesRef} className="py-20 bg-white">
+      <section ref={servicesRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -326,10 +326,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Digital Marketing Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive digital marketing solutions designed to grow your business
             </p>
           </motion.div>
@@ -372,7 +372,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Industry Expertise Section */}
-      <section ref={industryRef} className="py-20 bg-[#F8F9FA]">
+      <section ref={industryRef} className="py-16 md:py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -380,10 +380,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Industry Expertise
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               We specialize in digital marketing for:
             </p>
           </motion.div>
@@ -417,7 +417,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} className="py-20 bg-white">
+      <section ref={processRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -425,10 +425,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Digital Marketing Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               A proven methodology that delivers measurable results
             </p>
           </motion.div>
@@ -472,7 +472,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Results Section */}
-      <section ref={resultsRef} className="py-20 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]">
+      <section ref={resultsRef} className="py-16 md:py-20 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -480,10 +480,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white max-w-5xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               What Our Clients Achieve
             </h2>
-            <p className="text-xl text-white/90 mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed">
               Real results from businesses like yours
             </p>
 
@@ -521,7 +521,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section ref={faqRef} className="py-20 bg-white">
+      <section ref={faqRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -529,10 +529,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Get answers to common questions about digital marketing
             </p>
           </motion.div>
@@ -582,7 +582,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-[#1E3A5F]">
+      <section ref={ctaRef} className="py-16 md:py-20 bg-[#1E3A5F]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -590,10 +590,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center text-white"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Ready to Grow Your Business Online?
             </h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Schedule a free digital marketing consultation to discuss your goals and discover how we can help you achieve them.
             </p>
             

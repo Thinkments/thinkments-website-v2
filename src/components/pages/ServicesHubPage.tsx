@@ -224,7 +224,7 @@ export default function ServicesHubPage() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="py-20 bg-[#1E3A5F] text-white"
+        className="py-16 md:py-20 bg-[#1E3A5F] text-white"
       >
         <div className="container mx-auto px-4">
           <motion.div
@@ -239,12 +239,12 @@ export default function ServicesHubPage() {
             </Badge>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Digital Marketing Solutions That Actually Work
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl text-white/90 mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
               From local SEO to AI automation, virtual tours to video production—we have every tool your business needs to dominate online. And we've been perfecting them for over 20 years.
             </p>
 
@@ -263,7 +263,7 @@ export default function ServicesHubPage() {
                   transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2">
+                  <div className="text-3xl md:text-5xl font-bold text-[#00B4D8] mb-2">
                     {item.stat}
                   </div>
                   <div className="text-white/80 text-sm">
@@ -296,7 +296,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* Featured Services Section */}
-      <section ref={featuredRef} className="py-20 bg-[#F8F9FA]">
+      <section ref={featuredRef} className="py-16 md:py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -304,10 +304,10 @@ export default function ServicesHubPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Flagship Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               These are the services that set us apart—our deepest expertise and biggest differentiators.
             </p>
           </motion.div>
@@ -366,7 +366,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* All Services Grid */}
-      <section ref={allServicesRef} className="py-20 bg-white">
+      <section ref={allServicesRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -374,10 +374,10 @@ export default function ServicesHubPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               All Service Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Click any category to explore individual services and pricing.
             </p>
           </motion.div>
@@ -423,7 +423,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* How We Work Section */}
-      <section ref={processRef} className="py-20 bg-[#F8F9FA]">
+      <section ref={processRef} className="py-16 md:py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -431,7 +431,7 @@ export default function ServicesHubPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Process
             </h2>
           </motion.div>
@@ -489,7 +489,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-[#1E3A5F]">
+      <section ref={ctaRef} className="py-16 md:py-20 bg-[#1E3A5F]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -497,10 +497,10 @@ export default function ServicesHubPage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Not Sure Where to Start?
             </h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Book a free consultation and we'll help you identify the services that will have the biggest impact on your business.
             </p>
 

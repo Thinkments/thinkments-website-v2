@@ -76,13 +76,13 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
 
   return (
     <motion.div
-      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden"
+      className="fixed left-0 right-0 mx-auto mt-2 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden z-50"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2 }}
       onClick={(e) => e.stopPropagation()}
-      style={{ width: 'calc(100vw - 2rem)', maxWidth: '1200px' }}
+      style={{ top: '80px', width: 'calc(100vw - 2rem)', maxWidth: '1200px' }}
     >
       {/* Main Content - 6 Columns */}
       <div className="grid grid-cols-6 gap-6 p-6">
@@ -120,35 +120,35 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
         ))}
 
         {/* Column 6: Featured CTA */}
-        <div className="bg-[#1E3A5F] rounded-lg p-6 flex flex-col justify-between">
-          <div>
+        <div className="bg-[#1E3A5F] rounded-lg p-6 flex flex-col justify-center items-center text-center h-full">
+          <div className="mb-6 w-full">
             <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
               Not Sure Where to Start?
             </h3>
-            <p className="text-sm text-gray-300 mb-4 leading-relaxed">
+            <p className="text-sm text-gray-300 leading-relaxed">
               Get a free consultation and we&apos;ll help identify the right services for your business.
             </p>
           </div>
           
-          <div className="space-y-3">
-            <Button
-              asChild
-              className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold"
+          <div className="space-y-4 w-full">
+            <Link
+              to="/free-consultation"
               onClick={onClose}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold shadow-sm"
             >
-              <Link to="/free-consultation" className="flex items-center justify-center gap-2">
-                Free Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
+              Free Consultation
+              <ArrowRight className="w-4 h-4" />
+            </Link>
             
-            <a 
-              href="tel:9403151023" 
-              className="flex items-center justify-center gap-2 text-white hover:text-[#00B4D8] transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              <span className="font-semibold">(940) 315-1023</span>
-            </a>
+            <div className="text-center">
+              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider font-medium">Or call us directly</p>
+              <a 
+                href="tel:9403151023" 
+                className="flex items-center justify-center gap-2 text-white hover:text-[#00B4D8] transition-colors group"
+              >
+                <span className="font-bold text-lg tracking-wide">(940) 315-1023</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -295,32 +295,34 @@ export function ServicesMegaMenuMobile({ isOpen }: ServicesMegaMenuMobileProps) 
         ))}
 
         {/* CTA Card at Bottom */}
-        <div className="bg-[#1E3A5F] rounded-lg p-6 mx-4 my-4">
-          <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Not Sure Where to Start?
-          </h3>
-          <p className="text-sm text-gray-300 mb-4 leading-relaxed">
-            Get a free consultation and we&apos;ll help identify the right services for your business.
-          </p>
+        <div className="bg-[#1E3A5F] rounded-lg p-6 mx-4 my-4 flex flex-col justify-center items-center text-center">
+          <div className="mb-6 w-full">
+            <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Not Sure Where to Start?
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Get a free consultation and we&apos;ll help identify the right services for your business.
+            </p>
+          </div>
           
-          <div className="space-y-3">
-            <Button
-              asChild
-              className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold"
+          <div className="space-y-4 w-full">
+            <Link
+              to="/free-consultation"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold shadow-sm"
             >
-              <Link to="/free-consultation" className="flex items-center justify-center gap-2">
-                Free Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
+              Free Consultation
+              <ArrowRight className="w-4 h-4" />
+            </Link>
             
-            <a 
-              href="tel:9403151023" 
-              className="flex items-center justify-center gap-2 text-white hover:text-[#00B4D8] transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              <span className="font-semibold">(940) 315-1023</span>
-            </a>
+            <div className="text-center">
+              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider font-medium">Or call us directly</p>
+              <a 
+                href="tel:9403151023" 
+                className="flex items-center justify-center gap-2 text-white hover:text-[#00B4D8] transition-colors group"
+              >
+                <span className="font-bold text-lg tracking-wide">(940) 315-1023</span>
+              </a>
+            </div>
           </div>
         </div>
 

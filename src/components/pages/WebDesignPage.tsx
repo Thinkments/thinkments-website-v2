@@ -346,7 +346,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* Design Philosophy Section */}
-      <section ref={philosophyRef} className="py-20 bg-white">
+      <section ref={philosophyRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -354,10 +354,10 @@ export default function WebDesignPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Web Design Philosophy
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Six principles that guide every design decision we make
             </p>
           </motion.div>
@@ -390,7 +390,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* Comprehensive Services Section */}
-      <section ref={servicesRef} className="py-20 bg-[#F8F9FA]">
+      <section ref={servicesRef} className="py-16 md:py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -398,10 +398,10 @@ export default function WebDesignPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Web Design Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive design solutions for every business need
             </p>
           </motion.div>
@@ -438,7 +438,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} className="py-20 bg-white">
+      <section ref={processRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -446,10 +446,10 @@ export default function WebDesignPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Design Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               How we design your website from concept to launch
             </p>
           </motion.div>
@@ -498,7 +498,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* What's Included Section */}
-      <section ref={includedRef} className="py-20 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]">
+      <section ref={includedRef} className="py-16 md:py-20 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -506,10 +506,10 @@ export default function WebDesignPage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white max-w-5xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Every Website Design Includes
             </h2>
-            <p className="text-xl text-white/90 mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed">
               Professional features that come standard with every project
             </p>
 
@@ -544,7 +544,7 @@ export default function WebDesignPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Our Design Work
             </h2>
-            <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 mb-6 leading-relaxed">
               We've designed websites for healthcare practices, law firms, restaurants, home service companies, e-commerce stores, and professional service firms. Each project is unique, reflecting the client's brand and serving their specific audience.
             </p>
             <p className="text-lg text-gray-600 mb-8">
@@ -565,7 +565,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* FAQ Section */}
-      <section ref={faqRef} className="py-20 bg-white">
+      <section ref={faqRef} className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -573,10 +573,10 @@ export default function WebDesignPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Get answers to common questions about web design
             </p>
           </motion.div>
@@ -671,7 +671,7 @@ export default function WebDesignPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-[#1E3A5F]">
+      <section ref={ctaRef} className="py-16 md:py-20 bg-[#1E3A5F]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -679,10 +679,10 @@ export default function WebDesignPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center text-white"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Ready for a Website That Works as Hard as You Do?
             </h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Let's discuss your project and create a website that attracts visitors and converts them into customers.
             </p>
             

@@ -192,7 +192,7 @@ export default function AboutPage() {
       ]} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#2a4d73] to-[#00B4D8] py-24 md:py-32 px-4 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#2a4d73] to-[#00B4D8] py-16 md:py-32 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -208,16 +208,16 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               We Build What Hasn&apos;t Been Built Yet
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8">
+            <p className="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto mb-8">
               ThinkMents has been creating industry firsts since 2002. While other agencies follow trends, we create them.
             </p>
 
             {/* Trust Badge Row */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
-              <div className="bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-12">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 md:px-6 flex items-center gap-3">
                 <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
                   <span className="text-[#4285F4] font-bold text-xs">G</span>
                 </div>
@@ -232,34 +232,34 @@ export default function AboutPage() {
                 </div>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 text-white">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 md:px-6 text-white">
                 <Award className="w-6 h-6 inline-block mr-2" />
                 <span className="font-semibold">Grow with Google Partner</span>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 text-white">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 md:px-6 text-white">
                 <Star className="w-6 h-6 inline-block mr-2" />
                 <span className="font-semibold">20+ Years Experience</span>
               </div>
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10">
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2">$500M+</div>
-                <div className="text-white/80">Client Value Generated</div>
+                <div className="text-3xl md:text-5xl font-bold text-[#00B4D8] mb-2">$500M+</div>
+                <div className="text-white/80 text-sm md:text-base">Client Value Generated</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2">31+</div>
-                <div className="text-white/80">States Served</div>
+                <div className="text-3xl md:text-5xl font-bold text-[#00B4D8] mb-2">31+</div>
+                <div className="text-white/80 text-sm md:text-base">States Served</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2">3</div>
-                <div className="text-white/80">Countries</div>
+                <div className="text-3xl md:text-5xl font-bold text-[#00B4D8] mb-2">3</div>
+                <div className="text-white/80 text-sm md:text-base">Countries</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2">103</div>
-                <div className="text-white/80">5-Star Reviews</div>
+                <div className="text-3xl md:text-5xl font-bold text-[#00B4D8] mb-2">103</div>
+                <div className="text-white/80 text-sm md:text-base">5-Star Reviews</div>
               </div>
             </div>
 
@@ -293,8 +293,8 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <Quote className="w-16 h-16 text-[#00B4D8]/20 mx-auto mb-6" />
-            <blockquote className="text-2xl md:text-3xl text-[#1E3A5F] mb-6 italic">
+            <Quote className="w-12 h-12 md:w-16 md:h-16 text-[#00B4D8]/20 mx-auto mb-6" />
+            <blockquote className="text-xl md:text-3xl text-[#1E3A5F] mb-6 italic">
               &quot;Corey&apos;s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
             </blockquote>
             <div className="flex items-center justify-center gap-1 mb-2">
@@ -308,15 +308,15 @@ export default function AboutPage() {
       </section>
 
       {/* What We Do Differently Section */}
-      <section ref={differenceRef} className="py-20 px-4 bg-white">
+      <section ref={differenceRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isDifferenceInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               Not Your Typical Agency
             </h2>
           </motion.div>
@@ -351,7 +351,7 @@ export default function AboutPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center flex-wrap gap-12"
+            className="flex items-center justify-center flex-wrap gap-8 md:gap-12"
           >
             {scrollingReviews.map((review, index) => (
               <div key={index} className="flex items-center gap-2 text-white/90 min-w-[300px] max-w-[400px]">
@@ -368,7 +368,7 @@ export default function AboutPage() {
       </section>
 
       {/* By The Numbers Section */}
-      <section ref={numbersRef} className="py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section ref={numbersRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -382,9 +382,9 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={isNumbersInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               The Impact
             </h2>
           </motion.div>
@@ -398,7 +398,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.05 * index }}
                 className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 text-center hover:bg-white/10 transition-colors"
               >
-                <div className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-3">{stat.value}</div>
+                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">{stat.value}</div>
                 <div className="text-white/80">{stat.label}</div>
               </motion.div>
             ))}
@@ -407,18 +407,18 @@ export default function AboutPage() {
       </section>
 
       {/* Our Reach Section */}
-      <section ref={reachRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={reachRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isReachInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-6">
               Based in Texas. Serving the World.
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               What started in Decatur, Texas has grown into a nationwide and international operation. We serve clients across 31+ states and 3 countries—but we never lost our small-town values of honest work and real relationships.
             </p>
           </motion.div>
@@ -477,7 +477,7 @@ export default function AboutPage() {
                 <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
               ))}
             </div>
-            <p className="text-xl text-gray-700 italic mb-4">
+            <p className="text-lg md:text-xl text-gray-700 italic mb-4">
               &quot;This place has been very flexible and very supportive. I learned a lot and was treated and compensated fairly. It has made a huge impact in my professional career.&quot;
             </p>
             <p className="text-gray-600 font-semibold">— ThinkMents Team Member</p>
@@ -486,15 +486,15 @@ export default function AboutPage() {
       </section>
 
       {/* Client Testimonials Section */}
-      <section ref={testimonialsRef} className="py-20 px-4 bg-white">
+      <section ref={testimonialsRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isTestimonialsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600">103 five-star reviews and counting</p>
@@ -544,15 +544,15 @@ export default function AboutPage() {
       </section>
 
       {/* Our Approach Section */}
-      <section ref={approachRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={approachRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isApproachInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               How We Work
             </h2>
           </motion.div>
@@ -596,15 +596,15 @@ export default function AboutPage() {
       </section>
 
       {/* Services Overview Section */}
-      <section ref={servicesRef} className="py-20 px-4 bg-white">
+      <section ref={servicesRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isServicesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               What We Offer
             </h2>
           </motion.div>
@@ -646,15 +646,15 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Work With Section */}
-      <section ref={whoRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={whoRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isWhoInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               Our Ideal Partners
             </h2>
           </motion.div>
@@ -706,15 +706,15 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section ref={teamRef} className="py-20 px-4 bg-white">
+      <section ref={teamRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               The People Behind ThinkMents
             </h2>
           </motion.div>
@@ -773,7 +773,7 @@ export default function AboutPage() {
       </section>
 
       {/* Trust Badges Section */}
-      <section className="py-16 px-4 bg-[#F8F9FA] border-y border-gray-200">
+      <section className="py-12 md:py-16 px-4 bg-[#F8F9FA] border-y border-gray-200">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -827,7 +827,7 @@ export default function AboutPage() {
       </section>
 
       {/* Headquarters Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -836,7 +836,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               Our Home Base
             </h2>
           </motion.div>
@@ -889,7 +889,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] relative overflow-hidden">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>

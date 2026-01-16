@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { ArrowRight, CheckCircle, Globe, TrendingUp, Target, Users, Video, Camera, Search, BarChart3 } from 'lucide-react@0.487.0';
+import { ArrowRight, CheckCircle, Globe, TrendingUp, Target, Users, Video, Camera, Search, BarChart3 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
@@ -303,7 +303,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         transition={{ duration: 0.5 }}
       >
         {/* Hero Section */}
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-16 md:py-20 relative overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <ImageWithFallback
@@ -318,16 +318,16 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <motion.div
-                className={`w-20 h-20 bg-gradient-to-br ${currentService.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}
+                className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${currentService.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <currentService.icon className="w-10 h-10 text-white" />
+                <currentService.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
               </motion.div>
               
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl mb-4"
+                className="text-3xl md:text-5xl lg:text-6xl mb-4"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -336,7 +336,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               </motion.h1>
               
               <motion.p
-                className="text-xl md:text-2xl text-primary mb-6"
+                className="text-lg md:text-2xl text-primary mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -345,7 +345,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               </motion.p>
               
               <motion.p
-                className="text-lg text-white mb-8 leading-relaxed"
+                className="text-base md:text-lg text-white mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -370,16 +370,16 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20">
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl mb-8">
+                <h2 className="text-2xl md:text-4xl mb-6 md:mb-8">
                   What You'll <span className={`bg-gradient-to-r ${currentService.color} bg-clip-text text-transparent`}>Achieve</span>
                 </h2>
                 <div className="space-y-4">
@@ -400,7 +400,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               </motion.div>
 
               <motion.div
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -434,7 +434,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
+        <section className="py-16 md:py-20 bg-gradient-to-b from-muted/20 to-background">
           <div className="container mx-auto px-4 text-center">
             <motion.div
               className="max-w-3xl mx-auto"
@@ -443,13 +443,13 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl mb-6">
+              <h2 className="text-2xl md:text-4xl mb-6">
                 Ready to Get Started with{' '}
                 <span className={`bg-gradient-to-r ${currentService.color} bg-clip-text text-transparent`}>
                   {currentService.title}?
                 </span>
               </h2>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 Let's discuss how our {currentService.title.toLowerCase()} services can 
                 help your business achieve its goals and drive real results.
               </p>

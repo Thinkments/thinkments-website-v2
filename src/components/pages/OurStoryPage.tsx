@@ -218,7 +218,7 @@ export default function OurStoryPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#2a4d73] to-[#00B4D8] py-32 md:py-40 px-4 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#2a4d73] to-[#00B4D8] py-24 md:py-40 px-4 overflow-hidden">
         {/* Subtle texture background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -234,35 +234,35 @@ export default function OurStoryPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               We&apos;ve Been Building the Future Since 2002
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
               From a small town in Texas to clients across 31 states and 3 countries—this is the story of building things that didn&apos;t exist and changing industries in the process.
             </p>
 
             {/* Trust Badge */}
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg px-8 py-4 border border-white/20">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 md:px-8 md:py-4 border border-white/20">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
+                  <Star key={star} className="w-4 h-4 md:w-5 md:h-5 fill-[#FBBC04] text-[#FBBC04]" />
                 ))}
               </div>
-              <span className="text-white text-lg font-semibold">5.0 on Google | 103 Reviews</span>
+              <span className="text-white text-base md:text-lg font-semibold">5.0 on Google | 103 Reviews</span>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* The Origin Story Section */}
-      <section ref={originRef} className="py-20 px-4 bg-white">
+      <section ref={originRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isOriginInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-8 md:mb-12 text-center">
               Where It All Began
             </h2>
 
@@ -270,7 +270,7 @@ export default function OurStoryPage() {
               <p>
                 In 2002, Corey Spicer was working in real estate when he had a simple question:
               </p>
-              <p className="text-2xl text-[#00B4D8] italic font-semibold pl-6 border-l-4 border-[#00B4D8]">
+              <p className="text-xl md:text-2xl text-[#00B4D8] italic font-semibold pl-6 border-l-4 border-[#00B4D8]">
                 &quot;What if someone could tour a house without ever leaving their couch?&quot;
               </p>
               <p>
@@ -289,13 +289,13 @@ export default function OurStoryPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isOriginInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-2xl p-12 text-center mb-8"
+              className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-2xl p-8 md:p-12 text-center mb-8"
             >
-              <Quote className="w-16 h-16 text-white/20 mx-auto mb-6" />
-              <blockquote className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <Quote className="w-12 h-12 md:w-16 md:h-16 text-white/20 mx-auto mb-6" />
+              <blockquote className="text-2xl md:text-4xl font-bold text-white mb-6">
                 &quot;I don&apos;t wait for someone else to build what I need. I build it myself.&quot;
               </blockquote>
-              <p className="text-xl text-white/90">
+              <p className="text-lg md:text-xl text-white/90">
                 — Corey Spicer, Founder
               </p>
             </motion.div>
@@ -322,18 +322,18 @@ export default function OurStoryPage() {
       </section>
 
       {/* Timeline of Firsts Section */}
-      <section ref={timelineRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={timelineRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               A History of Industry Firsts
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg md:text-xl text-gray-600">
               Over 20 years of innovation and pioneering
             </p>
           </motion.div>
@@ -344,18 +344,18 @@ export default function OurStoryPage() {
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#00B4D8] via-[#1E3A5F] to-[#00B4D8]"></div>
 
             {/* First set of timeline events */}
-            <div className="space-y-12 mb-12">
+            <div className="space-y-8 md:space-y-12 mb-12">
               {timelineEvents.map((event, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={isTimelineInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.1 * index }}
-                  className={`relative flex items-center ${
+                  className={`relative flex flex-col md:flex-row items-center ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  <div className="w-full md:w-5/12">
+                  <div className="w-full md:w-5/12 mb-6 md:mb-0">
                     <Card className="hover:shadow-xl transition-shadow duration-300">
                       <CardContent className="p-6">
                         <div className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}>
@@ -385,25 +385,25 @@ export default function OurStoryPage() {
                   <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                 ))}
               </div>
-              <p className="text-xl text-gray-700 italic mb-3">
+              <p className="text-lg md:text-xl text-gray-700 italic mb-3">
                 &quot;Corey&apos;s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help.&quot;
               </p>
               <p className="text-gray-600">— Verified Google Review</p>
             </motion.div>
 
             {/* Second set of timeline events */}
-            <div className="space-y-12 mb-12">
+            <div className="space-y-8 md:space-y-12 mb-12">
               {timelineEvents2.map((event, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={isTimelineInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.5 + 0.1 * index }}
-                  className={`relative flex items-center ${
+                  className={`relative flex flex-col md:flex-row items-center ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  <div className="w-full md:w-5/12">
+                  <div className="w-full md:w-5/12 mb-6 md:mb-0">
                     <Card className="hover:shadow-xl transition-shadow duration-300">
                       <CardContent className="p-6">
                         <div className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}>
@@ -433,25 +433,25 @@ export default function OurStoryPage() {
                   <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                 ))}
               </div>
-              <p className="text-xl text-gray-700 italic mb-3">
+              <p className="text-lg md:text-xl text-gray-700 italic mb-3">
                 &quot;They have been instrumental in our training programs and their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
               </p>
               <p className="text-gray-600">— Verified Google Review</p>
             </motion.div>
 
             {/* Third set of timeline events */}
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {timelineEvents3.map((event, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={isTimelineInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 1.0 + 0.1 * index }}
-                  className={`relative flex items-center ${
+                  className={`relative flex flex-col md:flex-row items-center ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  <div className="w-full md:w-5/12">
+                  <div className="w-full md:w-5/12 mb-6 md:mb-0">
                     <Card className="hover:shadow-xl transition-shadow duration-300">
                       <CardContent className="p-6">
                         <div className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}>
@@ -473,14 +473,14 @@ export default function OurStoryPage() {
       </section>
 
       {/* The Growth Section */}
-      <section ref={growthRef} className="py-20 px-4 bg-white">
+      <section ref={growthRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isGrowthInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-8 md:mb-12 text-center">
               From Small Town Texas to the World
             </h2>
 
@@ -518,10 +518,10 @@ export default function OurStoryPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isGrowthInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-br from-[#00B4D8]/10 to-[#1E3A5F]/10 rounded-2xl p-12 mb-8"
+              className="bg-gradient-to-br from-[#00B4D8]/10 to-[#1E3A5F]/10 rounded-2xl p-8 md:p-12 mb-8"
             >
               <div className="flex items-center justify-center mb-8">
-                <Globe className="w-32 h-32 text-[#00B4D8]" strokeWidth={1} />
+                <Globe className="w-24 h-24 md:w-32 md:h-32 text-[#00B4D8]" strokeWidth={1} />
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 text-center">
@@ -552,7 +552,7 @@ export default function OurStoryPage() {
                   <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                 ))}
               </div>
-              <p className="text-xl text-gray-700 italic mb-3">
+              <p className="text-lg md:text-xl text-gray-700 italic mb-3">
                 &quot;Exceptional experience with ThinkMents! The team&apos;s professionalism and extensive knowledge truly sets them apart. From insightful consultations to precise execution, they exceeded my expectations.&quot;
               </p>
               <p className="text-gray-600">— Verified Google Review</p>
@@ -562,20 +562,20 @@ export default function OurStoryPage() {
       </section>
 
       {/* The Philosophy Section */}
-      <section ref={philosophyRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={philosophyRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isPhilosophyInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-8 md:mb-12 text-center">
               Why We Do This
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="md:col-span-2">
-                <div className="space-y-6 text-xl text-gray-700 leading-relaxed">
+                <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
                   <p>
                     Most agencies follow playbooks. They see what&apos;s working for someone else and copy it.
                   </p>
@@ -628,7 +628,7 @@ export default function OurStoryPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] rounded-2xl p-8 md:p-12 text-center"
             >
-              <p className="text-2xl md:text-3xl text-white font-semibold leading-relaxed">
+              <p className="text-xl md:text-3xl text-white font-semibold leading-relaxed">
                 We don&apos;t compete on price. We compete on results. And our results speak for themselves: over $500 million in value created for clients across 31+ states and 3 countries.
               </p>
             </motion.div>
@@ -637,7 +637,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* The Impact Section */}
-      <section ref={impactRef} className="py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section ref={impactRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -651,9 +651,9 @@ export default function OurStoryPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={isImpactInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               By The Numbers
             </h2>
           </motion.div>
@@ -667,7 +667,7 @@ export default function OurStoryPage() {
                 transition={{ duration: 0.5, delay: 0.05 * index }}
                 className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 text-center hover:bg-white/10 transition-colors"
               >
-                <div className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-3">{stat.value}</div>
+                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">{stat.value}</div>
                 <div className="text-white/80 text-sm">{stat.label}</div>
               </motion.div>
             ))}
@@ -676,15 +676,15 @@ export default function OurStoryPage() {
       </section>
 
       {/* Client Love Section */}
-      <section ref={clientLoveRef} className="py-20 px-4 bg-white">
+      <section ref={clientLoveRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isClientLoveInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               What People Are Saying
             </h2>
           </motion.div>
@@ -733,14 +733,14 @@ export default function OurStoryPage() {
       </section>
 
       {/* The Hard Truth Section */}
-      <section ref={truthRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={truthRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isTruthInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-8 md:mb-12 text-center">
               What We&apos;ve Learned
             </h2>
 
@@ -769,15 +769,15 @@ export default function OurStoryPage() {
       </section>
 
       {/* What Drives Us Section */}
-      <section ref={drivesRef} className="py-20 px-4 bg-white">
+      <section ref={drivesRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isDrivesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               Our Core Beliefs
             </h2>
           </motion.div>
@@ -818,7 +818,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* The Invitation Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] relative overflow-hidden">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>

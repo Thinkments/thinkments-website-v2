@@ -369,7 +369,7 @@ export default function PortfolioPage() {
       />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] py-20 md:py-28 px-4 overflow-hidden">
+      <section ref={heroRef} className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] py-16 md:py-28 px-4 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -384,10 +384,10 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               Our Work Speaks For Itself
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto">
+            <p className="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto">
               20+ years of building websites, virtual experiences, and digital solutions across 18 industries, 31 states, and 3 countries.
             </p>
           </motion.div>
@@ -407,8 +407,8 @@ export default function PortfolioPage() {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 text-center"
               >
-                <div className="text-4xl font-bold text-white mb-2">{item.stat}</div>
-                <div className="text-white/90">{item.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{item.stat}</div>
+                <div className="text-white/90 text-sm md:text-base">{item.label}</div>
               </motion.div>
             ))}
           </div>
@@ -438,9 +438,9 @@ export default function PortfolioPage() {
       </section>
 
       {/* Portfolio Showcase Grid */}
-      <section ref={portfolioRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={portfolioRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -451,19 +451,19 @@ export default function PortfolioPage() {
                 <Card className="h-full hover:shadow-2xl transition-all duration-300 overflow-hidden">
                   {/* Multi-Device Mockup - Removed images */}
                   <div className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] p-8 md:p-12">
-                    <div className="relative h-64 md:h-80 flex items-center justify-center">
+                    <div className="relative h-48 md:h-80 flex items-center justify-center">
                       {/* Placeholder for device mockups - images removed */}
                       <div className="text-white/20 text-center">
-                        <Monitor className="w-32 h-32 mx-auto mb-4" />
+                        <Monitor className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4" />
                         <p className="text-lg">Multi-Device Responsive Design</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <CardContent className="p-8">
+                  <CardContent className="p-6 md:p-8">
                     <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">
+                      <h3 className="text-xl md:text-2xl font-bold text-[#1E3A5F] mb-3">
                         {item.client}
                       </h3>
                       <div className="flex flex-wrap gap-2 mb-4">
@@ -533,7 +533,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Virtual Tours Showcase Section */}
-      <section ref={virtualToursRef} className="py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section ref={virtualToursRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -548,10 +548,10 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Virtual Tour Specialists Since 2008
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-lg md:text-xl text-white/90 mb-8">
               We pioneered virtual tours before they were mainstream. Over 1,000 projects completed.
             </p>
           </motion.div>
@@ -607,7 +607,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Industry Stats Section */}
-      <section ref={industryStatsRef} className="py-20 px-4 bg-white">
+      <section ref={industryStatsRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -615,7 +615,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
               Results Across 18 Industries
             </h2>
           </motion.div>
@@ -646,7 +646,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* The Numbers Section */}
-      <section ref={numbersRef} className="py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section ref={numbersRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -661,7 +661,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               By The Numbers
             </h2>
           </motion.div>
@@ -675,7 +675,7 @@ export default function PortfolioPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-3">
+                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">
                   {item.stat}
                 </div>
                 <div className="text-white/90 text-lg">{item.label}</div>
@@ -686,7 +686,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Testimonial Section */}
-      <section ref={testimonialRef} className="py-20 px-4 bg-[#E8F8FC]">
+      <section ref={testimonialRef} className="py-16 md:py-20 px-4 bg-[#E8F8FC]">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -699,7 +699,7 @@ export default function PortfolioPage() {
               ))}
             </div>
 
-            <blockquote className="text-2xl md:text-3xl text-gray-700 leading-relaxed mb-8 italic">
+            <blockquote className="text-xl md:text-3xl text-gray-700 leading-relaxed mb-8 italic">
               &quot;Corey and his team at ThinkMents have been awesome business partners. Corey&apos;s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
             </blockquote>
 
@@ -718,7 +718,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white relative overflow-hidden">
+      <section ref={ctaRef} className="py-16 md:py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -731,11 +731,11 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Ready to See Your Business Here?
             </h2>
             
-            <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto">
+            <p className="text-lg md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto">
               Join the 1,000+ projects across 18 industries who trust ThinkMents to build their digital presence.
             </p>
 

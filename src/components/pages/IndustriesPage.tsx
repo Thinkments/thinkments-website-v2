@@ -260,7 +260,7 @@ export default function IndustriesPage() {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative py-24 md:py-32 px-4 overflow-hidden"
+        className="relative py-16 md:py-32 px-4 overflow-hidden"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1543273984-c84d0cc090a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwdGV4YXMlMjBidXNpbmVzc2VzfGVufDF8fHx8MTc2NTQwNTEzN3ww&ixlib=rb-4.1.0&q=80&w=1080')`,
           backgroundSize: 'cover',
@@ -285,10 +285,10 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Your Industry. Our Expertise.
             </h1>
-            <p className="text-xl md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed">
               From healthcare giants to local restaurants, we&apos;ve spent 20+ years mastering the unique challenges of 18 different industries. We don&apos;t do cookie-cutter marketing.
             </p>
           </motion.div>
@@ -312,7 +312,7 @@ export default function IndustriesPage() {
                     <div className="w-12 h-12 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-3">
                       <item.icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="text-4xl md:text-5xl font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <div className="text-3xl md:text-5xl font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                       {item.stat}
                     </div>
                     <div className="text-sm text-white/90">{item.label}</div>
@@ -325,7 +325,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Featured Industries */}
-      <section ref={featuredRef} className="py-20 px-4 bg-white">
+      <section ref={featuredRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -333,10 +333,10 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Featured Industries
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Our most in-demand specializations with proven track records
             </p>
           </motion.div>
@@ -416,7 +416,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* All Industries Grid */}
-      <section ref={gridRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={gridRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -424,10 +424,10 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               All Industries We Serve
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg md:text-xl text-gray-600">
               Click any industry to learn how we help
             </p>
           </motion.div>
@@ -473,7 +473,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Why Industry Expertise Matters */}
-      <section ref={whyRef} className="py-20 px-4 bg-white">
+      <section ref={whyRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Content */}
@@ -482,7 +482,7 @@ export default function IndustriesPage() {
               animate={isWhyInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Why Industry Expertise Matters
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -566,7 +566,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Case Studies by Industry */}
-      <section ref={caseStudiesRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={caseStudiesRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -574,10 +574,10 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Case Studies by Industry
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg md:text-xl text-gray-600">
               Real results from businesses across diverse sectors
             </p>
           </motion.div>
@@ -638,7 +638,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section ref={ctaRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -654,10 +654,10 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Don&apos;t See Your Industry?
             </h2>
-            <p className="text-xl md:text-2xl text-white/95 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-2xl text-white/95 mb-12 leading-relaxed max-w-3xl mx-auto">
               We&apos;ve helped businesses in virtually every sector. If you have a unique challenge, we love a good puzzle.
             </p>
 

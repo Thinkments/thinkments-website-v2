@@ -191,7 +191,7 @@ export default function TestimonialsPage() {
       ]} />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-[#F8F9FA] py-24 md:py-32 px-4 overflow-hidden">
+      <section ref={heroRef} className="relative bg-[#F8F9FA] py-16 md:py-32 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -209,14 +209,14 @@ export default function TestimonialsPage() {
             {/* Large Stars */}
             <div className="flex items-center justify-center gap-2 mb-6">
               {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-12 h-12 md:w-16 md:h-16 fill-[#00B4D8] text-[#00B4D8]" />
+                <Star key={star} className="w-10 h-10 md:w-16 md:h-16 fill-[#00B4D8] text-[#00B4D8]" />
               ))}
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-4xl md:text-6xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               What Our Clients Say
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed">
+            <p className="text-lg md:text-2xl text-gray-600 mb-12 leading-relaxed">
               103 five-star reviews and counting. Real feedback from real businesses we&apos;ve helped grow.
             </p>
 
@@ -271,10 +271,10 @@ export default function TestimonialsPage() {
                 animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                   {item.stat}
                 </div>
-                <div className="text-lg text-gray-600">{item.label}</div>
+                <div className="text-base md:text-lg text-gray-600">{item.label}</div>
               </motion.div>
             ))}
           </div>
@@ -282,7 +282,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Featured Testimonials Section */}
-      <section ref={featuredRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={featuredRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -290,7 +290,7 @@ export default function TestimonialsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Featured Client Stories
             </h2>
           </motion.div>
@@ -349,7 +349,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials by Category Section */}
-      <section ref={gridRef} className="py-20 px-4 bg-white">
+      <section ref={gridRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -357,7 +357,7 @@ export default function TestimonialsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
               More Client Reviews
             </h2>
 
@@ -443,7 +443,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Video Testimonials Section */}
-      <section ref={videoRef} className="py-20 px-4 bg-[#F8F9FA]">
+      <section ref={videoRef} className="py-16 md:py-20 px-4 bg-[#F8F9FA]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -451,7 +451,7 @@ export default function TestimonialsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Hear It From Them
             </h2>
             <p className="text-xl text-gray-600">
@@ -486,7 +486,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Review Platforms Section */}
-      <section ref={platformsRef} className="py-20 px-4 bg-white">
+      <section ref={platformsRef} className="py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -494,7 +494,7 @@ export default function TestimonialsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
               Find Us On
             </h2>
           </motion.div>
@@ -607,17 +607,17 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 px-4 bg-[#1E3A5F]">
+      <section ref={ctaRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F]">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               Ready to Become Our Next Success Story?
             </h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Join 1,000+ businesses that trust ThinkMents to deliver results.
             </p>
 

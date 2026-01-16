@@ -363,7 +363,7 @@ export default function GoogleBusinessProfilePage() {
                 </div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-[#00B4D8] mb-2">70%</div>
-                  <p className="text-white/90">more likely to attract location visits with complete GBP</p>
+                  <p className="text-white/90">more likely to attract visits with a complete GBP listing</p>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-[#00B4D8] mb-2">76%</div>
