@@ -10,12 +10,10 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isWorkOpen, setIsWorkOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileWorkOpen, setMobileWorkOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   
@@ -34,7 +32,6 @@ export default function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setMobileServicesOpen(false);
-    setMobileWorkOpen(false);
     setMobileAboutOpen(false);
     setMobileResourcesOpen(false);
   }, [location.pathname]);
@@ -43,26 +40,18 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = () => {
       setIsServicesOpen(false);
-      setIsWorkOpen(false);
       setIsAboutOpen(false);
       setIsResourcesOpen(false);
     };
 
-    if (isServicesOpen || isWorkOpen || isAboutOpen || isResourcesOpen) {
+    if (isServicesOpen || isAboutOpen || isResourcesOpen) {
       document.addEventListener('click', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [isServicesOpen, isWorkOpen, isAboutOpen, isResourcesOpen]);
-
-  const workPages = [
-    { name: 'Portfolio', href: '/portfolio', icon: Briefcase },
-    { name: 'Case Studies', href: '/case-studies', icon: Award },
-    { name: 'Testimonials', href: '/testimonials', icon: Star },
-    { name: 'Industries', href: '/industries', icon: Users }
-  ];
+  }, [isServicesOpen, isAboutOpen, isResourcesOpen]);
 
   const aboutPages = [
     { name: 'About Us', href: '/about-us' },
@@ -70,8 +59,7 @@ export default function Header() {
   ];
 
   const resourcePages = [
-    { name: 'Blog', href: '/blog', icon: FileText },
-    { name: 'Locations', href: '/locations', icon: MapPin }
+    { name: 'Blog', href: '/blog', icon: FileText }
   ];
 
   const isActiveLink = (path: string) => {
@@ -139,57 +127,6 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Work Dropdown */}
-            <div 
-              className="relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
-                  isActiveDropdown(['/portfolio', '/case-studies', '/testimonials', '/industries'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]' 
-                    : 'text-white hover:text-[#00B4D8]'
-                }`}
-                onClick={() => setIsWorkOpen(!isWorkOpen)}
-              >
-                <span>Work</span>
-                <motion.div
-                  animate={{ rotate: isWorkOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="w-3 h-3 text-white/60" />
-                </motion.div>
-              </button>
-
-              <AnimatePresence>
-                {isWorkOpen && (
-                  <motion.div
-                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {workPages.map((page) => (
-                      <Link
-                        key={page.href}
-                        to={page.href}
-                        className={`flex items-center gap-3 px-4 py-3 transition-colors ${
-                          isActiveLink(page.href)
-                            ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                            : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
-                        }`}
-                      >
-                        <page.icon className="w-4 h-4" />
-                        {page.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {/* About Dropdown */}
             <div 
               className="relative"
@@ -247,7 +184,7 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
-                  isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base', '/locations'])
+                  isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
                     ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]' 
                     : 'text-white hover:text-[#00B4D8]'
                 }`}
@@ -314,7 +251,7 @@ export default function Header() {
 
           {/* Mobile Right Section - Phone Icon + Hamburger */}
           <div className="flex lg:hidden items-center gap-4">
-            {/* Mobile Phone Icon Only */}
+            {/* Mobile Phone Only */}
             <a 
               href="tel:9403151023" 
               className="text-white hover:text-[#00B4D8] transition-colors"
@@ -393,54 +330,6 @@ export default function Header() {
                 </AnimatePresence>
               </div>
 
-              {/* Mobile Work Accordion */}
-              <div>
-                <button
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
-                    isActiveDropdown(['/portfolio', '/case-studies', '/testimonials', '/industries'])
-                      ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                      : 'text-[#2D3748] hover:bg-gray-50'
-                  }`}
-                  onClick={() => setMobileWorkOpen(!mobileWorkOpen)}
-                >
-                  <span>Work</span>
-                  <motion.div
-                    animate={{ rotate: mobileWorkOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </button>
-                <AnimatePresence>
-                  {mobileWorkOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pl-4 py-2 space-y-1">
-                        {workPages.map((page) => (
-                          <Link
-                            key={page.href}
-                            to={page.href}
-                            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
-                              isActiveLink(page.href)
-                                ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                                : 'text-gray-600 hover:bg-gray-50 hover:text-[#00B4D8]'
-                            }`}
-                          >
-                            <page.icon className="w-4 h-4" />
-                            {page.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
               {/* Mobile About Accordion */}
               <div>
                 <button
@@ -492,7 +381,7 @@ export default function Header() {
               <div>
                 <button
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
-                    isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base', '/locations'])
+                    isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
                       ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
                       : 'text-[#2D3748] hover:bg-gray-50'
                   }`}
