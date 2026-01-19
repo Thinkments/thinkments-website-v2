@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* SECTION 1: Hero Section (Enhanced) */}
       <section 
         ref={heroRef}
-        className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[85dvh] flex flex-col justify-start pt-40 overflow-hidden"
       >
         {/* Hero Background Image */}
         <div 
@@ -188,7 +188,7 @@ export default function HomePage() {
                 <Button 
                   asChild 
                   size="lg"
-                  className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-semibold text-lg px-10"
+                  className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold text-lg px-10"
                 >
                   <Link to="/free-consultation">Get Free Consultation</Link>
                 </Button>
@@ -196,7 +196,7 @@ export default function HomePage() {
                   asChild 
                   size="lg"
                   variant="outline"
-                  className="border-2 border-[#1E3A5F] bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
+                  className="border-2 border-white bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
                 >
                   <a href="tel:9403151023" className="flex items-center gap-2">
                     <Phone className="w-5 h-5" />
@@ -247,7 +247,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             {/* SMB/Local Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -266,7 +266,7 @@ export default function HomePage() {
                     <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                       Get found by local customers, dominate Google Maps, and grow your Decatur or North Texas business with proven local SEO strategies.
                     </p>
-                    <div className="flex items-center gap-2 text-black font-semibold group-hover:text-[#00B4D8]">
+                    <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                       Explore Local Solutions
                       <ArrowRight className="w-5 h-5" />
                     </div>
@@ -293,7 +293,7 @@ export default function HomePage() {
                     <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                       Scale with AI automation, advanced analytics, and innovative strategies that deliver long-term ROI across multiple markets.
                     </p>
-                    <div className="flex items-center gap-2 text-black font-semibold group-hover:text-[#F7B928]">
+                    <div className="flex items-center gap-2 text-[#F7B928] font-semibold group-hover:gap-3 transition-all">
                       Explore Enterprise Solutions
                       <ArrowRight className="w-5 h-5" />
                     </div>
@@ -451,15 +451,15 @@ export default function HomePage() {
                       <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <service.icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">
+                      <h3 className="text-xl text-[#1E3A5F] mb-3">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      <p className="text-gray-600 mb-4 leading-relaxed">
                         {service.benefit}
                       </p>
-                      <div className="flex items-center gap-2 text-black font-semibold text-sm group-hover:text-[#00B4D8]">
+                      <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                         Learn More
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4" />
                       </div>
                     </CardContent>
                   </Card>
@@ -476,7 +476,7 @@ export default function HomePage() {
           >
             <Link 
               to="/services" 
-              className="inline-flex items-center gap-2 text-black hover:text-[#00B4D8] font-semibold text-lg transition-colors"
+              className="inline-flex items-center gap-2 text-[#00B4D8] hover:text-[#1E3A5F] font-semibold text-lg transition-colors"
             >
               View All Services
               <ArrowRight className="w-5 h-5" />
@@ -648,18 +648,18 @@ export default function HomePage() {
                 <Link to={resource.link}>
                   <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-[#00B4D8] group cursor-pointer">
                     <CardContent className="p-6 text-center">
-                      <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                         <resource.icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">
+                      <h3 className="text-xl text-[#1E3A5F] mb-3">
                         {resource.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      <p className="text-gray-600 mb-4 leading-relaxed">
                         {resource.description}
                       </p>
-                      <div className="flex items-center justify-center gap-2 text-black font-semibold text-sm hover:text-[#00B4D8]">
+                      <div className="flex items-center justify-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                         {resource.cta}
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4" />
                       </div>
                     </CardContent>
                   </Card>
@@ -698,7 +698,7 @@ export default function HomePage() {
               <Button 
                 asChild 
                 size="lg"
-                className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-semibold text-lg px-10"
+                className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold text-lg px-10"
               >
                 <Link to="/free-consultation">Get Free Consultation</Link>
               </Button>
@@ -706,7 +706,7 @@ export default function HomePage() {
                 asChild 
                 size="lg"
                 variant="outline"
-                className="border-2 border-[#1E3A5F] bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
+                className="border-2 border-white bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
               >
                 <a href="tel:9403151023" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
@@ -715,7 +715,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            {/* Trust Badges */}
+            {/* Trust Badges Below CTAs */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 border-t border-white/20 pt-8">
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">

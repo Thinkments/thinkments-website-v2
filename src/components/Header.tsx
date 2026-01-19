@@ -73,8 +73,8 @@ export default function Header() {
   return (
     <motion.header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-[#1E3A5F]/95 backdrop-blur-sm shadow-lg' 
+        isScrolled
+          ? 'bg-[#1E3A5F]/95 backdrop-blur-sm shadow-lg'
           : 'bg-gradient-to-r from-[#1E3A5F] via-[#234B70] to-[#1E3A5F]'
       }`}
       initial={{ y: -100 }}
@@ -98,14 +98,14 @@ export default function Header() {
           {/* Desktop Navigation - Center Section */}
           <nav className="hidden lg:flex items-center gap-8">
             {/* Services - Mega Menu */}
-            <div 
+            <div
               className="relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
                   isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]' 
+                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]'
                     : 'text-white hover:text-[#00B4D8]'
                 }`}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -128,14 +128,14 @@ export default function Header() {
             </div>
 
             {/* About Dropdown */}
-            <div 
+            <div
               className="relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
                   isActiveDropdown(['/about-us', '/our-story'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]' 
+                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]'
                     : 'text-white hover:text-[#00B4D8]'
                 }`}
                 onClick={() => setIsAboutOpen(!isAboutOpen)}
@@ -178,14 +178,14 @@ export default function Header() {
             </div>
 
             {/* Resources Dropdown */}
-            <div 
+            <div
               className="relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
                   isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]' 
+                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]'
                     : 'text-white hover:text-[#00B4D8]'
                 }`}
                 onClick={() => setIsResourcesOpen(!isResourcesOpen)}
@@ -232,31 +232,28 @@ export default function Header() {
           {/* Right Section - Desktop */}
           <div className="hidden lg:flex flex-col items-center gap-1.5">
             {/* Phone Number */}
-            <a 
-              href="tel:9403151023" 
+            <a
+              href="tel:9403151023"
               className="text-sm text-white/90 flex items-center gap-1.5 hover:text-[#F7B928] transition-colors duration-200 font-medium"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>(940) 315-1023</span>
             </a>
 
-            {/* Contact Us Button - Desktop */}
-            <motion.button
-              asChild 
-              className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-base"
-              whileHover={{ scale: 1.05, boxShadow: "0 8px 15px rgba(0,0,0,0.2)" }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+            {/* CTA Button */}
+            <Button
+              asChild
+              className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-base"
             >
-              <Link to="/contact-us">Contact Us</Link>
-            </motion.button>
+              <Link to="/free-consultation">Free Consultation</Link>
+            </Button>
           </div>
 
           {/* Mobile Right Section - Phone Icon + Hamburger */}
           <div className="flex lg:hidden items-center gap-4">
             {/* Mobile Phone Only */}
-            <a 
-              href="tel:9403151023" 
+            <a
+              href="tel:9403151023"
               className="text-white hover:text-[#00B4D8] transition-colors"
               aria-label="Call us"
             >
@@ -439,13 +436,13 @@ export default function Header() {
                   <span className="font-semibold">(940) 315-1023</span>
                 </a>
 
-                {/* Mobile Contact Us Button - Full Width */}
+                {/* Mobile CTA Button - Full Width */}
                 <Button 
                   asChild 
-                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold py-4 rounded-full"
+                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold py-4 rounded-full"
                   size="lg"
                 >
-                  <Link to="/contact-us">Contact Us</Link>
+                  <Link to="/free-consultation">Free Consultation</Link>
                 </Button>
 
                 {/* Trust Badge */}
