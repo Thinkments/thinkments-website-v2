@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
+import {
   Lightbulb,
   TrendingUp,
   CheckCircle,
@@ -32,14 +32,14 @@ import SEO from '../SEO';
 
 export default function FreeConsultationPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  
+
   const heroRef = useRef(null);
   const schedulingRef = useRef(null);
   const socialProofRef = useRef(null);
   const agendaRef = useRef(null);
   const faqRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isSchedulingInView = useInView(schedulingRef, { once: true });
   const isSocialProofInView = useInView(socialProofRef, { once: true });
@@ -129,13 +129,13 @@ export default function FreeConsultationPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-12 flex flex-wrap items-center justify-center gap-4"
             >
-              <Button asChild variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+              <Button asChild variant="outline" className="border-2 border-white/30 bg-white text-black hover:bg-gray-100">
                 <Link to="/services" className="flex items-center gap-2">
                   View Our Services
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+              <Button asChild variant="outline" className="border-2 border-white/30 bg-white text-black hover:bg-gray-100">
                 <Link to="/portfolio" className="flex items-center gap-2">
                   See Our Work
                   <Eye className="w-4 h-4" />
@@ -215,10 +215,10 @@ export default function FreeConsultationPage() {
                     <Button
                       asChild
                       size="lg"
-                      className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white mt-6"
+                      className="bg-[#F7B928] hover:bg-[#D4960F] text-black mt-6"
                     >
-                      <a href="tel:9403151023">
-                        Or Call (940) 315-1023 to Schedule
+                      <a href="https://calendly.com/spicer-thinkments/30min" target="_blank" rel="noopener noreferrer">
+                        Schedule on Calendly
                       </a>
                     </Button>
                   </div>
@@ -350,7 +350,7 @@ export default function FreeConsultationPage() {
                     <Star key={star} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />
                   ))}
                 </div>
-                
+
                 <blockquote className="text-2xl md:text-3xl text-gray-700 leading-relaxed mb-8 italic text-center">
                   &quot;I was skeptical about &apos;free consultations&apos;—usually they&apos;re just sales pitches. But ThinkMents actually delivered value before asking for anything. That&apos;s when I knew they were different.&quot;
                 </blockquote>
@@ -360,7 +360,7 @@ export default function FreeConsultationPage() {
                 </p>
 
                 <div className="text-center">
-                  <Button asChild variant="outline" className="border-2 border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white">
+                  <Button asChild variant="outline" className="border-2 border-white bg-[#1E3A5F] text-white hover:bg-[#0F2844]">
                     <Link to="/testimonials" className="flex items-center gap-2">
                       Read All Reviews
                       <ArrowRight className="w-4 h-4" />
@@ -392,7 +392,7 @@ export default function FreeConsultationPage() {
               ))}
             </div>
             <div className="text-center">
-              <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F]">
+              <Button asChild variant="outline" className="border-2 border-white bg-[#1E3A5F] text-white hover:bg-[#0F2844]">
                 <Link to="/case-studies" className="flex items-center gap-2">
                   See Our Results
                   <ArrowRight className="w-4 h-4" />
@@ -479,7 +479,7 @@ export default function FreeConsultationPage() {
                       <p className="text-gray-600 text-sm leading-relaxed mb-4">
                         {service.description}
                       </p>
-                      <div className="flex items-center gap-2 text-[#00B4D8] font-semibold text-sm">
+                      <div className="flex items-center gap-2 text-black font-semibold text-sm">
                         Learn More
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -634,7 +634,7 @@ export default function FreeConsultationPage() {
                         }`}
                       />
                     </button>
-                    
+
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
                         openFaq === index ? 'max-h-96' : 'max-h-0'
@@ -657,7 +657,7 @@ export default function FreeConsultationPage() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-center mt-10"
           >
-            <Button asChild variant="outline" className="border-2 border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white">
+            <Button asChild variant="outline" className="border-2 border-[#1E3A5F] bg-white text-black hover:bg-gray-100">
               <Link to="/faqs" className="flex items-center gap-2">
                 More FAQs
                 <ArrowRight className="w-4 h-4" />
@@ -696,7 +696,7 @@ export default function FreeConsultationPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold text-lg px-10 py-6"
+                className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-semibold text-lg px-10 py-6"
               >
                 <Link to="#schedule">Book Your Free Consultation</Link>
               </Button>
