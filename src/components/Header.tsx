@@ -240,13 +240,16 @@ export default function Header() {
               <span>(940) 315-1023</span>
             </a>
 
-            {/* CTA Button */}
-            <Button 
+            {/* Contact Us Button - Desktop */}
+            <motion.button
               asChild 
-              className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-base"
+              className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-base"
+              whileHover={{ scale: 1.05, boxShadow: "0 8px 15px rgba(0,0,0,0.2)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
-              <Link to="/free-consultation">Free Consultation</Link>
-            </Button>
+              <Link to="/contact-us">Contact Us</Link>
+            </motion.button>
           </div>
 
           {/* Mobile Right Section - Phone Icon + Hamburger */}
@@ -436,13 +439,13 @@ export default function Header() {
                   <span className="font-semibold">(940) 315-1023</span>
                 </a>
 
-                {/* Mobile CTA Button - Full Width */}
+                {/* Mobile Contact Us Button - Full Width */}
                 <Button 
                   asChild 
-                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold py-4 rounded-full"
+                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold py-4 rounded-full"
                   size="lg"
                 >
-                  <Link to="/free-consultation">Free Consultation</Link>
+                  <Link to="/contact-us">Contact Us</Link>
                 </Button>
 
                 {/* Trust Badge */}

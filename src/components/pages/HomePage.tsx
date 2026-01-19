@@ -266,7 +266,7 @@ export default function HomePage() {
                     <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                       Get found by local customers, dominate Google Maps, and grow your Decatur or North Texas business with proven local SEO strategies.
                     </p>
-                    <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-black font-semibold group-hover:text-[#00B4D8]">
                       Explore Local Solutions
                       <ArrowRight className="w-5 h-5" />
                     </div>
@@ -293,7 +293,7 @@ export default function HomePage() {
                     <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                       Scale with AI automation, advanced analytics, and innovative strategies that deliver long-term ROI across multiple markets.
                     </p>
-                    <div className="flex items-center gap-2 text-[#F7B928] font-semibold group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-black font-semibold group-hover:text-[#F7B928]">
                       Explore Enterprise Solutions
                       <ArrowRight className="w-5 h-5" />
                     </div>
