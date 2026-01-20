@@ -85,10 +85,7 @@ export default function Header() {
             w-[95%] max-w-7xl mx-auto px-6 py-3 rounded-full
             flex items-center justify-between
             transition-all duration-300
-            ${isScrolled
-              ? 'bg-black/80 backdrop-blur-md shadow-lg border border-white/10'
-              : 'bg-black/60 backdrop-blur-sm border border-white/5 shadow-md'
-            }
+            bg-gray-900/80 backdrop-blur-md shadow-lg border border-white/10
           `}
         >
           {/* Logo - Left Section */}

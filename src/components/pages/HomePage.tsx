@@ -190,7 +190,7 @@ export default function HomePage() {
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold text-lg px-10"
                 >
-                  <Link to="/contact-us">Get Free Consultation</Link>
+                  <Link to="/free-consultation">Get Free Consultation</Link>
                 </Button>
                 <Button 
                   asChild 
@@ -706,7 +706,7 @@ export default function HomePage() {
                 asChild 
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white hover:text-[#1E3A5F] backdrop-blur-sm font-semibold text-lg px-10"
+                className="border-2 border-white bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
               >
                 <a href="tel:9403151023" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
@@ -716,7 +716,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust Badges Below CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-white/80 border-t border-white/20 pt-8">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 border-t border-white/20 pt-8">
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((star) => (
