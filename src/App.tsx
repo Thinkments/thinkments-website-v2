@@ -67,12 +67,7 @@ import PrivacyPolicyPage from './components/pages/PrivacyPolicyPage';
 import TermsOfServicePage from './components/pages/TermsOfServicePage';
 import DesignTransferAgreementPage from './components/pages/DesignTransferAgreementPage';
 import AccessibilityPage from './components/pages/AccessibilityPage';
-import SitemapPage from './components/pages/SitemapPage';
-import SitemapXmlPage from './components/pages/SitemapXmlPage';
-import SitemapRawXmlPage from './components/pages/SitemapRawXmlPage';
-import RobotsPage from './components/pages/RobotsPage';
-import RobotsTxtPlain from './components/pages/RobotsTxtPlain';
-import RobotsTestPage from './components/pages/RobotsTestPage';
+// Robots and Sitemap routes removed - served as static files
 import LlmPage from './components/pages/LlmPage';
 import NewAdminDashboard from './components/pages/NewAdminDashboard';
 
@@ -92,9 +87,10 @@ import { LOCATION_ROUTES, SERVICE_ROUTES, REDIRECT_ROUTES } from './config/route
 // Layout component that conditionally renders Header and Footer
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  
+
   // Routes that should not have Header/Footer (raw XML/text routes and admin pages)
-  const noLayoutRoutes = ['/sitemap-xml', '/sitemap.xml', '/sitemap-raw', '/robots-txt', '/llm-txt'];
+  // Routes that should not have Header/Footer (admin pages)
+  const noLayoutRoutes = ['/llm-txt'];
   const isAdmin = location.pathname.startsWith('/admin');
   const shouldHideLayout = noLayoutRoutes.includes(location.pathname) || isAdmin;
 
@@ -217,12 +213,6 @@ function AppRoutes() {
       <Route path="/accessibility" element={<AccessibilityPage />} />
 
       {/* SEO and Technical pages - extensionless URLs for Figma Make compatibility */}
-      <Route path="/sitemap" element={<SitemapPage />} />
-      <Route path="/sitemap.xml" element={<SitemapXmlPage />} />
-      <Route path="/sitemap-xml" element={<SitemapRawXmlPage />} />
-      <Route path="/sitemap-raw" element={<SitemapRawXmlPage />} />
-      <Route path="/robots-txt" element={<RobotsTxtPlain />} />
-      <Route path="/robots" element={<RobotsPage />} />
       <Route path="/llm-txt" element={<LlmPage />} />
 
       {/* Admin - Single unified dashboard */}

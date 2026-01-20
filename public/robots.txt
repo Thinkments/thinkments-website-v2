@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Block admin interface
+Disallow: /admin
+Disallow: /admin/
+
+# Allow all public content
+Allow: /services
+Allow: /services/
+Allow: /digital-marketing-*
+Allow: /about
+Allow: /contact
+Allow: /blog
+Allow: /store
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Sitemap
+Sitemap: https://thinkments.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

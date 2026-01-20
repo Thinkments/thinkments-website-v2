@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+fs.writeFileSync('debug_start.txt', 'Script started');
+
 // Location routes (same as in routes.ts)
 const LOCATION_ROUTES = [
-  'atlanta', 'nashville', 'knoxville', 'chattanooga', 'memphis', 'birmingham', 
+  'atlanta', 'nashville', 'knoxville', 'chattanooga', 'memphis', 'birmingham',
   'huntsville', 'montgomery', 'mobile', 'tuscaloosa', 'florence', 'decatur',
   'anniston', 'dothan', 'gadsden', 'auburn', 'opelika', 'madison', 'hoover',
   'vestavia-hills', 'mountain-brook', 'homewood', 'alabaster', 'pelham',
@@ -59,10 +61,10 @@ const SERVICE_ROUTES = [
 const createHTMLTemplate = (title, description, keywords, url, structuredData, content, noindex = false) => {
   const baseUrl = 'https://thinkments.com';
   const fullUrl = `${baseUrl}${url}`;
-  
+
   // Set robots directive based on noindex parameter
   const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow';
-  
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -660,7 +662,9 @@ if (!fs.existsSync('public')) {
   fs.mkdirSync('public', { recursive: true });
 }
 
-// Generate HTML files
+
+// Generate HTML files - HTML GENERATION DISABLED AS IT IS INCOMPLETE (MISSING HYDRATION)
+/*
 let generatedCount = 0;
 let indexedCount = 0;
 let noindexCount = 0;
@@ -708,6 +712,7 @@ pages.forEach(page => {
   
   generatedCount++;
 });
+*/
 
 // Generate XML sitemap (only include indexable pages)
 const generateXMLSitemap = () => {
@@ -730,7 +735,7 @@ const generateXMLSitemap = () => {
 </urlset>`;
 
   fs.writeFileSync(path.join('public', 'sitemap.xml'), sitemap);
-  console.log(`✅ Generated XML sitemap with ${indexablePages.length} indexable URLs`);
+  console.log(`✅ Generated XML sitemap in public/sitemap.xml with ${indexablePages.length} indexable URLs`);
 };
 
 // Generate robots.txt
@@ -750,7 +755,6 @@ Allow: /about
 Allow: /contact
 Allow: /blog
 Allow: /store
-Allow: /sitemap
 Allow: /sitemap.xml
 Allow: /robots.txt
 
@@ -767,15 +771,14 @@ Crawl-delay: 1`;
 generateXMLSitemap();
 generateRobotsTxt();
 
-console.log(`\n🎉 SEO-Optimized Static HTML Generation Complete!`);
+console.log(`\n🎉 SEO Static Asset Generation Complete!`);
+console.log(`🔍 Generated sitemap.xml and robots.txt`);
+/*
 console.log(`📄 Generated ${generatedCount} total HTML files`);
 console.log(`✅ ${indexedCount} pages set for indexing (index,follow)`);
 console.log(`🔒 ${noindexCount} pages protected from indexing (noindex,nofollow)`);
-console.log(`🔍 Generated sitemap.xml and robots.txt`);
+*/
 console.log(`\n🚀 SEO Benefits:`);
-console.log(`   • All public pages are indexable by Google Search Console`);
-console.log(`   • Protected admin areas from search engine indexing`);
-console.log(`   • Proper meta robots tags for all pages`);
 console.log(`   • Clean XML sitemap with only indexable content`);
 console.log(`   • Optimized robots.txt for search engine crawling`);
 console.log(`\n📋 Next Steps:`);
