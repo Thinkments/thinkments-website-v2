@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Star, Phone, Briefcase, Award, Users, FileText, MapPin } from 'lucide-react';
+import { Menu, X, ChevronDown, Star, Phone, Briefcase, Award, Users, FileText, MapPin, ExternalLink } from 'lucide-react';
 import { Button } from './ui/button';
 import ServicesMegaMenu, { ServicesMegaMenuMobile } from './ServicesMegaMenu';
 import thinkMentsLogo from 'figma:asset/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
@@ -71,24 +71,32 @@ export default function Header() {
   };
 
   return (
-    <motion.header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#1E3A5F]/95 backdrop-blur-sm shadow-lg'
-          : 'bg-gradient-to-r from-[#1E3A5F] via-[#234B70] to-[#1E3A5F]'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${
+          isScrolled ? 'py-4' : 'py-6'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <div
+          className={`
+            w-[95%] max-w-7xl mx-auto px-6 py-3 rounded-full
+            flex items-center justify-between
+            transition-all duration-300
+            ${isScrolled
+              ? 'bg-black/80 backdrop-blur-md shadow-lg border border-white/10'
+              : 'bg-black/60 backdrop-blur-sm border border-white/5 shadow-md'
+            }
+          `}
+        >
           {/* Logo - Left Section */}
-          <Link to="/" className="flex-shrink-0 mr-10">
+          <Link to="/" className="flex-shrink-0 mr-8">
             <motion.img
               src={thinkMentsLogo}
               alt="ThinkMents"
-              className="h-12 w-auto object-contain"
+              className="h-10 w-auto object-contain"
               style={{ textShadow: '0 2px 4px rgba(0,0,0,0.15)' }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -96,17 +104,17 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation - Center Section */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {/* Services - Mega Menu */}
             <div
               className="relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
+                className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]'
-                    : 'text-white hover:text-[#00B4D8]'
+                    ? 'bg-white/10 text-[#00B4D8]'
+                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
                 }`}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
               >
@@ -115,14 +123,16 @@ export default function Header() {
                   animate={{ rotate: isServicesOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ChevronDown className="w-3 h-3 text-white/60" />
+                  <ChevronDown className="w-3 h-3 opacity-70" />
                 </motion.div>
               </button>
 
               {/* Mega Menu Dropdown */}
               <AnimatePresence>
                 {isServicesOpen && (
-                  <ServicesMegaMenu isOpen={isServicesOpen} onClose={() => setIsServicesOpen(false)} />
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 pt-2">
+                    <ServicesMegaMenu isOpen={isServicesOpen} onClose={() => setIsServicesOpen(false)} />
+                  </div>
                 )}
               </AnimatePresence>
             </div>
@@ -133,10 +143,10 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
+                className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   isActiveDropdown(['/about-us', '/our-story'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]'
-                    : 'text-white hover:text-[#00B4D8]'
+                    ? 'bg-white/10 text-[#00B4D8]'
+                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
                 }`}
                 onClick={() => setIsAboutOpen(!isAboutOpen)}
               >
@@ -145,17 +155,17 @@ export default function Header() {
                   animate={{ rotate: isAboutOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ChevronDown className="w-3 h-3 text-white/60" />
+                  <ChevronDown className="w-3 h-3 opacity-70" />
                 </motion.div>
               </button>
 
               <AnimatePresence>
                 {isAboutOpen && (
                   <motion.div
-                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-1"
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
                     onClick={(e) => e.stopPropagation()}
                   >
@@ -163,7 +173,7 @@ export default function Header() {
                       <Link
                         key={page.href}
                         to={page.href}
-                        className={`block px-4 py-3 transition-colors ${
+                        className={`block px-4 py-2.5 rounded-xl text-sm transition-colors ${
                           isActiveLink(page.href)
                             ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
                             : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
@@ -183,10 +193,10 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className={`flex items-center gap-1 py-2 font-medium text-lg transition-colors duration-200 ${
+                className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                    ? 'text-[#00B4D8] border-b-2 border-[#00B4D8]'
-                    : 'text-white hover:text-[#00B4D8]'
+                    ? 'bg-white/10 text-[#00B4D8]'
+                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
                 }`}
                 onClick={() => setIsResourcesOpen(!isResourcesOpen)}
               >
@@ -195,17 +205,17 @@ export default function Header() {
                   animate={{ rotate: isResourcesOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ChevronDown className="w-3 h-3 text-white/60" />
+                  <ChevronDown className="w-3 h-3 opacity-70" />
                 </motion.div>
               </button>
 
               <AnimatePresence>
                 {isResourcesOpen && (
                   <motion.div
-                    className="absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-52 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-1"
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
                     onClick={(e) => e.stopPropagation()}
                   >
@@ -213,7 +223,7 @@ export default function Header() {
                       <Link
                         key={page.href}
                         to={page.href}
-                        className={`flex items-center gap-3 px-4 py-3 transition-colors ${
+                        className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors ${
                           isActiveLink(page.href)
                             ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
                             : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
@@ -227,10 +237,21 @@ export default function Header() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Virtual Tours Link */}
+            <a
+              href="https://virtualtours.thinkments.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium text-white hover:bg-white/10 hover:text-[#00B4D8] transition-all duration-300"
+            >
+              <span>Virtual Tours</span>
+              <ExternalLink className="w-3 h-3 opacity-70" />
+            </a>
           </nav>
 
           {/* Right Section - Desktop */}
-          <div className="hidden lg:flex flex-col items-center gap-1.5">
+          <div className="hidden lg:flex items-center gap-4">
             {/* Phone Number */}
             <a
               href="tel:9403151023"
@@ -240,13 +261,16 @@ export default function Header() {
               <span>(940) 315-1023</span>
             </a>
 
-            {/* CTA Button */}
-            <Button
+            {/* Contact Us Button - Desktop */}
+            <motion.button
               asChild
-              className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-base"
+              className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-sm"
+              whileHover={{ scale: 1.05, boxShadow: "0 8px 15px rgba(0,0,0,0.2)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
-              <Link to="/free-consultation">Free Consultation</Link>
-            </Button>
+              <Link to="/contact-us">Contact Us</Link>
+            </motion.button>
           </div>
 
           {/* Mobile Right Section - Phone Icon + Hamburger */}
@@ -292,26 +316,26 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.header>
 
       {/* Mobile Menu - Full Screen Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden fixed inset-0 top-[72px] bg-white z-40 overflow-y-auto"
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="lg:hidden fixed inset-0 top-0 bg-[#1E3A5F] z-40 overflow-y-auto pt-24"
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="container mx-auto px-4 py-6 space-y-1">
+            <div className="container mx-auto px-6 py-6 space-y-2">
               {/* Mobile Services Accordion */}
-              <div>
+              <div className="border-b border-white/10 pb-2">
                 <button
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
+                  className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
                     isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                      ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                      : 'text-[#2D3748] hover:bg-gray-50'
+                      ? 'text-[#00B4D8]'
+                      : 'text-white'
                   }`}
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 >
@@ -331,12 +355,12 @@ export default function Header() {
               </div>
 
               {/* Mobile About Accordion */}
-              <div>
+              <div className="border-b border-white/10 pb-2">
                 <button
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
+                  className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
                     isActiveDropdown(['/about-us', '/our-story'])
-                      ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                      : 'text-[#2D3748] hover:bg-gray-50'
+                      ? 'text-[#00B4D8]'
+                      : 'text-white'
                   }`}
                   onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                 >
@@ -357,16 +381,12 @@ export default function Header() {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-4 py-2 space-y-1">
+                      <div className="pl-4 py-2 space-y-2">
                         {aboutPages.map((page) => (
                           <Link
                             key={page.href}
                             to={page.href}
-                            className={`block px-4 py-2 rounded-lg transition-colors ${
-                              isActiveLink(page.href)
-                                ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                                : 'text-gray-600 hover:bg-gray-50 hover:text-[#00B4D8]'
-                            }`}
+                            className={`block py-2 text-base text-white/70 hover:text-white transition-colors`}
                           >
                             {page.name}
                           </Link>
@@ -378,12 +398,12 @@ export default function Header() {
               </div>
 
               {/* Mobile Resources Accordion */}
-              <div>
+              <div className="border-b border-white/10 pb-2">
                 <button
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
+                  className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
                     isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                      ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                      : 'text-[#2D3748] hover:bg-gray-50'
+                      ? 'text-[#00B4D8]'
+                      : 'text-white'
                   }`}
                   onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
                 >
@@ -404,16 +424,12 @@ export default function Header() {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-4 py-2 space-y-1">
+                      <div className="pl-4 py-2 space-y-2">
                         {resourcePages.map((page) => (
                           <Link
                             key={page.href}
                             to={page.href}
-                            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
-                              isActiveLink(page.href)
-                                ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                                : 'text-gray-600 hover:bg-gray-50 hover:text-[#00B4D8]'
-                            }`}
+                            className={`flex items-center gap-3 py-2 text-base text-white/70 hover:text-white transition-colors`}
                           >
                             <page.icon className="w-4 h-4" />
                             {page.name}
@@ -425,41 +441,54 @@ export default function Header() {
                 </AnimatePresence>
               </div>
 
+              {/* Mobile Virtual Tours Link */}
+              <div className="border-b border-white/10 pb-2">
+                <a
+                  href="https://virtualtours.thinkments.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-between py-4 text-lg font-medium text-white hover:text-[#00B4D8] transition-colors"
+                >
+                  <span>Virtual Tours</span>
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+
               {/* Mobile Bottom Section */}
-              <div className="pt-6 mt-6 border-t border-gray-200 space-y-4">
+              <div className="pt-8 mt-4 space-y-6">
                 {/* Mobile Phone with Icon */}
                 <a 
                   href="tel:9403151023" 
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-50 rounded-lg text-[#1E3A5F] hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-center gap-2 py-3 text-white hover:text-[#F7B928] transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  <span className="font-semibold">(940) 315-1023</span>
+                  <span className="font-semibold text-lg">(940) 315-1023</span>
                 </a>
 
-                {/* Mobile CTA Button - Full Width */}
+                {/* Mobile Contact Us Button - Full Width */}
                 <Button 
                   asChild 
-                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold py-4 rounded-full"
+                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold py-6 rounded-full text-lg shadow-lg"
                   size="lg"
                 >
-                  <Link to="/free-consultation">Free Consultation</Link>
+                  <Link to="/contact-us">Contact Us</Link>
                 </Button>
 
                 {/* Trust Badge */}
-                <div className="flex items-center justify-center gap-2 text-base text-gray-600">
+                <div className="flex items-center justify-center gap-2 text-base text-white/60">
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star key={star} className="w-4 h-4 fill-[#FBBC04] text-[#FBBC04]" />
                     ))}
                   </div>
-                  <span className="font-semibold text-[#1E3A5F]">5.0</span>
-                  <span className="text-gray-500">(103 Reviews)</span>
+                  <span className="font-semibold text-white">5.0</span>
+                  <span>(103 Reviews)</span>
                 </div>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
