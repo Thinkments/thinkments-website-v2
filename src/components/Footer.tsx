@@ -274,7 +274,7 @@ export default function Footer() {
               asChild 
               className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold"
             >
-              <Link to="/free-consultation">Schedule Free Consultation</Link>
+              <Link to="/contact-us">Schedule Free Consultation</Link>
             </Button>
           </div>
         </div>
@@ -530,9 +530,8 @@ export default function Footer() {
             <Button 
               asChild 
               className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold"
-              size="lg"
             >
-              <Link to="/free-consultation">Schedule Free Consultation</Link>
+              <Link to="/contact-us">Schedule Free Consultation</Link>
             </Button>
           </div>
         </div>

@@ -190,7 +190,7 @@ export default function HomePage() {
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold text-lg px-10"
                 >
-                  <Link to="/free-consultation">Get Free Consultation</Link>
+                  <Link to="/contact-us">Get Free Consultation</Link>
                 </Button>
                 <Button 
                   asChild 
@@ -451,7 +451,7 @@ export default function HomePage() {
                       <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <service.icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="text-xl text-[#1E3A5F] mb-3">
+                      <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">
                         {service.title}
                       </h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">
@@ -706,7 +706,7 @@ export default function HomePage() {
                 asChild 
                 size="lg"
                 variant="outline"
-                className="border-2 border-white bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
+                className="border-2 border-white/30 text-white hover:bg-white hover:text-[#1E3A5F] backdrop-blur-sm font-semibold text-lg px-10"
               >
                 <a href="tel:9403151023" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
@@ -716,7 +716,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust Badges Below CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 border-t border-white/20 pt-8">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-white/80 border-t border-white/20 pt-8">
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((star) => (
