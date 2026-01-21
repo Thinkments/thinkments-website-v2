@@ -1,34 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Star, Phone, Briefcase, Award, Users, FileText, MapPin, ExternalLink } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, ExternalLink, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import ServicesMegaMenu, { ServicesMegaMenuMobile } from './ServicesMegaMenu';
-import thinkMentsLogo from 'figma:asset/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
+
+const Logo = () => (
+  <Link to="/" className="flex-shrink-0 mr-8 flex items-center gap-2">
+    <h1 className="text-2xl font-black text-white tracking-wide">
+      THINK<span className="text-[#64f4ac]">MENTS</span>
+    </h1>
+  </Link>
+);
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  
+
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
-  
+
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    // Scroll logic removed for background opacity stability
+    const handleScroll = () => {};
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
+  // Close menus on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setMobileServicesOpen(false);
@@ -62,10 +66,6 @@ export default function Header() {
     { name: 'Blog', href: '/blog', icon: FileText }
   ];
 
-  const isActiveLink = (path: string) => {
-    return location.pathname === path;
-  };
-
   const isActiveDropdown = (paths: string[]) => {
     return paths.some(path => location.pathname === path || location.pathname.startsWith(path));
   };
@@ -73,9 +73,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${
-          isScrolled ? 'py-4' : 'py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 py-6`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -85,24 +83,16 @@ export default function Header() {
             w-[95%] max-w-7xl mx-auto px-6 py-3 rounded-full
             flex items-center justify-between
             transition-all duration-300
-            bg-gray-900/80 backdrop-blur-md shadow-lg border border-white/10
+            bg-gray-900/95 backdrop-blur-md shadow-lg border border-white/10
+            h-16
           `}
         >
           {/* Logo - Left Section */}
-          <Link to="/" className="flex-shrink-0 mr-8">
-            <motion.img
-              src={thinkMentsLogo}
-              alt="ThinkMents"
-              className="h-10 w-auto object-contain"
-              style={{ textShadow: '0 2px 4px rgba(0,0,0,0.15)' }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
-          </Link>
+          <Logo />
 
           {/* Desktop Navigation - Center Section */}
           <nav className="hidden lg:flex items-center gap-6">
-            {/* Services - Mega Menu */}
+            {/* Services Dropdown */}
             <div
               className="relative"
               onClick={(e) => e.stopPropagation()}
@@ -110,8 +100,8 @@ export default function Header() {
               <button
                 className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                    ? 'bg-white/10 text-[#00B4D8]'
-                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
+                    ? 'bg-white/10 text-white'
+                    : 'text-white hover:bg-white/10 hover:text-white'
                 }`}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
               >
@@ -142,8 +132,8 @@ export default function Header() {
               <button
                 className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   isActiveDropdown(['/about-us', '/our-story'])
-                    ? 'bg-white/10 text-[#00B4D8]'
-                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
+                    ? 'bg-white/10 text-white'
+                    : 'text-white hover:bg-white/10 hover:text-white'
                 }`}
                 onClick={() => setIsAboutOpen(!isAboutOpen)}
               >
@@ -171,9 +161,9 @@ export default function Header() {
                         key={page.href}
                         to={page.href}
                         className={`block px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                          isActiveLink(page.href)
-                            ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                            : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
+                          isActiveDropdown(['/about-us', '/our-story'])
+                            ? 'bg-[#00B4D8]/10 text-black font-semibold'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-black'
                         }`}
                       >
                         {page.name}
@@ -192,8 +182,8 @@ export default function Header() {
               <button
                 className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                    ? 'bg-white/10 text-[#00B4D8]'
-                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
+                    ? 'bg-white/10 text-white'
+                    : 'text-white hover:bg-white/10 hover:text-white'
                 }`}
                 onClick={() => setIsResourcesOpen(!isResourcesOpen)}
               >
@@ -221,9 +211,9 @@ export default function Header() {
                         key={page.href}
                         to={page.href}
                         className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                          isActiveLink(page.href)
-                            ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                            : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
+                          isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
+                            ? 'bg-[#00B4D8]/10 text-black font-semibold'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-black'
                         }`}
                       >
                         <page.icon className="w-4 h-4" />
@@ -240,7 +230,7 @@ export default function Header() {
               href="https://virtualtours.thinkments.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium text-white hover:bg-white/10 hover:text-[#00B4D8] transition-all duration-300"
+              className="flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium text-white hover:bg-white/10 hover:text-white transition-all duration-300"
             >
               <span>Virtual Tours</span>
               <ExternalLink className="w-3 h-3 opacity-70" />
@@ -252,38 +242,32 @@ export default function Header() {
             {/* Phone Number */}
             <a
               href="tel:9403151023"
-              className="text-sm text-white/90 flex items-center gap-1.5 hover:text-[#F7B928] transition-colors duration-200 font-medium"
+              className="text-sm text-white/90 flex items-center gap-1.5 hover:text-yellow-400 transition-colors duration-200 font-medium"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>(940) 315-1023</span>
             </a>
 
             {/* Contact Us Button - Desktop */}
-            <motion.button
+            <Button
               asChild
-              className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-sm"
-              whileHover={{ scale: 1.05, boxShadow: "0 8px 15px rgba(0,0,0,0.2)" }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-sm"
             >
               <Link to="/contact-us">Contact Us</Link>
-            </motion.button>
+            </Button>
           </div>
 
-          {/* Mobile Right Section - Phone Icon + Hamburger */}
+          {/* Mobile Controls */}
           <div className="flex lg:hidden items-center gap-4">
-            {/* Mobile Phone Only */}
             <a
               href="tel:9403151023"
-              className="text-white hover:text-[#00B4D8] transition-colors"
+              className="text-white hover:text-yellow-400 transition-colors"
               aria-label="Call us"
             >
               <Phone className="w-5 h-5" />
             </a>
-
-            {/* Mobile Menu Button */}
             <button
-              className="p-2 text-white hover:text-[#00B4D8] transition-colors"
+              className="p-2 text-white hover:text-yellow-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -319,7 +303,7 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden fixed inset-0 top-0 bg-[#1E3A5F] z-40 overflow-y-auto pt-24"
+            className="fixed inset-0 top-0 bg-gray-900/95 z-40 overflow-y-auto pt-24 lg:hidden"
             initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
@@ -331,7 +315,7 @@ export default function Header() {
                 <button
                   className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
                     isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                      ? 'text-[#00B4D8]'
+                      ? 'text-yellow-400'
                       : 'text-white'
                   }`}
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
@@ -356,7 +340,7 @@ export default function Header() {
                 <button
                   className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
                     isActiveDropdown(['/about-us', '/our-story'])
-                      ? 'text-[#00B4D8]'
+                      ? 'text-yellow-400'
                       : 'text-white'
                   }`}
                   onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
@@ -374,7 +358,7 @@ export default function Header() {
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
@@ -399,7 +383,7 @@ export default function Header() {
                 <button
                   className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
                     isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                      ? 'text-[#00B4D8]'
+                      ? 'text-yellow-400'
                       : 'text-white'
                   }`}
                   onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
@@ -417,7 +401,7 @@ export default function Header() {
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
@@ -426,9 +410,8 @@ export default function Header() {
                           <Link
                             key={page.href}
                             to={page.href}
-                            className={`flex items-center gap-3 py-2 text-base text-white/70 hover:text-white transition-colors`}
+                            className={`block py-2 text-base text-white/70 hover:text-white transition-colors`}
                           >
-                            <page.icon className="w-4 h-4" />
                             {page.name}
                           </Link>
                         ))}
@@ -453,34 +436,21 @@ export default function Header() {
 
               {/* Mobile Bottom Section */}
               <div className="pt-8 mt-4 space-y-6">
-                {/* Mobile Phone with Icon */}
-                <a 
-                  href="tel:9403151023" 
+                <a
+                  href="tel:9403151023"
                   className="flex items-center justify-center gap-2 py-3 text-white hover:text-[#F7B928] transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   <span className="font-semibold text-lg">(940) 315-1023</span>
                 </a>
 
-                {/* Mobile Contact Us Button - Full Width */}
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold py-6 rounded-full text-lg shadow-lg"
                   size="lg"
                 >
                   <Link to="/contact-us">Contact Us</Link>
                 </Button>
-
-                {/* Trust Badge */}
-                <div className="flex items-center justify-center gap-2 text-base text-white/60">
-                  <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 fill-[#FBBC04] text-[#FBBC04]" />
-                    ))}
-                  </div>
-                  <span className="font-semibold text-white">5.0</span>
-                  <span>(103 Reviews)</span>
-                </div>
               </div>
             </div>
           </motion.div>
