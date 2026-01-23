@@ -3,6 +3,7 @@
 ## Problem
 
 Figma Make deployment fails with:
+
 ```
 Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvTs/edge_functions/make-server/deploy" failed with status 403
 ```
@@ -10,12 +11,13 @@ Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvT
 ## Root Cause
 
 Figma Make is attempting to deploy Supabase edge functions even though:
+
 1. This is a **frontend-only application**
 2. All Supabase dependencies have been removed
 3. Edge function files are minimized to empty exports
 4. Multiple configuration files disable Supabase
 
-The issue is that the Supabase integration is connected at the **infrastructure level** 
+The issue is that the Supabase integration is connected at the **infrastructure level**
 and protected files in `/supabase/functions/server/` cannot be deleted by users.
 
 ## What We've Tried
@@ -48,6 +50,7 @@ and protected files in `/supabase/functions/server/` cannot be deleted by users.
 ### Option 1: Contact Figma Make Support (Recommended)
 
 Contact Figma Make support and request:
+
 1. Disconnect the Supabase integration for project ID: `TSI4MmHw4TcJVL6Ji2FvTs`
 2. Remove the protected edge function files
 3. Convert to frontend-only deployment
@@ -55,12 +58,14 @@ Contact Figma Make support and request:
 ### Option 2: Deploy to Alternative Platform
 
 Deploy the application to:
+
 - **Vercel**: `vercel deploy`
 - **Netlify**: `netlify deploy`
 - **GitHub Pages**: Works with static sites
 - **Cloudflare Pages**: Fast and free
 
 All necessary configuration files are included:
+
 - `public/netlify.toml` for Netlify
 - `public/vercel.json` for Vercel
 
@@ -93,6 +98,7 @@ If Figma Make support cannot help and you must continue using Figma Make:
 ## Expected Behavior
 
 With all these configurations, Figma Make **should**:
+
 1. Recognize this as a frontend-only application
 2. Skip Supabase edge function deployment
 3. Only deploy the static build from `dist/`
@@ -100,11 +106,12 @@ With all these configurations, Figma Make **should**:
 ## If Still Getting 403 Error
 
 The 403 error persisting means:
+
 1. Figma Make's infrastructure is overriding all configuration files
 2. The Supabase integration is locked at a system level
 3. **You must either**:
-   - Contact Figma Make support, or
-   - Deploy to an alternative platform
+    - Contact Figma Make support, or
+    - Deploy to an alternative platform
 
 ## Next Steps
 

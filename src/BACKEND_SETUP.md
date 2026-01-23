@@ -1,6 +1,7 @@
 # SEO Configuration System
 
-This system allows you to manage your robots.txt and business schema configurations through an admin interface.
+This system allows you to manage your robots.txt and business schema configurations through an admin
+interface.
 
 ## Features
 
@@ -29,12 +30,14 @@ This system allows you to manage your robots.txt and business schema configurati
 ### 3. Deployment Workflow
 
 #### Robots.txt Deployment
+
 1. Edit robots.txt in the admin panel
 2. Click "Download" to get the file
 3. Upload to your website's root directory as `/public/robots.txt`
 4. Verify at https://yourdomain.com/robots.txt
 
 #### Business Schema Deployment
+
 1. Edit the JSON-LD schema in the admin panel
 2. Copy the validated JSON
 3. Add to your website's `<head>` section:
@@ -51,6 +54,7 @@ This system allows you to manage your robots.txt and business schema configurati
 ## Features Overview
 
 ### Available Features
+
 - ✅ Edit configurations
 - ✅ Export files
 - ✅ JSON validation
@@ -61,6 +65,7 @@ This system allows you to manage your robots.txt and business schema configurati
 ## Integration Examples
 
 ### React Component Integration
+
 ```jsx
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -88,6 +93,7 @@ function SEOComponent() {
 ```
 
 ### Static HTML Integration
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -112,6 +118,7 @@ function SEOComponent() {
 ## Security Considerations
 
 ### Production Security
+
 - Change the default admin password
 - Consider implementing proper authentication (OAuth, JWT, etc.)
 - Use HTTPS for all admin operations
@@ -120,11 +127,13 @@ function SEOComponent() {
 ## Testing Your Deployment
 
 ### Robots.txt Testing
+
 1. **Direct Access**: Visit `https://yourdomain.com/robots.txt`
 2. **Google Search Console**: Use the robots.txt Tester tool
 3. **Validation**: Check syntax with online robots.txt validators
 
 ### Business Schema Testing
+
 1. **Rich Results Test**: Use Google's Rich Results Test tool
 2. **Schema Validator**: Test with Schema.org's validator
 3. **Search Console**: Monitor in Google Search Console's enhancements section
@@ -134,19 +143,19 @@ function SEOComponent() {
 ### Common Issues
 
 1. **Admin Panel Access Issues**
-   - Clear browser cache and cookies
-   - Check password in AdminPage.tsx
-   - Verify no JavaScript errors in console
+    - Clear browser cache and cookies
+    - Check password in AdminPage.tsx
+    - Verify no JavaScript errors in console
 
 2. **JSON Validation Errors**
-   - Use the built-in JSON validator in the admin panel
-   - Check for trailing commas or syntax errors
-   - Test with external JSON validators
+    - Use the built-in JSON validator in the admin panel
+    - Check for trailing commas or syntax errors
+    - Test with external JSON validators
 
 3. **LocalStorage Not Saving**
-   - Check browser console for storage errors
-   - Ensure localStorage is enabled in browser
-   - Try incognito mode to test without extensions
+    - Check browser console for storage errors
+    - Ensure localStorage is enabled in browser
+    - Try incognito mode to test without extensions
 
 ### Getting Help
 
@@ -157,6 +166,7 @@ function SEOComponent() {
 ## Backup and Recovery
 
 ### Manual Backup
+
 - Export configurations regularly using download buttons
 - Store exported files in version control
 - Keep multiple versions for rollback purposes

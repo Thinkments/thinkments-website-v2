@@ -2,7 +2,8 @@
 
 ## Overview
 
-This guide details all performance optimizations implemented on the ThinkMents website to ensure fast loading times and excellent user experience.
+This guide details all performance optimizations implemented on the ThinkMents website to ensure
+fast loading times and excellent user experience.
 
 ---
 
@@ -22,6 +23,7 @@ This guide details all performance optimizations implemented on the ThinkMents w
 ### 1. Image Optimization
 
 #### **Lazy Loading**
+
 All images below the fold use native lazy loading:
 
 ```tsx
@@ -35,6 +37,7 @@ All images below the fold use native lazy loading:
 ```
 
 #### **Priority Images**
+
 Above-the-fold images load immediately:
 
 ```tsx
@@ -47,17 +50,20 @@ Above-the-fold images load immediately:
 ```
 
 #### **Image Attributes**
+
 - `loading="lazy"` - Native browser lazy loading
 - `decoding="async"` - Doesn't block page rendering
 - `width` and `height` - Prevents Cumulative Layout Shift (CLS)
 - `fetchPriority="high"` - For critical images
 
 #### **Supported Formats**
+
 - WebP with JPEG/PNG fallbacks (via Unsplash CDN)
 - SVG for icons and logos
 - Optimized dimensions via URL parameters
 
 **Example:**
+
 ```
 https://images.unsplash.com/photo-xxx?w=1200&h=800&fit=crop&fm=webp&q=80
 ```
@@ -67,27 +73,32 @@ https://images.unsplash.com/photo-xxx?w=1200&h=800&fit=crop&fm=webp&q=80
 ### 2. Font Optimization
 
 #### **Google Fonts with font-display: swap**
+
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
 **Benefits:**
+
 - `display=swap` - Shows fallback font immediately, swaps when custom font loads
 - Prevents FOIT (Flash of Invisible Text)
 - No blocking render
 
 #### **Font Preconnect**
+
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 ```
 
 **Benefits:**
+
 - Establishes early connection to font servers
 - Reduces DNS lookup and connection time
 - Faster font loading
 
 #### **System Font Fallbacks**
+
 ```css
 font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 ```
@@ -97,6 +108,7 @@ font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Robot
 ### 3. Critical CSS
 
 #### **Inline Critical CSS**
+
 Critical above-the-fold styles are inlined in `<head>`:
 
 ```html
@@ -118,6 +130,7 @@ Critical above-the-fold styles are inlined in `<head>`:
 ```
 
 **Benefits:**
+
 - No render-blocking CSS for initial paint
 - Faster First Contentful Paint (FCP)
 - Better perceived performance
@@ -127,6 +140,7 @@ Critical above-the-fold styles are inlined in `<head>`:
 ### 4. Preconnect & DNS Prefetch
 
 #### **Preconnect (High Priority)**
+
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -134,11 +148,13 @@ Critical above-the-fold styles are inlined in `<head>`:
 ```
 
 **Benefits:**
+
 - Establishes early connections to critical third-party domains
 - Reduces DNS, TCP, and TLS negotiation time
 - Saves ~300-500ms per connection
 
 #### **DNS Prefetch (Medium Priority)**
+
 ```html
 <link rel="dns-prefetch" href="//www.google-analytics.com" />
 <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -146,6 +162,7 @@ Critical above-the-fold styles are inlined in `<head>`:
 ```
 
 **Benefits:**
+
 - Resolves DNS for third-party domains in background
 - Faster connection when resources are needed
 - Minimal overhead
@@ -155,6 +172,7 @@ Critical above-the-fold styles are inlined in `<head>`:
 ### 5. Script Optimization
 
 #### **Deferred Analytics**
+
 All analytics scripts use `defer` attribute:
 
 ```html
@@ -165,11 +183,13 @@ All analytics scripts use `defer` attribute:
 ```
 
 **Benefits:**
+
 - Scripts don't block page parsing
 - Execute after HTML parsing completes
 - Non-critical scripts load last
 
 #### **Async Script Loading**
+
 ```javascript
 // Load scripts after page is interactive
 if ('requestIdleCallback' in window) {
@@ -189,18 +209,19 @@ if ('requestIdleCallback' in window) {
 
 #### **Implemented Hints**
 
-| Hint | Purpose | Priority |
-|------|---------|----------|
-| `preconnect` | Critical third-party origins | Highest |
-| `dns-prefetch` | Analytics and tracking domains | Medium |
-| `prefetch` | Resources for next page | Lowest |
-| `preload` | Critical fonts (optional) | High |
+| Hint           | Purpose                        | Priority |
+|----------------|--------------------------------|----------|
+| `preconnect`   | Critical third-party origins   | Highest  |
+| `dns-prefetch` | Analytics and tracking domains | Medium   |
+| `prefetch`     | Resources for next page        | Lowest   |
+| `preload`      | Critical fonts (optional)      | High     |
 
 ---
 
 ### 7. Code Splitting & Lazy Loading
 
 #### **React Router Lazy Loading**
+
 ```tsx
 import { lazy, Suspense } from 'react';
 
@@ -212,6 +233,7 @@ const BlogPage = lazy(() => import('./components/pages/BlogPage'));
 ```
 
 #### **Component-Level Code Splitting**
+
 - Each page is a separate bundle
 - Loads only what's needed for current route
 - Reduces initial bundle size
@@ -221,13 +243,16 @@ const BlogPage = lazy(() => import('./components/pages/BlogPage'));
 ### 8. Compression & Minification
 
 #### **Build Optimizations**
+
 - **JavaScript:** Minified and tree-shaken
 - **CSS:** Minified and purged of unused styles
 - **HTML:** Minified in production
 - **Assets:** Compressed and optimized
 
 #### **Server-Side Compression**
+
 Netlify automatically serves:
+
 - Brotli compression (br)
 - Gzip compression (gz)
 
@@ -236,16 +261,19 @@ Netlify automatically serves:
 ### 9. Caching Strategy
 
 #### **Static Assets**
+
 ```
 Cache-Control: public, max-age=31536000, immutable
 ```
 
 #### **HTML Pages**
+
 ```
 Cache-Control: public, max-age=0, must-revalidate
 ```
 
 #### **API Responses**
+
 ```
 Cache-Control: public, max-age=300, stale-while-revalidate=60
 ```
@@ -259,6 +287,7 @@ Cache-Control: public, max-age=300, stale-while-revalidate=60
 The `PerformanceOptimizer` component monitors:
 
 #### **Core Web Vitals**
+
 - **LCP (Largest Contentful Paint)** - Main content load time
 - **FID (First Input Delay)** - Interactivity responsiveness
 - **CLS (Cumulative Layout Shift)** - Visual stability
@@ -274,6 +303,7 @@ import PerformanceOptimizer from './components/PerformanceOptimizer';
 ## 🔧 Implementation Checklist
 
 ### Images
+
 - ✅ Lazy loading on below-fold images
 - ✅ Priority loading on hero images
 - ✅ Width/height attributes on all images
@@ -282,30 +312,35 @@ import PerformanceOptimizer from './components/PerformanceOptimizer';
 - ✅ Async decoding
 
 ### Fonts
+
 - ✅ font-display: swap
 - ✅ Preconnect to font providers
 - ✅ System font fallbacks
 - ✅ Subset fonts (via Google Fonts)
 
 ### CSS
+
 - ✅ Critical CSS inlined
 - ✅ Non-critical CSS deferred
 - ✅ Unused CSS purged
 - ✅ CSS minified
 
 ### JavaScript
+
 - ✅ Code splitting by route
 - ✅ Deferred analytics scripts
 - ✅ Minification and tree-shaking
 - ✅ Lazy component loading
 
 ### Network
+
 - ✅ Preconnect to critical origins
 - ✅ DNS prefetch for third-parties
 - ✅ HTTP/2 enabled (via Netlify)
 - ✅ CDN delivery (Netlify)
 
 ### Monitoring
+
 - ✅ Core Web Vitals tracking
 - ✅ Performance Observer API
 - ✅ Real User Monitoring (RUM)
@@ -361,28 +396,28 @@ function App() {
 ### Recommended Testing Tools
 
 1. **Google PageSpeed Insights**
-   - https://pagespeed.web.dev/
-   - Tests Core Web Vitals
-   - Provides optimization suggestions
+    - https://pagespeed.web.dev/
+    - Tests Core Web Vitals
+    - Provides optimization suggestions
 
 2. **Lighthouse (Chrome DevTools)**
-   - Run audit in Chrome DevTools
-   - Tests performance, accessibility, SEO
-   - Generates detailed reports
+    - Run audit in Chrome DevTools
+    - Tests performance, accessibility, SEO
+    - Generates detailed reports
 
 3. **WebPageTest**
-   - https://www.webpagetest.org/
-   - Advanced performance testing
-   - Multiple locations and devices
+    - https://www.webpagetest.org/
+    - Advanced performance testing
+    - Multiple locations and devices
 
 4. **GTmetrix**
-   - https://gtmetrix.com/
-   - Performance and optimization analysis
-   - Historical tracking
+    - https://gtmetrix.com/
+    - Performance and optimization analysis
+    - Historical tracking
 
 5. **Chrome User Experience Report (CrUX)**
-   - Real-world performance data
-   - Core Web Vitals from actual users
+    - Real-world performance data
+    - Core Web Vitals from actual users
 
 ---
 
@@ -391,6 +426,7 @@ function App() {
 ### Issue: Images Causing Layout Shift
 
 **Fix:** Add width and height attributes
+
 ```tsx
 <ImageWithFallback
   src="image.jpg"
@@ -403,6 +439,7 @@ function App() {
 ### Issue: Fonts Blocking Render
 
 **Fix:** Use font-display: swap (already implemented)
+
 ```html
 <link href="...fonts.googleapis.com...&display=swap" rel="stylesheet">
 ```
@@ -410,6 +447,7 @@ function App() {
 ### Issue: Large JavaScript Bundles
 
 **Fix:** Implement code splitting
+
 ```tsx
 const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ```
@@ -417,6 +455,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ### Issue: Slow Third-Party Scripts
 
 **Fix:** Defer non-critical scripts
+
 ```html
 <script src="analytics.js" defer></script>
 ```
@@ -424,6 +463,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ### Issue: Render-Blocking CSS
 
 **Fix:** Inline critical CSS and defer the rest
+
 ```html
 <style>/* Critical CSS */</style>
 <link rel="stylesheet" href="non-critical.css" media="print" onload="this.media='all'">
@@ -448,27 +488,27 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ### Planned Optimizations
 
 1. **WebP Image Generation**
-   - Generate WebP versions of all images
-   - Serve WebP with JPEG/PNG fallbacks
+    - Generate WebP versions of all images
+    - Serve WebP with JPEG/PNG fallbacks
 
 2. **Service Worker**
-   - Cache static assets
-   - Offline functionality
-   - Background sync
+    - Cache static assets
+    - Offline functionality
+    - Background sync
 
 3. **Resource Hints Optimization**
-   - Prefetch likely next pages
-   - Preload critical resources
+    - Prefetch likely next pages
+    - Preload critical resources
 
 4. **Image CDN**
-   - Custom image optimization service
-   - Automatic format selection
-   - Automatic compression
+    - Custom image optimization service
+    - Automatic format selection
+    - Automatic compression
 
 5. **Advanced Caching**
-   - Service Worker caching strategies
-   - Background refresh
-   - Stale-while-revalidate
+    - Service Worker caching strategies
+    - Background refresh
+    - Stale-while-revalidate
 
 ---
 
@@ -485,6 +525,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ## ✅ Performance Checklist Summary
 
 ### Critical Optimizations (Implemented)
+
 - ✅ Lazy load images below the fold
 - ✅ Add width/height to all images
 - ✅ Optimize fonts with font-display: swap
@@ -497,6 +538,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 - ✅ Monitor Core Web Vitals
 
 ### Performance Score Targets
+
 - **Lighthouse Performance:** > 90
 - **Lighthouse Accessibility:** > 95
 - **Lighthouse Best Practices:** > 95
@@ -507,4 +549,5 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 
 **Last Updated:** 2025-01-24
 
-All performance optimizations are now live and monitoring is in place. The ThinkMents website is optimized for fast loading across all devices and network conditions.
+All performance optimizations are now live and monitoring is in place. The ThinkMents website is
+optimized for fast loading across all devices and network conditions.

@@ -16,9 +16,11 @@
 
 1. Open PowerShell in project folder
 2. Run:
+
 ```powershell
 .\deploy.ps1
 ```
+
 3. Follow the prompts!
 
 ---
@@ -32,6 +34,7 @@ git commit -m "Initial commit"
 ```
 
 Then:
+
 1. Create GitHub repo at https://github.com/new
 2. Connect and push (follow GitHub instructions)
 3. Import to Netlify from GitHub
@@ -51,6 +54,7 @@ Then:
 ## Admin Password
 
 Default admin password is in `netlify.toml`:
+
 - Username: `admin`
 - Password: `ThinkMents2025`
 

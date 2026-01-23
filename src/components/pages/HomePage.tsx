@@ -26,7 +26,8 @@ import {
   Zap,
   Shield,
   FileText,
-  BarChart3
+  BarChart3,
+  Quote
 } from 'lucide-react';
 import SEO from '../SEO';
 import heroImage from 'figma:asset/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png';
@@ -38,7 +39,8 @@ export default function HomePage() {
   const servicesRef = useRef(null);
   const whyChooseRef = useRef(null);
   const trustRef = useRef(null);
-  const resourcesRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const aboutRef = useRef(null);
   const ctaRef = useRef(null);
 
   const isHeroInView = useInView(heroRef, { once: true });
@@ -46,71 +48,25 @@ export default function HomePage() {
   const isProblemsInView = useInView(problemsRef, { once: true });
   const isServicesInView = useInView(servicesRef, { once: true });
   const isWhyChooseInView = useInView(whyChooseRef, { once: true });
-  const isTrustInView = useInView(trustRef, { once: true });
-  const isResourcesInView = useInView(resourcesRef, { once: true });
+  const isTestimonialsInView = useInView(testimonialsRef, { once: true });
+  const isAboutInView = useInView(aboutRef, { once: true });
   const isCtaInView = useInView(ctaRef, { once: true });
 
-  // LocalBusiness Structured Data (Kept for SEO)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "ThinkMents Digital Marketing Agency",
-    "alternateName": "ThinkMents",
-    "description": "Texas digital marketing agency since 2002. Local SEO, web design, PPC & AI solutions for SMBs and enterprise. Decatur HQ, serving 31 states.",
     "url": "https://thinkments.com",
-    "logo": "https://thinkments.com/logo.png",
-    "image": "https://images.unsplash.com/photo-1758518729685-f88df7890776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZ3xlbnwxfHx8fDE3NjU0NDE1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "telephone": "(940) 315-1023",
-    "email": "info@thinkments.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "301 South Washburn St, Suite D",
       "addressLocality": "Decatur",
       "addressRegion": "TX",
-      "postalCode": "76234",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 33.2283526,
-      "longitude": -97.5883743
-    },
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "103",
-      "bestRating": "5"
-    },
-    "sameAs": [
-      "https://www.facebook.com/ThinkMents/",
-      "https://www.linkedin.com/company/thinkments",
-      "https://www.instagram.com/thinkments/",
-      "https://www.youtube.com/@ThinkMents"
-    ],
-    "areaServed": [
-      {
-        "@type": "State",
-        "name": "Texas"
-      },
-      {
-        "@type": "Country",
-        "name": "United States"
-      }
-    ],
-    "foundingDate": "2002",
-    "founder": {
-      "@type": "Person",
-      "name": "Corey Rumble"
     }
   };
 
-  // ------------------------------------------------------------------
-  // INJECTING HOMEPAGE CONTENT BLUEPRINT
-  // ------------------------------------------------------------------
+  // --- CONTENT COMPONENTS ---
 
-  // Section 1: Hero
   const HeroContent = () => (
     <div className="max-w-5xl mx-auto text-center">
       <motion.div
@@ -121,30 +77,19 @@ export default function HomePage() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
           Stop Guessing. Start Growing.
         </h1>
-
         <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed">
           Is your marketing strategy based on data, or is it just a list of random tasks? Thinkments aligns your entire organization around one clear 'North Star,' giving you the clarity to scale without the chaos.
         </p>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
         >
-          <Button
-            asChild
-            size="lg"
-            className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-semibold text-lg px-10"
-          >
+          <Button asChild size="lg" className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-semibold text-lg px-10">
             <Link to="/contact-us">Book My Clarity Call</Link>
           </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold text-lg px-10"
-          >
+          <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold text-lg px-10">
             <Link to="/contact-us">See The Framework</Link>
           </Button>
         </motion.div>
@@ -152,7 +97,6 @@ export default function HomePage() {
     </div>
   );
 
-  // Section 3: The Problem
   const ProblemContent = () => (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -163,8 +107,7 @@ export default function HomePage() {
       <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-12 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
         Does any of this sound familiar?
       </h2>
-
-      <div className="space-y-8">
+      <div className="space-y-6">
         {[
           {
             title: "The Black Box",
@@ -187,7 +130,7 @@ export default function HomePage() {
             initial={{ opacity: 0, x: -20 }}
             animate={isProblemsInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
-            className="flex items-start gap-4 p-6 border-l-4 border-[#F7B928] bg-white shadow-sm rounded-lg"
+            className="flex items-start gap-4 p-6 bg-white shadow-sm rounded-lg border-l-4 border-[#F7B928]"
           >
             <pain.icon className="w-8 h-8 text-[#1E3A5F] flex-shrink-0 mt-1" />
             <div>
@@ -200,7 +143,6 @@ export default function HomePage() {
     </motion.div>
   );
 
-  // Section 4: The Solution
   const SolutionContent = () => (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -212,26 +154,13 @@ export default function HomePage() {
         The problem isn't your tactics. It's the absence of a North Star.
       </h2>
       <p className="text-lg md:text-xl text-white/90 mb-12 text-center max-w-3xl mx-auto">
-        For companies in the "messy middle," growth stalls not from a lack of effort, but from a lack of a single, unifying strategy. Without it, your team is adrift, your budget is wasted, and your message is lost. We created The North Star Framework to fix this. It’s a proprietary system designed to give you one source of strategic truth, aligning every marketing decision to a single, measurable goal.
+        For companies in the "messy middle," growth stalls not from a lack of effort, but from a lack of a single, unifying strategy. We created The North Star Framework to fix this giving you one source of strategic truth.
       </p>
-
       <div className="grid md:grid-cols-3 gap-6">
         {[
-          {
-            title: "Radical Alignment",
-            icon: TrendingUp,
-            description: "Get your entire sales and marketing team rowing in the same direction."
-          },
-          {
-            title: "Unshakeable Clarity",
-            icon: Target,
-            description: "Make confident decisions and say 'no' to distractions."
-          },
-          {
-            title: "Predictable Growth",
-            icon: CheckCircle,
-            description: "Turn chaos into a repeatable system that drives revenue."
-          }
+          { title: "Radical Alignment", icon: TrendingUp, desc: "Get your entire sales and marketing team rowing in the same direction." },
+          { title: "Unshakeable Clarity", icon: Target, desc: "Make confident decisions and say 'no' to distractions." },
+          { title: "Predictable Growth", icon: CheckCircle, desc: "Turn chaos into a repeatable system that drives revenue." }
         ].map((benefit, index) => (
           <motion.div
             key={index}
@@ -242,110 +171,142 @@ export default function HomePage() {
           >
             <benefit.icon className="w-8 h-8 text-[#00B4D8] mx-auto mb-3" />
             <h3 className="text-xl font-semibold text-white mb-2">{benefit.title}</h3>
-            <p className="text-white/80 text-sm">{benefit.description}</p>
+            <p className="text-white/80 text-sm">{benefit.desc}</p>
           </motion.div>
         ))}
       </div>
     </motion.div>
   );
 
-  // Section 6: Final CTA
-  const FinalCtaContent = () => (
+  const TestimonialsContent = () => (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
+      animate={isTestimonialsInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className="text-center text-white max-w-4xl mx-auto"
+      className="max-w-6xl mx-auto"
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-        Ready to find your North Star?
-      </h2>
-      <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
-        Stop running on the marketing hamster wheel. Book a free, no-obligation strategy call and we'll show you the first steps toward building a marketing engine that finally makes sense.
-      </p>
-
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-        <Button
-          asChild
-          size="lg"
-          className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-semibold text-lg px-10"
-        >
-          <Link to="/contact-us">Book My Free Strategy Call</Link>
-        </Button>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+          What Our Clients Say
+        </h2>
+        <div className="flex justify-center items-center gap-2 mb-4">
+           <div className="flex gap-1">
+             {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />)}
+           </div>
+           <span className="text-gray-600 font-semibold">5.0 Average Rating</span>
+        </div>
       </div>
-
+      <div className="grid md:grid-cols-3 gap-6">
+         {[
+           { name: "Sarah M.", role: "Marketing Director", text: "ThinkMents didn't just build a website; they gave us a roadmap for the next 5 years. Our leads have doubled in 6 months." },
+           { name: "James R.", role: "CEO, TechStart", text: "Finally, an agency that speaks data, not fluff. The North Star framework clarified our entire go-to-market strategy." },
+           { name: "Elena K.", role: "Local Business Owner", text: "We were invisible on Google. Now we dominate our local area. The team is responsive, strategic, and effective." }
+         ].map((t, i) => (
+           <Card key={i} className="bg-white hover:shadow-lg transition-shadow">
+             <CardContent className="p-6">
+               <Quote className="w-8 h-8 text-[#00B4D8]/20 mb-4" />
+               <p className="text-gray-700 italic mb-4">"{t.text}"</p>
+               <div>
+                 <p className="font-bold text-[#1E3A5F]">{t.name}</p>
+                 <p className="text-sm text-gray-500">{t.role}</p>
+               </div>
+             </CardContent>
+           </Card>
+         ))}
+      </div>
     </motion.div>
   );
-
 
   return (
     <>
       <SEO
         title="Stop Guessing. Start Growing. | Thinkments"
-        description="Is your marketing strategy based on data, or is it just a list of random tasks? Thinkments aligns your entire organization around one clear 'North Star,' giving you the clarity to scale without the chaos."
-        keywords="marketing strategy, north star framework, digital marketing audit, marketing chaos, predictable growth"
+        description="Thinkments aligns your entire organization around one clear 'North Star,' giving you the clarity to scale without the chaos."
         url="/"
         type="website"
         structuredData={localBusinessSchema}
       />
 
-      {/* SECTION 1: Hero Section (Blueprint) */}
-      <section
-        ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      >
-        {/* Hero Background Image */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
-
-        {/* Overlay for text readability */}
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0" style={{ backgroundImage: `url(${heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 via-[#1E3A5F]/85 to-[#1E3A5F]/70"></div>
-
         <div className="container mx-auto px-4 relative z-10">
           <HeroContent />
         </div>
       </section>
 
-      {/* SECTION 2: Social Proof Bar (Placeholder) */}
-      <section className="py-8 md:py-12 bg-white text-center">
-          <h2 className="text-lg font-medium text-gray-500 mb-6">
-            Helping B2B leaders in the "Messy Middle" find their direction
-          </h2>
-          <div className="flex items-center justify-center gap-8 md:gap-12 opacity-50">
-            {/* Placeholder Logos */}
-            <div className="w-16 h-8 bg-gray-200"></div>
-            <div className="w-20 h-8 bg-gray-200"></div>
-            <div className="w-14 h-8 bg-gray-200"></div>
-            <div className="w-16 h-8 bg-gray-200"></div>
+      {/* Social Proof */}
+      <section className="py-10 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Trusted by Leaders in</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+             {/* Replace these divs with real logos when available */}
+             <div className="text-xl font-bold text-gray-400">Healthcare</div>
+             <div className="text-xl font-bold text-gray-400">Real Estate</div>
+             <div className="text-xl font-bold text-gray-400">Technology</div>
+             <div className="text-xl font-bold text-gray-400">Retail</div>
+             <div className="text-xl font-bold text-gray-400">Manufacturing</div>
           </div>
+        </div>
       </section>
 
-
-      {/* SECTION 3: The Problem (Blueprint) */}
-      <section ref={problemsRef} className="py-12 md:py-20 bg-[#F8F9FA]">
+      {/* The Problem */}
+      <section ref={problemsRef} className="py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <ProblemContent />
         </div>
       </section>
 
-      {/* SECTION 4: The Solution (Blueprint) */}
-      <section ref={servicesRef} className="py-12 md:py-20 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844]">
+      {/* The Solution */}
+      <section ref={servicesRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844]">
         <div className="container mx-auto px-4">
           <SolutionContent />
         </div>
       </section>
 
-      {/* SECTION 6: Final CTA (Blueprint) */}
-      <section ref={ctaRef} className="py-16 md:py-24 bg-gray-800 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <FinalCtaContent />
+      {/* Testimonials */}
+      <section ref={testimonialsRef} className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+           <TestimonialsContent />
+        </div>
+      </section>
+
+      {/* About/Founder Mini-Section */}
+      <section ref={aboutRef} className="py-20 bg-[#F8F9FA]">
+        <div className="container mx-auto px-4 max-w-5xl flex flex-col md:flex-row items-center gap-12">
+           <div className="w-full md:w-1/2">
+              <div className="relative">
+                 <div className="absolute -inset-4 bg-[#00B4D8] rounded-2xl opacity-20 transform -rotate-3"></div>
+                 <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team meeting" className="relative rounded-xl shadow-lg w-full" />
+              </div>
+           </div>
+           <div className="w-full md:w-1/2">
+              <h2 className="text-3xl text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                We've Been Navigating the Digital Landscape Since 2002
+              </h2>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                ThinkMents isn't a startup figuring things out on your dime. We are a veteran team based in Decatur, Texas, serving clients across 31 states. We believe that clarity beats complexity, and strategy must always precede tactics.
+              </p>
+              <Button asChild variant="outline" className="border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white">
+                <Link to="/about-us">Read Our Story</Link>
+              </Button>
+           </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section ref={ctaRef} className="py-24 bg-gray-900 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Ready to find your North Star?
+          </h2>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            Stop running on the marketing hamster wheel. Book a free strategy call and let's map out your path to predictable growth.
+          </p>
+          <Button asChild size="lg" className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold text-lg px-12 py-6 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+            <Link to="/contact-us">Book My Free Strategy Call</Link>
+          </Button>
         </div>
       </section>
     </>

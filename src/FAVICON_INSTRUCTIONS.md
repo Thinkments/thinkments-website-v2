@@ -5,6 +5,7 @@
 The following configuration files and HTML tags have been added to your ThinkMents website:
 
 ### HTML Head Tags (Added to `/public/index.html`):
+
 - ✅ `<link rel="icon" type="image/x-icon" href="/favicon.ico">`
 - ✅ `<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">`
 - ✅ `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">`
@@ -13,6 +14,7 @@ The following configuration files and HTML tags have been added to your ThinkMen
 - ✅ `<meta name="theme-color" content="#1E3A5F">`
 
 ### Manifest File:
+
 - ✅ `/public/site.webmanifest` - Created with proper configuration
 
 ## 📋 Favicon Files You Need to Create
@@ -20,6 +22,7 @@ The following configuration files and HTML tags have been added to your ThinkMen
 You need to create the following image files and place them in the `/public/` directory:
 
 ### Required Files:
+
 1. **favicon.ico** (32x32 pixels) - For legacy browser support
 2. **favicon-16x16.png** (16x16 pixels) - Small browser tab icon
 3. **favicon-32x32.png** (32x32 pixels) - Standard browser tab icon
@@ -30,13 +33,16 @@ You need to create the following image files and place them in the `/public/` di
 ## 🎨 Design Specifications
 
 ### Design Concept:
+
 Use the ThinkMents logo mark (the "T" icon) or create a simple branded icon with:
+
 - **Background Color:** Deep blue (#1E3A5F)
 - **Icon/Text Color:** White (#FFFFFF) or Teal (#00B4D8)
 - **Style:** Clean, simple, recognizable at small sizes (16x16px)
 - **Format:** Square with no rounded corners (browsers will handle rounding)
 
 ### Design Guidelines:
+
 - ✅ Use a solid background color (no transparency for .ico file)
 - ✅ Keep the design simple - complex logos don't scale well to 16x16
 - ✅ Ensure good contrast between background and foreground
@@ -48,41 +54,43 @@ Use the ThinkMents logo mark (the "T" icon) or create a simple branded icon with
 ### Option 1: Online Favicon Generator (Easiest)
 
 1. **Use RealFaviconGenerator.net:**
-   - Visit: https://realfavicongenerator.net/
-   - Upload your ThinkMents logo (high resolution)
-   - Customize settings:
-     - iOS: Use solid color background (#1E3A5F)
-     - Android: Use solid color background (#1E3A5F)
-     - Windows: Choose color (#1E3A5F)
-   - Generate and download all files
-   - Place files in `/public/` directory
+    - Visit: https://realfavicongenerator.net/
+    - Upload your ThinkMents logo (high resolution)
+    - Customize settings:
+        - iOS: Use solid color background (#1E3A5F)
+        - Android: Use solid color background (#1E3A5F)
+        - Windows: Choose color (#1E3A5F)
+    - Generate and download all files
+    - Place files in `/public/` directory
 
 2. **Alternative: Favicon.io:**
-   - Visit: https://favicon.io/
-   - Options:
-     - Generate from text (use "T" for ThinkMents)
-     - Generate from image (upload logo)
-     - Generate from emoji
-   - Choose background color: #1E3A5F
-   - Choose text/icon color: #FFFFFF or #00B4D8
-   - Download and place in `/public/`
+    - Visit: https://favicon.io/
+    - Options:
+        - Generate from text (use "T" for ThinkMents)
+        - Generate from image (upload logo)
+        - Generate from emoji
+    - Choose background color: #1E3A5F
+    - Choose text/icon color: #FFFFFF or #00B4D8
+    - Download and place in `/public/`
 
 ### Option 2: Design Software (Professional)
 
 **Using Figma:**
+
 1. Create a 512x512px artboard
 2. Add ThinkMents logo mark or "T" icon
 3. Use background: #1E3A5F
 4. Use foreground: #FFFFFF or #00B4D8
 5. Export multiple sizes:
-   - 16x16px → favicon-16x16.png
-   - 32x32px → favicon-32x32.png
-   - 180x180px → apple-touch-icon.png
-   - 192x192px → android-chrome-192x192.png
-   - 512x512px → android-chrome-512x512.png
+    - 16x16px → favicon-16x16.png
+    - 32x32px → favicon-32x32.png
+    - 180x180px → apple-touch-icon.png
+    - 192x192px → android-chrome-192x192.png
+    - 512x512px → android-chrome-512x512.png
 6. Convert 32x32.png to .ico format using online converter
 
 **Using Photoshop/Illustrator:**
+
 1. Open ThinkMents logo
 2. Create a square canvas (512x512px)
 3. Add solid background: #1E3A5F
@@ -122,29 +130,32 @@ All favicon files should be placed in the `/public/` directory:
 After creating and placing the files:
 
 ### Browser Tab Test:
+
 1. Clear browser cache (Ctrl+Shift+Delete)
 2. Visit https://thinkments.com
 3. Check browser tab for favicon
 4. Test in multiple browsers:
-   - Chrome
-   - Firefox
-   - Safari
-   - Edge
+    - Chrome
+    - Firefox
+    - Safari
+    - Edge
 
 ### Mobile Home Screen Test:
+
 1. **iOS (iPhone/iPad):**
-   - Open site in Safari
-   - Tap Share button
-   - Tap "Add to Home Screen"
-   - Check icon appearance
+    - Open site in Safari
+    - Tap Share button
+    - Tap "Add to Home Screen"
+    - Check icon appearance
 
 2. **Android:**
-   - Open site in Chrome
-   - Tap menu (three dots)
-   - Tap "Add to Home screen"
-   - Check icon appearance
+    - Open site in Chrome
+    - Tap menu (three dots)
+    - Tap "Add to Home screen"
+    - Check icon appearance
 
 ### Online Testing Tools:
+
 - **Favicon Checker:** https://realfavicongenerator.net/favicon_checker
 - **What's My Favicon:** https://whatsmyfavicon.com/
 - Enter your URL and check all sizes
@@ -154,6 +165,7 @@ After creating and placing the files:
 If you want a simple text-based favicon:
 
 **Simple "T" Icon Design:**
+
 ```
 Background: #1E3A5F (Deep Blue)
 Text: "T" in Playfair Display font
@@ -163,6 +175,7 @@ Center aligned
 ```
 
 **Alternative Design:**
+
 ```
 Background: #1E3A5F (Deep Blue)
 Icon: Simplified ThinkMents logo mark
@@ -174,6 +187,7 @@ Center aligned
 ## 🔧 Troubleshooting
 
 **Favicon not showing?**
+
 - Clear browser cache completely
 - Do a hard refresh (Ctrl+F5)
 - Check browser developer tools > Network tab
@@ -181,11 +195,13 @@ Center aligned
 - Check file names match exactly (case-sensitive)
 
 **Wrong size displaying?**
+
 - Browsers choose different sizes for different contexts
 - Ensure all sizes are created properly
 - Test with Favicon Checker tool
 
 **iOS icon looks wrong?**
+
 - iOS requires 180x180px specifically
 - Ensure no transparency in apple-touch-icon.png
 - Use solid background color
@@ -210,6 +226,7 @@ Keep files small for fast loading!
 ⏳ Files need to be placed in /public/ directory
 
 Once you create and place the favicon files, your ThinkMents website will have proper branding in:
+
 - Browser tabs
 - Bookmarks
 - Mobile home screens

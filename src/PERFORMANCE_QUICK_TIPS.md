@@ -5,6 +5,7 @@
 ### Image Optimization
 
 #### ✅ DO:
+
 ```tsx
 // Hero images (above the fold)
 <ImageWithFallback
@@ -26,6 +27,7 @@
 ```
 
 #### ❌ DON'T:
+
 ```tsx
 // Missing dimensions (causes layout shift)
 <img src="image.jpg" alt="Bad" />
@@ -39,12 +41,14 @@
 ### Font Loading
 
 #### ✅ DO:
+
 ```html
 <!-- Already configured in index.html -->
 <link href="...fonts.googleapis.com...&display=swap" rel="stylesheet">
 ```
 
 #### ❌ DON'T:
+
 ```html
 <!-- Blocks rendering -->
 <link href="...fonts.googleapis.com..." rel="stylesheet">
@@ -55,6 +59,7 @@
 ### Script Loading
 
 #### ✅ DO:
+
 ```html
 <!-- Defer non-critical scripts -->
 <script src="analytics.js" defer></script>
@@ -64,6 +69,7 @@
 ```
 
 #### ❌ DON'T:
+
 ```html
 <!-- Blocks page parsing -->
 <script src="large-script.js"></script>
@@ -74,6 +80,7 @@
 ### Resource Hints
 
 #### ✅ DO:
+
 ```html
 <!-- Critical origins -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -83,6 +90,7 @@
 ```
 
 #### ❌ DON'T:
+
 ```html
 <!-- Too many preconnects (limit to 3-4) -->
 <link rel="preconnect" href="..." />
@@ -97,6 +105,7 @@
 ### Component Best Practices
 
 #### ✅ DO:
+
 ```tsx
 // Lazy load heavy components
 const HeavyComponent = lazy(() => import('./HeavyComponent'));
@@ -107,6 +116,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ```
 
 #### ❌ DON'T:
+
 ```tsx
 // Import everything upfront
 import HeavyComponent from './HeavyComponent';
@@ -116,19 +126,20 @@ import HeavyComponent from './HeavyComponent';
 
 ## 🎯 Performance Targets
 
-| Metric | Target | Current |
-|--------|--------|---------|
-| FCP | < 1.8s | ✅ |
-| LCP | < 2.5s | ✅ |
-| FID | < 100ms | ✅ |
-| CLS | < 0.1 | ✅ |
-| TTI | < 3.8s | ✅ |
+| Metric | Target  | Current |
+|--------|---------|---------|
+| FCP    | < 1.8s  | ✅       |
+| LCP    | < 2.5s  | ✅       |
+| FID    | < 100ms | ✅       |
+| CLS    | < 0.1   | ✅       |
+| TTI    | < 3.8s  | ✅       |
 
 ---
 
 ## 🔍 Quick Testing
 
 ### Test Performance
+
 ```bash
 # Using Lighthouse CLI
 npm install -g lighthouse
@@ -139,6 +150,7 @@ lighthouse https://thinkments.com --view
 ```
 
 ### Check Bundle Size
+
 ```bash
 # Build and analyze
 npm run build
@@ -164,6 +176,7 @@ npm run build
 ## 🐛 Common Mistakes
 
 ### 1. Forgetting Image Dimensions
+
 ```tsx
 // ❌ Bad
 <ImageWithFallback src="image.jpg" />
@@ -173,6 +186,7 @@ npm run build
 ```
 
 ### 2. Loading All Images Eagerly
+
 ```tsx
 // ❌ Bad - All images load immediately
 <ImageWithFallback src="image.jpg" loading="eager" />
@@ -182,6 +196,7 @@ npm run build
 ```
 
 ### 3. Blocking Scripts in Head
+
 ```html
 <!-- ❌ Bad - Blocks parsing -->
 <script src="analytics.js"></script>
@@ -191,6 +206,7 @@ npm run build
 ```
 
 ### 4. No Preconnect to Critical Origins
+
 ```html
 <!-- ❌ Bad - Slow connection setup -->
 <!-- No preconnect -->
@@ -204,6 +220,7 @@ npm run build
 ## 📊 Monitoring
 
 ### Check Performance
+
 ```tsx
 // Add to App.tsx
 import PerformanceOptimizer from './components/PerformanceOptimizer';
@@ -212,6 +229,7 @@ import PerformanceOptimizer from './components/PerformanceOptimizer';
 ```
 
 ### View Core Web Vitals
+
 1. Open Chrome DevTools
 2. Go to Performance tab
 3. Record page load

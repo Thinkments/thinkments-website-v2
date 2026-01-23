@@ -9,12 +9,16 @@ This is a **pure frontend static website** with NO backend functionality.
 ## ⛔ 403 ERROR PREVENTION
 
 ### The Problem
-Figma Make attempts to deploy Supabase edge functions located in `/supabase/functions/`, which causes:
+
+Figma Make attempts to deploy Supabase edge functions located in `/supabase/functions/`, which
+causes:
+
 ```
 Error: XHR for "/api/integrations/supabase/.../edge_functions/make-server/deploy" failed with status 403
 ```
 
 ### The Solution
+
 **SKIP ALL SUPABASE DEPLOYMENTS**
 
 ---
@@ -22,6 +26,7 @@ Error: XHR for "/api/integrations/supabase/.../edge_functions/make-server/deploy
 ## ✅ What TO Deploy
 
 Deploy ONLY these files:
+
 - `/dist/` - Built static files (HTML, CSS, JS)
 - `/public/` - Static assets
 - Frontend React application
@@ -31,6 +36,7 @@ Deploy ONLY these files:
 ## ❌ What NOT to Deploy
 
 **DO NOT DEPLOY:**
+
 - `/supabase/` - Protected backend files (cause 403 errors)
 - `/supabase/functions/` - Edge functions (forbidden)
 - `/utils/supabase/` - Legacy Supabase utilities
@@ -63,6 +69,7 @@ npm run build
 ```
 
 This command:
+
 1. Generates robots.txt
 2. Copies static files
 3. Compiles TypeScript
@@ -74,23 +81,24 @@ Output directory: **`/dist/`**
 
 ## 🆘 If 403 Error Persists
 
-The 403 error is caused by **infrastructure-level Supabase integration** that cannot be removed by users.
+The 403 error is caused by **infrastructure-level Supabase integration** that cannot be removed by
+users.
 
 ### Options:
 
 1. **Contact Figma Make Support**
-   - Request disconnection of Supabase integration
-   - Provide project ID: `TSI4MmHw4TcJVL6Ji2FvTs`
+    - Request disconnection of Supabase integration
+    - Provide project ID: `TSI4MmHw4TcJVL6Ji2FvTs`
 
 2. **Deploy to Alternative Platform**
-   - Vercel
-   - Netlify
-   - GitHub Pages
-   - Cloudflare Pages
+    - Vercel
+    - Netlify
+    - GitHub Pages
+    - Cloudflare Pages
 
 3. **Manual Workaround**
-   - Export the `/dist/` folder after running `npm run build`
-   - Upload to any static hosting provider
+    - Export the `/dist/` folder after running `npm run build`
+    - Upload to any static hosting provider
 
 ---
 
@@ -118,6 +126,8 @@ The 403 error is caused by **infrastructure-level Supabase integration** that ca
 
 ## 📞 Support
 
-If deployment continues to fail with 403 errors, this indicates the Supabase integration is still active at the infrastructure level and requires Figma Make support to disconnect.
+If deployment continues to fail with 403 errors, this indicates the Supabase integration is still
+active at the infrastructure level and requires Figma Make support to disconnect.
 
-**The website code is fully functional** - the issue is purely with the deployment configuration at the platform level.
+**The website code is fully functional** - the issue is purely with the deployment configuration at
+the platform level.

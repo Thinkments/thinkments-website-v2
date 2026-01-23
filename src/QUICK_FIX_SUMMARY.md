@@ -3,6 +3,7 @@
 ## What I Just Did
 
 Created **9 ignore files** to prevent Supabase deployment:
+
 1. `.supabaseignore`
 2. `.figmamakeignore`
 3. `.deployignore`
@@ -16,6 +17,7 @@ Created **9 ignore files** to prevent Supabase deployment:
 ## Configuration Files Already In Place
 
 These were already properly configured:
+
 - ✅ `figma-make.config.json` - Has `skipSupabase: true`
 - ✅ `figma-make.deployment.json` - Supabase disabled
 - ✅ `deployment.config.json` - Static deployment only
@@ -32,15 +34,18 @@ These were already properly configured:
 You have 3 options:
 
 ### Option A: Contact Figma Make Support
+
 Ask them to disconnect Supabase integration for project: `TSI4MmHw4TcJVL6Ji2FvTs`
 
 ### Option B: Deploy to Vercel/Netlify (Easiest)
+
 ```bash
 npm run build
 # Upload the /dist/ folder to Vercel or Netlify
 ```
 
 ### Option C: Export Manually
+
 ```bash
 npm run build
 # Upload /dist/ folder to any static host
@@ -48,11 +53,14 @@ npm run build
 
 ## Why It Might Still Fail
 
-If Figma Make's infrastructure has the Supabase connection locked at a level above your project files, no amount of configuration changes will help. This is a **platform limitation**, not a code problem.
+If Figma Make's infrastructure has the Supabase connection locked at a level above your project
+files, no amount of configuration changes will help. This is a **platform limitation**, not a code
+problem.
 
 ## Your Code Is Ready
 
 Your application is:
+
 - ✅ Fully functional
 - ✅ Production-ready
 - ✅ Will work on any static hosting
@@ -60,8 +68,10 @@ Your application is:
 
 ## The Problem In One Sentence
 
-Figma Make is trying to deploy edge functions you don't have permission to deploy, and the integration exists at infrastructure level where you can't disable it through code.
+Figma Make is trying to deploy edge functions you don't have permission to deploy, and the
+integration exists at infrastructure level where you can't disable it through code.
 
 ## Bottom Line
 
-**Try deploying once more. If it fails again, deploy to Vercel/Netlify instead - it will work perfectly there.**
+**Try deploying once more. If it fails again, deploy to Vercel/Netlify instead - it will work
+perfectly there.**

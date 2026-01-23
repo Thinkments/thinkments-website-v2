@@ -1,16 +1,22 @@
 # 403 Deployment Error - Complete Fix Documentation
 
 ## Error Message
+
 ```
 Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvTs/edge_functions/make-server/deploy" failed with status 403
 ```
 
 ## Root Cause
-Figma Make is attempting to deploy protected Supabase edge functions located in `/supabase/functions/server/`. These files cannot be deleted because they are protected by Figma Make's infrastructure, and the deployment fails with a 403 Forbidden error because you don't have permission to deploy them.
+
+Figma Make is attempting to deploy protected Supabase edge functions located in
+`/supabase/functions/server/`. These files cannot be deleted because they are protected by Figma
+Make's infrastructure, and the deployment fails with a 403 Forbidden error because you don't have
+permission to deploy them.
 
 ## What Has Been Done
 
 ### 1. Created Multiple Ignore Files
+
 To prevent Supabase files from being deployed, the following ignore files have been created:
 
 - **`.supabaseignore`** - Standard Supabase ignore patterns
@@ -20,6 +26,7 @@ To prevent Supabase files from being deployed, the following ignore files have b
 - **`.figmamake.ignore`** - Comprehensive ignore file
 
 All of these files instruct the deployment system to skip:
+
 - `supabase/`
 - `supabase/functions/`
 - `utils/supabase/`
@@ -27,9 +34,11 @@ All of these files instruct the deployment system to skip:
 - All server functions
 
 ### 2. Updated Configuration Files
+
 Multiple configuration files have been updated to disable Supabase:
 
 #### `/figma-make.config.json`
+
 ```json
 {
   "deployment": {
@@ -48,6 +57,7 @@ Multiple configuration files have been updated to disable Supabase:
 ```
 
 #### `/figma-make.deployment.json`
+
 ```json
 {
   "deployment": {
@@ -66,6 +76,7 @@ Multiple configuration files have been updated to disable Supabase:
 ```
 
 #### `/deployment.config.json`
+
 ```json
 {
   "type": "static",
@@ -78,6 +89,7 @@ Multiple configuration files have been updated to disable Supabase:
 ```
 
 #### `/supabase.json`
+
 ```json
 {
   "enabled": false,
@@ -87,6 +99,7 @@ Multiple configuration files have been updated to disable Supabase:
 ```
 
 #### `/package.json`
+
 ```json
 {
   "deploymentType": "frontend-only",
@@ -97,6 +110,7 @@ Multiple configuration files have been updated to disable Supabase:
 ```
 
 ### 3. Created Marker Files
+
 - **`SKIP_SUPABASE_DEPLOYMENT`** - Clear signal to skip Supabase
 - **`DEPLOYMENT_INSTRUCTIONS.md`** - Comprehensive deployment guide
 - **`/supabase/functions/DO_NOT_DEPLOY.md`** - Warning in the problematic directory
@@ -105,38 +119,48 @@ Multiple configuration files have been updated to disable Supabase:
 
 Unfortunately, if the 403 error persists, it means:
 
-1. **Infrastructure-Level Integration**: The Supabase connection exists at Figma Make's infrastructure level, not just in your project files
-2. **Protected Resources**: The edge function deployment is triggered by Figma Make's backend before it even looks at your configuration files
-3. **Cannot Override**: User-level configuration files may not override infrastructure-level integrations
+1. **Infrastructure-Level Integration**: The Supabase connection exists at Figma Make's
+   infrastructure level, not just in your project files
+2. **Protected Resources**: The edge function deployment is triggered by Figma Make's backend before
+   it even looks at your configuration files
+3. **Cannot Override**: User-level configuration files may not override infrastructure-level
+   integrations
 
 ## What This Means
 
 The issue is **NOT with your code**. Your application is:
+
 - ✅ Fully functional as a frontend-only app
 - ✅ Properly configured to skip Supabase
 - ✅ Has all necessary ignore files in place
 - ✅ Ready to deploy to any standard static hosting platform
 
-The issue is **with Figma Make's infrastructure**, which has a Supabase integration that you cannot disconnect from the user interface.
+The issue is **with Figma Make's infrastructure**, which has a Supabase integration that you cannot
+disconnect from the user interface.
 
 ## Solutions
 
 ### Option 1: Contact Figma Make Support (Recommended)
+
 Contact Figma Make support and request:
+
 - Disconnect the Supabase integration for project ID: `TSI4MmHw4TcJVL6Ji2FvTs`
 - Remove the edge function deployment hook
 - Convert to pure frontend-only deployment
 
 ### Option 2: Deploy to Alternative Platform (Immediate)
+
 Your app is ready to deploy elsewhere right now:
 
 #### Vercel
+
 ```bash
 npm run build
 # Upload /dist/ folder to Vercel
 ```
 
 #### Netlify
+
 ```bash
 npm run build
 # Upload /dist/ folder to Netlify
@@ -145,18 +169,21 @@ npm run build
 ```
 
 #### GitHub Pages
+
 ```bash
 npm run build
 # Push /dist/ to gh-pages branch
 ```
 
 #### Cloudflare Pages
+
 ```bash
 npm run build
 # Connect repository or upload /dist/
 ```
 
 ### Option 3: Manual Export & Upload
+
 ```bash
 # Build the application
 npm run build
@@ -168,6 +195,7 @@ npm run build
 ## Testing Locally
 
 Your application works perfectly locally:
+
 ```bash
 npm run dev
 # Visit http://localhost:5173
@@ -176,6 +204,7 @@ npm run dev
 ## Files That Are Safe
 
 These files are all properly configured and will NOT cause issues on other platforms:
+
 - All React components in `/components/`
 - All pages in `/components/pages/`
 - All styles in `/styles/`
@@ -186,10 +215,12 @@ These files are all properly configured and will NOT cause issues on other platf
 ## Files That Cause 403 on Figma Make
 
 These files are protected and cause the 403 error:
+
 - `/supabase/functions/server/index.tsx`
 - `/supabase/functions/server/kv_store.tsx`
 
-**Note**: These files do NOT affect functionality - they are empty exports that exist only because Figma Make's infrastructure created them and won't let you delete them.
+**Note**: These files do NOT affect functionality - they are empty exports that exist only because
+Figma Make's infrastructure created them and won't let you delete them.
 
 ## Next Steps
 
@@ -204,4 +235,6 @@ These files are protected and cause the 403 error:
 ✅ **Ignore files are in place**
 ❌ **Figma Make's infrastructure has a locked Supabase integration**
 
-The 403 error is a platform limitation, not a code issue. Your best path forward is deploying to Vercel, Netlify, or another platform, or having Figma Make support disconnect the Supabase integration.
+The 403 error is a platform limitation, not a code issue. Your best path forward is deploying to
+Vercel, Netlify, or another platform, or having Figma Make support disconnect the Supabase
+integration.

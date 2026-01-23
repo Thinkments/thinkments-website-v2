@@ -1,6 +1,7 @@
 # ThinkMents SEO Setup Guide
 
-This guide explains how to generate static HTML pages for optimal Google Search Console and Google Analytics indexing.
+This guide explains how to generate static HTML pages for optimal Google Search Console and Google
+Analytics indexing.
 
 ## Quick Start
 
@@ -15,6 +16,7 @@ npm run seo-setup
 ## What Gets Generated
 
 ### 📄 Static HTML Pages (120+ pages)
+
 - **Main Pages**: Homepage, About, Services, Contact, etc.
 - **Service Detail Pages**: 25+ individual service pages
 - **Location Pages**: 90+ location-specific marketing pages
@@ -23,6 +25,7 @@ npm run seo-setup
 - **Legal Pages**: Privacy policy, terms, agreements
 
 ### 🔍 SEO Files
+
 - **sitemap.xml**: Complete XML sitemap for search engines
 - **robots.txt**: Search engine crawling directives
 - **Meta Tags**: Title, description, keywords for each page
@@ -57,7 +60,9 @@ public/
 ## SEO Features
 
 ### 🏷️ Meta Tags
+
 Each page includes:
+
 - Unique title (60 characters max)
 - Meta description (160 characters max)
 - Targeted keywords
@@ -66,6 +71,7 @@ Each page includes:
 - Twitter Card tags
 
 ### 📊 Structured Data
+
 - Organization schema for homepage
 - Service schema for service pages
 - LocalBusiness schema for location pages
@@ -73,6 +79,7 @@ Each page includes:
 - Product schema for store items
 
 ### 🔗 Internal Linking
+
 - Proper URL structure
 - Breadcrumb navigation
 - Related page linking
@@ -89,28 +96,31 @@ Each page includes:
    Upload all files in `/public` directory to your web server
 
 3. **Submit to Google**:
-   - Add your site to Google Search Console
-   - Submit `https://thinkments.com/sitemap.xml`
-   - Request indexing for key pages
+    - Add your site to Google Search Console
+    - Submit `https://thinkments.com/sitemap.xml`
+    - Request indexing for key pages
 
 4. **Monitor Performance**:
-   - Check indexing status
-   - Monitor search performance
-   - Review coverage reports
+    - Check indexing status
+    - Monitor search performance
+    - Review coverage reports
 
 ## Google Analytics Integration
 
 The static pages include:
+
 - Google Analytics tracking code placeholder
 - Page-specific tracking events
 - Enhanced ecommerce tracking (for store pages)
 - Goal conversion tracking setup
 
-**To activate**: Replace `GA_MEASUREMENT_ID` in the generated HTML with your actual Google Analytics ID.
+**To activate**: Replace `GA_MEASUREMENT_ID` in the generated HTML with your actual Google Analytics
+ID.
 
 ## Benefits
 
 ### 🚀 SEO Advantages
+
 - **Faster Indexing**: Static HTML loads instantly
 - **Better Rankings**: Clean HTML structure
 - **Rich Snippets**: Structured data markup
@@ -118,6 +128,7 @@ The static pages include:
 - **Content Coverage**: 120+ indexed pages
 
 ### 📈 Performance Benefits
+
 - **Lightning Fast**: Static files serve instantly
 - **SEO Friendly**: Search engines love static HTML
 - **Mobile Optimized**: Responsive design structure
@@ -126,14 +137,16 @@ The static pages include:
 ### 🎯 Coverage Areas
 
 #### Services Covered (25+ pages):
+
 - Web Development & Design
-- SEO & Digital Marketing  
+- SEO & Digital Marketing
 - Virtual Tours & Photography
 - Graphic Design & Branding
 - Video Production & Drone Services
 - AI Optimization & Analytics
 
 #### Locations Covered (90+ pages):
+
 - **Alabama**: Birmingham, Montgomery, Mobile, Huntsville, Tuscaloosa
 - **Tennessee**: Nashville, Memphis, Knoxville, Chattanooga
 - **Georgia**: Atlanta metro area
@@ -142,6 +155,7 @@ The static pages include:
 ## Customization
 
 ### Adding New Pages
+
 Edit `scripts/generateStaticPages.js` and add to the `pages` array:
 
 ```javascript
@@ -156,24 +170,29 @@ Edit `scripts/generateStaticPages.js` and add to the `pages` array:
 ```
 
 ### Updating Meta Tags
+
 Modify the `createHTMLTemplate` function to adjust:
+
 - Meta tag structure
 - Analytics tracking
 - CSS styling
 - Structured data format
 
 ### Location Expansion
+
 Add new locations to `LOCATION_ROUTES` array to generate additional location-specific pages.
 
 ## Deployment
 
 ### Development
+
 ```bash
 npm run generate-static
 npm run dev
 ```
 
 ### Production
+
 ```bash
 npm run generate-static
 npm run build
@@ -183,20 +202,23 @@ npm run build
 ## Monitoring
 
 ### Key Metrics to Track
+
 - **Search Console**: Indexing status, search performance
 - **Analytics**: Page views, bounce rate, conversions
 - **Core Web Vitals**: LCP, FID, CLS scores
 - **Local SEO**: Google My Business insights
 
 ### Regular Maintenance
+
 - Update static pages monthly
-- Refresh sitemap after content changes  
+- Refresh sitemap after content changes
 - Monitor for broken links or 404 errors
 - Track new keyword opportunities
 
 ## Support
 
 For questions about the SEO setup:
+
 1. Check the generated HTML files in `/public`
 2. Review the sitemap.xml structure
 3. Validate structured data with Google's testing tool
@@ -204,4 +226,5 @@ For questions about the SEO setup:
 
 ---
 
-**Result**: Your ThinkMents website now has 120+ static HTML pages optimized for Google Search Console and Analytics, with comprehensive SEO coverage across all services and locations.
+**Result**: Your ThinkMents website now has 120+ static HTML pages optimized for Google Search
+Console and Analytics, with comprehensive SEO coverage across all services and locations.

@@ -1,6 +1,7 @@
 # ⚠️ START HERE: 403 Deployment Error Solution
 
 You're seeing this error:
+
 ```
 Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvTs/edge_functions/make-server/deploy" failed with status 403
 ```
@@ -10,11 +11,13 @@ Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvT
 ### Question 1: Does your site actually work despite the error?
 
 **To check:**
+
 1. Wait for deployment to finish (even if it shows 403 error)
 2. Visit your deployment URL
 3. Test a few pages
 
 **If the site loads and works:**
+
 - ✅ **You're done!** The 403 is just a warning about unused edge functions.
 - ✅ Your frontend deployed successfully.
 - ✅ You can safely ignore the error message.
@@ -30,6 +33,7 @@ Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvT
 #### Option A: Fix in Figma Make (Requires Platform Access)
 
 **You need to:**
+
 1. Disconnect the Supabase integration in Figma Make settings
 2. OR contact Figma Make support to disconnect it for you
 
@@ -42,12 +46,14 @@ Error while deploying: XHR for "/api/integrations/supabase/TSI4MmHw4TcJVL6Ji2FvT
 #### Option B: Deploy to Another Platform (Fastest - 5 minutes)
 
 **Recommended platforms:**
+
 - **Vercel** - Easiest and fastest
 - **Netlify** - Great features
 - **Cloudflare Pages** - Best performance
 - **GitHub Pages** - Free forever
 
 **Quick start (Vercel):**
+
 ```bash
 npm install -g vercel
 vercel --prod
@@ -60,23 +66,27 @@ vercel --prod
 
 ## 📚 Documentation Index
 
-| File | Purpose |
-|------|---------|
-| **`START_HERE_403_FIX.md`** | 👈 You are here - Quick decision guide |
-| **`CRITICAL_403_ISSUE.md`** | Detailed explanation of what's wrong and why |
+| File                                  | Purpose                                       |
+|---------------------------------------|-----------------------------------------------|
+| **`START_HERE_403_FIX.md`**           | 👈 You are here - Quick decision guide        |
+| **`CRITICAL_403_ISSUE.md`**           | Detailed explanation of what's wrong and why  |
 | **`DEPLOY_ALTERNATIVE_PLATFORMS.md`** | Step-by-step guides for Vercel, Netlify, etc. |
-| **`VERIFY_DEPLOYMENT.md`** | Checklist to verify if deployment succeeded |
-| **`DEPLOYMENT_FIX_403.md`** | Technical details about attempted fixes |
+| **`VERIFY_DEPLOYMENT.md`**            | Checklist to verify if deployment succeeded   |
+| **`DEPLOYMENT_FIX_403.md`**           | Technical details about attempted fixes       |
 
 ---
 
 ## 🔍 What's Actually Wrong?
 
-**TL;DR:** Figma Make is trying to deploy Supabase edge functions that you don't use, to a Supabase project that's disconnected or doesn't exist. This causes a 403 (Forbidden) error.
+**TL;DR:** Figma Make is trying to deploy Supabase edge functions that you don't use, to a Supabase
+project that's disconnected or doesn't exist. This causes a 403 (Forbidden) error.
 
-**This is NOT a problem with your code.** Your ThinkMents website is a pure frontend React application that works perfectly. The issue is with Figma Make's platform-level Supabase integration.
+**This is NOT a problem with your code.** Your ThinkMents website is a pure frontend React
+application that works perfectly. The issue is with Figma Make's platform-level Supabase
+integration.
 
 **Why code changes can't fix it:**
+
 - The `/supabase/functions/` directory contains protected system files
 - Figma Make's deployment system detects this directory automatically
 - It tries to deploy edge functions BEFORE reading your configuration
@@ -145,21 +155,28 @@ Email/chat support with the template from `/CRITICAL_403_ISSUE.md`
 ## ❓ Common Questions
 
 ### Q: Will my site work despite the 403 error?
+
 **A:** Maybe! The 403 might be non-blocking. Check your deployment URL - if it loads, you're fine.
 
 ### Q: Can this be fixed with code changes?
-**A:** No. This is a Figma Make platform issue with the Supabase integration. Code changes can't fix platform-level issues.
+
+**A:** No. This is a Figma Make platform issue with the Supabase integration. Code changes can't fix
+platform-level issues.
 
 ### Q: Is there a way to delete the `/supabase/` directory?
+
 **A:** No. These are protected system files managed by Figma Make infrastructure.
 
 ### Q: Will deploying to Vercel/Netlify work?
+
 **A:** Yes, 100%. Your code is already configured for easy deployment to any platform.
 
 ### Q: Do I lose anything by deploying elsewhere?
+
 **A:** No. Your site is pure frontend - it works the same on any hosting platform.
 
 ### Q: What if I already have a custom domain?
+
 **A:** All platforms support custom domains with free SSL. Easy to configure.
 
 ---
@@ -174,18 +191,21 @@ Email/chat support with the template from `/CRITICAL_403_ISSUE.md`
 4. Free for commercial use
 5. Better performance than most platforms anyway
 
-Then, if you really want to fix Figma Make, contact their support. But you'll already have a live site, so no pressure.
+Then, if you really want to fix Figma Make, contact their support. But you'll already have a live
+site, so no pressure.
 
 ---
 
 ## 📞 Need Help?
 
 **Check these files:**
+
 1. `/CRITICAL_403_ISSUE.md` - Detailed technical explanation
 2. `/DEPLOY_ALTERNATIVE_PLATFORMS.md` - Platform-specific deployment guides
 3. `/VERIFY_DEPLOYMENT.md` - How to verify your site works
 
 **Still stuck?**
+
 - Share which path you chose (fix Figma Make vs deploy elsewhere)
 - Share what happened when you tried it
 - Include full error messages (not just the 403)
@@ -194,9 +214,11 @@ Then, if you really want to fix Figma Make, contact their support. But you'll al
 
 ## ⚡ Bottom Line
 
-**Your website code is perfect.** The 403 error is a Figma Make platform issue with Supabase integration.
+**Your website code is perfect.** The 403 error is a Figma Make platform issue with Supabase
+integration.
 
 **Two solutions:**
+
 1. **Fast:** Deploy to Vercel/Netlify (5 minutes, works immediately)
 2. **Slow:** Contact Figma Make support to disconnect Supabase integration
 

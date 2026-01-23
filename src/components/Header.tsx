@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Phone, ExternalLink, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import ServicesMegaMenu, { ServicesMegaMenuMobile } from './ServicesMegaMenu';
-
+// Logo component to match the image style
 const Logo = () => (
   <Link to="/" className="flex-shrink-0 mr-8 flex items-center gap-2">
     <h1 className="text-2xl font-black text-white tracking-wide">
@@ -69,6 +69,9 @@ export default function Header() {
   const isActiveDropdown = (paths: string[]) => {
     return paths.some(path => location.pathname === path || location.pathname.startsWith(path));
   };
+
+  const navLinkClasses = "flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium text-white hover:bg-white/10 hover:text-white transition-all duration-300";
+
 
   return (
     <>

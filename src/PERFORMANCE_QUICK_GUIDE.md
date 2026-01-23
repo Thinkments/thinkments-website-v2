@@ -11,6 +11,7 @@ Use this guide when adding new content to ensure optimal performance.
 ### ✅ Do This:
 
 **For Hero Images (Top of Page):**
+
 ```tsx
 import PerformantImage from '@/components/PerformantImage';
 
@@ -25,6 +26,7 @@ import PerformantImage from '@/components/PerformantImage';
 ```
 
 **For Regular Images (Below Fold):**
+
 ```tsx
 <PerformantImage 
   src="/image.jpg" 
@@ -36,6 +38,7 @@ import PerformantImage from '@/components/PerformantImage';
 ```
 
 **For WebP with Fallback:**
+
 ```tsx
 import { PictureImage } from '@/components/PerformantImage';
 
@@ -69,10 +72,12 @@ import { PictureImage } from '@/components/PerformantImage';
 ### ✅ Fonts Already Optimized:
 
 The following fonts are preloaded and optimized:
+
 - **Playfair Display** (Headlines)
 - **Montserrat** (Body text)
 
 **Usage:**
+
 ```tsx
 // Headlines
 <h1 style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -90,6 +95,7 @@ The following fonts are preloaded and optimized:
 ```
 
 ### ❌ Don't Add New Fonts Without:
+
 1. Adding preload link in `/public/index.html`
 2. Ensuring `display=swap` parameter
 3. Checking total font weight impact
@@ -101,6 +107,7 @@ The following fonts are preloaded and optimized:
 ### ✅ Do This:
 
 **For Analytics/Tracking:**
+
 ```tsx
 // Already optimized in /components/Analytics.tsx
 // All scripts use defer attribute
@@ -108,6 +115,7 @@ The following fonts are preloaded and optimized:
 ```
 
 **For Third-Party Widgets:**
+
 ```tsx
 // Load after page content
 <script defer src="third-party-widget.js"></script>
@@ -138,14 +146,17 @@ useEffect(() => {
 ### ✅ Do This:
 
 **Critical CSS (Above-the-Fold):**
+
 - Already inlined in `/public/index.html`
 - Covers loading states and basic layout
 
 **Component CSS:**
+
 - Use Tailwind classes (already optimized)
 - Import only what you need
 
 **Font Loading:**
+
 - Already using `display=swap` in `globals.css`
 
 ### ❌ Don't Do This:
@@ -165,6 +176,7 @@ useEffect(() => {
 ### ✅ Already Preconnected:
 
 These domains are already optimized:
+
 - `fonts.googleapis.com`
 - `fonts.gstatic.com`
 - `images.unsplash.com`
@@ -175,12 +187,14 @@ These domains are already optimized:
 ### Adding New External Resources:
 
 **If frequently used (10+ requests):**
+
 ```html
 <!-- Add to /public/index.html -->
 <link rel="preconnect" href="https://new-cdn.com" crossorigin />
 ```
 
 **If occasionally used (1-5 requests):**
+
 ```html
 <!-- Add to /public/index.html -->
 <link rel="dns-prefetch" href="//new-service.com" />
@@ -193,6 +207,7 @@ These domains are already optimized:
 ### ✅ Do This:
 
 **Responsive Images:**
+
 ```tsx
 import { ResponsiveImage } from '@/components/PerformantImage';
 
@@ -208,6 +223,7 @@ import { ResponsiveImage } from '@/components/PerformantImage';
 ```
 
 **Mobile-First Design:**
+
 ```tsx
 // Tailwind mobile-first approach
 <div className="text-sm md:text-base lg:text-lg">
@@ -234,6 +250,7 @@ import { ResponsiveImage } from '@/components/PerformantImage';
 ### ✅ Do This:
 
 **Lazy Load Components:**
+
 ```tsx
 import { lazy, Suspense } from 'react';
 
@@ -249,6 +266,7 @@ function MyPage() {
 ```
 
 **Memoize Expensive Calculations:**
+
 ```tsx
 import { useMemo } from 'react';
 
@@ -258,6 +276,7 @@ const expensiveValue = useMemo(() => {
 ```
 
 **Debounce Input Handlers:**
+
 ```tsx
 import { useState, useCallback } from 'react';
 import { debounce } from 'lodash';
@@ -295,8 +314,8 @@ function Component() {
    # In Chrome DevTools
    F12 > Lighthouse > Run Audit
    ```
-   - Target: 90+ on Performance
-   - Check all Core Web Vitals
+    - Target: 90+ on Performance
+    - Check all Core Web Vitals
 
 2. **Test on Slow Connection:**
    ```bash
@@ -325,20 +344,20 @@ function Component() {
 
 ### Core Web Vitals:
 
-| Metric | Target | Critical |
-|--------|--------|----------|
-| **LCP** (Largest Contentful Paint) | < 2.5s | ✅ |
-| **FID** (First Input Delay) | < 100ms | ✅ |
-| **CLS** (Cumulative Layout Shift) | < 0.1 | ✅ |
+| Metric                             | Target  | Critical |
+|------------------------------------|---------|----------|
+| **LCP** (Largest Contentful Paint) | < 2.5s  | ✅        |
+| **FID** (First Input Delay)        | < 100ms | ✅        |
+| **CLS** (Cumulative Layout Shift)  | < 0.1   | ✅        |
 
 ### Additional Metrics:
 
-| Metric | Target | Important |
-|--------|--------|-----------|
-| **FCP** (First Contentful Paint) | < 1.8s | ✅ |
-| **TTI** (Time to Interactive) | < 3.8s | ✅ |
-| **Speed Index** | < 3.4s | ✅ |
-| **TBT** (Total Blocking Time) | < 200ms | ✅ |
+| Metric                           | Target  | Important |
+|----------------------------------|---------|-----------|
+| **FCP** (First Contentful Paint) | < 1.8s  | ✅         |
+| **TTI** (Time to Interactive)    | < 3.8s  | ✅         |
+| **Speed Index**                  | < 3.4s  | ✅         |
+| **TBT** (Total Blocking Time)    | < 200ms | ✅         |
 
 ---
 
@@ -347,23 +366,23 @@ function Component() {
 ### Immediate Performance Boosts:
 
 1. **Add Width/Height to Images:**
-   - Before: `<img src="..." alt="..." />`
-   - After: `<img src="..." alt="..." width="800" height="600" />`
-   - Impact: Prevents layout shift
+    - Before: `<img src="..." alt="..." />`
+    - After: `<img src="..." alt="..." width="800" height="600" />`
+    - Impact: Prevents layout shift
 
 2. **Lazy Load Below-Fold Images:**
-   - Before: `<img src="..." />`
-   - After: `<PerformantImage src="..." lazy={true} />`
-   - Impact: Saves 500KB-2MB on initial load
+    - Before: `<img src="..." />`
+    - After: `<PerformantImage src="..." lazy={true} />`
+    - Impact: Saves 500KB-2MB on initial load
 
 3. **Defer Analytics:**
-   - Already done in `/components/Analytics.tsx`
-   - Impact: 300-800ms faster TTI
+    - Already done in `/components/Analytics.tsx`
+    - Impact: 300-800ms faster TTI
 
 4. **Use WebP Format:**
-   - Before: `image.jpg` (500KB)
-   - After: `image.webp` (200KB)
-   - Impact: 60% file size reduction
+    - Before: `image.jpg` (500KB)
+    - After: `image.webp` (200KB)
+    - Impact: 60% file size reduction
 
 ---
 
@@ -372,6 +391,7 @@ function Component() {
 ### Issue: Images causing layout shift
 
 **Fix:**
+
 ```tsx
 // Always add width and height
 <PerformantImage 
@@ -385,6 +405,7 @@ function Component() {
 ### Issue: Slow font loading
 
 **Fix:**
+
 ```css
 /* Already implemented in globals.css */
 @import url('...&display=swap'); /* ← display=swap */
@@ -393,6 +414,7 @@ function Component() {
 ### Issue: Scripts blocking rendering
 
 **Fix:**
+
 ```tsx
 // Use defer attribute
 <script defer src="script.js"></script>
@@ -401,6 +423,7 @@ function Component() {
 ### Issue: Large images on mobile
 
 **Fix:**
+
 ```tsx
 // Use responsive images
 <ResponsiveImage

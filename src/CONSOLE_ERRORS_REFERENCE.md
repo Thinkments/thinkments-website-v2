@@ -9,6 +9,7 @@
 ### ✅ FIXED (No Longer Appears)
 
 #### Preload Warning ✅
+
 ```
 The resource was preloaded using link preload but not used within a few seconds...
 ```
@@ -23,6 +24,7 @@ The resource was preloaded using link preload but not used within a few seconds.
 ### ⚠️ HARMLESS (Can Ignore)
 
 #### Web Components Error ⚠️
+
 ```
 webcomponents-ce.js:33 Uncaught Error: A custom element with name 'mce-autosize-textarea' has already been defined.
     at Aa (webcomponents-ce.js:33:363)
@@ -39,6 +41,7 @@ webcomponents-ce.js:33 Uncaught Error: A custom element with name 'mce-autosize-
 ---
 
 #### Sitemap HTML Warning (GSC) ⚠️
+
 ```
 Google Search Console: "Sitemap is HTML"
 ```
@@ -54,68 +57,74 @@ Google Search Console: "Sitemap is HTML"
 ### 🔵 INFORMATIONAL (Normal)
 
 #### React DevTools Message 🔵
+
 ```
 Download the React DevTools for a better development experience
 ```
 
 **Status:** 🔵 Informational  
-**Action:** Optional - install if you want  
+**Action:** Optional - install if you want
 
 ---
 
 #### HMR Messages 🔵
+
 ```
 [HMR] connected
 [HMR] Waiting for update signal from WDS...
 ```
 
 **Status:** 🔵 Normal  
-**Action:** None - this is expected  
+**Action:** None - this is expected
 
 ---
 
 #### Source Map Warnings 🔵
+
 ```
 DevTools failed to load source map
 ```
 
 **Status:** 🔵 Normal  
-**Action:** None - development debugging feature  
+**Action:** None - development debugging feature
 
 ---
 
 ### 🔴 REAL ERRORS (Need Attention)
 
 #### Your Code Errors 🔴
+
 ```
 ❌ Uncaught TypeError: Cannot read property 'map' of undefined
    at BlogPage.tsx:45:12
 ```
 
 **Status:** 🔴 Real error  
-**Action:** Fix the code in your .tsx file  
+**Action:** Fix the code in your .tsx file
 
 ---
 
 #### Missing Resources 🔴
+
 ```
 ❌ Failed to load resource: the server responded with a status of 404
    GET https://thinkments.com/missing-image.jpg
 ```
 
 **Status:** 🔴 Real error  
-**Action:** Fix the broken URL  
+**Action:** Fix the broken URL
 
 ---
 
 #### React Errors 🔴
+
 ```
 ❌ Error: Invalid hook call. Hooks can only be called inside function components
    at App.tsx:23:5
 ```
 
 **Status:** 🔴 Real error  
-**Action:** Fix React hook usage  
+**Action:** Fix React hook usage
 
 ---
 
@@ -144,22 +153,23 @@ See an error in console?
 
 ## 📊 Error Priority Matrix
 
-| Error Type | Priority | Source | Action |
-|------------|----------|--------|--------|
-| Your .tsx files | 🔴 High | Your code | Fix immediately |
-| 404 resources | 🔴 High | Missing files | Fix URL/add file |
-| React errors | 🔴 High | Your code | Debug and fix |
-| Preload warning | 🟡 Medium | Vite config | Should be fixed |
-| Web components | 🟢 Low | Figma Make | Ignore |
-| GSC sitemap HTML | 🟢 Low | Figma Make | Use workaround |
-| HMR messages | ⚪ Info | Dev server | Normal |
-| DevTools messages | ⚪ Info | Browser | Optional |
+| Error Type        | Priority  | Source        | Action           |
+|-------------------|-----------|---------------|------------------|
+| Your .tsx files   | 🔴 High   | Your code     | Fix immediately  |
+| 404 resources     | 🔴 High   | Missing files | Fix URL/add file |
+| React errors      | 🔴 High   | Your code     | Debug and fix    |
+| Preload warning   | 🟡 Medium | Vite config   | Should be fixed  |
+| Web components    | 🟢 Low    | Figma Make    | Ignore           |
+| GSC sitemap HTML  | 🟢 Low    | Figma Make    | Use workaround   |
+| HMR messages      | ⚪ Info    | Dev server    | Normal           |
+| DevTools messages | ⚪ Info    | Browser       | Optional         |
 
 ---
 
 ## ✅ Expected Console State After Deployment
 
 ### Figma Make Preview (Development):
+
 ```
 ✅ No preload warnings
 ⚠️ Web components error (harmless)
@@ -169,6 +179,7 @@ See an error in console?
 ```
 
 ### Published Site (Production):
+
 ```
 ✅ Clean console (or minimal warnings)
 ✅ No preload warnings
@@ -184,6 +195,7 @@ See an error in console?
 ### After Deployment:
 
 **1. Check Figma Make Preview:**
+
 ```bash
 1. Open preview in Figma Make
 2. Open DevTools Console
@@ -192,6 +204,7 @@ See an error in console?
 ```
 
 **2. Check Published Site:**
+
 ```bash
 1. Visit https://thinkments.com
 2. Open DevTools Console
@@ -204,12 +217,12 @@ See an error in console?
 
 ## 📝 Current Status Summary
 
-| Issue | Status | Production? | Action |
-|-------|--------|-------------|--------|
-| Preload warning | ✅ Fixed | N/A | None |
-| Web components error | ⚠️ Harmless | No | Ignore |
-| Sitemap HTML (GSC) | ⚠️ Expected | N/A | Use workaround |
-| Your code errors | ✅ None | N/A | None |
+| Issue                | Status      | Production? | Action         |
+|----------------------|-------------|-------------|----------------|
+| Preload warning      | ✅ Fixed     | N/A         | None           |
+| Web components error | ⚠️ Harmless | No          | Ignore         |
+| Sitemap HTML (GSC)   | ⚠️ Expected | N/A         | Use workaround |
+| Your code errors     | ✅ None      | N/A         | None           |
 
 ---
 
@@ -217,13 +230,13 @@ See an error in console?
 
 **For each type of error, see:**
 
-| Error | Documentation |
-|-------|---------------|
-| Preload warning | [/PRELOAD_WARNING_FIX.md](/PRELOAD_WARNING_FIX.md) |
-| Web components | [/WEBCOMPONENTS_ERROR_EXPLANATION.md](/WEBCOMPONENTS_ERROR_EXPLANATION.md) |
-| Sitemap HTML | [/SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md) |
-| Testing guide | [/POST_DEPLOYMENT_CHECKLIST.md](/POST_DEPLOYMENT_CHECKLIST.md) |
-| All documentation | [/INDEX.md](/INDEX.md) |
+| Error             | Documentation                                                              |
+|-------------------|----------------------------------------------------------------------------|
+| Preload warning   | [/PRELOAD_WARNING_FIX.md](/PRELOAD_WARNING_FIX.md)                         |
+| Web components    | [/WEBCOMPONENTS_ERROR_EXPLANATION.md](/WEBCOMPONENTS_ERROR_EXPLANATION.md) |
+| Sitemap HTML      | [/SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md)     |
+| Testing guide     | [/POST_DEPLOYMENT_CHECKLIST.md](/POST_DEPLOYMENT_CHECKLIST.md)             |
+| All documentation | [/INDEX.md](/INDEX.md)                                                     |
 
 ---
 
@@ -232,38 +245,39 @@ See an error in console?
 ### Signs of a REAL Error:
 
 1. **Source file is YOUR code**
-   - BlogPage.tsx, App.tsx, HomePage.tsx, etc.
+    - BlogPage.tsx, App.tsx, HomePage.tsx, etc.
 
 2. **User impact**
-   - Features broken, pages not loading, forms not working
+    - Features broken, pages not loading, forms not working
 
 3. **Reproducible**
-   - Happens every time, not just during HMR
+    - Happens every time, not just during HMR
 
 4. **Stack trace points to your components**
-   - Not Figma Make internal files
+    - Not Figma Make internal files
 
 ---
 
 ### Signs of a HARMLESS Warning:
 
 1. **Source file is Figma Make**
-   - overlay_bundle.js, webcomponents-ce.js
+    - overlay_bundle.js, webcomponents-ce.js
 
 2. **No user impact**
-   - Everything works normally
+    - Everything works normally
 
 3. **Environment-specific**
-   - Only in development, not production
+    - Only in development, not production
 
 4. **Related to tooling**
-   - HMR, DevTools, source maps
+    - HMR, DevTools, source maps
 
 ---
 
 ## 💡 Pro Tips
 
 ### 1. Focus on What Matters
+
 ```
 ✅ DO worry about:
    - Errors from your .tsx files
@@ -281,6 +295,7 @@ See an error in console?
 ---
 
 ### 2. Check Production First
+
 ```
 When you see an error:
 1. Is it in production?
@@ -291,6 +306,7 @@ When you see an error:
 ---
 
 ### 3. Read the Stack Trace
+
 ```
 Click the error to expand:
 - overlay_bundle.js → Ignore
@@ -301,6 +317,7 @@ Click the error to expand:
 ---
 
 ### 4. Test User Experience
+
 ```
 Ask yourself:
 - Does the site work?
@@ -321,7 +338,7 @@ If YES to all → Error is probably harmless
 ✅ **Site functionality:** WORKING  
 ✅ **User experience:** PERFECT  
 ⚠️ **Web components error:** Present but HARMLESS  
-⚠️ **Sitemap HTML warning:** Expected and NO SEO IMPACT  
+⚠️ **Sitemap HTML warning:** Expected and NO SEO IMPACT
 
 ### What You Should Do:
 

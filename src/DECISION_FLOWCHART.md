@@ -11,7 +11,7 @@
 **Question:** Are you ready to deploy?
 
 **✅ YES** → Go to: [Deployment Path](#deployment-path)  
-**❌ NO** → Go to: [Understanding Path](#understanding-path)  
+**❌ NO** → Go to: [Understanding Path](#understanding-path)
 
 ---
 
@@ -20,7 +20,7 @@
 **Question:** Did you test everything?
 
 **✅ YES** → Go to: [Monitoring Path](#monitoring-path)  
-**❌ NO** → Go to: [Testing Path](#testing-path)  
+**❌ NO** → Go to: [Testing Path](#testing-path)
 
 ---
 
@@ -30,7 +30,7 @@
 
 **🔴 Browser Console Warning** → Go to: [Console Warning Path](#console-warning-path)  
 **🟡 Google Search Console Warning** → Go to: [GSC Warning Path](#gsc-warning-path)  
-**⚫ Pages Not Loading** → Go to: [Technical Issue Path](#technical-issue-path)  
+**⚫ Pages Not Loading** → Go to: [Technical Issue Path](#technical-issue-path)
 
 ---
 
@@ -40,8 +40,10 @@
 
 **📚 What Changed Overall** → Read: [/README_LATEST_CHANGES.md](/README_LATEST_CHANGES.md)  
 **🔧 Preload Warning Fix** → Read: [/PRELOAD_WARNING_FIX.md](/PRELOAD_WARNING_FIX.md)  
-**🗺️ Sitemap HTML Status** → Read: [/SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md)  
-**🤖 Figma Make Limitations** → Read: [/FIGMA_MAKE_ROUTING_SOLUTION.md](/FIGMA_MAKE_ROUTING_SOLUTION.md)  
+**🗺️ Sitemap HTML Status** →
+Read: [/SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md)  
+**🤖 Figma Make Limitations** →
+Read: [/FIGMA_MAKE_ROUTING_SOLUTION.md](/FIGMA_MAKE_ROUTING_SOLUTION.md)
 
 ---
 
@@ -51,13 +53,14 @@
 
 **⏱️ Less than 1 week** → Go to: [Early Monitoring](#early-monitoring)  
 **⏱️ 1-4 weeks** → Go to: [Active Monitoring](#active-monitoring)  
-**⏱️ 1+ months** → Go to: [Ongoing Optimization](#ongoing-optimization)  
+**⏱️ 1+ months** → Go to: [Ongoing Optimization](#ongoing-optimization)
 
 ---
 
 ## 🚀 Deployment Path
 
 ### Step 1: Pre-Deployment Check
+
 - [ ] Reviewed changes in `/README_LATEST_CHANGES.md`
 - [ ] Understand what `modulePreload: false` does
 - [ ] Know that "Sitemap is HTML" is expected
@@ -68,6 +71,7 @@
 ---
 
 ### Step 2: Deploy
+
 - [ ] Push changes to Figma Make
 - [ ] Wait for deployment to complete
 - [ ] Verify site is accessible
@@ -78,6 +82,7 @@
 ---
 
 ### Step 3: Initial Verification
+
 - [ ] Visit https://thinkments.com
 - [ ] Check site loads normally
 - [ ] Navigate to 2-3 pages
@@ -90,6 +95,7 @@
 ## 🧪 Testing Path
 
 ### Test 1: Browser Console
+
 ```
 Action:
 1. Open https://thinkments.com
@@ -100,6 +106,7 @@ Action:
 ```
 
 **Result:**
+
 - **✅ No "preload" warnings** → PASS, continue to Test 2
 - **❌ Still seeing warnings** → Clear cache, try Incognito mode
 - **❌ Other errors** → Note the error, go to [Technical Issue Path](#technical-issue-path)
@@ -107,6 +114,7 @@ Action:
 ---
 
 ### Test 2: Sitemap URLs
+
 ```
 Action:
 Visit these URLs:
@@ -116,6 +124,7 @@ Visit these URLs:
 ```
 
 **Result:**
+
 - **✅ All show content** → PASS, continue to Test 3
 - **❌ 404 errors** → Check routing, verify deployment
 - **❌ Blank pages** → Check console for errors
@@ -123,6 +132,7 @@ Visit these URLs:
 ---
 
 ### Test 3: Google Search Console Submission
+
 ```
 Action:
 1. Go to Google Search Console
@@ -131,9 +141,11 @@ Action:
 ```
 
 **Result:**
+
 - **✅ "Indexing requested"** → PASS, testing complete! ✅
 - **⚠️ "Sitemap is HTML" warning** → Expected, ignore it
-- **❌ Other errors** → Read: [/GOOGLE_SEARCH_CONSOLE_WORKAROUND.md](/GOOGLE_SEARCH_CONSOLE_WORKAROUND.md)
+- **❌ Other errors** →
+  Read: [/GOOGLE_SEARCH_CONSOLE_WORKAROUND.md](/GOOGLE_SEARCH_CONSOLE_WORKAROUND.md)
 
 **✅ All Tests Passed?** → Go to: [Monitoring Path](#monitoring-path)
 
@@ -143,15 +155,17 @@ Action:
 
 ### Question: What warning do you see?
 
-**"preload not used within a few seconds"** → [Preload Warning Solution](#preload-warning-solution)  
+**"preload not used within a few seconds"
+** → [Preload Warning Solution](#preload-warning-solution)  
 **Other JavaScript errors** → Check browser console, note exact error  
-**404 errors** → Check network tab, verify URLs  
+**404 errors** → Check network tab, verify URLs
 
 ---
 
 ### Preload Warning Solution
 
 **Step 1: Verify Fix is Deployed**
+
 ```
 Check:
 - vite.config.ts has modulePreload: false
@@ -160,6 +174,7 @@ Check:
 ```
 
 **Step 2: Test Again**
+
 ```
 1. Clear all browser data
 2. Open Incognito/Private window
@@ -168,6 +183,7 @@ Check:
 ```
 
 **Result:**
+
 - **✅ Warning gone** → Success! Proceed to monitoring
 - **❌ Still there** → Verify deployment, check vite.config.ts
 - **❌ New errors** → Read: [/PRELOAD_WARNING_FIX.md](/PRELOAD_WARNING_FIX.md)
@@ -188,6 +204,7 @@ Check:
 ### Sitemap HTML Solution
 
 **Understanding:**
+
 ```
 ❓ Why this happens:
    - Figma Make limitation
@@ -206,6 +223,7 @@ Check:
 ```
 
 **Action Steps:**
+
 1. **Don't panic** - This is expected ✅
 2. Read: [/SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md)
 3. Submit sitemap via URL Inspection Tool
@@ -213,6 +231,7 @@ Check:
 5. Be patient (2-4 weeks for indexing)
 
 **Next:**
+
 - Go to: [Monitoring Path](#monitoring-path)
 
 ---
@@ -220,12 +239,14 @@ Check:
 ### Fetch Error Solution
 
 **Possible Causes:**
+
 1. URL typo (check spelling)
 2. Route not configured (check App.tsx)
 3. Deployment not complete (verify live site)
 4. Temporary network issue (retry in 1 hour)
 
 **Action Steps:**
+
 1. Manually visit: https://thinkments.com/sitemap-xml
 2. If it loads → Use URL Inspection Tool
 3. If 404 → Check routing configuration
@@ -236,11 +257,13 @@ Check:
 ### Parsing Error Solution
 
 **Possible Causes:**
+
 1. XML syntax error (check SitemapRawXmlPage.tsx)
 2. Invalid characters in URLs
 3. Missing closing tags
 
 **Action Steps:**
+
 1. View source of /sitemap-xml
 2. Check for valid XML structure
 3. Validate XML syntax
@@ -255,13 +278,14 @@ Check:
 **Site won't load at all** → Check deployment status, verify DNS  
 **404 on specific routes** → Check App.tsx routing configuration  
 **Blank pages** → Check browser console for JavaScript errors  
-**Slow performance** → Expected slight delay (50-150ms) after preload fix  
+**Slow performance** → Expected slight delay (50-150ms) after preload fix
 
 ---
 
 ### Troubleshooting Steps:
 
 **1. Check Browser Console:**
+
 ```
 F12 → Console tab
 Look for red error messages
@@ -269,6 +293,7 @@ Note the exact error text
 ```
 
 **2. Check Network Tab:**
+
 ```
 F12 → Network tab
 Reload page
@@ -277,6 +302,7 @@ Note which URLs are failing
 ```
 
 **3. Verify Deployment:**
+
 ```
 Check:
 - Figma Make dashboard shows successful deploy
@@ -285,6 +311,7 @@ Check:
 ```
 
 **4. Test in Incognito:**
+
 ```
 Open Incognito/Private window
 Visit site
@@ -293,6 +320,7 @@ Check if issue persists
 ```
 
 **Still stuck?**
+
 - Read: [/DIAGNOSTIC_STEPS.md](/DIAGNOSTIC_STEPS.md)
 - Check: [/ROBOTS_TROUBLESHOOTING.md](/ROBOTS_TROUBLESHOOTING.md)
 
@@ -303,6 +331,7 @@ Check if issue persists
 ### Early Monitoring (Days 1-7)
 
 **Daily Tasks (2 minutes):**
+
 ```
 1. Search: site:thinkments.com in Google
 2. Check: Number of results increasing?
@@ -310,6 +339,7 @@ Check if issue persists
 ```
 
 **Weekly Tasks (5 minutes):**
+
 ```
 1. GSC → Pages → Coverage
 2. Check: "Valid pages" count
@@ -318,6 +348,7 @@ Check if issue persists
 ```
 
 **Expected Progress:**
+
 ```
 Day 1-2: 10-30 pages indexed
 Day 3-4: 30-60 pages indexed
@@ -325,13 +356,14 @@ Day 5-7: 60-100+ pages indexed
 ```
 
 **✅ Good Progress?** → Continue weekly monitoring  
-**❌ No Progress?** → Resubmit sitemap, submit key URLs  
+**❌ No Progress?** → Resubmit sitemap, submit key URLs
 
 ---
 
 ### Active Monitoring (Weeks 1-4)
 
 **Weekly Tasks (10 minutes):**
+
 ```
 1. GSC → Coverage Report
    - Check "Valid pages" trend
@@ -351,6 +383,7 @@ Day 5-7: 60-100+ pages indexed
 ```
 
 **Expected Progress:**
+
 ```
 Week 1: 50-80 pages indexed
 Week 2: 80-120 pages indexed
@@ -359,13 +392,14 @@ Week 4: 150+ pages indexed (full coverage)
 ```
 
 **✅ On Track?** → Reduce to monthly monitoring  
-**❌ Stuck?** → Submit more URLs, check for errors  
+**❌ Stuck?** → Submit more URLs, check for errors
 
 ---
 
 ### Ongoing Optimization (Month 2+)
 
 **Monthly Tasks (15 minutes):**
+
 ```
 1. Coverage Health Check
    - Verify 140-150+ pages indexed
@@ -389,6 +423,7 @@ Week 4: 150+ pages indexed (full coverage)
 ```
 
 **Focus Areas:**
+
 - Content quality (drives rankings)
 - User experience (drives conversions)
 - Technical health (maintains rankings)
@@ -425,30 +460,34 @@ Week 4: 150+ pages indexed (full coverage)
 ## 🚦 Status Check - Where Are You?
 
 ### 🔴 Not Yet Deployed
+
 **Action:** Go to [Deployment Path](#deployment-path)  
 **Goal:** Get changes live  
-**Time:** 30 minutes  
+**Time:** 30 minutes
 
 ---
 
 ### 🟡 Deployed, Not Tested
+
 **Action:** Go to [Testing Path](#testing-path)  
 **Goal:** Verify everything works  
-**Time:** 5 minutes  
+**Time:** 5 minutes
 
 ---
 
 ### 🟢 Deployed & Tested
+
 **Action:** Go to [Monitoring Path](#monitoring-path)  
 **Goal:** Track indexing progress  
-**Time:** 5 min/week  
+**Time:** 5 min/week
 
 ---
 
 ### 🔵 Fully Indexed
+
 **Action:** Go to [Ongoing Optimization](#ongoing-optimization)  
 **Goal:** Maintain and improve  
-**Time:** 15 min/month  
+**Time:** 15 min/month
 
 ---
 
@@ -503,15 +542,15 @@ Do you have time for code changes?
 
 ## 🎯 Summary Decision Matrix
 
-| Situation | Urgency | Action | Time | Document |
-|-----------|---------|--------|------|----------|
-| Just got changes from Claude | 🟡 Medium | Review & deploy | 30 min | [DEPLOYMENT_SUMMARY.md](/DEPLOYMENT_SUMMARY.md) |
-| Just deployed | 🔴 High | Test everything | 5 min | [POST_DEPLOYMENT_CHECKLIST.md](/POST_DEPLOYMENT_CHECKLIST.md) |
-| See console warnings | 🟡 Medium | Check what warning | 5 min | [PRELOAD_WARNING_QUICK_FIX.md](/PRELOAD_WARNING_QUICK_FIX.md) |
-| GSC "Sitemap is HTML" | 🟢 Low | Don't panic, it's normal | 10 min | [SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md) |
-| Pages not indexed | 🟡 Medium | Wait, then resubmit | 5 min | [GOOGLE_SEARCH_CONSOLE_WORKAROUND.md](/GOOGLE_SEARCH_CONSOLE_WORKAROUND.md) |
-| Want to understand | 🟢 Low | Read relevant docs | Variable | [INDEX.md](/INDEX.md) |
-| Everything working | 🟢 Low | Monitor weekly | 5 min/wk | [Monitoring Path](#monitoring-path) |
+| Situation                    | Urgency   | Action                   | Time     | Document                                                                    |
+|------------------------------|-----------|--------------------------|----------|-----------------------------------------------------------------------------|
+| Just got changes from Claude | 🟡 Medium | Review & deploy          | 30 min   | [DEPLOYMENT_SUMMARY.md](/DEPLOYMENT_SUMMARY.md)                             |
+| Just deployed                | 🔴 High   | Test everything          | 5 min    | [POST_DEPLOYMENT_CHECKLIST.md](/POST_DEPLOYMENT_CHECKLIST.md)               |
+| See console warnings         | 🟡 Medium | Check what warning       | 5 min    | [PRELOAD_WARNING_QUICK_FIX.md](/PRELOAD_WARNING_QUICK_FIX.md)               |
+| GSC "Sitemap is HTML"        | 🟢 Low    | Don't panic, it's normal | 10 min   | [SITEMAP_HTML_STATUS_EXPLAINED.md](/SITEMAP_HTML_STATUS_EXPLAINED.md)       |
+| Pages not indexed            | 🟡 Medium | Wait, then resubmit      | 5 min    | [GOOGLE_SEARCH_CONSOLE_WORKAROUND.md](/GOOGLE_SEARCH_CONSOLE_WORKAROUND.md) |
+| Want to understand           | 🟢 Low    | Read relevant docs       | Variable | [INDEX.md](/INDEX.md)                                                       |
+| Everything working           | 🟢 Low    | Monitor weekly           | 5 min/wk | [Monitoring Path](#monitoring-path)                                         |
 
 ---
 

@@ -9,6 +9,7 @@ Use this checklist before deploying performance optimizations to production.
 ## 🔍 1. Image Optimization
 
 ### All Images
+
 - [ ] All images have `width` and `height` attributes
 - [ ] Hero images use `priority={true}`
 - [ ] Below-fold images use `loading="lazy"`
@@ -16,6 +17,7 @@ Use this checklist before deploying performance optimizations to production.
 - [ ] Images are optimized (< 500 KB each)
 
 ### Test Commands
+
 ```tsx
 // Search for images without dimensions
 grep -r "ImageWithFallback" --include="*.tsx" | grep -v "width="
@@ -35,6 +37,7 @@ grep -r "<img" --include="*.tsx" | grep -v "loading="
 - [ ] No FOIT (Flash of Invisible Text) on page load
 
 ### Verify
+
 ```bash
 # Check index.html for font-display
 grep "display=swap" public/index.html
@@ -53,6 +56,7 @@ grep "preconnect.*fonts" public/index.html
 - [ ] Console shows no script errors
 
 ### Verify
+
 ```bash
 # Check for defer on scripts
 grep "<script" public/index.html | grep -v "defer"
@@ -68,6 +72,7 @@ grep "<script" public/index.html | grep -v "defer"
 - [ ] All hints have correct crossorigin attributes
 
 ### Required Preconnects
+
 ```html
 ✅ fonts.googleapis.com
 ✅ fonts.gstatic.com
@@ -75,6 +80,7 @@ grep "<script" public/index.html | grep -v "defer"
 ```
 
 ### Required DNS Prefetch
+
 ```html
 ✅ www.google-analytics.com
 ✅ www.googletagmanager.com
@@ -91,6 +97,7 @@ grep "<script" public/index.html | grep -v "defer"
 - [ ] No memory leaks from observers
 
 ### Verify
+
 ```bash
 # Check if PerformanceOptimizer is imported
 grep "PerformanceOptimizer" App.tsx
@@ -101,6 +108,7 @@ grep "PerformanceOptimizer" App.tsx
 ## 🧪 6. Testing
 
 ### Browser Testing
+
 - [ ] Test in Chrome (latest)
 - [ ] Test in Firefox (latest)
 - [ ] Test in Safari (latest)
@@ -108,12 +116,14 @@ grep "PerformanceOptimizer" App.tsx
 - [ ] Test on mobile devices (iOS & Android)
 
 ### Performance Testing
+
 - [ ] Run Lighthouse audit (score > 90)
 - [ ] Check Google PageSpeed Insights
 - [ ] Test with WebPageTest
 - [ ] Verify Core Web Vitals are "Good"
 
 ### Visual Testing
+
 - [ ] No layout shifts during page load
 - [ ] Images load without flickering
 - [ ] Fonts load without FOIT
@@ -130,6 +140,7 @@ grep "PerformanceOptimizer" App.tsx
 - [ ] Mobile viewport meta tag is present
 
 ### Test on Mobile
+
 ```bash
 # Use Chrome DevTools
 # 1. Open DevTools
@@ -149,6 +160,7 @@ grep "PerformanceOptimizer" App.tsx
 - [ ] Source maps are generated (for debugging)
 
 ### Check Bundle Sizes
+
 ```bash
 npm run build
 
@@ -170,6 +182,7 @@ ls -lh dist/
 - [ ] HTTPS is enabled
 
 ### Verify Compression
+
 ```bash
 # Check if Brotli is enabled
 curl -H "Accept-Encoding: br" -I https://thinkments.com/
@@ -191,18 +204,21 @@ curl -H "Accept-Encoding: br" -I https://thinkments.com/
 ## ⚠️ 11. Common Issues to Check
 
 ### Layout Shift
+
 - [ ] All images have dimensions
 - [ ] No content injected after load
 - [ ] Font loading doesn't cause shift
 - [ ] Ads/embeds have reserved space
 
 ### Render Blocking
+
 - [ ] No render-blocking CSS
 - [ ] Critical CSS is inlined
 - [ ] Non-critical CSS is deferred
 - [ ] Scripts use defer or async
 
 ### Large Assets
+
 - [ ] No images over 500 KB
 - [ ] JavaScript bundle < 300 KB
 - [ ] CSS bundle < 100 KB
@@ -213,6 +229,7 @@ curl -H "Accept-Encoding: br" -I https://thinkments.com/
 ## 🚀 12. Final Lighthouse Audit
 
 ### Run Lighthouse
+
 1. Open Chrome DevTools
 2. Go to Lighthouse tab
 3. Select "Mobile" device
@@ -220,12 +237,14 @@ curl -H "Accept-Encoding: br" -I https://thinkments.com/
 5. Click "Generate report"
 
 ### Target Scores
+
 - **Performance:** > 90 ✅
 - **Accessibility:** > 95 ✅
 - **Best Practices:** > 95 ✅
 - **SEO:** > 95 ✅
 
 ### Core Web Vitals Targets
+
 - **LCP (Largest Contentful Paint):** < 2.5s ✅
 - **FID (First Input Delay):** < 100ms ✅
 - **CLS (Cumulative Layout Shift):** < 0.1 ✅
@@ -244,6 +263,7 @@ curl -H "Accept-Encoding: br" -I https://thinkments.com/
 ## ✅ 14. Sign-Off
 
 ### Before Deployment
+
 - [ ] All checklist items completed
 - [ ] No critical errors in console
 - [ ] Lighthouse score > 90
@@ -252,6 +272,7 @@ curl -H "Accept-Encoding: br" -I https://thinkments.com/
 - [ ] Core Web Vitals are "Good"
 
 ### After Deployment
+
 - [ ] Verify production site loads fast
 - [ ] Check Core Web Vitals in production
 - [ ] Monitor error logs (if any)

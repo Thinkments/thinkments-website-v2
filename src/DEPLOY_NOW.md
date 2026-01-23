@@ -3,12 +3,14 @@
 ## Option A: Vercel (Recommended - Easiest)
 
 ### Method 1: Drag & Drop (60 seconds)
+
 1. Run `npm run build` in your terminal
 2. Go to https://vercel.com/new
 3. Drag the `/dist` folder onto the page
 4. Done! Your site is live
 
 ### Method 2: CLI (2 minutes)
+
 ```bash
 # Install Vercel CLI
 npm install -g vercel
@@ -24,6 +26,7 @@ vercel
 ```
 
 ### Method 3: Git Integration (Best for ongoing deployments)
+
 1. Push your code to GitHub
 2. Go to https://vercel.com/new
 3. Click "Import Project"
@@ -37,12 +40,14 @@ vercel
 ## Option B: Netlify (Also Great)
 
 ### Method 1: Drag & Drop (60 seconds)
+
 1. Run `npm run build` in your terminal
 2. Go to https://app.netlify.com/drop
 3. Drag the `/dist` folder onto the page
 4. Done! Your site is live
 
 ### Method 2: CLI (2 minutes)
+
 ```bash
 # Install Netlify CLI
 npm install -g netlify-cli
@@ -60,6 +65,7 @@ netlify deploy --prod --dir=dist
 ```
 
 ### Method 3: Git Integration
+
 1. Push your code to GitHub
 2. Go to https://app.netlify.com/start
 3. Connect to Git provider
@@ -75,22 +81,26 @@ netlify deploy --prod --dir=dist
 ### Custom Domain Setup
 
 **Vercel:**
+
 1. Go to your project dashboard
 2. Click "Settings" → "Domains"
 3. Add `thinkments.com`
 4. Update your DNS:
-   - A record: `76.76.21.21`
-   - Or CNAME: `cname.vercel-dns.com`
+    - A record: `76.76.21.21`
+    - Or CNAME: `cname.vercel-dns.com`
 
 **Netlify:**
+
 1. Go to "Domain Settings"
 2. Add custom domain
 3. Update your DNS:
-   - A record: `75.2.60.5`
-   - Or CNAME: `[your-site].netlify.app`
+    - A record: `75.2.60.5`
+    - Or CNAME: `[your-site].netlify.app`
 
 ### Environment Variables (if needed)
+
 Both platforms let you add environment variables in:
+
 - Vercel: Settings → Environment Variables
 - Netlify: Site Settings → Environment Variables
 
@@ -99,6 +109,7 @@ Both platforms let you add environment variables in:
 ## What You Get (Free Tier)
 
 **Vercel Free:**
+
 - ✅ Unlimited deployments
 - ✅ 100GB bandwidth/month
 - ✅ Automatic SSL
@@ -107,6 +118,7 @@ Both platforms let you add environment variables in:
 - ✅ Custom domains
 
 **Netlify Free:**
+
 - ✅ Unlimited deployments
 - ✅ 100GB bandwidth/month
 - ✅ Automatic SSL
@@ -121,15 +133,19 @@ Both are **more than enough** for your needs.
 ## Troubleshooting
 
 ### "Command not found: npm"
+
 → Install Node.js from https://nodejs.org
 
 ### "Build failed"
+
 → Run `npm install` first, then `npm run build`
 
 ### "Site looks broken"
+
 → Check that you deployed the `/dist` folder, not the root folder
 
 ### "404 on page refresh"
+
 → Already fixed! Both `vercel.json` and `netlify.toml` are configured for SPA routing
 
 ---
@@ -137,11 +153,13 @@ Both are **more than enough** for your needs.
 ## Which Platform Should I Choose?
 
 **Choose Vercel if:**
+
 - You want the absolute simplest setup
 - You're familiar with Next.js ecosystem
 - You want serverless functions (future use)
 
 **Choose Netlify if:**
+
 - You want form handling out of the box
 - You prefer their dashboard UI
 - You want built-in split testing
@@ -163,6 +181,7 @@ Both are **more than enough** for your needs.
 ## Still Want to Use Figma Make?
 
 Email their support:
+
 ```
 Subject: 403 Error - Request to Disconnect Supabase
 
