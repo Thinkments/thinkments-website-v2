@@ -1,11 +1,7 @@
 [build]
-command = "npm run build"
+command = "npm install && npm run build"
 publish = "dist"
 functions = "src/netlify/functions"
-
-[build.environment]
-NODE_VERSION = "18"
-NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Redirect www to non-www (canonical domain)
 [[redirects]]
@@ -92,3 +88,7 @@ external_node_modules = ["@netlify/functions"]
 [build.ignore]
 supabase = "supabase/**"
 docs = "*.md"
+
+# Skip Next.js plugin - this is a React/Vite project
+[build.environment]
+NETLIFY_NEXT_PLUGIN_SKIP = "true"

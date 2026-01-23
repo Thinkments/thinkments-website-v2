@@ -13,11 +13,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  publicDir: 'public',
   build: {
     target: 'esnext',
     outDir: 'dist',
     minify: 'esbuild', // Esbuild is 10-20x faster than Terser and produces similar results
     cssMinify: true,   // Ensure CSS is also minified
+    modulePreload: false, // Disable modulepreload to prevent "preload not used" warnings
     rollupOptions: {
       output: {
         // Manual Chunking: This splits huge JS files into smaller, cacheable pieces

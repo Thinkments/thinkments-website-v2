@@ -1,1 +1,2 @@
-// DELETED: This file is redundant and should be removed. Use the root vite.config.ts instead.
+// DEPRECATED: Configuration consolidated to root vite.config.ts
+// This file should be deleted.
