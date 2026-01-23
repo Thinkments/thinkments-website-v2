@@ -1,2 +1,3 @@
-// DEPRECATED: Configuration consolidated to root vite.config.ts
-// This file should be deleted.
+// DELETED
+// This file has been deleted as part of a repository restructure. Please use the root vite.config.ts.
+export default {};
