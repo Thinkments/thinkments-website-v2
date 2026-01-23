@@ -10,7 +10,8 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const publicDir = path.join(__dirname, '..', 'public');
+// CORRECTED PATH: ../../public
+const publicDir = path.join(__dirname, '..', '..', 'public');
 
 // Define favicon conversions
 const conversions = [

@@ -277,7 +277,8 @@ function generateBusinessSchema() {
  * Create or update files
  */
 function writeFiles() {
-  const publicDir = path.join(__dirname, '..', 'public');
+  // CORRECTED PATH: ../../public
+  const publicDir = path.join(__dirname, '..', '..', 'public');
   
   // Ensure public directory exists
   if (!fs.existsSync(publicDir)) {
