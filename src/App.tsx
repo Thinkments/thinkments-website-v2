@@ -99,11 +99,13 @@ function Layout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden m-0 p-0">
+    <div className="min-h-screen bg-background text-foreground m-0 p-0">
       <Header />
-      <AnimatePresence mode="wait">
-        {children}
-      </AnimatePresence>
+      <main className="pt-24">
+        <AnimatePresence mode="wait">
+          {children}
+        </AnimatePresence>
+      </main>
       <Footer />
     </div>
   );

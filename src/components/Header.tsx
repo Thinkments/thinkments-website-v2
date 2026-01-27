@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Star, Phone, Briefcase, Award, Users, FileText, MapPin, ExternalLink } from 'lucide-react';
+import { Menu, X, ChevronDown, Star, Phone, ExternalLink, ArrowRight, Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import ServicesMegaMenu, { ServicesMegaMenuMobile } from './ServicesMegaMenu';
-import thinkMentsLogo from 'figma:asset/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
+import thinkMentsLogo from '../assets/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  
+
+  // Dropdown states
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  // Mobile accordion states
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
-  
+
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -34,37 +35,19 @@ export default function Header() {
     setMobileServicesOpen(false);
     setMobileAboutOpen(false);
     setMobileResourcesOpen(false);
+    setActiveDropdown(null);
   }, [location.pathname]);
 
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => {
-      setIsServicesOpen(false);
-      setIsAboutOpen(false);
-      setIsResourcesOpen(false);
-    };
-
-    if (isServicesOpen || isAboutOpen || isResourcesOpen) {
-      document.addEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [isServicesOpen, isAboutOpen, isResourcesOpen]);
-
   const aboutPages = [
-    { name: 'About Us', href: '/about-us' },
-    { name: 'Our Story', href: '/our-story' }
+    { name: 'About Us', href: '/about-us', desc: 'Our mission & values' },
+    { name: 'Our Story', href: '/our-story', desc: 'How we started' }
   ];
 
   const resourcePages = [
-    { name: 'Blog', href: '/blog', icon: FileText }
+    { name: 'Blog', href: '/blog', desc: 'Latest insights', icon: Zap }
   ];
 
-  const isActiveLink = (path: string) => {
-    return location.pathname === path;
-  };
+  const isActiveLink = (path: string) => location.pathname === path;
 
   const isActiveDropdown = (paths: string[]) => {
     return paths.some(path => location.pathname === path || location.pathname.startsWith(path));
@@ -73,227 +56,211 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${
-          isScrolled ? 'py-4' : 'py-6'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-out ${isScrolled ? 'py-3' : 'py-6'
+          }`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div
           className={`
-            w-[95%] max-w-7xl mx-auto px-6 py-3 rounded-full
+            relative w-[95%] max-w-7xl mx-auto px-6 py-3 rounded-full
             flex items-center justify-between
-            transition-all duration-300
-            bg-gray-900/80 backdrop-blur-md shadow-lg border border-white/10
+            transition-all duration-500
+            ${isScrolled
+              ? 'bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]'
+              : 'bg-black/70 backdrop-blur-md border border-white/10 shadow-none'}
           `}
         >
           {/* Logo - Left Section */}
-          <Link to="/" className="flex-shrink-0 mr-8">
+          <Link to="/" className="flex-shrink-0 mr-8 group relative z-10">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 rounded-full" />
             <motion.img
               src={thinkMentsLogo}
               alt="ThinkMents"
-              className="h-10 w-auto object-contain"
-              style={{ textShadow: '0 2px 4px rgba(0,0,0,0.15)' }}
+              className="h-10 w-auto object-contain relative"
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
             />
           </Link>
 
           {/* Desktop Navigation - Center Section */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {/* Services - Mega Menu */}
+          <nav className="hidden lg:flex items-center gap-2">
+
+            {/* Nav Item: Services (Mega Menu) */}
             <div
-              className="relative"
-              onClick={(e) => e.stopPropagation()}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('services')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                    ? 'bg-white/10 text-[#00B4D8]'
-                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
-                }`}
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group-hover:bg-white/10 ${isActiveDropdown(['/services']) ? 'text-[#00B4D8] bg-white/10' : 'text-white'
+                  }`}
               >
-                <span>Services</span>
-                <motion.div
-                  animate={{ rotate: isServicesOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="w-3 h-3 opacity-70" />
-                </motion.div>
+                <span className="relative z-10">Services</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`} />
               </button>
 
-              {/* Mega Menu Dropdown */}
               <AnimatePresence>
-                {isServicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 pt-2">
-                    <ServicesMegaMenu isOpen={isServicesOpen} onClose={() => setIsServicesOpen(false)} />
-                  </div>
+                {activeDropdown === 'services' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} // Spring-like ease
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 pt-4 w-auto"
+                  >
+                    <div className="rounded-2xl border border-gray-600 shadow-2xl bg-[#1a1f2e] backdrop-blur-xl" style={{ backgroundColor: 'rgb(26, 31, 46)' }}>
+                      <ServicesMegaMenu isOpen={true} onClose={() => setActiveDropdown(null)} />
+                    </div>
+                  </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* About Dropdown */}
+            {/* Nav Item: About */}
             <div
-              className="relative"
-              onClick={(e) => e.stopPropagation()}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('about')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isActiveDropdown(['/about-us', '/our-story'])
-                    ? 'bg-white/10 text-[#00B4D8]'
-                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
-                }`}
-                onClick={() => setIsAboutOpen(!isAboutOpen)}
+                className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 group-hover:bg-white/10 ${isActiveDropdown(['/about-us', '/our-story']) ? 'text-[#00B4D8] bg-white/10' : 'text-white'
+                  }`}
               >
                 <span>About</span>
-                <motion.div
-                  animate={{ rotate: isAboutOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="w-3 h-3 opacity-70" />
-                </motion.div>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'about' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`} />
               </button>
 
               <AnimatePresence>
-                {isAboutOpen && (
+                {activeDropdown === 'about' && (
                   <motion.div
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-1"
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    onClick={(e) => e.stopPropagation()}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 pt-2"
                   >
-                    {aboutPages.map((page) => (
-                      <Link
-                        key={page.href}
-                        to={page.href}
-                        className={`block px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                          isActiveLink(page.href)
-                            ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                            : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
-                        }`}
-                      >
-                        {page.name}
-                      </Link>
-                    ))}
+                    <div className="rounded-xl border border-gray-600 shadow-2xl p-3 overflow-hidden" style={{ backgroundColor: 'rgb(26, 31, 46)' }}>
+                      {aboutPages.map((page) => (
+                        <Link
+                          key={page.href}
+                          to={page.href}
+                          className="group/item flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
+                        >
+                          <div>
+                            <div className="text-sm font-semibold text-white group-hover/item:text-[#00B4D8] transition-colors">{page.name}</div>
+                            <div className="text-xs text-gray-400 group-hover/item:text-gray-300 transition-colors mt-0.5">{page.desc}</div>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-white/20 group-hover/item:text-[#00B4D8] -translate-x-2 group-hover/item:translate-x-0 opacity-0 group-hover/item:opacity-100 transition-all duration-300" />
+                        </Link>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Resources Dropdown */}
+            {/* Nav Item: Resources */}
             <div
-              className="relative"
-              onClick={(e) => e.stopPropagation()}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('resources')}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                    ? 'bg-white/10 text-[#00B4D8]'
-                    : 'text-white hover:bg-white/10 hover:text-[#00B4D8]'
-                }`}
-                onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 group-hover:bg-white/10 ${isActiveDropdown(['/blog']) ? 'text-[#00B4D8] bg-white/10' : 'text-white'
+                  }`}
               >
                 <span>Resources</span>
-                <motion.div
-                  animate={{ rotate: isResourcesOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="w-3 h-3 opacity-70" />
-                </motion.div>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'resources' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`} />
               </button>
 
               <AnimatePresence>
-                {isResourcesOpen && (
+                {activeDropdown === 'resources' && (
                   <motion.div
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-52 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-1"
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    onClick={(e) => e.stopPropagation()}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 pt-2"
                   >
-                    {resourcePages.map((page) => (
-                      <Link
-                        key={page.href}
-                        to={page.href}
-                        className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                          isActiveLink(page.href)
-                            ? 'bg-[#00B4D8]/10 text-[#1E3A5F] font-semibold'
-                            : 'text-[#2D3748] hover:bg-gray-50 hover:text-[#00B4D8]'
-                        }`}
-                      >
-                        <page.icon className="w-4 h-4" />
-                        {page.name}
-                      </Link>
-                    ))}
+                    <div className="rounded-xl border border-gray-600 shadow-2xl p-3 overflow-hidden" style={{ backgroundColor: 'rgb(26, 31, 46)' }}>
+                      {resourcePages.map((page) => (
+                        <Link
+                          key={page.href}
+                          to={page.href}
+                          className="group/item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
+                        >
+                          <div className="p-2 rounded-lg bg-[#00B4D8]/10 text-[#00B4D8] group-hover/item:bg-[#00B4D8] group-hover/item:text-white transition-colors duration-300">
+                            <page.icon className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-white group-hover/item:text-[#00B4D8] transition-colors">{page.name}</div>
+                            <div className="text-xs text-gray-400 group-hover/item:text-gray-300 transition-colors mt-0.5">{page.desc}</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Virtual Tours Link */}
+            {/* Nav Item: Virtual Tours */}
             <a
               href="https://virtualtours.thinkments.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 py-2 px-3 rounded-full text-sm font-medium text-white hover:bg-white/10 hover:text-[#00B4D8] transition-all duration-300"
+              className="flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium text-white hover:text-[#00B4D8] hover:bg-white/10 transition-all duration-300"
             >
               <span>Virtual Tours</span>
-              <ExternalLink className="w-3 h-3 opacity-70" />
+              <ExternalLink className="w-3.5 h-3.5 opacity-50" />
             </a>
           </nav>
 
           {/* Right Section - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Phone Number */}
             <a
               href="tel:9403151023"
-              className="text-sm text-white/90 flex items-center gap-1.5 hover:text-[#F7B928] transition-colors duration-200 font-medium"
+              className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-300 flex items-center gap-2"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-4 h-4" />
               <span>(940) 315-1023</span>
             </a>
 
             {/* Contact Us Button - Desktop */}
-            <motion.button
+            <Button
               asChild
-              className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 whitespace-nowrap h-auto text-sm"
-              whileHover={{ scale: 1.05, boxShadow: "0 8px 15px rgba(0,0,0,0.2)" }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              className="bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold px-6 py-5 rounded-full shadow-[0_0_20px_rgba(247,185,40,0.3)] hover:shadow-[0_0_30px_rgba(247,185,40,0.5)] transition-all duration-300 text-sm border-0 ring-0"
             >
-              <Link to="/contact-us">Contact Us</Link>
-            </motion.button>
+              <Link to="/contact-us">
+                <span>Contact Us</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </Button>
           </div>
 
-          {/* Mobile Right Section - Phone Icon + Hamburger */}
+          {/* Mobile Right Section */}
           <div className="flex lg:hidden items-center gap-4">
-            {/* Mobile Phone Only */}
             <a
               href="tel:9403151023"
-              className="text-white hover:text-[#00B4D8] transition-colors"
-              aria-label="Call us"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 hover:text-[#F7B928] transition-all"
             >
               <Phone className="w-5 h-5" />
             </a>
 
-            {/* Mobile Menu Button */}
             <button
-              className="p-2 text-white hover:text-[#00B4D8] transition-colors"
+              className="relative z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-all focus:outline-none"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
                   <motion.div
                     key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
+                    initial={{ rotate: -90, scale: 0.5, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: 90, scale: 0.5, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
                     <X className="w-6 h-6" />
@@ -301,9 +268,9 @@ export default function Header() {
                 ) : (
                   <motion.div
                     key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
+                    initial={{ rotate: 90, scale: 0.5, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: -90, scale: 0.5, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
                     <Menu className="w-6 h-6" />
@@ -315,171 +282,144 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu - Full Screen Drawer */}
+      {/* Mobile Menu - Full Screen Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden fixed inset-0 top-0 bg-[#1E3A5F] z-40 overflow-y-auto pt-24"
-            initial={{ opacity: 0, y: '-100%' }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: '-100%' }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden fixed inset-0 z-40 bg-[#020617]"
+            initial={{ opacity: 0, clipPath: "circle(0% at 90% 40px)" }}
+            animate={{ opacity: 1, clipPath: "circle(150% at 90% 40px)" }}
+            exit={{ opacity: 0, clipPath: "circle(0% at 90% 40px)" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="container mx-auto px-6 py-6 space-y-2">
-              {/* Mobile Services Accordion */}
-              <div className="border-b border-white/10 pb-2">
-                <button
-                  className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
-                    isActiveDropdown(['/services', '/marketing', '/web', '/paid', '/content', '/social', '/google', '/reputation', '/analytics', '/immersive', '/video', '/artificial', '/technical', '/widgets', '/recruitment', '/business', '/strategic'])
-                      ? 'text-[#00B4D8]'
-                      : 'text-white'
-                  }`}
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                >
-                  <span>Services</span>
-                  <motion.div
-                    animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+            {/* Background Gradients */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+              <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px]" />
+              <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px]" />
+            </div>
+
+            <div className="container mx-auto px-6 h-full flex flex-col pt-28 pb-10 overflow-y-auto relative z-10">
+
+              <div className="flex-1 space-y-6">
+                {/* Mobile Services */}
+                <div className="border-b border-white/10">
+                  <button
+                    className="w-full flex items-center justify-between py-5 text-2xl font-light text-white"
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                   >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </button>
-                <AnimatePresence>
-                  {mobileServicesOpen && (
-                    <ServicesMegaMenuMobile isOpen={mobileServicesOpen} />
-                  )}
-                </AnimatePresence>
-              </div>
+                    <span className={mobileServicesOpen ? "text-[#00B4D8] font-medium" : ""}>Services</span>
+                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "circOut" }}
+                        className="overflow-hidden"
+                      >
+                        <ServicesMegaMenuMobile isOpen={true} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
-              {/* Mobile About Accordion */}
-              <div className="border-b border-white/10 pb-2">
-                <button
-                  className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
-                    isActiveDropdown(['/about-us', '/our-story'])
-                      ? 'text-[#00B4D8]'
-                      : 'text-white'
-                  }`}
-                  onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                >
-                  <span>About</span>
-                  <motion.div
-                    animate={{ rotate: mobileAboutOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                {/* Mobile About */}
+                <div className="border-b border-white/10">
+                  <button
+                    className="w-full flex items-center justify-between py-5 text-2xl font-light text-white"
+                    onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                   >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </button>
-                <AnimatePresence>
-                  {mobileAboutOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pl-4 py-2 space-y-2">
-                        {aboutPages.map((page) => (
-                          <Link
-                            key={page.href}
-                            to={page.href}
-                            className={`block py-2 text-base text-white/70 hover:text-white transition-colors`}
-                          >
-                            {page.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                    <span className={mobileAboutOpen ? "text-[#00B4D8] font-medium" : ""}>About</span>
+                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileAboutOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 pl-2 space-y-3">
+                          {aboutPages.map((page) => (
+                            <Link
+                              key={page.href}
+                              to={page.href}
+                              className="block py-2 text-lg text-white/60 hover:text-white transition-colors"
+                            >
+                              {page.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
-              {/* Mobile Resources Accordion */}
-              <div className="border-b border-white/10 pb-2">
-                <button
-                  className={`w-full flex items-center justify-between py-4 text-lg font-medium transition-colors ${
-                    isActiveDropdown(['/blog', '/resources', '/faqs', '/knowledge-base'])
-                      ? 'text-[#00B4D8]'
-                      : 'text-white'
-                  }`}
-                  onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                >
-                  <span>Resources</span>
-                  <motion.div
-                    animate={{ rotate: mobileResourcesOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                {/* Mobile Resources */}
+                <div className="border-b border-white/10">
+                  <button
+                    className="w-full flex items-center justify-between py-5 text-2xl font-light text-white"
+                    onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
                   >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </button>
-                <AnimatePresence>
-                  {mobileResourcesOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pl-4 py-2 space-y-2">
-                        {resourcePages.map((page) => (
-                          <Link
-                            key={page.href}
-                            to={page.href}
-                            className={`flex items-center gap-3 py-2 text-base text-white/70 hover:text-white transition-colors`}
-                          >
-                            <page.icon className="w-4 h-4" />
-                            {page.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    <span className={mobileResourcesOpen ? "text-[#00B4D8] font-medium" : ""}>Resources</span>
+                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${mobileResourcesOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileResourcesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-6 pl-2 space-y-3">
+                          {resourcePages.map((page) => (
+                            <Link
+                              key={page.href}
+                              to={page.href}
+                              className="block py-2 text-lg text-white/60 hover:text-white transition-colors"
+                            >
+                              {page.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Mobile Virtual Tours */}
+                <div className="border-b border-white/10">
+                  <a
+                    href="https://virtualtours.thinkments.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-between py-5 text-2xl font-light text-white hover:text-[#00B4D8] transition-colors"
+                  >
+                    <span>Virtual Tours</span>
+                    <ExternalLink className="w-5 h-5 opacity-50" />
+                  </a>
+                </div>
+
               </div>
 
-              {/* Mobile Virtual Tours Link */}
-              <div className="border-b border-white/10 pb-2">
-                <a
-                  href="https://virtualtours.thinkments.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-between py-4 text-lg font-medium text-white hover:text-[#00B4D8] transition-colors"
+              {/* Mobile Footer */}
+              <div className="mt-8 space-y-4">
+                <Button
+                  asChild
+                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold py-7 rounded-2xl text-lg shadow-lg"
                 >
-                  <span>Virtual Tours</span>
-                  <ExternalLink className="w-5 h-5" />
-                </a>
-              </div>
-
-              {/* Mobile Bottom Section */}
-              <div className="pt-8 mt-4 space-y-6">
-                {/* Mobile Phone with Icon */}
-                <a 
-                  href="tel:9403151023" 
-                  className="flex items-center justify-center gap-2 py-3 text-white hover:text-[#F7B928] transition-colors"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span className="font-semibold text-lg">(940) 315-1023</span>
-                </a>
-
-                {/* Mobile Contact Us Button - Full Width */}
-                <Button 
-                  asChild 
-                  className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-black font-bold py-6 rounded-full text-lg shadow-lg"
-                  size="lg"
-                >
-                  <Link to="/contact-us">Contact Us</Link>
+                  <Link to="/contact-us">Get Started</Link>
                 </Button>
 
-                {/* Trust Badge */}
-                <div className="flex items-center justify-center gap-2 text-base text-white/60">
-                  <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 fill-[#FBBC04] text-[#FBBC04]" />
-                    ))}
-                  </div>
-                  <span className="font-semibold text-white">5.0</span>
-                  <span>(103 Reviews)</span>
+                <div className="flex justify-center gap-6 pt-4 text-white/40">
+                  <a href="#" className="hover:text-white transition-colors">Privacy</a>
+                  <a href="#" className="hover:text-white transition-colors">Terms</a>
                 </div>
               </div>
             </div>

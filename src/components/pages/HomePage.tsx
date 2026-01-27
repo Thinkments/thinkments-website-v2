@@ -4,8 +4,8 @@ import { motion, useInView } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   Star,
   Target,
   Code,
@@ -29,7 +29,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import SEO from '../SEO';
-import heroImage from 'figma:asset/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png';
+import heroImage from '../../assets/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png';
 
 export default function HomePage() {
   const heroRef = useRef(null);
@@ -40,7 +40,7 @@ export default function HomePage() {
   const trustRef = useRef(null);
   const resourcesRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isPathwaysInView = useInView(pathwaysRef, { once: true });
   const isProblemsInView = useInView(problemsRef, { once: true });
@@ -118,12 +118,12 @@ export default function HomePage() {
       />
 
       {/* SECTION 1: Hero Section (Enhanced) */}
-      <section 
+      <section
         ref={heroRef}
-        className="relative min-h-[85dvh] flex flex-col justify-start pt-40 overflow-hidden"
+        className="relative min-h-[85dvh] flex flex-col justify-center overflow-hidden"
       >
         {/* Hero Background Image */}
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `url(${heroImage})`,
@@ -132,10 +132,10 @@ export default function HomePage() {
             backgroundRepeat: 'no-repeat'
           }}
         ></div>
-        
+
         {/* Overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 via-[#1E3A5F]/85 to-[#1E3A5F]/70"></div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
@@ -185,15 +185,15 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
               >
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold text-lg px-10"
                 >
                   <Link to="/free-consultation">Get Free Consultation</Link>
                 </Button>
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="border-2 border-white bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
@@ -324,26 +324,26 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {[
-              { 
-                icon: SearchCheck, 
+              {
+                icon: SearchCheck,
                 problem: 'Need More Qualified Leads?',
                 link: '/marketing-seo',
                 delay: 0.1
               },
-              { 
-                icon: MapPin, 
+              {
+                icon: MapPin,
                 problem: 'Struggling to Get Found Locally?',
                 link: '/local-seo',
                 delay: 0.2
               },
-              { 
-                icon: MousePointerClick, 
+              {
+                icon: MousePointerClick,
                 problem: 'Website Not Converting?',
                 link: '/conversion-rate-optimization',
                 delay: 0.3
               },
-              { 
-                icon: Sparkles, 
+              {
+                icon: Sparkles,
                 problem: 'Want to Leverage AI?',
                 link: '/ai-automation',
                 delay: 0.4
@@ -474,8 +474,8 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-center"
           >
-            <Link 
-              to="/services" 
+            <Link
+              to="/services"
               className="inline-flex items-center gap-2 text-[#00B4D8] hover:text-[#1E3A5F] font-semibold text-lg transition-colors"
             >
               View All Services
@@ -695,15 +695,15 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold text-lg px-10"
               >
                 <Link to="/free-consultation">Get Free Consultation</Link>
               </Button>
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="border-2 border-white bg-white text-black hover:bg-gray-100 font-semibold text-lg px-10"
@@ -720,21 +720,21 @@ export default function HomePage() {
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 fill-[#FBBC04] text-[#FBBC04]" />
-                    ))}
-                  </div>
-                  <span>5.0 Rating</span>
+                    <Star key={star} className="w-4 h-4 fill-[#FBBC04] text-[#FBBC04]" />
+                  ))}
                 </div>
-                <span className="text-white/40">|</span>
-                <span>103+ Reviews</span>
-                <span className="text-white/40">|</span>
-                <span>20+ Years</span>
-                <span className="text-white/40">|</span>
-                <span>Free Consultation</span>
+                <span>5.0 Rating</span>
               </div>
-            </motion.div>
-          </div>
-        </section>
-      </>
-    );
+              <span className="text-white/40">|</span>
+              <span>103+ Reviews</span>
+              <span className="text-white/40">|</span>
+              <span>20+ Years</span>
+              <span className="text-white/40">|</span>
+              <span>Free Consultation</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  );
 }

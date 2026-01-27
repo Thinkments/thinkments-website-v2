@@ -1,27 +1,11 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
-import { 
-  Target,
-  Megaphone,
-  Pencil,
-  Share2,
-  Code,
-  MapPin,
-  Star,
-  BarChart3,
-  Orbit,
-  Camera,
-  Brain,
-  Wrench,
-  Puzzle,
-  Briefcase,
-  Lightbulb,
-  Compass,
-  Phone,
-  ArrowRight
+import { motion } from 'motion/react';
+import {
+  Code, ShoppingCart, Search, MousePointer,
+  Share2, Camera, Video,
+  Box, Cpu, TrendingUp,
+  Target, FileText, Award, Users, Smartphone
 } from 'lucide-react';
 
 interface ServicesMegaMenuProps {
@@ -29,311 +13,149 @@ interface ServicesMegaMenuProps {
   onClose: () => void;
 }
 
+const ServiceItem = ({ item, onClose }: { item: any, onClose: () => void }) => (
+  <Link
+    to={item.path}
+    onClick={onClose}
+    className="group flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-200"
+  >
+    <div className={`p-2 rounded-lg bg-gradient-to-br ${item.gradient} flex-shrink-0`}>
+      <item.icon className="w-4 h-4 text-white" />
+    </div>
+    <div className="flex-1 min-w-0">
+      <div className="text-sm font-semibold text-white group-hover:text-[#00B4D8] transition-colors">
+        {item.name}
+      </div>
+      <p className="text-xs text-gray-400 truncate">{item.desc}</p>
+    </div>
+  </Link>
+);
+
 export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
-  const serviceColumns = [
-    {
-      header: "MARKETING",
-      links: [
-        { icon: Target, label: "Marketing & SEO", href: "/marketing-seo" },
-        { icon: Megaphone, label: "Paid Advertising", href: "/paid-advertising" },
-        { icon: Pencil, label: "Content Marketing", href: "/content-marketing" },
-        { icon: Share2, label: "Social Media", href: "/social-media" }
-      ]
-    },
-    {
-      header: "DIGITAL PRESENCE",
-      links: [
-        { icon: Code, label: "Web Development", href: "/web-development" },
-        { icon: MapPin, label: "Google Business Profile", href: "/google-business-profile" },
-        { icon: Star, label: "Reputation Management", href: "/reputation-management" },
-        { icon: BarChart3, label: "Analytics & Reporting", href: "/analytics-reporting" }
-      ]
-    },
-    {
-      header: "CREATIVE",
-      links: [
-        { icon: Orbit, label: "Immersive Experiences", href: "/immersive-experiences", badge: "PIONEER", badgeColor: "bg-[#F7B928]" },
-        { icon: Camera, label: "Video & Photography", href: "/video-photography" }
-      ]
-    },
-    {
-      header: "TECHNOLOGY",
-      links: [
-        { icon: Brain, label: "AI & Automation", href: "/artificial-intelligence-automation", badge: "NEW", badgeColor: "bg-[#00B4D8]" },
-        { icon: Wrench, label: "Technical Services", href: "/technical-services" },
-        { icon: Puzzle, label: "Widgets & Integrations", href: "/widgets-integrations" }
-      ]
-    },
-    {
-      header: "BUSINESS",
-      links: [
-        { icon: Briefcase, label: "Recruitment Marketing", href: "/recruitment-marketing" },
-        { icon: Lightbulb, label: "Business Solutions", href: "/business-solutions" },
-        { icon: Compass, label: "Strategic Consulting", href: "/strategic-consulting" }
-      ]
-    }
-  ];
+  if (!isOpen) return null;
 
-  return (
-    <motion.div
-      className="fixed left-0 right-0 mx-auto mt-2 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden z-50"
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2 }}
-      onClick={(e) => e.stopPropagation()}
-      style={{ top: '80px', width: 'calc(100vw - 2rem)', maxWidth: '1200px' }}
-    >
-      {/* Main Content - 6 Columns */}
-      <div className="grid grid-cols-6 gap-6 p-6">
-        {/* Columns 1-5: Service Links */}
-        {serviceColumns.map((column, idx) => (
-          <div key={idx} className="space-y-3">
-            <h3 className="text-xs font-bold text-gray-500 tracking-wide mb-4">
-              {column.header}
-            </h3>
-            <div className="space-y-2">
-              {column.links.map((link, linkIdx) => (
-                <Link
-                  key={linkIdx}
-                  to={link.href}
-                  onClick={onClose}
-                  className="group flex items-start gap-2 py-2 px-2 -mx-2 rounded-md transition-all duration-200 hover:bg-gray-50 hover:pl-3"
-                >
-                  <link.icon className="w-4 h-4 text-[#00B4D8] mt-0.5 flex-shrink-0" />
-                  <div className="flex-grow">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-[#2D3748] group-hover:text-[#00B4D8] transition-colors leading-tight">
-                        {link.label}
-                      </span>
-                      {link.badge && (
-                        <Badge className={`${link.badgeColor} text-white text-[9px] px-1.5 py-0 h-4 border-0`}>
-                          {link.badge}
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        ))}
-
-        {/* Column 6: Featured CTA */}
-        <div className="bg-[#1E3A5F] rounded-lg p-6 flex flex-col justify-center items-center text-center h-full">
-          <div className="mb-6 w-full">
-            <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Not Sure Where to Start?
-            </h3>
-            <p className="text-sm text-gray-300 leading-relaxed">
-              Get a free consultation and we&apos;ll help identify the right services for your business.
-            </p>
-          </div>
-          
-          <div className="space-y-4 w-full">
-            <Link
-              to="/free-consultation"
-              onClick={onClose}
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold shadow-sm"
-            >
-              Free Consultation
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            
-            <div className="text-center">
-              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider font-medium">Or call us directly</p>
-              <a 
-                href="tel:9403151023" 
-                className="flex items-center justify-center gap-2 text-white hover:text-[#00B4D8] transition-colors group"
-              >
-                <span className="font-bold text-lg tracking-wide">(940) 315-1023</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="bg-gray-50 px-6 py-4 border-t border-gray-100 flex items-center justify-between">
-        <Link 
-          to="/services" 
-          onClick={onClose}
-          className="text-sm font-semibold text-[#00B4D8] hover:text-[#1E3A5F] transition-colors flex items-center gap-1"
-        >
-          View All Services
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-        
-        <div className="flex items-center gap-4 text-sm text-gray-600">
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" />
-            <Star className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" />
-            <Star className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" />
-            <Star className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" />
-            <Star className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" />
-            <span className="ml-1 font-semibold">5.0</span>
-          </div>
-          <span className="text-gray-300">|</span>
-          <div className="font-medium">20+ Years</div>
-          <span className="text-gray-300">|</span>
-          <div className="font-medium">103 Reviews</div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-// Mobile version
-interface ServicesMegaMenuMobileProps {
-  isOpen: boolean;
-}
-
-export function ServicesMegaMenuMobile({ isOpen }: ServicesMegaMenuMobileProps) {
-  const [openCategory, setOpenCategory] = React.useState<number | null>(null);
-
-  const serviceColumns = [
-    {
-      header: "MARKETING",
-      links: [
-        { icon: Target, label: "Marketing & SEO", href: "/marketing-seo" },
-        { icon: Megaphone, label: "Paid Advertising", href: "/paid-advertising" },
-        { icon: Pencil, label: "Content Marketing", href: "/content-marketing" },
-        { icon: Share2, label: "Social Media", href: "/social-media" }
-      ]
-    },
-    {
-      header: "DIGITAL PRESENCE",
-      links: [
-        { icon: Code, label: "Web Development", href: "/web-development" },
-        { icon: MapPin, label: "Google Business Profile", href: "/google-business-profile" },
-        { icon: Star, label: "Reputation Management", href: "/reputation-management" },
-        { icon: BarChart3, label: "Analytics & Reporting", href: "/analytics-reporting" }
-      ]
-    },
-    {
-      header: "CREATIVE",
-      links: [
-        { icon: Orbit, label: "Immersive Experiences", href: "/immersive-experiences", badge: "PIONEER" },
-        { icon: Camera, label: "Video & Photography", href: "/video-photography" }
-      ]
-    },
-    {
-      header: "TECHNOLOGY",
-      links: [
-        { icon: Brain, label: "AI & Automation", href: "/artificial-intelligence-automation", badge: "NEW" },
-        { icon: Wrench, label: "Technical Services", href: "/technical-services" },
-        { icon: Puzzle, label: "Widgets & Integrations", href: "/widgets-integrations" }
-      ]
-    },
-    {
-      header: "BUSINESS",
-      links: [
-        { icon: Briefcase, label: "Recruitment Marketing", href: "/recruitment-marketing" },
-        { icon: Lightbulb, label: "Business Solutions", href: "/business-solutions" },
-        { icon: Compass, label: "Strategic Consulting", href: "/strategic-consulting" }
-      ]
-    }
-  ];
-
-  const toggleCategory = (index: number) => {
-    setOpenCategory(openCategory === index ? null : index);
+  const services = {
+    development: [
+      { name: 'Web Development', path: '/services/web', icon: Code, gradient: 'from-blue-500 to-cyan-500', desc: 'Custom websites & web apps' },
+      { name: 'E-Commerce', path: '/services/web/ecommerce', icon: ShoppingCart, gradient: 'from-purple-500 to-pink-500', desc: 'Online stores that sell' },
+      { name: 'Mobile Apps', path: '/services/web/apps', icon: Smartphone, gradient: 'from-orange-500 to-red-500', desc: 'iOS & Android solutions' },
+    ],
+    marketing: [
+      { name: 'SEO Services', path: '/services/marketing/seo', icon: Search, gradient: 'from-green-500 to-emerald-500', desc: 'Rank #1 on Google' },
+      { name: 'PPC Advertising', path: '/services/marketing/paid', icon: MousePointer, gradient: 'from-blue-600 to-indigo-600', desc: 'Google & Facebook Ads' },
+      { name: 'Social Media', path: '/services/marketing/social', icon: Share2, gradient: 'from-pink-500 to-rose-500', desc: 'Build your community' },
+    ],
+    creative: [
+      { name: 'Brand Strategy', path: '/services/marketing/brand', icon: Target, gradient: 'from-amber-500 to-yellow-500', desc: 'Logos & brand identity' },
+      { name: 'Content Marketing', path: '/services/marketing/content', icon: FileText, gradient: 'from-teal-500 to-cyan-500', desc: 'Engaging blogs & copy' },
+      { name: 'Video Production', path: '/services/media/video', icon: Video, gradient: 'from-red-600 to-orange-600', desc: 'Professional videography' },
+    ],
+    innovation: [
+      { name: 'AI Solutions', path: '/services/tech/ai', icon: Cpu, gradient: 'from-violet-600 to-purple-600', desc: 'Automation & chatbots' },
+      { name: 'Virtual Tours', path: '/services/media/virtual-tours', icon: Box, gradient: 'from-blue-400 to-indigo-400', desc: 'Immersive 3D experiences' },
+      { name: 'Analytics', path: '/services/marketing/analytics', icon: TrendingUp, gradient: 'from-emerald-400 to-green-400', desc: 'Data-driven insights' },
+    ]
   };
 
+  const allServices = [
+    ...services.development,
+    ...services.marketing,
+    ...services.creative,
+    ...services.innovation
+  ];
+
   return (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: 'auto', opacity: 1 }}
-      exit={{ height: 0, opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      className="overflow-hidden"
-    >
-      <div className="pl-4 py-2 space-y-2">
-        {/* Category Accordions */}
-        {serviceColumns.map((category, idx) => (
-          <div key={idx} className="border-b border-gray-100 last:border-0">
-            <button
-              onClick={() => toggleCategory(idx)}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[#1E3A5F] hover:bg-gray-50 rounded-md transition-colors"
-            >
-              <span>{category.header}</span>
-              <motion.div
-                animate={{ rotate: openCategory === idx ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ArrowRight className="w-4 h-4 transform rotate-90" />
-              </motion.div>
-            </button>
-            
-            {openCategory === idx && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="overflow-hidden"
-              >
-                <div className="pl-4 pb-2 space-y-1">
-                  {category.links.map((link, linkIdx) => (
-                    <Link
-                      key={linkIdx}
-                      to={link.href}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-[#00B4D8] transition-colors"
-                    >
-                      <link.icon className="w-4 h-4" />
-                      <span>{link.label}</span>
-                      {link.badge && (
-                        <Badge className="bg-[#00B4D8] text-white text-[9px] px-1.5 py-0 h-4 border-0">
-                          {link.badge}
-                        </Badge>
-                      )}
-                    </Link>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+    <div className="w-[90vw] max-w-[900px] mx-auto bg-[#1a1f2e]">
+      {/* Desktop: Grid Layout */}
+      <div className="hidden md:grid gap-6 p-8 grid-cols-3">
+        {allServices.map((service) => (
+          <div key={service.path} className="min-w-0">
+            <ServiceItem item={service} onClose={onClose} />
           </div>
         ))}
+      </div>
 
-        {/* CTA Card at Bottom */}
-        <div className="bg-[#1E3A5F] rounded-lg p-6 mx-4 my-4 flex flex-col justify-center items-center text-center">
-          <div className="mb-6 w-full">
-            <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Not Sure Where to Start?
-            </h3>
-            <p className="text-sm text-gray-300 leading-relaxed">
-              Get a free consultation and we&apos;ll help identify the right services for your business.
-            </p>
-          </div>
-          
-          <div className="space-y-4 w-full">
-            <Link
-              to="/free-consultation"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2 w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold shadow-sm"
-            >
-              Free Consultation
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            
-            <div className="text-center">
-              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider font-medium">Or call us directly</p>
-              <a 
-                href="tel:9403151023" 
-                className="flex items-center justify-center gap-2 text-white hover:text-[#00B4D8] transition-colors group"
-              >
-                <span className="font-bold text-lg tracking-wide">(940) 315-1023</span>
-              </a>
-            </div>
-          </div>
+      {/* Mobile: Single Column */}
+      <div className="md:hidden p-4 space-y-2 max-h-[70vh] overflow-y-auto">
+        {allServices.map((service) => (
+          <ServiceItem key={service.path} item={service} onClose={onClose} />
+        ))}
+      </div>
+
+      {/* Footer CTA */}
+      <div className="border-t border-white/10 p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="flex items-center gap-4 text-xs sm:text-sm text-gray-400">
+          <span className="flex items-center gap-2"><Award className="w-4 h-4" /> Award Winning</span>
+          <span className="hidden sm:inline w-1 h-1 rounded-full bg-gray-600" />
+          <span className="flex items-center gap-2"><Users className="w-4 h-4" /> 500+ Clients</span>
         </div>
-
-        {/* View All Services Link */}
-        <Link 
-          to="/services"
-          className="block px-4 py-3 text-sm font-semibold text-[#00B4D8] hover:text-[#1E3A5F]"
+        <Link
+          to="/contact-us"
+          className="text-sm font-semibold text-[#00B4D8] hover:text-white transition-colors flex items-center gap-1 group"
+          onClick={onClose}
         >
-          View All Services →
+          View All Services
+          <span className="group-hover:translate-x-1 transition-transform">→</span>
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 }
+
+// Mobile Version
+export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
+  if (!isOpen) return null;
+
+  const categories = [
+    {
+      title: 'Development',
+      items: [
+        { name: 'Web Development', path: '/services/web' },
+        { name: 'E-Commerce', path: '/services/web/ecommerce' },
+        { name: 'Custom Apps', path: '/services/web/apps' }
+      ]
+    },
+    {
+      title: 'Marketing',
+      items: [
+        { name: 'SEO Optimization', path: '/services/marketing/seo' },
+        { name: 'PPC Advertising', path: '/services/marketing/paid' },
+        { name: 'Social Media', path: '/services/marketing/social' }
+      ]
+    },
+    {
+      title: 'Innovation',
+      items: [
+        { name: 'AI Solutions', path: '/services/tech/ai' },
+        { name: 'Virtual Tours', path: '/services/media/virtual-tours' }
+      ]
+    }
+  ];
+
+  return (
+    <div className="pl-4 py-2 space-y-6">
+      {categories.map((category) => (
+        <div key={category.title}>
+          <h4 className="text-sm font-medium text-white/40 uppercase tracking-wider mb-2">{category.title}</h4>
+          <div className="space-y-2">
+            {category.items.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="block text-lg text-white/70 hover:text-white transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ))}
+      <Link
+        to="/services"
+        className="block mt-4 text-[#00B4D8] font-medium"
+      >
+        View All Services →
+      </Link>
+    </div>
+  );
+};

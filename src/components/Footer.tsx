@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Linkedin, 
-  Instagram, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Linkedin,
+  Instagram,
   Youtube,
   Star,
   Globe,
   Clock,
   ChevronDown,
   Heart,
-  Send,
-  CheckCircle
 } from 'lucide-react';
 import { Button } from './ui/button';
 import NewsletterSignup from './NewsletterSignup';
-import thinkMentsLogo from 'figma:asset/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
+// FIX: Corrected import path for logo
+import thinkMentsLogo from '../assets/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
 
 export default function Footer() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -65,33 +64,33 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { 
-      icon: Facebook, 
-      href: 'https://www.facebook.com/ThinkMents/', 
+    {
+      icon: Facebook,
+      href: 'https://www.facebook.com/ThinkMents/',
       label: 'Facebook',
       hoverColor: 'hover:text-[#00B4D8]'
     },
-    { 
-      icon: Linkedin, 
-      href: 'https://www.linkedin.com/company/thinkments', 
+    {
+      icon: Linkedin,
+      href: 'https://www.linkedin.com/company/thinkments',
       label: 'LinkedIn',
       hoverColor: 'hover:text-[#00B4D8]'
     },
-    { 
-      icon: Instagram, 
-      href: 'https://www.instagram.com/thinkments/', 
+    {
+      icon: Instagram,
+      href: 'https://www.instagram.com/thinkments/',
       label: 'Instagram',
       hoverColor: 'hover:text-[#00B4D8]'
     },
-    { 
-      icon: Youtube, 
-      href: 'https://www.youtube.com/@ThinkMents', 
+    {
+      icon: Youtube,
+      href: 'https://www.youtube.com/@ThinkMents',
       label: 'YouTube',
       hoverColor: 'hover:text-[#00B4D8]'
     },
-    { 
-      icon: Globe, 
-      href: 'https://www.google.com/maps/place/ThinkMents+LLC/@33.2283526,-97.5883743,17z/data=!4m8!3m7!1s0x864dca0c0e2bc3dd:0x7a05b92ccce310c3!8m2!3d33.2283526!4d-97.5883743!9m1!1b1!16s%2Fg%2F11gf6g0v8y', 
+    {
+      icon: Globe,
+      href: 'https://www.google.com/maps/place/ThinkMents+LLC/@33.2283526,-97.5883743,17z/data=!4m8!3m7!1s0x864dca0c0e2bc3dd:0x7a05b92ccce310c3!8m2!3d33.2283526!4d-97.5883743!9m1!1b1!16s%2Fg%2F11gf6g0v8y',
       label: 'Google Business Profile',
       hoverColor: 'hover:text-[#00B4D8]'
     }
@@ -112,11 +111,11 @@ export default function Footer() {
                 className="h-10 w-auto brightness-0 invert"
               />
             </Link>
-            
+
             <p className="text-base text-white/90 mb-2 font-semibold">
               ThinkMents Digital Marketing Agency
             </p>
-            
+
             <p className="text-sm text-white/80 mb-4 leading-relaxed">
               Decatur, Texas | Serving Dallas-Fort Worth Metroplex & 31 States Nationwide
             </p>
@@ -238,22 +237,22 @@ export default function Footer() {
           <div className="col-span-3">
             <h3 className="font-semibold mb-4">Get in Touch</h3>
             <div className="space-y-3 mb-6">
-              <a 
+              <a
                 href="tel:9403151023"
                 className="flex items-center gap-2 text-sm text-white/80 hover:text-[#00B4D8] transition-colors"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span>(940) 315-1023</span>
               </a>
-              
-              <a 
+
+              <a
                 href="mailto:info@thinkments.com"
                 className="flex items-center gap-2 text-sm text-white/80 hover:text-[#00B4D8] transition-colors"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <span>info@thinkments.com</span>
               </a>
-              
+
               <a
                 href="https://maps.google.com/?q=301+South+Washburn+St+Suite+D+Decatur+Texas+76234"
                 target="_blank"
@@ -263,15 +262,15 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>301 South Washburn St, Suite D<br />Decatur, TX 76234</span>
               </a>
-              
+
               <div className="flex items-center gap-2 text-sm text-white/80">
                 <Clock className="w-4 h-4 flex-shrink-0" />
                 <span>Mon-Fri 8am-6pm CST</span>
               </div>
             </div>
 
-            <Button 
-              asChild 
+            <Button
+              asChild
               className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold"
             >
               <Link to="/contact-us">Schedule Free Consultation</Link>
@@ -290,11 +289,11 @@ export default function Footer() {
                 className="h-10 w-auto brightness-0 invert mx-auto"
               />
             </Link>
-            
+
             <p className="text-sm font-semibold text-white/90 mb-2">
               ThinkMents Digital Marketing Agency
             </p>
-            
+
             <p className="text-xs text-white/80 mb-3">
               Decatur, Texas | Serving Dallas-Fort Worth Metroplex & 31 States Nationwide
             </p>
@@ -342,10 +341,9 @@ export default function Footer() {
               className="w-full flex items-center justify-between py-3 border-b border-white/10"
             >
               <span className="font-semibold">Services</span>
-              <ChevronDown 
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileServicesOpen ? 'rotate-180' : ''
-                }`} 
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -381,10 +379,9 @@ export default function Footer() {
               className="w-full flex items-center justify-between py-3 border-b border-white/10"
             >
               <span className="font-semibold">Company</span>
-              <ChevronDown 
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileCompanyOpen ? 'rotate-180' : ''
-                }`} 
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-200 ${mobileCompanyOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -420,10 +417,9 @@ export default function Footer() {
               className="w-full flex items-center justify-between py-3 border-b border-white/10"
             >
               <span className="font-semibold">Service Areas</span>
-              <ChevronDown 
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileServiceAreasOpen ? 'rotate-180' : ''
-                }`} 
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-200 ${mobileServiceAreasOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -464,10 +460,9 @@ export default function Footer() {
               className="w-full flex items-center justify-between py-3 border-b border-white/10"
             >
               <span className="font-semibold">Resources</span>
-              <ChevronDown 
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileResourcesOpen ? 'rotate-180' : ''
-                }`} 
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -500,35 +495,35 @@ export default function Footer() {
           <div className="pt-4 border-t border-white/10">
             <h3 className="font-semibold mb-4">Get in Touch</h3>
             <div className="space-y-3 mb-6">
-              <a 
+              <a
                 href="tel:9403151023"
                 className="flex items-center gap-2 text-sm text-white/80 hover:text-[#00B4D8] transition-colors"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span>(940) 315-1023</span>
               </a>
-              
-              <a 
+
+              <a
                 href="mailto:info@thinkments.com"
                 className="flex items-center gap-2 text-sm text-white/80 hover:text-[#00B4D8] transition-colors"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <span>info@thinkments.com</span>
               </a>
-              
+
               <div className="flex items-start gap-2 text-sm text-white/80">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>301 South Washburn St, Suite D<br />Decatur, TX 76234</span>
               </div>
-              
+
               <div className="flex items-center gap-2 text-sm text-white/80">
                 <Clock className="w-4 h-4 flex-shrink-0" />
                 <span>Mon-Fri 8am-6pm CST</span>
               </div>
             </div>
 
-            <Button 
-              asChild 
+            <Button
+              asChild
               className="w-full bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-semibold"
             >
               <Link to="/contact-us">Schedule Free Consultation</Link>
@@ -553,22 +548,22 @@ export default function Footer() {
 
             {/* Center - Legal Links */}
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link 
-                to="/privacy-policy" 
+              <Link
+                to="/privacy-policy"
                 className="hover:text-[#00B4D8] transition-colors"
               >
                 Privacy Policy
               </Link>
               <span className="text-white/30">|</span>
-              <Link 
-                to="/terms-of-service" 
+              <Link
+                to="/terms-of-service"
                 className="hover:text-[#00B4D8] transition-colors"
               >
                 Terms of Service
               </Link>
               <span className="text-white/30">|</span>
-              <Link 
-                to="/sitemap" 
+              <Link
+                to="/sitemap"
                 className="hover:text-[#00B4D8] transition-colors"
               >
                 Sitemap
