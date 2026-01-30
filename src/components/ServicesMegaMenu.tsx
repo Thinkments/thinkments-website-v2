@@ -19,12 +19,20 @@ import {
   Smartphone,
 } from 'lucide-react';
 
+interface ServiceItemType {
+  name: string;
+  path: string;
+  icon: React.ElementType;
+  gradient: string;
+  desc: string;
+}
+
 interface ServicesMegaMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ServiceItem = ({ item, onClose }: { item: any; onClose: () => void }) => {
+const ServiceItem = ({ item, onClose }: { item: ServiceItemType; onClose: () => void }) => {
   const isExternal = item.path.startsWith('http');
 
   if (isExternal) {

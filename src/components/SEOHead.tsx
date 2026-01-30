@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { updateMetaTags, injectSchema, SEOConfig } from '../utils/seo';
 
 interface SEOHeadProps extends SEOConfig {
-  schema?: any | any[];
+  schema?: Record<string, unknown> | Record<string, unknown>[];
   children?: React.ReactNode;
 }
 
