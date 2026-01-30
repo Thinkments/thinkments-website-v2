@@ -29,6 +29,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 import SEO from '../SEO';
+import LazyText from '../ui/LazyText';
 import heroImage from '../../assets/hero-bg.png';
 
 export default function HomePage() {
