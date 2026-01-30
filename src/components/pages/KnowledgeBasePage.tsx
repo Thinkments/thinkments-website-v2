@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { 
+import {
   Search,
   MapPin,
   Globe,
@@ -15,7 +15,7 @@ import {
   Phone,
   ChevronDown,
   ChevronUp,
-  ArrowRight
+  ArrowRight,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -41,95 +41,98 @@ export default function KnowledgeBasePage() {
       title: 'SEO Basics',
       description: 'Learn how search engines work and how to improve your rankings.',
       linkText: 'Explore SEO',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: MapPin,
       title: 'Google Business Profile',
       description: 'Set up and optimize your GBP for local search success.',
       linkText: 'Explore GBP',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: Globe,
       title: 'Website Fundamentals',
       description: 'What makes a good website and how to improve yours.',
       linkText: 'Explore Websites',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: Megaphone,
       title: 'Paid Advertising',
       description: 'Understand Google Ads, Facebook Ads, and paid media.',
       linkText: 'Explore Ads',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: Share2,
       title: 'Social Media',
       description: 'Build your presence on social platforms that matter.',
       linkText: 'Explore Social',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: Star,
       title: 'Reviews & Reputation',
       description: 'Get more reviews and manage your online reputation.',
       linkText: 'Explore Reviews',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: Camera,
       title: 'Visual Content',
       description: 'Photography, video, and virtual tours for your business.',
       linkText: 'Explore Visual',
-      linkUrl: '/blog'
+      linkUrl: '/blog',
     },
     {
       icon: Brain,
       title: 'AI & Automation',
       description: 'How AI is changing marketing and how to use it.',
       linkText: 'Explore AI',
-      linkUrl: '/blog'
-    }
+      linkUrl: '/blog',
+    },
   ];
 
   const popularArticles = [
     {
       title: 'The Complete Guide to Local SEO in 2025',
-      url: '/blog'
+      url: '/blog',
     },
     {
       title: 'How to Optimize Your Google Business Profile',
-      url: '/blog'
+      url: '/blog',
     },
     {
       title: 'What to Do When Your GBP Gets Suspended',
-      url: '/blog'
+      url: '/blog',
     },
     {
       title: 'Website Speed: Why It Matters for SEO',
-      url: '/blog'
+      url: '/blog',
     },
     {
       title: 'Getting Started with Google Ads',
-      url: '/blog'
-    }
+      url: '/blog',
+    },
   ];
 
   const quickAnswers = [
     {
       question: 'How long does SEO take to work?',
-      answer: 'SEO typically takes 3-6 months to show meaningful results. This timeline depends on factors like your current website state, competition level, and the comprehensiveness of your SEO strategy. Local SEO may show results faster, while competitive national keywords can take longer.'
+      answer:
+        'SEO typically takes 3-6 months to show meaningful results. This timeline depends on factors like your current website state, competition level, and the comprehensiveness of your SEO strategy. Local SEO may show results faster, while competitive national keywords can take longer.',
     },
     {
       question: 'How much should I spend on Google Ads?',
-      answer: 'Your Google Ads budget depends on your industry, competition, and goals. Most small businesses start with $1,000-$3,000 per month. The key is to start with a test budget, measure results, and scale up what works. Focus on ROI rather than a specific dollar amount.'
+      answer:
+        'Your Google Ads budget depends on your industry, competition, and goals. Most small businesses start with $1,000-$3,000 per month. The key is to start with a test budget, measure results, and scale up what works. Focus on ROI rather than a specific dollar amount.',
     },
     {
       question: 'Do I need a website if I have social media?',
-      answer: 'Yes, absolutely. While social media is valuable, you don\'t own those platforms—they can change algorithms, suspend accounts, or even shut down. Your website is your digital property that you fully control. It\'s also essential for SEO, credibility, and converting visitors into customers.'
-    }
+      answer:
+        "Yes, absolutely. While social media is valuable, you don't own those platforms—they can change algorithms, suspend accounts, or even shut down. Your website is your digital property that you fully control. It's also essential for SEO, credibility, and converting visitors into customers.",
+    },
   ];
 
   const toggleFaq = (index: number) => {
@@ -146,10 +149,7 @@ export default function KnowledgeBasePage() {
       />
 
       {/* Hero Section */}
-      <section 
-        ref={heroRef}
-        className="py-20 bg-[#F8F9FA]"
-      >
+      <section ref={heroRef} className="py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -163,8 +163,8 @@ export default function KnowledgeBasePage() {
             </p>
 
             {/* Headline */}
-            <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6" 
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Learn Digital Marketing
@@ -172,7 +172,9 @@ export default function KnowledgeBasePage() {
 
             {/* Subheadline */}
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Free resources, guides, and tutorials to help you understand digital marketing and grow your business. Whether you're a DIYer or want to make informed decisions, start here.
+              Free resources, guides, and tutorials to help you understand digital marketing and
+              grow your business. Whether you're a DIYer or want to make informed decisions, start
+              here.
             </p>
 
             {/* Search Bar */}
@@ -203,8 +205,8 @@ export default function KnowledgeBasePage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 
-                className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" 
+              <h2
+                className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
                 Browse by Topic
@@ -218,7 +220,7 @@ export default function KnowledgeBasePage() {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   animate={isCategoryInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.1 + (index * 0.05) }}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
                 >
                   <Card className="h-full border-2 border-gray-200 hover:border-[#00B4D8] transition-all duration-300 hover:shadow-lg group">
                     <CardContent className="p-6 flex flex-col h-full">
@@ -228,7 +230,7 @@ export default function KnowledgeBasePage() {
                       </div>
 
                       {/* Title */}
-                      <h3 
+                      <h3
                         className="text-xl font-bold text-[#1E3A5F] mb-3"
                         style={{ fontFamily: 'Playfair Display, serif' }}
                       >
@@ -241,7 +243,7 @@ export default function KnowledgeBasePage() {
                       </p>
 
                       {/* Link */}
-                      <Link 
+                      <Link
                         to={card.linkUrl}
                         className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all"
                       >
@@ -268,8 +270,8 @@ export default function KnowledgeBasePage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 
-                className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" 
+              <h2
+                className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
                 Popular Articles
@@ -284,7 +286,7 @@ export default function KnowledgeBasePage() {
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isPopularInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.2 + (index * 0.1) }}
+                    transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                   >
                     <Link
                       to={article.url}
@@ -300,7 +302,7 @@ export default function KnowledgeBasePage() {
 
               {/* View All Button */}
               <div className="text-center">
-                <Button 
+                <Button
                   asChild
                   variant="outline"
                   size="lg"
@@ -328,8 +330,8 @@ export default function KnowledgeBasePage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 
-                className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" 
+              <h2
+                className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
                 Quick Answers
@@ -343,23 +345,21 @@ export default function KnowledgeBasePage() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isQuickInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   className="bg-[#F8F9FA] rounded-lg border-2 border-gray-200 hover:border-[#00B4D8] transition-all"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
                     className="w-full px-6 py-5 flex items-center justify-between text-left"
                   >
-                    <h3 className="text-lg font-semibold text-[#1E3A5F] pr-4">
-                      {faq.question}
-                    </h3>
+                    <h3 className="text-lg font-semibold text-[#1E3A5F] pr-4">{faq.question}</h3>
                     {expandedFaq === index ? (
                       <ChevronUp className="w-5 h-5 text-[#00B4D8] flex-shrink-0" />
                     ) : (
                       <ChevronDown className="w-5 h-5 text-[#00B4D8] flex-shrink-0" />
                     )}
                   </button>
-                  
+
                   {expandedFaq === index && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
@@ -368,9 +368,7 @@ export default function KnowledgeBasePage() {
                       transition={{ duration: 0.3 }}
                       className="px-6 pb-5"
                     >
-                      <p className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
+                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                     </motion.div>
                   )}
                 </motion.div>
@@ -401,8 +399,8 @@ export default function KnowledgeBasePage() {
             className="text-center text-white max-w-4xl mx-auto"
           >
             {/* Headline */}
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-6" 
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-6"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Need Personalized Help?
@@ -410,22 +408,21 @@ export default function KnowledgeBasePage() {
 
             {/* Subheadline */}
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Our knowledge base is great for learning, but sometimes you need expert guidance. Let's talk.
+              Our knowledge base is great for learning, but sometimes you need expert guidance.
+              Let's talk.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8"
               >
-                <Link to="/free-consultation">
-                  Get Free Consultation
-                </Link>
+                <Link to="/free-consultation">Get Free Consultation</Link>
               </Button>
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white/10 font-semibold text-lg px-8"

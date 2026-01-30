@@ -11,74 +11,290 @@ export default function SitemapPage() {
   const today = new Date().toISOString().split('T')[0];
 
   const sitemapStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Sitemap - ThinkMents",
-    "description": "Complete sitemap of ThinkMents digital marketing website with all pages and services",
-    "url": "https://thinkments.com/sitemap",
-    "mainEntity": {
-      "@type": "SiteNavigationElement",
-      "name": "Site Navigation"
-    }
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Sitemap - ThinkMents',
+    description:
+      'Complete sitemap of ThinkMents digital marketing website with all pages and services',
+    url: 'https://thinkments.com/sitemap',
+    mainEntity: {
+      '@type': 'SiteNavigationElement',
+      name: 'Site Navigation',
+    },
   };
 
   const mainRoutes = [
-    { path: '/', priority: '1.0', changefreq: 'weekly', description: 'Homepage', icon: Globe, category: 'Main' },
-    { path: '/about', priority: '0.8', changefreq: 'monthly', description: 'About Us', icon: FileText, category: 'Company' },
-    { path: '/our-story', priority: '0.7', changefreq: 'monthly', description: 'Our Story', icon: FileText, category: 'Company' },
-    { path: '/services', priority: '0.9', changefreq: 'weekly', description: 'Services Overview', icon: Globe, category: 'Services' },
-    { path: '/web-design', priority: '0.9', changefreq: 'weekly', description: 'Web Design Services', icon: Globe, category: 'Services' },
-    { path: '/web-development', priority: '0.9', changefreq: 'weekly', description: 'Web Development Services', icon: Globe, category: 'Services' },
-    { path: '/digital-marketing', priority: '0.9', changefreq: 'weekly', description: 'Digital Marketing', icon: Globe, category: 'Services' },
-    { path: '/marketing-seo', priority: '0.9', changefreq: 'weekly', description: 'Marketing & SEO Services', icon: Globe, category: 'Services' },
-    { path: '/local-seo', priority: '0.9', changefreq: 'weekly', description: 'Local SEO Services', icon: Globe, category: 'Services' },
-    { path: '/strategic-seo', priority: '0.9', changefreq: 'weekly', description: 'SEO Services', icon: Globe, category: 'Services' },
-    { path: '/paid-advertising', priority: '0.9', changefreq: 'weekly', description: 'Paid Advertising Services', icon: Globe, category: 'Services' },
-    { path: '/google-business-profile', priority: '0.9', changefreq: 'weekly', description: 'Google Business Profile Management', icon: Globe, category: 'Services' },
-    { path: '/conversion-rate-optimization', priority: '0.9', changefreq: 'weekly', description: 'Conversion Rate Optimization', icon: Globe, category: 'Services' },
-    { path: '/content-marketing', priority: '0.8', changefreq: 'weekly', description: 'Content Marketing', icon: Globe, category: 'Services' },
-    { path: '/social-media', priority: '0.8', changefreq: 'weekly', description: 'Social Media Marketing', icon: Globe, category: 'Services' },
-    { path: '/reputation-management', priority: '0.8', changefreq: 'weekly', description: 'Reputation Management', icon: Globe, category: 'Services' },
-    { path: '/virtual-tours', priority: '0.8', changefreq: 'weekly', description: 'Virtual Tours', icon: Globe, category: 'Services' },
-    { path: '/videography', priority: '0.8', changefreq: 'weekly', description: 'Videography', icon: Globe, category: 'Services' },
-    { path: '/artificial-intelligence-optimization', priority: '0.8', changefreq: 'weekly', description: 'AI Optimization', icon: Globe, category: 'Services' },
-    { path: '/locations', priority: '0.8', changefreq: 'monthly', description: 'Service Locations', icon: MapPin, category: 'Locations' },
-    { path: '/digital-marketing-areas', priority: '0.7', changefreq: 'monthly', description: 'Service Areas', icon: MapPin, category: 'Locations' },
-    { path: '/case-studies', priority: '0.8', changefreq: 'weekly', description: 'Case Studies', icon: FileText, category: 'Content' },
-    { path: '/blog', priority: '0.8', changefreq: 'daily', description: 'Blog', icon: FileText, category: 'Content' },
-    { path: '/store', priority: '0.7', changefreq: 'weekly', description: 'Store', icon: Globe, category: 'Commerce' },
-    { path: '/contact', priority: '0.8', changefreq: 'monthly', description: 'Contact', icon: Globe, category: 'Contact' },
-    { path: '/get-a-quote', priority: '0.9', changefreq: 'weekly', description: 'Get Quote', icon: Globe, category: 'Contact' }
+    {
+      path: '/',
+      priority: '1.0',
+      changefreq: 'weekly',
+      description: 'Homepage',
+      icon: Globe,
+      category: 'Main',
+    },
+    {
+      path: '/about',
+      priority: '0.8',
+      changefreq: 'monthly',
+      description: 'About Us',
+      icon: FileText,
+      category: 'Company',
+    },
+    {
+      path: '/our-story',
+      priority: '0.7',
+      changefreq: 'monthly',
+      description: 'Our Story',
+      icon: FileText,
+      category: 'Company',
+    },
+    {
+      path: '/services',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Services Overview',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/web-design',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Web Design Services',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/web-development',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Web Development Services',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/digital-marketing',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Digital Marketing',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/marketing-seo',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Marketing & SEO Services',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/local-seo',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Local SEO Services',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/strategic-seo',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'SEO Services',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/paid-advertising',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Paid Advertising Services',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/google-business-profile',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Google Business Profile Management',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/conversion-rate-optimization',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Conversion Rate Optimization',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/content-marketing',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'Content Marketing',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/social-media',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'Social Media Marketing',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/reputation-management',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'Reputation Management',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/virtual-tours',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'Virtual Tours',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/videography',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'Videography',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/artificial-intelligence-optimization',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'AI Optimization',
+      icon: Globe,
+      category: 'Services',
+    },
+    {
+      path: '/locations',
+      priority: '0.8',
+      changefreq: 'monthly',
+      description: 'Service Locations',
+      icon: MapPin,
+      category: 'Locations',
+    },
+    {
+      path: '/digital-marketing-areas',
+      priority: '0.7',
+      changefreq: 'monthly',
+      description: 'Service Areas',
+      icon: MapPin,
+      category: 'Locations',
+    },
+    {
+      path: '/case-studies',
+      priority: '0.8',
+      changefreq: 'weekly',
+      description: 'Case Studies',
+      icon: FileText,
+      category: 'Content',
+    },
+    {
+      path: '/blog',
+      priority: '0.8',
+      changefreq: 'daily',
+      description: 'Blog',
+      icon: FileText,
+      category: 'Content',
+    },
+    {
+      path: '/store',
+      priority: '0.7',
+      changefreq: 'weekly',
+      description: 'Store',
+      icon: Globe,
+      category: 'Commerce',
+    },
+    {
+      path: '/contact',
+      priority: '0.8',
+      changefreq: 'monthly',
+      description: 'Contact',
+      icon: Globe,
+      category: 'Contact',
+    },
+    {
+      path: '/get-a-quote',
+      priority: '0.9',
+      changefreq: 'weekly',
+      description: 'Get Quote',
+      icon: Globe,
+      category: 'Contact',
+    },
   ];
 
-  const locationRoutes = LOCATION_ROUTES.map(location => ({
+  const locationRoutes = LOCATION_ROUTES.map((location) => ({
     path: `/digital-marketing-${location}`,
     priority: '0.7',
     changefreq: 'monthly',
     description: `Digital Marketing in ${location.charAt(0).toUpperCase() + location.slice(1)}`,
     icon: MapPin,
-    category: 'Locations'
+    category: 'Locations',
   }));
 
   const legalRoutes = [
-    { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly', description: 'Privacy Policy', icon: FileText, category: 'Legal' },
-    { path: '/terms-of-service', priority: '0.3', changefreq: 'yearly', description: 'Terms of Service', icon: FileText, category: 'Legal' },
-    { path: '/design-transfer-agreement', priority: '0.3', changefreq: 'yearly', description: 'Design Transfer Agreement', icon: FileText, category: 'Legal' }
+    {
+      path: '/privacy-policy',
+      priority: '0.3',
+      changefreq: 'yearly',
+      description: 'Privacy Policy',
+      icon: FileText,
+      category: 'Legal',
+    },
+    {
+      path: '/terms-of-service',
+      priority: '0.3',
+      changefreq: 'yearly',
+      description: 'Terms of Service',
+      icon: FileText,
+      category: 'Legal',
+    },
+    {
+      path: '/design-transfer-agreement',
+      priority: '0.3',
+      changefreq: 'yearly',
+      description: 'Design Transfer Agreement',
+      icon: FileText,
+      category: 'Legal',
+    },
   ];
 
   const allRoutes = [...mainRoutes, ...locationRoutes, ...legalRoutes];
 
   // Group routes by category
-  const routesByCategory = allRoutes.reduce((acc, route) => {
-    const category = route.category;
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(route);
-    return acc;
-  }, {} as Record<string, typeof allRoutes>);
+  const routesByCategory = allRoutes.reduce(
+    (acc, route) => {
+      const category = route.category;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(route);
+      return acc;
+    },
+    {} as Record<string, typeof allRoutes>,
+  );
 
-  const categoryOrder = ['Main', 'Company', 'Services', 'Locations', 'Content', 'Commerce', 'Contact', 'Legal'];
+  const categoryOrder = [
+    'Main',
+    'Company',
+    'Services',
+    'Locations',
+    'Content',
+    'Commerce',
+    'Contact',
+    'Legal',
+  ];
 
   return (
     <>
@@ -90,7 +306,7 @@ export default function SitemapPage() {
         type="website"
         structuredData={sitemapStructuredData}
       />
-      
+
       <motion.div
         className="min-h-screen py-20"
         initial={{ opacity: 0 }}
@@ -112,14 +328,14 @@ export default function SitemapPage() {
                   Sitemap
                 </span>
               </motion.h1>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Navigate our complete website structure. Find all our digital marketing services, 
+                Navigate our complete website structure. Find all our digital marketing services,
                 locations we serve, case studies, and helpful resources.
               </motion.p>
 
@@ -129,7 +345,7 @@ export default function SitemapPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <Link 
+                <Link
                   to="/sitemap.xml"
                   className="inline-flex items-center space-x-2 text-primary hover:underline font-medium"
                 >
@@ -164,7 +380,7 @@ export default function SitemapPage() {
                       </span>
                       <span className="text-muted-foreground">({routes.length})</span>
                     </h2>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {routes.map((route, index) => (
                         <motion.div
@@ -186,7 +402,8 @@ export default function SitemapPage() {
                                       {route.description}
                                     </h3>
                                     <p className="text-sm text-muted-foreground mt-1 truncate">
-                                      {baseUrl}{route.path}
+                                      {baseUrl}
+                                      {route.path}
                                     </p>
                                     <div className="flex items-center justify-between mt-2 text-xs text-muted-foreground">
                                       <span>Priority: {route.priority}</span>
@@ -216,19 +433,18 @@ export default function SitemapPage() {
                   <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h2 className="text-2xl mb-4">XML Sitemap for Search Engines</h2>
                   <p className="text-muted-foreground mb-6">
-                    Search engines like Google use our XML sitemap to crawl and index our website more effectively. 
-                    This helps ensure all our content is discoverable in search results.
+                    Search engines like Google use our XML sitemap to crawl and index our website
+                    more effectively. This helps ensure all our content is discoverable in search
+                    results.
                   </p>
-                  <Link 
+                  <Link
                     to="/sitemap.xml"
                     className="inline-flex items-center space-x-2 text-primary hover:underline font-medium"
                   >
                     <ExternalLink className="w-5 h-5" />
                     <span>View XML Sitemap ({baseUrl}/sitemap.xml)</span>
                   </Link>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    Last updated: {today}
-                  </p>
+                  <p className="text-sm text-muted-foreground mt-4">Last updated: {today}</p>
                 </CardContent>
               </Card>
             </div>

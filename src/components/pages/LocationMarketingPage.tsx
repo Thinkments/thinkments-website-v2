@@ -4,7 +4,16 @@ import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { MapPin, Phone, Star, ArrowRight, CheckCircle, Users, TrendingUp, Award } from 'lucide-react@0.487.0';
+import {
+  MapPin,
+  Phone,
+  Star,
+  ArrowRight,
+  CheckCircle,
+  Users,
+  TrendingUp,
+  Award,
+} from 'lucide-react@0.487.0';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
@@ -16,7 +25,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
   // Convert location slug to display name
   const locationName = location
     .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
   const services = [
@@ -24,33 +33,53 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
       title: 'Local SEO',
       description: `Dominate local search results in ${locationName} and attract nearby customers to your business.`,
       icon: '🎯',
-      features: ['Google My Business optimization', 'Local keyword targeting', 'Citation building', 'Review management']
+      features: [
+        'Google My Business optimization',
+        'Local keyword targeting',
+        'Citation building',
+        'Review management',
+      ],
     },
     {
       title: 'Google Ads',
       description: `Reach ${locationName} customers when they're ready to buy with targeted advertising campaigns.`,
       icon: '📈',
-      features: ['Location-targeted campaigns', 'Keyword research', 'Ad copywriting', 'Conversion tracking']
+      features: [
+        'Location-targeted campaigns',
+        'Keyword research',
+        'Ad copywriting',
+        'Conversion tracking',
+      ],
     },
     {
       title: 'Social Media Marketing',
       description: `Build a strong social media presence that connects with the ${locationName} community.`,
       icon: '👥',
-      features: ['Content creation', 'Community management', 'Local event promotion', 'Social advertising']
+      features: [
+        'Content creation',
+        'Community management',
+        'Local event promotion',
+        'Social advertising',
+      ],
     },
     {
       title: 'Website Design',
       description: `Professional websites that showcase your ${locationName} business and convert visitors into customers.`,
       icon: '💻',
-      features: ['Mobile-responsive design', 'Local optimization', 'Fast loading speeds', 'SEO-friendly structure']
-    }
+      features: [
+        'Mobile-responsive design',
+        'Local optimization',
+        'Fast loading speeds',
+        'SEO-friendly structure',
+      ],
+    },
   ];
 
   const stats = [
     { number: '150+', label: `${locationName} Businesses Served` },
     { number: '300%', label: 'Average Traffic Increase' },
     { number: '4.9/5', label: 'Client Satisfaction Rating' },
-    { number: '90%', label: 'Client Retention Rate' }
+    { number: '90%', label: 'Client Retention Rate' },
   ];
 
   const testimonials = [
@@ -58,20 +87,20 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
       name: 'John Smith',
       business: `Local Restaurant in ${locationName}`,
       rating: 5,
-      text: `ThinkMents helped us dominate local search results. We're now the #1 restaurant when people search for dining in ${locationName}!`
+      text: `ThinkMents helped us dominate local search results. We're now the #1 restaurant when people search for dining in ${locationName}!`,
     },
     {
       name: 'Sarah Johnson',
       business: `Law Firm in ${locationName}`,
       rating: 5,
-      text: `Our website traffic has tripled since working with ThinkMents. They understand the ${locationName} market perfectly.`
+      text: `Our website traffic has tripled since working with ThinkMents. They understand the ${locationName} market perfectly.`,
     },
     {
       name: 'Mike Rodriguez',
       business: `Auto Shop in ${locationName}`,
       rating: 5,
-      text: `Professional, results-driven team. They've helped us become the go-to auto shop in ${locationName}.`
-    }
+      text: `Professional, results-driven team. They've helped us become the go-to auto shop in ${locationName}.`,
+    },
   ];
 
   const localAreas = [
@@ -79,62 +108,62 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
     'Business District',
     'Shopping Centers',
     'Residential Neighborhoods',
-    'Commercial Corridors'
+    'Commercial Corridors',
   ];
 
   const locationStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": `Digital Marketing in ${locationName}`,
-    "description": `Professional digital marketing services for businesses in ${locationName}. Local SEO, Google Ads, social media marketing, and web design.`,
-    "provider": {
-      "@type": "Organization",
-      "name": "ThinkMents",
-      "url": "https://thinkments.com"
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Digital Marketing in ${locationName}`,
+    description: `Professional digital marketing services for businesses in ${locationName}. Local SEO, Google Ads, social media marketing, and web design.`,
+    provider: {
+      '@type': 'Organization',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
     },
-    "areaServed": {
-      "@type": "Place",
-      "name": locationName
+    areaServed: {
+      '@type': 'Place',
+      name: locationName,
     },
-    "serviceType": "Digital Marketing",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `Digital Marketing Services in ${locationName}`,
-      "itemListElement": [
+    serviceType: 'Digital Marketing',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Digital Marketing Services in ${locationName}`,
+      itemListElement: [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Local SEO",
-            "description": `Local search engine optimization services in ${locationName}`
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Local SEO',
+            description: `Local search engine optimization services in ${locationName}`,
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Google Ads Management",
-            "description": `Professional Google Ads management for ${locationName} businesses`
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Google Ads Management',
+            description: `Professional Google Ads management for ${locationName} businesses`,
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Social Media Marketing",
-            "description": `Social media marketing services for ${locationName} businesses`
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Social Media Marketing',
+            description: `Social media marketing services for ${locationName} businesses`,
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Website Design",
-            "description": `Professional website design and development in ${locationName}`
-          }
-        }
-      ]
-    }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Website Design',
+            description: `Professional website design and development in ${locationName}`,
+          },
+        },
+      ],
+    },
   };
 
   return (
@@ -147,7 +176,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
         type="service"
         structuredData={locationStructuredData}
       />
-      
+
       <motion.div
         className=""
         initial={{ opacity: 0 }}
@@ -169,14 +198,16 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                   {locationName}
                 </span>
               </motion.h1>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Grow your {locationName} business with proven digital marketing strategies that deliver real results. From local SEO to social media, we help businesses dominate their local market and attract more customers throughout the {locationName} area.
+                Grow your {locationName} business with proven digital marketing strategies that
+                deliver real results. From local SEO to social media, we help businesses dominate
+                their local market and attract more customers throughout the {locationName} area.
               </motion.p>
 
               <motion.div
@@ -239,7 +270,8 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Comprehensive digital marketing solutions designed to help {locationName} businesses thrive online and attract more local customers.
+                Comprehensive digital marketing solutions designed to help {locationName} businesses
+                thrive online and attract more local customers.
               </p>
             </motion.div>
 
@@ -262,7 +294,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                       </div>
                       <p className="text-muted-foreground">{service.description}</p>
                     </CardHeader>
-                    
+
                     <CardContent>
                       <ul className="space-y-2">
                         {service.features.map((feature, featureIndex) => (
@@ -297,7 +329,8 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Don't just take our word for it. Here's what local businesses in {locationName} have to say about our digital marketing services.
+                Don't just take our word for it. Here's what local businesses in {locationName} have
+                to say about our digital marketing services.
               </p>
             </motion.div>
 
@@ -317,9 +350,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                           <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         ))}
                       </div>
-                      <p className="text-muted-foreground mb-4 italic">
-                        "{testimonial.text}"
-                      </p>
+                      <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
                       <div>
                         <p className="font-medium">{testimonial.name}</p>
                         <p className="text-sm text-muted-foreground">{testimonial.business}</p>
@@ -349,7 +380,8 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                We provide digital marketing services to businesses throughout the {locationName} area.
+                We provide digital marketing services to businesses throughout the {locationName}{' '}
+                area.
               </p>
             </motion.div>
 
@@ -391,7 +423,8 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Let's discuss how we can help your {locationName} business attract more customers and increase revenue through proven digital marketing strategies.
+                Let's discuss how we can help your {locationName} business attract more customers
+                and increase revenue through proven digital marketing strategies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/get-a-quote">

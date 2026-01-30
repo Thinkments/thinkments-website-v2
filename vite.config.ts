@@ -1,14 +1,10 @@
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
@@ -21,8 +17,14 @@ export default defineConfig({
       'next-themes@0.4.6': 'next-themes',
       'lucide-react@0.487.0': 'lucide-react',
       'input-otp@1.4.2': 'input-otp',
-      'figma:asset/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png': path.resolve(__dirname, './src/assets/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png'),
-      'figma:asset/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png': path.resolve(__dirname, './src/assets/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png'),
+      'figma:asset/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png': path.resolve(
+        __dirname,
+        './src/assets/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png',
+      ),
+      'figma:asset/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png': path.resolve(
+        __dirname,
+        './src/assets/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png',
+      ),
       'embla-carousel-react@8.6.0': 'embla-carousel-react',
       'cmdk@1.1.1': 'cmdk',
       'class-variance-authority@0.7.1': 'class-variance-authority',
@@ -57,6 +59,20 @@ export default defineConfig({
   build: {
     target: 'esnext',
     outDir: 'build',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          ui: ['motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+          radix: [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-slot',
+            '@radix-ui/react-accordion',
+          ],
+        },
+      },
+    },
   },
   server: {
     port: 3000,

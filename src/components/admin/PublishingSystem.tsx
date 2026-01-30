@@ -27,7 +27,7 @@ import {
   XCircle,
   History,
   Layers,
-  Settings as SettingsIcon
+  Settings as SettingsIcon,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -36,7 +36,9 @@ import { Badge } from '../ui/badge';
 import { Textarea } from '../ui/textarea';
 
 export default function PublishingSystem() {
-  const [activeDemo, setActiveDemo] = useState<'button-states' | 'blog-publish' | 'site-status' | 'architecture'>('button-states');
+  const [activeDemo, setActiveDemo] = useState<
+    'button-states' | 'blog-publish' | 'site-status' | 'architecture'
+  >('button-states');
   const [isPublishing, setIsPublishing] = useState(false);
   const [publishSuccess, setPublishSuccess] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -49,26 +51,26 @@ export default function PublishingSystem() {
     setShowConfirmation(false);
     setIsPublishing(true);
     setPublishProgress(0);
-    
+
     const steps = [
       { step: 'Validating content...', duration: 800, progress: 15 },
       { step: 'Optimizing images...', duration: 1000, progress: 30 },
       { step: 'Generating SEO metadata...', duration: 700, progress: 50 },
       { step: 'Pushing to live site...', duration: 1200, progress: 70 },
       { step: 'Updating sitemap...', duration: 600, progress: 85 },
-      { step: 'Clearing cache...', duration: 500, progress: 100 }
+      { step: 'Clearing cache...', duration: 500, progress: 100 },
     ];
 
     for (const { step, duration, progress } of steps) {
       setPublishStep(step);
       setPublishProgress(progress);
-      await new Promise(resolve => setTimeout(resolve, duration));
+      await new Promise((resolve) => setTimeout(resolve, duration));
     }
 
     setIsPublishing(false);
     setPublishSuccess(true);
     setShowPostPublish(true);
-    
+
     // Reset after showing success
     setTimeout(() => {
       setPublishSuccess(false);
@@ -81,7 +83,9 @@ export default function PublishingSystem() {
       <div className="bg-white border-b border-gray-200 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Publishing System Documentation</h1>
+            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">
+              Publishing System Documentation
+            </h1>
             <p className="text-gray-600">Complete publishing workflows and system architecture</p>
           </div>
         </div>
@@ -92,7 +96,7 @@ export default function PublishingSystem() {
             { id: 'button-states', label: 'Button States', icon: Zap },
             { id: 'blog-publish', label: 'Publishing Flow', icon: Upload },
             { id: 'site-status', label: 'Site Status', icon: Globe },
-            { id: 'architecture', label: 'Architecture', icon: Server }
+            { id: 'architecture', label: 'Architecture', icon: Server },
           ].map((tab) => {
             const Icon = tab.icon;
             return (
@@ -133,9 +137,7 @@ export default function PublishingSystem() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Hover</div>
-                    <Button className="w-full bg-[#0096b8] text-white shadow-lg">
-                      Publish
-                    </Button>
+                    <Button className="w-full bg-[#0096b8] text-white shadow-lg">Publish</Button>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Loading</div>
@@ -153,7 +155,10 @@ export default function PublishingSystem() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Disabled</div>
-                    <Button className="w-full bg-gray-300 text-gray-500 cursor-not-allowed" disabled>
+                    <Button
+                      className="w-full bg-gray-300 text-gray-500 cursor-not-allowed"
+                      disabled
+                    >
                       Publish
                     </Button>
                   </div>
@@ -172,20 +177,31 @@ export default function PublishingSystem() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Hover</div>
-                    <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8] bg-[#E6F7FA]">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#00B4D8] text-[#00B4D8] bg-[#E6F7FA]"
+                    >
                       Save Draft
                     </Button>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Loading</div>
-                    <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]" disabled>
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#00B4D8] text-[#00B4D8]"
+                      disabled
+                    >
                       <Loader className="w-4 h-4 mr-2 animate-spin" />
                       Saving...
                     </Button>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Disabled</div>
-                    <Button variant="outline" className="w-full border-gray-300 text-gray-400 cursor-not-allowed" disabled>
+                    <Button
+                      variant="outline"
+                      className="w-full border-gray-300 text-gray-400 cursor-not-allowed"
+                      disabled
+                    >
                       Save Draft
                     </Button>
                   </div>
@@ -204,13 +220,20 @@ export default function PublishingSystem() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Hover</div>
-                    <Button variant="outline" className="w-full border-red-600 text-red-600 bg-red-50">
+                    <Button
+                      variant="outline"
+                      className="w-full border-red-600 text-red-600 bg-red-50"
+                    >
                       Delete
                     </Button>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600 mb-2">Loading</div>
-                    <Button variant="outline" className="w-full border-red-600 text-red-600" disabled>
+                    <Button
+                      variant="outline"
+                      className="w-full border-red-600 text-red-600"
+                      disabled
+                    >
                       <Loader className="w-4 h-4 mr-2 animate-spin" />
                       Deleting...
                     </Button>
@@ -250,7 +273,7 @@ export default function PublishingSystem() {
             {/* Site Sync Status Indicator */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Site Sync Status Indicator</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                   <div className="flex items-center space-x-2 mb-2">
@@ -294,7 +317,7 @@ export default function PublishingSystem() {
             {/* Publishing Demo */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Blog Post Publishing Flow</h2>
-              
+
               <div className="max-w-2xl mx-auto">
                 {/* Action Bar */}
                 <div className="bg-gray-50 rounded-lg p-4 mb-6 flex items-center justify-between">
@@ -372,7 +395,9 @@ export default function PublishingSystem() {
                     >
                       <div className="flex items-center space-x-3 mb-3">
                         <CheckCircle className="w-5 h-5 text-green-600" />
-                        <span className="font-semibold text-green-900">Blog post published successfully!</span>
+                        <span className="font-semibold text-green-900">
+                          Blog post published successfully!
+                        </span>
                       </div>
                       <button className="text-sm text-green-700 hover:underline flex items-center">
                         View Live
@@ -387,14 +412,14 @@ export default function PublishingSystem() {
             {/* Pre-Publish Checklist */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Pre-Publish Checklist</h3>
-              
+
               <div className="space-y-3">
                 {[
                   { label: 'Title is set', status: 'complete' },
                   { label: 'Featured image uploaded', status: 'complete' },
                   { label: 'Meta description filled', status: 'complete' },
                   { label: 'At least one category selected', status: 'complete' },
-                  { label: 'SEO score: 85/100', status: 'warning' }
+                  { label: 'SEO score: 85/100', status: 'warning' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
                     {item.status === 'complete' ? (
@@ -411,12 +436,14 @@ export default function PublishingSystem() {
             {/* Validation Errors Example */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Validation Error Example</h3>
-              
+
               <div className="bg-red-50 rounded-lg p-4 border border-red-200">
                 <div className="flex items-start space-x-3 mb-4">
                   <XCircle className="w-5 h-5 text-red-600 mt-0.5" />
                   <div>
-                    <div className="font-semibold text-red-900 mb-2">Cannot publish - please fix the following issues:</div>
+                    <div className="font-semibold text-red-900 mb-2">
+                      Cannot publish - please fix the following issues:
+                    </div>
                     <ul className="space-y-2 text-sm text-red-700">
                       <li className="flex items-center space-x-2">
                         <ChevronRight className="w-4 h-4" />
@@ -478,20 +505,55 @@ export default function PublishingSystem() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200 bg-gray-50">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Type</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Title</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Last Modified</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Type
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Title
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Status
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Last Modified
+                      </th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      { type: 'Blog', title: 'SEO Best Practices 2025', status: 'synced', modified: '2 hours ago' },
-                      { type: 'Page', title: 'Services - Dallas', status: 'out-of-sync', modified: '5 min ago' },
-                      { type: 'Podcast', title: 'Episode 24: AI Marketing', status: 'synced', modified: '1 day ago' },
-                      { type: 'Blog', title: 'Social Media Trends', status: 'draft', modified: '3 hours ago' },
-                      { type: 'Form', title: 'Contact Form', status: 'error', modified: '2 days ago' }
+                      {
+                        type: 'Blog',
+                        title: 'SEO Best Practices 2025',
+                        status: 'synced',
+                        modified: '2 hours ago',
+                      },
+                      {
+                        type: 'Page',
+                        title: 'Services - Dallas',
+                        status: 'out-of-sync',
+                        modified: '5 min ago',
+                      },
+                      {
+                        type: 'Podcast',
+                        title: 'Episode 24: AI Marketing',
+                        status: 'synced',
+                        modified: '1 day ago',
+                      },
+                      {
+                        type: 'Blog',
+                        title: 'Social Media Trends',
+                        status: 'draft',
+                        modified: '3 hours ago',
+                      },
+                      {
+                        type: 'Form',
+                        title: 'Contact Form',
+                        status: 'error',
+                        modified: '2 days ago',
+                      },
                     ].map((item, i) => (
                       <tr key={i} className="border-b border-gray-100 hover:bg-gray-50">
                         <td className="py-4 px-4">
@@ -528,7 +590,10 @@ export default function PublishingSystem() {
                         <td className="py-4 px-4">
                           <div className="flex items-center justify-end space-x-2">
                             {item.status === 'out-of-sync' && (
-                              <Button size="sm" className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
+                              <Button
+                                size="sm"
+                                className="bg-[#00B4D8] hover:bg-[#0096b8] text-white"
+                              >
                                 Publish
                               </Button>
                             )}
@@ -547,13 +612,33 @@ export default function PublishingSystem() {
             {/* Publishing History */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Recent Publishing History</h3>
-              
+
               <div className="space-y-3">
                 {[
-                  { time: '10 minutes ago', action: 'Published blog post "SEO Best Practices 2025"', user: 'John Doe', status: 'success' },
-                  { time: '2 hours ago', action: 'Updated page "Services - Houston"', user: 'Jane Smith', status: 'success' },
-                  { time: '5 hours ago', action: 'Failed to publish "Location Page - Austin"', user: 'John Doe', status: 'failed' },
-                  { time: '1 day ago', action: 'Published podcast episode #24', user: 'John Doe', status: 'success' }
+                  {
+                    time: '10 minutes ago',
+                    action: 'Published blog post "SEO Best Practices 2025"',
+                    user: 'John Doe',
+                    status: 'success',
+                  },
+                  {
+                    time: '2 hours ago',
+                    action: 'Updated page "Services - Houston"',
+                    user: 'Jane Smith',
+                    status: 'success',
+                  },
+                  {
+                    time: '5 hours ago',
+                    action: 'Failed to publish "Location Page - Austin"',
+                    user: 'John Doe',
+                    status: 'failed',
+                  },
+                  {
+                    time: '1 day ago',
+                    action: 'Published podcast episode #24',
+                    user: 'John Doe',
+                    status: 'success',
+                  },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                     {item.status === 'success' ? (
@@ -582,7 +667,7 @@ export default function PublishingSystem() {
         {activeDemo === 'architecture' && (
           <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
             <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">System Architecture Overview</h2>
-            
+
             <div className="bg-gray-50 rounded-lg p-8">
               {/* Will be implemented in the next component */}
               <div className="text-center text-gray-600">
@@ -612,20 +697,20 @@ export default function PublishingSystem() {
             >
               <Card className="w-full max-w-lg bg-white rounded-lg shadow-2xl p-6">
                 <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">Ready to Publish?</h3>
-                
+
                 <div className="mb-6">
                   <img
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop"
                     alt="Preview"
                     className="w-full h-32 object-cover rounded-lg mb-4"
                   />
-                  
+
                   <div className="space-y-2">
                     {[
                       { label: 'Title is set', checked: true },
                       { label: 'Featured image uploaded', checked: true },
                       { label: 'Meta description filled', checked: true },
-                      { label: 'At least one category selected', checked: true }
+                      { label: 'At least one category selected', checked: true },
                     ].map((item, i) => (
                       <div key={i} className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-600" />
@@ -679,7 +764,9 @@ export default function PublishingSystem() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Successfully Published!</h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                    Successfully Published!
+                  </h3>
                   <p className="text-gray-600">Your blog post is now live on thinkments.com</p>
                 </div>
 
@@ -688,7 +775,7 @@ export default function PublishingSystem() {
                     <ExternalLink className="w-4 h-4 mr-2" />
                     View on Live Site
                   </Button>
-                  
+
                   <div className="grid grid-cols-3 gap-2">
                     <Button variant="outline" className="border-gray-300">
                       <Share2 className="w-4 h-4 mr-1" />

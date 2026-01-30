@@ -5,13 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 interface ContactFormProps {
   title?: string;
@@ -37,9 +31,9 @@ interface FormErrors {
 }
 
 export default function ContactForm({
-  title = "Get Your Free Consultation",
+  title = 'Get Your Free Consultation',
   subtitle = "Fill out the form below and we'll get back to you within 24 hours",
-  className = ""
+  className = '',
 }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
@@ -49,7 +43,7 @@ export default function ContactForm({
     serviceInterestedIn: '',
     projectBudget: '',
     projectDescription: '',
-    howDidYouHear: ''
+    howDidYouHear: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -86,11 +80,11 @@ export default function ContactForm({
 
   // Handle input changes
   const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    
+    setFormData((prev) => ({ ...prev, [field]: value }));
+
     // Clear error for this field when user starts typing
     if (errors[field as keyof FormErrors]) {
-      setErrors(prev => {
+      setErrors((prev) => {
         const newErrors = { ...prev };
         delete newErrors[field as keyof FormErrors];
         return newErrors;
@@ -117,7 +111,7 @@ export default function ContactForm({
         },
         body: JSON.stringify({
           ...formData,
-          submittedAt: new Date().toISOString()
+          submittedAt: new Date().toISOString(),
         }),
       });
 
@@ -144,7 +138,7 @@ export default function ContactForm({
       serviceInterestedIn: '',
       projectBudget: '',
       projectDescription: '',
-      howDidYouHear: ''
+      howDidYouHear: '',
     });
     setErrors({});
     setSubmitStatus('idle');
@@ -168,9 +162,7 @@ export default function ContactForm({
             >
               <CheckCircle className="w-16 h-16 text-[#00C98D] mx-auto mb-4" />
             </motion.div>
-            <h3 className="text-2xl font-bold text-[#1A1A1A] mb-3">
-              Thank You for Your Inquiry!
-            </h3>
+            <h3 className="text-2xl font-bold text-[#1A1A1A] mb-3">Thank You for Your Inquiry!</h3>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">
               We've received your message and will get back to you within 24 hours.
             </p>
@@ -191,9 +183,7 @@ export default function ContactForm({
           >
             {/* Form Header */}
             <div className="mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2">
-                {title}
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2">{title}</h2>
               <p className="text-gray-600">{subtitle}</p>
             </div>
 
@@ -237,9 +227,7 @@ export default function ContactForm({
                   className={`mt-1.5 ${errors.fullName ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
                   disabled={isSubmitting}
                 />
-                {errors.fullName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-                )}
+                {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
               </div>
 
               {/* Email Address */}
@@ -256,9 +244,7 @@ export default function ContactForm({
                   className={`mt-1.5 ${errors.email ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
                   disabled={isSubmitting}
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
 
               {/* Phone Number */}
@@ -315,11 +301,15 @@ export default function ContactForm({
                   <SelectContent>
                     <SelectItem value="web-design">Web Design & Development</SelectItem>
                     <SelectItem value="seo">SEO (Search Engine Optimization)</SelectItem>
-                    <SelectItem value="google-business">Google Business Profile Management</SelectItem>
+                    <SelectItem value="google-business">
+                      Google Business Profile Management
+                    </SelectItem>
                     <SelectItem value="social-media">Social Media Marketing</SelectItem>
                     <SelectItem value="videography">Videography & Video Production</SelectItem>
                     <SelectItem value="virtual-tours">Virtual Tours (360° Photography)</SelectItem>
-                    <SelectItem value="complete-package">Complete Digital Marketing Package</SelectItem>
+                    <SelectItem value="complete-package">
+                      Complete Digital Marketing Package
+                    </SelectItem>
                     <SelectItem value="consultation">Not sure - need consultation</SelectItem>
                   </SelectContent>
                 </Select>

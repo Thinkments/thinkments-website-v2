@@ -1,7 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Phone, Award, Users, TrendingUp, BarChart3, TestTube2, MousePointerClick, Eye, Smartphone, Target, FileText, ShoppingCart, Zap, CheckCircle, ChevronDown, ChevronUp, DollarSign, Clock, ArrowRight } from 'lucide-react';
+import {
+  Phone,
+  Award,
+  Users,
+  TrendingUp,
+  BarChart3,
+  TestTube2,
+  MousePointerClick,
+  Eye,
+  Smartphone,
+  Target,
+  FileText,
+  ShoppingCart,
+  Zap,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+  DollarSign,
+  Clock,
+  ArrowRight,
+} from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Helmet } from 'react-helmet-async';
 
@@ -11,247 +31,293 @@ export default function ConversionRateOptimizationPage() {
   const stats = [
     { icon: Award, label: '20+ Years Experience', value: '20+' },
     { icon: BarChart3, label: 'Data-Driven Approach', value: '100%' },
-    { icon: TrendingUp, label: 'Proven Results', value: '150+' }
+    { icon: TrendingUp, label: 'Proven Results', value: '150+' },
   ];
 
   const croFacts = [
     {
       stat: '2-3%',
-      description: 'Average website conversion rate across industries'
+      description: 'Average website conversion rate across industries',
     },
     {
       stat: '10%+',
-      description: 'Top-performing websites convert at this rate or higher'
+      description: 'Top-performing websites convert at this rate or higher',
     },
     {
       stat: '223%',
-      description: 'Average ROI from CRO programs (ConversionXL study)'
-    }
+      description: 'Average ROI from CRO programs (ConversionXL study)',
+    },
   ];
 
   const services = [
     {
       icon: BarChart3,
       title: 'Conversion Audit & Analysis',
-      description: 'We start with a comprehensive analysis of your current conversion funnel—identifying where visitors drop off, which pages underperform, and what opportunities exist for improvement. Using analytics data, funnel visualization, and conversion tracking, we pinpoint exactly where your website is losing potential customers and quantify the revenue impact of each optimization opportunity.',
-      linkTo: '/analytics-reporting'
+      description:
+        'We start with a comprehensive analysis of your current conversion funnel—identifying where visitors drop off, which pages underperform, and what opportunities exist for improvement. Using analytics data, funnel visualization, and conversion tracking, we pinpoint exactly where your website is losing potential customers and quantify the revenue impact of each optimization opportunity.',
+      linkTo: '/analytics-reporting',
     },
     {
       icon: TestTube2,
       title: 'A/B Testing & Experimentation',
-      description: 'Data beats opinions every time. We design and execute rigorous A/B tests and multivariate experiments to validate hypotheses and identify what actually drives conversions for your audience. Every change is tested for statistical significance before implementation, ensuring we make decisions based on real user behavior rather than assumptions or industry best practices that may not apply to your specific audience.',
-      linkTo: null
+      description:
+        'Data beats opinions every time. We design and execute rigorous A/B tests and multivariate experiments to validate hypotheses and identify what actually drives conversions for your audience. Every change is tested for statistical significance before implementation, ensuring we make decisions based on real user behavior rather than assumptions or industry best practices that may not apply to your specific audience.',
+      linkTo: null,
     },
     {
       icon: MousePointerClick,
       title: 'Landing Page Optimization',
-      description: 'Landing pages are conversion powerhouses when optimized correctly. We analyze and improve every element—headlines, copy, images, CTAs, forms, social proof, and layout—to maximize conversion rates. Whether you\'re running paid ads, email campaigns, or organic traffic, optimized landing pages ensure you get maximum ROI from every visitor who arrives on your site.',
-      linkTo: '/web-development'
+      description:
+        "Landing pages are conversion powerhouses when optimized correctly. We analyze and improve every element—headlines, copy, images, CTAs, forms, social proof, and layout—to maximize conversion rates. Whether you're running paid ads, email campaigns, or organic traffic, optimized landing pages ensure you get maximum ROI from every visitor who arrives on your site.",
+      linkTo: '/web-development',
     },
     {
       icon: Eye,
       title: 'User Experience (UX) Analysis',
-      description: 'Understanding how users actually interact with your site reveals conversion barriers you never knew existed. We conduct UX audits analyzing navigation, information architecture, visual hierarchy, page load speed, and usability issues. By identifying friction points and confusion in the user journey, we create a smoother path to conversion that feels intuitive and effortless for visitors.',
-      linkTo: null
+      description:
+        'Understanding how users actually interact with your site reveals conversion barriers you never knew existed. We conduct UX audits analyzing navigation, information architecture, visual hierarchy, page load speed, and usability issues. By identifying friction points and confusion in the user journey, we create a smoother path to conversion that feels intuitive and effortless for visitors.',
+      linkTo: null,
     },
     {
       icon: Target,
       title: 'Heatmap & Session Recording Analysis',
-      description: 'Watch real users navigate your website to uncover why they don\'t convert. Using heatmaps, click tracking, scroll maps, and session recordings, we see exactly where users get stuck, what they ignore, and what distracts them from converting. This qualitative data provides context that analytics alone cannot—revealing the "why" behind the numbers and guiding optimization priorities.',
-      linkTo: null
+      description:
+        'Watch real users navigate your website to uncover why they don\'t convert. Using heatmaps, click tracking, scroll maps, and session recordings, we see exactly where users get stuck, what they ignore, and what distracts them from converting. This qualitative data provides context that analytics alone cannot—revealing the "why" behind the numbers and guiding optimization priorities.',
+      linkTo: null,
     },
     {
       icon: FileText,
       title: 'Form Optimization',
-      description: 'Forms are critical conversion points, yet they\'re often overlooked. We optimize form length, field labels, validation messages, error handling, progress indicators, and submit buttons to reduce form abandonment. Even small improvements—removing one unnecessary field or improving error messages—can dramatically increase completion rates and lead generation from your existing traffic.',
-      linkTo: null
+      description:
+        "Forms are critical conversion points, yet they're often overlooked. We optimize form length, field labels, validation messages, error handling, progress indicators, and submit buttons to reduce form abandonment. Even small improvements—removing one unnecessary field or improving error messages—can dramatically increase completion rates and lead generation from your existing traffic.",
+      linkTo: null,
     },
     {
       icon: ShoppingCart,
       title: 'Checkout & Funnel Optimization',
-      description: 'Cart abandonment costs e-commerce businesses billions annually. We analyze and optimize every step of your checkout process—removing friction, simplifying steps, adding trust signals, optimizing payment options, and reducing cognitive load. For non-e-commerce sites, we optimize multi-step funnels (demos, trials, consultations) to maximize completion rates at every stage.',
-      linkTo: null
+      description:
+        'Cart abandonment costs e-commerce businesses billions annually. We analyze and optimize every step of your checkout process—removing friction, simplifying steps, adding trust signals, optimizing payment options, and reducing cognitive load. For non-e-commerce sites, we optimize multi-step funnels (demos, trials, consultations) to maximize completion rates at every stage.',
+      linkTo: null,
     },
     {
       icon: Zap,
       title: 'Call-to-Action Optimization',
-      description: 'Your CTA is the tipping point between bouncing and converting. We test and optimize CTA placement, copy, design, color, size, and surrounding elements to maximize click-through rates. Through systematic testing, we identify which CTAs resonate with your audience—whether it\'s "Get Started," "Learn More," "Request Demo," or something entirely different—and optimize for maximum response.',
-      linkTo: null
+      description:
+        'Your CTA is the tipping point between bouncing and converting. We test and optimize CTA placement, copy, design, color, size, and surrounding elements to maximize click-through rates. Through systematic testing, we identify which CTAs resonate with your audience—whether it\'s "Get Started," "Learn More," "Request Demo," or something entirely different—and optimize for maximum response.',
+      linkTo: null,
     },
     {
       icon: Smartphone,
       title: 'Mobile Conversion Optimization',
-      description: 'Mobile traffic continues to grow, but mobile conversion rates typically lag desktop. We optimize mobile experiences specifically—improving page speed, touch targets, form fields, navigation, and mobile-specific user flows. By creating mobile experiences designed for smaller screens and touch interaction, we close the mobile conversion gap and capture revenue you\'re currently losing.',
-      linkTo: null
+      description:
+        "Mobile traffic continues to grow, but mobile conversion rates typically lag desktop. We optimize mobile experiences specifically—improving page speed, touch targets, form fields, navigation, and mobile-specific user flows. By creating mobile experiences designed for smaller screens and touch interaction, we close the mobile conversion gap and capture revenue you're currently losing.",
+      linkTo: null,
     },
     {
       icon: Users,
       title: 'Personalization & Dynamic Content',
-      description: 'Generic experiences convert poorly. We implement personalization based on traffic source, user behavior, location, device, returning vs. new visitors, and other signals. By showing relevant content, offers, and messaging to different audience segments, we increase relevance and conversion rates. Personalized experiences make visitors feel understood and guide them toward actions that match their intent.',
-      linkTo: null
-    }
+      description:
+        'Generic experiences convert poorly. We implement personalization based on traffic source, user behavior, location, device, returning vs. new visitors, and other signals. By showing relevant content, offers, and messaging to different audience segments, we increase relevance and conversion rates. Personalized experiences make visitors feel understood and guide them toward actions that match their intent.',
+      linkTo: null,
+    },
   ];
 
   const targetAudiences = [
     {
       title: 'High-Traffic, Low Conversions',
-      description: 'Businesses with consistent website traffic but disappointing conversion rates who need to maximize their existing investment'
+      description:
+        'Businesses with consistent website traffic but disappointing conversion rates who need to maximize their existing investment',
     },
     {
       title: 'E-commerce Stores',
-      description: 'Online retailers wanting to increase sales, average order value, and reduce cart abandonment'
+      description:
+        'Online retailers wanting to increase sales, average order value, and reduce cart abandonment',
     },
     {
       title: 'Lead Generation Sites',
-      description: 'B2B companies, professional services, and agencies wanting more form submissions and qualified leads'
+      description:
+        'B2B companies, professional services, and agencies wanting more form submissions and qualified leads',
     },
     {
       title: 'SaaS Companies',
-      description: 'Software companies wanting to increase trial signups, demo requests, and free-to-paid conversions'
+      description:
+        'Software companies wanting to increase trial signups, demo requests, and free-to-paid conversions',
     },
     {
       title: 'Enterprise Businesses',
-      description: 'Established companies wanting to maximize marketing ROI and get more value from current traffic levels'
+      description:
+        'Established companies wanting to maximize marketing ROI and get more value from current traffic levels',
     },
     {
       title: 'Traffic Investors',
-      description: 'Any business spending money on traffic (ads, SEO, content) that wants better returns from that investment'
-    }
+      description:
+        'Any business spending money on traffic (ads, SEO, content) that wants better returns from that investment',
+    },
   ];
 
   const process = [
     {
       phase: '1',
       title: 'Conversion Audit',
-      description: 'We analyze your current conversion funnel, identifying where visitors drop off, which pages underperform, and how you compare to industry benchmarks. Using analytics, we quantify the revenue impact of each conversion leak and prioritize opportunities based on potential ROI.',
-      duration: '1-2 weeks'
+      description:
+        'We analyze your current conversion funnel, identifying where visitors drop off, which pages underperform, and how you compare to industry benchmarks. Using analytics, we quantify the revenue impact of each conversion leak and prioritize opportunities based on potential ROI.',
+      duration: '1-2 weeks',
     },
     {
       phase: '2',
       title: 'User Research',
-      description: 'We deploy heatmaps, session recordings, user surveys, and on-site polls to understand how real visitors interact with your site. This qualitative research reveals why visitors don\'t convert—uncovering objections, confusion, and friction points that analytics alone cannot detect.',
-      duration: '2-3 weeks'
+      description:
+        "We deploy heatmaps, session recordings, user surveys, and on-site polls to understand how real visitors interact with your site. This qualitative research reveals why visitors don't convert—uncovering objections, confusion, and friction points that analytics alone cannot detect.",
+      duration: '2-3 weeks',
     },
     {
       phase: '3',
       title: 'Hypothesis Development',
-      description: 'Based on data and research, we develop testable hypotheses about what changes will improve conversions. Each hypothesis is prioritized using the PIE framework (Potential, Importance, Ease) to focus on high-impact opportunities first.',
-      duration: '1 week'
+      description:
+        'Based on data and research, we develop testable hypotheses about what changes will improve conversions. Each hypothesis is prioritized using the PIE framework (Potential, Importance, Ease) to focus on high-impact opportunities first.',
+      duration: '1 week',
     },
     {
       phase: '4',
       title: 'Test Design & Implementation',
-      description: 'We design A/B tests or multivariate experiments to validate hypotheses, create test variations, implement tracking, and launch tests. All tests are properly configured for statistical validity, ensuring we get reliable results we can act on with confidence.',
-      duration: '2-4 weeks per test'
+      description:
+        'We design A/B tests or multivariate experiments to validate hypotheses, create test variations, implement tracking, and launch tests. All tests are properly configured for statistical validity, ensuring we get reliable results we can act on with confidence.',
+      duration: '2-4 weeks per test',
     },
     {
       phase: '5',
       title: 'Analysis & Learning',
-      description: 'When tests reach statistical significance, we analyze results to extract insights. Beyond just "A beat B," we understand why it won, what we learned about your audience, and how those insights apply to other areas of your site.',
-      duration: 'Ongoing'
+      description:
+        'When tests reach statistical significance, we analyze results to extract insights. Beyond just "A beat B," we understand why it won, what we learned about your audience, and how those insights apply to other areas of your site.',
+      duration: 'Ongoing',
     },
     {
       phase: '6',
       title: 'Implementation & Iteration',
-      description: 'Winning variations are rolled out to all traffic, and learnings inform the next round of tests. CRO is continuous—there\'s always another test to run, another insight to uncover, and another opportunity to improve conversions and revenue.',
-      duration: 'Ongoing'
-    }
+      description:
+        "Winning variations are rolled out to all traffic, and learnings inform the next round of tests. CRO is continuous—there's always another test to run, another insight to uncover, and another opportunity to improve conversions and revenue.",
+      duration: 'Ongoing',
+    },
   ];
 
   const whyCRO = [
     {
       icon: DollarSign,
       title: 'More Revenue from Existing Traffic',
-      description: 'Increasing conversions doesn\'t require more ad spend or traffic. A 20% conversion rate improvement means 20% more revenue from the same marketing budget—pure profit improvement.'
+      description:
+        "Increasing conversions doesn't require more ad spend or traffic. A 20% conversion rate improvement means 20% more revenue from the same marketing budget—pure profit improvement.",
     },
     {
       icon: Users,
       title: 'Better Understanding of Customers',
-      description: 'CRO teaches you what your customers actually want, what resonates with them, and what objections prevent purchase. These insights improve marketing, product development, and customer experience.'
+      description:
+        'CRO teaches you what your customers actually want, what resonates with them, and what objections prevent purchase. These insights improve marketing, product development, and customer experience.',
     },
     {
       icon: Eye,
       title: 'Improved User Experience',
-      description: 'Conversion optimization naturally improves usability. Removing friction, clarifying messaging, and simplifying processes makes your site better for everyone—converters and non-converters alike.'
+      description:
+        'Conversion optimization naturally improves usability. Removing friction, clarifying messaging, and simplifying processes makes your site better for everyone—converters and non-converters alike.',
     },
     {
       icon: TrendingUp,
       title: 'Compounding Results Over Time',
-      description: 'Unlike one-time projects, CRO compounds. Each improvement builds on previous wins. A 5% monthly improvement compounds to 80% annual growth—transforming your entire business over time.'
+      description:
+        'Unlike one-time projects, CRO compounds. Each improvement builds on previous wins. A 5% monthly improvement compounds to 80% annual growth—transforming your entire business over time.',
     },
     {
       icon: BarChart3,
       title: 'Higher ROI Than New Traffic',
-      description: 'Acquiring traffic is expensive and competitive. Optimizing conversions from existing traffic is more cost-effective and sustainable. Most businesses have more to gain from converting better than from getting more visitors.'
-    }
+      description:
+        'Acquiring traffic is expensive and competitive. Optimizing conversions from existing traffic is more cost-effective and sustainable. Most businesses have more to gain from converting better than from getting more visitors.',
+    },
   ];
 
   const results = [
     {
       metric: 'Conversion Rate Increases',
-      description: 'Average 30-150% improvement in conversion rates across landing pages, forms, and checkout flows',
+      description:
+        'Average 30-150% improvement in conversion rates across landing pages, forms, and checkout flows',
       icon: TrendingUp,
-      color: 'text-green-600'
+      color: 'text-green-600',
     },
     {
       metric: 'Revenue Impact',
-      description: 'Millions in additional revenue generated for clients through systematic testing and optimization',
+      description:
+        'Millions in additional revenue generated for clients through systematic testing and optimization',
       icon: DollarSign,
-      color: 'text-[#F7B928]'
+      color: 'text-[#F7B928]',
     },
     {
       metric: 'Lead Generation Growth',
-      description: '2-5x increases in qualified leads from the same traffic levels through form and funnel optimization',
+      description:
+        '2-5x increases in qualified leads from the same traffic levels through form and funnel optimization',
       icon: Users,
-      color: 'text-[#00B4D8]'
+      color: 'text-[#00B4D8]',
     },
     {
       metric: 'Long-Term Partnerships',
-      description: 'Enterprise clients stay 7-10 years because we continuously find new optimization opportunities',
+      description:
+        'Enterprise clients stay 7-10 years because we continuously find new optimization opportunities',
       icon: Award,
-      color: 'text-purple-600'
-    }
+      color: 'text-purple-600',
+    },
   ];
 
   const faqs = [
     {
       question: 'How long does CRO take to show results?',
-      answer: 'Initial results typically appear within 4-8 weeks as we identify quick wins and run first tests. However, CRO is an ongoing process, not a one-time project. The most significant results come from continuous testing over 6-12 months, as learnings compound and we optimize more of your funnel. Some tests achieve statistical significance in days; others require weeks depending on traffic levels.'
+      answer:
+        'Initial results typically appear within 4-8 weeks as we identify quick wins and run first tests. However, CRO is an ongoing process, not a one-time project. The most significant results come from continuous testing over 6-12 months, as learnings compound and we optimize more of your funnel. Some tests achieve statistical significance in days; others require weeks depending on traffic levels.',
     },
     {
-      question: 'What\'s a good conversion rate for my industry?',
-      answer: 'Conversion rates vary dramatically by industry, traffic source, and offer type. E-commerce typically converts at 2-4%, SaaS free trials at 2-5%, and B2B lead forms at 2-4%. However, focusing on industry benchmarks is less important than improving YOUR conversion rate. Top performers in every industry convert at 10%+. Our goal is to systematically improve your baseline, regardless of where you start.'
+      question: "What's a good conversion rate for my industry?",
+      answer:
+        'Conversion rates vary dramatically by industry, traffic source, and offer type. E-commerce typically converts at 2-4%, SaaS free trials at 2-5%, and B2B lead forms at 2-4%. However, focusing on industry benchmarks is less important than improving YOUR conversion rate. Top performers in every industry convert at 10%+. Our goal is to systematically improve your baseline, regardless of where you start.',
     },
     {
       question: 'How much traffic do I need for CRO to work?',
-      answer: 'While more traffic enables faster testing, CRO works at any traffic level. With 10,000+ monthly visitors, you can run multiple tests simultaneously. With 1,000-5,000 visitors, tests take longer but are still valuable. Under 1,000 visitors, we focus on qualitative research (heatmaps, recordings, surveys) and implement high-confidence changes rather than extensive A/B testing. Even low-traffic sites benefit from conversion audits and UX improvements.'
+      answer:
+        'While more traffic enables faster testing, CRO works at any traffic level. With 10,000+ monthly visitors, you can run multiple tests simultaneously. With 1,000-5,000 visitors, tests take longer but are still valuable. Under 1,000 visitors, we focus on qualitative research (heatmaps, recordings, surveys) and implement high-confidence changes rather than extensive A/B testing. Even low-traffic sites benefit from conversion audits and UX improvements.',
     },
     {
       question: 'What tools do you use for CRO?',
-      answer: 'We use industry-leading tools including Google Analytics for funnel analysis, Google Optimize or VWO for A/B testing, Hotjar or Microsoft Clarity for heatmaps and recordings, and Google Tag Manager for tracking implementation. Tool selection depends on your specific needs, budget, and technical environment. We\'re platform-agnostic and choose tools that best serve your optimization goals.'
+      answer:
+        "We use industry-leading tools including Google Analytics for funnel analysis, Google Optimize or VWO for A/B testing, Hotjar or Microsoft Clarity for heatmaps and recordings, and Google Tag Manager for tracking implementation. Tool selection depends on your specific needs, budget, and technical environment. We're platform-agnostic and choose tools that best serve your optimization goals.",
     },
     {
       question: 'How is CRO different from website redesign?',
-      answer: 'Website redesigns are based on opinions, aesthetics, and assumptions—and often hurt conversions. CRO is based on data, testing, and user behavior. Rather than wholesale changes, we make incremental improvements validated by real users. This approach is lower risk, faster to implement, and proven to work. Many companies redesign when they should optimize—losing conversions in the process.'
+      answer:
+        'Website redesigns are based on opinions, aesthetics, and assumptions—and often hurt conversions. CRO is based on data, testing, and user behavior. Rather than wholesale changes, we make incremental improvements validated by real users. This approach is lower risk, faster to implement, and proven to work. Many companies redesign when they should optimize—losing conversions in the process.',
     },
     {
       question: 'How much does CRO cost?',
-      answer: 'CRO investment depends on your traffic levels, business complexity, and program scope. Monthly retainers typically range from $3,000-$15,000+ for comprehensive programs including audits, research, testing, and optimization. However, CRO typically pays for itself many times over. If we increase your conversion rate by 20% and you generate $100,000 in monthly revenue, that\'s $20,000 in additional monthly revenue—far exceeding program costs. Contact us for a custom proposal based on your specific situation.'
-    }
+      answer:
+        "CRO investment depends on your traffic levels, business complexity, and program scope. Monthly retainers typically range from $3,000-$15,000+ for comprehensive programs including audits, research, testing, and optimization. However, CRO typically pays for itself many times over. If we increase your conversion rate by 20% and you generate $100,000 in monthly revenue, that's $20,000 in additional monthly revenue—far exceeding program costs. Contact us for a custom proposal based on your specific situation.",
+    },
   ];
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
     <>
       <Helmet>
         <title>Conversion Rate Optimization Services | Increase Conversions | ThinkMents</title>
-        <meta name="description" content="CRO services that turn visitors into customers. A/B testing, landing page optimization, UX analysis & more. Data-driven strategies for measurable results." />
-        <meta property="og:title" content="Conversion Rate Optimization Services | Increase Conversions | ThinkMents" />
-        <meta property="og:description" content="CRO services that turn visitors into customers. A/B testing, landing page optimization, UX analysis & more. Data-driven strategies for measurable results." />
+        <meta
+          name="description"
+          content="CRO services that turn visitors into customers. A/B testing, landing page optimization, UX analysis & more. Data-driven strategies for measurable results."
+        />
+        <meta
+          property="og:title"
+          content="Conversion Rate Optimization Services | Increase Conversions | ThinkMents"
+        />
+        <meta
+          property="og:description"
+          content="CRO services that turn visitors into customers. A/B testing, landing page optimization, UX analysis & more. Data-driven strategies for measurable results."
+        />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/conversion-rate-optimization" />
       </Helmet>
@@ -260,10 +326,13 @@ export default function ConversionRateOptimizationPage() {
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#234B70] to-[#2C5282] text-white py-20 lg:py-32 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -279,12 +348,11 @@ export default function ConversionRateOptimizationPage() {
                 <span className="text-sm font-semibold">Conversion Rate Optimization</span>
               </div>
 
-              <h1 className="mb-6">
-                Conversion Rate Optimization Services
-              </h1>
+              <h1 className="mb-6">Conversion Rate Optimization Services</h1>
 
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                Turn more visitors into customers. We use data-driven strategies to increase your website's conversion rates and maximize ROI from your existing traffic.
+                Turn more visitors into customers. We use data-driven strategies to increase your
+                website's conversion rates and maximize ROI from your existing traffic.
               </p>
 
               {/* Stats */}
@@ -304,16 +372,16 @@ export default function ConversionRateOptimizationPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Get Free CRO Audit</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -339,19 +407,30 @@ export default function ConversionRateOptimizationPage() {
                 className="text-center mb-12"
               >
                 <h2 className="mb-6">What is Conversion Rate Optimization?</h2>
-                
+
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Conversion Rate Optimization (CRO) is the systematic process of increasing the percentage of website visitors who take a desired action—whether that's making a purchase, filling out a form, signing up for a trial, or any other goal that matters to your business.
+                  Conversion Rate Optimization (CRO) is the systematic process of increasing the
+                  percentage of website visitors who take a desired action—whether that's making a
+                  purchase, filling out a form, signing up for a trial, or any other goal that
+                  matters to your business.
                 </p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Rather than spending more money to get more traffic, CRO focuses on getting more value from the visitors you already have. Through data analysis, user research, A/B testing, and systematic experimentation, we identify what prevents conversions and implement changes that turn more visitors into customers.
+                  Rather than spending more money to get more traffic, CRO focuses on getting more
+                  value from the visitors you already have. Through data analysis, user research,
+                  A/B testing, and systematic experimentation, we identify what prevents conversions
+                  and implement changes that turn more visitors into customers.
                 </p>
 
                 <div className="bg-gradient-to-br from-[#F7B928]/10 to-white rounded-xl p-8 border border-[#F7B928]/20 mb-8">
                   <h3 className="font-bold text-[#1E3A5F] mb-4">Why This Matters</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    <strong>Increasing conversions by just 1% can mean thousands in additional revenue.</strong> If you have 10,000 monthly visitors and currently convert at 2%, that's 200 conversions. Improve to 3% and you get 300 conversions—a 50% increase in results from the exact same traffic.
+                    <strong>
+                      Increasing conversions by just 1% can mean thousands in additional revenue.
+                    </strong>{' '}
+                    If you have 10,000 monthly visitors and currently convert at 2%, that's 200
+                    conversions. Improve to 3% and you get 300 conversions—a 50% increase in results
+                    from the exact same traffic.
                   </p>
                 </div>
 
@@ -381,7 +460,8 @@ export default function ConversionRateOptimizationPage() {
             <div className="text-center mb-12">
               <h2 className="mb-4">Our CRO Services</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive conversion optimization services designed to maximize revenue from your existing traffic through data-driven testing and experimentation.
+                Comprehensive conversion optimization services designed to maximize revenue from
+                your existing traffic through data-driven testing and experimentation.
               </p>
             </div>
 
@@ -403,13 +483,11 @@ export default function ConversionRateOptimizationPage() {
                       <h3 className="font-bold text-[#1E3A5F] mb-2">{service.title}</h3>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {service.description}
-                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-4">{service.description}</p>
 
                   {service.linkTo && (
-                    <Link 
+                    <Link
                       to={service.linkTo}
                       className="inline-flex items-center gap-2 text-[#00B4D8] hover:text-[#1E3A5F] font-semibold transition-colors"
                     >
@@ -429,7 +507,8 @@ export default function ConversionRateOptimizationPage() {
               <div className="text-center mb-12">
                 <h2 className="mb-4">Who CRO Is For</h2>
                 <p className="text-xl text-gray-600">
-                  Conversion rate optimization delivers the highest ROI for businesses with existing traffic who want better results from their current marketing investment.
+                  Conversion rate optimization delivers the highest ROI for businesses with existing
+                  traffic who want better results from their current marketing investment.
                 </p>
               </div>
 
@@ -462,7 +541,8 @@ export default function ConversionRateOptimizationPage() {
               <div className="text-center mb-12">
                 <h2 className="mb-4">Our Data-Driven CRO Process</h2>
                 <p className="text-xl text-gray-600">
-                  A systematic, proven methodology for continuous conversion improvement based on data, testing, and real user behavior.
+                  A systematic, proven methodology for continuous conversion improvement based on
+                  data, testing, and real user behavior.
                 </p>
               </div>
 
@@ -482,7 +562,7 @@ export default function ConversionRateOptimizationPage() {
                           <span className="text-white font-bold text-lg">{step.phase}</span>
                         </div>
                       </div>
-                      
+
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-2">
                           <h3 className="font-bold text-[#1E3A5F]">{step.title}</h3>
@@ -507,7 +587,8 @@ export default function ConversionRateOptimizationPage() {
               <div className="text-center mb-12">
                 <h2 className="mb-4">Why Invest in CRO?</h2>
                 <p className="text-xl text-gray-600">
-                  Conversion rate optimization delivers compounding returns that transform businesses over time.
+                  Conversion rate optimization delivers compounding returns that transform
+                  businesses over time.
                 </p>
               </div>
 
@@ -540,7 +621,8 @@ export default function ConversionRateOptimizationPage() {
               <div className="text-center mb-12">
                 <h2 className="mb-4">Results We've Delivered</h2>
                 <p className="text-xl text-gray-600">
-                  Real conversion improvements and revenue impact from our data-driven optimization programs.
+                  Real conversion improvements and revenue impact from our data-driven optimization
+                  programs.
                 </p>
               </div>
 
@@ -577,7 +659,10 @@ export default function ConversionRateOptimizationPage() {
                   <Award className="w-8 h-8 text-[#00B4D8]" />
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed italic max-w-3xl mx-auto">
-                  "Our enterprise clients stay with us 7-10 years because we continuously find ways to improve their results. CRO isn't a one-time project—it's an ongoing partnership that compounds value over time. Every test teaches us something new about your audience, creating a virtuous cycle of continuous improvement."
+                  "Our enterprise clients stay with us 7-10 years because we continuously find ways
+                  to improve their results. CRO isn't a one-time project—it's an ongoing partnership
+                  that compounds value over time. Every test teaches us something new about your
+                  audience, creating a virtuous cycle of continuous improvement."
                 </p>
               </motion.div>
             </div>
@@ -616,7 +701,7 @@ export default function ConversionRateOptimizationPage() {
                         <ChevronDown className="w-5 h-5 text-[#00B4D8] flex-shrink-0" />
                       )}
                     </button>
-                    
+
                     {openFaq === index && (
                       <div className="px-6 pb-4">
                         <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
@@ -640,20 +725,21 @@ export default function ConversionRateOptimizationPage() {
             >
               <h2 className="text-white mb-6">Ready to Convert More Visitors?</h2>
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Stop leaving money on the table. Let's optimize your website for maximum conversions and turn your existing traffic into predictable revenue growth.
+                Stop leaving money on the table. Let's optimize your website for maximum conversions
+                and turn your existing traffic into predictable revenue growth.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Get Your Free CRO Audit</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -689,25 +775,25 @@ export default function ConversionRateOptimizationPage() {
             <div className="max-w-4xl mx-auto">
               <h3 className="font-bold text-[#1E3A5F] text-center mb-6">Related Services</h3>
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link 
+                <Link
                   to="/analytics-reporting"
                   className="px-6 py-3 bg-white border-2 border-gray-200 rounded-full text-[#1E3A5F] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-colors font-semibold"
                 >
                   Analytics & Reporting
                 </Link>
-                <Link 
+                <Link
                   to="/web-development"
                   className="px-6 py-3 bg-white border-2 border-gray-200 rounded-full text-[#1E3A5F] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-colors font-semibold"
                 >
                   Web Development
                 </Link>
-                <Link 
+                <Link
                   to="/marketing-seo"
                   className="px-6 py-3 bg-white border-2 border-gray-200 rounded-full text-[#1E3A5F] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-colors font-semibold"
                 >
                   Marketing SEO
                 </Link>
-                <Link 
+                <Link
                   to="/strategic-consulting"
                   className="px-6 py-3 bg-white border-2 border-gray-200 rounded-full text-[#1E3A5F] hover:border-[#00B4D8] hover:text-[#00B4D8] transition-colors font-semibold"
                 >

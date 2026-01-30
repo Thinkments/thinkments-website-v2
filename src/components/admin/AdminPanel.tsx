@@ -33,7 +33,7 @@ import {
   LogOut,
   HelpCircle,
   Zap,
-  Mic
+  Mic,
 } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
@@ -67,7 +67,7 @@ const navigationItems: NavigationItem[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',
-    icon: LayoutDashboard
+    icon: LayoutDashboard,
   },
   {
     id: 'leads-clients',
@@ -76,8 +76,8 @@ const navigationItems: NavigationItem[] = [
     badge: 5,
     children: [
       { id: 'lead-dashboard', label: 'Lead Dashboard', badge: 3 },
-      { id: 'client-manager', label: 'Client Manager' }
-    ]
+      { id: 'client-manager', label: 'Client Manager' },
+    ],
   },
   {
     id: 'content',
@@ -86,8 +86,8 @@ const navigationItems: NavigationItem[] = [
     children: [
       { id: 'blog-posts', label: 'Blog Posts' },
       { id: 'pages', label: 'Pages' },
-      { id: 'media-library', label: 'Media Library' }
-    ]
+      { id: 'media-library', label: 'Media Library' },
+    ],
   },
   {
     id: 'create-new',
@@ -96,13 +96,13 @@ const navigationItems: NavigationItem[] = [
     children: [
       { id: 'new-blog-post', label: 'New Blog Post' },
       { id: 'new-page', label: 'New Page' },
-      { id: 'bulk-generator', label: 'Bulk Generator' }
-    ]
+      { id: 'bulk-generator', label: 'Bulk Generator' },
+    ],
   },
   {
     id: 'calendar',
     label: 'Calendar',
-    icon: Calendar
+    icon: Calendar,
   },
   {
     id: 'seo-center',
@@ -112,8 +112,8 @@ const navigationItems: NavigationItem[] = [
       { id: 'seo-dashboard', label: 'SEO Dashboard' },
       { id: 'rank-tracker', label: 'Rank Tracker' },
       { id: 'broken-links', label: 'Broken Links', badge: 2 },
-      { id: 'redirects', label: 'Redirects' }
-    ]
+      { id: 'redirects', label: 'Redirects' },
+    ],
   },
   {
     id: 'google-business',
@@ -121,8 +121,8 @@ const navigationItems: NavigationItem[] = [
     icon: MapPin,
     children: [
       { id: 'gbp-dashboard', label: 'GBP Dashboard' },
-      { id: 'reviews', label: 'Reviews', badge: 8 }
-    ]
+      { id: 'reviews', label: 'Reviews', badge: 8 },
+    ],
   },
   {
     id: 'social-media',
@@ -130,8 +130,8 @@ const navigationItems: NavigationItem[] = [
     icon: Share2,
     children: [
       { id: 'post-creator', label: 'Post Creator' },
-      { id: 'scheduler', label: 'Scheduler' }
-    ]
+      { id: 'scheduler', label: 'Scheduler' },
+    ],
   },
   {
     id: 'analytics-reports',
@@ -139,8 +139,8 @@ const navigationItems: NavigationItem[] = [
     icon: BarChart3,
     children: [
       { id: 'performance-dashboard', label: 'Performance Dashboard' },
-      { id: 'report-generator', label: 'Report Generator' }
-    ]
+      { id: 'report-generator', label: 'Report Generator' },
+    ],
   },
   {
     id: 'website-health',
@@ -148,8 +148,8 @@ const navigationItems: NavigationItem[] = [
     icon: Activity,
     children: [
       { id: 'uptime-monitor', label: 'Uptime Monitor' },
-      { id: 'speed-monitor', label: 'Speed Monitor' }
-    ]
+      { id: 'speed-monitor', label: 'Speed Monitor' },
+    ],
   },
   {
     id: 'tasks-projects',
@@ -158,8 +158,8 @@ const navigationItems: NavigationItem[] = [
     badge: 12,
     children: [
       { id: 'task-board', label: 'Task Board', badge: 7 },
-      { id: 'client-requests', label: 'Client Requests', badge: 5 }
-    ]
+      { id: 'client-requests', label: 'Client Requests', badge: 5 },
+    ],
   },
   {
     id: 'forms-popups',
@@ -167,8 +167,8 @@ const navigationItems: NavigationItem[] = [
     icon: Layers,
     children: [
       { id: 'form-builder', label: 'Form Builder' },
-      { id: 'popup-manager', label: 'Popup Manager' }
-    ]
+      { id: 'popup-manager', label: 'Popup Manager' },
+    ],
   },
   {
     id: 'assets',
@@ -176,8 +176,8 @@ const navigationItems: NavigationItem[] = [
     icon: Palette,
     children: [
       { id: 'brand-kit', label: 'Brand Kit' },
-      { id: 'file-manager', label: 'File Manager' }
-    ]
+      { id: 'file-manager', label: 'File Manager' },
+    ],
   },
   {
     id: 'communication',
@@ -186,8 +186,8 @@ const navigationItems: NavigationItem[] = [
     badge: 3,
     children: [
       { id: 'email-center', label: 'Email Center', badge: 3 },
-      { id: 'internal-notes', label: 'Internal Notes' }
-    ]
+      { id: 'internal-notes', label: 'Internal Notes' },
+    ],
   },
   {
     id: 'podcast',
@@ -197,8 +197,8 @@ const navigationItems: NavigationItem[] = [
       { id: 'podcast-episodes', label: 'Episodes' },
       { id: 'podcast-upload', label: 'Upload New' },
       { id: 'podcast-analytics', label: 'Analytics' },
-      { id: 'podcast-settings', label: 'Settings' }
-    ]
+      { id: 'podcast-settings', label: 'Settings' },
+    ],
   },
   {
     id: 'billing',
@@ -206,14 +206,14 @@ const navigationItems: NavigationItem[] = [
     icon: CreditCard,
     children: [
       { id: 'invoices', label: 'Invoices' },
-      { id: 'expenses', label: 'Expenses' }
-    ]
+      { id: 'expenses', label: 'Expenses' },
+    ],
   },
   {
     id: 'settings',
     label: 'Settings',
-    icon: Settings
-  }
+    icon: Settings,
+  },
 ];
 
 export default function AdminPanel() {
@@ -224,8 +224,8 @@ export default function AdminPanel() {
   const [showNotifications, setShowNotifications] = useState(false);
 
   const toggleSection = (id: string) => {
-    setExpandedSections(prev =>
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    setExpandedSections((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -433,22 +433,30 @@ export default function AdminPanel() {
                         { title: 'Client review posted', time: '1 hour ago', type: 'review' },
                         { title: 'Task deadline approaching', time: '2 hours ago', type: 'task' },
                         { title: 'New blog comment', time: '3 hours ago', type: 'comment' },
-                        { title: 'Invoice payment received', time: '5 hours ago', type: 'payment' }
+                        { title: 'Invoice payment received', time: '5 hours ago', type: 'payment' },
                       ].map((notification, index) => (
                         <div
                           key={index}
                           className="p-4 border-b border-gray-100 hover:bg-[#F8F9FA] cursor-pointer transition-colors"
                         >
                           <div className="flex items-start space-x-3">
-                            <div className={`w-2 h-2 rounded-full mt-2 ${
-                              notification.type === 'lead' ? 'bg-[#00B4D8]' :
-                              notification.type === 'review' ? 'bg-[#FF6B35]' :
-                              notification.type === 'task' ? 'bg-yellow-500' :
-                              notification.type === 'payment' ? 'bg-green-500' :
-                              'bg-gray-400'
-                            }`} />
+                            <div
+                              className={`w-2 h-2 rounded-full mt-2 ${
+                                notification.type === 'lead'
+                                  ? 'bg-[#00B4D8]'
+                                  : notification.type === 'review'
+                                    ? 'bg-[#FF6B35]'
+                                    : notification.type === 'task'
+                                      ? 'bg-yellow-500'
+                                      : notification.type === 'payment'
+                                        ? 'bg-green-500'
+                                        : 'bg-gray-400'
+                              }`}
+                            />
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-[#1E3A5F]">{notification.title}</p>
+                              <p className="text-sm font-medium text-[#1E3A5F]">
+                                {notification.title}
+                              </p>
                               <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
                             </div>
                           </div>
@@ -528,92 +536,126 @@ export default function AdminPanel() {
 
         {/* Main Content */}
         <main className="flex-1 overflow-auto">
-          <div className={activeItem === 'client-manager' || activeItem === 'lead-dashboard' || activeItem === 'performance-dashboard' || activeItem === 'report-generator' || activeItem === 'rank-tracker' || activeItem === 'gbp-dashboard' || activeItem === 'reviews' || activeItem === 'uptime-monitor' || activeItem === 'invoices' || activeItem.startsWith('podcast-') ? '' : 'p-8'}>
-            <div className={activeItem === 'client-manager' || activeItem === 'lead-dashboard' || activeItem === 'performance-dashboard' || activeItem === 'report-generator' || activeItem === 'rank-tracker' || activeItem === 'gbp-dashboard' || activeItem === 'reviews' || activeItem === 'uptime-monitor' || activeItem === 'invoices' || activeItem.startsWith('podcast-') ? '' : 'max-w-7xl mx-auto'}>
-            {/* Render Client Manager */}
-            {activeItem === 'client-manager' && <ClientManager />}
+          <div
+            className={
+              activeItem === 'client-manager' ||
+              activeItem === 'lead-dashboard' ||
+              activeItem === 'performance-dashboard' ||
+              activeItem === 'report-generator' ||
+              activeItem === 'rank-tracker' ||
+              activeItem === 'gbp-dashboard' ||
+              activeItem === 'reviews' ||
+              activeItem === 'uptime-monitor' ||
+              activeItem === 'invoices' ||
+              activeItem.startsWith('podcast-')
+                ? ''
+                : 'p-8'
+            }
+          >
+            <div
+              className={
+                activeItem === 'client-manager' ||
+                activeItem === 'lead-dashboard' ||
+                activeItem === 'performance-dashboard' ||
+                activeItem === 'report-generator' ||
+                activeItem === 'rank-tracker' ||
+                activeItem === 'gbp-dashboard' ||
+                activeItem === 'reviews' ||
+                activeItem === 'uptime-monitor' ||
+                activeItem === 'invoices' ||
+                activeItem.startsWith('podcast-')
+                  ? ''
+                  : 'max-w-7xl mx-auto'
+              }
+            >
+              {/* Render Client Manager */}
+              {activeItem === 'client-manager' && <ClientManager />}
 
-            {/* Render Lead Dashboard */}
-            {activeItem === 'lead-dashboard' && <LeadDashboard />}
+              {/* Render Lead Dashboard */}
+              {activeItem === 'lead-dashboard' && <LeadDashboard />}
 
-            {/* Render Performance Dashboard */}
-            {activeItem === 'performance-dashboard' && <PerformanceDashboard />}
+              {/* Render Performance Dashboard */}
+              {activeItem === 'performance-dashboard' && <PerformanceDashboard />}
 
-            {/* Render Report Generator */}
-            {activeItem === 'report-generator' && <ReportGenerator />}
+              {/* Render Report Generator */}
+              {activeItem === 'report-generator' && <ReportGenerator />}
 
-            {/* Render Rank Tracker */}
-            {activeItem === 'rank-tracker' && <RankTracker />}
+              {/* Render Rank Tracker */}
+              {activeItem === 'rank-tracker' && <RankTracker />}
 
-            {/* Render GBP Dashboard */}
-            {activeItem === 'gbp-dashboard' && <GBPDashboard />}
+              {/* Render GBP Dashboard */}
+              {activeItem === 'gbp-dashboard' && <GBPDashboard />}
 
-            {/* Render Reviews Management */}
-            {activeItem === 'reviews' && <ReviewsManagement />}
+              {/* Render Reviews Management */}
+              {activeItem === 'reviews' && <ReviewsManagement />}
 
-            {/* Render Uptime Monitor */}
-            {activeItem === 'uptime-monitor' && <UptimeMonitor />}
+              {/* Render Uptime Monitor */}
+              {activeItem === 'uptime-monitor' && <UptimeMonitor />}
 
-            {/* Render Invoices/Expenses */}
-            {activeItem === 'invoices' && <InvoicesExpenses />}
+              {/* Render Invoices/Expenses */}
+              {activeItem === 'invoices' && <InvoicesExpenses />}
 
-            {/* Render Podcast Manager (all podcast views) */}
-            {activeItem.startsWith('podcast-') && <PodcastManager />}
+              {/* Render Podcast Manager (all podcast views) */}
+              {activeItem.startsWith('podcast-') && <PodcastManager />}
 
-            {/* Placeholder Content */}
-            {!activeItem && (
-              <div className="flex items-center justify-center h-full min-h-[500px]">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Layers className="w-12 h-12 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-[#1E3A5F] mb-3">
-                    Welcome to ThinkMents Admin Panel
-                  </h2>
-                  <p className="text-gray-600 text-lg mb-6 max-w-md">
-                    Select a section from the sidebar to get started managing your digital marketing agency.
-                  </p>
-                  <div className="flex items-center justify-center space-x-3">
-                    <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
-                      <LayoutDashboard className="w-4 h-4 mr-2" />
-                      Go to Dashboard
-                    </Button>
-                    <Button variant="outline" className="border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white">
-                      <HelpCircle className="w-4 h-4 mr-2" />
-                      Quick Tour
-                    </Button>
+              {/* Placeholder Content */}
+              {!activeItem && (
+                <div className="flex items-center justify-center h-full min-h-[500px]">
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Layers className="w-12 h-12 text-white" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-[#1E3A5F] mb-3">
+                      Welcome to ThinkMents Admin Panel
+                    </h2>
+                    <p className="text-gray-600 text-lg mb-6 max-w-md">
+                      Select a section from the sidebar to get started managing your digital
+                      marketing agency.
+                    </p>
+                    <div className="flex items-center justify-center space-x-3">
+                      <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
+                        <LayoutDashboard className="w-4 h-4 mr-2" />
+                        Go to Dashboard
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white"
+                      >
+                        <HelpCircle className="w-4 h-4 mr-2" />
+                        Quick Tour
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Placeholder for other sections */}
-            {activeItem && 
-              activeItem !== 'client-manager' && 
-              activeItem !== 'lead-dashboard' && 
-              activeItem !== 'performance-dashboard' && 
-              activeItem !== 'report-generator' && 
-              activeItem !== 'rank-tracker' && 
-              activeItem !== 'gbp-dashboard' && 
-              activeItem !== 'reviews' && 
-              activeItem !== 'uptime-monitor' && 
-              activeItem !== 'invoices' && 
-              !activeItem.startsWith('podcast-') && (
-              <div className="flex items-center justify-center h-full min-h-[500px]">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Layers className="w-12 h-12 text-white" />
+              {/* Placeholder for other sections */}
+              {activeItem &&
+                activeItem !== 'client-manager' &&
+                activeItem !== 'lead-dashboard' &&
+                activeItem !== 'performance-dashboard' &&
+                activeItem !== 'report-generator' &&
+                activeItem !== 'rank-tracker' &&
+                activeItem !== 'gbp-dashboard' &&
+                activeItem !== 'reviews' &&
+                activeItem !== 'uptime-monitor' &&
+                activeItem !== 'invoices' &&
+                !activeItem.startsWith('podcast-') && (
+                  <div className="flex items-center justify-center h-full min-h-[500px]">
+                    <div className="text-center">
+                      <div className="w-24 h-24 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Layers className="w-12 h-12 text-white" />
+                      </div>
+                      <h2 className="text-3xl font-bold text-[#1E3A5F] mb-3 capitalize">
+                        {activeItem.replace(/-/g, ' ')}
+                      </h2>
+                      <p className="text-gray-600 text-lg mb-6 max-w-md">
+                        This section is under construction.
+                      </p>
+                    </div>
                   </div>
-                  <h2 className="text-3xl font-bold text-[#1E3A5F] mb-3 capitalize">
-                    {activeItem.replace(/-/g, ' ')}
-                  </h2>
-                  <p className="text-gray-600 text-lg mb-6 max-w-md">
-                    This section is under construction.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
+                )}
+            </div>
           </div>
         </main>
       </div>

@@ -14,7 +14,8 @@ const config = {
   siteUrl: 'https://thinkments.com',
   siteName: 'ThinkMents',
   defaultTitle: 'ThinkMents - Digital Marketing & Web Design Agency in Decatur, Texas',
-  defaultDescription: 'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.',
+  defaultDescription:
+    'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.',
   companyInfo: {
     name: 'ThinkMents',
     phone: '+1-940-627-3538',
@@ -23,13 +24,13 @@ const config = {
       city: 'Decatur',
       state: 'TX',
       zip: '76234',
-      country: 'US'
+      country: 'US',
     },
     coordinates: {
       lat: 33.2348,
-      lng: -97.5864
-    }
-  }
+      lng: -97.5864,
+    },
+  },
 };
 
 // Page configurations with SEO metadata
@@ -40,64 +41,71 @@ const pages = [
     description: config.defaultDescription,
     priority: 1.0,
     changefreq: 'weekly',
-    keywords: 'digital marketing, web design, SEO, Decatur Texas, local business marketing'
+    keywords: 'digital marketing, web design, SEO, Decatur Texas, local business marketing',
   },
   {
     path: '/about',
     title: 'About ThinkMents - Digital Marketing Experts in Decatur, Texas',
-    description: 'Learn about ThinkMents, a leading digital marketing and web design agency in Decatur, Texas. Our team has 10+ years of experience helping local businesses grow online.',
+    description:
+      'Learn about ThinkMents, a leading digital marketing and web design agency in Decatur, Texas. Our team has 10+ years of experience helping local businesses grow online.',
     priority: 0.8,
     changefreq: 'monthly',
-    keywords: 'about ThinkMents, digital marketing agency, web design company, Decatur Texas'
+    keywords: 'about ThinkMents, digital marketing agency, web design company, Decatur Texas',
   },
   {
     path: '/services',
     title: 'Digital Marketing Services - Web Design, SEO, PPC | ThinkMents',
-    description: 'Complete digital marketing services including web design, SEO, Google Ads, social media marketing, and more. Trusted by 100+ businesses in Decatur, Texas.',
+    description:
+      'Complete digital marketing services including web design, SEO, Google Ads, social media marketing, and more. Trusted by 100+ businesses in Decatur, Texas.',
     priority: 0.9,
     changefreq: 'weekly',
-    keywords: 'digital marketing services, web design, SEO, Google Ads, social media marketing'
+    keywords: 'digital marketing services, web design, SEO, Google Ads, social media marketing',
   },
   {
     path: '/services/website-design',
     title: 'Professional Website Design Services in Decatur, Texas | ThinkMents',
-    description: 'Custom website design and development services that convert visitors into customers. Mobile-responsive, SEO-optimized websites for local businesses.',
+    description:
+      'Custom website design and development services that convert visitors into customers. Mobile-responsive, SEO-optimized websites for local businesses.',
     priority: 0.8,
     changefreq: 'weekly',
-    keywords: 'website design, web development, responsive design, SEO-optimized websites'
+    keywords: 'website design, web development, responsive design, SEO-optimized websites',
   },
   {
     path: '/services/seo',
     title: 'Search Engine Optimization (SEO) Services | ThinkMents',
-    description: 'Professional SEO services to improve your search rankings and drive organic traffic. Local SEO, technical SEO, and content optimization in Decatur, Texas.',
+    description:
+      'Professional SEO services to improve your search rankings and drive organic traffic. Local SEO, technical SEO, and content optimization in Decatur, Texas.',
     priority: 0.8,
     changefreq: 'weekly',
-    keywords: 'SEO services, search engine optimization, local SEO, organic traffic'
+    keywords: 'SEO services, search engine optimization, local SEO, organic traffic',
   },
   {
     path: '/case-studies',
     title: 'Success Stories & Case Studies | ThinkMents Digital Marketing',
-    description: 'See real results from our digital marketing campaigns. Case studies showing 500% average ROI increase for local businesses in Texas.',
+    description:
+      'See real results from our digital marketing campaigns. Case studies showing 500% average ROI increase for local businesses in Texas.',
     priority: 0.8,
     changefreq: 'weekly',
-    keywords: 'case studies, success stories, digital marketing results, ROI increase'
+    keywords: 'case studies, success stories, digital marketing results, ROI increase',
   },
   {
     path: '/contact',
     title: 'Contact ThinkMents - Get Your Free Marketing Consultation',
-    description: 'Contact ThinkMents for a free digital marketing consultation. Call (940) 627-3538 or fill out our form to discuss your business growth goals.',
+    description:
+      'Contact ThinkMents for a free digital marketing consultation. Call (940) 627-3538 or fill out our form to discuss your business growth goals.',
     priority: 0.8,
     changefreq: 'monthly',
-    keywords: 'contact ThinkMents, free consultation, digital marketing quote, Decatur Texas'
+    keywords: 'contact ThinkMents, free consultation, digital marketing quote, Decatur Texas',
   },
   {
     path: '/get-a-quote',
     title: 'Get a Free Digital Marketing Quote | ThinkMents',
-    description: 'Get a free, no-obligation quote for your digital marketing project. Custom pricing for web design, SEO, Google Ads, and comprehensive marketing campaigns.',
+    description:
+      'Get a free, no-obligation quote for your digital marketing project. Custom pricing for web design, SEO, Google Ads, and comprehensive marketing campaigns.',
     priority: 0.9,
     changefreq: 'weekly',
-    keywords: 'free quote, digital marketing pricing, web design quote, SEO pricing'
-  }
+    keywords: 'free quote, digital marketing pricing, web design quote, SEO pricing',
+  },
 ];
 
 /**
@@ -186,14 +194,18 @@ Allow: /
  */
 function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
-  
-  const urlEntries = pages.map(page => `
+
+  const urlEntries = pages
+    .map(
+      (page) => `
   <url>
     <loc>${config.siteUrl}${page.path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`).join('');
+  </url>`,
+    )
+    .join('');
 
   const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urlEntries}
@@ -207,69 +219,69 @@ function generateSitemap() {
  */
 function generateBusinessSchema() {
   return {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": config.companyInfo.name,
-    "description": config.defaultDescription,
-    "url": config.siteUrl,
-    "logo": `${config.siteUrl}/logo.png`,
-    "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=630&fit=crop",
-    "telephone": config.companyInfo.phone,
-    "priceRange": "$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": config.companyInfo.address.street,
-      "addressLocality": config.companyInfo.address.city,
-      "addressRegion": config.companyInfo.address.state,
-      "postalCode": config.companyInfo.address.zip,
-      "addressCountry": config.companyInfo.address.country
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: config.companyInfo.name,
+    description: config.defaultDescription,
+    url: config.siteUrl,
+    logo: `${config.siteUrl}/logo.png`,
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=630&fit=crop',
+    telephone: config.companyInfo.phone,
+    priceRange: '$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: config.companyInfo.address.street,
+      addressLocality: config.companyInfo.address.city,
+      addressRegion: config.companyInfo.address.state,
+      postalCode: config.companyInfo.address.zip,
+      addressCountry: config.companyInfo.address.country,
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": config.companyInfo.coordinates.lat,
-      "longitude": config.companyInfo.coordinates.lng
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: config.companyInfo.coordinates.lat,
+      longitude: config.companyInfo.coordinates.lng,
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "17:00"
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:00',
     },
-    "sameAs": [
-      "https://facebook.com/thinkments",
-      "https://twitter.com/thinkments",
-      "https://linkedin.com/company/thinkments"
+    sameAs: [
+      'https://facebook.com/thinkments',
+      'https://twitter.com/thinkments',
+      'https://linkedin.com/company/thinkments',
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Marketing Services",
-      "itemListElement": [
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Digital Marketing Services',
+      itemListElement: [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Website Design & Development",
-            "description": "Custom website design and development services"
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Website Design & Development',
+            description: 'Custom website design and development services',
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Search Engine Optimization",
-            "description": "SEO services to improve search rankings"
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Search Engine Optimization',
+            description: 'SEO services to improve search rankings',
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Google Ads Management",
-            "description": "Professional Google Ads campaign management"
-          }
-        }
-      ]
-    }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Google Ads Management',
+            description: 'Professional Google Ads campaign management',
+          },
+        },
+      ],
+    },
   };
 }
 
@@ -278,7 +290,7 @@ function generateBusinessSchema() {
  */
 function writeFiles() {
   const publicDir = path.join(__dirname, '..', 'public');
-  
+
   // Ensure public directory exists
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
@@ -379,7 +391,7 @@ This report outlines the SEO improvements implemented to enhance Google indexing
 ## Technical Details
 
 ### Pages Included in Sitemap
-${pages.map(page => `- ${page.path} (Priority: ${page.priority}, Change Frequency: ${page.changefreq})`).join('\n')}
+${pages.map((page) => `- ${page.path} (Priority: ${page.priority}, Change Frequency: ${page.changefreq})`).join('\n')}
 
 ### Robots.txt Directives
 - Allow: All public content
@@ -420,5 +432,5 @@ module.exports = {
   generateSitemap,
   generateBusinessSchema,
   config,
-  pages
+  pages,
 };

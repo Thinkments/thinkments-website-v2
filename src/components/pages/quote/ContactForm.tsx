@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Send, CheckCircle2, AlertCircle, Loader2, Star, Award, Briefcase } from 'lucide-react@0.487.0';
+import {
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Loader2,
+  Star,
+  Award,
+  Briefcase,
+} from 'lucide-react@0.487.0';
 import { Link } from 'react-router-dom';
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
@@ -112,9 +120,7 @@ export default function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
@@ -168,7 +174,7 @@ export default function ContactForm() {
     } catch (error) {
       setStatus('error');
       setErrorMessage(
-        'There was an error submitting your request. Please try again or contact us directly.'
+        'There was an error submitting your request. Please try again or contact us directly.',
       );
       console.error('Form submission error:', error);
     }
@@ -197,8 +203,8 @@ export default function ContactForm() {
             </motion.div>
             <h3 className="text-3xl mb-4 text-[#1A1A1A]">Thank You!</h3>
             <p className="text-lg text-[#1A1A1A]/80 mb-6 max-w-md mx-auto">
-              We've received your inquiry and will get back to you within 24 hours.
-              Our team is excited to learn more about your project!
+              We've received your inquiry and will get back to you within 24 hours. Our team is
+              excited to learn more about your project!
             </p>
             <Button
               onClick={handleReset}
@@ -215,9 +221,7 @@ export default function ContactForm() {
   return (
     <Card className="border-[#96FFBF]/20 shadow-xl">
       <CardHeader className="bg-gradient-to-r from-[#CFFFE7] to-[#96FFBF]/20 border-b border-[#96FFBF]/30">
-        <CardTitle className="text-2xl text-[#1A1A1A]">
-          Request a Free Consultation
-        </CardTitle>
+        <CardTitle className="text-2xl text-[#1A1A1A]">Request a Free Consultation</CardTitle>
         <CardDescription className="text-[#1A1A1A]/70">
           Fill out the form below and we'll get back to you within 24 hours
         </CardDescription>
@@ -227,16 +231,25 @@ export default function ContactForm() {
         <div className="bg-gray-50 rounded-xl p-6 mb-8">
           <h3 className="font-semibold text-[#1E3A5F] mb-4">Why Choose ThinkMents?</h3>
           <div className="space-y-3">
-            <Link to="/testimonials" className="flex items-center gap-2 text-gray-700 hover:text-[#00B4D8] transition-colors">
-              <Star className="w-5 h-5 text-yellow-500" /> 
+            <Link
+              to="/testimonials"
+              className="flex items-center gap-2 text-gray-700 hover:text-[#00B4D8] transition-colors"
+            >
+              <Star className="w-5 h-5 text-yellow-500" />
               <span>5.0 Rating with 103+ Reviews</span>
             </Link>
-            <Link to="/case-studies" className="flex items-center gap-2 text-gray-700 hover:text-[#00B4D8] transition-colors">
-              <Award className="w-5 h-5 text-[#00B4D8]" /> 
+            <Link
+              to="/case-studies"
+              className="flex items-center gap-2 text-gray-700 hover:text-[#00B4D8] transition-colors"
+            >
+              <Award className="w-5 h-5 text-[#00B4D8]" />
               <span>See Our Client Success Stories</span>
             </Link>
-            <Link to="/portfolio" className="flex items-center gap-2 text-gray-700 hover:text-[#00B4D8] transition-colors">
-              <Briefcase className="w-5 h-5 text-[#1E3A5F]" /> 
+            <Link
+              to="/portfolio"
+              className="flex items-center gap-2 text-gray-700 hover:text-[#00B4D8] transition-colors"
+            >
+              <Briefcase className="w-5 h-5 text-[#1E3A5F]" />
               <span>View Our Portfolio</span>
             </Link>
           </div>
@@ -461,9 +474,15 @@ export default function ContactForm() {
           <div className="mt-6 text-center">
             <p className="text-gray-600 mb-2">Not sure what you need?</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services" className="text-[#00B4D8] hover:underline">Explore Our Services</Link>
-              <Link to="/faqs" className="text-[#00B4D8] hover:underline">Read FAQs</Link>
-              <Link to="/free-consultation" className="text-[#00B4D8] hover:underline">Schedule a Call Instead</Link>
+              <Link to="/services" className="text-[#00B4D8] hover:underline">
+                Explore Our Services
+              </Link>
+              <Link to="/faqs" className="text-[#00B4D8] hover:underline">
+                Read FAQs
+              </Link>
+              <Link to="/free-consultation" className="text-[#00B4D8] hover:underline">
+                Schedule a Call Instead
+              </Link>
             </div>
           </div>
         </form>

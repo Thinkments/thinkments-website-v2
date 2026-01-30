@@ -3,8 +3,8 @@ import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   Rocket,
   Building,
   Home,
@@ -25,7 +25,7 @@ import {
   TrendingUp,
   Lightbulb,
   Handshake,
-  ChevronRight
+  ChevronRight,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -38,7 +38,7 @@ export default function OurStoryPage() {
   const clientLoveRef = useRef(null);
   const truthRef = useRef(null);
   const drivesRef = useRef(null);
-  
+
   const isOriginInView = useInView(originRef, { once: true });
   const isTimelineInView = useInView(timelineRef, { once: true });
   const isGrowthInView = useInView(growthRef, { once: true });
@@ -53,23 +53,26 @@ export default function OurStoryPage() {
       year: '2002',
       title: 'The Beginning',
       icon: Rocket,
-      description: 'Started pioneering digital experiences while still in real estate. Began asking "what if?" and building the answers.',
-      color: 'from-[#00B4D8] to-[#1E3A5F]'
+      description:
+        'Started pioneering digital experiences while still in real estate. Began asking "what if?" and building the answers.',
+      color: 'from-[#00B4D8] to-[#1E3A5F]',
     },
     {
       year: '2004-2008',
       title: 'The Verizon Era',
       icon: Building,
-      description: 'Joined 2020 Companies and helped build the infrastructure for Verizon FiOS\'s national rollout. The company grew to over $500 million in valuation.',
-      color: 'from-[#1E3A5F] to-[#00B4D8]'
+      description:
+        "Joined 2020 Companies and helped build the infrastructure for Verizon FiOS's national rollout. The company grew to over $500 million in valuation.",
+      color: 'from-[#1E3A5F] to-[#00B4D8]',
     },
     {
       year: '2008',
       title: 'First Virtual Home Tour',
       icon: Home,
-      description: 'Created the first-ever virtual real estate tour. But that wasn\'t enough—also built a rudimentary chatbot that could answer questions about the house, and used NFC stickers so in-person visitors could scan and learn about unique features. This was cutting-edge technology that wouldn\'t become mainstream for another decade.',
-      color: 'from-[#00B4D8] to-[#FF6B35]'
-    }
+      description:
+        "Created the first-ever virtual real estate tour. But that wasn't enough—also built a rudimentary chatbot that could answer questions about the house, and used NFC stickers so in-person visitors could scan and learn about unique features. This was cutting-edge technology that wouldn't become mainstream for another decade.",
+      color: 'from-[#00B4D8] to-[#FF6B35]',
+    },
   ];
 
   const timelineEvents2 = [
@@ -77,30 +80,34 @@ export default function OurStoryPage() {
       year: '2010',
       title: 'First Arena Seat Preview',
       icon: Star,
-      description: 'Partnered with the American Airlines Center in Dallas to create the first arena seat preview system. Fans could see their exact view before buying tickets. Yes, that project involved Mark Cuban.',
-      color: 'from-[#FF6B35] to-[#00B4D8]'
+      description:
+        'Partnered with the American Airlines Center in Dallas to create the first arena seat preview system. Fans could see their exact view before buying tickets. Yes, that project involved Mark Cuban.',
+      color: 'from-[#FF6B35] to-[#00B4D8]',
     },
     {
       year: '2011',
       title: 'First Museum Virtual Tour',
       icon: Landmark,
-      description: 'Created one of the first interactive museum virtual tours, pioneering how cultural institutions could share their collections with the world.',
-      color: 'from-[#00B4D8] to-[#1E3A5F]'
+      description:
+        'Created one of the first interactive museum virtual tours, pioneering how cultural institutions could share their collections with the world.',
+      color: 'from-[#00B4D8] to-[#1E3A5F]',
     },
     {
       year: '2012',
       title: 'First Virtual E-Commerce Store',
       icon: ShoppingCart,
-      description: 'Built a virtual storefront where customers could walk through a store, click on products, watch videos about them, and purchase—all from a virtual tour. This was 7 years before COVID made virtual shopping mainstream, and 11 years before Apple Vision Pro.',
-      color: 'from-[#1E3A5F] to-[#FF6B35]'
+      description:
+        'Built a virtual storefront where customers could walk through a store, click on products, watch videos about them, and purchase—all from a virtual tour. This was 7 years before COVID made virtual shopping mainstream, and 11 years before Apple Vision Pro.',
+      color: 'from-[#1E3A5F] to-[#FF6B35]',
     },
     {
       year: '2014',
       title: 'First Cloud Real Estate Brokerage',
       icon: Cloud,
-      description: 'Helped create Ready Real Estate, the first virtual cloud-based real estate brokerage.',
-      color: 'from-[#FF6B35] to-[#00B4D8]'
-    }
+      description:
+        'Helped create Ready Real Estate, the first virtual cloud-based real estate brokerage.',
+      color: 'from-[#FF6B35] to-[#00B4D8]',
+    },
   ];
 
   const timelineEvents3 = [
@@ -108,44 +115,50 @@ export default function OurStoryPage() {
       year: '2015',
       title: 'ThinkMents Is Born',
       icon: Star,
-      description: 'Officially launched ThinkMents Digital Marketing Agency to bring enterprise-level innovation to businesses of all sizes.',
-      color: 'from-[#00B4D8] to-[#1E3A5F]'
+      description:
+        'Officially launched ThinkMents Digital Marketing Agency to bring enterprise-level innovation to businesses of all sizes.',
+      color: 'from-[#00B4D8] to-[#1E3A5F]',
     },
     {
       year: '2015-2022',
       title: 'The Foursquare Healthcare Partnership',
       icon: DollarSign,
-      description: 'Over a 5-7 year partnership, helped Foursquare Healthcare generate over $400 million in revenue through strategic digital marketing and innovation.',
-      color: 'from-[#1E3A5F] to-[#00B4D8]'
+      description:
+        'Over a 5-7 year partnership, helped Foursquare Healthcare generate over $400 million in revenue through strategic digital marketing and innovation.',
+      color: 'from-[#1E3A5F] to-[#00B4D8]',
     },
     {
       year: '2018',
       title: 'First NFC Pet Tracker',
       icon: Heart,
-      description: 'Created the first NFC/BLE pet tracker program, helping reunite lost pets with their families.',
-      color: 'from-[#00B4D8] to-[#FF6B35]'
+      description:
+        'Created the first NFC/BLE pet tracker program, helping reunite lost pets with their families.',
+      color: 'from-[#00B4D8] to-[#FF6B35]',
     },
     {
       year: '2020',
       title: 'AI Marketing Pioneer',
       icon: Bot,
-      description: 'Became one of the first to create AI marketing influencer programs, staying ahead of the AI revolution.',
-      color: 'from-[#FF6B35] to-[#00B4D8]'
+      description:
+        'Became one of the first to create AI marketing influencer programs, staying ahead of the AI revolution.',
+      color: 'from-[#FF6B35] to-[#00B4D8]',
     },
     {
       year: '2023',
       title: 'Going National & International',
       icon: Globe,
-      description: 'Expanded to serve clients across 31+ states and 3 countries while maintaining headquarters in Decatur, Texas.',
-      color: 'from-[#00B4D8] to-[#1E3A5F]'
+      description:
+        'Expanded to serve clients across 31+ states and 3 countries while maintaining headquarters in Decatur, Texas.',
+      color: 'from-[#00B4D8] to-[#1E3A5F]',
     },
     {
       year: '2024',
       title: '103 Five-Star Reviews',
       icon: Award,
-      description: 'Reached 103 five-star Google reviews while continuing to create solutions that don\'t exist yet. 3D avatars, immersive storefronts, AI-powered tools, and whatever comes next.',
-      color: 'from-[#1E3A5F] to-[#00B4D8]'
-    }
+      description:
+        "Reached 103 five-star Google reviews while continuing to create solutions that don't exist yet. 3D avatars, immersive storefronts, AI-powered tools, and whatever comes next.",
+      color: 'from-[#1E3A5F] to-[#00B4D8]',
+    },
   ];
 
   const impactStats = [
@@ -156,43 +169,46 @@ export default function OurStoryPage() {
     { value: '31+', label: 'U.S. states served' },
     { value: '3', label: 'Countries with active clients' },
     { value: '77', label: 'Texas cities with dedicated pages' },
-    { value: '20+', label: 'Years of innovation' }
+    { value: '20+', label: 'Years of innovation' },
   ];
 
   const clientTestimonials = [
     {
       rating: 5,
       text: 'Several of my online accounts were hacked. I contacted ThinkMents and they quickly scheduled me in. Within just a few hours, my accounts had been recovered and they assisted me with setting up increased security settings. Thoroughly satisfied and extremely grateful! Highly recommend!!!',
-      author: 'Mike'
+      author: 'Mike',
     },
     {
       rating: 5,
-      text: 'Corey and his team at ThinkMents have been awesome business partners. Corey\'s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched.',
-      author: 'Business Partner'
+      text: "Corey and his team at ThinkMents have been awesome business partners. Corey's knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched.",
+      author: 'Business Partner',
     },
     {
       rating: 5,
-      text: 'A reliable partner for innovative solutions. 5 stars for their expertise and commitment to excellence. I can\'t thank Corey, Jeremy and the rest of the team for all their help over the past couple of years!',
-      author: 'Long-term Client'
-    }
+      text: "A reliable partner for innovative solutions. 5 stars for their expertise and commitment to excellence. I can't thank Corey, Jeremy and the rest of the team for all their help over the past couple of years!",
+      author: 'Long-term Client',
+    },
   ];
 
   const coreBeliefs = [
     {
       title: 'Results Over Activity',
-      description: 'We don\'t measure success by how busy we are. We measure it by the impact we create for your business.',
-      miniTestimonial: 'Exceeded my expectations'
+      description:
+        "We don't measure success by how busy we are. We measure it by the impact we create for your business.",
+      miniTestimonial: 'Exceeded my expectations',
     },
     {
       title: 'Innovation Over Imitation',
-      description: 'Anyone can copy what\'s already been done. We\'d rather build what hasn\'t been built yet.',
-      miniTestimonial: 'A reliable partner for innovative solutions'
+      description:
+        "Anyone can copy what's already been done. We'd rather build what hasn't been built yet.",
+      miniTestimonial: 'A reliable partner for innovative solutions',
     },
     {
       title: 'Partnership Over Transactions',
-      description: 'We\'re not vendors. We\'re partners invested in your success. When you win, we win.',
-      miniTestimonial: 'Awesome business partners'
-    }
+      description:
+        "We're not vendors. We're partners invested in your success. When you win, we win.",
+      miniTestimonial: 'Awesome business partners',
+    },
   ];
 
   return (
@@ -208,9 +224,13 @@ export default function OurStoryPage() {
       <div className="bg-gray-50 border-b border-gray-100">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#00B4D8]">Home</Link>
+            <Link to="/" className="hover:text-[#00B4D8]">
+              Home
+            </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link to="/about" className="hover:text-[#00B4D8]">About</Link>
+            <Link to="/about" className="hover:text-[#00B4D8]">
+              About
+            </Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-[#1E3A5F] font-medium">Our Story</span>
           </nav>
@@ -221,10 +241,13 @@ export default function OurStoryPage() {
       <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#2a4d73] to-[#00B4D8] py-24 md:py-40 px-4 overflow-hidden">
         {/* Subtle texture background */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -238,17 +261,24 @@ export default function OurStoryPage() {
               We&apos;ve Been Building the Future Since 2002
             </h1>
             <p className="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
-              From a small town in Texas to clients across 31 states and 3 countries—this is the story of building things that didn&apos;t exist and changing industries in the process.
+              From a small town in Texas to clients across 31 states and 3 countries—this is the
+              story of building things that didn&apos;t exist and changing industries in the
+              process.
             </p>
 
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg px-6 py-3 md:px-8 md:py-4 border border-white/20">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-4 h-4 md:w-5 md:h-5 fill-[#FBBC04] text-[#FBBC04]" />
+                  <Star
+                    key={star}
+                    className="w-4 h-4 md:w-5 md:h-5 fill-[#FBBC04] text-[#FBBC04]"
+                  />
                 ))}
               </div>
-              <span className="text-white text-base md:text-lg font-semibold">5.0 on Google | 103 Reviews</span>
+              <span className="text-white text-base md:text-lg font-semibold">
+                5.0 on Google | 103 Reviews
+              </span>
             </div>
           </motion.div>
         </div>
@@ -267,20 +297,19 @@ export default function OurStoryPage() {
             </h2>
 
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed mb-12">
-              <p>
-                In 2002, Corey Spicer was working in real estate when he had a simple question:
-              </p>
+              <p>In 2002, Corey Spicer was working in real estate when he had a simple question:</p>
               <p className="text-xl md:text-2xl text-[#00B4D8] italic font-semibold pl-6 border-l-4 border-[#00B4D8]">
                 &quot;What if someone could tour a house without ever leaving their couch?&quot;
               </p>
               <p>
-                This was years before smartphones. Years before virtual reality headsets. Years before anyone was talking about &quot;immersive experiences.&quot;
+                This was years before smartphones. Years before virtual reality headsets. Years
+                before anyone was talking about &quot;immersive experiences.&quot;
               </p>
+              <p>But Corey didn&apos;t wait for the technology to catch up. He built it himself.</p>
               <p>
-                But Corey didn&apos;t wait for the technology to catch up. He built it himself.
-              </p>
-              <p>
-                That first virtual home tour wasn&apos;t just a cool experiment. It was the first of its kind—ever. And it was just the beginning of a journey that would eventually reach clients across 31+ states and 3 countries.
+                That first virtual home tour wasn&apos;t just a cool experiment. It was the first of
+                its kind—ever. And it was just the beginning of a journey that would eventually
+                reach clients across 31+ states and 3 countries.
               </p>
             </div>
 
@@ -293,11 +322,10 @@ export default function OurStoryPage() {
             >
               <Quote className="w-12 h-12 md:w-16 md:h-16 text-white/20 mx-auto mb-6" />
               <blockquote className="text-2xl md:text-4xl font-bold text-white mb-6">
-                &quot;I don&apos;t wait for someone else to build what I need. I build it myself.&quot;
+                &quot;I don&apos;t wait for someone else to build what I need. I build it
+                myself.&quot;
               </blockquote>
-              <p className="text-lg md:text-xl text-white/90">
-                — Corey Spicer, Founder
-              </p>
+              <p className="text-lg md:text-xl text-white/90">— Corey Spicer, Founder</p>
             </motion.div>
 
             {/* Testimonial Callout */}
@@ -358,7 +386,9 @@ export default function OurStoryPage() {
                   <div className="w-full md:w-5/12 mb-6 md:mb-0">
                     <Card className="hover:shadow-xl transition-shadow duration-300">
                       <CardContent className="p-6">
-                        <div className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}>
+                        <div
+                          className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}
+                        >
                           <event.icon className="w-8 h-8 text-white" />
                         </div>
                         <div className="text-[#00B4D8] font-bold text-lg mb-2">{event.year}</div>
@@ -386,7 +416,8 @@ export default function OurStoryPage() {
                 ))}
               </div>
               <p className="text-lg md:text-xl text-gray-700 italic mb-3">
-                &quot;Corey&apos;s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help.&quot;
+                &quot;Corey&apos;s knowledge of all things IT is incredible and he is always willing
+                to give me guidance when I need help.&quot;
               </p>
               <p className="text-gray-600">— Verified Google Review</p>
             </motion.div>
@@ -406,7 +437,9 @@ export default function OurStoryPage() {
                   <div className="w-full md:w-5/12 mb-6 md:mb-0">
                     <Card className="hover:shadow-xl transition-shadow duration-300">
                       <CardContent className="p-6">
-                        <div className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}>
+                        <div
+                          className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}
+                        >
                           <event.icon className="w-8 h-8 text-white" />
                         </div>
                         <div className="text-[#00B4D8] font-bold text-lg mb-2">{event.year}</div>
@@ -434,7 +467,8 @@ export default function OurStoryPage() {
                 ))}
               </div>
               <p className="text-lg md:text-xl text-gray-700 italic mb-3">
-                &quot;They have been instrumental in our training programs and their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
+                &quot;They have been instrumental in our training programs and their professionalism
+                is unmatched. Go see them, you won&apos;t regret it.&quot;
               </p>
               <p className="text-gray-600">— Verified Google Review</p>
             </motion.div>
@@ -454,7 +488,9 @@ export default function OurStoryPage() {
                   <div className="w-full md:w-5/12 mb-6 md:mb-0">
                     <Card className="hover:shadow-xl transition-shadow duration-300">
                       <CardContent className="p-6">
-                        <div className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}>
+                        <div
+                          className={`w-16 h-16 bg-gradient-to-br ${event.color} rounded-full flex items-center justify-center mb-4`}
+                        >
                           <event.icon className="w-8 h-8 text-white" />
                         </div>
                         <div className="text-[#00B4D8] font-bold text-lg mb-2">{event.year}</div>
@@ -486,14 +522,15 @@ export default function OurStoryPage() {
 
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed mb-12">
               <p>
-                ThinkMents started in Decatur, Texas—a small town where handshakes still mean something and your word is your bond.
+                ThinkMents started in Decatur, Texas—a small town where handshakes still mean
+                something and your word is your bond.
               </p>
               <p>
-                We never planned to go national. We just kept solving problems and delivering results. Word spread. Referrals came. Before we knew it, we were serving clients across the country and beyond.
+                We never planned to go national. We just kept solving problems and delivering
+                results. Word spread. Referrals came. Before we knew it, we were serving clients
+                across the country and beyond.
               </p>
-              <p className="font-semibold text-[#1E3A5F]">
-                Today, we work with businesses in:
-              </p>
+              <p className="font-semibold text-[#1E3A5F]">Today, we work with businesses in:</p>
               <ul className="space-y-2 pl-6">
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-[#00B4D8] rounded-full mr-3"></div>
@@ -509,7 +546,9 @@ export default function OurStoryPage() {
                 </li>
               </ul>
               <p>
-                But no matter how far we&apos;ve grown, we&apos;ve never forgotten where we came from. We still answer our phones. We still treat every client like a neighbor. We still believe that results matter more than promises.
+                But no matter how far we&apos;ve grown, we&apos;ve never forgotten where we came
+                from. We still answer our phones. We still treat every client like a neighbor. We
+                still believe that results matter more than promises.
               </p>
             </div>
 
@@ -553,7 +592,9 @@ export default function OurStoryPage() {
                 ))}
               </div>
               <p className="text-lg md:text-xl text-gray-700 italic mb-3">
-                &quot;Exceptional experience with ThinkMents! The team&apos;s professionalism and extensive knowledge truly sets them apart. From insightful consultations to precise execution, they exceeded my expectations.&quot;
+                &quot;Exceptional experience with ThinkMents! The team&apos;s professionalism and
+                extensive knowledge truly sets them apart. From insightful consultations to precise
+                execution, they exceeded my expectations.&quot;
               </p>
               <p className="text-gray-600">— Verified Google Review</p>
             </motion.div>
@@ -577,26 +618,25 @@ export default function OurStoryPage() {
               <div className="md:col-span-2">
                 <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
                   <p>
-                    Most agencies follow playbooks. They see what&apos;s working for someone else and copy it.
+                    Most agencies follow playbooks. They see what&apos;s working for someone else
+                    and copy it.
                   </p>
-                  <p className="text-2xl font-bold text-[#1E3A5F]">
-                    That&apos;s not how we work.
-                  </p>
+                  <p className="text-2xl font-bold text-[#1E3A5F]">That&apos;s not how we work.</p>
                   <p>
-                    We believe every business deserves solutions built for THEM—not recycled templates from someone else&apos;s success story.
+                    We believe every business deserves solutions built for THEM—not recycled
+                    templates from someone else&apos;s success story.
                   </p>
-                  <p>
-                    Sometimes that means implementing proven strategies with precision.
-                  </p>
+                  <p>Sometimes that means implementing proven strategies with precision.</p>
                   <p>
                     Sometimes that means building something that&apos;s never been built before.
                   </p>
                   <p>
-                    Either way, we start with one question: <span className="font-semibold text-[#00B4D8]">What does THIS business actually need?</span>
+                    Either way, we start with one question:{' '}
+                    <span className="font-semibold text-[#00B4D8]">
+                      What does THIS business actually need?
+                    </span>
                   </p>
-                  <p>
-                    Then we build it.
-                  </p>
+                  <p>Then we build it.</p>
                 </div>
               </div>
 
@@ -614,7 +654,8 @@ export default function OurStoryPage() {
                     ))}
                   </div>
                   <p className="text-gray-700 italic mb-3">
-                    &quot;Willing to go above and beyond, he&apos;s answered every question I&apos;ve thrown his way and given great advice for future projects.&quot;
+                    &quot;Willing to go above and beyond, he&apos;s answered every question
+                    I&apos;ve thrown his way and given great advice for future projects.&quot;
                   </p>
                   <p className="text-sm text-gray-600">— Verified Google Review</p>
                 </motion.div>
@@ -629,7 +670,9 @@ export default function OurStoryPage() {
               className="bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] rounded-2xl p-8 md:p-12 text-center"
             >
               <p className="text-xl md:text-3xl text-white font-semibold leading-relaxed">
-                We don&apos;t compete on price. We compete on results. And our results speak for themselves: over $500 million in value created for clients across 31+ states and 3 countries.
+                We don&apos;t compete on price. We compete on results. And our results speak for
+                themselves: over $500 million in value created for clients across 31+ states and 3
+                countries.
               </p>
             </motion.div>
           </motion.div>
@@ -637,13 +680,19 @@ export default function OurStoryPage() {
       </section>
 
       {/* The Impact Section */}
-      <section ref={impactRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section
+        ref={impactRef}
+        className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden"
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -653,9 +702,7 @@ export default function OurStoryPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              By The Numbers
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">By The Numbers</h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -667,7 +714,9 @@ export default function OurStoryPage() {
                 transition={{ duration: 0.5, delay: 0.05 * index }}
                 className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 text-center hover:bg-white/10 transition-colors"
               >
-                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">{stat.value}</div>
+                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">
+                  {stat.value}
+                </div>
                 <div className="text-white/80 text-sm">{stat.label}</div>
               </motion.div>
             ))}
@@ -704,13 +753,17 @@ export default function OurStoryPage() {
                         <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                       ))}
                     </div>
-                    <p className="text-gray-700 mb-6 leading-relaxed">&quot;{testimonial.text}&quot;</p>
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      &quot;{testimonial.text}&quot;
+                    </p>
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center text-white font-bold">
                         {testimonial.author.charAt(0)}
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-gray-600">— {testimonial.author}</p>
+                        <p className="text-sm font-semibold text-gray-600">
+                          — {testimonial.author}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -749,19 +802,24 @@ export default function OurStoryPage() {
                 We&apos;re going to be honest about something.
               </p>
               <p>
-                For years, we were so focused on delivering incredible results that we forgot to show our clients what we were doing for them.
+                For years, we were so focused on delivering incredible results that we forgot to
+                show our clients what we were doing for them.
               </p>
               <p>
-                We&apos;d generate millions in value, but we wouldn&apos;t send the reports. We&apos;d hit major milestones, but we wouldn&apos;t celebrate the wins. We&apos;d work behind the scenes, and our clients sometimes didn&apos;t even know what was happening.
+                We&apos;d generate millions in value, but we wouldn&apos;t send the reports.
+                We&apos;d hit major milestones, but we wouldn&apos;t celebrate the wins. We&apos;d
+                work behind the scenes, and our clients sometimes didn&apos;t even know what was
+                happening.
               </p>
-              <p className="text-xl font-bold text-[#00B4D8]">
-                That&apos;s changed.
-              </p>
+              <p className="text-xl font-bold text-[#00B4D8]">That&apos;s changed.</p>
               <p>
-                Today, we&apos;re building systems to make sure every client—whether they&apos;re in Texas, California, or another country—sees exactly what we&apos;re doing, what results we&apos;re generating, and what wins we&apos;re achieving together.
+                Today, we&apos;re building systems to make sure every client—whether they&apos;re in
+                Texas, California, or another country—sees exactly what we&apos;re doing, what
+                results we&apos;re generating, and what wins we&apos;re achieving together.
               </p>
               <p className="text-xl italic">
-                Because the best results in the world don&apos;t matter if you don&apos;t know about them.
+                Because the best results in the world don&apos;t matter if you don&apos;t know about
+                them.
               </p>
             </div>
           </motion.div>
@@ -777,9 +835,7 @@ export default function OurStoryPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
-              Our Core Beliefs
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">Our Core Beliefs</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -799,7 +855,7 @@ export default function OurStoryPage() {
                     </div>
                     <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">{belief.title}</h3>
                     <p className="text-gray-600 leading-relaxed mb-6">{belief.description}</p>
-                    
+
                     {/* Mini Testimonial */}
                     <div className="bg-[#E8F8FC] rounded-lg p-4 mt-6">
                       <div className="flex items-center justify-center gap-1 mb-2">
@@ -807,7 +863,9 @@ export default function OurStoryPage() {
                           <Star key={star} className="w-3 h-3 fill-[#FBBC04] text-[#FBBC04]" />
                         ))}
                       </div>
-                      <p className="text-sm text-gray-600 italic">&quot;{belief.miniTestimonial}&quot;</p>
+                      <p className="text-sm text-gray-600 italic">
+                        &quot;{belief.miniTestimonial}&quot;
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -847,7 +905,8 @@ export default function OurStoryPage() {
               Want to Build Something New?
             </h2>
             <p className="text-xl md:text-2xl text-white/90 mb-4">
-              Join the businesses across 31 states and 3 countries who trust ThinkMents to build their future.
+              Join the businesses across 31 states and 3 countries who trust ThinkMents to build
+              their future.
             </p>
             <p className="text-xl text-white/80 mb-12">
               We&apos;ve spent 20+ years building the future. Let&apos;s build yours.
@@ -882,7 +941,10 @@ export default function OurStoryPage() {
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:info@thinkments.com" className="hover:text-white transition-colors text-lg">
+                <a
+                  href="mailto:info@thinkments.com"
+                  className="hover:text-white transition-colors text-lg"
+                >
                   info@thinkments.com
                 </a>
               </div>
@@ -913,7 +975,7 @@ export default function OurStoryPage() {
             <blockquote className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-6">
               &quot;We don&apos;t follow trends. We build the future.&quot;
             </blockquote>
-            
+
             {/* Google Rating */}
             <div className="flex items-center justify-center gap-2 mb-6">
               <div className="flex items-center gap-1">

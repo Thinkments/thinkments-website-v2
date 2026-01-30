@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'motion/react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { 
-  Search, 
-  ChevronDown, 
+import {
+  Search,
+  ChevronDown,
   ChevronRight,
-  Phone, 
-  Mail, 
+  Phone,
+  Mail,
   HelpCircle,
   CheckCircle,
-  Star
+  Star,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -45,17 +45,20 @@ export default function FAQPage() {
       faqs: [
         {
           question: 'How do I get started with ThinkMents?',
-          answer: "It's easy! Schedule a free consultation where we'll discuss your business goals, challenges, and budget. From there, we'll create a custom proposal tailored to your needs. No pressure, no obligation."
+          answer:
+            "It's easy! Schedule a free consultation where we'll discuss your business goals, challenges, and budget. From there, we'll create a custom proposal tailored to your needs. No pressure, no obligation.",
         },
         {
           question: 'Do you offer free consultations?',
-          answer: "Yes! We offer a complimentary 30-minute discovery call to learn about your business and discuss how we can help. Schedule yours at thinkments.com/free-consultation."
+          answer:
+            'Yes! We offer a complimentary 30-minute discovery call to learn about your business and discuss how we can help. Schedule yours at thinkments.com/free-consultation.',
         },
         {
           question: 'What information do I need to provide to get started?',
-          answer: "Just bring your business goals and challenges. It helps to have access to your website, Google Business Profile, and any existing marketing materials, but we can work with whatever you have."
-        }
-      ]
+          answer:
+            'Just bring your business goals and challenges. It helps to have access to your website, Google Business Profile, and any existing marketing materials, but we can work with whatever you have.',
+        },
+      ],
     },
     {
       name: 'Services & Pricing',
@@ -63,21 +66,25 @@ export default function FAQPage() {
       faqs: [
         {
           question: 'How much do your services cost?',
-          answer: "Our pricing varies based on your needs. Local SEO starts at $350/month, websites range from $1,500-$8,000+, and Google Business Profile management starts at $250. We'll provide a detailed quote after understanding your specific requirements."
+          answer:
+            "Our pricing varies based on your needs. Local SEO starts at $350/month, websites range from $1,500-$8,000+, and Google Business Profile management starts at $250. We'll provide a detailed quote after understanding your specific requirements.",
         },
         {
           question: 'Do you require long-term contracts?',
-          answer: "No! We don't believe in locking clients into lengthy contracts. Most services are month-to-month. We earn your business every month through results, not contracts."
+          answer:
+            "No! We don't believe in locking clients into lengthy contracts. Most services are month-to-month. We earn your business every month through results, not contracts.",
         },
         {
           question: 'What services do you offer?',
-          answer: "We offer 16 service categories including Marketing & SEO, Web Development, Google Business Profile, Paid Advertising, Video & Photography, Virtual Tours, AI & Automation, Social Media, and more. Visit our Services page for the complete list."
+          answer:
+            'We offer 16 service categories including Marketing & SEO, Web Development, Google Business Profile, Paid Advertising, Video & Photography, Virtual Tours, AI & Automation, Social Media, and more. Visit our Services page for the complete list.',
         },
         {
           question: 'Do you offer package deals?',
-          answer: "Yes! We offer bundled packages for common needs like website + SEO, or GBP + Local SEO. Ask us about package pricing during your consultation."
-        }
-      ]
+          answer:
+            'Yes! We offer bundled packages for common needs like website + SEO, or GBP + Local SEO. Ask us about package pricing during your consultation.',
+        },
+      ],
     },
     {
       name: 'Process & Timeline',
@@ -85,21 +92,25 @@ export default function FAQPage() {
       faqs: [
         {
           question: 'How long does it take to build a website?',
-          answer: "A typical 5-10 page website takes 2-4 weeks. Larger sites (80+ pages) may take 6-8 weeks. Timeline depends on content readiness and feedback speed."
+          answer:
+            'A typical 5-10 page website takes 2-4 weeks. Larger sites (80+ pages) may take 6-8 weeks. Timeline depends on content readiness and feedback speed.',
         },
         {
           question: 'How long before I see SEO results?',
-          answer: "SEO is a long-term strategy. Most clients see initial improvements in 3-4 months, with significant results in 6-12 months. We provide monthly reports so you can track progress."
+          answer:
+            'SEO is a long-term strategy. Most clients see initial improvements in 3-4 months, with significant results in 6-12 months. We provide monthly reports so you can track progress.',
         },
         {
           question: "What's your process like?",
-          answer: "Our process has 4 steps: 1) Discovery - we learn your business and goals, 2) Strategy - we develop a custom plan, 3) Implementation - we execute with precision, 4) Optimization - we continuously improve based on data."
+          answer:
+            'Our process has 4 steps: 1) Discovery - we learn your business and goals, 2) Strategy - we develop a custom plan, 3) Implementation - we execute with precision, 4) Optimization - we continuously improve based on data.',
         },
         {
           question: 'How often will we communicate?',
-          answer: "We provide monthly reports and are available via phone and email for questions. For active projects, we typically have weekly check-ins. You'll never be left wondering what's happening."
-        }
-      ]
+          answer:
+            "We provide monthly reports and are available via phone and email for questions. For active projects, we typically have weekly check-ins. You'll never be left wondering what's happening.",
+        },
+      ],
     },
     {
       name: 'Google Business Profile',
@@ -107,17 +118,20 @@ export default function FAQPage() {
       faqs: [
         {
           question: 'Can you help if my Google Business Profile is suspended?',
-          answer: "Yes! We specialize in GBP suspension recovery. Our success rate is over 90%. We'll identify the issue, prepare the appeal, and work with Google to get you reinstated."
+          answer:
+            "Yes! We specialize in GBP suspension recovery. Our success rate is over 90%. We'll identify the issue, prepare the appeal, and work with Google to get you reinstated.",
         },
         {
           question: 'Do I need a physical address for Google Business Profile?',
-          answer: "It depends on your business type. Service-area businesses can hide their address. We'll help you determine the right setup and ensure compliance with Google's guidelines."
+          answer:
+            "It depends on your business type. Service-area businesses can hide their address. We'll help you determine the right setup and ensure compliance with Google's guidelines.",
         },
         {
           question: 'How do you help get more Google reviews?',
-          answer: "We implement ethical review generation strategies including automated follow-up sequences, review request cards, and staff training. We never buy fake reviews - that violates Google's terms."
-        }
-      ]
+          answer:
+            "We implement ethical review generation strategies including automated follow-up sequences, review request cards, and staff training. We never buy fake reviews - that violates Google's terms.",
+        },
+      ],
     },
     {
       name: 'Virtual Tours & Photography',
@@ -125,17 +139,20 @@ export default function FAQPage() {
       faqs: [
         {
           question: 'What is a Google Street View virtual tour?',
-          answer: "It's an interactive 360° tour of your business that appears directly on Google Maps and your Google Business Profile. Customers can virtually walk through your space before visiting."
+          answer:
+            "It's an interactive 360° tour of your business that appears directly on Google Maps and your Google Business Profile. Customers can virtually walk through your space before visiting.",
         },
         {
           question: 'How long does a virtual tour take to create?',
-          answer: "Photography takes 1-3 hours depending on size. Tours are typically live on Google within 1-2 weeks after shooting."
+          answer:
+            'Photography takes 1-3 hours depending on size. Tours are typically live on Google within 1-2 weeks after shooting.',
         },
         {
           question: 'Do you travel for photography and virtual tours?',
-          answer: "Yes! We serve clients across Texas and can travel for larger projects. Travel fees may apply outside the DFW metroplex."
-        }
-      ]
+          answer:
+            'Yes! We serve clients across Texas and can travel for larger projects. Travel fees may apply outside the DFW metroplex.',
+        },
+      ],
     },
     {
       name: 'Technical & Support',
@@ -143,28 +160,34 @@ export default function FAQPage() {
       faqs: [
         {
           question: 'Do you provide website hosting?',
-          answer: "Yes! We offer reliable hosting starting at $50/month including security monitoring, daily backups, and technical support."
+          answer:
+            'Yes! We offer reliable hosting starting at $50/month including security monitoring, daily backups, and technical support.',
         },
         {
           question: 'What if I need help after my project is complete?',
-          answer: "We offer ongoing maintenance and support plans. We're also available for one-off requests. Your success is our priority long after the project launches."
+          answer:
+            "We offer ongoing maintenance and support plans. We're also available for one-off requests. Your success is our priority long after the project launches.",
         },
         {
           question: 'Can you work with my existing website?',
-          answer: "Absolutely! We can optimize, redesign, or enhance existing websites. We'll assess what you have and recommend the best path forward."
-        }
-      ]
-    }
+          answer:
+            "Absolutely! We can optimize, redesign, or enhance existing websites. We'll assess what you have and recommend the best path forward.",
+        },
+      ],
+    },
   ];
 
   // Filter FAQs based on search query
-  const filteredCategories = faqCategories.map(category => ({
-    ...category,
-    faqs: category.faqs.filter(faq => 
-      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  })).filter(category => category.faqs.length > 0);
+  const filteredCategories = faqCategories
+    .map((category) => ({
+      ...category,
+      faqs: category.faqs.filter(
+        (faq) =>
+          faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+    }))
+    .filter((category) => category.faqs.length > 0);
 
   const toggleItem = (categoryIndex: number, faqIndex: number) => {
     const key = `${categoryIndex}-${faqIndex}`;
@@ -194,7 +217,9 @@ export default function FAQPage() {
       <div className="bg-gray-50 border-b border-gray-100">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#00B4D8]">Home</Link>
+            <Link to="/" className="hover:text-[#00B4D8]">
+              Home
+            </Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-[#1E3A5F] font-medium">FAQs</span>
           </nav>
@@ -202,10 +227,7 @@ export default function FAQPage() {
       </div>
 
       {/* Hero Section */}
-      <section 
-        ref={heroRef}
-        className="py-20 bg-[#F8F9FA]"
-      >
+      <section ref={heroRef} className="py-20 bg-[#F8F9FA]">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -214,8 +236,8 @@ export default function FAQPage() {
             className="text-center max-w-4xl mx-auto"
           >
             {/* Headline */}
-            <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6" 
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-6"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Frequently Asked Questions
@@ -223,7 +245,8 @@ export default function FAQPage() {
 
             {/* Subheadline */}
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              Get answers to the most common questions about our services, pricing, and process. Can't find what you're looking for? Contact us directly.
+              Get answers to the most common questions about our services, pricing, and process.
+              Can't find what you're looking for? Contact us directly.
             </p>
 
             {/* Search Bar */}
@@ -244,9 +267,7 @@ export default function FAQPage() {
                     className="pl-12 py-6 text-lg border-2 border-gray-200 focus:border-[#00B4D8] transition-colors rounded-lg"
                   />
                 </div>
-                <Button 
-                  className="bg-[#00B4D8] hover:bg-[#00B4D8]/90 text-white px-8 py-6"
-                >
+                <Button className="bg-[#00B4D8] hover:bg-[#00B4D8]/90 text-white px-8 py-6">
                   Search
                 </Button>
               </div>
@@ -273,8 +294,8 @@ export default function FAQPage() {
                       <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center">
                         <category.icon className="w-6 h-6 text-white" />
                       </div>
-                      <h2 
-                        className="text-3xl font-bold text-[#1E3A5F]" 
+                      <h2
+                        className="text-3xl font-bold text-[#1E3A5F]"
                         style={{ fontFamily: 'Playfair Display, serif' }}
                       >
                         {category.name}
@@ -285,7 +306,7 @@ export default function FAQPage() {
                     <div className="space-y-4">
                       {category.faqs.map((faq, faqIndex) => {
                         const itemExpanded = isExpanded(categoryIndex, faqIndex);
-                        
+
                         return (
                           <motion.div
                             key={faqIndex}
@@ -293,8 +314,8 @@ export default function FAQPage() {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.3, delay: faqIndex * 0.05 }}
                             className={`border-2 rounded-lg transition-all duration-300 ${
-                              itemExpanded 
-                                ? 'border-[#00B4D8] bg-[#00B4D8]/5' 
+                              itemExpanded
+                                ? 'border-[#00B4D8] bg-[#00B4D8]/5'
                                 : 'border-gray-200 hover:border-[#00B4D8]/50'
                             }`}
                           >
@@ -303,7 +324,7 @@ export default function FAQPage() {
                               onClick={() => toggleItem(categoryIndex, faqIndex)}
                               className="w-full flex items-start justify-between gap-4 p-6 text-left"
                             >
-                              <span 
+                              <span
                                 className={`text-lg font-semibold transition-colors ${
                                   itemExpanded ? 'text-[#00B4D8]' : 'text-[#1E3A5F]'
                                 }`}
@@ -315,10 +336,10 @@ export default function FAQPage() {
                                 transition={{ duration: 0.3 }}
                                 className="flex-shrink-0"
                               >
-                                <ChevronDown 
+                                <ChevronDown
                                   className={`w-6 h-6 transition-colors ${
                                     itemExpanded ? 'text-[#00B4D8]' : 'text-gray-400'
-                                  }`} 
+                                  }`}
                                 />
                               </motion.div>
                             </button>
@@ -356,7 +377,7 @@ export default function FAQPage() {
                 <h3 className="text-2xl font-bold text-gray-400 mb-2">No results found</h3>
                 <p className="text-gray-500">
                   Try a different search term or{' '}
-                  <button 
+                  <button
                     onClick={() => setSearchQuery('')}
                     className="text-[#00B4D8] hover:underline"
                   >
@@ -379,8 +400,8 @@ export default function FAQPage() {
             className="text-center text-white max-w-4xl mx-auto"
           >
             {/* Headline */}
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-6" 
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-6"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Still Have Questions?
@@ -393,8 +414,8 @@ export default function FAQPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8"
               >
@@ -403,8 +424,8 @@ export default function FAQPage() {
                   Contact Us
                 </Link>
               </Button>
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white/10 font-semibold text-lg px-8"

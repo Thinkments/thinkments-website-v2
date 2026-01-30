@@ -31,7 +31,7 @@ import {
   MapPin,
   Share2,
   Check,
-  X
+  X,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -45,14 +45,22 @@ const clients = [
   { id: '1', name: 'Acme Corporation' },
   { id: '2', name: 'TechStart Inc' },
   { id: '3', name: 'Retail Solutions LLC' },
-  { id: '4', name: 'Digital Innovations Co' }
+  { id: '4', name: 'Digital Innovations Co' },
 ];
 
 const reportTypes = [
-  { id: 'monthly', name: 'Monthly Performance Report', description: 'Comprehensive monthly overview' },
+  {
+    id: 'monthly',
+    name: 'Monthly Performance Report',
+    description: 'Comprehensive monthly overview',
+  },
   { id: 'seo', name: 'SEO Report', description: 'Search engine optimization metrics' },
-  { id: 'gbp', name: 'Google Business Profile Report', description: 'GBP performance and insights' },
-  { id: 'custom', name: 'Custom Report', description: 'Build your own custom report' }
+  {
+    id: 'gbp',
+    name: 'Google Business Profile Report',
+    description: 'GBP performance and insights',
+  },
+  { id: 'custom', name: 'Custom Report', description: 'Build your own custom report' },
 ];
 
 const metricsData = {
@@ -61,33 +69,33 @@ const metricsData = {
     { id: 'visitors', label: 'Unique Visitors', description: 'Unique users visiting the site' },
     { id: 'pageviews', label: 'Page Views', description: 'Total pages viewed' },
     { id: 'bounce', label: 'Bounce Rate', description: 'Percentage of single-page sessions' },
-    { id: 'duration', label: 'Session Duration', description: 'Average time on site' }
+    { id: 'duration', label: 'Session Duration', description: 'Average time on site' },
   ],
   seo: [
     { id: 'organic', label: 'Organic Traffic', description: 'Traffic from search engines' },
     { id: 'rankings', label: 'Keyword Rankings', description: 'Current keyword positions' },
     { id: 'backlinks', label: 'Backlinks', description: 'Inbound links to your site' },
     { id: 'authority', label: 'Domain Authority', description: 'Overall site authority score' },
-    { id: 'indexed', label: 'Indexed Pages', description: 'Pages indexed by search engines' }
+    { id: 'indexed', label: 'Indexed Pages', description: 'Pages indexed by search engines' },
   ],
   conversions: [
     { id: 'forms', label: 'Form Submissions', description: 'Contact form submissions' },
     { id: 'calls', label: 'Phone Calls', description: 'Phone call conversions' },
     { id: 'goals', label: 'Goal Completions', description: 'All goal completions' },
-    { id: 'rate', label: 'Conversion Rate', description: 'Overall conversion percentage' }
+    { id: 'rate', label: 'Conversion Rate', description: 'Overall conversion percentage' },
   ],
   gbp: [
     { id: 'profile-views', label: 'Profile Views', description: 'GBP profile views' },
     { id: 'search-appearances', label: 'Search Appearances', description: 'Times shown in search' },
     { id: 'directions', label: 'Direction Requests', description: 'Direction clicks' },
     { id: 'gbp-calls', label: 'Phone Calls from GBP', description: 'Calls from GBP listing' },
-    { id: 'reviews', label: 'Review Count & Rating', description: 'Reviews and average rating' }
+    { id: 'reviews', label: 'Review Count & Rating', description: 'Reviews and average rating' },
   ],
   social: [
     { id: 'followers', label: 'Followers Growth', description: 'New followers gained' },
     { id: 'engagement', label: 'Post Engagement', description: 'Likes, comments, shares' },
-    { id: 'reach', label: 'Reach/Impressions', description: 'Post reach and impressions' }
-  ]
+    { id: 'reach', label: 'Reach/Impressions', description: 'Post reach and impressions' },
+  ],
 };
 
 const scheduledReports = [
@@ -98,7 +106,7 @@ const scheduledReports = [
     frequency: 'Monthly',
     nextSend: '2025-01-15',
     recipients: 'john@acme.com, sarah@acme.com',
-    status: 'active'
+    status: 'active',
   },
   {
     id: '2',
@@ -107,7 +115,7 @@ const scheduledReports = [
     frequency: 'Weekly',
     nextSend: '2025-01-08',
     recipients: 'mike@techstart.com',
-    status: 'active'
+    status: 'active',
   },
   {
     id: '3',
@@ -116,8 +124,8 @@ const scheduledReports = [
     frequency: 'Monthly',
     nextSend: '2025-01-20',
     recipients: 'contact@retail.com',
-    status: 'paused'
-  }
+    status: 'paused',
+  },
 ];
 
 const reportHistory = [
@@ -127,7 +135,7 @@ const reportHistory = [
     client: 'Acme Corporation',
     date: '2024-12-31',
     sentTo: 'john@acme.com',
-    size: '2.4 MB'
+    size: '2.4 MB',
   },
   {
     id: '2',
@@ -135,7 +143,7 @@ const reportHistory = [
     client: 'TechStart Inc',
     date: '2024-12-28',
     sentTo: 'mike@techstart.com',
-    size: '1.8 MB'
+    size: '1.8 MB',
   },
   {
     id: '3',
@@ -143,7 +151,7 @@ const reportHistory = [
     client: 'Retail Solutions LLC',
     date: '2024-11-30',
     sentTo: 'contact@retail.com',
-    size: '3.1 MB'
+    size: '3.1 MB',
   },
   {
     id: '4',
@@ -151,14 +159,14 @@ const reportHistory = [
     client: 'Digital Innovations Co',
     date: '2024-11-30',
     sentTo: 'info@digitalinnovations.com',
-    size: '2.7 MB'
-  }
+    size: '2.7 MB',
+  },
 ];
 
 const templates = [
   { id: '1', name: 'Standard Monthly Report', metrics: 24, lastUsed: '2 days ago' },
   { id: '2', name: 'SEO-Focused Report', metrics: 18, lastUsed: '1 week ago' },
-  { id: '3', name: 'Executive Summary', metrics: 12, lastUsed: '3 weeks ago' }
+  { id: '3', name: 'Executive Summary', metrics: 12, lastUsed: '3 weeks ago' },
 ];
 
 const colorSchemes = [
@@ -166,11 +174,13 @@ const colorSchemes = [
   { id: 'green', name: 'Growth Green', primary: '#065f46', accent: '#10b981' },
   { id: 'purple', name: 'Creative Purple', primary: '#5b21b6', accent: '#a855f7' },
   { id: 'orange', name: 'Energetic Orange', primary: '#9a3412', accent: '#f97316' },
-  { id: 'custom', name: 'Custom Colors', primary: '#000000', accent: '#000000' }
+  { id: 'custom', name: 'Custom Colors', primary: '#000000', accent: '#000000' },
 ];
 
 export default function ReportGenerator() {
-  const [activeView, setActiveView] = useState<'builder' | 'scheduled' | 'history' | 'templates'>('builder');
+  const [activeView, setActiveView] = useState<'builder' | 'scheduled' | 'history' | 'templates'>(
+    'builder',
+  );
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedClient, setSelectedClient] = useState('');
   const [reportTitle, setReportTitle] = useState('');
@@ -187,25 +197,23 @@ export default function ReportGenerator() {
     { number: 1, title: 'Client & Basics', icon: Users },
     { number: 2, title: 'Select Metrics', icon: CheckSquare },
     { number: 3, title: 'Customize Appearance', icon: Palette },
-    { number: 4, title: 'Preview & Export', icon: Eye }
+    { number: 4, title: 'Preview & Export', icon: Eye },
   ];
 
   const toggleMetric = (metricId: string) => {
-    setSelectedMetrics(prev =>
-      prev.includes(metricId)
-        ? prev.filter(id => id !== metricId)
-        : [...prev, metricId]
+    setSelectedMetrics((prev) =>
+      prev.includes(metricId) ? prev.filter((id) => id !== metricId) : [...prev, metricId],
     );
   };
 
   const selectAllInSection = (section: keyof typeof metricsData) => {
-    const sectionMetrics = metricsData[section].map(m => m.id);
-    const allSelected = sectionMetrics.every(id => selectedMetrics.includes(id));
-    
+    const sectionMetrics = metricsData[section].map((m) => m.id);
+    const allSelected = sectionMetrics.every((id) => selectedMetrics.includes(id));
+
     if (allSelected) {
-      setSelectedMetrics(prev => prev.filter(id => !sectionMetrics.includes(id)));
+      setSelectedMetrics((prev) => prev.filter((id) => !sectionMetrics.includes(id)));
     } else {
-      setSelectedMetrics(prev => [...new Set([...prev, ...sectionMetrics])]);
+      setSelectedMetrics((prev) => [...new Set([...prev, ...sectionMetrics])]);
     }
   };
 
@@ -224,7 +232,9 @@ export default function ReportGenerator() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Report Generator</h1>
-            <p className="text-gray-600">Create professional client reports with custom metrics and branding</p>
+            <p className="text-gray-600">
+              Create professional client reports with custom metrics and branding
+            </p>
           </div>
         </div>
 
@@ -234,7 +244,7 @@ export default function ReportGenerator() {
             { id: 'builder', label: 'Report Builder', icon: FileText },
             { id: 'scheduled', label: 'Scheduled Reports', icon: Clock },
             { id: 'history', label: 'Report History', icon: RotateCcw },
-            { id: 'templates', label: 'Templates', icon: Copy }
+            { id: 'templates', label: 'Templates', icon: Copy },
           ].map((view) => {
             const Icon = view.icon;
             return (
@@ -267,15 +277,19 @@ export default function ReportGenerator() {
                   const Icon = step.icon;
                   const isActive = currentStep === step.number;
                   const isCompleted = currentStep > step.number;
-                  
+
                   return (
                     <React.Fragment key={step.number}>
                       <div className="flex items-center space-x-3">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
-                          isCompleted ? 'bg-green-500 text-white' :
-                          isActive ? 'bg-[#00B4D8] text-white' :
-                          'bg-gray-200 text-gray-500'
-                        }`}>
+                        <div
+                          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                            isCompleted
+                              ? 'bg-green-500 text-white'
+                              : isActive
+                                ? 'bg-[#00B4D8] text-white'
+                                : 'bg-gray-200 text-gray-500'
+                          }`}
+                        >
                           {isCompleted ? (
                             <Check className="w-6 h-6" />
                           ) : (
@@ -284,17 +298,21 @@ export default function ReportGenerator() {
                         </div>
                         <div>
                           <div className="text-xs text-gray-500">Step {step.number}</div>
-                          <div className={`font-semibold ${
-                            isActive ? 'text-[#1E3A5F]' : 'text-gray-600'
-                          }`}>
+                          <div
+                            className={`font-semibold ${
+                              isActive ? 'text-[#1E3A5F]' : 'text-gray-600'
+                            }`}
+                          >
                             {step.title}
                           </div>
                         </div>
                       </div>
                       {index < steps.length - 1 && (
-                        <div className={`flex-1 h-1 mx-4 rounded ${
-                          isCompleted ? 'bg-green-500' : 'bg-gray-200'
-                        }`} />
+                        <div
+                          className={`flex-1 h-1 mx-4 rounded ${
+                            isCompleted ? 'bg-green-500' : 'bg-gray-200'
+                          }`}
+                        />
                       )}
                     </React.Fragment>
                   );
@@ -313,8 +331,10 @@ export default function ReportGenerator() {
                   exit={{ opacity: 0, x: -20 }}
                 >
                   <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Client & Report Basics</h2>
-                    
+                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+                      Client & Report Basics
+                    </h2>
+
                     <div className="space-y-6">
                       {/* Client Selector */}
                       <div>
@@ -416,7 +436,9 @@ export default function ReportGenerator() {
                 >
                   <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
                     <div className="flex items-center justify-between mb-6">
-                      <h2 className="text-2xl font-bold text-[#1E3A5F]">Select Metrics to Include</h2>
+                      <h2 className="text-2xl font-bold text-[#1E3A5F]">
+                        Select Metrics to Include
+                      </h2>
                       <Badge className="bg-[#00B4D8] text-white">
                         {selectedMetrics.length} metrics selected
                       </Badge>
@@ -434,7 +456,7 @@ export default function ReportGenerator() {
                             onClick={() => selectAllInSection('traffic')}
                             className="text-sm text-[#00B4D8] hover:underline font-medium"
                           >
-                            {metricsData.traffic.every(m => selectedMetrics.includes(m.id))
+                            {metricsData.traffic.every((m) => selectedMetrics.includes(m.id))
                               ? 'Deselect All'
                               : 'Select All'}
                           </button>
@@ -459,8 +481,12 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">{metric.label}</div>
-                                  <div className="text-xs text-gray-500 mt-0.5">{metric.description}</div>
+                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                    {metric.label}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {metric.description}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -479,7 +505,7 @@ export default function ReportGenerator() {
                             onClick={() => selectAllInSection('seo')}
                             className="text-sm text-[#00B4D8] hover:underline font-medium"
                           >
-                            {metricsData.seo.every(m => selectedMetrics.includes(m.id))
+                            {metricsData.seo.every((m) => selectedMetrics.includes(m.id))
                               ? 'Deselect All'
                               : 'Select All'}
                           </button>
@@ -504,8 +530,12 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">{metric.label}</div>
-                                  <div className="text-xs text-gray-500 mt-0.5">{metric.description}</div>
+                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                    {metric.label}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {metric.description}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -524,7 +554,7 @@ export default function ReportGenerator() {
                             onClick={() => selectAllInSection('conversions')}
                             className="text-sm text-[#00B4D8] hover:underline font-medium"
                           >
-                            {metricsData.conversions.every(m => selectedMetrics.includes(m.id))
+                            {metricsData.conversions.every((m) => selectedMetrics.includes(m.id))
                               ? 'Deselect All'
                               : 'Select All'}
                           </button>
@@ -549,8 +579,12 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">{metric.label}</div>
-                                  <div className="text-xs text-gray-500 mt-0.5">{metric.description}</div>
+                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                    {metric.label}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {metric.description}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -569,7 +603,7 @@ export default function ReportGenerator() {
                             onClick={() => selectAllInSection('gbp')}
                             className="text-sm text-[#00B4D8] hover:underline font-medium"
                           >
-                            {metricsData.gbp.every(m => selectedMetrics.includes(m.id))
+                            {metricsData.gbp.every((m) => selectedMetrics.includes(m.id))
                               ? 'Deselect All'
                               : 'Select All'}
                           </button>
@@ -594,8 +628,12 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">{metric.label}</div>
-                                  <div className="text-xs text-gray-500 mt-0.5">{metric.description}</div>
+                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                    {metric.label}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {metric.description}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -614,7 +652,7 @@ export default function ReportGenerator() {
                             onClick={() => selectAllInSection('social')}
                             className="text-sm text-[#00B4D8] hover:underline font-medium"
                           >
-                            {metricsData.social.every(m => selectedMetrics.includes(m.id))
+                            {metricsData.social.every((m) => selectedMetrics.includes(m.id))
                               ? 'Deselect All'
                               : 'Select All'}
                           </button>
@@ -639,8 +677,12 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">{metric.label}</div>
-                                  <div className="text-xs text-gray-500 mt-0.5">{metric.description}</div>
+                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                    {metric.label}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-0.5">
+                                    {metric.description}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -662,7 +704,7 @@ export default function ReportGenerator() {
                 >
                   <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
                     <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Customize Appearance</h2>
-                    
+
                     <div className="space-y-6">
                       {/* Logo Upload */}
                       <div>
@@ -742,7 +784,9 @@ export default function ReportGenerator() {
                         <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                           <div>
                             <div className="font-semibold text-[#1E3A5F]">Include Cover Page</div>
-                            <div className="text-sm text-gray-600">Add a professional cover page</div>
+                            <div className="text-sm text-gray-600">
+                              Add a professional cover page
+                            </div>
                           </div>
                           <button
                             onClick={() => setIncludeCover(!includeCover)}
@@ -750,16 +794,22 @@ export default function ReportGenerator() {
                               includeCover ? 'bg-[#00B4D8]' : 'bg-gray-300'
                             }`}
                           >
-                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                              includeCover ? 'translate-x-7' : 'translate-x-1'
-                            }`} />
+                            <div
+                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                                includeCover ? 'translate-x-7' : 'translate-x-1'
+                              }`}
+                            />
                           </button>
                         </div>
 
                         <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                           <div>
-                            <div className="font-semibold text-[#1E3A5F]">Include Executive Summary</div>
-                            <div className="text-sm text-gray-600">Add a summary of key insights</div>
+                            <div className="font-semibold text-[#1E3A5F]">
+                              Include Executive Summary
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              Add a summary of key insights
+                            </div>
                           </div>
                           <button
                             onClick={() => setIncludeExecutive(!includeExecutive)}
@@ -767,9 +817,11 @@ export default function ReportGenerator() {
                               includeExecutive ? 'bg-[#00B4D8]' : 'bg-gray-300'
                             }`}
                           >
-                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                              includeExecutive ? 'translate-x-7' : 'translate-x-1'
-                            }`} />
+                            <div
+                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                                includeExecutive ? 'translate-x-7' : 'translate-x-1'
+                              }`}
+                            />
                           </button>
                         </div>
                       </div>
@@ -794,16 +846,19 @@ export default function ReportGenerator() {
                           <h2 className="text-xl font-bold text-[#1E3A5F]">Report Preview</h2>
                           <Badge className="bg-gray-100 text-gray-700">Live Preview</Badge>
                         </div>
-                        
+
                         {/* Mock Report Preview */}
                         <div className="border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
                           <div className="h-[600px] overflow-y-auto p-8 space-y-6">
                             {/* Cover Page */}
                             {includeCover && (
                               <div className="bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-lg p-12 text-white text-center">
-                                <div className="text-4xl font-bold mb-4">{reportTitle || 'Report Title'}</div>
+                                <div className="text-4xl font-bold mb-4">
+                                  {reportTitle || 'Report Title'}
+                                </div>
                                 <div className="text-xl mb-2">
-                                  {clients.find(c => c.id === selectedClient)?.name || 'Client Name'}
+                                  {clients.find((c) => c.id === selectedClient)?.name ||
+                                    'Client Name'}
                                 </div>
                                 <div className="text-sm opacity-80">
                                   {dateRange.start && dateRange.end
@@ -816,29 +871,42 @@ export default function ReportGenerator() {
                             {/* Executive Summary */}
                             {includeExecutive && (
                               <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Executive Summary</h3>
+                                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
+                                  Executive Summary
+                                </h3>
                                 <p className="text-gray-600 leading-relaxed">
-                                  This report provides a comprehensive overview of your digital marketing performance
-                                  for the selected period. Key highlights include significant growth in organic traffic,
-                                  improved conversion rates, and strong engagement across social media channels.
+                                  This report provides a comprehensive overview of your digital
+                                  marketing performance for the selected period. Key highlights
+                                  include significant growth in organic traffic, improved conversion
+                                  rates, and strong engagement across social media channels.
                                 </p>
                               </div>
                             )}
 
                             {/* Sample Metrics */}
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Key Performance Indicators</h3>
+                              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
+                                Key Performance Indicators
+                              </h3>
                               <div className="grid grid-cols-2 gap-4">
                                 {selectedMetrics.slice(0, 4).map((metricId, index) => {
-                                  const allMetrics = [...metricsData.traffic, ...metricsData.seo, ...metricsData.conversions, ...metricsData.gbp, ...metricsData.social];
-                                  const metric = allMetrics.find(m => m.id === metricId);
+                                  const allMetrics = [
+                                    ...metricsData.traffic,
+                                    ...metricsData.seo,
+                                    ...metricsData.conversions,
+                                    ...metricsData.gbp,
+                                    ...metricsData.social,
+                                  ];
+                                  const metric = allMetrics.find((m) => m.id === metricId);
                                   return (
                                     <div key={index} className="p-4 bg-gray-50 rounded-lg">
                                       <div className="text-sm text-gray-600">{metric?.label}</div>
                                       <div className="text-2xl font-bold text-[#1E3A5F] mt-1">
                                         {Math.floor(Math.random() * 10000).toLocaleString()}
                                       </div>
-                                      <div className="text-xs text-green-600 mt-1">+12.5% vs previous</div>
+                                      <div className="text-xs text-green-600 mt-1">
+                                        +12.5% vs previous
+                                      </div>
                                     </div>
                                   );
                                 })}
@@ -847,7 +915,9 @@ export default function ReportGenerator() {
 
                             {/* Chart Placeholder */}
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Traffic Trends</h3>
+                              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
+                                Traffic Trends
+                              </h3>
                               <div className="h-48 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg flex items-center justify-center">
                                 <div className="text-center text-gray-500">
                                   <Activity className="w-12 h-12 mx-auto mb-2" />
@@ -860,7 +930,10 @@ export default function ReportGenerator() {
 
                         {/* Add Custom Notes */}
                         <div className="mt-4">
-                          <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
+                          <Button
+                            variant="outline"
+                            className="w-full border-[#00B4D8] text-[#00B4D8]"
+                          >
                             <Plus className="w-4 h-4 mr-2" />
                             Add Custom Notes Section
                           </Button>
@@ -872,29 +945,28 @@ export default function ReportGenerator() {
                     <div className="space-y-4">
                       <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                         <h3 className="font-bold text-[#1E3A5F] mb-4">Export Report</h3>
-                        
+
                         <div className="space-y-3">
                           <Button className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white justify-start">
                             <FileDown className="w-4 h-4 mr-3" />
                             Export as PDF
                           </Button>
-                          
-                          <Button variant="outline" className="w-full border-[#1E3A5F] text-[#1E3A5F] justify-start">
+
+                          <Button
+                            variant="outline"
+                            className="w-full border-[#1E3A5F] text-[#1E3A5F] justify-start"
+                          >
                             <FileText className="w-4 h-4 mr-3" />
                             Export to Google Doc
                           </Button>
-                          
+
                           <div className="border-t border-gray-200 my-4" />
-                          
+
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Send to Client
                             </label>
-                            <Input
-                              type="email"
-                              placeholder="client@example.com"
-                              className="mb-2"
-                            />
+                            <Input type="email" placeholder="client@example.com" className="mb-2" />
                             <Button className="w-full bg-[#FF6B35] hover:bg-[#e55a24] text-white justify-start">
                               <Mail className="w-4 h-4 mr-3" />
                               Send Report via Email
@@ -928,11 +1000,11 @@ export default function ReportGenerator() {
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Previous
               </Button>
-              
+
               <div className="text-sm text-gray-600">
                 Step {currentStep} of {steps.length}
               </div>
-              
+
               <Button
                 onClick={handleNext}
                 disabled={currentStep === 4}
@@ -963,13 +1035,27 @@ export default function ReportGenerator() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Report Name</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Client</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Frequency</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Next Send</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Recipients</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
-                    <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Report Name
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Client
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Frequency
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Next Send
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Recipients
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Status
+                    </th>
+                    <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1032,12 +1118,24 @@ export default function ReportGenerator() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Report Name</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Client</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Date Generated</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Sent To</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Size</th>
-                    <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Report Name
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Client
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Date Generated
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Sent To
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      Size
+                    </th>
+                    <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1050,13 +1148,22 @@ export default function ReportGenerator() {
                       <td className="py-4 px-4 text-sm text-gray-500">{report.size}</td>
                       <td className="py-4 px-4">
                         <div className="flex items-center justify-end space-x-2">
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors" title="Download">
+                          <button
+                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            title="Download"
+                          >
                             <Download className="w-4 h-4 text-[#00B4D8]" />
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors" title="Resend">
+                          <button
+                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            title="Resend"
+                          >
                             <Send className="w-4 h-4 text-green-600" />
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors" title="Duplicate">
+                          <button
+                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            title="Duplicate"
+                          >
                             <Copy className="w-4 h-4 text-gray-600" />
                           </button>
                         </div>
@@ -1087,19 +1194,26 @@ export default function ReportGenerator() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {templates.map((template) => (
-                <Card key={template.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <Card
+                  key={template.id}
+                  className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+                >
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-lg flex items-center justify-center">
                       <FileText className="w-6 h-6 text-white" />
                     </div>
                     <Badge className="bg-gray-100 text-gray-700">{template.metrics} metrics</Badge>
                   </div>
-                  
+
                   <h3 className="font-bold text-[#1E3A5F] mb-2">{template.name}</h3>
                   <p className="text-sm text-gray-600 mb-4">Last used: {template.lastUsed}</p>
-                  
+
                   <div className="flex items-center space-x-2">
-                    <Button variant="outline" size="sm" className="flex-1 border-[#00B4D8] text-[#00B4D8]">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 border-[#00B4D8] text-[#00B4D8]"
+                    >
                       <Copy className="w-3 h-3 mr-2" />
                       Use
                     </Button>

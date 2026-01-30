@@ -4,7 +4,16 @@ import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Separator } from '../ui/separator';
-import { Copy, Download, Globe, MapPin, FileText, Calendar, BarChart3, ExternalLink } from 'lucide-react@0.487.0';
+import {
+  Copy,
+  Download,
+  Globe,
+  MapPin,
+  FileText,
+  Calendar,
+  BarChart3,
+  ExternalLink,
+} from 'lucide-react@0.487.0';
 import { Button } from '../ui/button';
 import { toast } from 'sonner@2.0.3';
 import { LOCATION_ROUTES } from '../../config/routes';
@@ -30,21 +39,21 @@ export default function SitemapXmlPage() {
     { path: '/blog', priority: '0.8', changefreq: 'daily' },
     { path: '/store', priority: '0.7', changefreq: 'weekly' },
     { path: '/contact', priority: '0.8', changefreq: 'monthly' },
-    { path: '/get-a-quote', priority: '0.9', changefreq: 'weekly' }
+    { path: '/get-a-quote', priority: '0.9', changefreq: 'weekly' },
   ];
 
   // Location-specific routes
-  const locationRoutes = LOCATION_ROUTES.map(location => ({
+  const locationRoutes = LOCATION_ROUTES.map((location) => ({
     path: `/digital-marketing-${location}`,
     priority: '0.7',
-    changefreq: 'monthly'
+    changefreq: 'monthly',
   }));
 
   // Legal routes
   const legalRoutes = [
     { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
     { path: '/terms-of-service', priority: '0.3', changefreq: 'yearly' },
-    { path: '/design-transfer-agreement', priority: '0.3', changefreq: 'yearly' }
+    { path: '/design-transfer-agreement', priority: '0.3', changefreq: 'yearly' },
   ];
 
   // SEO and technical pages
@@ -53,7 +62,7 @@ export default function SitemapXmlPage() {
     { path: '/sitemap-xml', priority: '0.5', changefreq: 'monthly' },
     { path: '/robots-txt', priority: '0.3', changefreq: 'monthly' },
     { path: '/robots', priority: '0.3', changefreq: 'monthly' },
-    { path: '/llm-txt', priority: '0.3', changefreq: 'monthly' }
+    { path: '/llm-txt', priority: '0.3', changefreq: 'monthly' },
   ];
 
   // Service detail routes
@@ -82,7 +91,7 @@ export default function SitemapXmlPage() {
     { path: '/services/real-estate-tours', priority: '0.8', changefreq: 'weekly' },
     { path: '/services/business-tours', priority: '0.8', changefreq: 'weekly' },
     { path: '/services/interactive-presentations', priority: '0.7', changefreq: 'weekly' },
-    { path: '/services/virtual-showrooms', priority: '0.7', changefreq: 'weekly' }
+    { path: '/services/virtual-showrooms', priority: '0.7', changefreq: 'weekly' },
   ];
 
   // Blog post routes (sample)
@@ -96,7 +105,7 @@ export default function SitemapXmlPage() {
     { path: '/blog/email-marketing-campaigns', priority: '0.6', changefreq: 'monthly' },
     { path: '/blog/conversion-optimization-strategies', priority: '0.6', changefreq: 'monthly' },
     { path: '/blog/branding-essentials', priority: '0.6', changefreq: 'monthly' },
-    { path: '/blog/video-marketing-benefits', priority: '0.6', changefreq: 'monthly' }
+    { path: '/blog/video-marketing-benefits', priority: '0.6', changefreq: 'monthly' },
   ];
 
   // Store routes (sample products)
@@ -105,7 +114,7 @@ export default function SitemapXmlPage() {
     { path: '/store/p/website-design-template', priority: '0.6', changefreq: 'weekly' },
     { path: '/store/p/social-media-package', priority: '0.6', changefreq: 'weekly' },
     { path: '/store/p/content-strategy-guide', priority: '0.6', changefreq: 'weekly' },
-    { path: '/store/p/brand-identity-kit', priority: '0.6', changefreq: 'weekly' }
+    { path: '/store/p/brand-identity-kit', priority: '0.6', changefreq: 'weekly' },
   ];
 
   // Combine all routes
@@ -116,7 +125,7 @@ export default function SitemapXmlPage() {
     ...technicalRoutes,
     ...serviceDetailRoutes,
     ...blogRoutes,
-    ...storeRoutes
+    ...storeRoutes,
   ];
 
   // Generate XML sitemap content
@@ -125,13 +134,17 @@ export default function SitemapXmlPage() {
     const urlsetOpen = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
     const urlsetClose = '</urlset>';
 
-    const urls = allRoutes.map(route => `
+    const urls = allRoutes
+      .map(
+        (route) => `
   <url>
     <loc>${baseUrl}${route.path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-  </url>`).join('');
+  </url>`,
+      )
+      .join('');
 
     return `${xmlHeader}
 ${urlsetOpen}${urls}
@@ -142,39 +155,39 @@ ${urlsetClose}`;
 
   const sections = [
     {
-      title: "URL Discovery",
+      title: 'URL Discovery',
       icon: <Globe className="h-5 w-5" />,
-      description: "Helps search engines discover all website pages",
-      color: "bg-blue-100 text-blue-800 border-blue-200"
+      description: 'Helps search engines discover all website pages',
+      color: 'bg-blue-100 text-blue-800 border-blue-200',
     },
     {
-      title: "Crawl Efficiency", 
+      title: 'Crawl Efficiency',
       icon: <BarChart3 className="h-5 w-5" />,
-      description: "Optimizes search engine crawling frequency",
-      color: "bg-green-100 text-green-800 border-green-200"
+      description: 'Optimizes search engine crawling frequency',
+      color: 'bg-green-100 text-green-800 border-green-200',
     },
     {
-      title: "Priority Signals",
+      title: 'Priority Signals',
       icon: <Calendar className="h-5 w-5" />,
-      description: "Indicates page importance and update frequency",
-      color: "bg-purple-100 text-purple-800 border-purple-200"
+      description: 'Indicates page importance and update frequency',
+      color: 'bg-purple-100 text-purple-800 border-purple-200',
     },
     {
-      title: "SEO Enhancement",
+      title: 'SEO Enhancement',
       icon: <FileText className="h-5 w-5" />,
-      description: "Improves search engine indexing and ranking",
-      color: "bg-orange-100 text-orange-800 border-orange-200"
-    }
+      description: 'Improves search engine indexing and ranking',
+      color: 'bg-orange-100 text-orange-800 border-orange-200',
+    },
   ];
 
   const categoryStats = [
-    { name: "Main Pages", count: mainRoutes.length, color: "text-blue-600" },
-    { name: "Service Details", count: serviceDetailRoutes.length, color: "text-green-600" },
-    { name: "Locations", count: locationRoutes.length, color: "text-purple-600" },
-    { name: "Blog Posts", count: blogRoutes.length, color: "text-orange-600" },
-    { name: "Store Items", count: storeRoutes.length, color: "text-pink-600" },
-    { name: "Legal Pages", count: legalRoutes.length, color: "text-gray-600" },
-    { name: "Technical", count: technicalRoutes.length, color: "text-indigo-600" }
+    { name: 'Main Pages', count: mainRoutes.length, color: 'text-blue-600' },
+    { name: 'Service Details', count: serviceDetailRoutes.length, color: 'text-green-600' },
+    { name: 'Locations', count: locationRoutes.length, color: 'text-purple-600' },
+    { name: 'Blog Posts', count: blogRoutes.length, color: 'text-orange-600' },
+    { name: 'Store Items', count: storeRoutes.length, color: 'text-pink-600' },
+    { name: 'Legal Pages', count: legalRoutes.length, color: 'text-gray-600' },
+    { name: 'Technical', count: technicalRoutes.length, color: 'text-indigo-600' },
   ];
 
   const copyToClipboard = () => {
@@ -199,7 +212,10 @@ ${urlsetClose}`;
     <>
       <Helmet>
         <title>XML Sitemap - ThinkMents SEO Configuration</title>
-        <meta name="description" content="ThinkMents XML sitemap file for search engine crawlers with comprehensive URL structure and SEO optimization." />
+        <meta
+          name="description"
+          content="ThinkMents XML sitemap file for search engine crawlers with comprehensive URL structure and SEO optimization."
+        />
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://thinkments.com/sitemap.xml" />
       </Helmet>
@@ -262,7 +278,8 @@ ${urlsetClose}`;
                           XML Sitemap File
                         </CardTitle>
                         <CardDescription>
-                          Complete XML sitemap with {allRoutes.length} URLs for search engine optimization
+                          Complete XML sitemap with {allRoutes.length} URLs for search engine
+                          optimization
                         </CardDescription>
                       </div>
                       <div className="flex gap-2">
@@ -339,7 +356,9 @@ ${urlsetClose}`;
                   <CardContent className="space-y-4">
                     {sections.map((section, index) => (
                       <div key={index} className="flex items-start gap-3">
-                        <div className={`rounded-full p-2 ${section.color.split(' ').slice(0, 2).join(' ')}`}>
+                        <div
+                          className={`rounded-full p-2 ${section.color.split(' ').slice(0, 2).join(' ')}`}
+                        >
                           {section.icon}
                         </div>
                         <div>
@@ -364,18 +383,30 @@ ${urlsetClose}`;
                   <CardContent className="space-y-4">
                     <div className="space-y-3">
                       <div>
-                        <h4 className="font-medium text-sm text-red-700">High Priority (1.0-0.9)</h4>
-                        <p className="text-xs text-muted-foreground">Homepage, main services, quotes</p>
+                        <h4 className="font-medium text-sm text-red-700">
+                          High Priority (1.0-0.9)
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          Homepage, main services, quotes
+                        </p>
                       </div>
                       <Separator />
                       <div>
-                        <h4 className="font-medium text-sm text-orange-700">Medium Priority (0.8-0.6)</h4>
-                        <p className="text-xs text-muted-foreground">About pages, case studies, blog posts</p>
+                        <h4 className="font-medium text-sm text-orange-700">
+                          Medium Priority (0.8-0.6)
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          About pages, case studies, blog posts
+                        </p>
                       </div>
                       <Separator />
                       <div>
-                        <h4 className="font-medium text-sm text-yellow-700">Lower Priority (0.5-0.3)</h4>
-                        <p className="text-xs text-muted-foreground">Legal pages, technical documentation</p>
+                        <h4 className="font-medium text-sm text-yellow-700">
+                          Lower Priority (0.5-0.3)
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          Legal pages, technical documentation
+                        </p>
                       </div>
                     </div>
                   </CardContent>

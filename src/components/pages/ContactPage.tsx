@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
-  Phone, 
-  Mail, 
-  Clock, 
+import {
+  Phone,
+  Mail,
+  Clock,
   MapPin,
   Star,
   CheckCircle,
@@ -16,7 +16,7 @@ import {
   Building,
   Shield,
   Send,
-  ExternalLink
+  ExternalLink,
 } from 'lucide-react';
 import SEO from '../SEO';
 import Breadcrumb from '../Breadcrumb';
@@ -31,14 +31,14 @@ export default function ContactPage() {
     heardAbout: '',
     services: [] as string[],
     message: '',
-    contactMethod: 'email'
+    contactMethod: 'email',
   });
 
   const heroRef = useRef(null);
   const formRef = useRef(null);
   const alternativeRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isFormInView = useInView(formRef, { once: true });
   const isAlternativeInView = useInView(alternativeRef, { once: true });
@@ -54,20 +54,22 @@ export default function ContactPage() {
     'AI & Automation',
     'Social Media',
     'Reputation Management',
-    'Other / Not Sure'
+    'Other / Not Sure',
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleCheckboxChange = (service: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       services: prev.services.includes(service)
-        ? prev.services.filter(s => s !== service)
-        : [...prev.services, service]
+        ? prev.services.filter((s) => s !== service)
+        : [...prev.services, service],
     }));
   };
 
@@ -75,63 +77,65 @@ export default function ContactPage() {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+    alert("Thank you for your message! We'll get back to you within 24 hours.");
   };
 
   // LocalBusiness Structured Data
   const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "ThinkMents Digital Marketing Agency",
-    "alternateName": "ThinkMents",
-    "description": "Full-service digital marketing agency specializing in web design, SEO, Google Business Profile management, virtual tours, and AI automation. Serving businesses across Texas and 31 states since 2002.",
-    "url": "https://thinkments.com",
-    "logo": "https://thinkments.com/logo.png",
-    "image": "https://images.unsplash.com/photo-1758518729685-f88df7890776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZ3xlbnwxfHx8fDE3NjU0NDE1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "telephone": "(940) 315-1023",
-    "email": "info@thinkments.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "301 South Washburn St, Suite D",
-      "addressLocality": "Decatur",
-      "addressRegion": "TX",
-      "postalCode": "76234",
-      "addressCountry": "US"
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'ThinkMents Digital Marketing Agency',
+    alternateName: 'ThinkMents',
+    description:
+      'Full-service digital marketing agency specializing in web design, SEO, Google Business Profile management, virtual tours, and AI automation. Serving businesses across Texas and 31 states since 2002.',
+    url: 'https://thinkments.com',
+    logo: 'https://thinkments.com/logo.png',
+    image:
+      'https://images.unsplash.com/photo-1758518729685-f88df7890776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZ3xlbnwxfHx8fDE3NjU0NDE1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    telephone: '(940) 315-1023',
+    email: 'info@thinkments.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '301 South Washburn St, Suite D',
+      addressLocality: 'Decatur',
+      addressRegion: 'TX',
+      postalCode: '76234',
+      addressCountry: 'US',
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 33.2283526,
-      "longitude": -97.5883743
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 33.2283526,
+      longitude: -97.5883743,
     },
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "103",
-      "bestRating": "5"
+    openingHours: 'Mo-Fr 08:00-18:00',
+    priceRange: '$$',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '103',
+      bestRating: '5',
     },
-    "sameAs": [
-      "https://www.facebook.com/ThinkMents/",
-      "https://www.linkedin.com/company/thinkments",
-      "https://www.instagram.com/thinkments/",
-      "https://www.youtube.com/@ThinkMents"
+    sameAs: [
+      'https://www.facebook.com/ThinkMents/',
+      'https://www.linkedin.com/company/thinkments',
+      'https://www.instagram.com/thinkments/',
+      'https://www.youtube.com/@ThinkMents',
     ],
-    "areaServed": [
+    areaServed: [
       {
-        "@type": "State",
-        "name": "Texas"
+        '@type': 'State',
+        name: 'Texas',
       },
       {
-        "@type": "Country",
-        "name": "United States"
-      }
+        '@type': 'Country',
+        name: 'United States',
+      },
     ],
-    "foundingDate": "2002",
-    "founder": {
-      "@type": "Person",
-      "name": "Corey Rumble"
-    }
+    foundingDate: '2002',
+    founder: {
+      '@type': 'Person',
+      name: 'Corey Rumble',
+    },
   };
 
   return (
@@ -145,19 +149,19 @@ export default function ContactPage() {
       />
 
       {/* Breadcrumb Navigation */}
-      <Breadcrumb items={[
-        { name: 'Home', path: '/' },
-        { name: 'Contact' }
-      ]} />
+      <Breadcrumb items={[{ name: 'Home', path: '/' }, { name: 'Contact' }]} />
 
       {/* Hero Section */}
       <section ref={heroRef} className="relative bg-[#F8F9FA] py-16 md:py-24 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, #1E3A5F 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, #1E3A5F 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -167,11 +171,15 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1
+              className="text-4xl md:text-6xl font-bold text-[#1E3A5F] mb-6"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Let&apos;s Start a Conversation
             </h1>
             <p className="text-lg md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Whether you have a quick question or want to discuss a complete marketing strategy, we&apos;re here to help. No pressure, no jargon—just honest advice.
+              Whether you have a quick question or want to discuss a complete marketing strategy,
+              we&apos;re here to help. No pressure, no jargon—just honest advice.
             </p>
           </motion.div>
 
@@ -188,7 +196,10 @@ export default function ContactPage() {
                 <div className="w-14 h-14 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-7 h-7 text-white" />
                 </div>
-                <a href="tel:9403151023" className="text-2xl font-bold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors mb-2 block">
+                <a
+                  href="tel:9403151023"
+                  className="text-2xl font-bold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors mb-2 block"
+                >
                   (940) 315-1023
                 </a>
                 <p className="text-gray-600">Call or Text</p>
@@ -201,7 +212,10 @@ export default function ContactPage() {
                 <div className="w-14 h-14 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-7 h-7 text-white" />
                 </div>
-                <a href="mailto:info@thinkments.com" className="text-2xl font-bold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors mb-2 block">
+                <a
+                  href="mailto:info@thinkments.com"
+                  className="text-2xl font-bold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors mb-2 block"
+                >
                   info@thinkments.com
                 </a>
                 <p className="text-gray-600">Email Us</p>
@@ -214,9 +228,7 @@ export default function ContactPage() {
                 <div className="w-14 h-14 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F] mb-2">
-                  Mon-Fri 8am-6pm CST
-                </div>
+                <div className="text-2xl font-bold text-[#1E3A5F] mb-2">Mon-Fri 8am-6pm CST</div>
                 <p className="text-gray-600">Business Hours</p>
               </CardContent>
             </Card>
@@ -237,18 +249,25 @@ export default function ContactPage() {
             >
               <Card className="shadow-xl">
                 <CardContent className="p-6 md:p-10">
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h2
+                    className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-3"
+                    style={{ fontFamily: 'Playfair Display, serif' }}
+                  >
                     Send Us a Message
                   </h2>
                   <p className="text-gray-600 mb-8">
-                    Fill out the form below and we&apos;ll get back to you within 24 hours—usually much sooner.
+                    Fill out the form below and we&apos;ll get back to you within 24 hours—usually
+                    much sooner.
                   </p>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Row 1 - Name */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label
+                          htmlFor="firstName"
+                          className="block text-sm font-semibold text-gray-700 mb-2"
+                        >
                           First Name*
                         </label>
                         <input
@@ -262,7 +281,10 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label
+                          htmlFor="lastName"
+                          className="block text-sm font-semibold text-gray-700 mb-2"
+                        >
                           Last Name*
                         </label>
                         <input
@@ -279,7 +301,10 @@ export default function ContactPage() {
 
                     {/* Row 2 - Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Email Address*
                       </label>
                       <input
@@ -295,7 +320,10 @@ export default function ContactPage() {
 
                     {/* Row 3 - Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Phone Number <span className="text-gray-400">(optional)</span>
                       </label>
                       <input
@@ -310,7 +338,10 @@ export default function ContactPage() {
 
                     {/* Row 4 - Company */}
                     <div>
-                      <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Company/Business Name <span className="text-gray-400">(optional)</span>
                       </label>
                       <input
@@ -325,7 +356,10 @@ export default function ContactPage() {
 
                     {/* Row 5 - How did you hear about us */}
                     <div>
-                      <label htmlFor="heardAbout" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="heardAbout"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         How did you hear about us?
                       </label>
                       <select
@@ -352,7 +386,10 @@ export default function ContactPage() {
                       </label>
                       <div className="grid md:grid-cols-2 gap-3">
                         {serviceOptions.map((service) => (
-                          <label key={service} className="flex items-center gap-3 cursor-pointer group">
+                          <label
+                            key={service}
+                            className="flex items-center gap-3 cursor-pointer group"
+                          >
                             <input
                               type="checkbox"
                               checked={formData.services.includes(service)}
@@ -369,7 +406,10 @@ export default function ContactPage() {
 
                     {/* Row 7 - Message */}
                     <div>
-                      <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Tell us about your project or goals*
                       </label>
                       <textarea
@@ -454,7 +494,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-[#00B4D8]" />
                     Office Location
                   </h3>
-                  
+
                   {/* Map Placeholder */}
                   <div className="mb-4 rounded-lg overflow-hidden border border-gray-200 h-48 bg-gray-100 flex items-center justify-center">
                     <iframe
@@ -470,7 +510,9 @@ export default function ContactPage() {
                   </div>
 
                   <div className="space-y-2 mb-4">
-                    <p className="font-semibold text-[#1E3A5F]">ThinkMents Digital Marketing Agency</p>
+                    <p className="font-semibold text-[#1E3A5F]">
+                      ThinkMents Digital Marketing Agency
+                    </p>
                     <p className="text-gray-600">301 South Washburn St, Suite D</p>
                     <p className="text-gray-600">Decatur, Texas 76234</p>
                   </div>
@@ -489,15 +531,16 @@ export default function ContactPage() {
               {/* Card 2 - Direct Contact */}
               <Card className="shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
-                    Direct Contact
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Direct Contact</h3>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Phone className="w-5 h-5 text-[#00B4D8]" />
                       <div>
                         <p className="text-sm text-gray-600">Phone:</p>
-                        <a href="tel:9403151023" className="font-semibold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors">
+                        <a
+                          href="tel:9403151023"
+                          className="font-semibold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors"
+                        >
                           (940) 315-1023
                         </a>
                       </div>
@@ -506,7 +549,10 @@ export default function ContactPage() {
                       <MessageCircle className="w-5 h-5 text-[#00B4D8]" />
                       <div>
                         <p className="text-sm text-gray-600">Text:</p>
-                        <a href="sms:9403151023" className="font-semibold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors">
+                        <a
+                          href="sms:9403151023"
+                          className="font-semibold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors"
+                        >
                           (940) 315-1023
                         </a>
                       </div>
@@ -515,7 +561,10 @@ export default function ContactPage() {
                       <Mail className="w-5 h-5 text-[#00B4D8]" />
                       <div>
                         <p className="text-sm text-gray-600">Email:</p>
-                        <a href="mailto:info@thinkments.com" className="font-semibold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors">
+                        <a
+                          href="mailto:info@thinkments.com"
+                          className="font-semibold text-[#1E3A5F] hover:text-[#00B4D8] transition-colors"
+                        >
                           info@thinkments.com
                         </a>
                       </div>
@@ -534,9 +583,7 @@ export default function ContactPage() {
               {/* Card 3 - Response Guarantee */}
               <Card className="shadow-lg bg-[#E8F8FC] border-[#00B4D8]">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
-                    Our Response Guarantee
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Our Response Guarantee</h3>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] mt-0.5 flex-shrink-0" />
@@ -566,9 +613,7 @@ export default function ContactPage() {
               {/* Card 4 - Connect Online */}
               <Card className="shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
-                    Connect Online
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Connect Online</h3>
                   <div className="flex gap-4">
                     <a
                       href="https://www.facebook.com/ThinkMents"
@@ -623,7 +668,10 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Other Ways to Connect
             </h2>
           </motion.div>
@@ -640,9 +688,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Calendar className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">
-                    Book a Discovery Call
-                  </h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">Book a Discovery Call</h3>
                   <p className="text-gray-600 mb-6">
                     Schedule a 30-minute consultation to discuss your goals.
                   </p>
@@ -668,9 +714,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
                     <MessageCircle className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">
-                    Live Chat
-                  </h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">Live Chat</h3>
                   <p className="text-gray-600 mb-6">
                     Chat with our team in real-time for quick questions.
                   </p>
@@ -696,9 +740,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Building className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">
-                    Visit Our Office
-                  </h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-3">Visit Our Office</h3>
                   <p className="text-gray-600 mb-6">
                     Stop by our Decatur office for an in-person meeting.
                   </p>
@@ -731,7 +773,10 @@ export default function ContactPage() {
             animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-white mb-8"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Ready to Grow Your Business?
             </h2>
             <p className="text-lg md:text-xl text-white/90 mb-8">

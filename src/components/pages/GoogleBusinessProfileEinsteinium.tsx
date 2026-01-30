@@ -3,79 +3,101 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { ArrowRight, Gem, Users, TrendingUp, Shield, Star, Globe, Eye, Settings, Zap, Award, Target, BarChart3, Sparkles } from 'lucide-react@0.487.0';
+import {
+  ArrowRight,
+  Gem,
+  Users,
+  TrendingUp,
+  Shield,
+  Star,
+  Globe,
+  Eye,
+  Settings,
+  Zap,
+  Award,
+  Target,
+  BarChart3,
+  Sparkles,
+} from 'lucide-react@0.487.0';
 import SEO from '../SEO';
 
 export default function GoogleBusinessProfileEinsteinium() {
   const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Einsteinium: Ultimate Visibility - Google Business Profile",
-    "description": "Premium Google Business Profile concierge service for unrivaled local market dominance with dedicated account manager and advanced reputation management",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "ThinkMents",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Einsteinium: Ultimate Visibility - Google Business Profile',
+    description:
+      'Premium Google Business Profile concierge service for unrivaled local market dominance with dedicated account manager and advanced reputation management',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'ThinkMents',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "989",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "989",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M"
-      }
+    offers: {
+      '@type': 'Offer',
+      price: '989',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '989',
+        priceCurrency: 'USD',
+        billingIncrement: 'P1M',
+      },
     },
-    "serviceType": "Google Business Profile Einsteinium Ultimate Visibility",
-    "areaServed": "United States"
+    serviceType: 'Google Business Profile Einsteinium Ultimate Visibility',
+    areaServed: 'United States',
   };
 
   const features = [
     {
       icon: Gem,
       title: 'Premium Dedicated Account Manager',
-      description: 'Elite-level concierge service with a premium dedicated account manager for the ultimate hands-off, high-performance profile management.',
-      color: 'from-purple-500 to-pink-600'
+      description:
+        'Elite-level concierge service with a premium dedicated account manager for the ultimate hands-off, high-performance profile management.',
+      color: 'from-purple-500 to-pink-600',
     },
     {
       icon: Target,
       title: 'Advanced Strategic Sessions',
-      description: 'Comprehensive quarterly strategic meetings with advanced analytics and growth optimization planning.',
-      color: 'from-green-500 to-teal-600'
+      description:
+        'Comprehensive quarterly strategic meetings with advanced analytics and growth optimization planning.',
+      color: 'from-green-500 to-teal-600',
     },
     {
       icon: Shield,
       title: 'Premium Reputation Management',
-      description: 'Elite-tier reputation protection and comprehensive crisis management to safeguard your brand at the highest level.',
-      color: 'from-red-500 to-pink-600'
+      description:
+        'Elite-tier reputation protection and comprehensive crisis management to safeguard your brand at the highest level.',
+      color: 'from-red-500 to-pink-600',
     },
     {
       icon: Eye,
       title: 'Advanced Hyperlocal Targeting',
-      description: 'Sophisticated hyperlocal targeting strategies with AI-powered optimization for maximum visibility and market penetration.',
-      color: 'from-blue-500 to-indigo-600'
+      description:
+        'Sophisticated hyperlocal targeting strategies with AI-powered optimization for maximum visibility and market penetration.',
+      color: 'from-blue-500 to-indigo-600',
     },
     {
       icon: BarChart3,
       title: 'Premium Custom Reporting',
-      description: 'Executive-level custom reports and advanced analytics with detailed ROI tracking and competitive analysis.',
-      color: 'from-purple-500 to-violet-600'
+      description:
+        'Executive-level custom reports and advanced analytics with detailed ROI tracking and competitive analysis.',
+      color: 'from-purple-500 to-violet-600',
     },
     {
       icon: Sparkles,
       title: 'Proactive Crisis Management+',
-      description: 'Premium 24/7 monitoring and proactive management with instant response protocols to ensure perfect brand projection.',
-      color: 'from-yellow-500 to-orange-600'
-    }
+      description:
+        'Premium 24/7 monitoring and proactive management with instant response protocols to ensure perfect brand projection.',
+      color: 'from-yellow-500 to-orange-600',
+    },
   ];
 
   const packageDetails = {
@@ -103,7 +125,7 @@ export default function GoogleBusinessProfileEinsteinium() {
       'Market domination tactics',
       'Continuous growth optimization',
       'Advanced analytics & insights',
-      'Premium competitive positioning'
+      'Premium competitive positioning',
     ],
     highlights: [
       'Premium dedicated account manager',
@@ -113,29 +135,32 @@ export default function GoogleBusinessProfileEinsteinium() {
       'Executive-level custom reporting',
       '24/7 proactive crisis management',
       'Absolute local market supremacy',
-      'Protected premium brand asset'
-    ]
+      'Protected premium brand asset',
+    ],
   };
 
   const benefits = [
     {
       icon: Gem,
       title: 'Premium Concierge Excellence',
-      description: 'Experience the ultimate in hands-off, high-performance profile management with elite dedicated account manager and advanced strategic sessions.',
-      stats: 'Premium VIP'
+      description:
+        'Experience the ultimate in hands-off, high-performance profile management with elite dedicated account manager and advanced strategic sessions.',
+      stats: 'Premium VIP',
     },
     {
       icon: Shield,
       title: 'Elite Brand Protection',
-      description: 'Advanced reputation management with 24/7 monitoring and proactive crisis management ensure your business always projects a perfect image.',
-      stats: '100% protected'
+      description:
+        'Advanced reputation management with 24/7 monitoring and proactive crisis management ensure your business always projects a perfect image.',
+      stats: '100% protected',
     },
     {
       icon: Award,
       title: 'Market Supremacy Elite',
-      description: 'The definitive premium solution for absolute supremacy in local search ranking and unparalleled Google Maps visibility.',
-      stats: 'Market domination'
-    }
+      description:
+        'The definitive premium solution for absolute supremacy in local search ranking and unparalleled Google Maps visibility.',
+      stats: 'Market domination',
+    },
   ];
 
   const comparisonFeatures = [
@@ -148,7 +173,7 @@ export default function GoogleBusinessProfileEinsteinium() {
     { feature: 'Premium Review Management', included: true },
     { feature: 'Elite Brand Protection & Monitoring', included: true },
     { feature: 'Market Domination Tactics', included: true },
-    { feature: 'Advanced Competitive Intelligence', included: true }
+    { feature: 'Advanced Competitive Intelligence', included: true },
   ];
 
   return (
@@ -192,7 +217,7 @@ export default function GoogleBusinessProfileEinsteinium() {
                   Google Business Profile
                 </span>
               </motion.h1>
-              
+
               <motion.div
                 className="flex items-center justify-center mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -202,14 +227,18 @@ export default function GoogleBusinessProfileEinsteinium() {
                 <span className="text-3xl md:text-4xl font-bold text-primary">$989.00</span>
                 <span className="text-xl text-muted-foreground ml-2">/month</span>
               </motion.div>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Experience unrivaled local market dominance and ultimate visibility with our premium Google Business Profile Concierge package. This all-inclusive service provides everything needed for a truly hands-off, high-performance profile, including a dedicated account manager, quarterly strategic sessions, and advanced reputation management to safeguard your brand.
+                Experience unrivaled local market dominance and ultimate visibility with our premium
+                Google Business Profile Concierge package. This all-inclusive service provides
+                everything needed for a truly hands-off, high-performance profile, including a
+                dedicated account manager, quarterly strategic sessions, and advanced reputation
+                management to safeguard your brand.
               </motion.p>
 
               <motion.div
@@ -251,7 +280,9 @@ export default function GoogleBusinessProfileEinsteinium() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                We implement advanced hyperlocal targeting, offer premium custom reporting, and provide 24/7 proactive crisis management, ensuring your business always projects a perfect image and achieves absolute supremacy in local search ranking.
+                We implement advanced hyperlocal targeting, offer premium custom reporting, and
+                provide 24/7 proactive crisis management, ensuring your business always projects a
+                perfect image and achieves absolute supremacy in local search ranking.
               </p>
             </motion.div>
 
@@ -276,14 +307,12 @@ export default function GoogleBusinessProfileEinsteinium() {
                       >
                         <feature.icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-                      
-                      <p className="text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
+
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -310,7 +339,8 @@ export default function GoogleBusinessProfileEinsteinium() {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  The definitive premium solution for businesses aiming for absolute supremacy in local search ranking and unparalleled Google Maps visibility
+                  The definitive premium solution for businesses aiming for absolute supremacy in
+                  local search ranking and unparalleled Google Maps visibility
                 </p>
               </motion.div>
 
@@ -321,9 +351,7 @@ export default function GoogleBusinessProfileEinsteinium() {
                 viewport={{ once: true }}
               >
                 <Card className="relative overflow-hidden border-2 border-primary/20">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                   <CardContent className="p-8 relative z-10">
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full mb-4">
@@ -332,8 +360,12 @@ export default function GoogleBusinessProfileEinsteinium() {
                       </div>
                       <h3 className="text-2xl md:text-3xl mb-2">{packageDetails.name}</h3>
                       <div className="flex items-center justify-center mb-4">
-                        <span className="text-4xl md:text-5xl font-bold text-primary">{packageDetails.price}</span>
-                        <span className="text-xl text-muted-foreground ml-2">{packageDetails.billing}</span>
+                        <span className="text-4xl md:text-5xl font-bold text-primary">
+                          {packageDetails.price}
+                        </span>
+                        <span className="text-xl text-muted-foreground ml-2">
+                          {packageDetails.billing}
+                        </span>
                       </div>
                       <p className="text-lg text-muted-foreground">{packageDetails.description}</p>
                     </div>
@@ -384,7 +416,9 @@ export default function GoogleBusinessProfileEinsteinium() {
                                 <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
                                   <div className="w-2 h-2 bg-white rounded-full" />
                                 </div>
-                                <span className="text-sm text-muted-foreground">{item.feature}</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {item.feature}
+                                </span>
                               </div>
                             ))}
                           </div>
@@ -428,7 +462,9 @@ export default function GoogleBusinessProfileEinsteinium() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Turn your profile into a powerful, protected premium asset for continuous growth with our definitive solution for absolute supremacy in local search ranking and unparalleled Google Maps visibility.
+                Turn your profile into a powerful, protected premium asset for continuous growth
+                with our definitive solution for absolute supremacy in local search ranking and
+                unparalleled Google Maps visibility.
               </p>
             </motion.div>
 
@@ -450,18 +486,16 @@ export default function GoogleBusinessProfileEinsteinium() {
                       >
                         <benefit.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {benefit.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {benefit.description}
                       </p>
 
-                      <div className="text-lg font-semibold text-primary">
-                        {benefit.stats}
-                      </div>
+                      <div className="text-lg font-semibold text-primary">{benefit.stats}</div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -487,7 +521,9 @@ export default function GoogleBusinessProfileEinsteinium() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Experience unrivaled local market dominance with our premium concierge service. Let our elite team handle everything while you enjoy absolute supremacy in local search ranking.
+                Experience unrivaled local market dominance with our premium concierge service. Let
+                our elite team handle everything while you enjoy absolute supremacy in local search
+                ranking.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

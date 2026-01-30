@@ -37,6 +37,7 @@ Your website is **100% ready** to deploy to Netlify. Here's what's been configur
 ### Step 1: Extract the Zip File
 
 Extract `ThinkMents_Digital_Marketing_Agency_Website__CS_CC___10_.zip` to:
+
 ```
 C:\Users\dad\Desktop\
 ```
@@ -48,6 +49,7 @@ You'll get a folder like: `ThinkMents_Digital_Marketing_Agency_Website__CS_CC___
 Copy these downloaded files INTO your extracted project folder:
 
 **From Downloads to Project Root:**
+
 - `netlify-new-site.toml` → Rename to `netlify.toml`
 - `gitignore-new-site.txt` → Rename to `.gitignore`
 - `deploy-new-site.ps1` → Rename to `deploy.ps1`
@@ -85,6 +87,7 @@ powershell -ExecutionPolicy Bypass -File deploy.ps1
 ```
 
 The script will:
+
 - ✅ Initialize Git
 - ✅ Add all files
 - ✅ Create initial commit
@@ -96,21 +99,25 @@ Then follow on-screen instructions to connect to Netlify!
 ### Step 6: Option B - Manual Git Commands
 
 **Initialize Git:**
+
 ```cmd
 git init
 ```
 
 **Add all files:**
+
 ```cmd
 git add .
 ```
 
 **Create initial commit:**
+
 ```cmd
 git commit -m "Initial commit - ThinkMents website for Netlify"
 ```
 
 **Create GitHub repository:**
+
 1. Go to https://github.com/new
 2. Repository name: `thinkments-website-new`
 3. Make it **Private**
@@ -147,16 +154,19 @@ git push -u origin main
 **Via Netlify CLI (Alternative):**
 
 Install Netlify CLI:
+
 ```cmd
 npm install -g netlify-cli
 ```
 
 Login:
+
 ```cmd
 netlify login
 ```
 
 Deploy:
+
 ```cmd
 netlify deploy --prod
 ```
@@ -182,6 +192,7 @@ Netlify will automatically:
 Your admin pages (`/admin/*`) are password protected:
 
 **Default Credentials:**
+
 - Username: `admin`
 - Password: `ThinkMents2025`
 
@@ -253,22 +264,26 @@ thinkments-website/
 ## ⚡ Quick Reference
 
 **Local development:**
+
 ```cmd
 npm install
 npm run dev
 ```
 
 **Build locally (test):**
+
 ```cmd
 npm run build
 ```
 
 **Deploy updates after initial setup:**
+
 ```cmd
 git add .
 git commit -m "Update description"
 git push
 ```
+
 (Netlify auto-deploys on push)
 
 ---
@@ -276,20 +291,24 @@ git push
 ## 🆘 Troubleshooting
 
 ### Build Fails
+
 - Check Node.js version: `node --version` (need 18+)
 - Check for syntax errors in code
 - Review build logs in Netlify dashboard
 
 ### Functions Not Working
+
 - Verify functions are in `src/netlify/functions/`
 - Check Netlify function logs
 - Ensure any required environment variables are set
 
 ### Routes Return 404
+
 - `netlify.toml` includes SPA routing (`/* → /index.html`)
 - If issues persist, check redirect rules in dashboard
 
 ### Admin Password Not Working
+
 - Ensure you're on Netlify Pro plan
 - Verify `netlify.toml` syntax is correct
 - Try force redeploy after changes

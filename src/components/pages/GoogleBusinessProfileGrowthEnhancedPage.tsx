@@ -3,79 +3,100 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { ArrowRight, Trophy, Users, TrendingUp, Shield, Star, Globe, Eye, Settings, Zap, Award, Target, BarChart3 } from 'lucide-react@0.487.0';
+import {
+  ArrowRight,
+  Trophy,
+  Users,
+  TrendingUp,
+  Shield,
+  Star,
+  Globe,
+  Eye,
+  Settings,
+  Zap,
+  Award,
+  Target,
+  BarChart3,
+} from 'lucide-react@0.487.0';
 import SEO from '../SEO';
 
 export default function GoogleBusinessProfileGrowthEnhancedPage() {
   const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Gold: Enhanced Essentials - Google Business Profile",
-    "description": "Transform your Google Business Profile into a powerful customer magnet with NAP citations, professional optimization, and enhanced local search ranking",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "ThinkMents",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Gold: Enhanced Essentials - Google Business Profile',
+    description:
+      'Transform your Google Business Profile into a powerful customer magnet with NAP citations, professional optimization, and enhanced local search ranking',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'ThinkMents',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "599",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "599",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M"
-      }
+    offers: {
+      '@type': 'Offer',
+      price: '599',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '599',
+        priceCurrency: 'USD',
+        billingIncrement: 'P1M',
+      },
     },
-    "serviceType": "Google Business Profile Growth Enhanced Essentials",
-    "areaServed": "United States"
+    serviceType: 'Google Business Profile Growth Enhanced Essentials',
+    areaServed: 'United States',
   };
 
   const features = [
     {
       icon: Zap,
       title: 'Customer Magnet Transformation',
-      description: 'Transform your profile into a powerful customer magnet that increases phone calls and website traffic.',
-      color: 'from-yellow-500 to-orange-600'
+      description:
+        'Transform your profile into a powerful customer magnet that increases phone calls and website traffic.',
+      color: 'from-yellow-500 to-orange-600',
     },
     {
       icon: Eye,
       title: 'Professional Storefront Design',
-      description: 'Create an engaging, professional storefront with fresh photos and optimized presentation.',
-      color: 'from-green-500 to-teal-600'
+      description:
+        'Create an engaging, professional storefront with fresh photos and optimized presentation.',
+      color: 'from-green-500 to-teal-600',
     },
     {
       icon: Target,
       title: 'Service Area Targeting',
-      description: 'Optimized service area targeting to reach the right customers in your specific market.',
-      color: 'from-blue-500 to-indigo-600'
+      description:
+        'Optimized service area targeting to reach the right customers in your specific market.',
+      color: 'from-blue-500 to-indigo-600',
     },
     {
       icon: Shield,
       title: 'NAP Citations Management',
-      description: 'Meticulous management of Name, Address, Phone consistency across high-value directories.',
-      color: 'from-purple-500 to-violet-600'
+      description:
+        'Meticulous management of Name, Address, Phone consistency across high-value directories.',
+      color: 'from-purple-500 to-violet-600',
     },
     {
       icon: Award,
       title: 'Authority Building',
-      description: 'Build massive trust signals with Google through consistent NAP citations and validation.',
-      color: 'from-red-500 to-pink-600'
+      description:
+        'Build massive trust signals with Google through consistent NAP citations and validation.',
+      color: 'from-red-500 to-pink-600',
     },
     {
       icon: TrendingUp,
       title: 'Local Search Domination',
-      description: 'Direct boost to local search ranking, making it easier for clients to find you over competitors.',
-      color: 'from-indigo-500 to-blue-600'
-    }
+      description:
+        'Direct boost to local search ranking, making it easier for clients to find you over competitors.',
+      color: 'from-indigo-500 to-blue-600',
+    },
   ];
 
   const packageDetails = {
@@ -99,7 +120,7 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
       'Competitor analysis & positioning',
       'Performance tracking & reporting',
       'Monthly optimization reviews',
-      'Customer acquisition strategy'
+      'Customer acquisition strategy',
     ],
     highlights: [
       'Customer magnet transformation',
@@ -109,29 +130,32 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
       'Google authority building',
       'Local search domination',
       'Trust signal amplification',
-      'Continuous growth optimization'
-    ]
+      'Continuous growth optimization',
+    ],
   };
 
   const benefits = [
     {
       icon: Zap,
       title: 'Customer Magnet Power',
-      description: 'Transform your profile into a powerful customer magnet that increases phone calls and website traffic through professional optimization.',
-      stats: 'More leads'
+      description:
+        'Transform your profile into a powerful customer magnet that increases phone calls and website traffic through professional optimization.',
+      stats: 'More leads',
     },
     {
       icon: Shield,
       title: 'Google Authority',
-      description: 'Build massive trust signals through 100% consistent NAP citations across dozens of high-value directories and platforms.',
-      stats: '100% consistent'
+      description:
+        'Build massive trust signals through 100% consistent NAP citations across dozens of high-value directories and platforms.',
+      stats: '100% consistent',
     },
     {
       icon: TrendingUp,
       title: 'Local Domination',
-      description: 'Direct boost to local search ranking makes it easier for new clients to find you over competitors in your market.',
-      stats: 'Market leader'
-    }
+      description:
+        'Direct boost to local search ranking makes it easier for new clients to find you over competitors in your market.',
+      stats: 'Market leader',
+    },
   ];
 
   const comparisonFeatures = [
@@ -142,7 +166,7 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
     { feature: 'Authority Building Signals', included: true },
     { feature: 'Local Search Enhancement', included: true },
     { feature: 'Fresh Photo Optimization', included: true },
-    { feature: 'Performance Tracking', included: true }
+    { feature: 'Performance Tracking', included: true },
   ];
 
   return (
@@ -186,7 +210,7 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                   Google Business Profile
                 </span>
               </motion.h1>
-              
+
               <motion.div
                 className="flex items-center justify-center mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -196,14 +220,17 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                 <span className="text-3xl md:text-4xl font-bold text-primary">$599.00</span>
                 <span className="text-xl text-muted-foreground ml-2">/month</span>
               </motion.div>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Turn your Google Business Profile into a powerful customer magnet. Our Growth package is designed to increase your phone calls and website traffic by transforming your profile into an engaging, professional storefront with fresh photos and optimized service area targeting.
+                Turn your Google Business Profile into a powerful customer magnet. Our Growth
+                package is designed to increase your phone calls and website traffic by transforming
+                your profile into an engaging, professional storefront with fresh photos and
+                optimized service area targeting.
               </motion.p>
 
               <motion.div
@@ -245,7 +272,10 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-                A crucial part of this strategy is building authority with Google through NAP citations. We meticulously manage your business Name, Address, and Phone number (NAP) to ensure they are 100% consistent across dozens of high-value online directories, social media platforms, and mapping services.
+                A crucial part of this strategy is building authority with Google through NAP
+                citations. We meticulously manage your business Name, Address, and Phone number
+                (NAP) to ensure they are 100% consistent across dozens of high-value online
+                directories, social media platforms, and mapping services.
               </p>
             </motion.div>
 
@@ -262,33 +292,43 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                     <Shield className="w-16 h-16 mx-auto text-primary mb-4" />
                     <h3 className="text-2xl mb-4">NAP Citations Authority Building</h3>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold mb-4">Trust Signal Creation:</h4>
                       <p className="text-muted-foreground mb-4">
-                        This consistency acts as a massive trust signal for search engines. When Google finds the same correct information about your business everywhere, it validates you as a legitimate, active local operation.
+                        This consistency acts as a massive trust signal for search engines. When
+                        Google finds the same correct information about your business everywhere, it
+                        validates you as a legitimate, active local operation.
                       </p>
                       <ul className="space-y-2">
                         <li className="flex items-center space-x-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent" />
-                          <span className="text-muted-foreground">50+ high-value directory citations</span>
+                          <span className="text-muted-foreground">
+                            50+ high-value directory citations
+                          </span>
                         </li>
                         <li className="flex items-center space-x-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent" />
-                          <span className="text-muted-foreground">Social media platform consistency</span>
+                          <span className="text-muted-foreground">
+                            Social media platform consistency
+                          </span>
                         </li>
                         <li className="flex items-center space-x-3">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent" />
-                          <span className="text-muted-foreground">Mapping services optimization</span>
+                          <span className="text-muted-foreground">
+                            Mapping services optimization
+                          </span>
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold mb-4">Local Search Impact:</h4>
                       <p className="text-muted-foreground mb-4">
-                        This directly boosts your local search ranking, making it easier for new clients to find you over competitors. This combination connects you with more clients and grows your business effectively.
+                        This directly boosts your local search ranking, making it easier for new
+                        clients to find you over competitors. This combination connects you with
+                        more clients and grows your business effectively.
                       </p>
                       <ul className="space-y-2">
                         <li className="flex items-center space-x-3">
@@ -329,7 +369,8 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Transform your profile into an engaging, professional storefront that acts as a powerful customer magnet with comprehensive optimization and authority building.
+                Transform your profile into an engaging, professional storefront that acts as a
+                powerful customer magnet with comprehensive optimization and authority building.
               </p>
             </motion.div>
 
@@ -354,14 +395,12 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                       >
                         <feature.icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-                      
-                      <p className="text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
+
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -388,7 +427,8 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  Complete growth package designed to increase phone calls and website traffic through professional transformation and authority building
+                  Complete growth package designed to increase phone calls and website traffic
+                  through professional transformation and authority building
                 </p>
               </motion.div>
 
@@ -399,9 +439,7 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                 viewport={{ once: true }}
               >
                 <Card className="relative overflow-hidden border-2 border-primary/20">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                   <CardContent className="p-8 relative z-10">
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 rounded-full mb-4">
@@ -410,8 +448,12 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                       </div>
                       <h3 className="text-2xl md:text-3xl mb-2">{packageDetails.name}</h3>
                       <div className="flex items-center justify-center mb-4">
-                        <span className="text-4xl md:text-5xl font-bold text-primary">{packageDetails.price}</span>
-                        <span className="text-xl text-muted-foreground ml-2">{packageDetails.billing}</span>
+                        <span className="text-4xl md:text-5xl font-bold text-primary">
+                          {packageDetails.price}
+                        </span>
+                        <span className="text-xl text-muted-foreground ml-2">
+                          {packageDetails.billing}
+                        </span>
                       </div>
                       <p className="text-lg text-muted-foreground">{packageDetails.description}</p>
                     </div>
@@ -455,14 +497,18 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                         </ul>
 
                         <div className="mt-8 p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
-                          <h5 className="font-semibold mb-2 text-primary">Growth Package Includes:</h5>
+                          <h5 className="font-semibold mb-2 text-primary">
+                            Growth Package Includes:
+                          </h5>
                           <div className="space-y-2">
                             {comparisonFeatures.map((item, index) => (
                               <div key={item.feature} className="flex items-center space-x-2">
                                 <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
                                   <div className="w-2 h-2 bg-white rounded-full" />
                                 </div>
-                                <span className="text-sm text-muted-foreground">{item.feature}</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {item.feature}
+                                </span>
                               </div>
                             ))}
                           </div>
@@ -506,7 +552,8 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                This combination connects you with more clients and grows your business effectively through customer magnet transformation and Google authority building.
+                This combination connects you with more clients and grows your business effectively
+                through customer magnet transformation and Google authority building.
               </p>
             </motion.div>
 
@@ -528,18 +575,16 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                       >
                         <benefit.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {benefit.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {benefit.description}
                       </p>
 
-                      <div className="text-lg font-semibold text-primary">
-                        {benefit.stats}
-                      </div>
+                      <div className="text-lg font-semibold text-primary">{benefit.stats}</div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -565,7 +610,9 @@ export default function GoogleBusinessProfileGrowthEnhancedPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Start growing your business effectively with our comprehensive growth package. Turn your profile into a powerful customer magnet and build Google authority through strategic NAP citations.
+                Start growing your business effectively with our comprehensive growth package. Turn
+                your profile into a powerful customer magnet and build Google authority through
+                strategic NAP citations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

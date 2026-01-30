@@ -16,7 +16,7 @@ import {
   ChevronDown,
   ExternalLink,
   Plus,
-  Minus
+  Minus,
 } from 'lucide-react';
 
 interface SiteNode {
@@ -44,8 +44,14 @@ const siteStructure: SiteNode[] = [
         type: 'page',
         status: 'published',
         children: [
-          { id: 'our-story', title: 'Our Story', url: '/our-story', type: 'page', status: 'published' }
-        ]
+          {
+            id: 'our-story',
+            title: 'Our Story',
+            url: '/our-story',
+            type: 'page',
+            status: 'published',
+          },
+        ],
       },
       {
         id: 'services',
@@ -55,12 +61,42 @@ const siteStructure: SiteNode[] = [
         status: 'published',
         count: 12,
         children: [
-          { id: 'web-design', title: 'Web Design', url: '/web-design', type: 'service', status: 'published' },
-          { id: 'digital-marketing', title: 'Digital Marketing', url: '/digital-marketing', type: 'service', status: 'published' },
-          { id: 'seo', title: 'Strategic SEO', url: '/strategic-seo', type: 'service', status: 'published' },
-          { id: 'virtual-tours', title: 'Virtual Tours', url: '/virtual-tours', type: 'service', status: 'published' },
-          { id: 'videography', title: 'Videography', url: '/videography', type: 'service', status: 'published' },
-        ]
+          {
+            id: 'web-design',
+            title: 'Web Design',
+            url: '/web-design',
+            type: 'service',
+            status: 'published',
+          },
+          {
+            id: 'digital-marketing',
+            title: 'Digital Marketing',
+            url: '/digital-marketing',
+            type: 'service',
+            status: 'published',
+          },
+          {
+            id: 'seo',
+            title: 'Strategic SEO',
+            url: '/strategic-seo',
+            type: 'service',
+            status: 'published',
+          },
+          {
+            id: 'virtual-tours',
+            title: 'Virtual Tours',
+            url: '/virtual-tours',
+            type: 'service',
+            status: 'published',
+          },
+          {
+            id: 'videography',
+            title: 'Videography',
+            url: '/videography',
+            type: 'service',
+            status: 'published',
+          },
+        ],
       },
       {
         id: 'case-studies',
@@ -70,11 +106,35 @@ const siteStructure: SiteNode[] = [
         status: 'published',
         count: 4,
         children: [
-          { id: 'chenevert', title: 'Chenevert Automotive', url: '/case-studies/chenevert', type: 'page', status: 'published' },
-          { id: 'foursquare', title: 'Foursquare Healthcare', url: '/case-studies/foursquare-healthcare', type: 'page', status: 'published' },
-          { id: 'decatur', title: 'Decatur Chamber', url: '/case-studies/decatur-chamber', type: 'page', status: 'published' },
-          { id: 'casa', title: 'CASA of Wise & Jack', url: '/case-studies/casa', type: 'page', status: 'published' },
-        ]
+          {
+            id: 'chenevert',
+            title: 'Chenevert Automotive',
+            url: '/case-studies/chenevert',
+            type: 'page',
+            status: 'published',
+          },
+          {
+            id: 'foursquare',
+            title: 'Foursquare Healthcare',
+            url: '/case-studies/foursquare-healthcare',
+            type: 'page',
+            status: 'published',
+          },
+          {
+            id: 'decatur',
+            title: 'Decatur Chamber',
+            url: '/case-studies/decatur-chamber',
+            type: 'page',
+            status: 'published',
+          },
+          {
+            id: 'casa',
+            title: 'CASA of Wise & Jack',
+            url: '/case-studies/casa',
+            type: 'page',
+            status: 'published',
+          },
+        ],
       },
       {
         id: 'blog',
@@ -84,10 +144,28 @@ const siteStructure: SiteNode[] = [
         status: 'published',
         count: 50,
         children: [
-          { id: 'blog-1', title: 'Local SEO Guide 2025', url: '/blog/local-seo-guide-2025', type: 'blog', status: 'published' },
-          { id: 'blog-2', title: 'Social Media Trends', url: '/blog/social-media-trends', type: 'blog', status: 'published' },
-          { id: 'blog-3', title: 'Web Design Best Practices', url: '/blog/web-design-best-practices', type: 'blog', status: 'draft' },
-        ]
+          {
+            id: 'blog-1',
+            title: 'Local SEO Guide 2025',
+            url: '/blog/local-seo-guide-2025',
+            type: 'blog',
+            status: 'published',
+          },
+          {
+            id: 'blog-2',
+            title: 'Social Media Trends',
+            url: '/blog/social-media-trends',
+            type: 'blog',
+            status: 'published',
+          },
+          {
+            id: 'blog-3',
+            title: 'Web Design Best Practices',
+            url: '/blog/web-design-best-practices',
+            type: 'blog',
+            status: 'draft',
+          },
+        ],
       },
       {
         id: 'store',
@@ -104,17 +182,22 @@ const siteStructure: SiteNode[] = [
         type: 'page',
         status: 'published',
       },
-    ]
-  }
+    ],
+  },
 ];
 
 export default function SiteStructureMap() {
-  const [expandedNodes, setExpandedNodes] = useState<string[]>(['home', 'services', 'case-studies', 'blog']);
+  const [expandedNodes, setExpandedNodes] = useState<string[]>([
+    'home',
+    'services',
+    'case-studies',
+    'blog',
+  ]);
   const [zoomLevel, setZoomLevel] = useState(1);
 
   const toggleNode = (nodeId: string) => {
-    setExpandedNodes(prev =>
-      prev.includes(nodeId) ? prev.filter(id => id !== nodeId) : [...prev, nodeId]
+    setExpandedNodes((prev) =>
+      prev.includes(nodeId) ? prev.filter((id) => id !== nodeId) : [...prev, nodeId],
     );
   };
 
@@ -182,7 +265,9 @@ export default function SiteStructureMap() {
           )}
 
           {/* Node Icon */}
-          <div className={`flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br ${getNodeColor(node.type)} flex items-center justify-center`}>
+          <div
+            className={`flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br ${getNodeColor(node.type)} flex items-center justify-center`}
+          >
             <Icon className="w-5 h-5 text-white" />
           </div>
 
@@ -230,7 +315,7 @@ export default function SiteStructureMap() {
             exit={{ opacity: 0, height: 0 }}
             className="mt-2 space-y-2"
           >
-            {node.children!.map(child => renderNode(child, level + 1))}
+            {node.children!.map((child) => renderNode(child, level + 1))}
           </motion.div>
         )}
       </div>
@@ -241,7 +326,9 @@ export default function SiteStructureMap() {
     <div>
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-[#1E3A5F]">Site Structure Map</h1>
-        <p className="text-gray-600 mt-1">Visual hierarchy of all pages and content on thinkments.com</p>
+        <p className="text-gray-600 mt-1">
+          Visual hierarchy of all pages and content on thinkments.com
+        </p>
       </div>
 
       {/* Controls */}
@@ -253,15 +340,11 @@ export default function SiteStructureMap() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setExpandedNodes(siteStructure.flatMap(n => getAllNodeIds(n)))}
+                  onClick={() => setExpandedNodes(siteStructure.flatMap((n) => getAllNodeIds(n)))}
                 >
                   Expand All
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setExpandedNodes(['home'])}
-                >
+                <Button variant="outline" size="sm" onClick={() => setExpandedNodes(['home'])}>
                   Collapse All
                 </Button>
               </div>
@@ -272,7 +355,7 @@ export default function SiteStructureMap() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setZoomLevel(prev => Math.max(0.5, prev - 0.1))}
+                onClick={() => setZoomLevel((prev) => Math.max(0.5, prev - 0.1))}
                 disabled={zoomLevel <= 0.5}
               >
                 <Minus className="w-4 h-4" />
@@ -283,7 +366,7 @@ export default function SiteStructureMap() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setZoomLevel(prev => Math.min(1.5, prev + 0.1))}
+                onClick={() => setZoomLevel((prev) => Math.min(1.5, prev + 0.1))}
                 disabled={zoomLevel >= 1.5}
               >
                 <Plus className="w-4 h-4" />
@@ -328,12 +411,10 @@ export default function SiteStructureMap() {
             style={{
               transform: `scale(${zoomLevel})`,
               transformOrigin: 'top left',
-              transition: 'transform 0.3s ease'
+              transition: 'transform 0.3s ease',
             }}
           >
-            <div className="space-y-3">
-              {siteStructure.map(node => renderNode(node))}
-            </div>
+            <div className="space-y-3">{siteStructure.map((node) => renderNode(node))}</div>
           </div>
         </CardContent>
       </Card>
@@ -396,7 +477,7 @@ export default function SiteStructureMap() {
 function getAllNodeIds(node: SiteNode): string[] {
   const ids = [node.id];
   if (node.children) {
-    node.children.forEach(child => {
+    node.children.forEach((child) => {
       ids.push(...getAllNodeIds(child));
     });
   }

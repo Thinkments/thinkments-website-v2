@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
+import {
   ArrowRight,
   Heart,
   Home,
@@ -34,7 +34,7 @@ import {
   ExternalLink,
   ShoppingCart,
   Stethoscope,
-  Network
+  Network,
 } from 'lucide-react';
 import SEO from '../SEO';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
@@ -55,7 +55,7 @@ interface PortfolioItem {
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState('all');
-  
+
   const heroRef = useRef(null);
   const portfolioRef = useRef(null);
   const virtualToursRef = useRef(null);
@@ -63,7 +63,7 @@ export default function PortfolioPage() {
   const numbersRef = useRef(null);
   const testimonialRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isPortfolioInView = useInView(portfolioRef, { once: true });
   const isVirtualToursInView = useInView(virtualToursRef, { once: true });
@@ -90,7 +90,7 @@ export default function PortfolioPage() {
     { id: 'financial', label: 'Financial' },
     { id: 'education', label: 'Education' },
     { id: 'manufacturing', label: 'Manufacturing' },
-    { id: 'virtual-tours', label: 'Virtual Tours' }
+    { id: 'virtual-tours', label: 'Virtual Tours' },
   ];
 
   const portfolioItems: PortfolioItem[] = [
@@ -100,12 +100,14 @@ export default function PortfolioPage() {
       industry: 'Healthcare',
       location: 'Multi-State',
       category: 'healthcare',
-      description: 'Comprehensive digital marketing and web presence for senior healthcare provider. Built patient acquisition systems, reputation management, and local SEO across multiple states.',
+      description:
+        'Comprehensive digital marketing and web presence for senior healthcare provider. Built patient acquisition systems, reputation management, and local SEO across multiple states.',
       results: ['$400M+ Revenue Generated', '5-7 Year Partnership', 'Multi-State Reach'],
       services: ['Website Design', 'SEO', 'Google Business Profile', 'Reputation Management'],
       link: '/case-studies/foursquare-healthcare',
-      mockupImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&fit=crop',
-      featured: true
+      mockupImage:
+        'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&fit=crop',
+      featured: true,
     },
     {
       id: 2,
@@ -113,11 +115,13 @@ export default function PortfolioPage() {
       industry: 'Healthcare / Senior Living',
       location: 'Texas',
       category: 'senior-living',
-      description: 'Created the first-ever virtual tours for senior living facilities, allowing families to explore care options remotely. Pioneering work in healthcare accessibility.',
+      description:
+        'Created the first-ever virtual tours for senior living facilities, allowing families to explore care options remotely. Pioneering work in healthcare accessibility.',
       results: ['First of Its Kind', 'Virtual Tour Pioneer', 'Increased Inquiries 200%+'],
       services: ['Virtual Tours', 'Website Design', 'SEO'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop',
     },
     {
       id: 3,
@@ -125,11 +129,13 @@ export default function PortfolioPage() {
       industry: 'Real Estate',
       location: 'National',
       category: 'real-estate',
-      description: 'Built the first virtual cloud-based real estate brokerage. Agents operate entirely online with virtual office tours, digital transaction management, and cloud-based operations.',
+      description:
+        'Built the first virtual cloud-based real estate brokerage. Agents operate entirely online with virtual office tours, digital transaction management, and cloud-based operations.',
       results: ['First Cloud Brokerage', '100% Virtual Operations', 'National Platform'],
       services: ['Website Development', 'Virtual Tours', 'Cloud Solutions'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=800&fit=crop',
     },
     {
       id: 4,
@@ -137,11 +143,13 @@ export default function PortfolioPage() {
       industry: 'Real Estate',
       location: 'Texas',
       category: 'real-estate',
-      description: 'Created the first-ever virtual real estate home tour in 2008—years before virtual tours became standard. Included AI chatbot and NFC stickers for in-person visitors.',
+      description:
+        'Created the first-ever virtual real estate home tour in 2008—years before virtual tours became standard. Included AI chatbot and NFC stickers for in-person visitors.',
       results: ['Industry First (2008)', 'AI Chatbot Integration', 'NFC Technology'],
       services: ['Virtual Tours', 'AI Integration', 'NFC Technology'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&h=800&fit=crop',
     },
     {
       id: 5,
@@ -149,11 +157,13 @@ export default function PortfolioPage() {
       industry: 'Retail',
       location: 'Louisiana',
       category: 'retail',
-      description: 'Complete digital presence for local hardware retailer competing against big box stores. 80+ page website with local SEO strategy that drives foot traffic.',
+      description:
+        'Complete digital presence for local hardware retailer competing against big box stores. 80+ page website with local SEO strategy that drives foot traffic.',
       results: ['634 Monthly Users', '80+ Page Website', 'Top 3 Local Rankings'],
       services: ['Website Design', 'SEO', 'Google Business Profile', 'Content Marketing'],
       link: '/case-studies/chenevert',
-      mockupImage: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=800&fit=crop',
     },
     {
       id: 6,
@@ -161,11 +171,13 @@ export default function PortfolioPage() {
       industry: 'Retail / E-Commerce',
       location: 'Texas',
       category: 'retail',
-      description: 'Built in 2012—seven years before COVID made virtual shopping mainstream. Customers walk through a virtual store, click products, watch videos, and purchase directly.',
+      description:
+        'Built in 2012—seven years before COVID made virtual shopping mainstream. Customers walk through a virtual store, click products, watch videos, and purchase directly.',
       results: ['Built in 2012', 'First of Its Kind', 'Full E-Commerce Integration'],
       services: ['Virtual Tours', 'E-Commerce', 'Video Production', 'Custom Development'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop',
     },
     {
       id: 7,
@@ -173,11 +185,13 @@ export default function PortfolioPage() {
       industry: 'Entertainment / Sports',
       location: 'Dallas, TX',
       category: 'entertainment',
-      description: "Partnered with Mark Cuban's American Airlines Center to create the first arena seat preview system. Fans see their exact view before purchasing tickets.",
+      description:
+        "Partnered with Mark Cuban's American Airlines Center to create the first arena seat preview system. Fans see their exact view before purchasing tickets.",
       results: ['Mark Cuban Partnership', 'First Arena Seat Preview', 'Industry Pioneer'],
       services: ['Virtual Tours', 'Custom Development', 'UX Design'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1527871369852-eb58cb2b54e2?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1527871369852-eb58cb2b54e2?w=1200&h=800&fit=crop',
     },
     {
       id: 8,
@@ -185,11 +199,13 @@ export default function PortfolioPage() {
       industry: 'Restaurants',
       location: 'Texas & Beyond',
       category: 'restaurants',
-      description: 'Websites, virtual tours, and Google Business Profile optimization for restaurants, cafes, and bars. Designed to showcase ambiance, drive reservations, and boost online orders.',
+      description:
+        'Websites, virtual tours, and Google Business Profile optimization for restaurants, cafes, and bars. Designed to showcase ambiance, drive reservations, and boost online orders.',
       results: ['Virtual Tour Integration', 'Online Ordering Setup', 'Review Management'],
       services: ['Website Design', 'Virtual Tours', 'Google Business Profile', 'Photography'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop',
     },
     {
       id: 9,
@@ -197,11 +213,13 @@ export default function PortfolioPage() {
       industry: 'Automotive',
       location: 'Texas',
       category: 'automotive',
-      description: 'Websites, virtual showroom tours, and digital marketing for car dealerships and auto service centers. Showcase inventory and build trust before customers visit.',
+      description:
+        'Websites, virtual showroom tours, and digital marketing for car dealerships and auto service centers. Showcase inventory and build trust before customers visit.',
       results: ['Virtual Showroom Tours', 'Inventory Integration', 'Lead Generation Focus'],
       services: ['Website Design', 'Virtual Tours', 'SEO', 'Google Ads'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1562911791-c7a97b729ec5?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1562911791-c7a97b729ec5?w=1200&h=800&fit=crop',
     },
     {
       id: 10,
@@ -209,11 +227,13 @@ export default function PortfolioPage() {
       industry: 'Legal',
       location: 'Various',
       category: 'legal',
-      description: 'Professional websites and digital marketing for attorneys and law firms. Focus on establishing authority, building trust, and generating qualified case inquiries.',
+      description:
+        'Professional websites and digital marketing for attorneys and law firms. Focus on establishing authority, building trust, and generating qualified case inquiries.',
       results: ['Authority Building', 'Case Inquiry Generation', 'Professional Credibility'],
       services: ['Website Design', 'SEO', 'Content Marketing', 'Reputation Management'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop',
     },
     {
       id: 11,
@@ -221,11 +241,13 @@ export default function PortfolioPage() {
       industry: 'Financial',
       location: 'Various',
       category: 'financial',
-      description: 'Websites and digital presence for financial advisors, accountants, insurance agents, and financial service providers. Designed to build trust and generate qualified leads.',
+      description:
+        'Websites and digital presence for financial advisors, accountants, insurance agents, and financial service providers. Designed to build trust and generate qualified leads.',
       results: ['Trust-Building Design', 'Compliance Aware', 'Lead Generation'],
       services: ['Website Design', 'SEO', 'Content Marketing'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=800&fit=crop',
     },
     {
       id: 12,
@@ -233,11 +255,13 @@ export default function PortfolioPage() {
       industry: 'Museum / Cultural',
       location: 'Bridgeport, TX',
       category: 'museums',
-      description: 'Created one of the first interactive museum virtual tours, allowing visitors worldwide to explore exhibits honoring military veterans and local history.',
+      description:
+        'Created one of the first interactive museum virtual tours, allowing visitors worldwide to explore exhibits honoring military veterans and local history.',
       results: ['First Museum Virtual Tour', 'Global Accessibility', 'Interactive Experience'],
       services: ['Virtual Tours', 'Website Design', 'Content Creation'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1566127444979-b3d2b116c1eb?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1566127444979-b3d2b116c1eb?w=1200&h=800&fit=crop',
     },
     {
       id: 13,
@@ -245,11 +269,13 @@ export default function PortfolioPage() {
       industry: 'Education',
       location: 'Texas',
       category: 'education',
-      description: 'Websites, virtual campus tours, and digital marketing for schools, training centers, and educational organizations. Help families explore campuses and programs remotely.',
+      description:
+        'Websites, virtual campus tours, and digital marketing for schools, training centers, and educational organizations. Help families explore campuses and programs remotely.',
       results: ['Virtual Campus Tours', 'Enrollment Focus', 'Parent Communication'],
       services: ['Website Design', 'Virtual Tours', 'Content Marketing'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop',
     },
     {
       id: 14,
@@ -257,11 +283,13 @@ export default function PortfolioPage() {
       industry: 'Telecommunications',
       location: 'National',
       category: 'technology',
-      description: "Helped build the infrastructure and digital presence for Verizon FiOS's nationwide rollout. 2020 Companies grew to over $500 million valuation during this partnership.",
+      description:
+        "Helped build the infrastructure and digital presence for Verizon FiOS's nationwide rollout. 2020 Companies grew to over $500 million valuation during this partnership.",
       results: ['$500M+ Company Valuation', 'National Rollout', '2004-2008 Partnership'],
       services: ['Digital Strategy', 'Web Development', 'Marketing'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop',
     },
     {
       id: 15,
@@ -269,11 +297,13 @@ export default function PortfolioPage() {
       industry: 'Home Services',
       location: 'Texas & Beyond',
       category: 'home-services',
-      description: 'Websites, SEO, and Google Business Profile optimization for plumbers, electricians, HVAC, roofers, and other home service professionals. Designed to generate calls and bookings.',
+      description:
+        'Websites, SEO, and Google Business Profile optimization for plumbers, electricians, HVAC, roofers, and other home service professionals. Designed to generate calls and bookings.',
       results: ['Top Local Rankings', 'Call Generation Focus', 'Review Management'],
       services: ['Website Design', 'Local SEO', 'Google Business Profile', 'Reputation Management'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=800&fit=crop',
     },
     {
       id: 16,
@@ -281,11 +311,13 @@ export default function PortfolioPage() {
       industry: 'Manufacturing',
       location: 'Texas',
       category: 'manufacturing',
-      description: 'Websites and virtual facility tours for manufacturers and industrial companies. Showcase capabilities, equipment, and processes to potential B2B clients and partners.',
+      description:
+        'Websites and virtual facility tours for manufacturers and industrial companies. Showcase capabilities, equipment, and processes to potential B2B clients and partners.',
       results: ['Virtual Facility Tours', 'B2B Lead Generation', 'Capability Showcasing'],
       services: ['Website Design', 'Virtual Tours', 'Photography', 'SEO'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&h=800&fit=crop',
     },
     {
       id: 17,
@@ -293,11 +325,13 @@ export default function PortfolioPage() {
       industry: 'Pet Services / Technology',
       location: 'Texas',
       category: 'professional',
-      description: 'Created the first NFC/BLE pet tracker program. Pet owners register their pets, attach smart tags, and lost pets can be scanned by anyone with a smartphone to reunite families.',
+      description:
+        'Created the first NFC/BLE pet tracker program. Pet owners register their pets, attach smart tags, and lost pets can be scanned by anyone with a smartphone to reunite families.',
       results: ['First of Its Kind', 'NFC Technology', 'Reuniting Families'],
       services: ['Custom Development', 'NFC/BLE Technology', 'Mobile App'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=800&fit=crop'
+      mockupImage:
+        'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=800&fit=crop',
     },
     {
       id: 18,
@@ -305,12 +339,14 @@ export default function PortfolioPage() {
       industry: 'Non-Profit',
       location: 'Various',
       category: 'nonprofit',
-      description: 'Affordable websites and digital marketing for non-profits, churches, and community organizations. Special pricing to help organizations that help others.',
+      description:
+        'Affordable websites and digital marketing for non-profits, churches, and community organizations. Special pricing to help organizations that help others.',
       results: ['Special Non-Profit Pricing', 'Donation Integration', 'Community Impact'],
       services: ['Website Design', 'SEO', 'Social Media', 'Email Marketing'],
       link: '#',
-      mockupImage: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&h=800&fit=crop'
-    }
+      mockupImage:
+        'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&h=800&fit=crop',
+    },
   ];
 
   const industries = [
@@ -331,18 +367,42 @@ export default function PortfolioPage() {
     { name: 'Pet Services', icon: PawPrint, count: '10+' },
     { name: 'Non-Profit', icon: Heart, count: '55+' },
     { name: 'Senior Living', icon: Users, count: '30+' },
-    { name: 'Professional Services', icon: Briefcase, count: '70+' }
+    { name: 'Professional Services', icon: Briefcase, count: '70+' },
   ];
 
   const virtualTours = [
-    { title: 'Real Estate Virtual Tour', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop' },
-    { title: 'Retail Store Virtual Tour', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop' },
-    { title: 'Restaurant Virtual Tour', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop' },
-    { title: 'Office/Commercial Virtual Tour', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop' },
-    { title: 'Museum Virtual Tour', image: 'https://images.unsplash.com/photo-1566127444979-b3d2b116c1eb?w=600&h=400&fit=crop' },
-    { title: 'Senior Living Virtual Tour', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop' },
-    { title: 'Automotive Showroom', image: 'https://images.unsplash.com/photo-1562911791-c7a97b729ec5?w=600&h=400&fit=crop' },
-    { title: 'Manufacturing Facility', image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop' }
+    {
+      title: 'Real Estate Virtual Tour',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Retail Store Virtual Tour',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Restaurant Virtual Tour',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Office/Commercial Virtual Tour',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Museum Virtual Tour',
+      image: 'https://images.unsplash.com/photo-1566127444979-b3d2b116c1eb?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Senior Living Virtual Tour',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Automotive Showroom',
+      image: 'https://images.unsplash.com/photo-1562911791-c7a97b729ec5?w=600&h=400&fit=crop',
+    },
+    {
+      title: 'Manufacturing Facility',
+      image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop',
+    },
   ];
 
   const bigNumbers = [
@@ -352,12 +412,13 @@ export default function PortfolioPage() {
     { stat: '3', label: 'Countries' },
     { stat: '103', label: '5-Star Google Reviews' },
     { stat: '$500M+', label: 'Client Value Generated' },
-    { stat: '20+', label: 'Years of Innovation' }
+    { stat: '20+', label: 'Years of Innovation' },
   ];
 
-  const filteredItems = activeFilter === 'all' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeFilter);
+  const filteredItems =
+    activeFilter === 'all'
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
     <>
@@ -369,12 +430,18 @@ export default function PortfolioPage() {
       />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] py-16 md:py-28 px-4 overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] py-16 md:py-28 px-4 overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -388,7 +455,8 @@ export default function PortfolioPage() {
               Our Work Speaks For Itself
             </h1>
             <p className="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto">
-              20+ years of building websites, virtual experiences, and digital solutions across 18 industries, 31 states, and 3 countries.
+              20+ years of building websites, virtual experiences, and digital solutions across 18
+              industries, 31 states, and 3 countries.
             </p>
           </motion.div>
 
@@ -398,7 +466,7 @@ export default function PortfolioPage() {
               { stat: '1,000+', label: 'Projects Completed' },
               { stat: '18', label: 'Industries Served' },
               { stat: '31', label: 'States' },
-              { stat: '5.0 ★', label: '103 Google Reviews' }
+              { stat: '5.0 ★', label: '103 Google Reviews' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -474,18 +542,16 @@ export default function PortfolioPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-700 mb-6 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <p className="text-gray-700 mb-6 leading-relaxed">{item.description}</p>
 
                     {/* Results Badges */}
                     <div className="mb-6">
                       <h4 className="font-semibold text-[#1E3A5F] mb-3 text-sm">Results:</h4>
                       <div className="flex flex-wrap gap-2">
                         {item.results.map((result, idx) => (
-                          <Badge 
-                            key={idx} 
-                            variant="outline" 
+                          <Badge
+                            key={idx}
+                            variant="outline"
                             className="bg-[#E8F8FC] border-[#00B4D8] text-[#1E3A5F]"
                           >
                             {result}
@@ -499,7 +565,7 @@ export default function PortfolioPage() {
                       <h4 className="font-semibold text-[#1E3A5F] mb-3 text-sm">Services:</h4>
                       <div className="flex flex-wrap gap-2">
                         {item.services.map((service, idx) => (
-                          <span 
+                          <span
                             key={idx}
                             className="text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
                           >
@@ -533,12 +599,18 @@ export default function PortfolioPage() {
       </section>
 
       {/* Virtual Tours Showcase Section */}
-      <section ref={virtualToursRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section
+        ref={virtualToursRef}
+        className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -585,11 +657,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-center"
           >
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-white text-[#1E3A5F] hover:bg-gray-100 mb-8"
-            >
+            <Button asChild size="lg" className="bg-white text-[#1E3A5F] hover:bg-gray-100 mb-8">
               <Link to="/services/virtual-tours" className="flex items-center gap-2">
                 Explore All Virtual Tours <ArrowRight className="w-5 h-5" />
               </Link>
@@ -633,9 +701,7 @@ export default function PortfolioPage() {
                     <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                       <industry.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-[#1E3A5F] text-sm mb-1">
-                      {industry.name}
-                    </h3>
+                    <h3 className="font-bold text-[#1E3A5F] text-sm mb-1">{industry.name}</h3>
                     <p className="text-xs text-[#00B4D8] font-semibold">{industry.count}</p>
                   </CardContent>
                 </Card>
@@ -646,12 +712,18 @@ export default function PortfolioPage() {
       </section>
 
       {/* The Numbers Section */}
-      <section ref={numbersRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section
+        ref={numbersRef}
+        className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -661,9 +733,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              By The Numbers
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">By The Numbers</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -700,7 +770,10 @@ export default function PortfolioPage() {
             </div>
 
             <blockquote className="text-xl md:text-3xl text-gray-700 leading-relaxed mb-8 italic">
-              &quot;Corey and his team at ThinkMents have been awesome business partners. Corey&apos;s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
+              &quot;Corey and his team at ThinkMents have been awesome business partners.
+              Corey&apos;s knowledge of all things IT is incredible and he is always willing to give
+              me guidance when I need help. They have been instrumental in our training programs and
+              their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
             </blockquote>
 
             <p className="text-lg text-gray-600 mb-6">— Verified Google Review</p>
@@ -718,7 +791,10 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-16 md:py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white relative overflow-hidden">
+      <section
+        ref={ctaRef}
+        className="py-16 md:py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -734,9 +810,10 @@ export default function PortfolioPage() {
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Ready to See Your Business Here?
             </h2>
-            
+
             <p className="text-lg md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto">
-              Join the 1,000+ projects across 18 industries who trust ThinkMents to build their digital presence.
+              Join the 1,000+ projects across 18 industries who trust ThinkMents to build their
+              digital presence.
             </p>
 
             {/* Stats Grid */}
@@ -745,9 +822,9 @@ export default function PortfolioPage() {
                 '31 States Served',
                 '3 Countries',
                 '103 Five-Star Reviews',
-                '20+ Years Experience'
+                '20+ Years Experience',
               ].map((stat, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
                 >
@@ -793,22 +870,22 @@ export default function PortfolioPage() {
               </div>
               <span className="font-semibold text-[#1E3A5F]">Google 5.0 (103 Reviews)</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <Globe className="w-5 h-5 text-[#00B4D8]" />
               <span className="font-semibold text-[#1E3A5F]">Grow with Google Partner</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <Award className="w-5 h-5 text-[#00B4D8]" />
               <span className="font-semibold text-[#1E3A5F]">20+ Years in Business</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <Camera className="w-5 h-5 text-[#00B4D8]" />
               <span className="font-semibold text-[#1E3A5F]">Google Street View Trusted</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-[#00B4D8]" />
               <span className="font-semibold text-[#1E3A5F]">1,000+ Projects Completed</span>

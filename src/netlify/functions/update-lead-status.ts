@@ -1,11 +1,11 @@
-import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+import type { Handler, HandlerEvent, HandlerContext } from '@netlify/functions';
 
 /**
  * Netlify Function: Update Lead Status
- * 
+ *
  * This function updates the status of a specific lead.
  * In production, this would update a database record.
- * 
+ *
  * Request body:
  * {
  *   "leadId": "lead-001",
@@ -16,27 +16,27 @@ import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   // Set CORS headers
   const headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Content-Type": "application/json",
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json',
   };
 
   // Handle OPTIONS request for CORS preflight
-  if (event.httpMethod === "OPTIONS") {
+  if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 204,
       headers,
-      body: "",
+      body: '',
     };
   }
 
   // Only allow POST requests
-  if (event.httpMethod !== "POST") {
+  if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
       headers,
-      body: JSON.stringify({ error: "Method not allowed" }),
+      body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
 
@@ -48,7 +48,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
         headers,
         body: JSON.stringify({
           success: false,
-          error: "Request body is required",
+          error: 'Request body is required',
         }),
       };
     }
@@ -62,19 +62,19 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
         headers,
         body: JSON.stringify({
           success: false,
-          error: "leadId and status are required",
+          error: 'leadId and status are required',
         }),
       };
     }
 
     // Validate status value
     const validStatuses = [
-      "New Lead",
-      "Contacted",
-      "Proposal Sent",
-      "Active Project",
-      "Completed",
-      "Lost/Closed"
+      'New Lead',
+      'Contacted',
+      'Proposal Sent',
+      'Active Project',
+      'Completed',
+      'Lost/Closed',
     ];
 
     if (!validStatuses.includes(status)) {
@@ -83,7 +83,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
         headers,
         body: JSON.stringify({
           success: false,
-          error: "Invalid status value",
+          error: 'Invalid status value',
           validStatuses,
         }),
       };
@@ -94,11 +94,11 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     // 2. Update the lead status in your database
     // 3. Log the status change with timestamp and user
     // 4. Send notifications if needed (e.g., email to sales team)
-    
+
     // Example database update (pseudo-code):
     // await db.leads.update({
     //   where: { id: leadId },
-    //   data: { 
+    //   data: {
     //     status,
     //     updatedAt: new Date(),
     //     statusHistory: {
@@ -118,22 +118,22 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       headers,
       body: JSON.stringify({
         success: true,
-        message: "Lead status updated successfully",
+        message: 'Lead status updated successfully',
         leadId,
         status,
         updatedAt: new Date().toISOString(),
       }),
     };
   } catch (error) {
-    console.error("Error updating lead status:", error);
-    
+    console.error('Error updating lead status:', error);
+
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
         success: false,
-        error: "Failed to update lead status",
-        message: error instanceof Error ? error.message : "Unknown error",
+        error: 'Failed to update lead status',
+        message: error instanceof Error ? error.message : 'Unknown error',
       }),
     };
   }

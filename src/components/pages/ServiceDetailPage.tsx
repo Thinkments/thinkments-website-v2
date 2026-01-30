@@ -3,7 +3,18 @@ import { Link, useParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { ArrowRight, CheckCircle, Globe, TrendingUp, Target, Users, Video, Camera, Search, BarChart3 } from 'lucide-react';
+import {
+  ArrowRight,
+  CheckCircle,
+  Globe,
+  TrendingUp,
+  Target,
+  Users,
+  Video,
+  Camera,
+  Search,
+  BarChart3,
+} from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
@@ -17,233 +28,239 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       icon: Globe,
       title: 'Web Development',
       subtitle: 'Custom Web Solutions That Convert',
-      description: 'Professional web development services creating custom, responsive websites optimized for performance, user experience, and conversions. Built with modern technologies and best practices.',
+      description:
+        'Professional web development services creating custom, responsive websites optimized for performance, user experience, and conversions. Built with modern technologies and best practices.',
       benefits: [
         'Custom, responsive design that works on all devices',
         'Fast loading speeds for better user experience',
         'SEO-optimized structure and content',
         'Conversion-focused design elements',
         'Easy content management system',
-        'Secure hosting and regular backups'
+        'Secure hosting and regular backups',
       ],
       process: [
         'Discovery & Strategy',
         'Design & Mockups',
         'Development & Testing',
-        'Launch & Optimization'
+        'Launch & Optimization',
       ],
-      color: 'from-blue-500 to-purple-600'
+      color: 'from-blue-500 to-purple-600',
     },
     'website-design': {
       icon: Globe,
       title: 'Website Design & Development',
       subtitle: 'Your Digital Storefront That Converts',
-      description: 'Your website is your digital storefront. We create stunning, user-friendly websites that not only look great but are also optimized for performance and conversions. Our custom designs ensure your business stands out with a fast and search-optimized platform.',
+      description:
+        'Your website is your digital storefront. We create stunning, user-friendly websites that not only look great but are also optimized for performance and conversions. Our custom designs ensure your business stands out with a fast and search-optimized platform.',
       benefits: [
         'Custom, responsive design that works on all devices',
         'Fast loading speeds for better user experience',
         'SEO-optimized structure and content',
         'Conversion-focused design elements',
         'Easy content management system',
-        'Secure hosting and regular backups'
+        'Secure hosting and regular backups',
       ],
       process: [
         'Discovery & Strategy',
         'Design & Mockups',
         'Development & Testing',
-        'Launch & Optimization'
+        'Launch & Optimization',
       ],
-      color: 'from-blue-500 to-purple-600'
+      color: 'from-blue-500 to-purple-600',
     },
-    'seo': {
+    seo: {
       icon: Search,
       title: 'Search Engine Optimization',
       subtitle: 'Dominate Search Results with Strategic SEO',
-      description: 'Boost your online visibility and drive organic traffic with our comprehensive SEO strategies. We help businesses rank higher on Google, attract more qualified leads, and achieve sustainable growth through proven optimization techniques.',
+      description:
+        'Boost your online visibility and drive organic traffic with our comprehensive SEO strategies. We help businesses rank higher on Google, attract more qualified leads, and achieve sustainable growth through proven optimization techniques.',
       benefits: [
         'Higher search engine rankings for targeted keywords',
         'Increased organic traffic and quality leads',
         'Better local search visibility and Google My Business optimization',
         'Improved website authority and domain trust',
         'Long-term sustainable growth and ROI',
-        'Detailed analytics and performance reporting'
+        'Detailed analytics and performance reporting',
       ],
       process: [
         'SEO Audit & Analysis',
         'Keyword Research & Strategy',
         'On-Page Optimization',
-        'Content & Link Building'
+        'Content & Link Building',
       ],
-      color: 'from-green-500 to-teal-600'
+      color: 'from-green-500 to-teal-600',
     },
     'google-marketing': {
       icon: Target,
       title: 'Google Marketing & PPC',
       subtitle: 'Maximize ROI with Expert Google Ads Management',
-      description: 'Drive immediate results with professionally managed Google Ads campaigns. Our certified Google Partner expertise ensures your advertising budget delivers maximum ROI through strategic targeting, compelling ad copy, and continuous optimization.',
+      description:
+        'Drive immediate results with professionally managed Google Ads campaigns. Our certified Google Partner expertise ensures your advertising budget delivers maximum ROI through strategic targeting, compelling ad copy, and continuous optimization.',
       benefits: [
         'Google Partner certified expertise and best practices',
         'Optimized Google Ads campaigns for maximum ROI',
         'Professional campaign setup and management',
         'Google Shopping integration for e-commerce',
         'YouTube advertising campaigns for video marketing',
-        'Comprehensive performance tracking and reporting'
+        'Comprehensive performance tracking and reporting',
       ],
       process: [
         'Account Setup & Audit',
         'Campaign Strategy & Planning',
         'Implementation & Launch',
-        'Monitoring & Optimization'
+        'Monitoring & Optimization',
       ],
-      color: 'from-orange-500 to-red-600'
+      color: 'from-orange-500 to-red-600',
     },
-    'videography': {
+    videography: {
       icon: Video,
       title: 'Professional Videography',
       subtitle: 'Tell Your Story Through Compelling Video',
-      description: 'Elevate your brand with professional video content that engages audiences and drives results. From corporate videos to social media content, we create compelling visual stories that showcase your business and connect with your target audience.',
+      description:
+        'Elevate your brand with professional video content that engages audiences and drives results. From corporate videos to social media content, we create compelling visual stories that showcase your business and connect with your target audience.',
       benefits: [
         'Professional video production with high-end equipment',
         'Compelling storytelling that connects with audiences',
         'Multi-platform optimization for all social channels',
         'Increased engagement rates and brand awareness',
         'Enhanced brand credibility and trust',
-        'Versatile content for websites, social media, and marketing'
+        'Versatile content for websites, social media, and marketing',
       ],
       process: [
         'Concept Development',
         'Pre-Production Planning',
         'Filming & Production',
-        'Post-Production & Delivery'
+        'Post-Production & Delivery',
       ],
-      color: 'from-indigo-500 to-blue-600'
+      color: 'from-indigo-500 to-blue-600',
     },
     'search-engine-optimization': {
       icon: TrendingUp,
       title: 'Search Engine Optimization',
       subtitle: 'Dominate Search with Strategic SEO',
-      description: 'In today\'s competitive digital landscape, being found online is paramount. Our expert SEO services are designed to elevate your online presence, driving organic traffic and connecting you with customers who are actively searching for what you offer.',
+      description:
+        "In today's competitive digital landscape, being found online is paramount. Our expert SEO services are designed to elevate your online presence, driving organic traffic and connecting you with customers who are actively searching for what you offer.",
       benefits: [
         'Higher search engine rankings',
         'Increased organic traffic and leads',
         'Better local search visibility',
         'Improved website authority and trust',
         'Long-term sustainable growth',
-        'Detailed analytics and reporting'
+        'Detailed analytics and reporting',
       ],
       process: [
         'SEO Audit & Analysis',
         'Keyword Research & Strategy',
         'On-Page Optimization',
-        'Content & Link Building'
+        'Content & Link Building',
       ],
-      color: 'from-green-500 to-teal-600'
+      color: 'from-green-500 to-teal-600',
     },
     'pay-per-click-advertising': {
       icon: Target,
       title: 'Pay-Per-Click Advertising',
       subtitle: 'Targeted Google Ads Management',
-      description: 'Maximize your ROI with expertly managed Google Ads campaigns. Our certified Google Partner expertise ensures your advertising budget delivers maximum results through strategic targeting and optimization.',
+      description:
+        'Maximize your ROI with expertly managed Google Ads campaigns. Our certified Google Partner expertise ensures your advertising budget delivers maximum results through strategic targeting and optimization.',
       benefits: [
         'Google Partner certified expertise',
         'Optimized Google Ads campaigns',
         'Professional campaign management',
         'Google Shopping integration',
         'YouTube advertising campaigns',
-        'Comprehensive performance tracking'
+        'Comprehensive performance tracking',
       ],
       process: [
         'Account Setup & Audit',
         'Campaign Strategy',
         'Implementation & Launch',
-        'Monitoring & Optimization'
+        'Monitoring & Optimization',
       ],
-      color: 'from-orange-500 to-red-600'
+      color: 'from-orange-500 to-red-600',
     },
     'social-media-marketing': {
       icon: Users,
       title: 'Social Media Marketing',
       subtitle: 'Build Your Online Community',
-      description: 'Build a strong online community and engage with your target audience across various social media platforms. We create and execute dynamic social media strategies that foster brand loyalty and drive results that uniquely cater to your image.',
+      description:
+        'Build a strong online community and engage with your target audience across various social media platforms. We create and execute dynamic social media strategies that foster brand loyalty and drive results that uniquely cater to your image.',
       benefits: [
         'Increased brand awareness and engagement',
         'Targeted audience growth',
         'Professional content creation',
         'Community management and support',
         'Social media advertising campaigns',
-        'Detailed performance analytics'
+        'Detailed performance analytics',
       ],
       process: [
         'Social Media Audit',
         'Strategy Development',
         'Content Creation',
-        'Community Management'
+        'Community Management',
       ],
-      color: 'from-pink-500 to-rose-600'
+      color: 'from-pink-500 to-rose-600',
     },
     'promotional-videos': {
       icon: Video,
       title: 'Promotional Videos',
       subtitle: 'Tell Your Story Through Video',
-      description: 'Tell your brand\'s story with compelling video content. From corporate and promotional videos to dynamic content for social media, our videography services are designed to captivate your audience and drive engagement.',
+      description:
+        "Tell your brand's story with compelling video content. From corporate and promotional videos to dynamic content for social media, our videography services are designed to captivate your audience and drive engagement.",
       benefits: [
         'Professional video production',
         'Compelling storytelling',
         'Multi-platform optimization',
         'Increased engagement rates',
         'Brand awareness and credibility',
-        'Versatile content for all channels'
+        'Versatile content for all channels',
       ],
       process: [
         'Concept Development',
         'Pre-Production Planning',
         'Filming & Production',
-        'Post-Production & Delivery'
+        'Post-Production & Delivery',
       ],
-      color: 'from-indigo-500 to-blue-600'
+      color: 'from-indigo-500 to-blue-600',
     },
     'real-estate-tours': {
       icon: Camera,
       title: 'Real Estate Tours',
       subtitle: 'Immersive Property Experiences',
-      description: 'We specialize in creating immersive 360-degree photography and virtual reality tours for real estate properties. These engaging experiences help potential buyers explore properties remotely and make informed decisions.',
+      description:
+        'We specialize in creating immersive 360-degree photography and virtual reality tours for real estate properties. These engaging experiences help potential buyers explore properties remotely and make informed decisions.',
       benefits: [
         'Immersive 360-degree property tours',
         'Increased buyer engagement',
         'Higher conversion rates',
         'Google Street View integration',
         'Virtual reality compatibility',
-        'Enhanced online listings'
+        'Enhanced online listings',
       ],
       process: [
         'Property Assessment',
         '360° Photography',
         'Tour Development',
-        'Integration & Launch'
+        'Integration & Launch',
       ],
-      color: 'from-yellow-500 to-orange-600'
+      color: 'from-yellow-500 to-orange-600',
     },
     'virtual-tours': {
       icon: Camera,
       title: 'Virtual Tours & Photography',
       subtitle: 'Immersive Business Experiences',
-      description: 'We specialize in creating immersive 360-degree photography and virtual reality tours that bring your business to life. These engaging experiences can build trust and lead to higher conversion rates. Your customers can preview your location from the comfort of their personal devices',
+      description:
+        'We specialize in creating immersive 360-degree photography and virtual reality tours that bring your business to life. These engaging experiences can build trust and lead to higher conversion rates. Your customers can preview your location from the comfort of their personal devices',
       benefits: [
         'Immersive 360-degree experiences',
         'Increased customer engagement',
         'Higher conversion rates',
         'Google Street View integration',
         'Virtual reality compatibility',
-        'Enhanced online presence'
+        'Enhanced online presence',
       ],
-      process: [
-        'Site Assessment',
-        '360° Photography',
-        'Tour Development',
-        'Integration & Launch'
-      ],
-      color: 'from-yellow-500 to-orange-600'
-    }
+      process: ['Site Assessment', '360° Photography', 'Tour Development', 'Integration & Launch'],
+      color: 'from-yellow-500 to-orange-600',
+    },
   };
 
   const currentService = serviceData[service as keyof typeof serviceData];
@@ -253,36 +270,36 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   }
 
   const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": currentService.title,
-    "description": currentService.description,
-    "provider": {
-      "@type": "Organization",
-      "name": "ThinkMents",
-      "url": "https://thinkments.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: currentService.title,
+    description: currentService.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "serviceType": currentService.title,
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `${currentService.title} Services`,
-      "itemListElement": currentService.benefits.slice(0, 3).map(benefit => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": benefit,
-          "description": benefit
-        }
-      }))
-    }
+    serviceType: currentService.title,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${currentService.title} Services`,
+      itemListElement: currentService.benefits.slice(0, 3).map((benefit) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: benefit,
+          description: benefit,
+        },
+      })),
+    },
   };
 
   return (
@@ -295,7 +312,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         type="service"
         structuredData={serviceStructuredData}
       />
-      
+
       <motion.div
         className=""
         initial={{ opacity: 0 }}
@@ -321,11 +338,11 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${currentService.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
               >
                 <currentService.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
               </motion.div>
-              
+
               <motion.h1
                 className="text-3xl md:text-5xl lg:text-6xl mb-4"
                 initial={{ opacity: 0, y: 50 }}
@@ -334,7 +351,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               >
                 {currentService.title}
               </motion.h1>
-              
+
               <motion.p
                 className="text-lg md:text-2xl text-primary mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -343,7 +360,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               >
                 {currentService.subtitle}
               </motion.p>
-              
+
               <motion.p
                 className="text-base md:text-lg text-white mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
@@ -352,7 +369,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               >
                 {currentService.description}
               </motion.p>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -380,7 +397,12 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 viewport={{ once: true }}
               >
                 <h2 className="text-2xl md:text-4xl mb-6 md:mb-8">
-                  What You'll <span className={`bg-gradient-to-r ${currentService.color} bg-clip-text text-transparent`}>Achieve</span>
+                  What You'll{' '}
+                  <span
+                    className={`bg-gradient-to-r ${currentService.color} bg-clip-text text-transparent`}
+                  >
+                    Achieve
+                  </span>
                 </h2>
                 <div className="space-y-4">
                   {currentService.benefits.map((benefit, index) => (
@@ -445,13 +467,15 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             >
               <h2 className="text-2xl md:text-4xl mb-6">
                 Ready to Get Started with{' '}
-                <span className={`bg-gradient-to-r ${currentService.color} bg-clip-text text-transparent`}>
+                <span
+                  className={`bg-gradient-to-r ${currentService.color} bg-clip-text text-transparent`}
+                >
                   {currentService.title}?
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Let's discuss how our {currentService.title.toLowerCase()} services can 
-                help your business achieve its goals and drive real results.
+                Let's discuss how our {currentService.title.toLowerCase()} services can help your
+                business achieve its goals and drive real results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className={`bg-gradient-to-r ${currentService.color}`}>

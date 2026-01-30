@@ -4,79 +4,99 @@ import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { ArrowRight, Search, CheckCircle2, Users, TrendingUp, Shield, Star, Globe, Eye, Settings, Zap, Award } from 'lucide-react@0.487.0';
+import {
+  ArrowRight,
+  Search,
+  CheckCircle2,
+  Users,
+  TrendingUp,
+  Shield,
+  Star,
+  Globe,
+  Eye,
+  Settings,
+  Zap,
+  Award,
+} from 'lucide-react@0.487.0';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
 export default function GoogleBusinessProfileFoundationPage() {
   const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Foundation: Audit & Setup - Google Business Profile",
-    "description": "Comprehensive Google Business Profile audit and setup service to establish a strong online presence with optimized profile foundation",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "ThinkMents",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Foundation: Audit & Setup - Google Business Profile',
+    description:
+      'Comprehensive Google Business Profile audit and setup service to establish a strong online presence with optimized profile foundation',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'ThinkMents',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "399",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "399",
-        "priceCurrency": "USD"
-      }
+    offers: {
+      '@type': 'Offer',
+      price: '399',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '399',
+        priceCurrency: 'USD',
+      },
     },
-    "serviceType": "Google Business Profile Foundation Setup",
-    "areaServed": "United States"
+    serviceType: 'Google Business Profile Foundation Setup',
+    areaServed: 'United States',
   };
 
   const features = [
     {
       icon: Search,
       title: 'Comprehensive Profile Audit',
-      description: 'Thorough examination of your current Google Business Profile to identify optimization opportunities.',
-      color: 'from-blue-500 to-purple-600'
+      description:
+        'Thorough examination of your current Google Business Profile to identify optimization opportunities.',
+      color: 'from-blue-500 to-purple-600',
     },
     {
       icon: Settings,
       title: 'Complete Profile Setup',
-      description: 'Meticulous optimization of all crucial fields to ensure accuracy and Google compliance.',
-      color: 'from-green-500 to-teal-600'
+      description:
+        'Meticulous optimization of all crucial fields to ensure accuracy and Google compliance.',
+      color: 'from-green-500 to-teal-600',
     },
     {
       icon: CheckCircle2,
       title: 'Field Optimization',
-      description: 'Strategic optimization of every profile section for maximum local search visibility.',
-      color: 'from-orange-500 to-red-600'
+      description:
+        'Strategic optimization of every profile section for maximum local search visibility.',
+      color: 'from-orange-500 to-red-600',
     },
     {
       icon: Shield,
       title: 'Trust & Authority Building',
-      description: 'Establish immediate credibility with a professionally optimized business profile.',
-      color: 'from-pink-500 to-rose-600'
+      description:
+        'Establish immediate credibility with a professionally optimized business profile.',
+      color: 'from-pink-500 to-rose-600',
     },
     {
       icon: TrendingUp,
       title: 'Local Search Ranking',
-      description: 'Foundation work that improves your visibility in Google Maps and local search results.',
-      color: 'from-indigo-500 to-blue-600'
+      description:
+        'Foundation work that improves your visibility in Google Maps and local search results.',
+      color: 'from-indigo-500 to-blue-600',
     },
     {
       icon: Users,
       title: 'Customer Attraction',
-      description: 'Attract more local customers with a perfectly presented and optimized business profile.',
-      color: 'from-yellow-500 to-orange-600'
-    }
+      description:
+        'Attract more local customers with a perfectly presented and optimized business profile.',
+      color: 'from-yellow-500 to-orange-600',
+    },
   ];
 
   const packageDetails = {
@@ -98,7 +118,7 @@ export default function GoogleBusinessProfileFoundationPage() {
       'Compliance verification',
       'Performance baseline establishment',
       'Detailed audit report delivery',
-      'Implementation guidelines provided'
+      'Implementation guidelines provided',
     ],
     highlights: [
       'Professional foundation establishment',
@@ -106,29 +126,32 @@ export default function GoogleBusinessProfileFoundationPage() {
       'Local search optimization',
       'Trust & authority building',
       'Comprehensive audit report',
-      'Implementation support included'
-    ]
+      'Implementation support included',
+    ],
   };
 
   const benefits = [
     {
       icon: Shield,
       title: 'Strong Foundation',
-      description: 'Establish a solid foundation with comprehensive audit and meticulous setup of all profile elements.',
-      stats: 'Complete setup'
+      description:
+        'Establish a solid foundation with comprehensive audit and meticulous setup of all profile elements.',
+      stats: 'Complete setup',
     },
     {
       icon: Award,
       title: 'Immediate Trust',
-      description: 'Build instant credibility and authority with a professionally optimized Google Business Profile.',
-      stats: '100% compliant'
+      description:
+        'Build instant credibility and authority with a professionally optimized Google Business Profile.',
+      stats: '100% compliant',
     },
     {
       icon: Zap,
       title: 'Local Visibility',
-      description: 'Improved local search ranking helps your business appear prominently on Google Maps and Search.',
-      stats: '3x more visible'
-    }
+      description:
+        'Improved local search ranking helps your business appear prominently on Google Maps and Search.',
+      stats: '3x more visible',
+    },
   ];
 
   const comparisonFeatures = [
@@ -139,7 +162,7 @@ export default function GoogleBusinessProfileFoundationPage() {
     { feature: 'Photo Guidelines', included: true },
     { feature: 'Performance Baseline', included: true },
     { feature: 'Audit Report', included: true },
-    { feature: 'Implementation Support', included: true }
+    { feature: 'Implementation Support', included: true },
   ];
 
   return (
@@ -183,7 +206,7 @@ export default function GoogleBusinessProfileFoundationPage() {
                   Google Business Profile
                 </span>
               </motion.h1>
-              
+
               <motion.div
                 className="flex items-center justify-center mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -193,14 +216,18 @@ export default function GoogleBusinessProfileFoundationPage() {
                 <span className="text-3xl md:text-4xl font-bold text-primary">$399.00</span>
                 <span className="text-xl text-muted-foreground ml-2">One-time</span>
               </motion.div>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Establish a strong online presence with our Google Business Profile Foundation package. We conduct a thorough audit of your current profile, identify areas for improvement, and meticulously optimize all crucial fields to ensure accuracy and compliance. This essential service lays the groundwork for improved local search ranking, helping your business appear prominently on Google Maps and Search results.
+                Establish a strong online presence with our Google Business Profile Foundation
+                package. We conduct a thorough audit of your current profile, identify areas for
+                improvement, and meticulously optimize all crucial fields to ensure accuracy and
+                compliance. This essential service lays the groundwork for improved local search
+                ranking, helping your business appear prominently on Google Maps and Search results.
               </motion.p>
 
               <motion.div
@@ -242,7 +269,8 @@ export default function GoogleBusinessProfileFoundationPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Attract more local customers by presenting a perfectly optimized profile that builds immediate trust and authority with comprehensive audit and setup services.
+                Attract more local customers by presenting a perfectly optimized profile that builds
+                immediate trust and authority with comprehensive audit and setup services.
               </p>
             </motion.div>
 
@@ -267,14 +295,12 @@ export default function GoogleBusinessProfileFoundationPage() {
                       >
                         <feature.icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-                      
-                      <p className="text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
+
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -301,7 +327,8 @@ export default function GoogleBusinessProfileFoundationPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  Comprehensive audit and setup service that lays the groundwork for improved local search ranking
+                  Comprehensive audit and setup service that lays the groundwork for improved local
+                  search ranking
                 </p>
               </motion.div>
 
@@ -312,9 +339,7 @@ export default function GoogleBusinessProfileFoundationPage() {
                 viewport={{ once: true }}
               >
                 <Card className="relative overflow-hidden border-2 border-primary/20">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                   <CardContent className="p-8 relative z-10">
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full mb-4">
@@ -323,8 +348,12 @@ export default function GoogleBusinessProfileFoundationPage() {
                       </div>
                       <h3 className="text-2xl md:text-3xl mb-2">{packageDetails.name}</h3>
                       <div className="flex items-center justify-center mb-4">
-                        <span className="text-4xl md:text-5xl font-bold text-primary">{packageDetails.price}</span>
-                        <span className="text-xl text-muted-foreground ml-2">{packageDetails.billing}</span>
+                        <span className="text-4xl md:text-5xl font-bold text-primary">
+                          {packageDetails.price}
+                        </span>
+                        <span className="text-xl text-muted-foreground ml-2">
+                          {packageDetails.billing}
+                        </span>
                       </div>
                       <p className="text-lg text-muted-foreground">{packageDetails.description}</p>
                     </div>
@@ -375,7 +404,9 @@ export default function GoogleBusinessProfileFoundationPage() {
                                 <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
                                   <div className="w-2 h-2 bg-white rounded-full" />
                                 </div>
-                                <span className="text-sm text-muted-foreground">{item.feature}</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {item.feature}
+                                </span>
                               </div>
                             ))}
                           </div>
@@ -419,7 +450,8 @@ export default function GoogleBusinessProfileFoundationPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Establish immediate trust and authority with a perfectly optimized profile that helps your business appear prominently on Google Maps and Search results.
+                Establish immediate trust and authority with a perfectly optimized profile that
+                helps your business appear prominently on Google Maps and Search results.
               </p>
             </motion.div>
 
@@ -441,18 +473,16 @@ export default function GoogleBusinessProfileFoundationPage() {
                       >
                         <benefit.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {benefit.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {benefit.description}
                       </p>
 
-                      <div className="text-lg font-semibold text-primary">
-                        {benefit.stats}
-                      </div>
+                      <div className="text-lg font-semibold text-primary">{benefit.stats}</div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -478,7 +508,9 @@ export default function GoogleBusinessProfileFoundationPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Start establishing your strong online presence with our comprehensive Google Business Profile audit and setup. Let us lay the groundwork for your local search success.
+                Start establishing your strong online presence with our comprehensive Google
+                Business Profile audit and setup. Let us lay the groundwork for your local search
+                success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

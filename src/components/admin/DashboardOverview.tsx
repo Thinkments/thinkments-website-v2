@@ -1,8 +1,29 @@
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { FileText, Layers, Clock, TrendingUp, ArrowRight, ArrowUp, ArrowDown, Calendar, Image as ImageIcon, PenTool } from 'lucide-react';
+import {
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+import {
+  FileText,
+  Layers,
+  Clock,
+  TrendingUp,
+  ArrowRight,
+  ArrowUp,
+  ArrowDown,
+  Calendar,
+  Image as ImageIcon,
+  PenTool,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 
@@ -18,7 +39,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       change: '+12%',
       trend: 'up',
       icon: FileText,
-      color: 'bg-[#1E3A5F]'
+      color: 'bg-[#1E3A5F]',
     },
     {
       title: 'Pages Created This Month',
@@ -26,7 +47,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       change: '+8%',
       trend: 'up',
       icon: Layers,
-      color: 'bg-[#00B4D8]'
+      color: 'bg-[#00B4D8]',
     },
     {
       title: 'Pending Reviews',
@@ -34,7 +55,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       change: '-3',
       trend: 'down',
       icon: Clock,
-      color: 'bg-[#FF6B35]'
+      color: 'bg-[#FF6B35]',
     },
     {
       title: 'SEO Score Average',
@@ -42,8 +63,8 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       change: '+5%',
       trend: 'up',
       icon: TrendingUp,
-      color: 'bg-[#00B4D8]'
-    }
+      color: 'bg-[#00B4D8]',
+    },
   ];
 
   const recentActivity = [
@@ -53,7 +74,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       author: 'John Doe',
       action: 'Published',
       time: '2 hours ago',
-      status: 'success'
+      status: 'success',
     },
     {
       type: 'page',
@@ -61,7 +82,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       author: 'Jane Smith',
       action: 'Created',
       time: '4 hours ago',
-      status: 'success'
+      status: 'success',
     },
     {
       type: 'blog',
@@ -69,7 +90,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       author: 'Mike Johnson',
       action: 'Pending Review',
       time: '6 hours ago',
-      status: 'pending'
+      status: 'pending',
     },
     {
       type: 'page',
@@ -77,7 +98,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       author: 'Sarah Wilson',
       action: 'Updated',
       time: '1 day ago',
-      status: 'success'
+      status: 'success',
     },
     {
       type: 'blog',
@@ -85,8 +106,8 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       author: 'Tom Brown',
       action: 'Draft Saved',
       time: '2 days ago',
-      status: 'draft'
-    }
+      status: 'draft',
+    },
   ];
 
   const upcomingPosts = [
@@ -94,20 +115,20 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
       title: 'Video Marketing Trends 2025',
       date: 'Dec 8, 2025',
       time: '10:00 AM',
-      author: 'John Doe'
+      author: 'John Doe',
     },
     {
       title: 'Google Ads Optimization Tips',
       date: 'Dec 10, 2025',
       time: '2:00 PM',
-      author: 'Jane Smith'
+      author: 'Jane Smith',
     },
     {
       title: 'Content Marketing Strategy',
       date: 'Dec 12, 2025',
       time: '9:00 AM',
-      author: 'Mike Johnson'
-    }
+      author: 'Mike Johnson',
+    },
   ];
 
   const performanceData = [
@@ -117,7 +138,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
     { date: 'Nov 20', views: 4600, engagement: 3800 },
     { date: 'Nov 25', views: 5500, engagement: 4500 },
     { date: 'Nov 30', views: 6200, engagement: 5100 },
-    { date: 'Dec 5', views: 6800, engagement: 5600 }
+    { date: 'Dec 5', views: 6800, engagement: 5600 },
   ];
 
   return (
@@ -153,13 +174,17 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                       ) : (
                         <ArrowDown className="w-4 h-4 text-red-600" />
                       )}
-                      <span className={`text-sm font-medium ${stat.trend === 'up' ? 'text-green-600' : 'text-red-600'}`}>
+                      <span
+                        className={`text-sm font-medium ${stat.trend === 'up' ? 'text-green-600' : 'text-red-600'}`}
+                      >
                         {stat.change}
                       </span>
                       <span className="text-sm text-gray-500">vs last month</span>
                     </div>
                   </div>
-                  <div className={`w-12 h-12 ${stat.color} rounded-lg flex items-center justify-center`}>
+                  <div
+                    className={`w-12 h-12 ${stat.color} rounded-lg flex items-center justify-center`}
+                  >
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
                 </div>
@@ -179,7 +204,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
           <CardContent className="p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Button 
+              <Button
                 asChild
                 className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4"
                 onClick={() => onNavigate?.('/admin/blog/new')}
@@ -189,7 +214,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                   <span className="font-medium">New Blog Post</span>
                 </Link>
               </Button>
-              <Button 
+              <Button
                 asChild
                 className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4"
                 onClick={() => onNavigate?.('/admin/page/new')}
@@ -199,7 +224,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                   <span className="font-medium">New Page</span>
                 </Link>
               </Button>
-              <Button 
+              <Button
                 asChild
                 className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4"
                 onClick={() => onNavigate?.('/admin/calendar')}
@@ -226,7 +251,9 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="text-[#1E3A5F]">Content Performance</span>
-                <Badge variant="outline" className="text-[#00B4D8] border-[#00B4D8]">Last 30 Days</Badge>
+                <Badge variant="outline" className="text-[#00B4D8] border-[#00B4D8]">
+                  Last 30 Days
+                </Badge>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -234,20 +261,32 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                 <AreaChart data={performanceData}>
                   <defs>
                     <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#00B4D8" stopOpacity={0.8}/>
-                      <stop offset="95%" stopColor="#00B4D8" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#00B4D8" stopOpacity={0.8} />
+                      <stop offset="95%" stopColor="#00B4D8" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="colorEngagement" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#FF6B35" stopOpacity={0.8}/>
-                      <stop offset="95%" stopColor="#FF6B35" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#FF6B35" stopOpacity={0.8} />
+                      <stop offset="95%" stopColor="#FF6B35" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#E0E4E8" />
                   <XAxis dataKey="date" stroke="#6C757D" />
                   <YAxis stroke="#6C757D" />
                   <Tooltip />
-                  <Area type="monotone" dataKey="views" stroke="#00B4D8" fillOpacity={1} fill="url(#colorViews)" />
-                  <Area type="monotone" dataKey="engagement" stroke="#FF6B35" fillOpacity={1} fill="url(#colorEngagement)" />
+                  <Area
+                    type="monotone"
+                    dataKey="views"
+                    stroke="#00B4D8"
+                    fillOpacity={1}
+                    fill="url(#colorViews)"
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="engagement"
+                    stroke="#FF6B35"
+                    fillOpacity={1}
+                    fill="url(#colorEngagement)"
+                  />
                 </AreaChart>
               </ResponsiveContainer>
               <div className="flex items-center justify-center space-x-6 mt-4">
@@ -282,25 +321,34 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
             <CardContent>
               <div className="space-y-4">
                 {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-start space-x-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                      activity.type === 'blog' ? 'bg-[#00B4D8]/10' : 'bg-[#FF6B35]/10'
-                    }`}>
+                  <div
+                    key={index}
+                    className="flex items-start space-x-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0"
+                  >
+                    <div
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                        activity.type === 'blog' ? 'bg-[#00B4D8]/10' : 'bg-[#FF6B35]/10'
+                      }`}
+                    >
                       {activity.type === 'blog' ? (
-                        <FileText className={`w-4 h-4 ${activity.type === 'blog' ? 'text-[#00B4D8]' : 'text-[#FF6B35]'}`} />
+                        <FileText
+                          className={`w-4 h-4 ${activity.type === 'blog' ? 'text-[#00B4D8]' : 'text-[#FF6B35]'}`}
+                        />
                       ) : (
                         <Layers className="w-4 h-4 text-[#FF6B35]" />
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-[#1E3A5F] truncate">{activity.title}</p>
+                      <p className="text-sm font-medium text-[#1E3A5F] truncate">
+                        {activity.title}
+                      </p>
                       <p className="text-xs text-gray-500 mt-1">
                         {activity.action} by {activity.author}
                       </p>
                       <p className="text-xs text-gray-400 mt-1">{activity.time}</p>
                     </div>
-                    <Badge 
-                      variant="outline" 
+                    <Badge
+                      variant="outline"
                       className={`
                         ${activity.status === 'success' ? 'text-green-600 border-green-200 bg-green-50' : ''}
                         ${activity.status === 'pending' ? 'text-orange-600 border-orange-200 bg-orange-50' : ''}
@@ -338,12 +386,17 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {upcomingPosts.map((post, index) => (
-                <div key={index} className="p-4 border border-gray-200 rounded-lg hover:border-[#00B4D8] transition-colors">
+                <div
+                  key={index}
+                  className="p-4 border border-gray-200 rounded-lg hover:border-[#00B4D8] transition-colors"
+                >
                   <div className="flex items-start justify-between mb-2">
                     <h4 className="text-sm font-medium text-[#1E3A5F]">{post.title}</h4>
                     <Clock className="w-4 h-4 text-[#00B4D8]" />
                   </div>
-                  <p className="text-xs text-gray-600 mb-1">{post.date} at {post.time}</p>
+                  <p className="text-xs text-gray-600 mb-1">
+                    {post.date} at {post.time}
+                  </p>
                   <p className="text-xs text-gray-500">By {post.author}</p>
                 </div>
               ))}

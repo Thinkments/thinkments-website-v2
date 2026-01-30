@@ -34,7 +34,7 @@ export default function Footer() {
     { name: 'PPC & Paid Advertising', href: '/paid-advertising' },
     { name: 'Content Marketing', href: '/content-marketing' },
     { name: 'Analytics & Reporting', href: '/analytics-reporting' },
-    { name: 'Video & Photography', href: '/video-photography' }
+    { name: 'Video & Photography', href: '/video-photography' },
   ];
 
   const companyLinks = [
@@ -44,12 +44,12 @@ export default function Footer() {
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Industries', href: '/industries' },
-    { name: 'Contact', href: '/contact-us' }
+    { name: 'Contact', href: '/contact-us' },
   ];
 
   const resourcesLinks = [
     { name: 'Blog', href: '/blog' },
-    { name: 'Free Consultation', href: '/free-consultation' }
+    { name: 'Free Consultation', href: '/free-consultation' },
   ];
 
   const serviceAreas = [
@@ -60,7 +60,7 @@ export default function Footer() {
     { name: 'Wise County', href: '/locations/decatur' },
     { name: 'North Texas', href: '/locations/north-texas' },
     { name: 'Texas', href: '/locations' },
-    { name: 'Nationwide', href: '/locations' }
+    { name: 'Nationwide', href: '/locations' },
   ];
 
   const socialLinks = [
@@ -68,32 +68,32 @@ export default function Footer() {
       icon: Facebook,
       href: 'https://www.facebook.com/ThinkMents/',
       label: 'Facebook',
-      hoverColor: 'hover:text-[#00B4D8]'
+      hoverColor: 'hover:text-[#00B4D8]',
     },
     {
       icon: Linkedin,
       href: 'https://www.linkedin.com/company/thinkments',
       label: 'LinkedIn',
-      hoverColor: 'hover:text-[#00B4D8]'
+      hoverColor: 'hover:text-[#00B4D8]',
     },
     {
       icon: Instagram,
       href: 'https://www.instagram.com/thinkments/',
       label: 'Instagram',
-      hoverColor: 'hover:text-[#00B4D8]'
+      hoverColor: 'hover:text-[#00B4D8]',
     },
     {
       icon: Youtube,
       href: 'https://www.youtube.com/@ThinkMents',
       label: 'YouTube',
-      hoverColor: 'hover:text-[#00B4D8]'
+      hoverColor: 'hover:text-[#00B4D8]',
     },
     {
       icon: Globe,
       href: 'https://www.google.com/maps/place/ThinkMents+LLC/@33.2283526,-97.5883743,17z/data=!4m8!3m7!1s0x864dca0c0e2bc3dd:0x7a05b92ccce310c3!8m2!3d33.2283526!4d-97.5883743!9m1!1b1!16s%2Fg%2F11gf6g0v8y',
       label: 'Google Business Profile',
-      hoverColor: 'hover:text-[#00B4D8]'
-    }
+      hoverColor: 'hover:text-[#00B4D8]',
+    },
   ];
 
   return (
@@ -126,7 +126,9 @@ export default function Footer() {
 
             {/* Brief Description */}
             <p className="text-sm text-white/80 mb-6 leading-relaxed">
-              ThinkMents is a Texas-based digital marketing agency delivering SEO, web design, and results-driven marketing solutions since 2002. We help local businesses and national brands achieve measurable growth through strategic digital marketing.
+              ThinkMents is a Texas-based digital marketing agency delivering SEO, web design, and
+              results-driven marketing solutions since 2002. We help local businesses and national
+              brands achieve measurable growth through strategic digital marketing.
             </p>
 
             {/* Social Media Icons */}
@@ -207,9 +209,7 @@ export default function Footer() {
                     >
                       {area.name}
                     </Link>
-                    {index < serviceAreas.length - 1 && (
-                      <span className="text-white/40">|</span>
-                    )}
+                    {index < serviceAreas.length - 1 && <span className="text-white/40">|</span>}
                   </React.Fragment>
                 ))}
               </div>
@@ -260,7 +260,10 @@ export default function Footer() {
                 className="flex items-start gap-2 text-sm text-white/80 hover:text-[#00B4D8] transition-colors"
               >
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>301 South Washburn St, Suite D<br />Decatur, TX 76234</span>
+                <span>
+                  301 South Washburn St, Suite D<br />
+                  Decatur, TX 76234
+                </span>
               </a>
 
               <div className="flex items-center gap-2 text-sm text-white/80">
@@ -304,7 +307,8 @@ export default function Footer() {
 
             {/* Brief Description - Mobile */}
             <p className="text-xs text-white/80 mb-4 leading-relaxed">
-              ThinkMents is a Texas-based digital marketing agency delivering SEO, web design, and results-driven marketing solutions since 2002.
+              ThinkMents is a Texas-based digital marketing agency delivering SEO, web design, and
+              results-driven marketing solutions since 2002.
             </p>
 
             {/* Social Media Icons */}
@@ -342,8 +346,9 @@ export default function Footer() {
             >
               <span className="font-semibold">Services</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''
-                  }`}
+                className={`w-5 h-5 transition-transform duration-200 ${
+                  mobileServicesOpen ? 'rotate-180' : ''
+                }`}
               />
             </button>
             <AnimatePresence>
@@ -380,8 +385,9 @@ export default function Footer() {
             >
               <span className="font-semibold">Company</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${mobileCompanyOpen ? 'rotate-180' : ''
-                  }`}
+                className={`w-5 h-5 transition-transform duration-200 ${
+                  mobileCompanyOpen ? 'rotate-180' : ''
+                }`}
               />
             </button>
             <AnimatePresence>
@@ -418,8 +424,9 @@ export default function Footer() {
             >
               <span className="font-semibold">Service Areas</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${mobileServiceAreasOpen ? 'rotate-180' : ''
-                  }`}
+                className={`w-5 h-5 transition-transform duration-200 ${
+                  mobileServiceAreasOpen ? 'rotate-180' : ''
+                }`}
               />
             </button>
             <AnimatePresence>
@@ -461,8 +468,9 @@ export default function Footer() {
             >
               <span className="font-semibold">Resources</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''
-                  }`}
+                className={`w-5 h-5 transition-transform duration-200 ${
+                  mobileResourcesOpen ? 'rotate-180' : ''
+                }`}
               />
             </button>
             <AnimatePresence>
@@ -513,7 +521,10 @@ export default function Footer() {
 
               <div className="flex items-start gap-2 text-sm text-white/80">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>301 South Washburn St, Suite D<br />Decatur, TX 76234</span>
+                <span>
+                  301 South Washburn St, Suite D<br />
+                  Decatur, TX 76234
+                </span>
               </div>
 
               <div className="flex items-center gap-2 text-sm text-white/80">
@@ -543,36 +554,29 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/70">
             {/* Left - Copyright */}
             <p className="text-center md:text-left">
-              © 2025 ThinkMents Digital Marketing Agency. All rights reserved. | Digital Marketing Agency in Decatur, Texas
+              © 2025 ThinkMents Digital Marketing Agency. All rights reserved. | Digital Marketing
+              Agency in Decatur, Texas
             </p>
 
             {/* Center - Legal Links */}
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                to="/privacy-policy"
-                className="hover:text-[#00B4D8] transition-colors"
-              >
+              <Link to="/privacy-policy" className="hover:text-[#00B4D8] transition-colors">
                 Privacy Policy
               </Link>
               <span className="text-white/30">|</span>
-              <Link
-                to="/terms-of-service"
-                className="hover:text-[#00B4D8] transition-colors"
-              >
+              <Link to="/terms-of-service" className="hover:text-[#00B4D8] transition-colors">
                 Terms of Service
               </Link>
               <span className="text-white/30">|</span>
-              <Link
-                to="/sitemap"
-                className="hover:text-[#00B4D8] transition-colors"
-              >
+              <Link to="/sitemap" className="hover:text-[#00B4D8] transition-colors">
                 Sitemap
               </Link>
             </div>
 
             {/* Right - Made with Love */}
             <p className="flex items-center gap-1 text-center md:text-right">
-              Made with <Heart className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" /> in Decatur, Texas
+              Made with <Heart className="w-4 h-4 fill-[#F7B928] text-[#F7B928]" /> in Decatur,
+              Texas
             </p>
           </div>
         </div>

@@ -18,7 +18,7 @@ export function PageWrapper({ seo, breadcrumbs, children, className = '' }: Page
     const cleanup = initAnalytics();
     return cleanup;
   }, []);
-  
+
   return (
     <>
       <SEOHead {...seo} />

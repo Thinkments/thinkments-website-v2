@@ -3,7 +3,8 @@ export const blogPosts = {
   'seo-mistakes-killing-website-traffic': {
     id: 1,
     title: '10 SEO Mistakes That Are Killing Your Website Traffic',
-    excerpt: 'Discover the most common SEO errors that businesses make and learn how to fix them to boost your search rankings and drive more organic traffic.',
+    excerpt:
+      'Discover the most common SEO errors that businesses make and learn how to fix them to boost your search rankings and drive more organic traffic.',
     author: 'Corey Spicer',
     date: '2024-08-20',
     category: 'seo',
@@ -13,7 +14,7 @@ export const blogPosts = {
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop'
+      'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop',
     ],
     tags: ['SEO', 'Website Traffic', 'Search Rankings', 'Google Analytics'],
     content: `
@@ -25,12 +26,13 @@ export const blogPosts = {
       <p>With 68.1% of searches now happening on mobile devices, Google has shifted to mobile-first indexing. Websites that aren't mobile-friendly face severe ranking penalties. Your site must load quickly, display properly, and provide an excellent user experience across all devices. At <a href="https://thinkments.com/web-design" target="_blank">ThinkMents, our web design services</a> ensure every website we create is fully mobile-optimized from the ground up.</p>
 
       <p>Ready to fix your SEO issues and start seeing real results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for a comprehensive SEO audit and strategy consultation. Our team of experts will help you identify and correct these common mistakes while building a solid foundation for long-term search success.</p>
-    `
+    `,
   },
   'complete-guide-social-media-marketing-2025': {
     id: 2,
     title: 'The Complete Guide to Social Media Marketing in 2025',
-    excerpt: 'Learn the latest social media strategies that are driving results for businesses. From platform selection to content creation, we cover it all.',
+    excerpt:
+      'Learn the latest social media strategies that are driving results for businesses. From platform selection to content creation, we cover it all.',
     author: 'Corey Spicer',
     date: '2024-08-21',
     category: 'social-media',
@@ -41,7 +43,7 @@ export const blogPosts = {
       'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1553484771-047a44eee27e?w=800&h=400&fit=crop'
+      'https://images.unsplash.com/photo-1553484771-047a44eee27e?w=800&h=400&fit=crop',
     ],
     tags: ['Social Media', 'Marketing Strategy', 'Content Creation', 'Platform Analytics'],
     content: `
@@ -50,12 +52,13 @@ export const blogPosts = {
       <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=400&fit=crop" alt="Social Media Analytics Dashboard" class="w-full h-64 object-cover rounded-lg my-6">
 
       <p>Ready to create a social media strategy that drives real business results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert social media strategy development and management that builds engaged communities and drives sustainable growth.</p>
-    `
+    `,
   },
   'voice-search-seo-optimization-guide': {
     id: 27,
     title: 'Voice Search SEO: Optimizing for the Future of Search',
-    excerpt: 'Prepare your website for voice search dominance. Learn how to optimize content for voice queries, featured snippets, and conversational search patterns.',
+    excerpt:
+      'Prepare your website for voice search dominance. Learn how to optimize content for voice queries, featured snippets, and conversational search patterns.',
     author: 'Corey Spicer',
     date: '2024-09-15',
     category: 'seo',
@@ -64,19 +67,20 @@ export const blogPosts = {
     images: [
       'https://images.unsplash.com/photo-1659355751133-763bd796eeb2?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1569396116180-210c182bedb8?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?w=800&h=400&fit=crop'
+      'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?w=800&h=400&fit=crop',
     ],
     tags: ['Voice Search', 'SEO Strategy', 'Featured Snippets', 'Conversational AI'],
     content: `
       <p>Voice search is reshaping how people find information online, with 58% of users having used voice search to find local business information in the past year. By 2025, voice commerce sales are projected to reach $40 billion, making voice search optimization crucial for business success. Smart speakers, mobile assistants, and in-car voice systems are becoming primary search interfaces, requiring a fundamental shift in SEO strategy.</p>
 
       <p>Ready to optimize your website for voice search and capture the growing voice commerce market? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for comprehensive voice search SEO strategies that position your business for future success.</p>
-    `
+    `,
   },
-  'h0qXu1sF5rddqSzeHbookI300': {
+  h0qXu1sF5rddqSzeHbookI300: {
     id: 300,
     title: 'How to Fix Soft 404 Errors and Boost Local SEO in Wise County & Tarrant County',
-    excerpt: 'Learn how to identify and fix soft 404 errors to improve local SEO rankings in Wise County and Tarrant County. Expert technical SEO guide from ThinkMents.',
+    excerpt:
+      'Learn how to identify and fix soft 404 errors to improve local SEO rankings in Wise County and Tarrant County. Expert technical SEO guide from ThinkMents.',
     author: 'Corey Spicer',
     date: '2025-01-23',
     category: 'seo',
@@ -85,7 +89,7 @@ export const blogPosts = {
     images: [
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop'
+      'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop',
     ],
     tags: ['SEO', 'Technical SEO', 'Local SEO', 'Wise County', 'Tarrant County', 'Soft 404'],
     content: `
@@ -94,27 +98,40 @@ export const blogPosts = {
       <p>At <a href="https://www.thinkments.com" target="_blank">ThinkMents</a>, our Decatur-based digital innovation team has helped hundreds of local businesses throughout Wise and Tarrant Counties recover from soft 404 penalties and reclaim their rightful positions in local search results.</p>
 
       <p>Ready to fix your SEO issues and start seeing real results? <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a comprehensive SEO audit and strategy consultation.</p>
-    `
+    `,
   },
-  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks': {
-    id: 301,
-    title: 'How Decatur Businesses Can Level Up Local SEO with ThinkMents, Gemini Quizzes, and OpenStax Tools',
-    excerpt: 'Discover how Decatur TX businesses can dominate local SEO using ThinkMents\' AI-powered Gemini quizzes and OpenStax educational content to boost visibility, engagement, and community authority in Wise County.',
-    author: 'Corey Spicer',
-    date: '2025-01-23',
-    category: 'seo',
-    readTime: '12 min read',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-    images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop'
-    ],
-    tags: ['Decatur TX SEO', 'Wise County SEO', 'Gemini AI Quizzes', 'OpenStax Resources', 'Local SEO', 'Small Business Marketing', 'AI Automation', 'Educational SEO'],
-    metaTitle: 'Decatur Local SEO with Gemini Quizzes & OpenStax | ThinkMents',
-    metaDescription: 'Learn how Decatur businesses can level up local SEO with ThinkMents\' AI-powered Gemini quizzes and OpenStax educational content. Boost visibility now.',
-    content: `
+  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
+    {
+      id: 301,
+      title:
+        'How Decatur Businesses Can Level Up Local SEO with ThinkMents, Gemini Quizzes, and OpenStax Tools',
+      excerpt:
+        "Discover how Decatur TX businesses can dominate local SEO using ThinkMents' AI-powered Gemini quizzes and OpenStax educational content to boost visibility, engagement, and community authority in Wise County.",
+      author: 'Corey Spicer',
+      date: '2025-01-23',
+      category: 'seo',
+      readTime: '12 min read',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop',
+      ],
+      tags: [
+        'Decatur TX SEO',
+        'Wise County SEO',
+        'Gemini AI Quizzes',
+        'OpenStax Resources',
+        'Local SEO',
+        'Small Business Marketing',
+        'AI Automation',
+        'Educational SEO',
+      ],
+      metaTitle: 'Decatur Local SEO with Gemini Quizzes & OpenStax | ThinkMents',
+      metaDescription:
+        "Learn how Decatur businesses can level up local SEO with ThinkMents' AI-powered Gemini quizzes and OpenStax educational content. Boost visibility now.",
+      content: `
       <h1>How Decatur Businesses Can Level Up Local SEO with ThinkMents, Gemini Quizzes, and OpenStax Tools</h1>
 
       <p>Decatur, Texas is experiencing a business renaissance. As Wise County's retail and service hub continues to grow, local businesses face an increasingly competitive digital marketplace. The question isn't whether you need local SEO—it's how you can stand out from dozens of competitors vying for the same local customers' attention. Traditional SEO tactics still matter, but today's winners are those who embrace innovative, engagement-driven strategies that combine cutting-edge AI technology with educational value.</p>
@@ -295,12 +312,13 @@ export const blogPosts = {
         ]
       }
       </script>
-    `
-  },
+    `,
+    },
   '5-seo-mistakes-small-businesses-make-how-thinkments-helps-fix-them': {
     id: 302,
     title: '5 SEO Mistakes Small Businesses Make — And How ThinkMents Helps You Fix Them',
-    excerpt: 'Discover the critical SEO mistakes costing small businesses in Wise County and Tarrant County valuable traffic. Learn how ThinkMents fixes these issues to boost local visibility and drive growth.',
+    excerpt:
+      'Discover the critical SEO mistakes costing small businesses in Wise County and Tarrant County valuable traffic. Learn how ThinkMents fixes these issues to boost local visibility and drive growth.',
     author: 'Corey Spicer',
     date: '2025-01-23',
     category: 'seo',
@@ -310,11 +328,21 @@ export const blogPosts = {
       'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop'
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop',
     ],
-    tags: ['Small Business SEO Texas', 'Wise County SEO', 'Tarrant County SEO', 'Decatur TX SEO', 'SEO Optimization', 'Local Business Visibility', 'AI Automation', 'Website Performance'],
+    tags: [
+      'Small Business SEO Texas',
+      'Wise County SEO',
+      'Tarrant County SEO',
+      'Decatur TX SEO',
+      'SEO Optimization',
+      'Local Business Visibility',
+      'AI Automation',
+      'Website Performance',
+    ],
     metaTitle: '5 SEO Mistakes Small Businesses Make | ThinkMents Fixes',
-    metaDescription: 'Learn the 5 critical SEO mistakes hurting small businesses in Wise County & Tarrant County. ThinkMents shows you how to fix them and dominate local search.',
+    metaDescription:
+      'Learn the 5 critical SEO mistakes hurting small businesses in Wise County & Tarrant County. ThinkMents shows you how to fix them and dominate local search.',
     content: `
       <h1>5 SEO Mistakes Small Businesses Make — And How ThinkMents Helps You Fix Them</h1>
 
@@ -567,12 +595,13 @@ export const blogPosts = {
         ]
       }
       </script>
-    `
+    `,
   },
   'google-ads-hacks-unlocking-the-full-potential': {
     id: 303,
     title: 'Google Ads Hacks: Unlocking the Full Potential of Your PPC Campaigns',
-    excerpt: 'Discover powerful Google Ads optimization strategies that maximize ROI and reduce wasted ad spend. Learn expert PPC tactics from ThinkMents to dominate your market.',
+    excerpt:
+      'Discover powerful Google Ads optimization strategies that maximize ROI and reduce wasted ad spend. Learn expert PPC tactics from ThinkMents to dominate your market.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'digital-marketing',
@@ -582,11 +611,20 @@ export const blogPosts = {
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
       'https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop'
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop',
     ],
-    tags: ['Google Ads', 'PPC', 'Digital Marketing', 'ROI Optimization', 'Ad Campaigns', 'Marketing Automation', 'Conversion Tracking'],
+    tags: [
+      'Google Ads',
+      'PPC',
+      'Digital Marketing',
+      'ROI Optimization',
+      'Ad Campaigns',
+      'Marketing Automation',
+      'Conversion Tracking',
+    ],
     metaTitle: 'Google Ads Hacks: Unlock Full PPC Potential | ThinkMents',
-    metaDescription: 'Master Google Ads with proven optimization hacks from ThinkMents. Maximize ROI, reduce wasted spend, and dominate your market with expert PPC strategies.',
+    metaDescription:
+      'Master Google Ads with proven optimization hacks from ThinkMents. Maximize ROI, reduce wasted spend, and dominate your market with expert PPC strategies.',
     content: `
       <h1>Google Ads Hacks: Unlocking the Full Potential of Your PPC Campaigns</h1>
 
@@ -733,26 +771,37 @@ export const blogPosts = {
         }
       }
       </script>
-    `
+    `,
   },
   'is-your-website-working-hard-enough-for-you': {
     id: 304,
     title: 'Is Your Website Working Hard Enough for You?',
-    excerpt: 'Learn how to evaluate your website\'s performance and discover if it\'s truly delivering ROI. Expert insights from ThinkMents on conversion optimization, analytics, and maximizing your digital investment.',
+    excerpt:
+      "Learn how to evaluate your website's performance and discover if it's truly delivering ROI. Expert insights from ThinkMents on conversion optimization, analytics, and maximizing your digital investment.",
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'web-design',
     readTime: '12 min read',
-    image: 'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     images: [
       'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1758518729841-308509f69a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1760491487396-d6c835039b29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1691073112675-9685bc6779bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
+      'https://images.unsplash.com/photo-1691073112675-9685bc6779bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     ],
-    tags: ['Website Optimization', 'ROI', 'Conversion Rate', 'Web Design', 'Analytics', 'User Experience', 'Digital Strategy'],
+    tags: [
+      'Website Optimization',
+      'ROI',
+      'Conversion Rate',
+      'Web Design',
+      'Analytics',
+      'User Experience',
+      'Digital Strategy',
+    ],
     metaTitle: 'Is Your Website Working Hard Enough? ROI Analysis | ThinkMents',
-    metaDescription: 'Evaluate your website\'s true performance with expert guidance from ThinkMents. Learn conversion optimization, analytics tracking, and strategies to maximize your digital ROI for Wise County businesses.',
+    metaDescription:
+      "Evaluate your website's true performance with expert guidance from ThinkMents. Learn conversion optimization, analytics tracking, and strategies to maximize your digital ROI for Wise County businesses.",
     content: `
       <h1>Is Your Website Working Hard Enough for You?</h1>
 
@@ -971,26 +1020,36 @@ export const blogPosts = {
         }
       }
       </script>
-    `
+    `,
   },
   'instagram-marketing-business-growth': {
     id: 305,
     title: 'Instagram Marketing for Business Growth: The Complete Guide',
-    excerpt: 'Master Instagram marketing to drive real business results. Learn proven strategies for content creation, engagement, Stories, Reels, and converting followers into customers.',
+    excerpt:
+      'Master Instagram marketing to drive real business results. Learn proven strategies for content creation, engagement, Stories, Reels, and converting followers into customers.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'social-media',
     readTime: '14 min read',
-    image: 'https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     images: [
       'https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1719495214117-9baf735abb09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
+      'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     ],
-    tags: ['Instagram Marketing', 'Social Media', 'Content Strategy', 'Business Growth', 'Reels', 'Instagram Stories'],
+    tags: [
+      'Instagram Marketing',
+      'Social Media',
+      'Content Strategy',
+      'Business Growth',
+      'Reels',
+      'Instagram Stories',
+    ],
     metaTitle: 'Instagram Marketing for Business Growth Guide | ThinkMents',
-    metaDescription: 'Complete guide to Instagram marketing for business growth. Learn content strategies, engagement tactics, Reels, Stories, and how to convert followers into customers. Expert tips from ThinkMents.',
+    metaDescription:
+      'Complete guide to Instagram marketing for business growth. Learn content strategies, engagement tactics, Reels, Stories, and how to convert followers into customers. Expert tips from ThinkMents.',
     content: `
       <h1>Instagram Marketing for Business Growth: The Complete Guide</h1>
 
@@ -1247,26 +1306,36 @@ export const blogPosts = {
         }
       }
       </script>
-    `
+    `,
   },
   'graphic-design-services-from-thinkments-unlocking-your-businesss-visual-potential': {
     id: 306,
-    title: 'Graphic Design Services from ThinkMents: Unlocking Your Business\'s Visual Potential',
-    excerpt: 'Discover how professional graphic design transforms your business brand. Learn about logo design, brand identity, marketing materials, and visual strategy from ThinkMents.',
+    title: "Graphic Design Services from ThinkMents: Unlocking Your Business's Visual Potential",
+    excerpt:
+      'Discover how professional graphic design transforms your business brand. Learn about logo design, brand identity, marketing materials, and visual strategy from ThinkMents.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'web-design',
     readTime: '13 min read',
-    image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     images: [
       'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1727755868077-22f0d2ff8353?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1514189831078-ee41c3568075?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1702609342206-c37562b99740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
+      'https://images.unsplash.com/photo-1702609342206-c37562b99740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     ],
-    tags: ['Graphic Design', 'Branding', 'Logo Design', 'Visual Identity', 'Marketing Materials', 'Brand Strategy'],
+    tags: [
+      'Graphic Design',
+      'Branding',
+      'Logo Design',
+      'Visual Identity',
+      'Marketing Materials',
+      'Brand Strategy',
+    ],
     metaTitle: 'Professional Graphic Design Services | ThinkMents Decatur TX',
-    metaDescription: 'Transform your business with professional graphic design services from ThinkMents. Expert logo design, branding, marketing materials, and visual identity for Wise County businesses.',
+    metaDescription:
+      'Transform your business with professional graphic design services from ThinkMents. Expert logo design, branding, marketing materials, and visual identity for Wise County businesses.',
     content: `
       <h1>Graphic Design Services from ThinkMents: Unlocking Your Business's Visual Potential</h1>
 
@@ -1561,27 +1630,37 @@ export const blogPosts = {
         }
       }
       </script>
-    `
+    `,
   },
-  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks': {
-    id: 307,
-    title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
-    excerpt: 'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
-    author: 'Corey Spicer',
-    date: '2025-01-24',
-    category: 'seo',
-    readTime: '15 min read',
-    image: 'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-    images: [
-      'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1672777368741-80312486d515?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1598987829536-7d90c3746f5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
-    ],
-    tags: ['Local SEO', 'Decatur Business', 'Google Business Profile', 'Wise County', 'Small Business Marketing'],
-    metaTitle: 'Decatur Local SEO Services | ThinkMents Wise County Marketing',
-    metaDescription: 'Dominate local search in Decatur and Wise County with expert local SEO from ThinkMents. Google Business Profile optimization, local citations, and strategies that drive foot traffic.',
-    content: `
+  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
+    {
+      id: 307,
+      title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
+      excerpt:
+        'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
+      author: 'Corey Spicer',
+      date: '2025-01-24',
+      category: 'seo',
+      readTime: '15 min read',
+      image:
+        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+      images: [
+        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+        'https://images.unsplash.com/photo-1672777368741-80312486d515?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+        'https://images.unsplash.com/photo-1598987829536-7d90c3746f5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+      ],
+      tags: [
+        'Local SEO',
+        'Decatur Business',
+        'Google Business Profile',
+        'Wise County',
+        'Small Business Marketing',
+      ],
+      metaTitle: 'Decatur Local SEO Services | ThinkMents Wise County Marketing',
+      metaDescription:
+        'Dominate local search in Decatur and Wise County with expert local SEO from ThinkMents. Google Business Profile optimization, local citations, and strategies that drive foot traffic.',
+      content: `
       <h1>Decatur Businesses: Level Up Your Local SEO with ThinkMents</h1>
 
       <p>If you own a business in <strong>Decatur, Texas</strong>, you face unique marketing challenges and extraordinary opportunities. As the county seat of <strong>Wise County</strong>, Decatur combines small-town community values with growing economic vitality. The businesses that thrive here understand one critical truth: local customers searching Google for products and services you offer represent your highest-value prospects—and <strong>local SEO</strong> determines whether they find your business or your competitors.</p>
@@ -1921,26 +2000,36 @@ export const blogPosts = {
         }
       }
       </script>
-    `
-  },
+    `,
+    },
   'the-fundamentals-of-digital-marketing-grow-your-business-with-thinkments': {
     id: 308,
     title: 'The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents',
-    excerpt: 'Master digital marketing fundamentals to grow your business. Learn essential strategies for SEO, social media, content marketing, paid advertising, and building an integrated digital presence.',
+    excerpt:
+      'Master digital marketing fundamentals to grow your business. Learn essential strategies for SEO, social media, content marketing, paid advertising, and building an integrated digital presence.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'digital-marketing',
     readTime: '16 min read',
-    image: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     images: [
       'https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1758873268136-83e3e1be9315?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
+      'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     ],
-    tags: ['Digital Marketing', 'SEO', 'Social Media', 'Content Marketing', 'Business Growth', 'Marketing Strategy'],
+    tags: [
+      'Digital Marketing',
+      'SEO',
+      'Social Media',
+      'Content Marketing',
+      'Business Growth',
+      'Marketing Strategy',
+    ],
     metaTitle: 'Digital Marketing Fundamentals | ThinkMents Decatur TX',
-    metaDescription: 'Master digital marketing fundamentals with ThinkMents. Essential strategies for SEO, social media, content marketing, and paid advertising to grow your Wise County business.',
+    metaDescription:
+      'Master digital marketing fundamentals with ThinkMents. Essential strategies for SEO, social media, content marketing, and paid advertising to grow your Wise County business.',
     content: `
       <h1>The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents</h1>
 
@@ -2263,26 +2352,36 @@ export const blogPosts = {
         }
       }
       </script>
-    `
+    `,
   },
   'what-steps-can-you-take-to-elevate-your-digital-presence': {
     id: 309,
     title: 'What Steps Can You Take to Elevate Your Digital Presence?',
-    excerpt: 'Transform your digital presence with proven strategies. Learn how to build a professional website, optimize for search engines, leverage social media, and create compelling content that attracts customers.',
+    excerpt:
+      'Transform your digital presence with proven strategies. Learn how to build a professional website, optimize for search engines, leverage social media, and create compelling content that attracts customers.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'digital-marketing',
     readTime: '14 min read',
-    image: 'https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     images: [
       'https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1659673494761-980fdb5fe683?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1762329352849-f4d0c9e7696a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1661286178487-b8b6d0217427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
+      'https://images.unsplash.com/photo-1661286178487-b8b6d0217427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     ],
-    tags: ['Digital Presence', 'Website Design', 'SEO', 'Social Media', 'Brand Identity', 'Online Marketing'],
+    tags: [
+      'Digital Presence',
+      'Website Design',
+      'SEO',
+      'Social Media',
+      'Brand Identity',
+      'Online Marketing',
+    ],
     metaTitle: 'Elevate Your Digital Presence | ThinkMents Wise County TX',
-    metaDescription: 'Discover actionable steps to elevate your digital presence. Professional website design, SEO optimization, social media strategies, and compelling content that drives business growth.',
+    metaDescription:
+      'Discover actionable steps to elevate your digital presence. Professional website design, SEO optimization, social media strategies, and compelling content that drives business growth.',
     content: `
       <h1>What Steps Can You Take to Elevate Your Digital Presence?</h1>
 
@@ -2649,26 +2748,35 @@ export const blogPosts = {
         }
       }
       </script>
-    `
+    `,
   },
   'thinkments-virtual-tours-and-your-restaurant': {
     id: 310,
     title: 'ThinkMents Virtual Tours and Your Restaurant: Bring Your Dining Experience Online',
-    excerpt: 'Discover how virtual tours transform restaurant marketing by showcasing your ambiance, building trust, and attracting more diners. Learn why ThinkMents virtual tours give your restaurant a competitive edge.',
+    excerpt:
+      'Discover how virtual tours transform restaurant marketing by showcasing your ambiance, building trust, and attracting more diners. Learn why ThinkMents virtual tours give your restaurant a competitive edge.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'virtual-tours',
     readTime: '13 min read',
-    image: 'https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     images: [
       'https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1758273239313-6c703d089dd4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
       'https://images.unsplash.com/photo-1737138472958-636bebdca9ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      'https://images.unsplash.com/photo-1612638466977-b5a8f0f34aa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400'
+      'https://images.unsplash.com/photo-1612638466977-b5a8f0f34aa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     ],
-    tags: ['Virtual Tours', 'Restaurant Marketing', 'Google Business Profile', 'Customer Experience', 'Digital Marketing'],
+    tags: [
+      'Virtual Tours',
+      'Restaurant Marketing',
+      'Google Business Profile',
+      'Customer Experience',
+      'Digital Marketing',
+    ],
     metaTitle: 'Virtual Tours for Restaurants | ThinkMents Wise County TX',
-    metaDescription: 'Transform your restaurant marketing with professional virtual tours from ThinkMents. Showcase your ambiance, attract more diners, and boost Google rankings with immersive 360° experiences.',
+    metaDescription:
+      'Transform your restaurant marketing with professional virtual tours from ThinkMents. Showcase your ambiance, attract more diners, and boost Google rankings with immersive 360° experiences.',
     content: `
       <h1>ThinkMents Virtual Tours and Your Restaurant: Bring Your Dining Experience Online</h1>
 
@@ -2997,8 +3105,8 @@ export const blogPosts = {
         }
       }
       </script>
-    `
-  }
+    `,
+  },
   // Add other blog posts with shortened content to reduce bundle size
 };
 
@@ -3010,6 +3118,6 @@ export const getBlogPostBySlug = (slug: string) => {
 // Get related blog posts
 export const getRelatedPosts = (currentId: number, category: string, limit = 3) => {
   return Object.values(blogPosts)
-    .filter(post => post.id !== currentId && post.category === category)
+    .filter((post) => post.id !== currentId && post.category === category)
     .slice(0, limit);
 };

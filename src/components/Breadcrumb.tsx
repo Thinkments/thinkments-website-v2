@@ -14,14 +14,14 @@ interface BreadcrumbProps {
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   // Generate breadcrumb schema
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      ...(item.path && { "item": `https://thinkments.com${item.path}` })
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      ...(item.path && { item: `https://thinkments.com${item.path}` }),
+    })),
   };
 
   return (
@@ -52,9 +52,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                       <ChevronRight className="w-4 h-4 text-gray-400" />
                     </>
                   ) : (
-                    <span className="text-gray-900 font-medium">
-                      {item.name}
-                    </span>
+                    <span className="text-gray-900 font-medium">{item.name}</span>
                   )}
                 </li>
               );

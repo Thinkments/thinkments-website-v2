@@ -5,21 +5,21 @@ export const deployConfig = {
   skipEdgeFunctions: true,
   useSupabase: false,
   frontendOnly: true,
-  
+
   // Main application deployment settings
-  buildCommand: "npm run build",
-  publishDirectory: "dist",
-  
+  buildCommand: 'npm run build',
+  publishDirectory: 'dist',
+
   // No required environment variables (fully frontend)
   requiredEnvVars: [],
-  
+
   // Redirect rules
   redirects: [
-    { from: "/home", to: "/", status: 301 },
-    { from: "/preview_page.html", to: "/", status: 301 },
-    { from: "/contact-us", to: "/contact", status: 301 },
-    { from: "/generative-ai-image-testing", to: "/", status: 301 }
-  ]
+    { from: '/home', to: '/', status: 301 },
+    { from: '/preview_page.html', to: '/', status: 301 },
+    { from: '/contact-us', to: '/contact', status: 301 },
+    { from: '/generative-ai-image-testing', to: '/', status: 301 },
+  ],
 };
 
 export default deployConfig;

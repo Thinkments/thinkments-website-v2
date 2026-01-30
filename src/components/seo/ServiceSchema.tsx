@@ -16,48 +16,46 @@ interface ServiceSchemaProps {
 export const ServiceSchema: React.FC<ServiceSchemaProps> = ({
   serviceName,
   description,
-  priceRange = "$$",
+  priceRange = '$$',
   features = [],
-  url
+  url,
 }) => {
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": serviceName,
-    "serviceType": serviceName,
-    "provider": {
-      "@type": "Organization",
-      "@id": "https://thinkments.com/#organization",
-      "name": "THINKMENTS",
-      "url": "https://thinkments.com"
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: serviceName,
+    serviceType: serviceName,
+    provider: {
+      '@type': 'Organization',
+      '@id': 'https://thinkments.com/#organization',
+      name: 'THINKMENTS',
+      url: 'https://thinkments.com',
     },
-    "description": description,
-    "areaServed": {
-      "@type": "State",
-      "name": "Texas"
+    description: description,
+    areaServed: {
+      '@type': 'State',
+      name: 'Texas',
     },
-    "url": `https://thinkments.com${url}`,
-    "priceRange": priceRange,
+    url: `https://thinkments.com${url}`,
+    priceRange: priceRange,
     ...(features.length > 0 && {
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": `${serviceName} Packages`,
-        "itemListElement": features.map((feature, index) => ({
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": feature
-          }
-        }))
-      }
-    })
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `${serviceName} Packages`,
+        itemListElement: features.map((feature, index) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: feature,
+          },
+        })),
+      },
+    }),
   };
 
   return (
     <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>
   );
 };

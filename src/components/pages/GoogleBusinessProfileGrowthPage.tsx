@@ -4,80 +4,98 @@ import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { ArrowRight, MapPin, Camera, Users, TrendingUp, Phone, Star, Globe, Eye, MessageSquare } from 'lucide-react@0.487.0';
+import {
+  ArrowRight,
+  MapPin,
+  Camera,
+  Users,
+  TrendingUp,
+  Phone,
+  Star,
+  Globe,
+  Eye,
+  MessageSquare,
+} from 'lucide-react@0.487.0';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
 export default function GoogleBusinessProfileGrowthPage() {
   const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Google Business Profile Growth: Managed Essentials",
-    "description": "Professional Google Business Profile management service designed for consistent online improvement and local lead generation",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "ThinkMents",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Google Business Profile Growth: Managed Essentials',
+    description:
+      'Professional Google Business Profile management service designed for consistent online improvement and local lead generation',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'ThinkMents',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "199",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "199",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M"
-      }
+    offers: {
+      '@type': 'Offer',
+      price: '199',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '199',
+        priceCurrency: 'USD',
+        billingIncrement: 'P1M',
+      },
     },
-    "serviceType": "Google Business Profile Management",
-    "areaServed": "United States"
+    serviceType: 'Google Business Profile Management',
+    areaServed: 'United States',
   };
 
   const features = [
     {
       icon: Camera,
       title: 'High-Quality Photos',
-      description: 'Fresh, professional photos that showcase your business and attract more customers to visit.',
-      color: 'from-blue-500 to-purple-600'
+      description:
+        'Fresh, professional photos that showcase your business and attract more customers to visit.',
+      color: 'from-blue-500 to-purple-600',
     },
     {
       icon: MessageSquare,
       title: 'Strategic Google Posts',
-      description: 'Regular, engaging posts that keep your audience informed and improve your search ranking.',
-      color: 'from-green-500 to-teal-600'
+      description:
+        'Regular, engaging posts that keep your audience informed and improve your search ranking.',
+      color: 'from-green-500 to-teal-600',
     },
     {
       icon: Eye,
       title: 'Active Monitoring',
-      description: 'Continuous monitoring of your listing for accuracy and proactive optimization suggestions.',
-      color: 'from-orange-500 to-red-600'
+      description:
+        'Continuous monitoring of your listing for accuracy and proactive optimization suggestions.',
+      color: 'from-orange-500 to-red-600',
     },
     {
       icon: TrendingUp,
       title: 'Search Ranking Boost',
-      description: 'Proven strategies that improve your local search visibility and Google Maps ranking.',
-      color: 'from-pink-500 to-rose-600'
+      description:
+        'Proven strategies that improve your local search visibility and Google Maps ranking.',
+      color: 'from-pink-500 to-rose-600',
     },
     {
       icon: Phone,
       title: 'More Phone Calls',
-      description: 'Optimized profile elements that drive more phone calls and website clicks from local searches.',
-      color: 'from-indigo-500 to-blue-600'
+      description:
+        'Optimized profile elements that drive more phone calls and website clicks from local searches.',
+      color: 'from-indigo-500 to-blue-600',
     },
     {
       icon: Users,
       title: 'Lead Generation',
-      description: 'Transform your Google Business Profile into a consistent source of local customer inquiries.',
-      color: 'from-yellow-500 to-orange-600'
-    }
+      description:
+        'Transform your Google Business Profile into a consistent source of local customer inquiries.',
+      color: 'from-yellow-500 to-orange-600',
+    },
   ];
 
   const packageDetails = {
@@ -95,35 +113,38 @@ export default function GoogleBusinessProfileGrowthPage() {
       'Monthly performance reports',
       'Google Maps visibility boost',
       'Competitor analysis insights',
-      'Mobile optimization focus'
+      'Mobile optimization focus',
     ],
     highlights: [
       'Trusted Google Partner for 10+ years',
       'Proven local search results',
       'No long-term contracts',
-      'Dedicated account manager'
-    ]
+      'Dedicated account manager',
+    ],
   };
 
   const benefits = [
     {
       icon: MapPin,
       title: 'Dominate Local Search',
-      description: 'Appear higher in Google Maps results when customers search for businesses like yours.',
-      stats: 'Up to 3x more visibility'
+      description:
+        'Appear higher in Google Maps results when customers search for businesses like yours.',
+      stats: 'Up to 3x more visibility',
     },
     {
       icon: Star,
       title: 'Build Trust & Credibility',
-      description: 'Professional profile management that showcases your business in the best possible light.',
-      stats: '90% customer trust increase'
+      description:
+        'Professional profile management that showcases your business in the best possible light.',
+      stats: '90% customer trust increase',
     },
     {
       icon: Globe,
       title: 'Drive Website Traffic',
-      description: 'Optimized profile elements that encourage more clicks to your website and contact information.',
-      stats: '150% more website clicks'
-    }
+      description:
+        'Optimized profile elements that encourage more clicks to your website and contact information.',
+      stats: '150% more website clicks',
+    },
   ];
 
   return (
@@ -157,7 +178,7 @@ export default function GoogleBusinessProfileGrowthPage() {
                   Growth: Managed Essentials
                 </span>
               </motion.h1>
-              
+
               <motion.div
                 className="flex items-center justify-center mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -167,14 +188,17 @@ export default function GoogleBusinessProfileGrowthPage() {
                 <span className="text-3xl md:text-4xl font-bold text-primary">$199.00</span>
                 <span className="text-xl text-muted-foreground ml-2">/month</span>
               </motion.div>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Propel your local business forward with our Google Business Profile Growth package, designed for consistent online improvement. This service includes regular updates to your profile with fresh content, high-quality photos, and strategic Google Posts that keep your audience engaged and improve your local search ranking.
+                Propel your local business forward with our Google Business Profile Growth package,
+                designed for consistent online improvement. This service includes regular updates to
+                your profile with fresh content, high-quality photos, and strategic Google Posts
+                that keep your audience engaged and improve your local search ranking.
               </motion.p>
 
               <motion.div
@@ -216,7 +240,8 @@ export default function GoogleBusinessProfileGrowthPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                We actively monitor your listing for accuracy and provide proactive suggestions to enhance your Google Maps visibility, driving more phone calls and website clicks.
+                We actively monitor your listing for accuracy and provide proactive suggestions to
+                enhance your Google Maps visibility, driving more phone calls and website clicks.
               </p>
             </motion.div>
 
@@ -241,14 +266,12 @@ export default function GoogleBusinessProfileGrowthPage() {
                       >
                         <feature.icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-                      
-                      <p className="text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
+
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -275,7 +298,8 @@ export default function GoogleBusinessProfileGrowthPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  Everything you need to maintain a vibrant and active Google Business Profile effortlessly
+                  Everything you need to maintain a vibrant and active Google Business Profile
+                  effortlessly
                 </p>
               </motion.div>
 
@@ -286,15 +310,17 @@ export default function GoogleBusinessProfileGrowthPage() {
                 viewport={{ once: true }}
               >
                 <Card className="relative overflow-hidden border-2 border-primary/20">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                   <CardContent className="p-8 relative z-10">
                     <div className="text-center mb-8">
                       <h3 className="text-2xl md:text-3xl mb-2">{packageDetails.name}</h3>
                       <div className="flex items-center justify-center mb-4">
-                        <span className="text-4xl md:text-5xl font-bold text-primary">{packageDetails.price}</span>
-                        <span className="text-xl text-muted-foreground ml-2">{packageDetails.billing}</span>
+                        <span className="text-4xl md:text-5xl font-bold text-primary">
+                          {packageDetails.price}
+                        </span>
+                        <span className="text-xl text-muted-foreground ml-2">
+                          {packageDetails.billing}
+                        </span>
                       </div>
                       <p className="text-lg text-muted-foreground">{packageDetails.description}</p>
                     </div>
@@ -375,7 +401,8 @@ export default function GoogleBusinessProfileGrowthPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Maintain a vibrant and active Google Business Profile effortlessly, transforming it into a consistent source of local lead generation.
+                Maintain a vibrant and active Google Business Profile effortlessly, transforming it
+                into a consistent source of local lead generation.
               </p>
             </motion.div>
 
@@ -397,18 +424,16 @@ export default function GoogleBusinessProfileGrowthPage() {
                       >
                         <benefit.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {benefit.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {benefit.description}
                       </p>
 
-                      <div className="text-lg font-semibold text-primary">
-                        {benefit.stats}
-                      </div>
+                      <div className="text-lg font-semibold text-primary">{benefit.stats}</div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -434,7 +459,8 @@ export default function GoogleBusinessProfileGrowthPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Start generating more local leads with our proven Google Business Profile management service. No long-term contracts, cancel anytime.
+                Start generating more local leads with our proven Google Business Profile management
+                service. No long-term contracts, cancel anytime.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

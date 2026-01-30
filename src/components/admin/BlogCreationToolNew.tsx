@@ -25,7 +25,7 @@ import {
   Trash2,
   Search,
   Filter,
-  ArrowLeft
+  ArrowLeft,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
@@ -33,13 +33,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Badge } from '../ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import {
   Dialog,
   DialogContent,
@@ -52,14 +46,86 @@ import { toast } from 'sonner@2.0.3';
 
 // Mock blog posts data
 const mockBlogPosts = [
-  { id: 1, title: 'Complete Guide to Local SEO in 2025', slug: 'local-seo-guide-2025', category: 'SEO', status: 'published', views: 1523, date: '2024-12-01', author: 'John Smith' },
-  { id: 2, title: 'Social Media Marketing Trends', slug: 'social-media-trends', category: 'Social Media', status: 'published', views: 892, date: '2024-11-28', author: 'Jane Doe' },
-  { id: 3, title: 'Web Design Best Practices', slug: 'web-design-best-practices', category: 'Web Design', status: 'draft', views: 0, date: '2024-12-05', author: 'John Smith' },
-  { id: 4, title: 'Email Marketing Strategies', slug: 'email-marketing-strategies', category: 'Marketing', status: 'published', views: 645, date: '2024-11-25', author: 'Sarah Johnson' },
-  { id: 5, title: 'Content Marketing 101', slug: 'content-marketing-101', category: 'Marketing', status: 'scheduled', views: 0, date: '2024-12-15', author: 'Jane Doe' },
-  { id: 6, title: 'Google Ads Optimization', slug: 'google-ads-optimization', category: 'PPC', status: 'draft', views: 0, date: '2024-12-06', author: 'John Smith' },
-  { id: 7, title: 'Building Your Brand Online', slug: 'building-brand-online', category: 'Branding', status: 'published', views: 1245, date: '2024-11-20', author: 'Sarah Johnson' },
-  { id: 8, title: 'Video Marketing Guide', slug: 'video-marketing-guide', category: 'Video', status: 'draft', views: 0, date: '2024-12-07', author: 'Jane Doe' },
+  {
+    id: 1,
+    title: 'Complete Guide to Local SEO in 2025',
+    slug: 'local-seo-guide-2025',
+    category: 'SEO',
+    status: 'published',
+    views: 1523,
+    date: '2024-12-01',
+    author: 'John Smith',
+  },
+  {
+    id: 2,
+    title: 'Social Media Marketing Trends',
+    slug: 'social-media-trends',
+    category: 'Social Media',
+    status: 'published',
+    views: 892,
+    date: '2024-11-28',
+    author: 'Jane Doe',
+  },
+  {
+    id: 3,
+    title: 'Web Design Best Practices',
+    slug: 'web-design-best-practices',
+    category: 'Web Design',
+    status: 'draft',
+    views: 0,
+    date: '2024-12-05',
+    author: 'John Smith',
+  },
+  {
+    id: 4,
+    title: 'Email Marketing Strategies',
+    slug: 'email-marketing-strategies',
+    category: 'Marketing',
+    status: 'published',
+    views: 645,
+    date: '2024-11-25',
+    author: 'Sarah Johnson',
+  },
+  {
+    id: 5,
+    title: 'Content Marketing 101',
+    slug: 'content-marketing-101',
+    category: 'Marketing',
+    status: 'scheduled',
+    views: 0,
+    date: '2024-12-15',
+    author: 'Jane Doe',
+  },
+  {
+    id: 6,
+    title: 'Google Ads Optimization',
+    slug: 'google-ads-optimization',
+    category: 'PPC',
+    status: 'draft',
+    views: 0,
+    date: '2024-12-06',
+    author: 'John Smith',
+  },
+  {
+    id: 7,
+    title: 'Building Your Brand Online',
+    slug: 'building-brand-online',
+    category: 'Branding',
+    status: 'published',
+    views: 1245,
+    date: '2024-11-20',
+    author: 'Sarah Johnson',
+  },
+  {
+    id: 8,
+    title: 'Video Marketing Guide',
+    slug: 'video-marketing-guide',
+    category: 'Video',
+    status: 'draft',
+    views: 0,
+    date: '2024-12-07',
+    author: 'Jane Doe',
+  },
 ];
 
 export default function BlogCreationToolNew() {
@@ -67,14 +133,17 @@ export default function BlogCreationToolNew() {
   const [editingPost, setEditingPost] = useState<number | null>(null);
   const [blogPosts, setBlogPosts] = useState(mockBlogPosts);
   const [searchQuery, setSearchQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'published' | 'draft' | 'scheduled'>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'published' | 'draft' | 'scheduled'>(
+    'all',
+  );
   const [publishModalOpen, setPublishModalOpen] = useState(false);
   const [postToPublish, setPostToPublish] = useState<any>(null);
 
   // Filter blog posts
-  const filteredBlogPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          post.category.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredBlogPosts = blogPosts.filter((post) => {
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = statusFilter === 'all' || post.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -103,19 +172,17 @@ export default function BlogCreationToolNew() {
     if (!postToPublish) return;
 
     const newStatus = postToPublish.status === 'published' ? 'draft' : 'published';
-    
-    setBlogPosts(prevPosts =>
-      prevPosts.map(post =>
-        post.id === postToPublish.id
-          ? { ...post, status: newStatus }
-          : post
-      )
+
+    setBlogPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === postToPublish.id ? { ...post, status: newStatus } : post,
+      ),
     );
 
     toast.success(
       newStatus === 'published'
         ? `"${postToPublish.title}" has been published to thinkments.com!`
-        : `"${postToPublish.title}" has been unpublished.`
+        : `"${postToPublish.title}" has been unpublished.`,
     );
 
     setPublishModalOpen(false);
@@ -124,9 +191,9 @@ export default function BlogCreationToolNew() {
 
   // Handle delete
   const handleDelete = (postId: number) => {
-    const post = blogPosts.find(p => p.id === postId);
+    const post = blogPosts.find((p) => p.id === postId);
     if (post && window.confirm(`Move "${post.title}" to trash?`)) {
-      setBlogPosts(prevPosts => prevPosts.filter(p => p.id !== postId));
+      setBlogPosts((prevPosts) => prevPosts.filter((p) => p.id !== postId));
       toast.success(`"${post.title}" moved to trash.`);
     }
   };
@@ -161,10 +228,7 @@ export default function BlogCreationToolNew() {
                 <h1 className="text-3xl font-bold text-[#1E3A5F]">Blog Posts</h1>
                 <p className="text-gray-600 mt-1">Manage all your blog content</p>
               </div>
-              <Button 
-                onClick={handleCreateNew}
-                className="bg-[#00B4D8] hover:bg-[#0096b8]"
-              >
+              <Button onClick={handleCreateNew} className="bg-[#00B4D8] hover:bg-[#0096b8]">
                 <Plus className="w-4 h-4 mr-2" />
                 New Post
               </Button>
@@ -192,7 +256,7 @@ export default function BlogCreationToolNew() {
                     <div>
                       <p className="text-sm text-gray-600">Published</p>
                       <p className="text-3xl font-bold text-green-600">
-                        {blogPosts.filter(p => p.status === 'published').length}
+                        {blogPosts.filter((p) => p.status === 'published').length}
                       </p>
                     </div>
                     <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
@@ -208,7 +272,7 @@ export default function BlogCreationToolNew() {
                     <div>
                       <p className="text-sm text-gray-600">Drafts</p>
                       <p className="text-3xl font-bold text-gray-600">
-                        {blogPosts.filter(p => p.status === 'draft').length}
+                        {blogPosts.filter((p) => p.status === 'draft').length}
                       </p>
                     </div>
                     <div className="w-12 h-12 bg-gray-500/10 rounded-lg flex items-center justify-center">
@@ -224,7 +288,7 @@ export default function BlogCreationToolNew() {
                     <div>
                       <p className="text-sm text-gray-600">Scheduled</p>
                       <p className="text-3xl font-bold text-blue-600">
-                        {blogPosts.filter(p => p.status === 'scheduled').length}
+                        {blogPosts.filter((p) => p.status === 'scheduled').length}
                       </p>
                     </div>
                     <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
@@ -252,7 +316,10 @@ export default function BlogCreationToolNew() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Filter className="w-4 h-4 text-gray-400" />
-                    <Select value={statusFilter} onValueChange={(value: any) => setStatusFilter(value)}>
+                    <Select
+                      value={statusFilter}
+                      onValueChange={(value: any) => setStatusFilter(value)}
+                    >
                       <SelectTrigger className="w-[180px]">
                         <SelectValue />
                       </SelectTrigger>
@@ -274,12 +341,24 @@ export default function BlogCreationToolNew() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200 bg-gray-50">
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Title</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Category</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Status</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Author</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Date</th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold text-gray-700">Actions</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                        Title
+                      </th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                        Category
+                      </th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                        Status
+                      </th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                        Author
+                      </th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                        Date
+                      </th>
+                      <th className="px-6 py-4 text-right text-sm font-semibold text-gray-700">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -288,7 +367,9 @@ export default function BlogCreationToolNew() {
                         <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
                           <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
                           <p className="text-lg">No blog posts found</p>
-                          <p className="text-sm mt-1">Try adjusting your filters or create a new post</p>
+                          <p className="text-sm mt-1">
+                            Try adjusting your filters or create a new post
+                          </p>
                         </td>
                       </tr>
                     ) : (
@@ -381,17 +462,20 @@ export default function BlogCreationToolNew() {
                   </DialogTitle>
                   <DialogDescription>
                     {postToPublish?.status === 'published' ? (
-                      <>Are you sure you want to unpublish &quot;{postToPublish?.title}&quot;? It will no longer be visible on thinkments.com.</>
+                      <>
+                        Are you sure you want to unpublish &quot;{postToPublish?.title}&quot;? It
+                        will no longer be visible on thinkments.com.
+                      </>
                     ) : (
-                      <>Are you sure you want to publish &quot;{postToPublish?.title}&quot; to thinkments.com? It will be immediately visible to visitors.</>
+                      <>
+                        Are you sure you want to publish &quot;{postToPublish?.title}&quot; to
+                        thinkments.com? It will be immediately visible to visitors.
+                      </>
                     )}
                   </DialogDescription>
                 </DialogHeader>
                 <DialogFooter>
-                  <Button
-                    variant="outline"
-                    onClick={() => setPublishModalOpen(false)}
-                  >
+                  <Button variant="outline" onClick={() => setPublishModalOpen(false)}>
                     Cancel
                   </Button>
                   <Button
@@ -458,7 +542,9 @@ export default function BlogCreationToolNew() {
                   <FileText className="w-16 h-16 mx-auto mb-4 text-gray-300" />
                   <h2 className="text-2xl font-bold text-gray-700 mb-2">Blog Creation Form</h2>
                   <p>This is the blog creation/editing interface</p>
-                  <p className="text-sm mt-2">(Full blog creation form available in the original BlogCreationTool)</p>
+                  <p className="text-sm mt-2">
+                    (Full blog creation form available in the original BlogCreationTool)
+                  </p>
                 </div>
               </CardContent>
             </Card>

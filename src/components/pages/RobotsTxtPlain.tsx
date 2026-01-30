@@ -113,16 +113,17 @@ export default function RobotsTxtPlain() {
     // Remove all body styling and replace with plain text
     const originalBodyClass = document.body.className;
     const originalBodyStyle = document.body.getAttribute('style') || '';
-    
+
     document.body.className = '';
-    document.body.style.cssText = 'margin: 0; padding: 0; background: white; color: black; font-family: monospace; font-size: 12px; line-height: 1.5;';
-    
+    document.body.style.cssText =
+      'margin: 0; padding: 0; background: white; color: black; font-family: monospace; font-size: 12px; line-height: 1.5;';
+
     // Try to replace entire body content with plain text
     const root = document.getElementById('root');
     if (root) {
       root.style.cssText = 'margin: 0; padding: 0;';
     }
-    
+
     return () => {
       // Restore on unmount
       document.body.className = originalBodyClass;
@@ -136,20 +137,22 @@ export default function RobotsTxtPlain() {
         <meta httpEquiv="Content-Type" content="text/plain; charset=utf-8" />
         <title>robots.txt</title>
       </Helmet>
-      <pre style={{ 
-        margin: 0, 
-        padding: 0, 
-        fontFamily: 'monospace',
-        whiteSpace: 'pre',
-        wordWrap: 'normal',
-        fontSize: '12px',
-        lineHeight: '1.5',
-        color: 'black',
-        backgroundColor: 'white',
-        border: 'none',
-        outline: 'none',
-        boxShadow: 'none'
-      }}>
+      <pre
+        style={{
+          margin: 0,
+          padding: 0,
+          fontFamily: 'monospace',
+          whiteSpace: 'pre',
+          wordWrap: 'normal',
+          fontSize: '12px',
+          lineHeight: '1.5',
+          color: 'black',
+          backgroundColor: 'white',
+          border: 'none',
+          outline: 'none',
+          boxShadow: 'none',
+        }}
+      >
         {robotsContent}
       </pre>
     </>

@@ -8,32 +8,33 @@ import SEO from '../SEO';
 
 export default function PrivacyPolicyPage() {
   const privacyStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Privacy Policy - ThinkMents",
-    "description": "ThinkMents privacy policy explaining how we collect, use, and protect your personal information when using our digital marketing services",
-    "url": "https://thinkments.com/privacy-policy",
-    "dateModified": "2025-01-31",
-    "isPartOf": {
-      "@type": "WebSite", 
-      "name": "ThinkMents",
-      "url": "https://thinkments.com"
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Privacy Policy - ThinkMents',
+    description:
+      'ThinkMents privacy policy explaining how we collect, use, and protect your personal information when using our digital marketing services',
+    url: 'https://thinkments.com/privacy-policy',
+    dateModified: '2025-01-31',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
     },
-    "mainEntity": {
-      "@type": "Article",
-      "headline": "Privacy Policy",
-      "datePublished": "2025-01-31",
-      "dateModified": "2025-01-31",
-      "author": {
-        "@type": "Organization",
-        "name": "ThinkMents"
+    mainEntity: {
+      '@type': 'Article',
+      headline: 'Privacy Policy',
+      datePublished: '2025-01-31',
+      dateModified: '2025-01-31',
+      author: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "ThinkMents",
-        "url": "https://thinkments.com"
-      }
-    }
+      publisher: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
+        url: 'https://thinkments.com',
+      },
+    },
   };
 
   return (
@@ -46,7 +47,7 @@ export default function PrivacyPolicyPage() {
         type="website"
         structuredData={privacyStructuredData}
       />
-      
+
       <motion.div
         className=""
         initial={{ opacity: 0 }}
@@ -68,14 +69,16 @@ export default function PrivacyPolicyPage() {
                   Policy
                 </span>
               </motion.h1>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Your privacy is important to us and we are committed to protecting your personal information. This comprehensive policy explains how ThinkMents collects, uses, and safeguards your data when you use our services or visit our website.
+                Your privacy is important to us and we are committed to protecting your personal
+                information. This comprehensive policy explains how ThinkMents collects, uses, and
+                safeguards your data when you use our services or visit our website.
               </motion.p>
 
               <motion.div
@@ -132,7 +135,7 @@ export default function PrivacyPolicyPage() {
                       <li>Contact us via phone, email, or chat</li>
                       <li>Participate in surveys or provide feedback</li>
                     </ul>
-                    
+
                     <p>This information may include:</p>
                     <ul>
                       <li>Name, email address, and phone number</li>
@@ -166,12 +169,27 @@ export default function PrivacyPolicyPage() {
                     <CardTitle>3. Information Sharing</CardTitle>
                   </CardHeader>
                   <CardContent className="prose prose-gray max-w-none">
-                    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+                    <p>
+                      We do not sell, trade, or rent your personal information to third parties. We
+                      may share your information only in the following circumstances:
+                    </p>
                     <ul>
-                      <li><strong>Service Providers:</strong> With trusted third-party providers who help us operate our business (e.g., payment processors, email services)</li>
-                      <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
-                      <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
-                      <li><strong>With Your Consent:</strong> When you explicitly agree to share information with third parties</li>
+                      <li>
+                        <strong>Service Providers:</strong> With trusted third-party providers who
+                        help us operate our business (e.g., payment processors, email services)
+                      </li>
+                      <li>
+                        <strong>Legal Requirements:</strong> When required by law or to protect our
+                        rights and safety
+                      </li>
+                      <li>
+                        <strong>Business Transfers:</strong> In connection with a merger,
+                        acquisition, or sale of assets
+                      </li>
+                      <li>
+                        <strong>With Your Consent:</strong> When you explicitly agree to share
+                        information with third parties
+                      </li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -188,8 +206,11 @@ export default function PrivacyPolicyPage() {
                       <li>Provide personalized content and advertisements</li>
                       <li>Improve website functionality and user experience</li>
                     </ul>
-                    
-                    <p>You can control cookie settings through your browser preferences. However, disabling cookies may affect website functionality.</p>
+
+                    <p>
+                      You can control cookie settings through your browser preferences. However,
+                      disabling cookies may affect website functionality.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -198,7 +219,11 @@ export default function PrivacyPolicyPage() {
                     <CardTitle>5. Data Security</CardTitle>
                   </CardHeader>
                   <CardContent className="prose prose-gray max-w-none">
-                    <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
+                    <p>
+                      We implement appropriate security measures to protect your personal
+                      information against unauthorized access, alteration, disclosure, or
+                      destruction. These measures include:
+                    </p>
                     <ul>
                       <li>SSL encryption for data transmission</li>
                       <li>Secure servers and databases</li>
@@ -216,14 +241,32 @@ export default function PrivacyPolicyPage() {
                   <CardContent className="prose prose-gray max-w-none">
                     <p>You have the right to:</p>
                     <ul>
-                      <li><strong>Access:</strong> Request information about the personal data we hold about you</li>
-                      <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
-                      <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal requirements)</li>
-                      <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time</li>
-                      <li><strong>Portability:</strong> Request a copy of your data in a portable format</li>
+                      <li>
+                        <strong>Access:</strong> Request information about the personal data we hold
+                        about you
+                      </li>
+                      <li>
+                        <strong>Correction:</strong> Request correction of inaccurate or incomplete
+                        information
+                      </li>
+                      <li>
+                        <strong>Deletion:</strong> Request deletion of your personal information
+                        (subject to legal requirements)
+                      </li>
+                      <li>
+                        <strong>Opt-out:</strong> Unsubscribe from marketing communications at any
+                        time
+                      </li>
+                      <li>
+                        <strong>Portability:</strong> Request a copy of your data in a portable
+                        format
+                      </li>
                     </ul>
-                    
-                    <p>To exercise these rights, please contact us using the information provided below.</p>
+
+                    <p>
+                      To exercise these rights, please contact us using the information provided
+                      below.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -239,8 +282,11 @@ export default function PrivacyPolicyPage() {
                       <li>Resolve disputes and enforce agreements</li>
                       <li>Maintain business records as required by law</li>
                     </ul>
-                    
-                    <p>When we no longer need your information, we will securely delete or anonymize it.</p>
+
+                    <p>
+                      When we no longer need your information, we will securely delete or anonymize
+                      it.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -249,7 +295,11 @@ export default function PrivacyPolicyPage() {
                     <CardTitle>8. Third-Party Links</CardTitle>
                   </CardHeader>
                   <CardContent className="prose prose-gray max-w-none">
-                    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party websites you visit.</p>
+                    <p>
+                      Our website may contain links to third-party websites. We are not responsible
+                      for the privacy practices or content of these external sites. We encourage you
+                      to review the privacy policies of any third-party websites you visit.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -258,7 +308,12 @@ export default function PrivacyPolicyPage() {
                     <CardTitle>9. Children's Privacy</CardTitle>
                   </CardHeader>
                   <CardContent className="prose prose-gray max-w-none">
-                    <p>Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it promptly.</p>
+                    <p>
+                      Our services are not intended for children under 13 years of age. We do not
+                      knowingly collect personal information from children under 13. If we become
+                      aware that we have collected such information, we will take steps to delete it
+                      promptly.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -267,14 +322,21 @@ export default function PrivacyPolicyPage() {
                     <CardTitle>10. Changes to This Policy</CardTitle>
                   </CardHeader>
                   <CardContent className="prose prose-gray max-w-none">
-                    <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by:</p>
+                    <p>
+                      We may update this privacy policy from time to time to reflect changes in our
+                      practices or legal requirements. We will notify you of any material changes
+                      by:
+                    </p>
                     <ul>
                       <li>Posting the updated policy on our website</li>
                       <li>Sending an email notification to registered users</li>
                       <li>Displaying a prominent notice on our website</li>
                     </ul>
-                    
-                    <p>Your continued use of our services after any changes constitutes acceptance of the updated policy.</p>
+
+                    <p>
+                      Your continued use of our services after any changes constitutes acceptance of
+                      the updated policy.
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -299,7 +361,8 @@ export default function PrivacyPolicyPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                If you have any questions about this privacy policy or our data practices, please don't hesitate to contact us.
+                If you have any questions about this privacy policy or our data practices, please
+                don't hesitate to contact us.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -322,9 +385,7 @@ export default function PrivacyPolicyPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact">
-                  <Button className="bg-gradient-to-r from-primary to-accent">
-                    Contact Us
-                  </Button>
+                  <Button className="bg-gradient-to-r from-primary to-accent">Contact Us</Button>
                 </Link>
                 <Link to="/">
                   <Button variant="outline">

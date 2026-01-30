@@ -2,17 +2,17 @@
 
 :root {
   /* Admin Brand Colors */
-  --admin-primary: #1E3A5F;
+  --admin-primary: #1e3a5f;
   --admin-primary-hover: #152d4a;
-  --admin-accent: #00B4D8;
+  --admin-accent: #00b4d8;
   --admin-accent-hover: #0096b8;
-  --admin-secondary: #FF6B35;
+  --admin-secondary: #ff6b35;
   --admin-secondary-hover: #e55525;
-  --admin-bg: #F8F9FA;
-  --admin-card: #FFFFFF;
-  --admin-border: #E0E4E8;
-  --admin-text-primary: #1E3A5F;
-  --admin-text-secondary: #6C757D;
+  --admin-bg: #f8f9fa;
+  --admin-card: #ffffff;
+  --admin-border: #e0e4e8;
+  --admin-text-primary: #1e3a5f;
+  --admin-text-secondary: #6c757d;
   --admin-sidebar-width: 260px;
   --admin-sidebar-collapsed: 80px;
   --admin-header-height: 64px;
@@ -79,7 +79,15 @@
   padding: 1.5rem;
 }
 
-.admin-badge-blue { background-color: var(--admin-primary); }
-.admin-badge-teal { background-color: var(--admin-accent); }
-.admin-badge-orange { background-color: var(--admin-secondary); }
-.admin-badge-gray { background-color: #6C757D; }
+.admin-badge-blue {
+  background-color: var(--admin-primary);
+}
+.admin-badge-teal {
+  background-color: var(--admin-accent);
+}
+.admin-badge-orange {
+  background-color: var(--admin-secondary);
+}
+.admin-badge-gray {
+  background-color: #6c757d;
+}

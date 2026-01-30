@@ -15,7 +15,7 @@ const colors = {
   yellow: '\x1b[33m',
   blue: '\x1b[34m',
   reset: '\x1b[0m',
-  bold: '\x1b[1m'
+  bold: '\x1b[1m',
 };
 
 function log(color, message) {
@@ -37,9 +37,9 @@ function checkFileContent(filePath, fileName, requiredContent) {
   const fullPath = path.join(__dirname, '..', filePath);
   if (fs.existsSync(fullPath)) {
     const content = fs.readFileSync(fullPath, 'utf8');
-    
+
     let allFound = true;
-    requiredContent.forEach(required => {
+    requiredContent.forEach((required) => {
       if (content.includes(required)) {
         log(colors.green, `  ✅ Contains: ${required}`);
       } else {
@@ -47,7 +47,7 @@ function checkFileContent(filePath, fileName, requiredContent) {
         allFound = false;
       }
     });
-    
+
     return allFound;
   } else {
     log(colors.red, `❌ ${fileName} not found`);
@@ -57,7 +57,7 @@ function checkFileContent(filePath, fileName, requiredContent) {
 
 function analyzeIndexHtml() {
   log(colors.blue, '\n📄 Analyzing index.html...');
-  
+
   const requiredMeta = [
     '<meta name="description"',
     '<meta name="robots" content="index, follow"',
@@ -66,46 +66,46 @@ function analyzeIndexHtml() {
     '<meta property="og:description"',
     '<meta property="og:image"',
     '<meta name="twitter:card"',
-    'application/ld+json'
+    'application/ld+json',
   ];
-  
+
   return checkFileContent('public/index.html', 'index.html', requiredMeta);
 }
 
 function analyzeRobotsTxt() {
   log(colors.blue, '\n🤖 Analyzing robots.txt...');
-  
+
   const requiredDirectives = [
     'User-agent: *',
     'Allow: /',
     'Disallow: /admin',
     'Sitemap: https://thinkments.com/sitemap.xml',
-    'User-agent: Googlebot'
+    'User-agent: Googlebot',
   ];
-  
+
   return checkFileContent('public/robots.txt', 'robots.txt', requiredDirectives);
 }
 
 function analyzeSitemap() {
   log(colors.blue, '\n🗺️ Analyzing sitemap.xml...');
-  
+
   const requiredElements = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     '<loc>https://thinkments.com/</loc>',
     '<lastmod>',
     '<changefreq>',
-    '<priority>'
+    '<priority>',
   ];
-  
+
   return checkFileContent('public/sitemap.xml', 'sitemap.xml', requiredElements);
 }
 
 function checkSEOComponents() {
   log(colors.blue, '\n⚛️ Checking SEO React Components...');
-  
+
   let allGood = true;
-  
+
   // Check SEO component
   if (checkFile('components/SEO.tsx', 'SEO Component')) {
     const seoRequirements = [
@@ -115,16 +115,16 @@ function checkSEOComponents() {
       'meta name="robots"',
       'link rel="canonical"',
       'property="og:',
-      'application/ld+json'
+      'application/ld+json',
     ];
-    
+
     if (!checkFileContent('components/SEO.tsx', 'SEO Component', seoRequirements)) {
       allGood = false;
     }
   } else {
     allGood = false;
   }
-  
+
   // Check SEOPreloader component
   if (checkFile('components/SEOPreloader.tsx', 'SEOPreloader Component')) {
     const preloaderRequirements = [
@@ -132,16 +132,22 @@ function checkSEOComponents() {
       'meta name="description"',
       'meta name="robots"',
       'link rel="canonical"',
-      'application/ld+json'
+      'application/ld+json',
     ];
-    
-    if (!checkFileContent('components/SEOPreloader.tsx', 'SEOPreloader Component', preloaderRequirements)) {
+
+    if (
+      !checkFileContent(
+        'components/SEOPreloader.tsx',
+        'SEOPreloader Component',
+        preloaderRequirements,
+      )
+    ) {
       allGood = false;
     }
   } else {
     allGood = false;
   }
-  
+
   return allGood;
 }
 
@@ -149,9 +155,9 @@ function generateSEOScore(results) {
   const totalChecks = Object.keys(results).length;
   const passedChecks = Object.values(results).filter(Boolean).length;
   const score = Math.round((passedChecks / totalChecks) * 100);
-  
+
   log(colors.bold, `\n📊 SEO SCORE: ${score}%`);
-  
+
   if (score >= 90) {
     log(colors.green, '🎉 Excellent! Your SEO setup is ready for Google indexing.');
   } else if (score >= 70) {
@@ -159,33 +165,33 @@ function generateSEOScore(results) {
   } else {
     log(colors.red, '🚨 Critical issues found. SEO setup needs attention.');
   }
-  
+
   return score;
 }
 
 function generateRecommendations(results) {
   log(colors.blue, '\n💡 RECOMMENDATIONS:');
-  
+
   if (!results.staticFiles) {
     log(colors.yellow, '• Run "npm run seo:generate" to create missing static files');
   }
-  
+
   if (!results.indexHtml) {
     log(colors.yellow, '• Update index.html with proper meta tags and structured data');
   }
-  
+
   if (!results.robotsTxt) {
     log(colors.yellow, '• Fix robots.txt directives and sitemap references');
   }
-  
+
   if (!results.sitemap) {
     log(colors.yellow, '• Generate proper XML sitemap with all pages');
   }
-  
+
   if (!results.seoComponents) {
     log(colors.yellow, '• Ensure SEO components are properly implemented');
   }
-  
+
   log(colors.blue, '\nFOR GOOGLE SEARCH CONSOLE:');
   log(colors.reset, '1. Submit sitemap: https://thinkments.com/sitemap.xml');
   log(colors.reset, '2. Test robots.txt: https://thinkments.com/robots.txt');
@@ -195,31 +201,32 @@ function generateRecommendations(results) {
 
 function main() {
   log(colors.bold, '🔍 ThinkMents SEO Health Check\n');
-  
+
   const results = {
     staticFiles: true,
     indexHtml: false,
     robotsTxt: false,
     sitemap: false,
-    seoComponents: false
+    seoComponents: false,
   };
-  
+
   // Check static files
   log(colors.blue, '📁 Checking Static SEO Files...');
-  results.staticFiles = checkFile('public/robots.txt', 'robots.txt') && 
-                        checkFile('public/sitemap.xml', 'sitemap.xml') && 
-                        checkFile('public/index.html', 'index.html');
-  
+  results.staticFiles =
+    checkFile('public/robots.txt', 'robots.txt') &&
+    checkFile('public/sitemap.xml', 'sitemap.xml') &&
+    checkFile('public/index.html', 'index.html');
+
   // Analyze file contents
   results.indexHtml = analyzeIndexHtml();
   results.robotsTxt = analyzeRobotsTxt();
   results.sitemap = analyzeSitemap();
   results.seoComponents = checkSEOComponents();
-  
+
   // Generate score and recommendations
   const score = generateSEOScore(results);
   generateRecommendations(results);
-  
+
   // Exit with appropriate code
   process.exit(score >= 70 ? 0 : 1);
 }

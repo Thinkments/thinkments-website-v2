@@ -212,29 +212,29 @@ Purpose: Structured information for AI assistants and language models`;
 
 const sections = [
   {
-    title: "AI-Friendly Format",
+    title: 'AI-Friendly Format',
     icon: <Brain className="h-5 w-5" />,
-    description: "Structured data optimized for AI assistants and language models",
-    color: "bg-purple-100 text-purple-800 border-purple-200"
+    description: 'Structured data optimized for AI assistants and language models',
+    color: 'bg-purple-100 text-purple-800 border-purple-200',
   },
   {
-    title: "Comprehensive Info",
+    title: 'Comprehensive Info',
     icon: <BookOpen className="h-5 w-5" />,
-    description: "Complete business information and service descriptions",
-    color: "bg-blue-100 text-blue-800 border-blue-200"
+    description: 'Complete business information and service descriptions',
+    color: 'bg-blue-100 text-blue-800 border-blue-200',
   },
   {
-    title: "LLM Guidelines",
+    title: 'LLM Guidelines',
     icon: <Sparkles className="h-5 w-5" />,
-    description: "Content guidelines for AI assistants when referencing ThinkMents",
-    color: "bg-green-100 text-green-800 border-green-200"
+    description: 'Content guidelines for AI assistants when referencing ThinkMents',
+    color: 'bg-green-100 text-green-800 border-green-200',
   },
   {
-    title: "Machine Readable",
+    title: 'Machine Readable',
     icon: <Cpu className="h-5 w-5" />,
-    description: "Structured format for easy parsing and understanding",
-    color: "bg-orange-100 text-orange-800 border-orange-200"
-  }
+    description: 'Structured format for easy parsing and understanding',
+    color: 'bg-orange-100 text-orange-800 border-orange-200',
+  },
 ];
 
 const copyToClipboard = () => {
@@ -260,7 +260,10 @@ export default function LlmPage() {
     <>
       <Helmet>
         <title>LLM.txt - ThinkMents AI Documentation</title>
-        <meta name="description" content="ThinkMents llm.txt file - structured information for AI assistants and language models." />
+        <meta
+          name="description"
+          content="ThinkMents llm.txt file - structured information for AI assistants and language models."
+        />
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://thinkments.com/llm.txt" />
       </Helmet>
@@ -374,7 +377,9 @@ export default function LlmPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground">
-                      LLM.txt is a structured text file that provides comprehensive information about our business in a format optimized for AI assistants and language models.
+                      LLM.txt is a structured text file that provides comprehensive information
+                      about our business in a format optimized for AI assistants and language
+                      models.
                     </p>
                     <Separator />
                     <div className="space-y-3">
@@ -407,7 +412,9 @@ export default function LlmPage() {
                   <CardContent className="space-y-4">
                     {sections.map((section, index) => (
                       <div key={index} className="flex items-start gap-3">
-                        <div className={`rounded-full p-2 ${section.color.split(' ').slice(0, 2).join(' ')}`}>
+                        <div
+                          className={`rounded-full p-2 ${section.color.split(' ').slice(0, 2).join(' ')}`}
+                        >
                           {section.icon}
                         </div>
                         <div>
@@ -432,13 +439,16 @@ export default function LlmPage() {
                   <CardContent>
                     <div className="space-y-3">
                       <p className="text-sm text-muted-foreground">
-                        This file can be used to train or inform AI assistants about ThinkMents digital marketing services.
+                        This file can be used to train or inform AI assistants about ThinkMents
+                        digital marketing services.
                       </p>
                       <Separator />
                       <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
                         <p className="text-sm font-mono text-purple-900">
-                          Format: Markdown-based<br />
-                          Version: 1.0<br />
+                          Format: Markdown-based
+                          <br />
+                          Version: 1.0
+                          <br />
                           Updated: 2025-01-26
                         </p>
                       </div>

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
-  ArrowRight, 
-  TrendingUp, 
-  DollarSign, 
+import {
+  ArrowRight,
+  TrendingUp,
+  DollarSign,
   Star,
   Home,
   Building,
@@ -30,7 +30,7 @@ import {
   Bot,
   ExternalLink,
   Users,
-  BarChart
+  BarChart,
 } from 'lucide-react';
 import SEO from '../SEO';
 import Breadcrumb from '../Breadcrumb';
@@ -54,13 +54,13 @@ interface CaseStudy {
 
 export default function CaseStudiesPage() {
   const [activeCategory, setActiveCategory] = useState('all');
-  
+
   const heroRef = useRef(null);
   const featuredRef = useRef(null);
   const gridRef = useRef(null);
   const resultsRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isFeaturedInView = useInView(featuredRef, { once: true });
   const isGridInView = useInView(gridRef, { once: true });
@@ -73,7 +73,7 @@ export default function CaseStudiesPage() {
     { id: 'technology', label: 'Technology' },
     { id: 'real-estate', label: 'Real Estate' },
     { id: 'home-services', label: 'Home Services' },
-    { id: 'retail', label: 'Retail' }
+    { id: 'retail', label: 'Retail' },
   ];
 
   const caseStudies: CaseStudy[] = [
@@ -87,15 +87,18 @@ export default function CaseStudiesPage() {
       keyStat: '$400M+',
       description: 'in revenue generated',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1764885449418-db6632922a19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBoZWFsdGhjYXJlJTIwZmFjaWxpdHklMjBleHRlcmlvcnxlbnwxfHx8fDE3NjU0MDQzMDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      challenge: 'A growing healthcare network needed to transform their patient acquisition and brand presence across multiple locations.',
-      solution: 'Complete marketing overhaul including SEO, reputation management, and targeted advertising.',
+      image:
+        'https://images.unsplash.com/photo-1764885449418-db6632922a19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBoZWFsdGhjYXJlJTIwZmFjaWxpdHklMjBleHRlcmlvcnxlbnwxfHx8fDE3NjU0MDQzMDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      challenge:
+        'A growing healthcare network needed to transform their patient acquisition and brand presence across multiple locations.',
+      solution:
+        'Complete marketing overhaul including SEO, reputation management, and targeted advertising.',
       results: [
         '$400M+ in attributed revenue',
         '300% increase in patient inquiries',
-        '#1 rankings for key service terms'
+        '#1 rankings for key service terms',
       ],
-      link: '/case-studies/foursquare-healthcare'
+      link: '/case-studies/foursquare-healthcare',
     },
     {
       id: 2,
@@ -106,15 +109,18 @@ export default function CaseStudiesPage() {
       keyStat: '$500M+',
       description: 'company valuation',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1604869515882-4d10fa4b0492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaWJlciUyMG9wdGljJTIwdGVsZWNvbW11bmljYXRpb25zJTIwaW5mcmFzdHJ1Y3R1cmV8ZW58MXx8fHwxNzY1NDA0MzAzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      challenge: 'Building marketing and operations infrastructure for one of the largest telecommunications rollouts in history.',
-      solution: 'End-to-end marketing strategy, sales enablement, and operational systems during the Verizon FiOS expansion.',
+      image:
+        'https://images.unsplash.com/photo-1604869515882-4d10fa4b0492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaWJlciUyMG9wdGljJTIwdGVsZWNvbW11bmljYXRpb25zJTIwaW5mcmFzdHJ1Y3R1cmV8ZW58MXx8fHwxNzY1NDA0MzAzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      challenge:
+        'Building marketing and operations infrastructure for one of the largest telecommunications rollouts in history.',
+      solution:
+        'End-to-end marketing strategy, sales enablement, and operational systems during the Verizon FiOS expansion.',
       results: [
         '$500M+ company valuation achieved',
         'Nationwide operations supported',
-        'Scalable systems still in use today'
+        'Scalable systems still in use today',
       ],
-      link: '#'
+      link: '#',
     },
     {
       id: 3,
@@ -125,26 +131,29 @@ export default function CaseStudiesPage() {
       keyStat: 'First Ever',
       description: 'arena seat preview',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1687216769793-833dcfe4e3af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwYXJlbmElMjBpbnRlcmlvciUyMHNlYXRzfGVufDF8fHx8MTc2NTQwNDMwNHww&ixlib=rb-4.1.0&q=80&w=1080',
-      challenge: 'Create a way for ticket buyers to see their exact view before purchasing—something that had never been done.',
-      solution: 'Pioneered the first virtual seat preview system in partnership with Mark Cuban\'s arena.',
+      image:
+        'https://images.unsplash.com/photo-1687216769793-833dcfe4e3af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwYXJlbmElMjBpbnRlcmlvciUyMHNlYXRzfGVufDF8fHx8MTc2NTQwNDMwNHww&ixlib=rb-4.1.0&q=80&w=1080',
+      challenge:
+        'Create a way for ticket buyers to see their exact view before purchasing—something that had never been done.',
+      solution:
+        "Pioneered the first virtual seat preview system in partnership with Mark Cuban's arena.",
       results: [
         'Industry-first technology',
         'Now standard across arenas worldwide',
-        'Significantly improved ticket sales conversion'
+        'Significantly improved ticket sales conversion',
       ],
-      link: '#'
+      link: '#',
     },
     // Additional Case Studies
     {
       id: 4,
-      title: 'Chenevert\'s Home & Hardware',
-      company: 'Chenevert\'s Home & Hardware',
+      title: "Chenevert's Home & Hardware",
+      company: "Chenevert's Home & Hardware",
       industry: 'Retail',
       category: 'retail',
       keyStat: '634',
       description: 'monthly users',
-      link: '/case-studies/chenevert'
+      link: '/case-studies/chenevert',
     },
     {
       id: 5,
@@ -154,7 +163,7 @@ export default function CaseStudiesPage() {
       category: 'real-estate',
       keyStat: 'First',
       description: 'cloud brokerage',
-      link: '#'
+      link: '#',
     },
     {
       id: 6,
@@ -164,7 +173,7 @@ export default function CaseStudiesPage() {
       category: 'retail',
       keyStat: '2012',
       description: '7 years before COVID',
-      link: '#'
+      link: '#',
     },
     {
       id: 7,
@@ -174,7 +183,7 @@ export default function CaseStudiesPage() {
       category: 'technology',
       keyStat: 'First',
       description: 'museum virtual tour',
-      link: '#'
+      link: '#',
     },
     {
       id: 8,
@@ -184,7 +193,7 @@ export default function CaseStudiesPage() {
       category: 'home-services',
       keyStat: '400%',
       description: 'increase in leads',
-      link: '#'
+      link: '#',
     },
     {
       id: 9,
@@ -194,7 +203,7 @@ export default function CaseStudiesPage() {
       category: 'healthcare',
       keyStat: '250%',
       description: 'new patient growth',
-      link: '#'
+      link: '#',
     },
     {
       id: 10,
@@ -204,7 +213,7 @@ export default function CaseStudiesPage() {
       category: 'real-estate',
       keyStat: '$50M+',
       description: 'in property sales',
-      link: '#'
+      link: '#',
     },
     {
       id: 11,
@@ -214,7 +223,7 @@ export default function CaseStudiesPage() {
       category: 'home-services',
       keyStat: '500%',
       description: 'ROI on Google Ads',
-      link: '#'
+      link: '#',
     },
     {
       id: 12,
@@ -224,15 +233,16 @@ export default function CaseStudiesPage() {
       category: 'retail',
       keyStat: '180%',
       description: 'online sales increase',
-      link: '#'
-    }
+      link: '#',
+    },
   ];
 
-  const featuredCaseStudies = caseStudies.filter(cs => cs.featured);
-  const allCaseStudies = caseStudies.filter(cs => !cs.featured);
-  const filteredCaseStudies = activeCategory === 'all' 
-    ? allCaseStudies 
-    : allCaseStudies.filter(cs => cs.category === activeCategory);
+  const featuredCaseStudies = caseStudies.filter((cs) => cs.featured);
+  const allCaseStudies = caseStudies.filter((cs) => !cs.featured);
+  const filteredCaseStudies =
+    activeCategory === 'all'
+      ? allCaseStudies
+      : allCaseStudies.filter((cs) => cs.category === activeCategory);
 
   return (
     <>
@@ -244,20 +254,28 @@ export default function CaseStudiesPage() {
       />
 
       {/* Breadcrumb Navigation */}
-      <Breadcrumb items={[
-        { name: 'Home', path: '/' },
-        { name: 'Work', path: '/case-studies' },
-        { name: 'Case Studies' }
-      ]} />
+      <Breadcrumb
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Work', path: '/case-studies' },
+          { name: 'Case Studies' },
+        ]}
+      />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative bg-gradient-to-br from-[#F8F9FA] to-white py-24 md:py-32 px-4 overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative bg-gradient-to-br from-[#F8F9FA] to-white py-24 md:py-32 px-4 overflow-hidden"
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, #1E3A5F 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, #1E3A5F 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10 text-center">
@@ -266,11 +284,15 @@ export default function CaseStudiesPage() {
             animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1E3A5F] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1E3A5F] mb-6"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Real Results. Real Stories.
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed">
-              Detailed case studies showing how we&apos;ve helped businesses across industries achieve measurable success.
+              Detailed case studies showing how we&apos;ve helped businesses across industries
+              achieve measurable success.
             </p>
 
             {/* Stats Row */}
@@ -278,7 +300,7 @@ export default function CaseStudiesPage() {
               {[
                 { stat: '$500M+', label: 'Total Value Generated' },
                 { stat: '1,000+', label: 'Projects Completed' },
-                { stat: '18', label: 'Industries Served' }
+                { stat: '18', label: 'Industries Served' },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -287,7 +309,10 @@ export default function CaseStudiesPage() {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   className="bg-white rounded-lg p-8 shadow-lg border border-gray-100"
                 >
-                  <div className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <div
+                    className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-2"
+                    style={{ fontFamily: 'Playfair Display, serif' }}
+                  >
                     {item.stat}
                   </div>
                   <div className="text-lg text-gray-600">{item.label}</div>
@@ -307,7 +332,10 @@ export default function CaseStudiesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Featured Success Stories
             </h2>
           </motion.div>
@@ -324,28 +352,32 @@ export default function CaseStudiesPage() {
                   {/* Image */}
                   {study.image && (
                     <div className="h-48 overflow-hidden">
-                      <img 
-                        src={study.image} 
+                      <img
+                        src={study.image}
                         alt={study.title}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       />
                     </div>
                   )}
-                  
+
                   <CardContent className="p-6">
                     {/* Category Tag */}
-                    <Badge className="bg-[#00B4D8] text-white mb-4">
-                      {study.industry}
-                    </Badge>
+                    <Badge className="bg-[#00B4D8] text-white mb-4">{study.industry}</Badge>
 
                     {/* Headline */}
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3
+                      className="text-2xl font-bold text-[#1E3A5F] mb-4"
+                      style={{ fontFamily: 'Playfair Display, serif' }}
+                    >
                       {study.title}
                     </h3>
 
                     {/* Big Stat */}
                     <div className="mb-4">
-                      <div className="text-4xl font-bold text-[#FF6B35] mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <div
+                        className="text-4xl font-bold text-[#FF6B35] mb-1"
+                        style={{ fontFamily: 'Playfair Display, serif' }}
+                      >
                         {study.keyStat}
                       </div>
                       <div className="text-gray-600">{study.description}</div>
@@ -355,9 +387,7 @@ export default function CaseStudiesPage() {
                     {study.challenge && (
                       <div className="mb-4">
                         <h4 className="font-semibold text-[#1E3A5F] mb-2">Challenge:</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {study.challenge}
-                        </p>
+                        <p className="text-gray-600 text-sm leading-relaxed">{study.challenge}</p>
                       </div>
                     )}
 
@@ -365,9 +395,7 @@ export default function CaseStudiesPage() {
                     {study.solution && (
                       <div className="mb-4">
                         <h4 className="font-semibold text-[#1E3A5F] mb-2">Solution:</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {study.solution}
-                        </p>
+                        <p className="text-gray-600 text-sm leading-relaxed">{study.solution}</p>
                       </div>
                     )}
 
@@ -431,7 +459,10 @@ export default function CaseStudiesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               More Success Stories
             </h2>
           </motion.div>
@@ -447,18 +478,22 @@ export default function CaseStudiesPage() {
                 <Card className="h-full hover:shadow-xl transition-shadow duration-300 rounded-lg border-t-4 border-t-[#00B4D8]">
                   <CardContent className="p-6 flex flex-col h-full">
                     {/* Industry Tag */}
-                    <Badge variant="outline" className="mb-3 w-fit text-xs border-[#00B4D8] text-[#00B4D8]">
+                    <Badge
+                      variant="outline"
+                      className="mb-3 w-fit text-xs border-[#00B4D8] text-[#00B4D8]"
+                    >
                       {study.industry}
                     </Badge>
 
                     {/* Company Name */}
-                    <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">
-                      {study.title}
-                    </h3>
+                    <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">{study.title}</h3>
 
                     {/* Key Stat Highlight */}
                     <div className="mb-4 bg-[#F8F9FA] rounded-lg p-4">
-                      <div className="text-3xl font-bold text-[#FF6B35] mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <div
+                        className="text-3xl font-bold text-[#FF6B35] mb-1"
+                        style={{ fontFamily: 'Playfair Display, serif' }}
+                      >
                         {study.keyStat}
                       </div>
                       <div className="text-sm text-gray-600">{study.description}</div>
@@ -495,12 +530,13 @@ export default function CaseStudiesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Aggregate Results Across All Clients
             </h2>
-            <p className="text-xl text-gray-600">
-              The cumulative impact of our work
-            </p>
+            <p className="text-xl text-gray-600">The cumulative impact of our work</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -508,7 +544,7 @@ export default function CaseStudiesPage() {
               { stat: '$500M+', label: 'Total value generated', icon: DollarSign },
               { stat: '1,000+', label: 'Projects completed', icon: Rocket },
               { stat: '300%', label: 'Average traffic increase', icon: TrendingUp },
-              { stat: '95%', label: 'Client retention rate', icon: Award }
+              { stat: '95%', label: 'Client retention rate', icon: Award },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -521,7 +557,10 @@ export default function CaseStudiesPage() {
                     <div className="w-16 h-16 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-4">
                       <item.icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <div
+                      className="text-4xl md:text-5xl font-bold text-[#00B4D8] mb-2"
+                      style={{ fontFamily: 'Playfair Display, serif' }}
+                    >
                       {item.stat}
                     </div>
                     <div className="text-gray-600">{item.label}</div>
@@ -541,7 +580,10 @@ export default function CaseStudiesPage() {
             animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Ready for Results Like These?
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
@@ -549,8 +591,8 @@ export default function CaseStudiesPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8"
               >
@@ -561,7 +603,7 @@ export default function CaseStudiesPage() {
               </Button>
               <div className="flex items-center gap-3 text-white/90">
                 <span>Or call</span>
-                <a 
+                <a
                   href="tel:9403151023"
                   className="flex items-center gap-2 font-semibold hover:text-[#00B4D8] transition-colors"
                 >

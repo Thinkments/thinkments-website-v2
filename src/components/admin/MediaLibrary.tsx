@@ -15,27 +15,15 @@ import {
   Sparkles,
   Image as ImageIcon,
   FileImage,
-  Maximize2
+  Maximize2,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Badge } from '../ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from '../ui/sheet';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '../ui/sheet';
 import { toast } from 'sonner@2.0.3';
 
 interface MediaItem {
@@ -69,7 +57,7 @@ export default function MediaLibrary() {
       dimensions: '1920x1080',
       uploadDate: 'Dec 1, 2025',
       usedIn: ['Homepage', 'About Page'],
-      fileType: 'image/jpeg'
+      fileType: 'image/jpeg',
     },
     {
       id: '2',
@@ -80,7 +68,7 @@ export default function MediaLibrary() {
       dimensions: '1600x900',
       uploadDate: 'Nov 28, 2025',
       usedIn: ['About Page', 'Team Page'],
-      fileType: 'image/jpeg'
+      fileType: 'image/jpeg',
     },
     {
       id: '3',
@@ -91,7 +79,7 @@ export default function MediaLibrary() {
       dimensions: '1200x800',
       uploadDate: 'Nov 25, 2025',
       usedIn: ['SEO Services Page', 'Blog: SEO Tips'],
-      fileType: 'image/png'
+      fileType: 'image/png',
     },
     {
       id: '4',
@@ -102,7 +90,7 @@ export default function MediaLibrary() {
       dimensions: '1400x900',
       uploadDate: 'Nov 20, 2025',
       usedIn: ['Social Media Page'],
-      fileType: 'image/jpeg'
+      fileType: 'image/jpeg',
     },
     {
       id: '5',
@@ -113,7 +101,7 @@ export default function MediaLibrary() {
       dimensions: '1800x1200',
       uploadDate: 'Nov 15, 2025',
       usedIn: ['Web Design Page', 'Portfolio'],
-      fileType: 'image/jpeg'
+      fileType: 'image/jpeg',
     },
     {
       id: '6',
@@ -124,13 +112,13 @@ export default function MediaLibrary() {
       dimensions: '1600x900',
       uploadDate: 'Nov 10, 2025',
       usedIn: [],
-      fileType: 'image/png'
-    }
+      fileType: 'image/png',
+    },
   ];
 
   const handleSelectMedia = (id: string) => {
-    setSelectedMedia(prev =>
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    setSelectedMedia((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -138,7 +126,7 @@ export default function MediaLibrary() {
     if (selectedMedia.length === mediaItems.length) {
       setSelectedMedia([]);
     } else {
-      setSelectedMedia(mediaItems.map(item => item.id));
+      setSelectedMedia(mediaItems.map((item) => item.id));
     }
   };
 
@@ -297,10 +285,10 @@ export default function MediaLibrary() {
                     alt={media.altText}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  
+
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors" />
-                  
+
                   {/* Checkbox */}
                   <div className="absolute top-2 left-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button
@@ -383,7 +371,9 @@ export default function MediaLibrary() {
                   />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-[#1E3A5F] truncate">{media.name}</p>
-                    <p className="text-sm text-gray-500">{media.dimensions} • {media.size}</p>
+                    <p className="text-sm text-gray-500">
+                      {media.dimensions} • {media.size}
+                    </p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="text-right">
@@ -402,7 +392,11 @@ export default function MediaLibrary() {
                         copyToClipboard(media.url);
                       }}
                     >
-                      {copiedUrl === media.url ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      {copiedUrl === media.url ? (
+                        <Check className="w-4 h-4" />
+                      ) : (
+                        <Copy className="w-4 h-4" />
+                      )}
                     </Button>
                   </div>
                 </motion.div>
@@ -510,9 +504,7 @@ export default function MediaLibrary() {
                         <SelectItem value="high">High Quality (Best appearance)</SelectItem>
                       </SelectContent>
                     </Select>
-                    <Button className="w-full mt-3 bg-[#00B4D8]">
-                      Optimize Image
-                    </Button>
+                    <Button className="w-full mt-3 bg-[#00B4D8]">Optimize Image</Button>
                   </CardContent>
                 </Card>
 
@@ -522,7 +514,10 @@ export default function MediaLibrary() {
                   {activeMedia.usedIn.length > 0 ? (
                     <div className="mt-2 space-y-2">
                       {activeMedia.usedIn.map((page, index) => (
-                        <div key={index} className="p-3 bg-gray-50 rounded-lg flex items-center justify-between">
+                        <div
+                          key={index}
+                          className="p-3 bg-gray-50 rounded-lg flex items-center justify-between"
+                        >
                           <span className="text-sm text-gray-700">{page}</span>
                           <Button variant="ghost" size="sm" className="text-[#00B4D8]">
                             View

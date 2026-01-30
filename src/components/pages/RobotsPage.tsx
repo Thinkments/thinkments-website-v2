@@ -113,29 +113,29 @@ Allow: /`;
 
 const sections = [
   {
-    title: "General Access",
+    title: 'General Access',
     icon: <Globe className="h-5 w-5" />,
-    description: "Allows all web crawlers to access public content",
-    color: "bg-green-100 text-green-800 border-green-200"
+    description: 'Allows all web crawlers to access public content',
+    color: 'bg-green-100 text-green-800 border-green-200',
   },
   {
-    title: "Security Protection",
+    title: 'Security Protection',
     icon: <Shield className="h-5 w-5" />,
-    description: "Blocks access to admin interfaces and sensitive areas",
-    color: "bg-red-100 text-red-800 border-red-200"
+    description: 'Blocks access to admin interfaces and sensitive areas',
+    color: 'bg-red-100 text-red-800 border-red-200',
   },
   {
-    title: "SEO Optimization",
+    title: 'SEO Optimization',
     icon: <Search className="h-5 w-5" />,
-    description: "Optimized for search engine indexing and discovery",
-    color: "bg-blue-100 text-blue-800 border-blue-200"
+    description: 'Optimized for search engine indexing and discovery',
+    color: 'bg-blue-100 text-blue-800 border-blue-200',
   },
   {
-    title: "Crawl Management",
+    title: 'Crawl Management',
     icon: <Clock className="h-5 w-5" />,
-    description: "Manages crawler frequency to optimize server performance",
-    color: "bg-purple-100 text-purple-800 border-purple-200"
-  }
+    description: 'Manages crawler frequency to optimize server performance',
+    color: 'bg-purple-100 text-purple-800 border-purple-200',
+  },
 ];
 
 const copyToClipboard = () => {
@@ -161,7 +161,10 @@ export default function RobotsPage() {
     <>
       <Helmet>
         <title>Robots.txt - ThinkMents SEO Configuration</title>
-        <meta name="description" content="ThinkMents robots.txt file configuration for search engine crawlers and SEO optimization." />
+        <meta
+          name="description"
+          content="ThinkMents robots.txt file configuration for search engine crawlers and SEO optimization."
+        />
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href="https://thinkments.com/robots.txt" />
       </Helmet>
@@ -272,7 +275,9 @@ export default function RobotsPage() {
                   <CardContent className="space-y-4">
                     {sections.map((section, index) => (
                       <div key={index} className="flex items-start gap-3">
-                        <div className={`rounded-full p-2 ${section.color.split(' ').slice(0, 2).join(' ')}`}>
+                        <div
+                          className={`rounded-full p-2 ${section.color.split(' ').slice(0, 2).join(' ')}`}
+                        >
                           {section.icon}
                         </div>
                         <div>
@@ -298,22 +303,30 @@ export default function RobotsPage() {
                     <div className="space-y-3">
                       <div>
                         <h4 className="font-medium text-sm text-green-700">Allowed Paths</h4>
-                        <p className="text-xs text-muted-foreground">All public content, services, blog, store</p>
+                        <p className="text-xs text-muted-foreground">
+                          All public content, services, blog, store
+                        </p>
                       </div>
                       <Separator />
                       <div>
                         <h4 className="font-medium text-sm text-red-700">Blocked Paths</h4>
-                        <p className="text-xs text-muted-foreground">Admin interface, API endpoints</p>
+                        <p className="text-xs text-muted-foreground">
+                          Admin interface, API endpoints
+                        </p>
                       </div>
                       <Separator />
                       <div>
                         <h4 className="font-medium text-sm text-blue-700">Crawl Delays</h4>
-                        <p className="text-xs text-muted-foreground">0.5s for Google, 1s for others</p>
+                        <p className="text-xs text-muted-foreground">
+                          0.5s for Google, 1s for others
+                        </p>
                       </div>
                       <Separator />
                       <div>
                         <h4 className="font-medium text-sm text-purple-700">Sitemaps</h4>
-                        <p className="text-xs text-muted-foreground">XML and HTML sitemap references</p>
+                        <p className="text-xs text-muted-foreground">
+                          XML and HTML sitemap references
+                        </p>
                       </div>
                     </div>
                   </CardContent>

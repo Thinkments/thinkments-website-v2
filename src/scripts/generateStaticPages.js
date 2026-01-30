@@ -5,28 +5,108 @@ fs.writeFileSync('debug_start.txt', 'Script started');
 
 // Location routes (same as in routes.ts)
 const LOCATION_ROUTES = [
-  'atlanta', 'nashville', 'knoxville', 'chattanooga', 'memphis', 'birmingham',
-  'huntsville', 'montgomery', 'mobile', 'tuscaloosa', 'florence', 'decatur',
-  'anniston', 'dothan', 'gadsden', 'auburn', 'opelika', 'madison', 'hoover',
-  'vestavia-hills', 'mountain-brook', 'homewood', 'alabaster', 'pelham',
-  'trussville', 'gardendale', 'helena', 'chelsea', 'calera', 'clanton',
-  'alexander-city', 'sylacauga', 'talladega', 'pell-city', 'leeds',
-  'moody', 'springville', 'oneonta', 'cullman', 'jasper', 'walker-county',
-  'winston-county', 'blount-county', 'etowah-county', 'calhoun-county',
-  'cleburne-county', 'cherokee-county', 'dekalb-county', 'jackson-county',
-  'marshall-county', 'morgan-county', 'limestone-county', 'lauderdale-county',
-  'colbert-county', 'franklin-county', 'marion-county', 'lamar-county',
-  'fayette-county', 'tuscaloosa-county', 'pickens-county', 'sumter-county',
-  'greene-county', 'hale-county', 'perry-county', 'dallas-county',
-  'marengo-county', 'choctaw-county', 'washington-county', 'clarke-county',
-  'monroe-county', 'conecuh-county', 'escambia-county', 'covington-county',
-  'crenshaw-county', 'butler-county', 'lowndes-county', 'montgomery-county',
-  'autauga-county', 'elmore-county', 'chilton-county', 'coosa-county',
-  'tallapoosa-county', 'chambers-county', 'lee-county', 'russell-county',
-  'macon-county', 'bullock-county', 'pike-county', 'coffee-county',
-  'dale-county', 'geneva-county', 'houston-county', 'henry-county',
-  'barbour-county', 'randolph-county', 'clay-county', 'talladega-county',
-  'saint-clair-county', 'shelby-county', 'jefferson-county', 'tuscaloosa', 'cullman'
+  'atlanta',
+  'nashville',
+  'knoxville',
+  'chattanooga',
+  'memphis',
+  'birmingham',
+  'huntsville',
+  'montgomery',
+  'mobile',
+  'tuscaloosa',
+  'florence',
+  'decatur',
+  'anniston',
+  'dothan',
+  'gadsden',
+  'auburn',
+  'opelika',
+  'madison',
+  'hoover',
+  'vestavia-hills',
+  'mountain-brook',
+  'homewood',
+  'alabaster',
+  'pelham',
+  'trussville',
+  'gardendale',
+  'helena',
+  'chelsea',
+  'calera',
+  'clanton',
+  'alexander-city',
+  'sylacauga',
+  'talladega',
+  'pell-city',
+  'leeds',
+  'moody',
+  'springville',
+  'oneonta',
+  'cullman',
+  'jasper',
+  'walker-county',
+  'winston-county',
+  'blount-county',
+  'etowah-county',
+  'calhoun-county',
+  'cleburne-county',
+  'cherokee-county',
+  'dekalb-county',
+  'jackson-county',
+  'marshall-county',
+  'morgan-county',
+  'limestone-county',
+  'lauderdale-county',
+  'colbert-county',
+  'franklin-county',
+  'marion-county',
+  'lamar-county',
+  'fayette-county',
+  'tuscaloosa-county',
+  'pickens-county',
+  'sumter-county',
+  'greene-county',
+  'hale-county',
+  'perry-county',
+  'dallas-county',
+  'marengo-county',
+  'choctaw-county',
+  'washington-county',
+  'clarke-county',
+  'monroe-county',
+  'conecuh-county',
+  'escambia-county',
+  'covington-county',
+  'crenshaw-county',
+  'butler-county',
+  'lowndes-county',
+  'montgomery-county',
+  'autauga-county',
+  'elmore-county',
+  'chilton-county',
+  'coosa-county',
+  'tallapoosa-county',
+  'chambers-county',
+  'lee-county',
+  'russell-county',
+  'macon-county',
+  'bullock-county',
+  'pike-county',
+  'coffee-county',
+  'dale-county',
+  'geneva-county',
+  'houston-county',
+  'henry-county',
+  'barbour-county',
+  'randolph-county',
+  'clay-county',
+  'talladega-county',
+  'saint-clair-county',
+  'shelby-county',
+  'jefferson-county',
+  'tuscaloosa',
+  'cullman',
 ];
 
 const SERVICE_ROUTES = [
@@ -54,11 +134,19 @@ const SERVICE_ROUTES = [
   { path: 'real-estate-tours', service: 'Real Estate Tours' },
   { path: 'business-tours', service: 'Business Tours' },
   { path: 'interactive-presentations', service: 'Interactive Presentations' },
-  { path: 'virtual-showrooms', service: 'Virtual Showrooms' }
+  { path: 'virtual-showrooms', service: 'Virtual Showrooms' },
 ];
 
 // Base HTML template with proper robots meta tags
-const createHTMLTemplate = (title, description, keywords, url, structuredData, content, noindex = false) => {
+const createHTMLTemplate = (
+  title,
+  description,
+  keywords,
+  url,
+  structuredData,
+  content,
+  noindex = false,
+) => {
   const baseUrl = 'https://thinkments.com';
   const fullUrl = `${baseUrl}${url}`;
 
@@ -142,20 +230,23 @@ const createHTMLTemplate = (title, description, keywords, url, structuredData, c
 </head>
 <body>
   <div id="root">
-    ${content || `
+    ${
+      content ||
+      `
     <div class="static-content">
       <h1>${title}</h1>
       <p>${description}</p>
       ${!noindex ? '<div class="seo-notice">✅ This page is indexed by search engines for better SEO discovery.</div>' : '<div class="seo-notice">🔒 This page is not indexed by search engines for privacy protection.</div>'}
       <p>Loading interactive content...</p>
     </div>
-    `}
+    `
+    }
   </div>
   
   <!-- React will hydrate this content -->
   <script>
     // Basic SEO content is already loaded
-    console.log('ThinkMents static content loaded for SEO - Indexing: ${!noindex ? "ENABLED" : "DISABLED"}');
+    console.log('ThinkMents static content loaded for SEO - Indexing: ${!noindex ? 'ENABLED' : 'DISABLED'}');
   </script>
 </body>
 </html>`;
@@ -167,27 +258,30 @@ const pages = [
   {
     path: '',
     title: 'ThinkMents - Premier Digital Marketing Agency | Web Design & SEO Services',
-    description: 'Transform your business with ThinkMents digital marketing expertise. Professional web design, SEO optimization, virtual tours, and comprehensive marketing solutions.',
-    keywords: 'digital marketing, web design, SEO services, virtual tours, graphic design, videography, ThinkMents',
+    description:
+      'Transform your business with ThinkMents digital marketing expertise. Professional web design, SEO optimization, virtual tours, and comprehensive marketing solutions.',
+    keywords:
+      'digital marketing, web design, SEO services, virtual tours, graphic design, videography, ThinkMents',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "ThinkMents",
-      "url": "https://thinkments.com",
-      "logo": "https://thinkments.com/logo.png",
-      "description": "Premier digital marketing agency specializing in web design, SEO, virtual tours, and comprehensive marketing solutions.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-555-THINKMENTS",
-        "contactType": "customer service",
-        "availableLanguage": "English"
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
+      logo: 'https://thinkments.com/logo.png',
+      description:
+        'Premier digital marketing agency specializing in web design, SEO, virtual tours, and comprehensive marketing solutions.',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+1-555-THINKMENTS',
+        contactType: 'customer service',
+        availableLanguage: 'English',
       },
-      "sameAs": [
-        "https://www.facebook.com/thinkments",
-        "https://www.linkedin.com/company/thinkments",
-        "https://twitter.com/thinkments",
-        "https://www.instagram.com/thinkments"
-      ]
+      sameAs: [
+        'https://www.facebook.com/thinkments',
+        'https://www.linkedin.com/company/thinkments',
+        'https://twitter.com/thinkments',
+        'https://www.instagram.com/thinkments',
+      ],
     },
     content: `
     <div class="static-content">
@@ -213,22 +307,23 @@ const pages = [
       <p><strong>Contact us today for a free consultation and discover how ThinkMents can transform your digital presence.</strong></p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'about',
     title: 'About ThinkMents - Digital Marketing Experts Since 2024',
-    description: 'Learn about ThinkMents mission to revolutionize digital marketing. Meet our expert team and discover our commitment to driving business growth.',
+    description:
+      'Learn about ThinkMents mission to revolutionize digital marketing. Meet our expert team and discover our commitment to driving business growth.',
     keywords: 'about ThinkMents, digital marketing team, company story, marketing experts',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "About ThinkMents",
-      "description": "Learn about ThinkMents digital marketing agency and our expert team.",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "ThinkMents"
-      }
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      name: 'About ThinkMents',
+      description: 'Learn about ThinkMents digital marketing agency and our expert team.',
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
+      },
     },
     content: `
     <div class="static-content">
@@ -247,23 +342,25 @@ const pages = [
       <p>We believe in a data-driven approach to digital marketing, combining creativity with analytics to deliver solutions that not only look great but also perform exceptionally well.</p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'services',
     title: 'Digital Marketing Services - ThinkMents Complete Solutions',
-    description: 'Comprehensive digital marketing services including web design, SEO, virtual tours, graphic design, videography, and AI optimization solutions.',
-    keywords: 'digital marketing services, web design, SEO, virtual tours, graphic design, videography, AI optimization',
+    description:
+      'Comprehensive digital marketing services including web design, SEO, virtual tours, graphic design, videography, and AI optimization solutions.',
+    keywords:
+      'digital marketing services, web design, SEO, virtual tours, graphic design, videography, AI optimization',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Digital Marketing Services",
-      "provider": {
-        "@type": "Organization",
-        "name": "ThinkMents"
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Digital Marketing Services',
+      provider: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
       },
-      "description": "Comprehensive digital marketing services for business growth.",
-      "serviceType": "Digital Marketing"
+      description: 'Comprehensive digital marketing services for business growth.',
+      serviceType: 'Digital Marketing',
     },
     content: `
     <div class="static-content">
@@ -294,18 +391,20 @@ const pages = [
       <p>Cutting-edge artificial intelligence solutions to automate processes and enhance customer experiences.</p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'contact',
     title: 'Contact ThinkMents - Get Your Free Marketing Consultation',
-    description: 'Contact ThinkMents for a free digital marketing consultation. Get in touch with our expert team to discuss your business growth strategies.',
-    keywords: 'contact ThinkMents, free consultation, digital marketing contact, get quote, marketing consultation',
+    description:
+      'Contact ThinkMents for a free digital marketing consultation. Get in touch with our expert team to discuss your business growth strategies.',
+    keywords:
+      'contact ThinkMents, free consultation, digital marketing contact, get quote, marketing consultation',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contact ThinkMents",
-      "description": "Contact ThinkMents for digital marketing services and consultation."
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact ThinkMents',
+      description: 'Contact ThinkMents for digital marketing services and consultation.',
     },
     content: `
     <div class="static-content">
@@ -329,19 +428,20 @@ const pages = [
       <p>Fill out our contact form or give us a call. We'll schedule a consultation at your convenience to discuss how ThinkMents can help grow your business.</p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   // Technical pages that should be indexed
   {
     path: 'sitemap',
     title: 'Sitemap - ThinkMents Website Navigation',
-    description: 'Complete sitemap of ThinkMents website. Navigate through all our digital marketing services, resources, and content pages.',
+    description:
+      'Complete sitemap of ThinkMents website. Navigate through all our digital marketing services, resources, and content pages.',
     keywords: 'sitemap, website navigation, page directory, site structure',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Sitemap - ThinkMents",
-      "description": "Complete navigation sitemap of ThinkMents website."
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Sitemap - ThinkMents',
+      description: 'Complete navigation sitemap of ThinkMents website.',
     },
     content: `
     <div class="static-content">
@@ -362,18 +462,19 @@ const pages = [
       <p><strong>This sitemap helps search engines and users navigate our complete website structure.</strong></p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'sitemap.xml',
     title: 'XML Sitemap - ThinkMents SEO Configuration',
-    description: 'ThinkMents XML sitemap file for search engine crawlers with comprehensive URL structure and SEO optimization.',
+    description:
+      'ThinkMents XML sitemap file for search engine crawlers with comprehensive URL structure and SEO optimization.',
     keywords: 'XML sitemap, search engine optimization, website structure, SEO configuration',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "XML Sitemap - ThinkMents",
-      "description": "XML sitemap for search engine optimization and crawling."
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'XML Sitemap - ThinkMents',
+      description: 'XML sitemap for search engine optimization and crawling.',
     },
     content: `
     <div class="static-content">
@@ -393,18 +494,19 @@ const pages = [
       <p><strong>This XML sitemap helps search engines understand and index our website structure effectively.</strong></p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'robots.txt',
     title: 'Robots.txt - ThinkMents SEO Configuration',
-    description: 'ThinkMents robots.txt file configuration for search engine crawlers and SEO optimization.',
+    description:
+      'ThinkMents robots.txt file configuration for search engine crawlers and SEO optimization.',
     keywords: 'robots.txt, search engine crawlers, SEO configuration, website optimization',
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Robots.txt - ThinkMents",
-      "description": "Robots.txt configuration for search engine optimization."
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Robots.txt - ThinkMents',
+      description: 'Robots.txt configuration for search engine optimization.',
     },
     content: `
     <div class="static-content">
@@ -424,8 +526,8 @@ const pages = [
       <p><strong>This robots.txt configuration ensures optimal search engine crawling while protecting sensitive areas.</strong></p>
     </div>
     `,
-    noindex: false
-  }
+    noindex: false,
+  },
 ];
 
 // Add service detail pages (all indexable)
@@ -436,15 +538,15 @@ SERVICE_ROUTES.forEach(({ path, service }) => {
     description: `Expert ${service.toLowerCase()} services from ThinkMents. Professional solutions tailored to grow your business and achieve your marketing goals.`,
     keywords: `${service.toLowerCase()}, professional services, ThinkMents, digital marketing`,
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": service,
-      "provider": {
-        "@type": "Organization",
-        "name": "ThinkMents"
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: service,
+      provider: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
       },
-      "description": `Professional ${service.toLowerCase()} services for business growth.`,
-      "serviceType": service
+      description: `Professional ${service.toLowerCase()} services for business growth.`,
+      serviceType: service,
     },
     content: `
     <div class="static-content">
@@ -467,12 +569,12 @@ SERVICE_ROUTES.forEach(({ path, service }) => {
       <p><strong>Contact us today to learn more about our ${service.toLowerCase()} services.</strong></p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   });
 });
 
 // Add location-specific pages (all indexable)
-LOCATION_ROUTES.forEach(location => {
+LOCATION_ROUTES.forEach((location) => {
   const locationName = location.charAt(0).toUpperCase() + location.slice(1).replace(/-/g, ' ');
   pages.push({
     path: `digital-marketing-${location}`,
@@ -480,18 +582,18 @@ LOCATION_ROUTES.forEach(location => {
     description: `Professional digital marketing services in ${locationName}. Local SEO, web design, and marketing solutions tailored for ${locationName} businesses.`,
     keywords: `digital marketing ${locationName}, SEO ${locationName}, web design ${locationName}, local marketing`,
     structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": `Digital Marketing in ${locationName}`,
-      "provider": {
-        "@type": "Organization",
-        "name": "ThinkMents"
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `Digital Marketing in ${locationName}`,
+      provider: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
       },
-      "areaServed": {
-        "@type": "Place",
-        "name": locationName
+      areaServed: {
+        '@type': 'Place',
+        name: locationName,
       },
-      "serviceType": "Digital Marketing"
+      serviceType: 'Digital Marketing',
     },
     content: `
     <div class="static-content">
@@ -515,7 +617,7 @@ LOCATION_ROUTES.forEach(location => {
       <p><strong>Contact ThinkMents today for a free consultation about digital marketing services in ${locationName}.</strong></p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   });
 });
 
@@ -524,7 +626,8 @@ const additionalPages = [
   {
     path: 'web-design',
     title: 'Professional Web Design Services - ThinkMents Creative Solutions',
-    description: 'Custom web design and development services. Responsive websites, e-commerce solutions, and user-friendly designs that convert visitors into customers.',
+    description:
+      'Custom web design and development services. Responsive websites, e-commerce solutions, and user-friendly designs that convert visitors into customers.',
     keywords: 'web design, website development, responsive design, e-commerce, custom websites',
     content: `
     <div class="static-content">
@@ -547,13 +650,15 @@ const additionalPages = [
       <p>We follow a proven design process that ensures your website meets your business goals and provides an exceptional user experience.</p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'digital-marketing',
     title: 'Digital Marketing Solutions - ThinkMents Growth Strategies',
-    description: 'Comprehensive digital marketing strategies including SEO, PPC, social media, content marketing, and conversion optimization to grow your business.',
-    keywords: 'digital marketing, SEO, PPC advertising, social media marketing, content marketing, conversion optimization',
+    description:
+      'Comprehensive digital marketing strategies including SEO, PPC, social media, content marketing, and conversion optimization to grow your business.',
+    keywords:
+      'digital marketing, SEO, PPC advertising, social media marketing, content marketing, conversion optimization',
     content: `
     <div class="static-content">
       <h1>Digital Marketing Solutions</h1>
@@ -575,13 +680,15 @@ const additionalPages = [
       <p>We use data-driven strategies to ensure your marketing budget delivers maximum ROI and sustainable business growth.</p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'strategic-seo',
     title: 'Strategic SEO Services - ThinkMents Search Optimization',
-    description: 'Advanced SEO strategies to improve search rankings, increase organic traffic, and boost online visibility. Technical SEO, content optimization, and link building.',
-    keywords: 'SEO services, search engine optimization, organic traffic, search rankings, technical SEO',
+    description:
+      'Advanced SEO strategies to improve search rankings, increase organic traffic, and boost online visibility. Technical SEO, content optimization, and link building.',
+    keywords:
+      'SEO services, search engine optimization, organic traffic, search rankings, technical SEO',
     content: `
     <div class="static-content">
       <h1>Strategic SEO Services</h1>
@@ -603,8 +710,8 @@ const additionalPages = [
       <p>Our SEO strategies are designed to deliver long-term, sustainable improvements in search rankings and organic traffic.</p>
     </div>
     `,
-    noindex: false
-  }
+    noindex: false,
+  },
 ];
 
 pages.push(...additionalPages);
@@ -614,8 +721,10 @@ const legalPages = [
   {
     path: 'privacy-policy',
     title: 'Privacy Policy - ThinkMents Data Protection & Privacy',
-    description: 'ThinkMents privacy policy outlining how we collect, use, and protect your personal information. Learn about our commitment to data privacy.',
-    keywords: 'privacy policy, data protection, personal information, GDPR compliance, data privacy',
+    description:
+      'ThinkMents privacy policy outlining how we collect, use, and protect your personal information. Learn about our commitment to data privacy.',
+    keywords:
+      'privacy policy, data protection, personal information, GDPR compliance, data privacy',
     content: `
     <div class="static-content">
       <h1>Privacy Policy</h1>
@@ -630,13 +739,15 @@ const legalPages = [
       <p>Information about how we protect your personal data and comply with privacy regulations.</p>
     </div>
     `,
-    noindex: false
+    noindex: false,
   },
   {
     path: 'terms-of-service',
     title: 'Terms of Service - ThinkMents Service Agreement',
-    description: 'ThinkMents terms of service and conditions for using our digital marketing services. Read our service agreement and policies.',
-    keywords: 'terms of service, service agreement, terms and conditions, legal terms, service policies',
+    description:
+      'ThinkMents terms of service and conditions for using our digital marketing services. Read our service agreement and policies.',
+    keywords:
+      'terms of service, service agreement, terms and conditions, legal terms, service policies',
     content: `
     <div class="static-content">
       <h1>Terms of Service</h1>
@@ -651,8 +762,8 @@ const legalPages = [
       <p>Information about user responsibilities and acceptable use of our services.</p>
     </div>
     `,
-    noindex: false
-  }
+    noindex: false,
+  },
 ];
 
 pages.push(...legalPages);
@@ -661,7 +772,6 @@ pages.push(...legalPages);
 if (!fs.existsSync('public')) {
   fs.mkdirSync('public', { recursive: true });
 }
-
 
 // Generate HTML files - HTML GENERATION DISABLED AS IT IS INCOMPLETE (MISSING HYDRATION)
 /*
@@ -720,22 +830,28 @@ const generateXMLSitemap = () => {
   const today = new Date().toISOString();
 
   // Only include pages that are not marked as noindex
-  const indexablePages = pages.filter(page => !page.noindex);
+  const indexablePages = pages.filter((page) => !page.noindex);
 
-  const urls = indexablePages.map(page => `
+  const urls = indexablePages
+    .map(
+      (page) => `
   <url>
     <loc>${baseUrl}/${page.path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${page.path === '' ? '1.0' : '0.8'}</priority>
-  </url>`).join('');
+  </url>`,
+    )
+    .join('');
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}
 </urlset>`;
 
   fs.writeFileSync(path.join('public', 'sitemap.xml'), sitemap);
-  console.log(`✅ Generated XML sitemap in public/sitemap.xml with ${indexablePages.length} indexable URLs`);
+  console.log(
+    `✅ Generated XML sitemap in public/sitemap.xml with ${indexablePages.length} indexable URLs`,
+  );
 };
 
 // Generate robots.txt

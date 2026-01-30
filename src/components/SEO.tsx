@@ -22,39 +22,39 @@ const SEO: React.FC<SEOProps> = ({
   type = 'website',
   structuredData,
   noindex = false,
-  canonical
+  canonical,
 }) => {
   const siteUrl = 'https://thinkments.com';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const canonicalUrl = canonical ? `${siteUrl}${canonical}` : fullUrl;
 
   const defaultStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ThinkMents",
-    "description": "Professional digital marketing and web design agency in Decatur, Texas",
-    "url": siteUrl,
-    "logo": `${siteUrl}/logo.png`,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-940-627-3538",
-      "contactType": "customer service",
-      "areaServed": "US",
-      "availableLanguage": "English"
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'ThinkMents',
+    description: 'Professional digital marketing and web design agency in Decatur, Texas',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+1-940-627-3538',
+      contactType: 'customer service',
+      areaServed: 'US',
+      availableLanguage: 'English',
     },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Business St",
-      "addressLocality": "Decatur",
-      "addressRegion": "TX",
-      "postalCode": "76234",
-      "addressCountry": "US"
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Business St',
+      addressLocality: 'Decatur',
+      addressRegion: 'TX',
+      postalCode: '76234',
+      addressCountry: 'US',
     },
-    "sameAs": [
-      "https://facebook.com/thinkments",
-      "https://twitter.com/thinkments",
-      "https://linkedin.com/company/thinkments"
-    ]
+    sameAs: [
+      'https://facebook.com/thinkments',
+      'https://twitter.com/thinkments',
+      'https://linkedin.com/company/thinkments',
+    ],
   };
 
   return (
@@ -64,11 +64,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={canonicalUrl} />
-      
+
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       {!noindex && <meta name="robots" content="index, follow" />}
-      
+
       {/* Additional SEO Meta Tags */}
       <meta name="author" content="ThinkMents" />
       <meta name="language" content="English" />
@@ -76,7 +76,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="geo.placename" content="Decatur" />
       <meta name="geo.position" content="33.2348;-97.5864" />
       <meta name="ICBM" content="33.2348, -97.5864" />
-      
+
       {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
@@ -87,14 +87,14 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:url" content={fullUrl} />
       <meta property="og:site_name" content="ThinkMents Digital Marketing Agency" />
       <meta property="og:locale" content="en_US" />
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:site" content="@ThinkMents" />
-      
+
       {/* Viewport and Mobile */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -102,11 +102,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content="ThinkMents" />
-      
+
       {/* Hreflang for language/region targeting */}
       <link rel="alternate" hreflang="en-us" href={fullUrl} />
       <link rel="alternate" hreflang="en" href={fullUrl} />
-      
+
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(structuredData || defaultStructuredData)}

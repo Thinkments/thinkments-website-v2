@@ -12,23 +12,23 @@ export interface GA4Event {
 // Track custom GA4 event
 export const trackEvent = (event: GA4Event) => {
   if (typeof window === 'undefined' || !window.gtag) return;
-  
+
   window.gtag('event', event.action, {
     event_category: event.category,
     event_label: event.label,
     value: event.value,
-    ...event
+    ...event,
   });
 };
 
 // Track page view
 export const trackPageView = (path: string, title: string) => {
   if (typeof window === 'undefined' || !window.gtag) return;
-  
+
   window.gtag('event', 'page_view', {
     page_path: path,
     page_title: title,
-    page_location: window.location.href
+    page_location: window.location.href,
   });
 };
 
@@ -39,7 +39,7 @@ export const trackPhoneCall = (phoneNumber: string, location: string) => {
     category: 'engagement',
     label: `${location} - ${phoneNumber}`,
     phone_number: phoneNumber,
-    call_location: location
+    call_location: location,
   });
 };
 
@@ -49,7 +49,7 @@ export const trackFormSubmission = (formName: string, formLocation: string) => {
     action: 'form_submission',
     category: 'conversion',
     label: formName,
-    form_location: formLocation
+    form_location: formLocation,
   });
 };
 
@@ -58,7 +58,7 @@ export const trackFormStart = (formName: string) => {
   trackEvent({
     action: 'form_start',
     category: 'engagement',
-    label: formName
+    label: formName,
   });
 };
 
@@ -68,7 +68,7 @@ export const trackFormError = (formName: string, errorField: string, errorMessag
     action: 'form_error',
     category: 'errors',
     label: `${formName} - ${errorField}`,
-    error_message: errorMessage
+    error_message: errorMessage,
   });
 };
 
@@ -79,7 +79,7 @@ export const trackCTAClick = (ctaText: string, ctaLocation: string, destination?
     category: 'engagement',
     label: ctaText,
     cta_location: ctaLocation,
-    ...(destination && { destination_url: destination })
+    ...(destination && { destination_url: destination }),
   });
 };
 
@@ -89,7 +89,7 @@ export const trackButtonClick = (buttonText: string, buttonLocation: string) => 
     action: 'button_click',
     category: 'engagement',
     label: buttonText,
-    button_location: buttonLocation
+    button_location: buttonLocation,
   });
 };
 
@@ -100,7 +100,7 @@ export const trackScrollDepth = (percentage: number, pagePath: string) => {
     category: 'engagement',
     label: `${percentage}%`,
     value: percentage,
-    page_path: pagePath
+    page_path: pagePath,
   });
 };
 
@@ -111,7 +111,7 @@ export const trackOutboundLink = (url: string, linkText: string, linkLocation: s
     category: 'engagement',
     label: linkText,
     outbound_url: url,
-    link_location: linkLocation
+    link_location: linkLocation,
   });
 };
 
@@ -121,7 +121,7 @@ export const trackVideoPlay = (videoTitle: string, videoUrl: string) => {
     action: 'video_play',
     category: 'engagement',
     label: videoTitle,
-    video_url: videoUrl
+    video_url: videoUrl,
   });
 };
 
@@ -132,7 +132,7 @@ export const trackVideoPause = (videoTitle: string, currentTime: number, duratio
     category: 'engagement',
     label: videoTitle,
     video_percent: percentWatched,
-    video_current_time: Math.round(currentTime)
+    video_current_time: Math.round(currentTime),
   });
 };
 
@@ -141,7 +141,7 @@ export const trackVideoComplete = (videoTitle: string, duration: number) => {
     action: 'video_complete',
     category: 'engagement',
     label: videoTitle,
-    video_duration: Math.round(duration)
+    video_duration: Math.round(duration),
   });
 };
 
@@ -152,7 +152,7 @@ export const trackFileDownload = (fileName: string, fileType: string, fileUrl: s
     category: 'engagement',
     label: fileName,
     file_type: fileType,
-    file_url: fileUrl
+    file_url: fileUrl,
   });
 };
 
@@ -163,7 +163,7 @@ export const trackSearch = (searchTerm: string, resultsCount?: number) => {
     category: 'engagement',
     label: searchTerm,
     search_term: searchTerm,
-    ...(resultsCount !== undefined && { results_count: resultsCount })
+    ...(resultsCount !== undefined && { results_count: resultsCount }),
   });
 };
 
@@ -175,7 +175,7 @@ export const trackSocialShare = (platform: string, contentTitle: string, content
     label: platform,
     content_title: contentTitle,
     content_url: contentUrl,
-    social_platform: platform
+    social_platform: platform,
   });
 };
 
@@ -185,7 +185,7 @@ export const trackNewsletterSignup = (location: string, email?: string) => {
     action: 'newsletter_signup',
     category: 'conversion',
     label: location,
-    signup_location: location
+    signup_location: location,
   });
 };
 
@@ -194,7 +194,7 @@ export const trackChatOpen = () => {
   trackEvent({
     action: 'chat_open',
     category: 'engagement',
-    label: 'Live Chat'
+    label: 'Live Chat',
   });
 };
 
@@ -203,7 +203,7 @@ export const trackChatMessage = (messageNumber: number) => {
     action: 'chat_message',
     category: 'engagement',
     label: 'Live Chat',
-    message_number: messageNumber
+    message_number: messageNumber,
   });
 };
 
@@ -214,7 +214,7 @@ export const trackServiceView = (serviceName: string, serviceCategory: string) =
     category: 'engagement',
     label: serviceName,
     service_name: serviceName,
-    service_category: serviceCategory
+    service_category: serviceCategory,
   });
 };
 
@@ -225,7 +225,7 @@ export const trackQuoteRequest = (serviceType: string, estimatedValue?: number) 
     category: 'conversion',
     label: serviceType,
     service_type: serviceType,
-    ...(estimatedValue && { estimated_value: estimatedValue })
+    ...(estimatedValue && { estimated_value: estimatedValue }),
   });
 };
 
@@ -236,17 +236,20 @@ export const trackTimeOnPage = (pagePath: string, timeInSeconds: number) => {
     category: 'engagement',
     label: pagePath,
     value: Math.round(timeInSeconds),
-    page_path: pagePath
+    page_path: pagePath,
   });
 };
 
 // Track navigation clicks
-export const trackNavigation = (navItem: string, navLocation: 'header' | 'footer' | 'mobile' | 'sidebar') => {
+export const trackNavigation = (
+  navItem: string,
+  navLocation: 'header' | 'footer' | 'mobile' | 'sidebar',
+) => {
   trackEvent({
     action: 'navigation_click',
     category: 'engagement',
     label: navItem,
-    nav_location: navLocation
+    nav_location: navLocation,
   });
 };
 
@@ -255,7 +258,7 @@ export const trackAccordionToggle = (accordionTitle: string, action: 'open' | 'c
   trackEvent({
     action: `accordion_${action}`,
     category: 'engagement',
-    label: accordionTitle
+    label: accordionTitle,
   });
 };
 
@@ -265,7 +268,7 @@ export const trackTabChange = (tabName: string, tabGroup: string) => {
     action: 'tab_change',
     category: 'engagement',
     label: tabName,
-    tab_group: tabGroup
+    tab_group: tabGroup,
   });
 };
 
@@ -277,7 +280,7 @@ export const trackError = (errorType: string, errorMessage: string, errorLocatio
     label: errorType,
     error_type: errorType,
     error_message: errorMessage,
-    error_location: errorLocation
+    error_location: errorLocation,
   });
 };
 
@@ -289,32 +292,32 @@ export const trackFunnelStep = (funnelName: string, stepNumber: number, stepName
     label: `${funnelName} - ${stepName}`,
     funnel_name: funnelName,
     step_number: stepNumber,
-    step_name: stepName
+    step_name: stepName,
   });
 };
 
 // Initialize scroll tracking
 export const initScrollTracking = (thresholds: number[] = [25, 50, 75, 90, 100]) => {
   if (typeof window === 'undefined') return;
-  
+
   let scrollThresholds = new Set(thresholds);
   const tracked = new Set<number>();
-  
+
   const handleScroll = () => {
     const scrollPercent = Math.round(
-      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100,
     );
-    
-    scrollThresholds.forEach(threshold => {
+
+    scrollThresholds.forEach((threshold) => {
       if (scrollPercent >= threshold && !tracked.has(threshold)) {
         tracked.add(threshold);
         trackScrollDepth(threshold, window.location.pathname);
       }
     });
   };
-  
+
   window.addEventListener('scroll', handleScroll, { passive: true });
-  
+
   return () => {
     window.removeEventListener('scroll', handleScroll);
   };
@@ -323,55 +326,54 @@ export const initScrollTracking = (thresholds: number[] = [25, 50, 75, 90, 100])
 // Initialize time on page tracking
 export const initTimeOnPageTracking = () => {
   if (typeof window === 'undefined') return;
-  
+
   const startTime = Date.now();
   const pagePath = window.location.pathname;
-  
+
   const trackTime = () => {
     const timeInSeconds = (Date.now() - startTime) / 1000;
     trackTimeOnPage(pagePath, timeInSeconds);
   };
-  
+
   // Track time on page before user leaves
   window.addEventListener('beforeunload', trackTime);
-  
+
   // Also track at intervals (30 seconds, 60 seconds, etc.)
-  const intervals = [30, 60, 120, 300].map(seconds => {
+  const intervals = [30, 60, 120, 300].map((seconds) => {
     return setTimeout(() => {
       trackTimeOnPage(pagePath, seconds);
     }, seconds * 1000);
   });
-  
+
   return () => {
     window.removeEventListener('beforeunload', trackTime);
-    intervals.forEach(interval => clearTimeout(interval));
+    intervals.forEach((interval) => clearTimeout(interval));
   };
 };
 
 // Initialize outbound link tracking
 export const initOutboundLinkTracking = () => {
   if (typeof window === 'undefined') return;
-  
+
   const handleClick = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     const link = target.closest('a');
-    
+
     if (!link) return;
-    
+
     const href = link.href;
-    const isOutbound = href && 
-      href.startsWith('http') && 
-      !href.includes(window.location.hostname);
-    
+    const isOutbound = href && href.startsWith('http') && !href.includes(window.location.hostname);
+
     if (isOutbound) {
       const linkText = link.textContent || link.getAttribute('aria-label') || 'Unknown';
-      const linkLocation = link.closest('[data-location]')?.getAttribute('data-location') || 'Unknown';
+      const linkLocation =
+        link.closest('[data-location]')?.getAttribute('data-location') || 'Unknown';
       trackOutboundLink(href, linkText, linkLocation);
     }
   };
-  
+
   document.addEventListener('click', handleClick);
-  
+
   return () => {
     document.removeEventListener('click', handleClick);
   };
@@ -380,23 +382,23 @@ export const initOutboundLinkTracking = () => {
 // Initialize phone call tracking
 export const initPhoneCallTracking = () => {
   if (typeof window === 'undefined') return;
-  
+
   const handleClick = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     const link = target.closest('a[href^="tel:"]');
-    
+
     if (!link) return;
-    
+
     const href = link.getAttribute('href');
     if (!href) return;
-    
+
     const phoneNumber = href.replace('tel:', '');
     const location = link.closest('[data-location]')?.getAttribute('data-location') || 'Unknown';
     trackPhoneCall(phoneNumber, location);
   };
-  
+
   document.addEventListener('click', handleClick);
-  
+
   return () => {
     document.removeEventListener('click', handleClick);
   };
@@ -405,19 +407,19 @@ export const initPhoneCallTracking = () => {
 // Global analytics initializer
 export const initAnalytics = () => {
   const cleanups: (() => void)[] = [];
-  
+
   // Initialize all tracking
   const scrollCleanup = initScrollTracking();
   const timeCleanup = initTimeOnPageTracking();
   const outboundCleanup = initOutboundLinkTracking();
   const phoneCleanup = initPhoneCallTracking();
-  
+
   if (scrollCleanup) cleanups.push(scrollCleanup);
   if (timeCleanup) cleanups.push(timeCleanup);
   if (outboundCleanup) cleanups.push(outboundCleanup);
   if (phoneCleanup) cleanups.push(phoneCleanup);
-  
+
   return () => {
-    cleanups.forEach(cleanup => cleanup());
+    cleanups.forEach((cleanup) => cleanup());
   };
 };

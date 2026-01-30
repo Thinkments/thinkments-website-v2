@@ -123,7 +123,8 @@ Content:
             <div className="flex-1">
               <h2 className="text-2xl font-bold mb-2">Blog Generation Tool</h2>
               <p className="text-muted-foreground">
-                Generate AI-ready prompts for creating high-quality blog posts that follow ThinkMents' brand voice and SEO best practices.
+                Generate AI-ready prompts for creating high-quality blog posts that follow
+                ThinkMents' brand voice and SEO best practices.
               </p>
             </div>
           </div>
@@ -153,7 +154,7 @@ Content:
             </p>
           </div>
 
-          <Button 
+          <Button
             onClick={generatePrompt}
             className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
           >
@@ -170,19 +171,11 @@ Content:
             <CardTitle className="flex items-center justify-between">
               <span>Generated Prompt</span>
               <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={copyToClipboard}
-                >
+                <Button variant="outline" size="sm" onClick={copyToClipboard}>
                   <Copy className="w-4 h-4 mr-1" />
                   Copy
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={downloadPrompt}
-                >
+                <Button variant="outline" size="sm" onClick={downloadPrompt}>
                   <Download className="w-4 h-4 mr-1" />
                   Download
                 </Button>
@@ -227,7 +220,9 @@ Content:
           <div>
             <h3 className="font-semibold mb-2">SEO Best Practices:</h3>
             <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-              <li>Target keyword should appear in title, first paragraph, and naturally throughout</li>
+              <li>
+                Target keyword should appear in title, first paragraph, and naturally throughout
+              </li>
               <li>Use keyword variations and related terms</li>
               <li>Include questions that customers commonly search for</li>
               <li>Aim for 800-1200 words for optimal SEO performance</li>

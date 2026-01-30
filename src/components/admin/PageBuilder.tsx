@@ -21,7 +21,7 @@ import {
   Star,
   Play,
   Trash2,
-  GripVertical
+  GripVertical,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
@@ -29,13 +29,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Badge } from '../ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Switch } from '../ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { toast } from 'sonner@2.0.3';
@@ -55,11 +49,31 @@ export default function PageBuilder() {
   const [deviceView, setDeviceView] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
   const templates = [
-    { id: 'location', name: 'Location Page', icon: MapPin, preview: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300' },
-    { id: 'service', name: 'Service Page', icon: Star, preview: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=300' },
-    { id: 'landing', name: 'Landing Page', icon: Layout, preview: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300' },
-    { id: 'store', name: 'Store Page', icon: Globe, preview: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=300' },
-    { id: 'blank', name: 'Blank Page', icon: Layers, preview: null }
+    {
+      id: 'location',
+      name: 'Location Page',
+      icon: MapPin,
+      preview: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300',
+    },
+    {
+      id: 'service',
+      name: 'Service Page',
+      icon: Star,
+      preview: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=300',
+    },
+    {
+      id: 'landing',
+      name: 'Landing Page',
+      icon: Layout,
+      preview: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300',
+    },
+    {
+      id: 'store',
+      name: 'Store Page',
+      icon: Globe,
+      preview: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=300',
+    },
+    { id: 'blank', name: 'Blank Page', icon: Layers, preview: null },
   ];
 
   const contentBlocks = [
@@ -72,14 +86,14 @@ export default function PageBuilder() {
     { id: 'faq', name: 'FAQ Accordion', icon: HelpCircle, color: 'bg-[#1E3A5F]' },
     { id: 'cta', name: 'CTA Banner', icon: Star, color: 'bg-[#00B4D8]' },
     { id: 'map', name: 'Google Map', icon: MapPin, color: 'bg-[#FF6B35]' },
-    { id: 'gallery', name: 'Gallery', icon: ImageIcon, color: 'bg-[#1E3A5F]' }
+    { id: 'gallery', name: 'Gallery', icon: ImageIcon, color: 'bg-[#1E3A5F]' },
   ];
 
   const addBlock = (blockType: string) => {
     const newBlock: ContentBlock = {
       id: `block-${Date.now()}`,
       type: blockType,
-      content: {}
+      content: {},
     };
     setBlocks([...blocks, newBlock]);
     setSelectedBlock(newBlock.id);
@@ -87,7 +101,7 @@ export default function PageBuilder() {
   };
 
   const removeBlock = (blockId: string) => {
-    setBlocks(blocks.filter(block => block.id !== blockId));
+    setBlocks(blocks.filter((block) => block.id !== blockId));
     if (selectedBlock === blockId) {
       setSelectedBlock(null);
     }
@@ -111,9 +125,7 @@ export default function PageBuilder() {
             <Save className="w-4 h-4 mr-2" />
             Save Draft
           </Button>
-          <Button className="bg-[#00B4D8] hover:bg-[#0096b8]">
-            Publish Page
-          </Button>
+          <Button className="bg-[#00B4D8] hover:bg-[#0096b8]">Publish Page</Button>
         </div>
       </div>
 
@@ -170,7 +182,11 @@ export default function PageBuilder() {
                 onClick={() => setSelectedTemplate(template.id)}
               >
                 {template.preview ? (
-                  <img src={template.preview} alt={template.name} className="w-full h-32 object-cover" />
+                  <img
+                    src={template.preview}
+                    alt={template.name}
+                    className="w-full h-32 object-cover"
+                  />
                 ) : (
                   <div className="w-full h-32 bg-gray-100 flex items-center justify-center">
                     <template.icon className="w-12 h-12 text-gray-400" />
@@ -185,7 +201,11 @@ export default function PageBuilder() {
                 {selectedTemplate === template.id && (
                   <div className="absolute top-2 right-2 w-6 h-6 bg-[#00B4D8] rounded-full flex items-center justify-center">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                 )}
@@ -211,7 +231,9 @@ export default function PageBuilder() {
                   className="w-full justify-start hover:border-[#00B4D8]"
                   onClick={() => addBlock(block.name)}
                 >
-                  <div className={`w-8 h-8 ${block.color} rounded flex items-center justify-center mr-3`}>
+                  <div
+                    className={`w-8 h-8 ${block.color} rounded flex items-center justify-center mr-3`}
+                  >
                     <block.icon className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-sm">{block.name}</span>
@@ -256,14 +278,24 @@ export default function PageBuilder() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className={`mx-auto bg-white border-2 border-dashed border-gray-300 rounded-lg min-h-[600px] ${
-                deviceView === 'desktop' ? 'w-full' : deviceView === 'tablet' ? 'w-[768px]' : 'w-[375px]'
-              }`}>
+              <div
+                className={`mx-auto bg-white border-2 border-dashed border-gray-300 rounded-lg min-h-[600px] ${
+                  deviceView === 'desktop'
+                    ? 'w-full'
+                    : deviceView === 'tablet'
+                      ? 'w-[768px]'
+                      : 'w-[375px]'
+                }`}
+              >
                 {blocks.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-[600px] text-center p-8">
                     <Plus className="w-16 h-16 text-gray-300 mb-4" />
-                    <h3 className="text-lg font-medium text-gray-600 mb-2">Start Building Your Page</h3>
-                    <p className="text-gray-500">Drag content blocks from the left sidebar to begin</p>
+                    <h3 className="text-lg font-medium text-gray-600 mb-2">
+                      Start Building Your Page
+                    </h3>
+                    <p className="text-gray-500">
+                      Drag content blocks from the left sidebar to begin
+                    </p>
                   </div>
                 ) : (
                   <div className="space-y-4 p-4">
@@ -273,7 +305,9 @@ export default function PageBuilder() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className={`group relative p-6 border-2 rounded-lg cursor-pointer transition-colors ${
-                          selectedBlock === block.id ? 'border-[#00B4D8] bg-[#00B4D8]/5' : 'border-gray-200 hover:border-gray-300'
+                          selectedBlock === block.id
+                            ? 'border-[#00B4D8] bg-[#00B4D8]/5'
+                            : 'border-gray-200 hover:border-gray-300'
                         }`}
                         onClick={() => setSelectedBlock(block.id)}
                       >
@@ -312,23 +346,37 @@ export default function PageBuilder() {
             <Tabs defaultValue="page">
               <CardHeader>
                 <TabsList className="w-full">
-                  <TabsTrigger value="page" className="flex-1">Page</TabsTrigger>
-                  <TabsTrigger value="block" className="flex-1">Block</TabsTrigger>
+                  <TabsTrigger value="page" className="flex-1">
+                    Page
+                  </TabsTrigger>
+                  <TabsTrigger value="block" className="flex-1">
+                    Block
+                  </TabsTrigger>
                 </TabsList>
               </CardHeader>
 
               <CardContent>
                 <TabsContent value="page" className="space-y-4 mt-0">
                   <div>
-                    <Label htmlFor="metaTitle" className="text-xs">Meta Title</Label>
+                    <Label htmlFor="metaTitle" className="text-xs">
+                      Meta Title
+                    </Label>
                     <Input id="metaTitle" placeholder="SEO title..." className="mt-2" />
                   </div>
                   <div>
-                    <Label htmlFor="metaDesc" className="text-xs">Meta Description</Label>
-                    <Textarea id="metaDesc" placeholder="SEO description..." className="mt-2 min-h-[80px]" />
+                    <Label htmlFor="metaDesc" className="text-xs">
+                      Meta Description
+                    </Label>
+                    <Textarea
+                      id="metaDesc"
+                      placeholder="SEO description..."
+                      className="mt-2 min-h-[80px]"
+                    />
                   </div>
                   <div>
-                    <Label htmlFor="schema" className="text-xs">Schema Type</Label>
+                    <Label htmlFor="schema" className="text-xs">
+                      Schema Type
+                    </Label>
                     <Select defaultValue="webpage">
                       <SelectTrigger id="schema" className="mt-2">
                         <SelectValue />
@@ -343,7 +391,9 @@ export default function PageBuilder() {
                     </Select>
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t">
-                    <Label htmlFor="indexToggle" className="text-xs">Index in Search Engines</Label>
+                    <Label htmlFor="indexToggle" className="text-xs">
+                      Index in Search Engines
+                    </Label>
                     <Switch id="indexToggle" defaultChecked />
                   </div>
                 </TabsContent>
@@ -353,12 +403,20 @@ export default function PageBuilder() {
                     <div className="space-y-4">
                       <p className="text-sm text-gray-600">Configure the selected block</p>
                       <div>
-                        <Label htmlFor="blockTitle" className="text-xs">Block Title</Label>
+                        <Label htmlFor="blockTitle" className="text-xs">
+                          Block Title
+                        </Label>
                         <Input id="blockTitle" placeholder="Enter title..." className="mt-2" />
                       </div>
                       <div>
-                        <Label htmlFor="blockContent" className="text-xs">Content</Label>
-                        <Textarea id="blockContent" placeholder="Enter content..." className="mt-2 min-h-[120px]" />
+                        <Label htmlFor="blockContent" className="text-xs">
+                          Content
+                        </Label>
+                        <Textarea
+                          id="blockContent"
+                          placeholder="Enter content..."
+                          className="mt-2 min-h-[120px]"
+                        />
                       </div>
                       <Button variant="outline" className="w-full">
                         <Settings className="w-4 h-4 mr-2" />
@@ -385,7 +443,11 @@ export default function PageBuilder() {
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <span className="text-gray-700">Page title set</span>
@@ -401,7 +463,11 @@ export default function PageBuilder() {
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <span className="text-gray-700">URL structure valid</span>

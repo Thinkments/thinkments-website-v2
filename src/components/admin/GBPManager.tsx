@@ -49,7 +49,7 @@ import {
   Save,
   Target,
   Award,
-  Activity
+  Activity,
 } from 'lucide-react';
 
 type TabType = 'overview' | 'profiles' | 'details' | 'reviews' | 'posts' | 'bulk' | 'analytics';
@@ -114,7 +114,7 @@ export default function GBPManager() {
     avgRating: 4.7,
     pendingTasks: 15,
     alerts: 3,
-    postsScheduled: 24
+    postsScheduled: 24,
   };
 
   const profiles: GBPProfile[] = [
@@ -130,7 +130,7 @@ export default function GBPManager() {
       views: 2340,
       calls: 89,
       directions: 134,
-      status: 'verified'
+      status: 'verified',
     },
     {
       id: '2',
@@ -144,7 +144,7 @@ export default function GBPManager() {
       views: 3890,
       calls: 156,
       directions: 78,
-      status: 'verified'
+      status: 'verified',
     },
     {
       id: '3',
@@ -158,7 +158,7 @@ export default function GBPManager() {
       views: 1567,
       calls: 67,
       directions: 45,
-      status: 'pending'
+      status: 'pending',
     },
   ];
 
@@ -172,7 +172,7 @@ export default function GBPManager() {
       date: '2024-12-08',
       text: 'Excellent service! They fixed my water heater quickly and professionally.',
       needsReply: false,
-      reply: 'Thank you for your kind words, John! We appreciate your business.'
+      reply: 'Thank you for your kind words, John! We appreciate your business.',
     },
     {
       id: '2',
@@ -182,7 +182,7 @@ export default function GBPManager() {
       rating: 4,
       date: '2024-12-07',
       text: 'Good service but a bit pricey. Would use again though.',
-      needsReply: true
+      needsReply: true,
     },
     {
       id: '3',
@@ -192,7 +192,7 @@ export default function GBPManager() {
       rating: 5,
       date: '2024-12-06',
       text: 'Outstanding legal representation. Highly recommend!',
-      needsReply: true
+      needsReply: true,
     },
   ];
 
@@ -202,38 +202,48 @@ export default function GBPManager() {
       profileId: '1',
       businessName: 'Acme Plumbing Services',
       type: 'offer',
-      content: '🎉 Special Holiday Offer! Get 20% off all plumbing services this month. Call now to schedule!',
+      content:
+        '🎉 Special Holiday Offer! Get 20% off all plumbing services this month. Call now to schedule!',
       scheduledDate: '2024-12-15',
       views: 456,
-      clicks: 34
+      clicks: 34,
     },
     {
       id: '2',
       profileId: '2',
       businessName: 'Smith & Sons Law Firm',
       type: 'update',
-      content: 'We\'re proud to announce our expansion to a new office location in downtown Houston!',
+      content:
+        "We're proud to announce our expansion to a new office location in downtown Houston!",
       scheduledDate: '2024-12-12',
       views: 678,
-      clicks: 89
+      clicks: 89,
     },
   ];
 
   const getStatusColor = (status: ProfileStatus) => {
     switch (status) {
-      case 'verified': return 'bg-green-100 text-green-700';
-      case 'pending': return 'bg-yellow-100 text-yellow-700';
-      case 'suspended': return 'bg-red-100 text-red-700';
+      case 'verified':
+        return 'bg-green-100 text-green-700';
+      case 'pending':
+        return 'bg-yellow-100 text-yellow-700';
+      case 'suspended':
+        return 'bg-red-100 text-red-700';
     }
   };
 
   const getPostTypeColor = (type: string) => {
     switch (type) {
-      case 'update': return 'bg-blue-100 text-blue-700';
-      case 'event': return 'bg-purple-100 text-purple-700';
-      case 'offer': return 'bg-orange-100 text-orange-700';
-      case 'product': return 'bg-green-100 text-green-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case 'update':
+        return 'bg-blue-100 text-blue-700';
+      case 'event':
+        return 'bg-purple-100 text-purple-700';
+      case 'offer':
+        return 'bg-orange-100 text-orange-700';
+      case 'product':
+        return 'bg-green-100 text-green-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
     }
   };
 
@@ -258,7 +268,9 @@ export default function GBPManager() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Google Business Profile Manager</h1>
+            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">
+              Google Business Profile Manager
+            </h1>
             <p className="text-gray-600">Manage all client GBP listings from one dashboard</p>
             <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
               <span className="flex items-center">
@@ -298,7 +310,13 @@ export default function GBPManager() {
         {[
           { id: 'overview', label: 'Overview', icon: BarChart3 },
           { id: 'profiles', label: 'All Profiles', icon: MapPin, count: profiles.length },
-          { id: 'reviews', label: 'Reviews', icon: Star, count: reviews.filter(r => r.needsReply).length, badge: 'New' },
+          {
+            id: 'reviews',
+            label: 'Reviews',
+            icon: Star,
+            count: reviews.filter((r) => r.needsReply).length,
+            badge: 'New',
+          },
           { id: 'posts', label: 'Posts & Content', icon: FileText },
           { id: 'bulk', label: 'Bulk Operations', icon: Zap },
           { id: 'analytics', label: 'Analytics', icon: BarChart3 },
@@ -315,13 +333,13 @@ export default function GBPManager() {
             <tab.icon className="w-4 h-4" />
             <span>{tab.label}</span>
             {tab.count !== undefined && (
-              <Badge className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <Badge
+                className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+              >
                 {tab.count}
               </Badge>
             )}
-            {tab.badge && (
-              <Badge className="bg-[#FF6B35] text-white">{tab.badge}</Badge>
-            )}
+            {tab.badge && <Badge className="bg-[#FF6B35] text-white">{tab.badge}</Badge>}
           </button>
         ))}
       </div>
@@ -340,7 +358,9 @@ export default function GBPManager() {
                 </div>
                 <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.totalProfiles}</p>
                 <p className="text-sm text-gray-600 mb-2">Total Profiles</p>
-                <a href="#" className="text-xs text-[#00B4D8] hover:underline">View All →</a>
+                <a href="#" className="text-xs text-[#00B4D8] hover:underline">
+                  View All →
+                </a>
               </CardContent>
             </Card>
 
@@ -351,7 +371,9 @@ export default function GBPManager() {
                     <Eye className="w-5 h-5 text-purple-600" />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.totalViewsThisMonth.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-[#1E3A5F] mb-1">
+                  {stats.totalViewsThisMonth.toLocaleString()}
+                </p>
                 <p className="text-sm text-gray-600 mb-2">Views This Month</p>
                 <div className="flex items-center text-xs text-green-600">
                   <TrendingUp className="w-3 h-3 mr-1" />
@@ -367,7 +389,9 @@ export default function GBPManager() {
                     <Activity className="w-5 h-5 text-green-600" />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.totalActions.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-[#1E3A5F] mb-1">
+                  {stats.totalActions.toLocaleString()}
+                </p>
                 <p className="text-sm text-gray-600 mb-2">Total Actions</p>
                 <div className="flex items-center text-xs text-green-600">
                   <TrendingUp className="w-3 h-3 mr-1" />
@@ -385,9 +409,7 @@ export default function GBPManager() {
                 </div>
                 <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.reviewsThisMonth}</p>
                 <p className="text-sm text-gray-600 mb-2">Reviews This Month</p>
-                <Badge className="bg-yellow-100 text-yellow-700">
-                  ★ {stats.avgRating} avg
-                </Badge>
+                <Badge className="bg-yellow-100 text-yellow-700">★ {stats.avgRating} avg</Badge>
               </CardContent>
             </Card>
 
@@ -413,7 +435,9 @@ export default function GBPManager() {
                 </div>
                 <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.alerts}</p>
                 <p className="text-sm text-gray-600 mb-2">Alerts</p>
-                <a href="#" className="text-xs text-red-600 hover:underline">View Issues →</a>
+                <a href="#" className="text-xs text-red-600 hover:underline">
+                  View Issues →
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -432,7 +456,9 @@ export default function GBPManager() {
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-1">
                             {renderStars(review.rating)}
-                            <span className="text-sm font-medium text-gray-900">{review.reviewerName}</span>
+                            <span className="text-sm font-medium text-gray-900">
+                              {review.reviewerName}
+                            </span>
                           </div>
                           <p className="text-xs text-gray-500 mb-2">{review.businessName}</p>
                           <p className="text-sm text-gray-700 line-clamp-2">{review.text}</p>
@@ -461,9 +487,7 @@ export default function GBPManager() {
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Badge className={getPostTypeColor(post.type)}>
-                              {post.type}
-                            </Badge>
+                            <Badge className={getPostTypeColor(post.type)}>{post.type}</Badge>
                             <span className="text-xs text-gray-500">{post.businessName}</span>
                           </div>
                           <p className="text-sm text-gray-700 line-clamp-2">{post.content}</p>
@@ -533,7 +557,10 @@ export default function GBPManager() {
           {viewMode === 'grid' && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {profiles.map((profile) => (
-                <Card key={profile.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card
+                  key={profile.id}
+                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center space-x-3">
@@ -545,9 +572,7 @@ export default function GBPManager() {
                           <p className="text-xs text-gray-500">{profile.clientName}</p>
                         </div>
                       </div>
-                      <Badge className={getStatusColor(profile.status)}>
-                        {profile.status}
-                      </Badge>
+                      <Badge className={getStatusColor(profile.status)}>{profile.status}</Badge>
                     </div>
 
                     <div className="space-y-2 mb-4">
@@ -601,7 +626,10 @@ export default function GBPManager() {
           {viewMode === 'list' && (
             <div className="space-y-2">
               {profiles.map((profile) => (
-                <Card key={profile.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card
+                  key={profile.id}
+                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-4">
                     <div className="grid grid-cols-12 gap-4 items-center">
                       <div className="col-span-3 flex items-center space-x-3">
@@ -629,9 +657,7 @@ export default function GBPManager() {
                         <p className="text-sm font-bold text-gray-900">{profile.calls}</p>
                       </div>
                       <div className="col-span-2">
-                        <Badge className={getStatusColor(profile.status)}>
-                          {profile.status}
-                        </Badge>
+                        <Badge className={getStatusColor(profile.status)}>{profile.status}</Badge>
                       </div>
                       <div className="col-span-1 flex justify-end">
                         <Button
@@ -672,7 +698,9 @@ export default function GBPManager() {
                       <span className="text-white font-bold text-2xl">{selectedProfile.logo}</span>
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-[#1E3A5F]">{selectedProfile.businessName}</h2>
+                      <h2 className="text-2xl font-bold text-[#1E3A5F]">
+                        {selectedProfile.businessName}
+                      </h2>
                       <p className="text-gray-600">{selectedProfile.location}</p>
                       <div className="flex items-center space-x-2 mt-2">
                         <Badge className="bg-green-100 text-green-700">
@@ -739,7 +767,9 @@ export default function GBPManager() {
                 <div className="grid grid-cols-3 gap-6">
                   <div>
                     <p className="text-sm text-gray-600 mb-2">Total Views</p>
-                    <p className="text-3xl font-bold text-[#1E3A5F]">{selectedProfile.views.toLocaleString()}</p>
+                    <p className="text-3xl font-bold text-[#1E3A5F]">
+                      {selectedProfile.views.toLocaleString()}
+                    </p>
                     <div className="flex items-center text-sm text-green-600 mt-1">
                       <TrendingUp className="w-4 h-4 mr-1" />
                       +18% vs previous period
@@ -755,7 +785,9 @@ export default function GBPManager() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 mb-2">Direction Requests</p>
-                    <p className="text-3xl font-bold text-[#1E3A5F]">{selectedProfile.directions}</p>
+                    <p className="text-3xl font-bold text-[#1E3A5F]">
+                      {selectedProfile.directions}
+                    </p>
                     <div className="flex items-center text-sm text-green-600 mt-1">
                       <TrendingUp className="w-4 h-4 mr-1" />
                       +23% vs previous period
@@ -811,10 +843,12 @@ export default function GBPManager() {
                       </div>
                       <p className="text-sm text-gray-500 mb-2">{review.businessName}</p>
                       <p className="text-gray-700 mb-3">{review.text}</p>
-                      
+
                       {review.reply && (
                         <div className="ml-6 p-3 bg-blue-50 border-l-4 border-[#00B4D8] rounded">
-                          <p className="text-sm font-medium text-gray-900 mb-1">Response from business:</p>
+                          <p className="text-sm font-medium text-gray-900 mb-1">
+                            Response from business:
+                          </p>
                           <p className="text-sm text-gray-700">{review.reply}</p>
                         </div>
                       )}
@@ -875,9 +909,7 @@ export default function GBPManager() {
               <Card key={post.id} className="border-0 shadow-md">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <Badge className={getPostTypeColor(post.type)}>
-                      {post.type}
-                    </Badge>
+                    <Badge className={getPostTypeColor(post.type)}>{post.type}</Badge>
                     <div className="flex space-x-1">
                       <Button size="sm" variant="ghost">
                         <Edit3 className="w-3 h-3" />
@@ -920,7 +952,9 @@ export default function GBPManager() {
               <CardTitle className="text-lg">Bulk Information Updates</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-sm text-gray-600">Select multiple profiles and update information across all at once</p>
+              <p className="text-sm text-gray-600">
+                Select multiple profiles and update information across all at once
+              </p>
               <div className="grid grid-cols-2 gap-4">
                 <Button variant="outline" className="justify-start">
                   <Clock className="w-4 h-4 mr-2" />
@@ -1121,17 +1155,21 @@ export default function GBPManager() {
               <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 140px)' }}>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Select Business(es)</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Select Business(es)
+                    </label>
                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                       <option>All Profiles</option>
-                      {profiles.map(p => (
+                      {profiles.map((p) => (
                         <option key={p.id}>{p.businessName}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Post Type</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Post Type
+                    </label>
                     <div className="grid grid-cols-4 gap-2">
                       {['update', 'event', 'offer', 'product'].map((type) => (
                         <button
@@ -1145,7 +1183,9 @@ export default function GBPManager() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Post Content</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Post Content
+                    </label>
                     <textarea
                       rows={6}
                       placeholder="What's new with your business?"
@@ -1162,7 +1202,9 @@ export default function GBPManager() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Add Photo/Video</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Add Photo/Video
+                    </label>
                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
                       <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
                       <p className="text-sm text-gray-600">Click to upload or drag and drop</p>
@@ -1171,9 +1213,7 @@ export default function GBPManager() {
                 </div>
               </div>
               <div className="p-6 border-t border-gray-200 flex justify-between">
-                <Button variant="outline">
-                  Save as Draft
-                </Button>
+                <Button variant="outline">Save as Draft</Button>
                 <div className="flex space-x-2">
                   <Button variant="outline">
                     <Calendar className="w-4 h-4 mr-2" />

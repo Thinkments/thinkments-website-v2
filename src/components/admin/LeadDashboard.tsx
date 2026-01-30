@@ -28,7 +28,7 @@ import {
   Star,
   User,
   Building2,
-  Tag
+  Tag,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
@@ -36,13 +36,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Badge } from '../ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { toast } from 'sonner@2.0.3';
 
 interface Lead {
@@ -88,9 +82,13 @@ const mockLeads: Lead[] = [
     utmCampaign: 'web-design-2024',
     interactions: [
       { type: 'email', date: '2024-12-01', description: 'Initial inquiry received' },
-      { type: 'call', date: '2024-12-02', description: 'Discovery call - needs full website redesign' },
-      { type: 'note', date: '2024-12-03', description: 'Sent proposal for $15k website project' }
-    ]
+      {
+        type: 'call',
+        date: '2024-12-02',
+        description: 'Discovery call - needs full website redesign',
+      },
+      { type: 'note', date: '2024-12-03', description: 'Sent proposal for $15k website project' },
+    ],
   },
   {
     id: '2',
@@ -108,8 +106,8 @@ const mockLeads: Lead[] = [
     utmMedium: 'social',
     interactions: [
       { type: 'email', date: '2024-12-02', description: 'Inquiry about GBP management' },
-      { type: 'call', date: '2024-12-03', description: 'Discussed monthly GBP package' }
-    ]
+      { type: 'call', date: '2024-12-03', description: 'Discussed monthly GBP package' },
+    ],
   },
   {
     id: '3',
@@ -127,8 +125,12 @@ const mockLeads: Lead[] = [
     utmMedium: 'social',
     interactions: [
       { type: 'email', date: '2024-12-03', description: 'Wants promotional video package' },
-      { type: 'meeting', date: '2024-12-04', description: 'In-person meeting scheduled for next week' }
-    ]
+      {
+        type: 'meeting',
+        date: '2024-12-04',
+        description: 'In-person meeting scheduled for next week',
+      },
+    ],
   },
   {
     id: '4',
@@ -143,8 +145,8 @@ const mockLeads: Lead[] = [
     date: '2024-12-04',
     utmSource: 'organic',
     interactions: [
-      { type: 'email', date: '2024-12-04', description: 'Form submission - SEO services inquiry' }
-    ]
+      { type: 'email', date: '2024-12-04', description: 'Form submission - SEO services inquiry' },
+    ],
   },
   {
     id: '5',
@@ -160,8 +162,8 @@ const mockLeads: Lead[] = [
     assignedTo: 'John Doe',
     interactions: [
       { type: 'email', date: '2024-11-28', description: 'Interested in social media management' },
-      { type: 'call', date: '2024-11-30', description: 'Left voicemail - no response yet' }
-    ]
+      { type: 'call', date: '2024-11-30', description: 'Left voicemail - no response yet' },
+    ],
   },
   {
     id: '6',
@@ -179,9 +181,9 @@ const mockLeads: Lead[] = [
       { type: 'email', date: '2024-11-20', description: 'Inquiry about virtual tour services' },
       { type: 'call', date: '2024-11-22', description: 'Discussed package options' },
       { type: 'note', date: '2024-11-25', description: 'Proposal sent' },
-      { type: 'email', date: '2024-11-27', description: 'Contract signed!' }
-    ]
-  }
+      { type: 'email', date: '2024-11-27', description: 'Contract signed!' },
+    ],
+  },
 ];
 
 const pipelineStages = [
@@ -190,7 +192,7 @@ const pipelineStages = [
   { id: 'qualified', label: 'Qualified', color: 'bg-orange-500', count: 0 },
   { id: 'proposal', label: 'Proposal Sent', color: 'bg-[#00B4D8]', count: 0 },
   { id: 'won', label: 'Won', color: 'bg-green-500', count: 0 },
-  { id: 'lost', label: 'Lost', color: 'bg-gray-400', count: 0 }
+  { id: 'lost', label: 'Lost', color: 'bg-gray-400', count: 0 },
 ];
 
 export default function LeadDashboard() {
@@ -204,25 +206,25 @@ export default function LeadDashboard() {
 
   // Calculate stats
   const totalLeads = mockLeads.length;
-  const hotLeads = mockLeads.filter(l => l.leadScore === 'hot').length;
-  const leadsThisWeek = mockLeads.filter(l => {
+  const hotLeads = mockLeads.filter((l) => l.leadScore === 'hot').length;
+  const leadsThisWeek = mockLeads.filter((l) => {
     const leadDate = new Date(l.date);
     const weekAgo = new Date();
     weekAgo.setDate(weekAgo.getDate() - 7);
     return leadDate >= weekAgo;
   }).length;
-  const wonLeads = mockLeads.filter(l => l.status === 'won').length;
+  const wonLeads = mockLeads.filter((l) => l.status === 'won').length;
   const conversionRate = totalLeads > 0 ? Math.round((wonLeads / totalLeads) * 100) : 0;
 
   // Calculate pipeline stage counts
-  const stagesWithCounts = pipelineStages.map(stage => ({
+  const stagesWithCounts = pipelineStages.map((stage) => ({
     ...stage,
-    count: mockLeads.filter(l => l.status === stage.id).length
+    count: mockLeads.filter((l) => l.status === stage.id).length,
   }));
 
   // Filter leads
-  const filteredLeads = mockLeads.filter(lead => {
-    const matchesSearch = 
+  const filteredLeads = mockLeads.filter((lead) => {
+    const matchesSearch =
       lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       lead.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       lead.company?.toLowerCase().includes(searchQuery.toLowerCase());
@@ -234,8 +236,16 @@ export default function LeadDashboard() {
   const getScoreBadge = (score: string) => {
     const configs = {
       hot: { color: 'bg-red-100 text-red-700 border-red-200', label: 'Hot', icon: Flame },
-      warm: { color: 'bg-orange-100 text-orange-700 border-orange-200', label: 'Warm', icon: TrendingUp },
-      cold: { color: 'bg-blue-100 text-blue-700 border-blue-200', label: 'Cold', icon: TrendingDown }
+      warm: {
+        color: 'bg-orange-100 text-orange-700 border-orange-200',
+        label: 'Warm',
+        icon: TrendingUp,
+      },
+      cold: {
+        color: 'bg-blue-100 text-blue-700 border-blue-200',
+        label: 'Cold',
+        icon: TrendingDown,
+      },
     };
     const config = configs[score as keyof typeof configs];
     const Icon = config.icon;
@@ -254,7 +264,7 @@ export default function LeadDashboard() {
       qualified: { label: 'Qualified', color: 'bg-orange-100 text-orange-700' },
       proposal: { label: 'Proposal Sent', color: 'bg-[#00B4D8]/20 text-[#00B4D8]' },
       won: { label: 'Won', color: 'bg-green-100 text-green-700' },
-      lost: { label: 'Lost', color: 'bg-gray-100 text-gray-700' }
+      lost: { label: 'Lost', color: 'bg-gray-100 text-gray-700' },
     };
     const config = statusConfig[status];
     return <Badge className={`${config.color} border-0`}>{config.label}</Badge>;
@@ -266,8 +276,8 @@ export default function LeadDashboard() {
   };
 
   const toggleLeadSelection = (leadId: string) => {
-    setSelectedLeads(prev =>
-      prev.includes(leadId) ? prev.filter(id => id !== leadId) : [...prev, leadId]
+    setSelectedLeads((prev) =>
+      prev.includes(leadId) ? prev.filter((id) => id !== leadId) : [...prev, leadId],
     );
   };
 
@@ -400,14 +410,16 @@ export default function LeadDashboard() {
           <div className="flex space-x-4 overflow-x-auto pb-4">
             {stagesWithCounts.map((stage) => (
               <div key={stage.id} className="flex-shrink-0 w-72">
-                <div className={`${stage.color} text-white rounded-t-lg p-3 flex items-center justify-between`}>
+                <div
+                  className={`${stage.color} text-white rounded-t-lg p-3 flex items-center justify-between`}
+                >
                   <span className="font-semibold">{stage.label}</span>
                   <Badge className="bg-white/20 text-white border-0">{stage.count}</Badge>
                 </div>
                 <div className="bg-gray-50 rounded-b-lg p-3 space-y-3 min-h-[300px] border-2 border-t-0 border-gray-200">
                   {mockLeads
-                    .filter(lead => lead.status === stage.id)
-                    .map(lead => (
+                    .filter((lead) => lead.status === stage.id)
+                    .map((lead) => (
                       <motion.div
                         key={lead.id}
                         whileHover={{ scale: 1.02 }}
@@ -436,7 +448,7 @@ export default function LeadDashboard() {
                         </div>
                       </motion.div>
                     ))}
-                  {mockLeads.filter(lead => lead.status === stage.id).length === 0 && (
+                  {mockLeads.filter((lead) => lead.status === stage.id).length === 0 && (
                     <div className="text-center text-gray-400 text-sm py-8">
                       No leads in this stage
                     </div>
@@ -453,7 +465,7 @@ export default function LeadDashboard() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-[#1E3A5F]">All Leads</CardTitle>
-            
+
             {/* Filters */}
             <div className="flex items-center space-x-3">
               <div className="relative">
@@ -505,7 +517,7 @@ export default function LeadDashboard() {
                       className="w-4 h-4 rounded border-gray-300"
                       onChange={(e) => {
                         if (e.target.checked) {
-                          setSelectedLeads(filteredLeads.map(l => l.id));
+                          setSelectedLeads(filteredLeads.map((l) => l.id));
                         } else {
                           setSelectedLeads([]);
                         }
@@ -515,7 +527,9 @@ export default function LeadDashboard() {
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Name</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Email</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Phone</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Source Page</th>
+                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">
+                    Source Page
+                  </th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Lead Score</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Status</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Date</th>
@@ -551,15 +565,15 @@ export default function LeadDashboard() {
                     <td className="p-4 text-sm text-gray-600">{lead.sourcePage}</td>
                     <td className="p-4">{getScoreBadge(lead.leadScore)}</td>
                     <td className="p-4">{getStatusBadge(lead.status)}</td>
-                    <td className="p-4 text-sm text-gray-600">{new Date(lead.date).toLocaleDateString()}</td>
-                    <td className="p-4 text-sm font-semibold text-green-600">${lead.estimatedValue.toLocaleString()}</td>
+                    <td className="p-4 text-sm text-gray-600">
+                      {new Date(lead.date).toLocaleDateString()}
+                    </td>
+                    <td className="p-4 text-sm font-semibold text-green-600">
+                      ${lead.estimatedValue.toLocaleString()}
+                    </td>
                     <td className="p-4">
                       <div className="flex items-center space-x-2">
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={() => openDetailPanel(lead)}
-                        >
+                        <Button size="sm" variant="ghost" onClick={() => openDetailPanel(lead)}>
                           <Eye className="w-4 h-4" />
                         </Button>
                         <Button size="sm" variant="ghost">
@@ -568,7 +582,11 @@ export default function LeadDashboard() {
                         <Button size="sm" variant="ghost">
                           <MessageSquare className="w-4 h-4" />
                         </Button>
-                        <Button size="sm" variant="ghost" className="text-red-600 hover:text-red-700">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-red-600 hover:text-red-700"
+                        >
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>
@@ -777,19 +795,21 @@ export default function LeadDashboard() {
                           email: Mail,
                           call: Phone,
                           note: MessageSquare,
-                          meeting: Calendar
+                          meeting: Calendar,
                         };
                         const Icon = icons[interaction.type];
                         const colors = {
                           email: 'bg-blue-100 text-blue-600',
                           call: 'bg-green-100 text-green-600',
                           note: 'bg-orange-100 text-orange-600',
-                          meeting: 'bg-purple-100 text-purple-600'
+                          meeting: 'bg-purple-100 text-purple-600',
                         };
-                        
+
                         return (
                           <div key={index} className="flex items-start space-x-3">
-                            <div className={`w-8 h-8 rounded-full ${colors[interaction.type]} flex items-center justify-center flex-shrink-0`}>
+                            <div
+                              className={`w-8 h-8 rounded-full ${colors[interaction.type]} flex items-center justify-center flex-shrink-0`}
+                            >
                               <Icon className="w-4 h-4" />
                             </div>
                             <div className="flex-1">

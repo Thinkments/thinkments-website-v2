@@ -50,10 +50,18 @@ import {
   ChevronRight,
   ArrowLeft,
   Save,
-  Share2
+  Share2,
 } from 'lucide-react';
 
-type TabType = 'broken-links' | 'gsc-data' | 'internal-links' | 'competitor' | 'anchor-text' | 'link-flow' | 'monitoring' | 'history';
+type TabType =
+  | 'broken-links'
+  | 'gsc-data'
+  | 'internal-links'
+  | 'competitor'
+  | 'anchor-text'
+  | 'link-flow'
+  | 'monitoring'
+  | 'history';
 type ViewType = 'list' | 'recovery' | 'competitor-analysis';
 type WizardStep = 1 | 2 | 3;
 
@@ -122,7 +130,7 @@ export default function BrokenLinkFinder() {
       lastChecked: '2024-12-09',
       priority: 'high',
       type: 'internal',
-      suggestedFix: '/blog/seo-strategies-2024'
+      suggestedFix: '/blog/seo-strategies-2024',
     },
     {
       id: '2',
@@ -133,7 +141,7 @@ export default function BrokenLinkFinder() {
       firstFound: '2024-02-10',
       lastChecked: '2024-12-09',
       priority: 'medium',
-      type: 'external'
+      type: 'external',
     },
     {
       id: '3',
@@ -145,7 +153,7 @@ export default function BrokenLinkFinder() {
       lastChecked: '2024-12-09',
       priority: 'high',
       type: 'internal',
-      suggestedFix: '/about/leadership'
+      suggestedFix: '/about/leadership',
     },
   ];
 
@@ -153,12 +161,12 @@ export default function BrokenLinkFinder() {
     {
       date: '2023-12-15',
       url: 'https://web.archive.org/...',
-      preview: 'Complete guide to SEO strategies for 2023...'
+      preview: 'Complete guide to SEO strategies for 2023...',
     },
     {
       date: '2023-06-20',
       url: 'https://web.archive.org/...',
-      preview: 'SEO best practices and tips for ranking...'
+      preview: 'SEO best practices and tips for ranking...',
     },
   ];
 
@@ -169,7 +177,7 @@ export default function BrokenLinkFinder() {
       targetPage: '/services/seo',
       anchorText: 'SEO services',
       relevanceScore: 92,
-      context: 'Mentions "search engine optimization" 3 times but no link to SEO page'
+      context: 'Mentions "search engine optimization" 3 times but no link to SEO page',
     },
     {
       id: '2',
@@ -177,7 +185,7 @@ export default function BrokenLinkFinder() {
       targetPage: '/services/social-media',
       anchorText: 'social media management',
       relevanceScore: 88,
-      context: 'Discusses social media strategies without linking to service page'
+      context: 'Discusses social media strategies without linking to service page',
     },
   ];
 
@@ -189,7 +197,7 @@ export default function BrokenLinkFinder() {
       brokenUrl: 'https://oldarticle.com/seo-tips',
       topic: 'SEO Tips and Strategies',
       yourMatchingPage: '/blog/seo-strategies-2024',
-      outreachStatus: 'not-sent'
+      outreachStatus: 'not-sent',
     },
     {
       id: '2',
@@ -198,7 +206,7 @@ export default function BrokenLinkFinder() {
       brokenUrl: 'https://deadsite.com/web-design',
       topic: 'Web Design Best Practices',
       yourMatchingPage: '/services/web-design',
-      outreachStatus: 'sent'
+      outreachStatus: 'sent',
     },
   ];
 
@@ -215,30 +223,36 @@ export default function BrokenLinkFinder() {
   };
 
   const toggleLinkSelection = (id: string) => {
-    setSelectedLinks(prev =>
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-    );
+    setSelectedLinks((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]));
   };
 
   const selectAll = () => {
-    setSelectedLinks(brokenLinks.map(link => link.id));
+    setSelectedLinks(brokenLinks.map((link) => link.id));
   };
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'bg-red-500';
-      case 'medium': return 'bg-yellow-500';
-      case 'low': return 'bg-green-500';
-      default: return 'bg-gray-500';
+      case 'high':
+        return 'bg-red-500';
+      case 'medium':
+        return 'bg-yellow-500';
+      case 'low':
+        return 'bg-green-500';
+      default:
+        return 'bg-gray-500';
     }
   };
 
   const getOutreachStatusColor = (status: string) => {
     switch (status) {
-      case 'link-placed': return 'bg-green-100 text-green-700';
-      case 'responded': return 'bg-blue-100 text-blue-700';
-      case 'sent': return 'bg-yellow-100 text-yellow-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case 'link-placed':
+        return 'bg-green-100 text-green-700';
+      case 'responded':
+        return 'bg-blue-100 text-blue-700';
+      case 'sent':
+        return 'bg-yellow-100 text-yellow-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
     }
   };
 
@@ -253,10 +267,7 @@ export default function BrokenLinkFinder() {
           </div>
           <div className="flex items-center space-x-3">
             {!gscConnected && (
-              <Button
-                variant="outline"
-                onClick={() => setGscConnected(true)}
-              >
+              <Button variant="outline" onClick={() => setGscConnected(true)}>
                 <Globe className="w-4 h-4 mr-2" />
                 Connect Google Search Console
               </Button>
@@ -349,7 +360,9 @@ export default function BrokenLinkFinder() {
                   <CheckCircle className="w-5 h-5 text-green-600" />
                   <div>
                     <p className="font-semibold text-green-900">Google Search Console Connected</p>
-                    <p className="text-sm text-green-700">Last synced: 2 hours ago · Next sync: in 22 hours</p>
+                    <p className="text-sm text-green-700">
+                      Last synced: 2 hours ago · Next sync: in 22 hours
+                    </p>
                   </div>
                 </div>
                 <Button size="sm" variant="outline">
@@ -385,12 +398,16 @@ export default function BrokenLinkFinder() {
           >
             {tab.label}
             {tab.count !== undefined && (
-              <Badge className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <Badge
+                className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+              >
                 {tab.count}
               </Badge>
             )}
             {tab.badge && (
-              <Badge className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-700'}`}>
+              <Badge
+                className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-700'}`}
+              >
                 {tab.badge}
               </Badge>
             )}
@@ -433,7 +450,10 @@ export default function BrokenLinkFinder() {
                     <Users className="w-4 h-4 mr-2" />
                     Assign To
                   </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                  >
                     <Plus className="w-4 h-4 mr-2" />
                     Add to Queue
                   </Button>
@@ -507,7 +527,7 @@ export default function BrokenLinkFinder() {
                       onChange={() => toggleLinkSelection(link.id)}
                       className="w-5 h-5 mt-1 text-[#00B4D8] rounded"
                     />
-                    
+
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex-1">
@@ -515,21 +535,30 @@ export default function BrokenLinkFinder() {
                             <Badge className={`${getPriorityColor(link.priority)} text-white`}>
                               {link.priority}
                             </Badge>
-                            <Badge className={link.type === 'internal' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'}>
+                            <Badge
+                              className={
+                                link.type === 'internal'
+                                  ? 'bg-blue-100 text-blue-700'
+                                  : 'bg-purple-100 text-purple-700'
+                              }
+                            >
                               {link.type}
                             </Badge>
-                            <Badge className="bg-red-100 text-red-700">
-                              {link.statusCode}
-                            </Badge>
+                            <Badge className="bg-red-100 text-red-700">{link.statusCode}</Badge>
                           </div>
                           <div className="space-y-2">
                             <div>
                               <p className="text-xs text-gray-600 mb-1">Broken URL:</p>
-                              <p className="font-mono text-sm text-red-600 break-all">{link.brokenUrl}</p>
+                              <p className="font-mono text-sm text-red-600 break-all">
+                                {link.brokenUrl}
+                              </p>
                             </div>
                             <div>
                               <p className="text-xs text-gray-600 mb-1">Found on:</p>
-                              <a href={link.sourceUrl} className="text-sm text-[#00B4D8] hover:underline flex items-center">
+                              <a
+                                href={link.sourceUrl}
+                                className="text-sm text-[#00B4D8] hover:underline flex items-center"
+                              >
                                 <ExternalLink className="w-3 h-3 mr-1" />
                                 {link.sourceUrl}
                               </a>
@@ -557,15 +586,22 @@ export default function BrokenLinkFinder() {
                           <div className="flex items-start space-x-2">
                             <Sparkles className="w-4 h-4 text-green-600 mt-0.5" />
                             <div className="flex-1">
-                              <p className="text-xs font-medium text-green-800 mb-1">AI Suggested Fix:</p>
-                              <p className="text-sm text-gray-900">Redirect to: {link.suggestedFix}</p>
+                              <p className="text-xs font-medium text-green-800 mb-1">
+                                AI Suggested Fix:
+                              </p>
+                              <p className="text-sm text-gray-900">
+                                Redirect to: {link.suggestedFix}
+                              </p>
                             </div>
                           </div>
                         </div>
                       )}
 
                       <div className="flex flex-wrap gap-2">
-                        <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                        <Button
+                          size="sm"
+                          className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        >
                           <ArrowRight className="w-4 h-4 mr-2" />
                           Create Redirect
                         </Button>
@@ -608,9 +644,12 @@ export default function BrokenLinkFinder() {
               <Card className="border-0 shadow-md">
                 <CardContent className="p-12 text-center">
                   <Globe className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                  <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">Connect Google Search Console</h3>
+                  <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
+                    Connect Google Search Console
+                  </h3>
                   <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                    Connect your Google Search Console account to see crawl errors, 404s, and indexing issues directly from Google.
+                    Connect your Google Search Console account to see crawl errors, 404s, and
+                    indexing issues directly from Google.
                   </p>
                   <Button
                     onClick={() => setGscConnected(true)}
@@ -628,16 +667,32 @@ export default function BrokenLinkFinder() {
                     <div className="flex items-center space-x-2">
                       <Info className="w-5 h-5 text-blue-600" />
                       <p className="text-sm text-blue-900">
-                        Showing issues reported by Google Search Console. These are high-priority as they affect how Google crawls your site.
+                        Showing issues reported by Google Search Console. These are high-priority as
+                        they affect how Google crawls your site.
                       </p>
                     </div>
                   </CardContent>
                 </Card>
 
                 {[
-                  { url: '/services/old-service', type: '404 Error', lastCrawled: '2024-12-08', priority: 'high' },
-                  { url: '/blog/deleted-post', type: 'Soft 404', lastCrawled: '2024-12-07', priority: 'high' },
-                  { url: '/resources/whitepaper', type: 'Submitted URL blocked by robots.txt', lastCrawled: '2024-12-06', priority: 'medium' },
+                  {
+                    url: '/services/old-service',
+                    type: '404 Error',
+                    lastCrawled: '2024-12-08',
+                    priority: 'high',
+                  },
+                  {
+                    url: '/blog/deleted-post',
+                    type: 'Soft 404',
+                    lastCrawled: '2024-12-07',
+                    priority: 'high',
+                  },
+                  {
+                    url: '/resources/whitepaper',
+                    type: 'Submitted URL blocked by robots.txt',
+                    lastCrawled: '2024-12-06',
+                    priority: 'medium',
+                  },
                 ].map((issue, idx) => (
                   <Card key={idx} className="border-0 shadow-md">
                     <CardContent className="p-6">
@@ -648,10 +703,15 @@ export default function BrokenLinkFinder() {
                             <Badge className="bg-orange-100 text-orange-700">{issue.type}</Badge>
                           </div>
                           <p className="font-mono text-sm text-gray-900 mb-2">{issue.url}</p>
-                          <p className="text-xs text-gray-600">Last crawled by Google: {issue.lastCrawled}</p>
+                          <p className="text-xs text-gray-600">
+                            Last crawled by Google: {issue.lastCrawled}
+                          </p>
                         </div>
                         <div className="flex space-x-2">
-                          <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                          <Button
+                            size="sm"
+                            className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                          >
                             <ArrowRight className="w-4 h-4 mr-2" />
                             Fix
                           </Button>
@@ -675,10 +735,16 @@ export default function BrokenLinkFinder() {
                     <Sparkles className="w-5 h-5 text-blue-600" />
                     <div>
                       <p className="font-semibold text-blue-900">AI-Powered Link Suggestions</p>
-                      <p className="text-sm text-blue-700">Found {internalLinkOpportunities.length} opportunities to improve internal linking</p>
+                      <p className="text-sm text-blue-700">
+                        Found {internalLinkOpportunities.length} opportunities to improve internal
+                        linking
+                      </p>
                     </div>
                   </div>
-                  <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                  >
                     <Check className="w-4 h-4 mr-2" />
                     Add All Links
                   </Button>
@@ -718,7 +784,10 @@ export default function BrokenLinkFinder() {
                       </div>
                     </div>
                     <div className="flex space-x-2">
-                      <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        size="sm"
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         <Plus className="w-4 h-4 mr-2" />
                         Add This Link
                       </Button>
@@ -753,7 +822,9 @@ export default function BrokenLinkFinder() {
                           <p className="font-medium text-gray-900 mb-2">{page}</p>
                           <div className="space-y-2">
                             <div className="text-sm">
-                              <p className="text-xs text-gray-600 mb-1">Suggested pages to link from:</p>
+                              <p className="text-xs text-gray-600 mb-1">
+                                Suggested pages to link from:
+                              </p>
                               <div className="flex flex-wrap gap-2">
                                 <Badge className="bg-blue-100 text-blue-700">/services</Badge>
                                 <Badge className="bg-blue-100 text-blue-700">/about</Badge>
@@ -761,7 +832,9 @@ export default function BrokenLinkFinder() {
                             </div>
                             <div className="text-sm">
                               <p className="text-xs text-gray-600 mb-1">Suggested anchor text:</p>
-                              <Badge className="bg-purple-100 text-purple-700">business consulting services</Badge>
+                              <Badge className="bg-purple-100 text-purple-700">
+                                business consulting services
+                              </Badge>
                             </div>
                           </div>
                         </div>
@@ -809,12 +882,17 @@ export default function BrokenLinkFinder() {
 
             <div className="space-y-4">
               {competitorBrokenLinks.map((link) => (
-                <Card key={link.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card
+                  key={link.id}
+                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-3">
-                          <Badge className="bg-purple-100 text-purple-700">{link.competitorDomain}</Badge>
+                          <Badge className="bg-purple-100 text-purple-700">
+                            {link.competitorDomain}
+                          </Badge>
                           <Badge className={getOutreachStatusColor(link.outreachStatus)}>
                             {link.outreachStatus.replace('-', ' ')}
                           </Badge>
@@ -822,14 +900,19 @@ export default function BrokenLinkFinder() {
                         <div className="space-y-3">
                           <div>
                             <p className="text-xs text-gray-600 mb-1">Their Page:</p>
-                            <a href={link.pageUrl} className="text-sm text-[#00B4D8] hover:underline flex items-center">
+                            <a
+                              href={link.pageUrl}
+                              className="text-sm text-[#00B4D8] hover:underline flex items-center"
+                            >
                               <ExternalLink className="w-3 h-3 mr-1" />
                               {link.pageUrl}
                             </a>
                           </div>
                           <div>
                             <p className="text-xs text-gray-600 mb-1">Broken Link:</p>
-                            <p className="font-mono text-sm text-red-600 break-all">{link.brokenUrl}</p>
+                            <p className="font-mono text-sm text-red-600 break-all">
+                              {link.brokenUrl}
+                            </p>
                           </div>
                           <div>
                             <p className="text-xs text-gray-600 mb-1">Topic:</p>
@@ -838,7 +921,9 @@ export default function BrokenLinkFinder() {
                           {link.yourMatchingPage && (
                             <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
                               <p className="text-xs text-gray-600 mb-1">Your Matching Page:</p>
-                              <p className="text-sm font-medium text-green-700">{link.yourMatchingPage}</p>
+                              <p className="text-sm font-medium text-green-700">
+                                {link.yourMatchingPage}
+                              </p>
                             </div>
                           )}
                         </div>
@@ -846,7 +931,10 @@ export default function BrokenLinkFinder() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        size="sm"
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         <Mail className="w-4 h-4 mr-2" />
                         Generate Outreach Email
                       </Button>
@@ -867,13 +955,21 @@ export default function BrokenLinkFinder() {
                         <div className="text-sm text-gray-700 space-y-2">
                           <p>Hi [Name],</p>
                           <p>
-                            I noticed your page <span className="font-mono bg-white px-1">{link.pageUrl}</span> has a broken link to{' '}
+                            I noticed your page{' '}
+                            <span className="font-mono bg-white px-1">{link.pageUrl}</span> has a
+                            broken link to{' '}
                             <span className="font-mono bg-white px-1">{link.brokenUrl}</span>.
                           </p>
                           <p>
-                            I have a similar resource at <span className="font-mono bg-white px-1">{link.yourMatchingPage}</span> that might be a good replacement.
+                            I have a similar resource at{' '}
+                            <span className="font-mono bg-white px-1">{link.yourMatchingPage}</span>{' '}
+                            that might be a good replacement.
                           </p>
-                          <p>Best regards,<br />[Your Name]</p>
+                          <p>
+                            Best regards,
+                            <br />
+                            [Your Name]
+                          </p>
                         </div>
                       </div>
                     )}
@@ -893,7 +989,10 @@ export default function BrokenLinkFinder() {
                   <AlertTriangle className="w-5 h-5 text-amber-600" />
                   <div>
                     <p className="font-semibold text-amber-900">Anchor Text Issues Found</p>
-                    <p className="text-sm text-amber-700">Generic anchor text like &quot;click here&quot; and &quot;read more&quot; should be replaced with descriptive text</p>
+                    <p className="text-sm text-amber-700">
+                      Generic anchor text like &quot;click here&quot; and &quot;read more&quot;
+                      should be replaced with descriptive text
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -906,8 +1005,16 @@ export default function BrokenLinkFinder() {
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-3">
-                          <p className="text-lg font-semibold text-gray-900">&quot;{anchor.text}&quot;</p>
-                          <Badge className={anchor.priority === 'high' ? 'bg-red-500 text-white' : 'bg-yellow-500 text-white'}>
+                          <p className="text-lg font-semibold text-gray-900">
+                            &quot;{anchor.text}&quot;
+                          </p>
+                          <Badge
+                            className={
+                              anchor.priority === 'high'
+                                ? 'bg-red-500 text-white'
+                                : 'bg-yellow-500 text-white'
+                            }
+                          >
                             {anchor.issue}
                           </Badge>
                         </div>
@@ -917,16 +1024,27 @@ export default function BrokenLinkFinder() {
                           <span>Across 23 pages</span>
                         </div>
                         <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                          <p className="text-xs font-medium text-green-800 mb-2">AI Suggested Alternatives:</p>
+                          <p className="text-xs font-medium text-green-800 mb-2">
+                            AI Suggested Alternatives:
+                          </p>
                           <div className="flex flex-wrap gap-2">
-                            <Badge className="bg-white text-gray-700 border border-green-300">learn about our SEO services</Badge>
-                            <Badge className="bg-white text-gray-700 border border-green-300">explore digital marketing solutions</Badge>
-                            <Badge className="bg-white text-gray-700 border border-green-300">view our portfolio</Badge>
+                            <Badge className="bg-white text-gray-700 border border-green-300">
+                              learn about our SEO services
+                            </Badge>
+                            <Badge className="bg-white text-gray-700 border border-green-300">
+                              explore digital marketing solutions
+                            </Badge>
+                            <Badge className="bg-white text-gray-700 border border-green-300">
+                              view our portfolio
+                            </Badge>
                           </div>
                         </div>
                       </div>
                       <div className="flex flex-col space-y-2 ml-4">
-                        <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                        <Button
+                          size="sm"
+                          className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        >
                           <Sparkles className="w-4 h-4 mr-2" />
                           Diversify
                         </Button>
@@ -967,8 +1085,12 @@ export default function BrokenLinkFinder() {
                       <div className="flex items-start space-x-3">
                         <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5" />
                         <div>
-                          <p className="font-medium text-yellow-900 mb-1">Location pages receive few links</p>
-                          <p className="text-sm text-yellow-700">Add 12 internal links to improve link equity</p>
+                          <p className="font-medium text-yellow-900 mb-1">
+                            Location pages receive few links
+                          </p>
+                          <p className="text-sm text-yellow-700">
+                            Add 12 internal links to improve link equity
+                          </p>
                         </div>
                       </div>
                     </CardContent>
@@ -978,8 +1100,12 @@ export default function BrokenLinkFinder() {
                       <div className="flex items-start space-x-3">
                         <Info className="w-5 h-5 text-blue-600 mt-0.5" />
                         <div>
-                          <p className="font-medium text-blue-900 mb-1">Blog posts don&apos;t link to services</p>
-                          <p className="text-sm text-blue-700">Connect content to conversion pages</p>
+                          <p className="font-medium text-blue-900 mb-1">
+                            Blog posts don&apos;t link to services
+                          </p>
+                          <p className="text-sm text-blue-700">
+                            Connect content to conversion pages
+                          </p>
                         </div>
                       </div>
                     </CardContent>
@@ -999,12 +1125,18 @@ export default function BrokenLinkFinder() {
                   <div>
                     <h3 className="font-semibold text-[#1E3A5F] mb-2">Automated Monitoring</h3>
                     <p className="text-sm text-gray-600">
-                      {monitoringEnabled ? 'Monitoring is active · Next scan in 6 hours' : 'Enable monitoring to get automatic alerts'}
+                      {monitoringEnabled
+                        ? 'Monitoring is active · Next scan in 6 hours'
+                        : 'Enable monitoring to get automatic alerts'}
                     </p>
                   </div>
                   <Button
                     onClick={() => setMonitoringEnabled(!monitoringEnabled)}
-                    className={monitoringEnabled ? 'bg-green-600 text-white' : 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'}
+                    className={
+                      monitoringEnabled
+                        ? 'bg-green-600 text-white'
+                        : 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
+                    }
                   >
                     {monitoringEnabled ? (
                       <>
@@ -1031,7 +1163,9 @@ export default function BrokenLinkFinder() {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Scan Frequency</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Scan Frequency
+                      </label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                         <option>Daily</option>
                         <option>Weekly</option>
@@ -1040,10 +1174,15 @@ export default function BrokenLinkFinder() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Watched URLs</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Watched URLs
+                      </label>
                       <div className="space-y-2 mb-3">
                         {['/services/seo', '/contact', '/'].map((url) => (
-                          <div key={url} className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                          <div
+                            key={url}
+                            className="flex items-center justify-between p-2 bg-gray-50 rounded"
+                          >
                             <span className="text-sm font-mono">{url}</span>
                             <button className="text-red-600 hover:text-red-700">
                               <Trash2 className="w-4 h-4" />
@@ -1068,7 +1207,11 @@ export default function BrokenLinkFinder() {
                   <div className="space-y-4">
                     <div>
                       <label className="flex items-center space-x-2 mb-3">
-                        <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 text-[#00B4D8] rounded"
+                          defaultChecked
+                        />
                         <span className="text-sm text-gray-900">Email notifications</span>
                       </label>
                       <input
@@ -1088,14 +1231,24 @@ export default function BrokenLinkFinder() {
                       </Button>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Alert When:</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Alert When:
+                      </label>
                       <div className="space-y-2">
                         <label className="flex items-center space-x-2">
-                          <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#00B4D8] rounded"
+                            defaultChecked
+                          />
                           <span className="text-sm text-gray-700">New broken link found</span>
                         </label>
                         <label className="flex items-center space-x-2">
-                          <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#00B4D8] rounded"
+                            defaultChecked
+                          />
                           <span className="text-sm text-gray-700">Fixed link breaks again</span>
                         </label>
                         <label className="flex items-center space-x-2">
@@ -1126,7 +1279,10 @@ export default function BrokenLinkFinder() {
                     { name: 'Semrush', icon: Search, connected: false },
                     { name: 'Screaming Frog', icon: Upload, connected: false },
                   ].map((integration) => (
-                    <Card key={integration.name} className="border-2 border-gray-200 hover:border-[#00B4D8] cursor-pointer">
+                    <Card
+                      key={integration.name}
+                      className="border-2 border-gray-200 hover:border-[#00B4D8] cursor-pointer"
+                    >
                       <CardContent className="pt-6 text-center">
                         <integration.icon className="w-8 h-8 mx-auto mb-2 text-gray-400" />
                         <p className="text-sm font-medium text-gray-900 mb-2">{integration.name}</p>
@@ -1150,9 +1306,15 @@ export default function BrokenLinkFinder() {
                 <div className="flex items-center justify-between">
                   <CardTitle>Link Health Trends</CardTitle>
                   <div className="flex space-x-2">
-                    <Button size="sm" variant="outline">Last 7 Days</Button>
-                    <Button size="sm" variant="outline">Last 30 Days</Button>
-                    <Button size="sm" variant="outline">Last 90 Days</Button>
+                    <Button size="sm" variant="outline">
+                      Last 7 Days
+                    </Button>
+                    <Button size="sm" variant="outline">
+                      Last 30 Days
+                    </Button>
+                    <Button size="sm" variant="outline">
+                      Last 90 Days
+                    </Button>
                   </div>
                 </div>
               </CardHeader>
@@ -1175,15 +1337,34 @@ export default function BrokenLinkFinder() {
                 <div className="space-y-4">
                   {[
                     { date: 'Dec 9, 2024', action: '3 broken links fixed', type: 'fix', count: 3 },
-                    { date: 'Dec 8, 2024', action: 'Created 2 redirect rules', type: 'redirect', count: 2 },
-                    { date: 'Dec 7, 2024', action: 'AI generated 5 new pages', type: 'generate', count: 5 },
-                    { date: 'Dec 5, 2024', action: 'Ahrefs import - 47 issues found', type: 'import', count: 47 },
+                    {
+                      date: 'Dec 8, 2024',
+                      action: 'Created 2 redirect rules',
+                      type: 'redirect',
+                      count: 2,
+                    },
+                    {
+                      date: 'Dec 7, 2024',
+                      action: 'AI generated 5 new pages',
+                      type: 'generate',
+                      count: 5,
+                    },
+                    {
+                      date: 'Dec 5, 2024',
+                      action: 'Ahrefs import - 47 issues found',
+                      type: 'import',
+                      count: 47,
+                    },
                   ].map((event, idx) => (
                     <div key={idx} className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         {event.type === 'fix' && <CheckCircle className="w-6 h-6 text-blue-600" />}
-                        {event.type === 'redirect' && <ArrowRight className="w-6 h-6 text-blue-600" />}
-                        {event.type === 'generate' && <Sparkles className="w-6 h-6 text-blue-600" />}
+                        {event.type === 'redirect' && (
+                          <ArrowRight className="w-6 h-6 text-blue-600" />
+                        )}
+                        {event.type === 'generate' && (
+                          <Sparkles className="w-6 h-6 text-blue-600" />
+                        )}
                         {event.type === 'import' && <Upload className="w-6 h-6 text-blue-600" />}
                       </div>
                       <div className="flex-1 border-b border-gray-200 pb-4">
@@ -1224,8 +1405,12 @@ export default function BrokenLinkFinder() {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">Recover from Internet Archive</h2>
-                    <p className="text-gray-600 font-mono text-sm">{selectedBrokenLink.brokenUrl}</p>
+                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                      Recover from Internet Archive
+                    </h2>
+                    <p className="text-gray-600 font-mono text-sm">
+                      {selectedBrokenLink.brokenUrl}
+                    </p>
                   </div>
                   <Button variant="ghost" size="sm" onClick={() => setShowRecoveryModal(false)}>
                     <X className="w-5 h-5" />
@@ -1237,7 +1422,9 @@ export default function BrokenLinkFinder() {
                     <CardContent className="pt-4 pb-4">
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-blue-600" />
-                        <p className="text-sm text-blue-900">Found {archivedVersions.length} archived versions in Wayback Machine</p>
+                        <p className="text-sm text-blue-900">
+                          Found {archivedVersions.length} archived versions in Wayback Machine
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -1245,7 +1432,10 @@ export default function BrokenLinkFinder() {
 
                 <div className="space-y-4 mb-6">
                   {archivedVersions.map((version, idx) => (
-                    <Card key={idx} className="border-2 border-gray-200 hover:border-[#00B4D8] cursor-pointer">
+                    <Card
+                      key={idx}
+                      className="border-2 border-gray-200 hover:border-[#00B4D8] cursor-pointer"
+                    >
                       <CardContent className="p-4">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
@@ -1259,7 +1449,10 @@ export default function BrokenLinkFinder() {
                                 <Eye className="w-4 h-4 mr-2" />
                                 Preview
                               </Button>
-                              <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                              <Button
+                                size="sm"
+                                className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                              >
                                 <Download className="w-4 h-4 mr-2" />
                                 Extract Content
                               </Button>
@@ -1307,7 +1500,9 @@ export default function BrokenLinkFinder() {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">Generate Client Report</h2>
+                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                      Generate Client Report
+                    </h2>
                     <p className="text-gray-600">Step {wizardStep} of 3</p>
                   </div>
                   <Button variant="ghost" size="sm" onClick={() => setShowReportWizard(false)}>
@@ -1318,9 +1513,15 @@ export default function BrokenLinkFinder() {
                 {/* Progress */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className={`flex-1 h-2 rounded-full ${wizardStep >= 1 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`} />
-                    <div className={`flex-1 h-2 rounded-full ${wizardStep >= 2 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`} />
-                    <div className={`flex-1 h-2 rounded-full ${wizardStep >= 3 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`} />
+                    <div
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 1 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                    />
+                    <div
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 2 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                    />
+                    <div
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 3 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                    />
                   </div>
                   <div className="flex justify-between text-xs text-gray-600">
                     <span>Report Type</span>
@@ -1335,16 +1536,30 @@ export default function BrokenLinkFinder() {
                     <h3 className="font-semibold text-[#1E3A5F] mb-4">Select report type:</h3>
                     <div className="space-y-3 mb-6">
                       {[
-                        { label: 'Executive Summary', desc: 'High-level overview for decision makers' },
+                        {
+                          label: 'Executive Summary',
+                          desc: 'High-level overview for decision makers',
+                        },
                         { label: 'Technical Report', desc: 'Detailed analysis for developers' },
-                        { label: 'Client Report', desc: 'White-label PDF for client presentations' },
-                        { label: 'Monthly Comparison', desc: 'This month vs last month performance' },
+                        {
+                          label: 'Client Report',
+                          desc: 'White-label PDF for client presentations',
+                        },
+                        {
+                          label: 'Monthly Comparison',
+                          desc: 'This month vs last month performance',
+                        },
                       ].map((type, idx) => (
                         <label
                           key={idx}
                           className="flex items-start space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-[#00B4D8] cursor-pointer"
                         >
-                          <input type="radio" name="report-type" className="w-5 h-5 mt-1 text-[#00B4D8]" defaultChecked={idx === 2} />
+                          <input
+                            type="radio"
+                            name="report-type"
+                            className="w-5 h-5 mt-1 text-[#00B4D8]"
+                            defaultChecked={idx === 2}
+                          />
                           <div>
                             <p className="font-medium text-gray-900">{type.label}</p>
                             <p className="text-sm text-gray-600">{type.desc}</p>
@@ -1353,7 +1568,10 @@ export default function BrokenLinkFinder() {
                       ))}
                     </div>
                     <div className="flex justify-end">
-                      <Button onClick={() => setWizardStep(2)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(2)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Next
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1367,7 +1585,9 @@ export default function BrokenLinkFinder() {
                     <h3 className="font-semibold text-[#1E3A5F] mb-4">Customize report:</h3>
                     <div className="space-y-4 mb-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Report Title</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Report Title
+                        </label>
                         <input
                           type="text"
                           defaultValue="Link Health Report - December 2024"
@@ -1375,18 +1595,33 @@ export default function BrokenLinkFinder() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Include Sections</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Include Sections
+                        </label>
                         <div className="space-y-2">
-                          {['Executive Summary', 'Issues Found', 'Issues Fixed', 'New Pages Created', 'SEO Impact', 'Recommendations'].map((section) => (
+                          {[
+                            'Executive Summary',
+                            'Issues Found',
+                            'Issues Fixed',
+                            'New Pages Created',
+                            'SEO Impact',
+                            'Recommendations',
+                          ].map((section) => (
                             <label key={section} className="flex items-center space-x-2">
-                              <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+                              <input
+                                type="checkbox"
+                                className="w-4 h-4 text-[#00B4D8] rounded"
+                                defaultChecked
+                              />
                               <span className="text-sm text-gray-700">{section}</span>
                             </label>
                           ))}
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Custom Logo</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Custom Logo
+                        </label>
                         <Button size="sm" variant="outline">
                           <Upload className="w-4 h-4 mr-2" />
                           Upload Logo
@@ -1398,7 +1633,10 @@ export default function BrokenLinkFinder() {
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back
                       </Button>
-                      <Button onClick={() => setWizardStep(3)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(3)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Generate Report
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>

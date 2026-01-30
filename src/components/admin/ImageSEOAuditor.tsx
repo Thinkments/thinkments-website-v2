@@ -45,11 +45,17 @@ import {
   Minimize2,
   Link as LinkIcon,
   Layers,
-  Globe
+  Globe,
 } from 'lucide-react';
 
 type ViewMode = 'gallery' | 'list';
-type TabType = 'missing-alt' | 'poor-names' | 'oversized' | 'missing-dimensions' | 'not-in-sitemap' | 'duplicates';
+type TabType =
+  | 'missing-alt'
+  | 'poor-names'
+  | 'oversized'
+  | 'missing-dimensions'
+  | 'not-in-sitemap'
+  | 'duplicates';
 type WizardStep = 1 | 2 | 3;
 
 interface ImageIssue {
@@ -92,7 +98,7 @@ export default function ImageSEOAuditor() {
     missingDimensions: 56,
     notInSitemap: 23,
     missingTitle: 89,
-    duplicates: 12
+    duplicates: 12,
   };
 
   const mockImages: ImageIssue[] = [
@@ -100,13 +106,14 @@ export default function ImageSEOAuditor() {
       id: '1',
       filename: 'IMG_1234.jpg',
       url: '/images/IMG_1234.jpg',
-      thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop',
+      thumbnail:
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop',
       size: 1248000,
       dimensions: { width: 3000, height: 2000 },
       format: 'jpg',
       pages: ['/services/seo', '/blog/digital-marketing-tips'],
       issues: ['missing-alt', 'poor-name', 'oversized'],
-      uploadDate: '2024-03-15'
+      uploadDate: '2024-03-15',
     },
     {
       id: '2',
@@ -118,7 +125,7 @@ export default function ImageSEOAuditor() {
       format: 'png',
       pages: ['/case-studies/retail-success'],
       issues: ['missing-alt', 'poor-name', 'oversized'],
-      uploadDate: '2024-01-20'
+      uploadDate: '2024-01-20',
     },
     {
       id: '3',
@@ -130,7 +137,7 @@ export default function ImageSEOAuditor() {
       format: 'jpeg',
       pages: ['/about'],
       issues: ['missing-alt', 'poor-name', 'missing-dimensions'],
-      uploadDate: '2024-02-10'
+      uploadDate: '2024-02-10',
     },
     {
       id: '4',
@@ -142,7 +149,7 @@ export default function ImageSEOAuditor() {
       format: 'jpg',
       pages: ['/services/social-media'],
       issues: ['missing-alt', 'poor-name', 'oversized'],
-      uploadDate: '2024-04-05'
+      uploadDate: '2024-04-05',
     },
   ];
 
@@ -152,13 +159,11 @@ export default function ImageSEOAuditor() {
   };
 
   const toggleImageSelection = (id: string) => {
-    setSelectedImages(prev =>
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-    );
+    setSelectedImages((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]));
   };
 
   const selectAll = () => {
-    setSelectedImages(mockImages.map(img => img.id));
+    setSelectedImages(mockImages.map((img) => img.id));
   };
 
   const deselectAll = () => {
@@ -187,7 +192,7 @@ export default function ImageSEOAuditor() {
       'IMG_1234.jpg': 'Business analytics dashboard on laptop screen showing growth metrics',
       'Screenshot 2024-01-20.png': 'Digital marketing performance chart with upward trend',
       'photo.jpeg': 'Professional team meeting discussing marketing strategy',
-      'DSC_0089.jpg': 'Social media engagement metrics and analytics display'
+      'DSC_0089.jpg': 'Social media engagement metrics and analytics display',
     };
     return suggestions[filename] || 'Marketing team collaboration in modern office';
   };
@@ -197,7 +202,7 @@ export default function ImageSEOAuditor() {
       'IMG_1234.jpg': 'business-analytics-dashboard-growth-metrics.jpg',
       'Screenshot 2024-01-20.png': 'digital-marketing-performance-chart.png',
       'photo.jpeg': 'team-meeting-marketing-strategy.jpg',
-      'DSC_0089.jpg': 'social-media-engagement-analytics.jpg'
+      'DSC_0089.jpg': 'social-media-engagement-analytics.jpg',
     };
     return suggestions[filename] || 'optimized-image.jpg';
   };
@@ -251,14 +256,7 @@ export default function ImageSEOAuditor() {
             <div className="flex flex-col items-center">
               <div className="relative w-40 h-40 mb-4">
                 <svg className="w-full h-full transform -rotate-90">
-                  <circle
-                    cx="80"
-                    cy="80"
-                    r="70"
-                    stroke="#E5E7EB"
-                    strokeWidth="12"
-                    fill="none"
-                  />
+                  <circle cx="80" cy="80" r="70" stroke="#E5E7EB" strokeWidth="12" fill="none" />
                   <circle
                     cx="80"
                     cy="80"
@@ -280,7 +278,11 @@ export default function ImageSEOAuditor() {
               </div>
               <h3 className="text-lg font-semibold text-[#1E3A5F] mb-1">Image SEO Score</h3>
               <p className="text-sm text-gray-600 text-center">
-                {seoScore >= 80 ? 'Excellent!' : seoScore >= 50 ? 'Needs Improvement' : 'Critical Issues'}
+                {seoScore >= 80
+                  ? 'Excellent!'
+                  : seoScore >= 50
+                    ? 'Needs Improvement'
+                    : 'Critical Issues'}
               </p>
             </div>
           </CardContent>
@@ -289,7 +291,10 @@ export default function ImageSEOAuditor() {
         {/* Issue Summary Cards */}
         <div className="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-4">
           {/* Missing Alt Text */}
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveTab('missing-alt')}>
+          <Card
+            className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setActiveTab('missing-alt')}
+          >
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
@@ -303,7 +308,10 @@ export default function ImageSEOAuditor() {
           </Card>
 
           {/* Poor File Names */}
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveTab('poor-names')}>
+          <Card
+            className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setActiveTab('poor-names')}
+          >
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
@@ -317,7 +325,10 @@ export default function ImageSEOAuditor() {
           </Card>
 
           {/* Oversized Images */}
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveTab('oversized')}>
+          <Card
+            className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setActiveTab('oversized')}
+          >
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
@@ -332,7 +343,10 @@ export default function ImageSEOAuditor() {
           </Card>
 
           {/* Missing Dimensions */}
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveTab('missing-dimensions')}>
+          <Card
+            className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setActiveTab('missing-dimensions')}
+          >
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
@@ -340,13 +354,18 @@ export default function ImageSEOAuditor() {
                 </div>
                 <Badge className="bg-amber-500 text-white text-xs">Layout Shift</Badge>
               </div>
-              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{issueStats.missingDimensions}</p>
+              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">
+                {issueStats.missingDimensions}
+              </p>
               <p className="text-sm text-gray-600">Missing Dimensions</p>
             </CardContent>
           </Card>
 
           {/* Not in Sitemap */}
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveTab('not-in-sitemap')}>
+          <Card
+            className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setActiveTab('not-in-sitemap')}
+          >
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -360,7 +379,10 @@ export default function ImageSEOAuditor() {
           </Card>
 
           {/* Duplicates */}
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveTab('duplicates')}>
+          <Card
+            className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setActiveTab('duplicates')}
+          >
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -397,7 +419,9 @@ export default function ImageSEOAuditor() {
               >
                 <Filter className="w-4 h-4 mr-2" />
                 Filters
-                <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-4 h-4 ml-2 transition-transform ${showFilters ? 'rotate-180' : ''}`}
+                />
               </Button>
             </div>
 
@@ -458,7 +482,9 @@ export default function ImageSEOAuditor() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Size Range</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Size Range
+                    </label>
                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                       <option>All Sizes</option>
                       <option>&lt; 100 KB</option>
@@ -468,7 +494,9 @@ export default function ImageSEOAuditor() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Page/Section</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Page/Section
+                    </label>
                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                       <option>All Pages</option>
                       <option>Homepage</option>
@@ -500,7 +528,11 @@ export default function ImageSEOAuditor() {
           { id: 'missing-alt', label: 'Missing Alt Text', count: issueStats.missingAlt },
           { id: 'poor-names', label: 'Poor File Names', count: issueStats.poorNames },
           { id: 'oversized', label: 'Oversized Images', count: issueStats.oversized },
-          { id: 'missing-dimensions', label: 'Missing Dimensions', count: issueStats.missingDimensions },
+          {
+            id: 'missing-dimensions',
+            label: 'Missing Dimensions',
+            count: issueStats.missingDimensions,
+          },
           { id: 'not-in-sitemap', label: 'Not in Sitemap', count: issueStats.notInSitemap },
           { id: 'duplicates', label: 'Duplicates', count: issueStats.duplicates },
         ].map((tab) => (
@@ -514,7 +546,9 @@ export default function ImageSEOAuditor() {
             }`}
           >
             {tab.label}
-            <Badge className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+            <Badge
+              className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+            >
               {tab.count}
             </Badge>
           </button>
@@ -548,7 +582,10 @@ export default function ImageSEOAuditor() {
                     <Download className="w-4 h-4 mr-2" />
                     Export Selected
                   </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                  >
                     <Check className="w-4 h-4 mr-2" />
                     Bulk Apply
                   </Button>
@@ -588,13 +625,21 @@ export default function ImageSEOAuditor() {
                   </div>
                   <div className="flex items-end">
                     <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 text-[#00B4D8] rounded"
+                        defaultChecked
+                      />
                       <span className="text-sm text-gray-700">Include location (Decatur, TX)</span>
                     </label>
                   </div>
                   <div className="flex items-end">
                     <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 text-[#00B4D8] rounded"
+                        defaultChecked
+                      />
                       <span className="text-sm text-gray-700">Include brand name</span>
                     </label>
                   </div>
@@ -603,84 +648,106 @@ export default function ImageSEOAuditor() {
             </Card>
 
             {/* Image Grid/List */}
-            <div className={viewMode === 'gallery' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4' : 'space-y-4'}>
-              {mockImages.filter(img => img.issues.includes('missing-alt')).map((image) => (
-                <Card key={image.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
-                  <CardContent className="p-4">
-                    <div className="flex items-start space-x-3">
-                      <input
-                        type="checkbox"
-                        checked={selectedImages.includes(image.id)}
-                        onChange={() => toggleImageSelection(image.id)}
-                        className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
-                      />
-                      <div className="flex-1">
-                        <div
-                          className="relative w-full h-48 bg-gray-100 rounded-lg overflow-hidden mb-3 cursor-pointer"
-                          onClick={() => {
-                            setSelectedImage(image);
-                            setShowImageModal(true);
-                          }}
-                        >
-                          <img
-                            src={image.thumbnail}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-2 right-2">
-                            <Badge className="bg-black/70 text-white">
-                              {formatFileSize(image.size)}
-                            </Badge>
-                          </div>
-                        </div>
-
-                        <div className="mb-3">
-                          <div className="flex items-center justify-between mb-2">
-                            <p className="font-medium text-sm text-gray-900">{image.filename}</p>
-                            <Button size="sm" variant="ghost" onClick={() => {
+            <div
+              className={
+                viewMode === 'gallery'
+                  ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+                  : 'space-y-4'
+              }
+            >
+              {mockImages
+                .filter((img) => img.issues.includes('missing-alt'))
+                .map((image) => (
+                  <Card
+                    key={image.id}
+                    className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-start space-x-3">
+                        <input
+                          type="checkbox"
+                          checked={selectedImages.includes(image.id)}
+                          onChange={() => toggleImageSelection(image.id)}
+                          className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
+                        />
+                        <div className="flex-1">
+                          <div
+                            className="relative w-full h-48 bg-gray-100 rounded-lg overflow-hidden mb-3 cursor-pointer"
+                            onClick={() => {
                               setSelectedImage(image);
                               setShowImageModal(true);
-                            }}>
-                              <Eye className="w-4 h-4" />
-                            </Button>
-                          </div>
-                          <div className="flex flex-wrap gap-1 mb-2">
-                            {image.pages.map((page, idx) => (
-                              <Badge key={idx} className="bg-blue-100 text-blue-700 text-xs">
-                                <ExternalLink className="w-3 h-3 mr-1" />
-                                {page}
+                            }}
+                          >
+                            <img
+                              src={image.thumbnail}
+                              alt=""
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute top-2 right-2">
+                              <Badge className="bg-black/70 text-white">
+                                {formatFileSize(image.size)}
                               </Badge>
-                            ))}
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
-                          <div className="flex items-start space-x-2 mb-2">
-                            <Sparkles className="w-4 h-4 text-green-600 mt-0.5" />
-                            <p className="text-xs font-medium text-green-800">AI Suggestion:</p>
+                          <div className="mb-3">
+                            <div className="flex items-center justify-between mb-2">
+                              <p className="font-medium text-sm text-gray-900">{image.filename}</p>
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => {
+                                  setSelectedImage(image);
+                                  setShowImageModal(true);
+                                }}
+                              >
+                                <Eye className="w-4 h-4" />
+                              </Button>
+                            </div>
+                            <div className="flex flex-wrap gap-1 mb-2">
+                              {image.pages.map((page, idx) => (
+                                <Badge key={idx} className="bg-blue-100 text-blue-700 text-xs">
+                                  <ExternalLink className="w-3 h-3 mr-1" />
+                                  {page}
+                                </Badge>
+                              ))}
+                            </div>
                           </div>
-                          <p className="text-sm text-gray-700">{getAISuggestion(image.filename)}</p>
-                        </div>
 
-                        <div className="mb-3">
-                          <label className="block text-xs font-medium text-gray-700 mb-1">Alt Text</label>
-                          <input
-                            type="text"
-                            placeholder="Enter alt text..."
-                            defaultValue={getAISuggestion(image.filename)}
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
-                          />
-                        </div>
+                          <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
+                            <div className="flex items-start space-x-2 mb-2">
+                              <Sparkles className="w-4 h-4 text-green-600 mt-0.5" />
+                              <p className="text-xs font-medium text-green-800">AI Suggestion:</p>
+                            </div>
+                            <p className="text-sm text-gray-700">
+                              {getAISuggestion(image.filename)}
+                            </p>
+                          </div>
 
-                        <Button size="sm" className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
-                          <Check className="w-4 h-4 mr-2" />
-                          Apply Alt Text
-                        </Button>
+                          <div className="mb-3">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
+                              Alt Text
+                            </label>
+                            <input
+                              type="text"
+                              placeholder="Enter alt text..."
+                              defaultValue={getAISuggestion(image.filename)}
+                              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                            />
+                          </div>
+
+                          <Button
+                            size="sm"
+                            className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                          >
+                            <Check className="w-4 h-4 mr-2" />
+                            Apply Alt Text
+                          </Button>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                ))}
             </div>
           </div>
         )}
@@ -688,57 +755,65 @@ export default function ImageSEOAuditor() {
         {/* Poor File Names Tab */}
         {activeTab === 'poor-names' && (
           <div className="space-y-4">
-            {mockImages.filter(img => img.issues.includes('poor-name')).map((image) => (
-              <Card key={image.id} className="border-0 shadow-md">
-                <CardContent className="p-4">
-                  <div className="flex items-start space-x-4">
-                    <input
-                      type="checkbox"
-                      checked={selectedImages.includes(image.id)}
-                      onChange={() => toggleImageSelection(image.id)}
-                      className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
-                    />
-                    <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                      <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                        <div>
-                          <label className="block text-xs font-medium text-gray-700 mb-1">Current Name</label>
-                          <div className="flex items-center space-x-2">
-                            <Badge className="bg-red-100 text-red-700 font-mono text-xs">
-                              {image.filename}
-                            </Badge>
-                            <AlertCircle className="w-4 h-4 text-red-500" />
+            {mockImages
+              .filter((img) => img.issues.includes('poor-name'))
+              .map((image) => (
+                <Card key={image.id} className="border-0 shadow-md">
+                  <CardContent className="p-4">
+                    <div className="flex items-start space-x-4">
+                      <input
+                        type="checkbox"
+                        checked={selectedImages.includes(image.id)}
+                        onChange={() => toggleImageSelection(image.id)}
+                        className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
+                      />
+                      <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
+                              Current Name
+                            </label>
+                            <div className="flex items-center space-x-2">
+                              <Badge className="bg-red-100 text-red-700 font-mono text-xs">
+                                {image.filename}
+                              </Badge>
+                              <AlertCircle className="w-4 h-4 text-red-500" />
+                            </div>
+                          </div>
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
+                              <Sparkles className="w-3 h-3 inline mr-1 text-green-600" />
+                              AI Suggested Name
+                            </label>
+                            <input
+                              type="text"
+                              defaultValue={getAIFilenameSuggestion(image.filename)}
+                              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                            />
                           </div>
                         </div>
-                        <div>
-                          <label className="block text-xs font-medium text-gray-700 mb-1">
-                            <Sparkles className="w-3 h-3 inline mr-1 text-green-600" />
-                            AI Suggested Name
-                          </label>
-                          <input
-                            type="text"
-                            defaultValue={getAIFilenameSuggestion(image.filename)}
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
-                          />
+                        <div className="flex items-center justify-between">
+                          <p className="text-xs text-amber-600 flex items-center">
+                            <AlertTriangle className="w-3 h-3 mr-1" />
+                            This will update all references across {image.pages.length} page
+                            {image.pages.length > 1 ? 's' : ''}
+                          </p>
+                          <Button
+                            size="sm"
+                            className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                          >
+                            <Edit3 className="w-4 h-4 mr-2" />
+                            Rename File
+                          </Button>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <p className="text-xs text-amber-600 flex items-center">
-                          <AlertTriangle className="w-3 h-3 mr-1" />
-                          This will update all references across {image.pages.length} page{image.pages.length > 1 ? 's' : ''}
-                        </p>
-                        <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
-                          <Edit3 className="w-4 h-4 mr-2" />
-                          Rename File
-                        </Button>
-                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              ))}
           </div>
         )}
 
@@ -765,58 +840,85 @@ export default function ImageSEOAuditor() {
             </Card>
 
             <div className="space-y-4">
-              {mockImages.filter(img => img.issues.includes('oversized')).map((image) => {
-                const savings = image.size - (image.size * 0.15);
-                const recommended = image.size * 0.15;
-                return (
-                  <Card key={image.id} className="border-0 shadow-md">
-                    <CardContent className="p-4">
-                      <div className="flex items-start space-x-4">
-                        <input
-                          type="checkbox"
-                          checked={selectedImages.includes(image.id)}
-                          onChange={() => toggleImageSelection(image.id)}
-                          className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
-                        />
-                        <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                          <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-medium text-sm text-gray-900 mb-3">{image.filename}</p>
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
-                            <div>
-                              <p className="text-xs text-gray-600 mb-1">Current Size</p>
-                              <Badge className="bg-red-100 text-red-700">{formatFileSize(image.size)}</Badge>
+              {mockImages
+                .filter((img) => img.issues.includes('oversized'))
+                .map((image) => {
+                  const savings = image.size - image.size * 0.15;
+                  const recommended = image.size * 0.15;
+                  return (
+                    <Card key={image.id} className="border-0 shadow-md">
+                      <CardContent className="p-4">
+                        <div className="flex items-start space-x-4">
+                          <input
+                            type="checkbox"
+                            checked={selectedImages.includes(image.id)}
+                            onChange={() => toggleImageSelection(image.id)}
+                            className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
+                          />
+                          <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                            <img
+                              src={image.thumbnail}
+                              alt=""
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <p className="font-medium text-sm text-gray-900 mb-3">
+                              {image.filename}
+                            </p>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                              <div>
+                                <p className="text-xs text-gray-600 mb-1">Current Size</p>
+                                <Badge className="bg-red-100 text-red-700">
+                                  {formatFileSize(image.size)}
+                                </Badge>
+                              </div>
+                              <div>
+                                <p className="text-xs text-gray-600 mb-1">Current Dimensions</p>
+                                <p className="text-sm font-medium">
+                                  {image.dimensions.width} × {image.dimensions.height}
+                                </p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-gray-600 mb-1">Recommended Size</p>
+                                <Badge className="bg-green-100 text-green-700">
+                                  {formatFileSize(recommended)}
+                                </Badge>
+                              </div>
+                              <div>
+                                <p className="text-xs text-gray-600 mb-1">Potential Savings</p>
+                                <p className="text-sm font-semibold text-green-600">
+                                  {formatFileSize(savings)}
+                                </p>
+                              </div>
                             </div>
-                            <div>
-                              <p className="text-xs text-gray-600 mb-1">Current Dimensions</p>
-                              <p className="text-sm font-medium">{image.dimensions.width} × {image.dimensions.height}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-gray-600 mb-1">Recommended Size</p>
-                              <Badge className="bg-green-100 text-green-700">{formatFileSize(recommended)}</Badge>
-                            </div>
-                            <div>
-                              <p className="text-xs text-gray-600 mb-1">Potential Savings</p>
-                              <p className="text-sm font-semibold text-green-600">{formatFileSize(savings)}</p>
+                            <div className="flex items-center space-x-4">
+                              <div className="flex-1">
+                                <label className="block text-xs font-medium text-gray-700 mb-2">
+                                  Quality: 80%
+                                </label>
+                                <input
+                                  type="range"
+                                  min="60"
+                                  max="100"
+                                  defaultValue="80"
+                                  className="w-full"
+                                />
+                              </div>
+                              <Button
+                                size="sm"
+                                className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                              >
+                                <Zap className="w-4 h-4 mr-2" />
+                                Optimize
+                              </Button>
                             </div>
                           </div>
-                          <div className="flex items-center space-x-4">
-                            <div className="flex-1">
-                              <label className="block text-xs font-medium text-gray-700 mb-2">Quality: 80%</label>
-                              <input type="range" min="60" max="100" defaultValue="80" className="w-full" />
-                            </div>
-                            <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
-                              <Zap className="w-4 h-4 mr-2" />
-                              Optimize
-                            </Button>
-                          </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
             </div>
           </div>
         )}
@@ -829,53 +931,65 @@ export default function ImageSEOAuditor() {
                 <div className="flex items-start space-x-3">
                   <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-amber-900 mb-1">This causes Cumulative Layout Shift (CLS)</p>
+                    <p className="font-semibold text-amber-900 mb-1">
+                      This causes Cumulative Layout Shift (CLS)
+                    </p>
                     <p className="text-sm text-amber-800">
-                      Images without width and height attributes cause the page to jump as images load, harming user experience and SEO.
+                      Images without width and height attributes cause the page to jump as images
+                      load, harming user experience and SEO.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {mockImages.filter(img => img.issues.includes('missing-dimensions')).map((image) => (
-              <Card key={image.id} className="border-0 shadow-md">
-                <CardContent className="p-4">
-                  <div className="flex items-start space-x-4">
-                    <input
-                      type="checkbox"
-                      checked={selectedImages.includes(image.id)}
-                      onChange={() => toggleImageSelection(image.id)}
-                      className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
-                    />
-                    <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                      <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-medium text-sm text-gray-900 mb-3">{image.filename}</p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                        <div>
-                          <label className="block text-xs font-medium text-gray-700 mb-2">Current Code</label>
-                          <code className="block bg-red-50 border border-red-200 rounded px-3 py-2 text-xs font-mono text-red-800">
-                            {`<img src="${image.url}" />`}
-                          </code>
-                        </div>
-                        <div>
-                          <label className="block text-xs font-medium text-gray-700 mb-2">Suggested Fix</label>
-                          <code className="block bg-green-50 border border-green-200 rounded px-3 py-2 text-xs font-mono text-green-800">
-                            {`<img src="${image.url}" width="${image.dimensions.width}" height="${image.dimensions.height}" />`}
-                          </code>
-                        </div>
+            {mockImages
+              .filter((img) => img.issues.includes('missing-dimensions'))
+              .map((image) => (
+                <Card key={image.id} className="border-0 shadow-md">
+                  <CardContent className="p-4">
+                    <div className="flex items-start space-x-4">
+                      <input
+                        type="checkbox"
+                        checked={selectedImages.includes(image.id)}
+                        onChange={() => toggleImageSelection(image.id)}
+                        className="w-4 h-4 mt-1 text-[#00B4D8] rounded"
+                      />
+                      <div className="w-32 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
                       </div>
-                      <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
-                        <Check className="w-4 h-4 mr-2" />
-                        Add Dimensions
-                      </Button>
+                      <div className="flex-1">
+                        <p className="font-medium text-sm text-gray-900 mb-3">{image.filename}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-2">
+                              Current Code
+                            </label>
+                            <code className="block bg-red-50 border border-red-200 rounded px-3 py-2 text-xs font-mono text-red-800">
+                              {`<img src="${image.url}" />`}
+                            </code>
+                          </div>
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-2">
+                              Suggested Fix
+                            </label>
+                            <code className="block bg-green-50 border border-green-200 rounded px-3 py-2 text-xs font-mono text-green-800">
+                              {`<img src="${image.url}" width="${image.dimensions.width}" height="${image.dimensions.height}" />`}
+                            </code>
+                          </div>
+                        </div>
+                        <Button
+                          size="sm"
+                          className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        >
+                          <Check className="w-4 h-4 mr-2" />
+                          Add Dimensions
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              ))}
           </div>
         )}
 
@@ -886,8 +1000,12 @@ export default function ImageSEOAuditor() {
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-600 mb-2">These images are missing from your image sitemap</p>
-                    <p className="text-xs text-gray-500">Adding them will help search engines discover and index your images</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      These images are missing from your image sitemap
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Adding them will help search engines discover and index your images
+                    </p>
                   </div>
                   <div className="flex space-x-2">
                     <Button variant="outline">
@@ -916,10 +1034,19 @@ export default function ImageSEOAuditor() {
                       />
                       <div className="flex-1">
                         <div className="w-full h-32 bg-gray-100 rounded-lg overflow-hidden mb-3">
-                          <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
+                          <img
+                            src={image.thumbnail}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
                         </div>
-                        <p className="font-medium text-sm text-gray-900 mb-2 truncate">{image.filename}</p>
-                        <Button size="sm" className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                        <p className="font-medium text-sm text-gray-900 mb-2 truncate">
+                          {image.filename}
+                        </p>
+                        <Button
+                          size="sm"
+                          className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        >
                           <MapPin className="w-4 h-4 mr-2" />
                           Add to Sitemap
                         </Button>
@@ -941,15 +1068,15 @@ export default function ImageSEOAuditor() {
                   <div className="flex items-start space-x-3">
                     <Copy className="w-5 h-5 text-purple-600 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-purple-900 mb-1">12 groups of duplicate images found</p>
+                      <p className="font-semibold text-purple-900 mb-1">
+                        12 groups of duplicate images found
+                      </p>
                       <p className="text-sm text-purple-800">
                         Remove duplicates to save space and avoid duplicate content issues
                       </p>
                     </div>
                   </div>
-                  <Badge className="bg-green-100 text-green-700">
-                    Save 3.2 MB
-                  </Badge>
+                  <Badge className="bg-green-100 text-green-700">Save 3.2 MB</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -966,10 +1093,17 @@ export default function ImageSEOAuditor() {
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {mockImages.slice(0, 3).map((image, idx) => (
-                    <div key={image.id} className="border-2 border-gray-200 rounded-lg p-3 hover:border-[#00B4D8] transition-colors">
+                    <div
+                      key={image.id}
+                      className="border-2 border-gray-200 rounded-lg p-3 hover:border-[#00B4D8] transition-colors"
+                    >
                       <div className="relative">
                         <div className="w-full h-32 bg-gray-100 rounded-lg overflow-hidden mb-3">
-                          <img src={image.thumbnail} alt="" className="w-full h-full object-cover" />
+                          <img
+                            src={image.thumbnail}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                         <div className="absolute top-2 right-2">
                           <label className="flex items-center space-x-1 bg-white rounded px-2 py-1 shadow">
@@ -983,20 +1117,28 @@ export default function ImageSEOAuditor() {
                           </label>
                         </div>
                       </div>
-                      <p className="font-medium text-sm text-gray-900 mb-1 truncate">{image.filename}</p>
+                      <p className="font-medium text-sm text-gray-900 mb-1 truncate">
+                        {image.filename}
+                      </p>
                       <p className="text-xs text-gray-600 mb-2">{formatFileSize(image.size)}</p>
                       <div className="flex items-center space-x-1 text-xs text-gray-600">
                         <ExternalLink className="w-3 h-3" />
-                        <span>Used on {image.pages.length} page{image.pages.length > 1 ? 's' : ''}</span>
+                        <span>
+                          Used on {image.pages.length} page{image.pages.length > 1 ? 's' : ''}
+                        </span>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="mt-4 pt-4 border-t border-gray-200 flex items-center justify-between">
                   <p className="text-sm text-gray-600">
-                    <span className="font-semibold text-green-600">Save 2.1 MB</span> by removing 2 duplicates
+                    <span className="font-semibold text-green-600">Save 2.1 MB</span> by removing 2
+                    duplicates
                   </p>
-                  <Button size="sm" className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                  >
                     <Trash2 className="w-4 h-4 mr-2" />
                     Remove Duplicates
                   </Button>
@@ -1052,7 +1194,9 @@ export default function ImageSEOAuditor() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Format:</span>
-                        <Badge className="bg-gray-100 text-gray-700">{selectedImage.format.toUpperCase()}</Badge>
+                        <Badge className="bg-gray-100 text-gray-700">
+                          {selectedImage.format.toUpperCase()}
+                        </Badge>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Size:</span>
@@ -1060,7 +1204,9 @@ export default function ImageSEOAuditor() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Dimensions:</span>
-                        <span className="font-medium">{selectedImage.dimensions.width} × {selectedImage.dimensions.height}</span>
+                        <span className="font-medium">
+                          {selectedImage.dimensions.width} × {selectedImage.dimensions.height}
+                        </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Uploaded:</span>
@@ -1076,7 +1222,9 @@ export default function ImageSEOAuditor() {
                       {selectedImage.pages.map((page, idx) => (
                         <div key={idx} className="flex items-center space-x-2 text-sm">
                           <ExternalLink className="w-4 h-4 text-[#00B4D8]" />
-                          <a href={page} className="text-[#00B4D8] hover:underline">{page}</a>
+                          <a href={page} className="text-[#00B4D8] hover:underline">
+                            {page}
+                          </a>
                         </div>
                       ))}
                     </div>
@@ -1095,7 +1243,9 @@ export default function ImageSEOAuditor() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Title Attribute</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Title Attribute
+                    </label>
                     <input
                       type="text"
                       defaultValue={selectedImage.titleAttribute || ''}
@@ -1154,7 +1304,9 @@ export default function ImageSEOAuditor() {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">Bulk Image Optimization</h2>
+                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                      Bulk Image Optimization
+                    </h2>
                     <p className="text-gray-600">Step {wizardStep} of 3</p>
                   </div>
                   <Button variant="ghost" size="sm" onClick={() => setShowWizard(false)}>
@@ -1165,9 +1317,15 @@ export default function ImageSEOAuditor() {
                 {/* Progress Bar */}
                 <div className="mb-6">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className={`flex-1 h-2 rounded-full ${wizardStep >= 1 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`} />
-                    <div className={`flex-1 h-2 rounded-full ${wizardStep >= 2 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`} />
-                    <div className={`flex-1 h-2 rounded-full ${wizardStep >= 3 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`} />
+                    <div
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 1 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                    />
+                    <div
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 2 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                    />
+                    <div
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 3 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                    />
                   </div>
                   <div className="flex justify-between text-xs text-gray-600">
                     <span>Select Options</span>
@@ -1179,10 +1337,16 @@ export default function ImageSEOAuditor() {
                 {/* Step 1: Select What to Fix */}
                 {wizardStep === 1 && (
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-4">Select what you want to fix:</h3>
+                    <h3 className="font-semibold text-[#1E3A5F] mb-4">
+                      Select what you want to fix:
+                    </h3>
                     <div className="space-y-3 mb-6">
                       {[
-                        { label: 'Add missing alt text (AI-generated)', count: 47, icon: AlertCircle },
+                        {
+                          label: 'Add missing alt text (AI-generated)',
+                          count: 47,
+                          icon: AlertCircle,
+                        },
                         { label: 'Rename poorly named files', count: 32, icon: FileQuestion },
                         { label: 'Compress oversized images', count: 18, icon: HardDrive },
                         { label: 'Add missing dimensions', count: 56, icon: Maximize2 },
@@ -1195,7 +1359,11 @@ export default function ImageSEOAuditor() {
                             key={idx}
                             className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-[#00B4D8] cursor-pointer transition-colors"
                           >
-                            <input type="checkbox" className="w-5 h-5 text-[#00B4D8] rounded" defaultChecked={idx < 3} />
+                            <input
+                              type="checkbox"
+                              className="w-5 h-5 text-[#00B4D8] rounded"
+                              defaultChecked={idx < 3}
+                            />
                             <Icon className="w-5 h-5 text-[#00B4D8]" />
                             <span className="flex-1 font-medium text-gray-900">{option.label}</span>
                             <Badge className="bg-gray-100 text-gray-700">{option.count}</Badge>
@@ -1204,7 +1372,10 @@ export default function ImageSEOAuditor() {
                       })}
                     </div>
                     <div className="flex justify-end">
-                      <Button onClick={() => setWizardStep(2)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(2)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Next: Review Changes
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1215,7 +1386,9 @@ export default function ImageSEOAuditor() {
                 {/* Step 2: Review Changes */}
                 {wizardStep === 2 && (
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-4">Review changes that will be made:</h3>
+                    <h3 className="font-semibold text-[#1E3A5F] mb-4">
+                      Review changes that will be made:
+                    </h3>
                     <Card className="border-0 shadow-md mb-6">
                       <CardContent className="pt-6">
                         <div className="grid grid-cols-3 gap-4 text-center">
@@ -1242,9 +1415,12 @@ export default function ImageSEOAuditor() {
                         'Compress DSC_0089.jpg (2.1 MB → 180 KB)',
                         'Add dimensions to photo.jpeg (1920×1280)',
                         'Convert IMG_5678.jpg to WebP',
-                        '...and 148 more changes'
+                        '...and 148 more changes',
                       ].map((change, idx) => (
-                        <div key={idx} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div
+                          key={idx}
+                          className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
+                        >
                           <CheckCircle className="w-5 h-5 text-green-600" />
                           <span className="text-sm text-gray-700">{change}</span>
                         </div>
@@ -1256,7 +1432,10 @@ export default function ImageSEOAuditor() {
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back
                       </Button>
-                      <Button onClick={() => setWizardStep(3)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(3)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Apply Changes
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1270,8 +1449,12 @@ export default function ImageSEOAuditor() {
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Optimization Complete!</h3>
-                    <p className="text-gray-600 mb-6">All selected changes have been applied successfully</p>
+                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                      Optimization Complete!
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      All selected changes have been applied successfully
+                    </p>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <Card className="border-0 shadow-md">

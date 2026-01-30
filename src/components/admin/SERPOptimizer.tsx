@@ -46,7 +46,7 @@ import {
   Trash2,
   Link as LinkIcon,
   Layout,
-  PlayCircle
+  PlayCircle,
 } from 'lucide-react';
 
 type ViewType = 'list' | 'edit' | 'preview';
@@ -97,7 +97,7 @@ export default function SERPOptimizer() {
     descriptionsTooLong: 15,
     duplicateTitles: 7,
     missingSchema: 42,
-    missingOG: 18
+    missingOG: 18,
   };
 
   const totalPages = 110;
@@ -110,13 +110,14 @@ export default function SERPOptimizer() {
       url: 'https://thinkments.com',
       path: '/',
       metaTitle: 'ThinkMents - Digital Marketing Agency in Decatur, Texas',
-      metaDescription: 'Award-winning digital marketing services in Decatur, TX. SEO, PPC, social media, and web design solutions to grow your business.',
+      metaDescription:
+        'Award-winning digital marketing services in Decatur, TX. SEO, PPC, social media, and web design solutions to grow your business.',
       canonicalUrl: 'https://thinkments.com',
       ogImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop',
       schema: { type: 'LocalBusiness' },
       issues: [],
       score: 98,
-      pageType: 'main'
+      pageType: 'main',
     },
     {
       id: '2',
@@ -124,11 +125,12 @@ export default function SERPOptimizer() {
       url: 'https://thinkments.com/services/seo',
       path: '/services/seo',
       metaTitle: 'SEO Services That Drive Real Results - ThinkMents Digital Marketing Agency',
-      metaDescription: 'Professional SEO services in Decatur, Texas. Increase your website visibility, drive organic traffic, and dominate search engine rankings with our proven SEO strategies.',
+      metaDescription:
+        'Professional SEO services in Decatur, Texas. Increase your website visibility, drive organic traffic, and dominate search engine rankings with our proven SEO strategies.',
       canonicalUrl: 'https://thinkments.com/services/seo',
       issues: ['title-too-long'],
       score: 82,
-      pageType: 'service'
+      pageType: 'service',
     },
     {
       id: '3',
@@ -140,7 +142,7 @@ export default function SERPOptimizer() {
       canonicalUrl: 'https://thinkments.com/about',
       issues: ['title-too-short', 'missing-description', 'missing-schema'],
       score: 45,
-      pageType: 'main'
+      pageType: 'main',
     },
     {
       id: '4',
@@ -152,7 +154,7 @@ export default function SERPOptimizer() {
       canonicalUrl: 'https://thinkments.com/contact',
       issues: ['missing-title', 'missing-schema', 'missing-og'],
       score: 38,
-      pageType: 'main'
+      pageType: 'main',
     },
   ];
 
@@ -194,7 +196,10 @@ export default function SERPOptimizer() {
   };
 
   const formatIssue = (issue: string) => {
-    return issue.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return issue
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   };
 
   const truncateText = (text: string, maxLength: number) => {
@@ -210,7 +215,7 @@ export default function SERPOptimizer() {
     'Digital Marketing Agency Decatur TX | ThinkMents',
     'ThinkMents: Your Partner in Digital Marketing Success',
     'Award-Winning Digital Marketing Services | ThinkMents',
-    'Grow Your Business Online with ThinkMents Digital Marketing'
+    'Grow Your Business Online with ThinkMents Digital Marketing',
   ];
 
   return (
@@ -276,7 +281,9 @@ export default function SERPOptimizer() {
             <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mb-3">
               <FileText className="w-5 h-5 text-red-600" />
             </div>
-            <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{issueStats.missingDescriptions}</p>
+            <p className="text-2xl font-bold text-[#1E3A5F] mb-1">
+              {issueStats.missingDescriptions}
+            </p>
             <p className="text-xs text-gray-600 mb-1">Missing Desc</p>
             <Badge className="bg-red-500 text-white text-xs">Critical</Badge>
           </CardContent>
@@ -312,7 +319,9 @@ export default function SERPOptimizer() {
             <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mb-3">
               <AlertTriangle className="w-5 h-5 text-yellow-600" />
             </div>
-            <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{issueStats.descriptionsTooLong}</p>
+            <p className="text-2xl font-bold text-[#1E3A5F] mb-1">
+              {issueStats.descriptionsTooLong}
+            </p>
             <p className="text-xs text-gray-600 mb-1">Desc Too Long</p>
             <Badge className="bg-yellow-500 text-white text-xs">Warning</Badge>
           </CardContent>
@@ -423,11 +432,16 @@ export default function SERPOptimizer() {
                   {/* Page Info */}
                   <div className="col-span-12 md:col-span-3">
                     <h3 className="font-semibold text-[#1E3A5F] mb-1">{page.title}</h3>
-                    <a href={page.url} className="text-xs text-[#00B4D8] hover:underline flex items-center">
+                    <a
+                      href={page.url}
+                      className="text-xs text-[#00B4D8] hover:underline flex items-center"
+                    >
                       <ExternalLink className="w-3 h-3 mr-1" />
                       {page.path}
                     </a>
-                    <Badge className="mt-2 bg-gray-100 text-gray-700 text-xs">{page.pageType}</Badge>
+                    <Badge className="mt-2 bg-gray-100 text-gray-700 text-xs">
+                      {page.pageType}
+                    </Badge>
                   </div>
 
                   {/* Meta Info */}
@@ -437,7 +451,9 @@ export default function SERPOptimizer() {
                       {page.metaTitle ? (
                         <p className="text-sm text-gray-900">
                           {page.metaTitle}
-                          <span className={`ml-2 text-xs ${getCharacterColor(page.metaTitle.length, 60)}`}>
+                          <span
+                            className={`ml-2 text-xs ${getCharacterColor(page.metaTitle.length, 60)}`}
+                          >
                             ({page.metaTitle.length}/60)
                           </span>
                         </p>
@@ -450,7 +466,9 @@ export default function SERPOptimizer() {
                       {page.metaDescription ? (
                         <p className="text-xs text-gray-700">
                           {truncateText(page.metaDescription, 80)}
-                          <span className={`ml-2 ${getCharacterColor(page.metaDescription.length, 160)}`}>
+                          <span
+                            className={`ml-2 ${getCharacterColor(page.metaDescription.length, 160)}`}
+                          >
                             ({page.metaDescription.length}/160)
                           </span>
                         </p>
@@ -465,10 +483,7 @@ export default function SERPOptimizer() {
                     {page.issues.length > 0 ? (
                       <div className="flex flex-wrap gap-1">
                         {page.issues.map((issue, idx) => (
-                          <Badge
-                            key={idx}
-                            className={`${getIssueColor(issue)} text-white text-xs`}
-                          >
+                          <Badge key={idx} className={`${getIssueColor(issue)} text-white text-xs`}>
                             {formatIssue(issue)}
                           </Badge>
                         ))}
@@ -483,19 +498,19 @@ export default function SERPOptimizer() {
 
                   {/* Score */}
                   <div className="col-span-6 md:col-span-1">
-                    <div className={`w-14 h-14 rounded-full ${getScoreBgColor(page.score)} flex flex-col items-center justify-center`}>
-                      <span className={`text-lg font-bold ${getScoreColor(page.score)}`}>{page.score}</span>
+                    <div
+                      className={`w-14 h-14 rounded-full ${getScoreBgColor(page.score)} flex flex-col items-center justify-center`}
+                    >
+                      <span className={`text-lg font-bold ${getScoreColor(page.score)}`}>
+                        {page.score}
+                      </span>
                       <span className="text-xs text-gray-600">score</span>
                     </div>
                   </div>
 
                   {/* Actions */}
                   <div className="col-span-6 md:col-span-2 flex items-center justify-end space-x-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => handleEditPage(page)}
-                    >
+                    <Button size="sm" variant="outline" onClick={() => handleEditPage(page)}>
                       <Edit3 className="w-4 h-4 md:mr-2" />
                       <span className="hidden md:inline">Edit</span>
                     </Button>
@@ -527,11 +542,7 @@ export default function SERPOptimizer() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setViewType('list')}
-                  >
+                  <Button variant="ghost" size="sm" onClick={() => setViewType('list')}>
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to List
                   </Button>
@@ -542,7 +553,9 @@ export default function SERPOptimizer() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Badge className={`${getScoreBgColor(selectedPage.score)} ${getScoreColor(selectedPage.score)} px-3 py-1`}>
+                  <Badge
+                    className={`${getScoreBgColor(selectedPage.score)} ${getScoreColor(selectedPage.score)} px-3 py-1`}
+                  >
                     Score: {selectedPage.score}/100
                   </Badge>
                 </div>
@@ -561,9 +574,7 @@ export default function SERPOptimizer() {
                       <button
                         onClick={() => setActiveTab('seo')}
                         className={`px-3 py-1 rounded text-sm font-medium ${
-                          activeTab === 'seo'
-                            ? 'bg-white shadow text-[#1E3A5F]'
-                            : 'text-gray-600'
+                          activeTab === 'seo' ? 'bg-white shadow text-[#1E3A5F]' : 'text-gray-600'
                         }`}
                       >
                         SEO
@@ -621,10 +632,12 @@ export default function SERPOptimizer() {
                                 editedTitle.length > 60
                                   ? 'bg-red-500'
                                   : editedTitle.length > 48
-                                  ? 'bg-yellow-500'
-                                  : 'bg-green-500'
+                                    ? 'bg-yellow-500'
+                                    : 'bg-green-500'
                               }`}
-                              style={{ width: `${Math.min((editedTitle.length / 60) * 100, 100)}%` }}
+                              style={{
+                                width: `${Math.min((editedTitle.length / 60) * 100, 100)}%`,
+                              }}
                             />
                           </div>
                         </div>
@@ -634,19 +647,34 @@ export default function SERPOptimizer() {
                           <p className="text-xs font-medium text-gray-700 mb-2">Best Practices:</p>
                           <div className="space-y-1">
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" defaultChecked />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                defaultChecked
+                              />
                               Contains primary keyword
                             </label>
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" defaultChecked />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                defaultChecked
+                              />
                               Brand name at end
                             </label>
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" defaultChecked={editedTitle.length <= 60} />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                defaultChecked={editedTitle.length <= 60}
+                              />
                               Under 60 characters
                             </label>
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                              />
                               Unique across site
                             </label>
                           </div>
@@ -656,7 +684,9 @@ export default function SERPOptimizer() {
                       {/* Meta Description */}
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <label className="block font-medium text-gray-900">Meta Description</label>
+                          <label className="block font-medium text-gray-900">
+                            Meta Description
+                          </label>
                           <Button size="sm" variant="outline">
                             <Sparkles className="w-4 h-4 mr-2" />
                             AI Suggest
@@ -670,7 +700,9 @@ export default function SERPOptimizer() {
                           placeholder="Enter meta description..."
                         />
                         <div className="flex items-center justify-between mt-2">
-                          <span className={`text-sm ${getCharacterColor(editedDescription.length, 160)}`}>
+                          <span
+                            className={`text-sm ${getCharacterColor(editedDescription.length, 160)}`}
+                          >
                             {editedDescription.length}/160 characters
                           </span>
                           <div className="flex-1 mx-3 h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -679,10 +711,12 @@ export default function SERPOptimizer() {
                                 editedDescription.length > 160
                                   ? 'bg-red-500'
                                   : editedDescription.length > 140
-                                  ? 'bg-yellow-500'
-                                  : 'bg-green-500'
+                                    ? 'bg-yellow-500'
+                                    : 'bg-green-500'
                               }`}
-                              style={{ width: `${Math.min((editedDescription.length / 160) * 100, 100)}%` }}
+                              style={{
+                                width: `${Math.min((editedDescription.length / 160) * 100, 100)}%`,
+                              }}
                             />
                           </div>
                         </div>
@@ -692,19 +726,33 @@ export default function SERPOptimizer() {
                           <p className="text-xs font-medium text-gray-700 mb-2">Best Practices:</p>
                           <div className="space-y-1">
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                              />
                               Contains primary keyword
                             </label>
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                              />
                               Includes call-to-action
                             </label>
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" defaultChecked={editedDescription.length <= 160} />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                defaultChecked={editedDescription.length <= 160}
+                              />
                               Under 160 characters
                             </label>
                             <label className="flex items-center text-xs text-gray-600">
-                              <input type="checkbox" className="w-3 h-3 mr-2 text-[#00B4D8] rounded" defaultChecked />
+                              <input
+                                type="checkbox"
+                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                defaultChecked
+                              />
                               Compelling and unique
                             </label>
                           </div>
@@ -734,7 +782,9 @@ export default function SERPOptimizer() {
 
                       {/* Canonical URL */}
                       <div>
-                        <label className="block font-medium text-gray-900 mb-2">Canonical URL</label>
+                        <label className="block font-medium text-gray-900 mb-2">
+                          Canonical URL
+                        </label>
                         <input
                           type="text"
                           value={selectedPage.canonicalUrl}
@@ -767,7 +817,9 @@ export default function SERPOptimizer() {
 
                       {/* OG Title */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">OG Title</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          OG Title
+                        </label>
                         <input
                           type="text"
                           defaultValue={selectedPage.ogTitle || editedTitle}
@@ -778,7 +830,9 @@ export default function SERPOptimizer() {
 
                       {/* OG Description */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">OG Description</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          OG Description
+                        </label>
                         <textarea
                           defaultValue={selectedPage.ogDescription || editedDescription}
                           rows={2}
@@ -789,7 +843,9 @@ export default function SERPOptimizer() {
 
                       {/* OG Image */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">OG Image</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          OG Image
+                        </label>
                         <div className="border-2 border-dashed border-gray-300 rounded-lg p-4">
                           {selectedPage.ogImage ? (
                             <div className="relative">
@@ -821,7 +877,9 @@ export default function SERPOptimizer() {
 
                       {/* OG Type */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">OG Type</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          OG Type
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>website</option>
                           <option>article</option>
@@ -832,7 +890,9 @@ export default function SERPOptimizer() {
 
                       {/* Twitter Card */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Twitter Card Type</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Twitter Card Type
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>summary</option>
                           <option>summary_large_image</option>
@@ -876,14 +936,18 @@ export default function SERPOptimizer() {
                         <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg">
                           <div className="flex items-center space-x-2">
                             <AlertTriangle className="w-4 h-4 text-amber-600" />
-                            <p className="text-sm text-amber-900">No schema markup found on this page</p>
+                            <p className="text-sm text-amber-900">
+                              No schema markup found on this page
+                            </p>
                           </div>
                         </div>
                       )}
 
                       {/* Schema Generator */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Schema Type</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Schema Type
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-4">
                           <option>LocalBusiness</option>
                           <option>Service</option>
@@ -897,7 +961,9 @@ export default function SERPOptimizer() {
                         {/* LocalBusiness Fields */}
                         <div className="space-y-3">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Business Name</label>
+                            <label className="block text-xs text-gray-600 mb-1">
+                              Business Name
+                            </label>
                             <input
                               type="text"
                               defaultValue="ThinkMents Digital Marketing"
@@ -957,7 +1023,9 @@ export default function SERPOptimizer() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-600 mb-4">Click to use any of these AI-generated titles:</p>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Click to use any of these AI-generated titles:
+                    </p>
                     <div className="space-y-2">
                       {aiSuggestions.map((suggestion, idx) => (
                         <button
@@ -1026,7 +1094,9 @@ export default function SERPOptimizer() {
                     {/* URL Breadcrumb */}
                     <div className="flex items-center text-sm text-gray-600 mb-2">
                       <Globe className="w-3 h-3 mr-1" />
-                      <span>thinkments.com › {selectedPage.path.split('/').filter(Boolean).join(' › ')}</span>
+                      <span>
+                        thinkments.com › {selectedPage.path.split('/').filter(Boolean).join(' › ')}
+                      </span>
                     </div>
 
                     {/* Description */}
@@ -1196,31 +1266,47 @@ export default function SERPOptimizer() {
                     <h3 className="font-semibold text-[#1E3A5F] mb-4">Select pages to optimize:</h3>
                     <div className="space-y-2 mb-6 max-h-96 overflow-y-auto">
                       <label className="flex items-center p-3 border-2 border-[#00B4D8] rounded-lg bg-blue-50 cursor-pointer">
-                        <input type="checkbox" className="w-5 h-5 mr-3 text-[#00B4D8] rounded" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5 mr-3 text-[#00B4D8] rounded"
+                          defaultChecked
+                        />
                         <div className="flex-1">
                           <p className="font-medium text-[#1E3A5F]">Select all pages with issues</p>
                           <p className="text-xs text-gray-600">{pagesWithIssues} pages</p>
                         </div>
                       </label>
-                      {mockPages.filter(p => p.issues.length > 0).map((page) => (
-                        <label key={page.id} className="flex items-center p-3 border-2 border-gray-200 rounded-lg hover:border-[#00B4D8] cursor-pointer">
-                          <input type="checkbox" className="w-5 h-5 mr-3 text-[#00B4D8] rounded" defaultChecked />
-                          <div className="flex-1">
-                            <p className="font-medium text-gray-900">{page.title}</p>
-                            <p className="text-xs text-gray-600">{page.path}</p>
-                            <div className="flex flex-wrap gap-1 mt-1">
-                              {page.issues.map((issue, idx) => (
-                                <Badge key={idx} className="bg-red-100 text-red-700 text-xs">
-                                  {formatIssue(issue)}
-                                </Badge>
-                              ))}
+                      {mockPages
+                        .filter((p) => p.issues.length > 0)
+                        .map((page) => (
+                          <label
+                            key={page.id}
+                            className="flex items-center p-3 border-2 border-gray-200 rounded-lg hover:border-[#00B4D8] cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              className="w-5 h-5 mr-3 text-[#00B4D8] rounded"
+                              defaultChecked
+                            />
+                            <div className="flex-1">
+                              <p className="font-medium text-gray-900">{page.title}</p>
+                              <p className="text-xs text-gray-600">{page.path}</p>
+                              <div className="flex flex-wrap gap-1 mt-1">
+                                {page.issues.map((issue, idx) => (
+                                  <Badge key={idx} className="bg-red-100 text-red-700 text-xs">
+                                    {formatIssue(issue)}
+                                  </Badge>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        </label>
-                      ))}
+                          </label>
+                        ))}
                     </div>
                     <div className="flex justify-end">
-                      <Button onClick={() => setWizardStep(2)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(2)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Next: Select Actions
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1236,7 +1322,11 @@ export default function SERPOptimizer() {
                       {[
                         { label: 'Generate missing titles', count: 3, icon: AlertCircle },
                         { label: 'Generate missing descriptions', count: 8, icon: FileText },
-                        { label: 'Add LocalBusiness schema to location pages', count: 25, icon: MapPin },
+                        {
+                          label: 'Add LocalBusiness schema to location pages',
+                          count: 25,
+                          icon: MapPin,
+                        },
                         { label: 'Add Article schema to blog posts', count: 50, icon: FileText },
                         { label: 'Generate Open Graph tags', count: 18, icon: Share2 },
                         { label: 'Optimize existing titles (length)', count: 17, icon: Edit3 },
@@ -1247,7 +1337,11 @@ export default function SERPOptimizer() {
                             key={idx}
                             className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-[#00B4D8] cursor-pointer transition-colors"
                           >
-                            <input type="checkbox" className="w-5 h-5 text-[#00B4D8] rounded" defaultChecked={idx < 3} />
+                            <input
+                              type="checkbox"
+                              className="w-5 h-5 text-[#00B4D8] rounded"
+                              defaultChecked={idx < 3}
+                            />
                             <Icon className="w-5 h-5 text-[#00B4D8]" />
                             <span className="flex-1 font-medium text-gray-900">{action.label}</span>
                             <Badge className="bg-gray-100 text-gray-700">{action.count}</Badge>
@@ -1260,7 +1354,10 @@ export default function SERPOptimizer() {
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back
                       </Button>
-                      <Button onClick={() => setWizardStep(3)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(3)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Next: Configure
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1274,7 +1371,9 @@ export default function SERPOptimizer() {
                     <h3 className="font-semibold text-[#1E3A5F] mb-4">Configure AI settings:</h3>
                     <div className="space-y-4 mb-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Primary Keyword</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Primary Keyword
+                        </label>
                         <input
                           type="text"
                           defaultValue="digital marketing"
@@ -1282,7 +1381,9 @@ export default function SERPOptimizer() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Brand Name Format</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Brand Name Format
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>ThinkMents</option>
                           <option>ThinkMents Digital Marketing</option>
@@ -1290,7 +1391,9 @@ export default function SERPOptimizer() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Include Location</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Include Location
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>Yes - Decatur, TX</option>
                           <option>Yes - Decatur, Texas</option>
@@ -1312,7 +1415,10 @@ export default function SERPOptimizer() {
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back
                       </Button>
-                      <Button onClick={() => setWizardStep(4)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(4)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Next: Review
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1345,35 +1451,41 @@ export default function SERPOptimizer() {
                       </Card>
 
                       <div className="max-h-96 overflow-y-auto space-y-3">
-                        {mockPages.filter(p => p.issues.length > 0).slice(0, 3).map((page) => (
-                          <Card key={page.id} className="border-0 shadow-sm">
-                            <CardContent className="p-4">
-                              <div className="flex items-start justify-between mb-2">
-                                <div>
-                                  <p className="font-medium text-gray-900">{page.title}</p>
-                                  <p className="text-xs text-gray-600">{page.path}</p>
+                        {mockPages
+                          .filter((p) => p.issues.length > 0)
+                          .slice(0, 3)
+                          .map((page) => (
+                            <Card key={page.id} className="border-0 shadow-sm">
+                              <CardContent className="p-4">
+                                <div className="flex items-start justify-between mb-2">
+                                  <div>
+                                    <p className="font-medium text-gray-900">{page.title}</p>
+                                    <p className="text-xs text-gray-600">{page.path}</p>
+                                  </div>
+                                  <Button size="sm" variant="outline">
+                                    <Edit3 className="w-3 h-3 mr-1" />
+                                    Edit
+                                  </Button>
                                 </div>
-                                <Button size="sm" variant="outline">
-                                  <Edit3 className="w-3 h-3 mr-1" />
-                                  Edit
-                                </Button>
-                              </div>
-                              <div className="space-y-2 text-sm">
-                                <div className="flex items-start space-x-2">
-                                  <Badge className="bg-blue-100 text-blue-700">Title</Badge>
-                                  <div className="flex-1">
-                                    <p className="text-xs text-gray-500 mb-1">Original:</p>
-                                    <p className="text-xs line-through text-gray-400">{page.metaTitle || 'None'}</p>
-                                    <p className="text-xs text-gray-500 mb-1 mt-2">New:</p>
-                                    <p className="text-xs text-green-700 font-medium">
-                                      {page.title} - Professional Digital Marketing Services | ThinkMents
-                                    </p>
+                                <div className="space-y-2 text-sm">
+                                  <div className="flex items-start space-x-2">
+                                    <Badge className="bg-blue-100 text-blue-700">Title</Badge>
+                                    <div className="flex-1">
+                                      <p className="text-xs text-gray-500 mb-1">Original:</p>
+                                      <p className="text-xs line-through text-gray-400">
+                                        {page.metaTitle || 'None'}
+                                      </p>
+                                      <p className="text-xs text-gray-500 mb-1 mt-2">New:</p>
+                                      <p className="text-xs text-green-700 font-medium">
+                                        {page.title} - Professional Digital Marketing Services |
+                                        ThinkMents
+                                      </p>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
+                              </CardContent>
+                            </Card>
+                          ))}
                       </div>
                     </div>
                     <div className="flex justify-between">
@@ -1381,7 +1493,10 @@ export default function SERPOptimizer() {
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back
                       </Button>
-                      <Button onClick={() => setWizardStep(5)} className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button
+                        onClick={() => setWizardStep(5)}
+                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      >
                         Apply All Changes
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -1395,8 +1510,12 @@ export default function SERPOptimizer() {
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Optimization Complete!</h3>
-                    <p className="text-gray-600 mb-6">All SEO improvements have been applied successfully</p>
+                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                      Optimization Complete!
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      All SEO improvements have been applied successfully
+                    </p>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <Card className="border-0 shadow-md">
@@ -1468,7 +1587,9 @@ export default function SERPOptimizer() {
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Competitor URL</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Competitor URL
+                  </label>
                   <div className="flex space-x-2">
                     <input
                       type="text"
@@ -1519,7 +1640,8 @@ export default function SERPOptimizer() {
                         Best Digital Marketing Agency | Award Winning Services
                       </h3>
                       <p className="text-sm text-gray-600">
-                        Top-rated digital marketing agency with 20+ years experience. Call today for a free consultation!
+                        Top-rated digital marketing agency with 20+ years experience. Call today for
+                        a free consultation!
                       </p>
                       <div className="mt-3 pt-3 border-t border-gray-200">
                         <p className="text-xs text-gray-700">
@@ -1541,7 +1663,9 @@ export default function SERPOptimizer() {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium text-green-700 mb-2">What they are doing better:</h4>
+                        <h4 className="font-medium text-green-700 mb-2">
+                          What they are doing better:
+                        </h4>
                         <ul className="space-y-1 text-sm text-gray-700">
                           <li className="flex items-start">
                             <CheckCircle className="w-4 h-4 mr-2 text-green-600 mt-0.5" />

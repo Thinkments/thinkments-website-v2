@@ -21,13 +21,15 @@ import {
   Link as LinkIcon,
   Lock,
   RefreshCw,
-  Settings as SettingsIcon
+  Settings as SettingsIcon,
 } from 'lucide-react';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 
 export default function SystemArchitecture() {
-  const [activeFlow, setActiveFlow] = useState<'overview' | 'blog-publish' | 'data-flow'>('overview');
+  const [activeFlow, setActiveFlow] = useState<'overview' | 'blog-publish' | 'data-flow'>(
+    'overview',
+  );
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
@@ -45,7 +47,7 @@ export default function SystemArchitecture() {
           {[
             { id: 'overview', label: 'System Overview' },
             { id: 'blog-publish', label: 'Blog Publish Flow' },
-            { id: 'data-flow', label: 'Data Flow Diagram' }
+            { id: 'data-flow', label: 'Data Flow Diagram' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -88,11 +90,14 @@ export default function SystemArchitecture() {
                       { icon: Layers, label: 'Page Builder' },
                       { icon: Radio, label: 'Podcast Manager' },
                       { icon: ImageIcon, label: 'Media Library' },
-                      { icon: SettingsIcon, label: 'All Tools' }
+                      { icon: SettingsIcon, label: 'All Tools' },
                     ].map((item, i) => {
                       const Icon = item.icon;
                       return (
-                        <div key={i} className="bg-gray-50 rounded-lg p-3 flex items-center space-x-2">
+                        <div
+                          key={i}
+                          className="bg-gray-50 rounded-lg p-3 flex items-center space-x-2"
+                        >
                           <Icon className="w-4 h-4 text-[#00B4D8]" />
                           <span className="text-sm font-medium text-gray-700">{item.label}</span>
                         </div>
@@ -120,7 +125,7 @@ export default function SystemArchitecture() {
                       { endpoint: 'GET /api/content/preview/:id' },
                       { endpoint: 'POST /api/media/upload' },
                       { endpoint: 'POST /api/forms/submit' },
-                      { endpoint: 'GET /api/analytics/*' }
+                      { endpoint: 'GET /api/analytics/*' },
                     ].map((item, i) => (
                       <div key={i} className="bg-gray-50 rounded-lg p-2">
                         <code className="text-xs text-gray-700">{item.endpoint}</code>
@@ -146,7 +151,7 @@ export default function SystemArchitecture() {
                       { icon: HardDrive, label: 'Google Sheets', desc: 'Leads & Forms' },
                       { icon: Cloud, label: 'Cloud Storage', desc: 'Media Files' },
                       { icon: FileText, label: 'JSON/Markdown', desc: 'Content' },
-                      { icon: GitBranch, label: 'GitHub Repo', desc: 'Version Control' }
+                      { icon: GitBranch, label: 'GitHub Repo', desc: 'Version Control' },
                     ].map((item, i) => {
                       const Icon = item.icon;
                       return (
@@ -212,19 +217,41 @@ export default function SystemArchitecture() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { name: 'Google Search Console', desc: 'SEO & Indexing', icon: Globe, color: 'blue' },
+                  {
+                    name: 'Google Search Console',
+                    desc: 'SEO & Indexing',
+                    icon: Globe,
+                    color: 'blue',
+                  },
                   { name: 'Google Analytics', desc: 'Traffic Stats', icon: Cpu, color: 'yellow' },
                   { name: 'Google Business', desc: 'GBP Management', icon: LinkIcon, color: 'red' },
-                  { name: 'Social Media APIs', desc: 'Auto-posting', icon: Share2, color: 'purple' },
-                  { name: 'Spotify API', desc: 'Podcast Distribution', icon: Radio, color: 'green' },
-                  { name: 'Apple Podcasts', desc: 'Podcast Distribution', icon: Radio, color: 'gray' },
+                  {
+                    name: 'Social Media APIs',
+                    desc: 'Auto-posting',
+                    icon: Share2,
+                    color: 'purple',
+                  },
+                  {
+                    name: 'Spotify API',
+                    desc: 'Podcast Distribution',
+                    icon: Radio,
+                    color: 'green',
+                  },
+                  {
+                    name: 'Apple Podcasts',
+                    desc: 'Podcast Distribution',
+                    icon: Radio,
+                    color: 'gray',
+                  },
                   { name: 'Email Service', desc: 'Notifications', icon: Mail, color: 'teal' },
-                  { name: 'Cloud Functions', desc: 'Serverless', icon: Zap, color: 'orange' }
+                  { name: 'Cloud Functions', desc: 'Serverless', icon: Zap, color: 'orange' },
                 ].map((integration, i) => {
                   const Icon = integration.icon;
                   return (
                     <div key={i} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className={`w-10 h-10 bg-${integration.color}-100 rounded-lg flex items-center justify-center mb-3`}>
+                      <div
+                        className={`w-10 h-10 bg-${integration.color}-100 rounded-lg flex items-center justify-center mb-3`}
+                      >
                         <Icon className="w-5 h-5 text-gray-700" />
                       </div>
                       <h4 className="font-semibold text-[#1E3A5F] mb-1">{integration.name}</h4>
@@ -322,19 +349,29 @@ export default function SystemArchitecture() {
                     1
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">User Clicks "Publish" in Admin</h3>
+                    <h3 className="font-bold text-[#1E3A5F] mb-2">
+                      User Clicks "Publish" in Admin
+                    </h3>
                     <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <p className="text-sm text-gray-700 mb-3">Admin panel sends POST request to API server:</p>
+                      <p className="text-sm text-gray-700 mb-3">
+                        Admin panel sends POST request to API server:
+                      </p>
                       <code className="text-xs bg-white p-3 rounded block text-gray-800 overflow-x-auto">
-                        POST https://api.thinkments.com/api/content/publish<br />
+                        POST https://api.thinkments.com/api/content/publish
+                        <br />
                         {'{'}
                         <br />
-                        &nbsp;&nbsp;"type": "blog",<br />
-                        &nbsp;&nbsp;"title": "SEO Best Practices 2025",<br />
-                        &nbsp;&nbsp;"content": "...",<br />
-                        &nbsp;&nbsp;"author": "John Doe",<br />
+                        &nbsp;&nbsp;"type": "blog",
+                        <br />
+                        &nbsp;&nbsp;"title": "SEO Best Practices 2025",
+                        <br />
+                        &nbsp;&nbsp;"content": "...",
+                        <br />
+                        &nbsp;&nbsp;"author": "John Doe",
+                        <br />
                         &nbsp;&nbsp;"meta": {'{'} ... {'}'},<br />
-                        &nbsp;&nbsp;"images": [...]<br />
+                        &nbsp;&nbsp;"images": [...]
+                        <br />
                         {'}'}
                       </code>
                     </div>
@@ -397,12 +434,20 @@ export default function SystemArchitecture() {
                     <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                       <div className="space-y-3">
                         <div>
-                          <Badge className="bg-purple-100 text-purple-700 mb-2">GitHub Commit</Badge>
-                          <p className="text-sm text-gray-700">Content pushed to repository triggers automatic webhook</p>
+                          <Badge className="bg-purple-100 text-purple-700 mb-2">
+                            GitHub Commit
+                          </Badge>
+                          <p className="text-sm text-gray-700">
+                            Content pushed to repository triggers automatic webhook
+                          </p>
                         </div>
                         <div>
-                          <Badge className="bg-blue-100 text-blue-700 mb-2">Netlify Build Started</Badge>
-                          <p className="text-sm text-gray-700">Build process initiated automatically</p>
+                          <Badge className="bg-blue-100 text-blue-700 mb-2">
+                            Netlify Build Started
+                          </Badge>
+                          <p className="text-sm text-gray-700">
+                            Build process initiated automatically
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -433,7 +478,9 @@ export default function SystemArchitecture() {
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
                           <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                          <span className="text-gray-700">Runs Vite build (React + TypeScript)</span>
+                          <span className="text-gray-700">
+                            Runs Vite build (React + TypeScript)
+                          </span>
                           <span className="text-xs text-gray-500">(~20-40s)</span>
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
@@ -453,7 +500,9 @@ export default function SystemArchitecture() {
                         </div>
                       </div>
                       <div className="mt-3 pt-3 border-t border-gray-300">
-                        <p className="text-sm font-semibold text-gray-700">Total Build Time: ~30-90 seconds</p>
+                        <p className="text-sm font-semibold text-gray-700">
+                          Total Build Time: ~30-90 seconds
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -514,7 +563,9 @@ export default function SystemArchitecture() {
                     <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                       <div className="flex items-center space-x-2 mb-3">
                         <CheckCircle className="w-5 h-5 text-green-600" />
-                        <span className="font-semibold text-green-900">Published successfully!</span>
+                        <span className="font-semibold text-green-900">
+                          Published successfully!
+                        </span>
                       </div>
                       <ul className="space-y-2 text-sm text-green-700">
                         <li>✓ Live URL: https://thinkments.com/blog/seo-best-practices-2025</li>
@@ -539,7 +590,9 @@ export default function SystemArchitecture() {
             <div className="space-y-8">
               {/* Content Types Flow */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">Content Types & Storage</h3>
+                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">
+                  Content Types & Storage
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     {
@@ -547,33 +600,39 @@ export default function SystemArchitecture() {
                       storage: 'GitHub Repository',
                       format: 'Markdown/JSON',
                       icon: FileText,
-                      color: 'blue'
+                      color: 'blue',
                     },
                     {
                       type: 'Media Files',
                       storage: 'Google Cloud Storage',
                       format: 'Images, Videos, Audio',
                       icon: ImageIcon,
-                      color: 'purple'
+                      color: 'purple',
                     },
                     {
                       type: 'Form Submissions',
                       storage: 'Google Sheets',
                       format: 'Spreadsheet Rows',
                       icon: Database,
-                      color: 'green'
-                    }
+                      color: 'green',
+                    },
                   ].map((item, i) => {
                     const Icon = item.icon;
                     return (
                       <div key={i} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                        <div className={`w-10 h-10 bg-${item.color}-100 rounded-lg flex items-center justify-center mb-3`}>
+                        <div
+                          className={`w-10 h-10 bg-${item.color}-100 rounded-lg flex items-center justify-center mb-3`}
+                        >
                           <Icon className="w-5 h-5 text-gray-700" />
                         </div>
                         <h4 className="font-semibold text-[#1E3A5F] mb-2">{item.type}</h4>
                         <div className="text-sm text-gray-600 space-y-1">
-                          <p><strong>Storage:</strong> {item.storage}</p>
-                          <p><strong>Format:</strong> {item.format}</p>
+                          <p>
+                            <strong>Storage:</strong> {item.storage}
+                          </p>
+                          <p>
+                            <strong>Format:</strong> {item.format}
+                          </p>
                         </div>
                       </div>
                     );
@@ -583,24 +642,50 @@ export default function SystemArchitecture() {
 
               {/* API Endpoints */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">API Endpoints Reference</h3>
+                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">
+                  API Endpoints Reference
+                </h3>
                 <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
-                      { method: 'POST', endpoint: '/api/content/publish', desc: 'Publish content to live site' },
-                      { method: 'POST', endpoint: '/api/content/save-draft', desc: 'Save as draft (admin only)' },
-                      { method: 'GET', endpoint: '/api/content/preview/:id', desc: 'Generate preview with token' },
+                      {
+                        method: 'POST',
+                        endpoint: '/api/content/publish',
+                        desc: 'Publish content to live site',
+                      },
+                      {
+                        method: 'POST',
+                        endpoint: '/api/content/save-draft',
+                        desc: 'Save as draft (admin only)',
+                      },
+                      {
+                        method: 'GET',
+                        endpoint: '/api/content/preview/:id',
+                        desc: 'Generate preview with token',
+                      },
                       { method: 'POST', endpoint: '/api/media/upload', desc: 'Upload media files' },
-                      { method: 'POST', endpoint: '/api/forms/submit', desc: 'Handle form submissions' },
+                      {
+                        method: 'POST',
+                        endpoint: '/api/forms/submit',
+                        desc: 'Handle form submissions',
+                      },
                       { method: 'GET', endpoint: '/api/analytics/*', desc: 'Fetch analytics data' },
-                      { method: 'POST', endpoint: '/api/seo/index', desc: 'Request Google indexing' },
-                      { method: 'GET', endpoint: '/api/status/sync', desc: 'Check sync status' }
+                      {
+                        method: 'POST',
+                        endpoint: '/api/seo/index',
+                        desc: 'Request Google indexing',
+                      },
+                      { method: 'GET', endpoint: '/api/status/sync', desc: 'Check sync status' },
                     ].map((api, i) => (
                       <div key={i} className="bg-white rounded-lg p-3 border border-gray-200">
                         <div className="flex items-center space-x-2 mb-1">
-                          <Badge className={`${
-                            api.method === 'POST' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'
-                          } text-xs`}>
+                          <Badge
+                            className={`${
+                              api.method === 'POST'
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-blue-100 text-blue-700'
+                            } text-xs`}
+                          >
                             {api.method}
                           </Badge>
                           <code className="text-xs text-gray-700">{api.endpoint}</code>
@@ -614,14 +699,16 @@ export default function SystemArchitecture() {
 
               {/* Build Pipeline */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">Build & Deployment Pipeline</h3>
+                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">
+                  Build & Deployment Pipeline
+                </h3>
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-gray-200">
                   <div className="flex items-center justify-between">
                     {[
                       { label: 'Git Push', icon: GitBranch },
                       { label: 'Webhook', icon: Zap },
                       { label: 'Build', icon: Cpu },
-                      { label: 'Deploy', icon: Globe }
+                      { label: 'Deploy', icon: Globe },
                     ].map((step, i) => {
                       const Icon = step.icon;
                       return (
@@ -632,9 +719,7 @@ export default function SystemArchitecture() {
                             </div>
                             <span className="text-sm font-medium text-gray-700">{step.label}</span>
                           </div>
-                          {i < 3 && (
-                            <ArrowRight className="w-8 h-8 text-[#00B4D8]" />
-                          )}
+                          {i < 3 && <ArrowRight className="w-8 h-8 text-[#00B4D8]" />}
                         </React.Fragment>
                       );
                     })}

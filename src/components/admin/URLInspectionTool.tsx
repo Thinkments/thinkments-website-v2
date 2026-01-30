@@ -6,17 +6,17 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Alert, AlertDescription } from '../ui/alert';
-import { 
-  Search, 
-  CheckCircle, 
-  XCircle, 
-  AlertTriangle, 
-  ExternalLink, 
-  Globe, 
+import {
+  Search,
+  CheckCircle,
+  XCircle,
+  AlertTriangle,
+  ExternalLink,
+  Globe,
   Target,
   Zap,
   Eye,
-  FileText
+  FileText,
 } from 'lucide-react';
 
 interface SEOData {
@@ -76,24 +76,31 @@ export default function URLInspectionTool() {
 
   const simulatePageAnalysis = async (targetUrl: string): Promise<PageAnalysis> => {
     // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
 
     // Mock analysis based on URL patterns
     const isHomepage = targetUrl === '/' || targetUrl === '';
-    const isServicePage = targetUrl.includes('/services/') || ['web-design', 'digital-marketing', 'videography'].some(s => targetUrl.includes(s));
+    const isServicePage =
+      targetUrl.includes('/services/') ||
+      ['web-design', 'digital-marketing', 'videography'].some((s) => targetUrl.includes(s));
     const isLocationPage = targetUrl.includes('/digital-marketing-');
-    const isLegalPage = targetUrl.includes('/privacy-policy') || targetUrl.includes('/terms-of-service');
+    const isLegalPage =
+      targetUrl.includes('/privacy-policy') || targetUrl.includes('/terms-of-service');
 
     const analysis: PageAnalysis = {
       url: targetUrl,
       status: 'success',
       seo: {
-        title: isHomepage ? 'ThinkMents - Digital Marketing & Web Design Agency in Decatur, Texas' 
-              : isServicePage ? `${targetUrl.split('/').pop()?.replace(/-/g, ' ')} - ThinkMents Professional Services`
-              : isLocationPage ? `Digital Marketing in ${targetUrl.split('-').pop()} - ThinkMents Local Services`
+        title: isHomepage
+          ? 'ThinkMents - Digital Marketing & Web Design Agency in Decatur, Texas'
+          : isServicePage
+            ? `${targetUrl.split('/').pop()?.replace(/-/g, ' ')} - ThinkMents Professional Services`
+            : isLocationPage
+              ? `Digital Marketing in ${targetUrl.split('-').pop()} - ThinkMents Local Services`
               : `${targetUrl.split('/').pop()?.replace(/-/g, ' ')} - ThinkMents`,
-        description: isHomepage ? 'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.'
-                    : `Professional services for ${targetUrl.split('/').pop()?.replace(/-/g, ' ')}`,
+        description: isHomepage
+          ? 'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.'
+          : `Professional services for ${targetUrl.split('/').pop()?.replace(/-/g, ' ')}`,
         keywords: 'digital marketing, web design, SEO, Decatur Texas, ThinkMents',
         robots: isLegalPage ? 'noindex, follow' : 'index, follow',
         canonical: `https://thinkments.com${targetUrl}`,
@@ -104,24 +111,24 @@ export default function URLInspectionTool() {
         twitterCard: 'summary_large_image',
         lang: 'en',
         viewport: 'width=device-width, initial-scale=1',
-        charset: 'utf-8'
+        charset: 'utf-8',
       },
       performance: {
         loadTime: Math.random() * 2000 + 500,
         size: Math.random() * 500 + 200,
         images: Math.floor(Math.random() * 10) + 1,
         scripts: Math.floor(Math.random() * 5) + 2,
-        stylesheets: Math.floor(Math.random() * 3) + 1
+        stylesheets: Math.floor(Math.random() * 3) + 1,
       },
       accessibility: {
         hasAltTags: true,
         hasHeadings: true,
         hasLang: true,
-        colorContrast: true
+        colorContrast: true,
       },
       errors: [],
       warnings: [],
-      suggestions: []
+      suggestions: [],
     };
 
     // Add some conditional issues
@@ -154,7 +161,7 @@ export default function URLInspectionTool() {
 
   const analyzeUrl = async () => {
     if (!url.trim()) return;
-    
+
     setLoading(true);
     try {
       const result = await simulatePageAnalysis(url);
@@ -181,19 +188,27 @@ export default function URLInspectionTool() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'success': return <CheckCircle className="w-4 h-4 text-green-500" />;
-      case 'warning': return <AlertTriangle className="w-4 h-4 text-yellow-500" />;
-      case 'error': return <XCircle className="w-4 h-4 text-red-500" />;
-      default: return <Globe className="w-4 h-4 text-muted-foreground" />;
+      case 'success':
+        return <CheckCircle className="w-4 h-4 text-green-500" />;
+      case 'warning':
+        return <AlertTriangle className="w-4 h-4 text-yellow-500" />;
+      case 'error':
+        return <XCircle className="w-4 h-4 text-red-500" />;
+      default:
+        return <Globe className="w-4 h-4 text-muted-foreground" />;
     }
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'success': return 'bg-green-100 text-green-800 border-green-200';
-      case 'warning': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'error': return 'bg-red-100 text-red-800 border-red-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'success':
+        return 'bg-green-100 text-green-800 border-green-200';
+      case 'warning':
+        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      case 'error':
+        return 'bg-red-100 text-red-800 border-red-200';
+      default:
+        return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
 
@@ -270,37 +285,72 @@ export default function URLInspectionTool() {
                           <div className="space-y-1 text-sm">
                             <div className="flex justify-between">
                               <span>Title Length:</span>
-                              <span className={analysis.seo.title && analysis.seo.title.length >= 50 && analysis.seo.title.length <= 60 ? 'text-green-600' : 'text-yellow-600'}>
+                              <span
+                                className={
+                                  analysis.seo.title &&
+                                  analysis.seo.title.length >= 50 &&
+                                  analysis.seo.title.length <= 60
+                                    ? 'text-green-600'
+                                    : 'text-yellow-600'
+                                }
+                              >
                                 {analysis.seo.title?.length || 0} chars
                               </span>
                             </div>
                             <div className="flex justify-between">
                               <span>Description Length:</span>
-                              <span className={analysis.seo.description && analysis.seo.description.length >= 150 && analysis.seo.description.length <= 160 ? 'text-green-600' : 'text-yellow-600'}>
+                              <span
+                                className={
+                                  analysis.seo.description &&
+                                  analysis.seo.description.length >= 150 &&
+                                  analysis.seo.description.length <= 160
+                                    ? 'text-green-600'
+                                    : 'text-yellow-600'
+                                }
+                              >
                                 {analysis.seo.description?.length || 0} chars
                               </span>
                             </div>
                             <div className="flex justify-between">
                               <span>Robots Directive:</span>
-                              <span className={analysis.seo.robots === 'index, follow' ? 'text-green-600' : 'text-yellow-600'}>
+                              <span
+                                className={
+                                  analysis.seo.robots === 'index, follow'
+                                    ? 'text-green-600'
+                                    : 'text-yellow-600'
+                                }
+                              >
                                 {analysis.seo.robots}
                               </span>
                             </div>
                           </div>
                         </div>
-                        
+
                         <div>
                           <h4 className="font-medium mb-2">Technical Status</h4>
                           <div className="space-y-1 text-sm">
                             <div className="flex justify-between">
                               <span>Load Time:</span>
-                              <span className={analysis.performance.loadTime && analysis.performance.loadTime < 3000 ? 'text-green-600' : 'text-yellow-600'}>
-                                {analysis.performance.loadTime ? `${Math.round(analysis.performance.loadTime)}ms` : 'N/A'}
+                              <span
+                                className={
+                                  analysis.performance.loadTime &&
+                                  analysis.performance.loadTime < 3000
+                                    ? 'text-green-600'
+                                    : 'text-yellow-600'
+                                }
+                              >
+                                {analysis.performance.loadTime
+                                  ? `${Math.round(analysis.performance.loadTime)}ms`
+                                  : 'N/A'}
                               </span>
                             </div>
                             <div className="flex justify-between">
                               <span>Page Size:</span>
-                              <span>{analysis.performance.size ? `${Math.round(analysis.performance.size)}KB` : 'N/A'}</span>
+                              <span>
+                                {analysis.performance.size
+                                  ? `${Math.round(analysis.performance.size)}KB`
+                                  : 'N/A'}
+                              </span>
                             </div>
                             <div className="flex justify-between">
                               <span>Images:</span>
@@ -343,14 +393,30 @@ export default function URLInspectionTool() {
                       <div>
                         <h4 className="font-medium mb-2">Basic Meta Tags</h4>
                         <div className="space-y-2 text-sm">
-                          <div><strong>Title:</strong> {analysis.seo.title || 'Not set'}</div>
-                          <div><strong>Description:</strong> {analysis.seo.description || 'Not set'}</div>
-                          <div><strong>Keywords:</strong> {analysis.seo.keywords || 'Not set'}</div>
-                          <div><strong>Robots:</strong> {analysis.seo.robots || 'Not set'}</div>
-                          <div><strong>Canonical:</strong> {analysis.seo.canonical || 'Not set'}</div>
-                          <div><strong>Language:</strong> {analysis.seo.lang || 'Not set'}</div>
-                          <div><strong>Viewport:</strong> {analysis.seo.viewport || 'Not set'}</div>
-                          <div><strong>Charset:</strong> {analysis.seo.charset || 'Not set'}</div>
+                          <div>
+                            <strong>Title:</strong> {analysis.seo.title || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Description:</strong> {analysis.seo.description || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Keywords:</strong> {analysis.seo.keywords || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Robots:</strong> {analysis.seo.robots || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Canonical:</strong> {analysis.seo.canonical || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Language:</strong> {analysis.seo.lang || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Viewport:</strong> {analysis.seo.viewport || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>Charset:</strong> {analysis.seo.charset || 'Not set'}
+                          </div>
                         </div>
                       </div>
 
@@ -358,10 +424,19 @@ export default function URLInspectionTool() {
                       <div>
                         <h4 className="font-medium mb-2">Open Graph Tags</h4>
                         <div className="space-y-2 text-sm">
-                          <div><strong>OG Title:</strong> {analysis.seo.ogTitle || 'Not set'}</div>
-                          <div><strong>OG Description:</strong> {analysis.seo.ogDescription || 'Not set'}</div>
-                          <div><strong>OG Image:</strong> {analysis.seo.ogImage || 'Not set'}</div>
-                          <div><strong>OG Type:</strong> {analysis.seo.ogType || 'Not set'}</div>
+                          <div>
+                            <strong>OG Title:</strong> {analysis.seo.ogTitle || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>OG Description:</strong>{' '}
+                            {analysis.seo.ogDescription || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>OG Image:</strong> {analysis.seo.ogImage || 'Not set'}
+                          </div>
+                          <div>
+                            <strong>OG Type:</strong> {analysis.seo.ogType || 'Not set'}
+                          </div>
                         </div>
                       </div>
 
@@ -369,7 +444,9 @@ export default function URLInspectionTool() {
                       <div>
                         <h4 className="font-medium mb-2">Twitter Card Tags</h4>
                         <div className="space-y-2 text-sm">
-                          <div><strong>Twitter Card:</strong> {analysis.seo.twitterCard || 'Not set'}</div>
+                          <div>
+                            <strong>Twitter Card:</strong> {analysis.seo.twitterCard || 'Not set'}
+                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -388,22 +465,30 @@ export default function URLInspectionTool() {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div className="text-center">
                           <div className="text-2xl font-bold text-primary">
-                            {analysis.performance.loadTime ? `${Math.round(analysis.performance.loadTime)}ms` : 'N/A'}
+                            {analysis.performance.loadTime
+                              ? `${Math.round(analysis.performance.loadTime)}ms`
+                              : 'N/A'}
                           </div>
                           <div className="text-sm text-muted-foreground">Load Time</div>
                         </div>
                         <div className="text-center">
                           <div className="text-2xl font-bold text-primary">
-                            {analysis.performance.size ? `${Math.round(analysis.performance.size)}KB` : 'N/A'}
+                            {analysis.performance.size
+                              ? `${Math.round(analysis.performance.size)}KB`
+                              : 'N/A'}
                           </div>
                           <div className="text-sm text-muted-foreground">Page Size</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-primary">{analysis.performance.images || 0}</div>
+                          <div className="text-2xl font-bold text-primary">
+                            {analysis.performance.images || 0}
+                          </div>
                           <div className="text-sm text-muted-foreground">Images</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-primary">{analysis.performance.scripts || 0}</div>
+                          <div className="text-2xl font-bold text-primary">
+                            {analysis.performance.scripts || 0}
+                          </div>
                           <div className="text-sm text-muted-foreground">Scripts</div>
                         </div>
                       </div>
@@ -412,19 +497,35 @@ export default function URLInspectionTool() {
                         <h4 className="font-medium mb-2">Accessibility Checks</h4>
                         <div className="grid grid-cols-2 gap-4">
                           <div className="flex items-center space-x-2">
-                            {analysis.accessibility.hasAltTags ? <CheckCircle className="w-4 h-4 text-green-500" /> : <XCircle className="w-4 h-4 text-red-500" />}
+                            {analysis.accessibility.hasAltTags ? (
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                            ) : (
+                              <XCircle className="w-4 h-4 text-red-500" />
+                            )}
                             <span className="text-sm">Alt tags present</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            {analysis.accessibility.hasHeadings ? <CheckCircle className="w-4 h-4 text-green-500" /> : <XCircle className="w-4 h-4 text-red-500" />}
+                            {analysis.accessibility.hasHeadings ? (
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                            ) : (
+                              <XCircle className="w-4 h-4 text-red-500" />
+                            )}
                             <span className="text-sm">Proper headings</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            {analysis.accessibility.hasLang ? <CheckCircle className="w-4 h-4 text-green-500" /> : <XCircle className="w-4 h-4 text-red-500" />}
+                            {analysis.accessibility.hasLang ? (
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                            ) : (
+                              <XCircle className="w-4 h-4 text-red-500" />
+                            )}
                             <span className="text-sm">Language attribute</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            {analysis.accessibility.colorContrast ? <CheckCircle className="w-4 h-4 text-green-500" /> : <XCircle className="w-4 h-4 text-red-500" />}
+                            {analysis.accessibility.colorContrast ? (
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                            ) : (
+                              <XCircle className="w-4 h-4 text-red-500" />
+                            )}
                             <span className="text-sm">Color contrast</span>
                           </div>
                         </div>
@@ -477,15 +578,19 @@ export default function URLInspectionTool() {
                       </Card>
                     )}
 
-                    {analysis.errors.length === 0 && analysis.warnings.length === 0 && analysis.suggestions.length === 0 && (
-                      <Card>
-                        <CardContent className="text-center py-8">
-                          <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
-                          <p className="text-lg">No issues found!</p>
-                          <p className="text-muted-foreground">This page looks great from an SEO perspective.</p>
-                        </CardContent>
-                      </Card>
-                    )}
+                    {analysis.errors.length === 0 &&
+                      analysis.warnings.length === 0 &&
+                      analysis.suggestions.length === 0 && (
+                        <Card>
+                          <CardContent className="text-center py-8">
+                            <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
+                            <p className="text-lg">No issues found!</p>
+                            <p className="text-muted-foreground">
+                              This page looks great from an SEO perspective.
+                            </p>
+                          </CardContent>
+                        </Card>
+                      )}
                   </div>
                 </TabsContent>
               </Tabs>

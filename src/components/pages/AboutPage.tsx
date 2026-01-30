@@ -3,11 +3,11 @@ import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { 
-  ArrowRight, 
-  Lightbulb, 
-  TrendingUp, 
-  Target, 
+import {
+  ArrowRight,
+  Lightbulb,
+  TrendingUp,
+  Target,
   Rocket,
   Globe,
   MapPin,
@@ -27,7 +27,7 @@ import {
   Award,
   Quote,
   MapPinned,
-  Building2
+  Building2,
 } from 'lucide-react';
 import SEO from '../SEO';
 import Breadcrumb from '../Breadcrumb';
@@ -41,7 +41,7 @@ export default function AboutPage() {
   const servicesRef = useRef(null);
   const whoRef = useRef(null);
   const teamRef = useRef(null);
-  
+
   const isDifferenceInView = useInView(differenceRef, { once: true });
   const isNumbersInView = useInView(numbersRef, { once: true });
   const isReachInView = useInView(reachRef, { once: true });
@@ -55,18 +55,21 @@ export default function AboutPage() {
     {
       icon: Rocket,
       title: 'We Pioneer',
-      description: 'We created the first virtual real estate tour, the first arena seat preview system, and the first virtual e-commerce store—years before anyone else. Innovation isn\'t a buzzword for us. It\'s what we do.'
+      description:
+        "We created the first virtual real estate tour, the first arena seat preview system, and the first virtual e-commerce store—years before anyone else. Innovation isn't a buzzword for us. It's what we do.",
     },
     {
       icon: TrendingUp,
       title: 'We Deliver Results',
-      description: 'We\'ve helped clients generate over $500 million in real business value. Not vanity metrics. Not impressions. Actual revenue that changed businesses and lives.'
+      description:
+        "We've helped clients generate over $500 million in real business value. Not vanity metrics. Not impressions. Actual revenue that changed businesses and lives.",
     },
     {
       icon: Handshake,
       title: 'We Solve Problems',
-      description: 'Most agencies sell packages. We solve problems. Tell us what you\'re trying to achieve, and we\'ll build the solution—even if it doesn\'t exist yet.'
-    }
+      description:
+        "Most agencies sell packages. We solve problems. Tell us what you're trying to achieve, and we'll build the solution—even if it doesn't exist yet.",
+    },
   ];
 
   const impactStats = [
@@ -75,105 +78,123 @@ export default function AboutPage() {
     { value: '31+', label: 'States with active clients' },
     { value: '3', label: 'Countries served' },
     { value: '103', label: '5-star reviews' },
-    { value: '20+', label: 'Years of digital innovation' }
+    { value: '20+', label: 'Years of digital innovation' },
   ];
 
   const testimonials = [
     {
       rating: 5,
-      text: 'Corey and his team at ThinkMents have been awesome business partners. Corey\'s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched.',
-      author: 'Verified Google Review'
+      text: "Corey and his team at ThinkMents have been awesome business partners. Corey's knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched.",
+      author: 'Verified Google Review',
     },
     {
       rating: 5,
       text: 'Several of my online accounts were hacked. I contacted ThinkMents and they quickly scheduled me in. Within just a few hours, my accounts had been recovered and they assisted me with setting up increased security settings. Thoroughly satisfied and extremely grateful!',
-      author: 'Mike, Verified Google Review'
+      author: 'Mike, Verified Google Review',
     },
     {
       rating: 5,
-      text: 'Exceptional experience with ThinkMents! The team\'s professionalism and extensive knowledge truly sets them apart. From insightful consultations to precise execution, they exceeded my expectations. A reliable partner for innovative solutions.',
-      author: 'Verified Google Review'
-    }
+      text: "Exceptional experience with ThinkMents! The team's professionalism and extensive knowledge truly sets them apart. From insightful consultations to precise execution, they exceeded my expectations. A reliable partner for innovative solutions.",
+      author: 'Verified Google Review',
+    },
   ];
 
   const scrollingReviews = [
-    'Exceptional experience! The team\'s professionalism and extensive knowledge truly sets them apart.',
-    'Willing to go above and beyond, he\'s answered every question I\'ve thrown his way.',
+    "Exceptional experience! The team's professionalism and extensive knowledge truly sets them apart.",
+    "Willing to go above and beyond, he's answered every question I've thrown his way.",
     'Within just a few hours, my accounts had been recovered. Highly recommend!!!',
-    'A reliable partner for innovative solutions. 5 stars for their expertise!'
+    'A reliable partner for innovative solutions. 5 stars for their expertise!',
   ];
 
   const approachSteps = [
     {
       number: '01',
       title: 'Listen',
-      description: 'We start by understanding your business, your goals, and your challenges. No templates. No assumptions.'
+      description:
+        'We start by understanding your business, your goals, and your challenges. No templates. No assumptions.',
     },
     {
       number: '02',
       title: 'Strategize',
-      description: 'We develop a custom approach based on what will actually move the needle for YOUR business.'
+      description:
+        'We develop a custom approach based on what will actually move the needle for YOUR business.',
     },
     {
       number: '03',
       title: 'Build',
-      description: 'We create solutions—sometimes things that have never been built before—tailored to your needs.'
+      description:
+        'We create solutions—sometimes things that have never been built before—tailored to your needs.',
     },
     {
       number: '04',
       title: 'Prove',
-      description: 'We show you the results. Real numbers. Real impact. No vanity metrics.'
-    }
+      description: 'We show you the results. Real numbers. Real impact. No vanity metrics.',
+    },
   ];
 
   const services = [
     {
       icon: Search,
       title: 'Digital Marketing',
-      items: ['SEO & Local Search', 'Google Ads Management', 'Social Media Marketing', 'Content Strategy']
+      items: [
+        'SEO & Local Search',
+        'Google Ads Management',
+        'Social Media Marketing',
+        'Content Strategy',
+      ],
     },
     {
       icon: Code,
       title: 'Web Development',
-      items: ['Custom Website Design', 'Mobile-First Development', 'E-Commerce Solutions', 'Website Maintenance']
+      items: [
+        'Custom Website Design',
+        'Mobile-First Development',
+        'E-Commerce Solutions',
+        'Website Maintenance',
+      ],
     },
     {
       icon: MapPinned,
       title: 'Google Business Profile',
-      items: ['Profile Optimization', 'Review Management', 'Local SEO', 'Multi-Location Management']
+      items: [
+        'Profile Optimization',
+        'Review Management',
+        'Local SEO',
+        'Multi-Location Management',
+      ],
     },
     {
       icon: Globe,
       title: 'Immersive Experiences',
-      items: ['Virtual Tours', '360° Photography', 'Interactive Storefronts', 'Virtual E-Commerce']
+      items: ['Virtual Tours', '360° Photography', 'Interactive Storefronts', 'Virtual E-Commerce'],
     },
     {
       icon: Camera,
       title: 'Video & Photography',
-      items: ['Commercial Videography', 'Drone Photography', 'Product Photography', 'Brand Videos']
+      items: ['Commercial Videography', 'Drone Photography', 'Product Photography', 'Brand Videos'],
     },
     {
       icon: Briefcase,
       title: 'Business Solutions',
-      items: ['Brand Identity', 'LLC Formation', 'Google Workspace Setup', 'NFC Smart Cards']
-    }
+      items: ['Brand Identity', 'LLC Formation', 'Google Workspace Setup', 'NFC Smart Cards'],
+    },
   ];
 
   const goodFitReasons = [
     'Want results, not just activity',
     'Value innovation and creative solutions',
     'Are ready to invest in real growth',
-    'Need something that doesn\'t exist yet',
+    "Need something that doesn't exist yet",
     'Want a partner, not a vendor',
-    'Trust experts to do expert work'
+    'Trust experts to do expert work',
   ];
 
   const badFitReasons = [
     'Want the cheapest option available',
     'Need hand-holding on every decision',
     'Think marketing is just social media posts',
-    'Aren\'t ready to invest in your business',
-    'Want a "set it and forget it" vendor'
+    "Aren't ready to invest in your business",
+    'Want a "set it and forget it" vendor',
   ];
 
   return (
@@ -186,19 +207,19 @@ export default function AboutPage() {
       />
 
       {/* Breadcrumb Navigation */}
-      <Breadcrumb items={[
-        { name: 'Home', path: '/' },
-        { name: 'About Us' }
-      ]} />
+      <Breadcrumb items={[{ name: 'Home', path: '/' }, { name: 'About Us' }]} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#2a4d73] to-[#00B4D8] py-16 md:py-32 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -212,7 +233,8 @@ export default function AboutPage() {
               We Build What Hasn&apos;t Been Built Yet
             </h1>
             <p className="text-lg md:text-2xl text-white/90 max-w-4xl mx-auto mb-8">
-              ThinkMents has been creating industry firsts since 2002. While other agencies follow trends, we create them.
+              ThinkMents has been creating industry firsts since 2002. While other agencies follow
+              trends, we create them.
             </p>
 
             {/* Trust Badge Row */}
@@ -231,12 +253,12 @@ export default function AboutPage() {
                   <div className="text-white/80 text-sm">103 Reviews</div>
                 </div>
               </div>
-              
+
               <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 md:px-6 text-white">
                 <Award className="w-6 h-6 inline-block mr-2" />
                 <span className="font-semibold">Grow with Google Partner</span>
               </div>
-              
+
               <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 md:px-6 text-white">
                 <Star className="w-6 h-6 inline-block mr-2" />
                 <span className="font-semibold">20+ Years Experience</span>
@@ -272,8 +294,8 @@ export default function AboutPage() {
               >
                 <Link to="/case-studies">See Our Work</Link>
               </Button>
-              <Link 
-                to="/our-story" 
+              <Link
+                to="/our-story"
                 className="text-white hover:text-[#00B4D8] transition-colors flex items-center gap-2 text-lg"
               >
                 Read Our Story <ArrowRight className="w-5 h-5" />
@@ -295,7 +317,10 @@ export default function AboutPage() {
           >
             <Quote className="w-12 h-12 md:w-16 md:h-16 text-[#00B4D8]/20 mx-auto mb-6" />
             <blockquote className="text-xl md:text-3xl text-[#1E3A5F] mb-6 italic">
-              &quot;Corey&apos;s knowledge of all things IT is incredible and he is always willing to give me guidance when I need help. They have been instrumental in our training programs and their professionalism is unmatched. Go see them, you won&apos;t regret it.&quot;
+              &quot;Corey&apos;s knowledge of all things IT is incredible and he is always willing
+              to give me guidance when I need help. They have been instrumental in our training
+              programs and their professionalism is unmatched. Go see them, you won&apos;t regret
+              it.&quot;
             </blockquote>
             <div className="flex items-center justify-center gap-1 mb-2">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -354,7 +379,10 @@ export default function AboutPage() {
             className="flex items-center justify-center flex-wrap gap-8 md:gap-12"
           >
             {scrollingReviews.map((review, index) => (
-              <div key={index} className="flex items-center gap-2 text-white/90 min-w-[300px] max-w-[400px]">
+              <div
+                key={index}
+                className="flex items-center gap-2 text-white/90 min-w-[300px] max-w-[400px]"
+              >
                 <div className="flex-shrink-0 flex gap-1">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star key={star} className="w-4 h-4 fill-[#FBBC04] text-[#FBBC04]" />
@@ -368,13 +396,19 @@ export default function AboutPage() {
       </section>
 
       {/* By The Numbers Section */}
-      <section ref={numbersRef} className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      <section
+        ref={numbersRef}
+        className="py-16 md:py-20 px-4 bg-[#1E3A5F] relative overflow-hidden"
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -384,9 +418,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              The Impact
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">The Impact</h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -398,7 +430,9 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.05 * index }}
                 className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 text-center hover:bg-white/10 transition-colors"
               >
-                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">{stat.value}</div>
+                <div className="text-4xl md:text-6xl font-bold text-[#00B4D8] mb-3">
+                  {stat.value}
+                </div>
                 <div className="text-white/80">{stat.label}</div>
               </motion.div>
             ))}
@@ -419,7 +453,9 @@ export default function AboutPage() {
               Based in Texas. Serving the World.
             </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              What started in Decatur, Texas has grown into a nationwide and international operation. We serve clients across 31+ states and 3 countries—but we never lost our small-town values of honest work and real relationships.
+              What started in Decatur, Texas has grown into a nationwide and international
+              operation. We serve clients across 31+ states and 3 countries—but we never lost our
+              small-town values of honest work and real relationships.
             </p>
           </motion.div>
 
@@ -478,7 +514,9 @@ export default function AboutPage() {
               ))}
             </div>
             <p className="text-lg md:text-xl text-gray-700 italic mb-4">
-              &quot;This place has been very flexible and very supportive. I learned a lot and was treated and compensated fairly. It has made a huge impact in my professional career.&quot;
+              &quot;This place has been very flexible and very supportive. I learned a lot and was
+              treated and compensated fairly. It has made a huge impact in my professional
+              career.&quot;
             </p>
             <p className="text-gray-600 font-semibold">— ThinkMents Team Member</p>
           </motion.div>
@@ -515,7 +553,9 @@ export default function AboutPage() {
                         <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                       ))}
                     </div>
-                    <p className="text-gray-700 mb-6 leading-relaxed">&quot;{testimonial.text}&quot;</p>
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      &quot;{testimonial.text}&quot;
+                    </p>
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center text-white font-bold">
                         {testimonial.author.charAt(0)}
@@ -552,9 +592,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
-              How We Work
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">How We Work</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -589,7 +627,8 @@ export default function AboutPage() {
               ))}
             </div>
             <p className="text-gray-700 italic">
-              &quot;Willing to go above and beyond, he&apos;s answered every question I&apos;ve thrown his way and given great advice for future projects.&quot;
+              &quot;Willing to go above and beyond, he&apos;s answered every question I&apos;ve
+              thrown his way and given great advice for future projects.&quot;
             </p>
           </motion.div>
         </div>
@@ -604,9 +643,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
-              What We Offer
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">What We Offer</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -638,8 +675,15 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center">
-            <Button asChild size="lg" variant="outline" className="border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white">
-              <Link to="/services">View All Services <ArrowRight className="ml-2 w-5 h-5" /></Link>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white"
+            >
+              <Link to="/services">
+                View All Services <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -668,7 +712,9 @@ export default function AboutPage() {
             >
               <Card className="h-full border-t-4 border-t-[#00B4D8]">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">We&apos;re a Great Fit If You:</h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+                    We&apos;re a Great Fit If You:
+                  </h3>
                   <ul className="space-y-4">
                     {goodFitReasons.map((reason, index) => (
                       <li key={index} className="flex items-start">
@@ -689,7 +735,9 @@ export default function AboutPage() {
             >
               <Card className="h-full border-t-4 border-t-[#FF6B35]">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">We&apos;re Probably Not Right If You:</h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+                    We&apos;re Probably Not Right If You:
+                  </h3>
                   <ul className="space-y-4">
                     {badFitReasons.map((reason, index) => (
                       <li key={index} className="flex items-start">
@@ -733,7 +781,10 @@ export default function AboutPage() {
                   <h3 className="text-3xl font-bold text-[#1E3A5F] mb-2">Corey Spicer</h3>
                   <p className="text-xl text-[#00B4D8] mb-6">Founder & CEO</p>
                   <p className="text-gray-700 leading-relaxed mb-6 max-w-2xl">
-                    Pioneer. Problem-solver. The guy who asks &quot;what if?&quot; and then builds it. With over 20 years of experience creating industry firsts—from the first virtual real estate tour to arena seat previews with Mark Cuban—Corey brings innovation DNA to every project.
+                    Pioneer. Problem-solver. The guy who asks &quot;what if?&quot; and then builds
+                    it. With over 20 years of experience creating industry firsts—from the first
+                    virtual real estate tour to arena seat previews with Mark Cuban—Corey brings
+                    innovation DNA to every project.
                   </p>
 
                   {/* Employee Quote Badge */}
@@ -744,13 +795,14 @@ export default function AboutPage() {
                       ))}
                     </div>
                     <p className="text-gray-700 italic">
-                      &quot;The CEO Corey Spicer is a self-starter with a passion to help others.&quot;
+                      &quot;The CEO Corey Spicer is a self-starter with a passion to help
+                      others.&quot;
                     </p>
                     <p className="text-sm text-gray-600 mt-2">— Team Member</p>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <a 
+                    <a
                       href="https://www.linkedin.com/company/thinkments"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -758,7 +810,7 @@ export default function AboutPage() {
                     >
                       <Linkedin className="w-6 h-6 text-white" />
                     </a>
-                    <a 
+                    <a
                       href="mailto:info@thinkments.com"
                       className="w-12 h-12 bg-[#00B4D8] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                     >
@@ -836,16 +888,16 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">
-              Our Home Base
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4">Our Home Base</h2>
           </motion.div>
 
           <Card className="max-w-2xl mx-auto">
             <CardContent className="p-8 md:p-12">
               <div className="text-center space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">ThinkMents Digital Marketing Agency</h3>
+                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">
+                    ThinkMents Digital Marketing Agency
+                  </h3>
                   <p className="text-gray-700">
                     301 South Washburn St, Suite D<br />
                     Decatur, Texas 76234
@@ -855,13 +907,19 @@ export default function AboutPage() {
                 <div className="border-t border-gray-200 pt-6">
                   <div className="flex items-center justify-center gap-2 mb-3">
                     <Phone className="w-5 h-5 text-[#00B4D8]" />
-                    <a href="tel:9403151023" className="text-lg text-[#00B4D8] hover:text-[#1E3A5F] transition-colors">
+                    <a
+                      href="tel:9403151023"
+                      className="text-lg text-[#00B4D8] hover:text-[#1E3A5F] transition-colors"
+                    >
                       (940) 315-1023
                     </a>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <Mail className="w-5 h-5 text-[#00B4D8]" />
-                    <a href="mailto:info@thinkments.com" className="text-lg text-[#00B4D8] hover:text-[#1E3A5F] transition-colors">
+                    <a
+                      href="mailto:info@thinkments.com"
+                      className="text-lg text-[#00B4D8] hover:text-[#1E3A5F] transition-colors"
+                    >
                       info@thinkments.com
                     </a>
                   </div>
@@ -918,7 +976,8 @@ export default function AboutPage() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-              Join the 103+ businesses who gave us 5 stars. Whether you&apos;re across town or across the globe, we&apos;re here to help.
+              Join the 103+ businesses who gave us 5 stars. Whether you&apos;re across town or
+              across the globe, we&apos;re here to help.
             </p>
 
             {/* CTA Buttons */}

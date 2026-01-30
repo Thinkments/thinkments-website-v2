@@ -6,7 +6,12 @@ import { Badge } from '../ui/badge';
 import { Calendar, User, Clock, ArrowLeft, ArrowRight, Tag } from 'lucide-react@0.487.0';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ShareButton } from '../ShareButton';
-import { generateArticleSchema, generateBreadcrumbSchema, BASE_URL, injectSchema } from '../../utils/seo';
+import {
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+  BASE_URL,
+  injectSchema,
+} from '../../utils/seo';
 import { usePageTracking } from '../../hooks/usePageTracking';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { BlogContent } from '../BlogContent';
@@ -19,7 +24,8 @@ const basicBlogPosts = {
   'seo-mistakes-killing-website-traffic': {
     id: 1,
     title: '10 SEO Mistakes That Are Killing Your Website Traffic',
-    excerpt: 'Discover the most common SEO errors that businesses make and learn how to fix them to boost your search rankings and drive more organic traffic.',
+    excerpt:
+      'Discover the most common SEO errors that businesses make and learn how to fix them to boost your search rankings and drive more organic traffic.',
     author: 'Corey Spicer',
     date: '2024-08-20',
     category: 'seo',
@@ -33,12 +39,13 @@ const basicBlogPosts = {
       <p>Understanding and avoiding these critical SEO mistakes can significantly improve your website's search performance and organic traffic growth.</p>
 
       <p>Ready to fix your SEO issues and start seeing real results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for a comprehensive SEO audit and strategy consultation.</p>
-    `
+    `,
   },
   'complete-guide-social-media-marketing-2025': {
     id: 2,
     title: 'The Complete Guide to Social Media Marketing in 2025',
-    excerpt: 'Learn the latest social media strategies that are driving results for businesses. From platform selection to content creation, we cover it all.',
+    excerpt:
+      'Learn the latest social media strategies that are driving results for businesses. From platform selection to content creation, we cover it all.',
     author: 'Corey Spicer',
     date: '2024-08-21',
     category: 'social-media',
@@ -112,12 +119,13 @@ const basicBlogPosts = {
       <p>Social media marketing in 2025 requires strategic thinking, creative execution, consistent effort, and ongoing optimization. Success doesn't happen overnight, but by following these proven strategies and continuously learning from your performance data, you can build a powerful social media presence that drives meaningful business results.</p>
 
       <p>Ready to create a social media strategy that drives real business results and measurable ROI? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert social media strategy development, content creation, and campaign management that delivers results.</p>
-    `
+    `,
   },
   'voice-search-seo-optimization-guide': {
     id: 27,
     title: 'Voice Search SEO: Optimizing for the Future of Search',
-    excerpt: 'Prepare your website for voice search dominance. Learn how to optimize content for voice queries, featured snippets, and conversational search patterns.',
+    excerpt:
+      'Prepare your website for voice search dominance. Learn how to optimize content for voice queries, featured snippets, and conversational search patterns.',
     author: 'Corey Spicer',
     date: '2024-09-15',
     category: 'seo',
@@ -131,12 +139,13 @@ const basicBlogPosts = {
       <p>Implementing voice search optimization helps capture the growing number of voice-based searches across all devices and platforms.</p>
 
       <p>Ready to optimize your website for voice search? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for comprehensive voice search SEO strategies.</p>
-    `
+    `,
   },
   'facebook-ads-advanced-campaign-strategies': {
     id: 28,
     title: 'Facebook Ads That Convert: Advanced Campaign Strategies',
-    excerpt: 'Master Facebook advertising with proven campaign strategies. Learn audience targeting, ad creative optimization, and budget management for maximum ROI.',
+    excerpt:
+      'Master Facebook advertising with proven campaign strategies. Learn audience targeting, ad creative optimization, and budget management for maximum ROI.',
     author: 'Corey Spicer',
     date: '2024-09-16',
     category: 'social-media',
@@ -150,25 +159,27 @@ const basicBlogPosts = {
       <p>Successful Facebook campaigns combine precise targeting, compelling creative, and continuous optimization to maximize return on investment.</p>
 
       <p>Ready to launch high-converting Facebook campaigns? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert Facebook advertising management.</p>
-    `
+    `,
   },
   // Additional blog posts with basic content for all 50 posts
   'ux-ui-design-principles-conversions': {
     id: 29,
     title: 'UX/UI Design Principles That Drive Conversions',
-    excerpt: 'Create user experiences that convert visitors into customers. Learn essential design principles, usability best practices, and conversion optimization techniques.',
+    excerpt:
+      'Create user experiences that convert visitors into customers. Learn essential design principles, usability best practices, and conversion optimization techniques.',
     author: 'Corey Spicer',
     date: '2025-01-22',
     category: 'web-design',
     readTime: '7 min read',
     image: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=800&h=400&fit=crop',
     tags: ['UX Design', 'UI Design', 'Conversion Optimization', 'User Experience'],
-    content: `<p>User-centered design principles that drive conversions and improve customer experience.</p><p>Ready to improve your website's user experience? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for UX/UI design services.</p>`
+    content: `<p>User-centered design principles that drive conversions and improve customer experience.</p><p>Ready to improve your website's user experience? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for UX/UI design services.</p>`,
   },
   'google-ads-hacks-unlocking-the-full-potential': {
     id: 303,
     title: 'Google Ads Hacks: Unlocking the Full Potential of Your PPC Campaigns',
-    excerpt: 'Discover powerful Google Ads optimization strategies that maximize ROI and reduce wasted ad spend. Learn expert PPC tactics from ThinkMents to dominate your market.',
+    excerpt:
+      'Discover powerful Google Ads optimization strategies that maximize ROI and reduce wasted ad spend. Learn expert PPC tactics from ThinkMents to dominate your market.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'digital-marketing',
@@ -217,18 +228,27 @@ const basicBlogPosts = {
 <p><strong>Ready to unlock the full potential of your Google Ads campaigns?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a free Google Ads audit and strategic consultation.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a> and how we help businesses throughout Wise County, Tarrant County, and beyond dominate their markets.</p>
-    `
+    `,
   },
   'is-your-website-working-hard-enough-for-you': {
     id: 304,
     title: 'Is Your Website Working Hard Enough for You?',
-    excerpt: 'Learn how to evaluate your website\'s performance and discover if it\'s truly delivering ROI. Expert insights from ThinkMents on conversion optimization, analytics, and maximizing your digital investment.',
+    excerpt:
+      "Learn how to evaluate your website's performance and discover if it's truly delivering ROI. Expert insights from ThinkMents on conversion optimization, analytics, and maximizing your digital investment.",
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'web-design',
     readTime: '12 min read',
-    image: 'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-    tags: ['Website Optimization', 'ROI', 'Conversion Rate', 'Web Design', 'Analytics', 'User Experience'],
+    image:
+      'https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    tags: [
+      'Website Optimization',
+      'ROI',
+      'Conversion Rate',
+      'Web Design',
+      'Analytics',
+      'User Experience',
+    ],
     content: `
 <h1>Is Your Website Working Hard Enough for You?</h1>
 
@@ -377,17 +397,19 @@ const basicBlogPosts = {
 <p><strong>Ready to find out if your website is truly pulling its weight?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a comprehensive website performance audit. We'll analyze your current metrics, identify your biggest opportunities, and provide a clear roadmap for transforming your website into your most profitable marketing asset.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a> and discover how we help businesses throughout Wise County, Tarrant County, and Texas maximize their online potential through strategic web design, SEO, and conversion optimization.</p>
-    `
+    `,
   },
   'instagram-marketing-business-growth': {
     id: 305,
     title: 'Instagram Marketing for Business Growth: The Complete Guide',
-    excerpt: 'Master Instagram marketing to drive real business results. Learn proven strategies for content creation, engagement, Stories, Reels, and converting followers into customers.',
+    excerpt:
+      'Master Instagram marketing to drive real business results. Learn proven strategies for content creation, engagement, Stories, Reels, and converting followers into customers.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'social-media',
     readTime: '14 min read',
-    image: 'https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     tags: ['Instagram Marketing', 'Social Media', 'Content Strategy', 'Business Growth', 'Reels'],
     content: `
 <h1>Instagram Marketing for Business Growth: The Complete Guide</h1>
@@ -507,12 +529,13 @@ const basicBlogPosts = {
 <p><strong>Ready to transform your Instagram presence into a powerful marketing asset?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a comprehensive social media marketing consultation.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a> and discover how we help businesses throughout Wise County, Tarrant County, and Texas dominate their markets through strategic social media marketing.</p>
-    `
+    `,
   },
   'cross-platform-marketing-integration-strategies': {
     id: 49,
     title: 'Cross-Platform Marketing Integration for Maximum Impact',
-    excerpt: 'Create cohesive marketing experiences across all channels. Learn integration strategies, message consistency, and campaign coordination for better results.',
+    excerpt:
+      'Create cohesive marketing experiences across all channels. Learn integration strategies, message consistency, and campaign coordination for better results.',
     author: 'Corey Spicer',
     date: '2024-10-07',
     category: 'marketing',
@@ -617,12 +640,13 @@ const basicBlogPosts = {
 <p><strong>Ready to transform disconnected marketing activities into a coordinated, high-performing integrated strategy?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a comprehensive marketing integration consultation. We'll audit your current channel activities, identify integration opportunities, and develop a customized roadmap for coordinated marketing excellence that drives measurable business results.</p>
 
 <p>Learn more about our <a href="https://thinkments.com/digital-marketing" target="_blank">strategic digital marketing services</a> and discover how we help businesses throughout Texas achieve marketing excellence through strategic cross-platform integration.</p>
-    `
+    `,
   },
   'customer-retention-loyalty-programs-guide': {
     id: 50,
     title: 'Customer Retention and Loyalty Programs That Work',
-    excerpt: 'Build lasting customer relationships that drive repeat business. Learn retention strategies, loyalty program design, and customer lifetime value optimization.',
+    excerpt:
+      'Build lasting customer relationships that drive repeat business. Learn retention strategies, loyalty program design, and customer lifetime value optimization.',
     author: 'Corey Spicer',
     date: '2024-10-08',
     category: 'crm',
@@ -785,17 +809,19 @@ const basicBlogPosts = {
 <p><strong>Ready to transform one-time customers into lifelong advocates?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a comprehensive customer retention strategy consultation. We'll analyze your current retention metrics, identify your biggest opportunities, and develop a customized retention program designed for your specific business, industry, and customer base.</p>
 
 <p>Learn more about our <a href="https://thinkments.com/digital-marketing" target="_blank">comprehensive digital marketing services</a> and discover how we help businesses throughout Texas build sustainable growth through strategic customer retention and loyalty program excellence.</p>
-    `
+    `,
   },
   'graphic-design-services-from-thinkments-unlocking-your-businesss-visual-potential': {
     id: 306,
-    title: 'Graphic Design Services from ThinkMents: Unlocking Your Business\'s Visual Potential',
-    excerpt: 'Discover how professional graphic design transforms your business brand. Learn about logo design, brand identity, marketing materials, and visual strategy from ThinkMents.',
+    title: "Graphic Design Services from ThinkMents: Unlocking Your Business's Visual Potential",
+    excerpt:
+      'Discover how professional graphic design transforms your business brand. Learn about logo design, brand identity, marketing materials, and visual strategy from ThinkMents.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'web-design',
     readTime: '13 min read',
-    image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     tags: ['Graphic Design', 'Branding', 'Logo Design', 'Visual Identity', 'Marketing Materials'],
     content: `
 <h1>Graphic Design Services from ThinkMents: Unlocking Your Business's Visual Potential</h1>
@@ -907,19 +933,22 @@ const basicBlogPosts = {
 <p><strong>Ready to unlock your business's visual potential?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a complimentary design consultation.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/web-design" target="_blank">web design</a> and <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a>, and discover how we help businesses throughout Wise County, Tarrant County, and Texas build powerful brands through strategic graphic design.</p>
-    `
+    `,
   },
-  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks': {
-    id: 307,
-    title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
-    excerpt: 'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
-    author: 'Corey Spicer',
-    date: '2025-01-24',
-    category: 'seo',
-    readTime: '15 min read',
-    image: 'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-    tags: ['Local SEO', 'Decatur Business', 'Google Business Profile', 'Wise County'],
-    content: `
+  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
+    {
+      id: 307,
+      title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
+      excerpt:
+        'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
+      author: 'Corey Spicer',
+      date: '2025-01-24',
+      category: 'seo',
+      readTime: '15 min read',
+      image:
+        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+      tags: ['Local SEO', 'Decatur Business', 'Google Business Profile', 'Wise County'],
+      content: `
 <h1>Decatur Businesses: Level Up Your Local SEO with ThinkMents</h1>
 
 <p>If you own a business in <strong>Decatur, Texas</strong>, you face unique marketing challenges and extraordinary opportunities. As the county seat of <strong>Wise County</strong>, Decatur combines small-town community values with growing economic vitality. The businesses that thrive here understand one critical truth: local customers searching Google for products and services represent your highest-value prospects—and <strong>local SEO</strong> determines whether they find your business or your competitors.</p>
@@ -1029,17 +1058,19 @@ const basicBlogPosts = {
 <p><strong>Ready to dominate local search in Decatur and Wise County?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a comprehensive local SEO consultation.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a> and discover how we help Decatur businesses build complete marketing systems that drive sustainable growth.</p>
-    `
-  },
+    `,
+    },
   'the-fundamentals-of-digital-marketing-grow-your-business-with-thinkments': {
     id: 308,
     title: 'The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents',
-    excerpt: 'Master digital marketing fundamentals to grow your business. Learn essential strategies for SEO, social media, content marketing, paid advertising, and building an integrated digital presence.',
+    excerpt:
+      'Master digital marketing fundamentals to grow your business. Learn essential strategies for SEO, social media, content marketing, paid advertising, and building an integrated digital presence.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'digital-marketing',
     readTime: '16 min read',
-    image: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     tags: ['Digital Marketing', 'SEO', 'Social Media', 'Content Marketing', 'Business Growth'],
     content: `
 <h1>The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents</h1>
@@ -1125,17 +1156,19 @@ const basicBlogPosts = {
 <p><strong>Ready to build a comprehensive digital marketing strategy?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a complimentary digital marketing consultation.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a>, specialized <a href="https://thinkments.com/web-design" target="_blank">web design and development</a>, and discover how we help businesses build powerful digital presences that drive sustainable growth.</p>
-    `
+    `,
   },
   'what-steps-can-you-take-to-elevate-your-digital-presence': {
     id: 309,
     title: 'What Steps Can You Take to Elevate Your Digital Presence?',
-    excerpt: 'Transform your digital presence with proven strategies. Learn how to build a professional website, optimize for search engines, leverage social media, and create compelling content that attracts customers.',
+    excerpt:
+      'Transform your digital presence with proven strategies. Learn how to build a professional website, optimize for search engines, leverage social media, and create compelling content that attracts customers.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'digital-marketing',
     readTime: '14 min read',
-    image: 'https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    image:
+      'https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
     tags: ['Digital Presence', 'Website Design', 'SEO', 'Social Media', 'Online Marketing'],
     content: `
 <h1>What Steps Can You Take to Elevate Your Digital Presence?</h1>
@@ -1219,18 +1252,25 @@ const basicBlogPosts = {
 <p><strong>Ready to transform your digital presence?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> for a complimentary digital presence audit.</p>
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a>, specialized <a href="https://thinkments.com/web-design" target="_blank">web design and development</a>, and discover how we help businesses build powerful digital presences that drive sustainable growth.</p>
-    `
+    `,
   },
   'thinkments-virtual-tours-and-your-restaurant': {
     id: 310,
     title: 'ThinkMents Virtual Tours and Your Restaurant: Bring Your Dining Experience Online',
-    excerpt: 'Discover how virtual tours transform restaurant marketing by showcasing your ambiance, building trust, and attracting more diners. Learn why ThinkMents virtual tours give your restaurant a competitive edge.',
+    excerpt:
+      'Discover how virtual tours transform restaurant marketing by showcasing your ambiance, building trust, and attracting more diners. Learn why ThinkMents virtual tours give your restaurant a competitive edge.',
     author: 'Corey Spicer',
     date: '2025-01-24',
     category: 'virtual-tours',
     readTime: '13 min read',
-    image: 'https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-    tags: ['Virtual Tours', 'Restaurant Marketing', 'Google Business Profile', 'Customer Experience'],
+    image:
+      'https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    tags: [
+      'Virtual Tours',
+      'Restaurant Marketing',
+      'Google Business Profile',
+      'Customer Experience',
+    ],
     content: `
 <h1>ThinkMents Virtual Tours and Your Restaurant: Bring Your Dining Experience Online</h1>
 
@@ -1317,12 +1357,13 @@ const basicBlogPosts = {
 <p><strong>Ready to showcase your restaurant?</strong> <a href="https://thinkments.com/contact" target="_blank">Contact ThinkMents today</a> to schedule a complimentary consultation.</p>
 
 <p>Learn more about our <a href="https://thinkments.com/virtual-tours" target="_blank">virtual tours service</a>, explore our complete <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing solutions</a>, and discover how we help restaurants build powerful online presences.</p>
-    `
+    `,
   },
-  'h0qXu1sF5rddqSzeHbookI300': {
+  h0qXu1sF5rddqSzeHbookI300: {
     id: 300,
     title: 'How to Fix Soft 404 Errors and Boost Local SEO in Wise County & Tarrant County',
-    excerpt: 'Learn how to identify and fix soft 404 errors to improve local SEO rankings in Wise County and Tarrant County. Expert technical SEO guide from ThinkMents.',
+    excerpt:
+      'Learn how to identify and fix soft 404 errors to improve local SEO rankings in Wise County and Tarrant County. Expert technical SEO guide from ThinkMents.',
     author: 'Corey Spicer',
     date: '2025-01-23',
     category: 'seo',
@@ -1673,12 +1714,13 @@ Disallow: /admin/
   ]
 }
 </script>
-    `
+    `,
   },
   'tiktok-marketing-gen-z-millennials': {
     id: 20,
     title: 'TikTok Marketing: Reaching Gen Z and Millennial Audiences',
-    excerpt: 'Tap into TikTok\'s massive audience with effective marketing strategies. Learn content creation, trending tactics, and advertising opportunities.',
+    excerpt:
+      "Tap into TikTok's massive audience with effective marketing strategies. Learn content creation, trending tactics, and advertising opportunities.",
     author: 'Corey Spicer',
     date: '2024-09-08',
     category: 'social-media',
@@ -1774,12 +1816,13 @@ Disallow: /admin/
       <p>TikTok represents one of the most powerful marketing platforms for reaching younger audiences with authentic, engaging content. Success requires understanding the platform's unique culture, creating genuine content that entertains or educates, participating actively in trends and challenges, building community through consistent engagement, and measuring performance to refine your strategy.</p>
 
       <p>Ready to harness TikTok's massive potential for your business? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert TikTok strategy development, content creation, influencer partnerships, and campaign management that drives real business results.</p>
-    `
+    `,
   },
   'linkedin-marketing-b2b-businesses': {
     id: 15,
     title: 'LinkedIn Marketing for B2B Businesses',
-    excerpt: 'Leverage LinkedIn to generate B2B leads and build professional relationships. Learn content strategies, networking tactics, and advertising best practices.',
+    excerpt:
+      'Leverage LinkedIn to generate B2B leads and build professional relationships. Learn content strategies, networking tactics, and advertising best practices.',
     author: 'Corey Spicer',
     date: '2024-09-03',
     category: 'social-media',
@@ -1859,12 +1902,13 @@ Disallow: /admin/
       <p>LinkedIn offers unmatched opportunities for B2B businesses to connect with decision-makers, generate qualified leads, establish thought leadership, and drive measurable business growth. Success requires strategic profile optimization, consistent valuable content creation, meaningful engagement with your professional network, strategic use of paid advertising, and ongoing measurement and optimization.</p>
 
       <p>Ready to unlock LinkedIn's full potential for your B2B business? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert LinkedIn strategy development, content creation, advertising campaign management, and social selling training that drives qualified leads and measurable ROI.</p>
-    `
+    `,
   },
   'local-seo-strategies-small-businesses': {
     id: 5,
     title: 'Local SEO Strategies for Small Businesses',
-    excerpt: 'Dominate local search results with these proven strategies. Perfect for small businesses looking to attract more customers from their local area.',
+    excerpt:
+      'Dominate local search results with these proven strategies. Perfect for small businesses looking to attract more customers from their local area.',
     author: 'Corey Spicer',
     date: '2024-08-24',
     category: 'seo',
@@ -1949,12 +1993,13 @@ Disallow: /admin/
       <p>Local SEO provides small businesses with powerful opportunities to compete effectively in their geographic markets, attracting customers actively searching for their products and services nearby. Success requires optimizing your Google Business Profile, building consistent citations, creating location-optimized content, generating and managing reviews, and continuously measuring and refining your approach.</p>
 
       <p>Ready to dominate local search results in your area? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert local SEO strategy development, implementation, and ongoing optimization that drives more local customers to your business.</p>
-    `
+    `,
   },
   'technical-seo-foundation-search-success': {
     id: 14,
     title: 'Technical SEO: The Foundation of Search Success',
-    excerpt: 'Master technical SEO to improve your website\'s search performance. Learn about site speed, crawlability, indexing, and mobile optimization.',
+    excerpt:
+      "Master technical SEO to improve your website's search performance. Learn about site speed, crawlability, indexing, and mobile optimization.",
     author: 'Corey Spicer',
     date: '2024-09-02',
     category: 'seo',
@@ -2046,12 +2091,13 @@ Disallow: /admin/
       <p>Technical SEO provides the essential foundation for all other SEO efforts. Without proper technical optimization, even the best content and strongest backlink profiles struggle to achieve their potential. Success requires systematic attention to site architecture, speed optimization, mobile functionality, crawlability, security, and structured data implementation, combined with regular audits and continuous improvement.</p>
 
       <p>Ready to build a rock-solid technical SEO foundation for your website? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for comprehensive technical SEO audits, implementation, and ongoing optimization that drives improved rankings and organic traffic.</p>
-    `
+    `,
   },
   'content-seo-optimization-guide': {
     id: 16,
     title: 'Content SEO Optimization: The Complete Guide',
-    excerpt: 'Create content that ranks with our comprehensive SEO optimization guide. Learn keyword research, on-page optimization, and content strategy.',
+    excerpt:
+      'Create content that ranks with our comprehensive SEO optimization guide. Learn keyword research, on-page optimization, and content strategy.',
     author: 'Corey Spicer',
     date: '2024-09-04',
     category: 'seo',
@@ -2074,12 +2120,13 @@ Disallow: /admin/
       <p>Content SEO represents the intersection of creating genuinely valuable content and optimizing it for maximum search visibility. Success requires understanding user intent, conducting strategic keyword research, creating comprehensive optimized content, and promoting content to build authority.</p>
 
       <p>Ready to create and optimize content that ranks and converts? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert content SEO strategy and execution that drives measurable organic traffic growth.</p>
-    `
+    `,
   },
   'video-seo-youtube-optimization-guide': {
     id: 30,
     title: 'Video SEO and YouTube Optimization Guide',
-    excerpt: 'Maximize your video visibility with our comprehensive SEO guide. Learn YouTube optimization, video content strategy, and ranking factors.',
+    excerpt:
+      'Maximize your video visibility with our comprehensive SEO guide. Learn YouTube optimization, video content strategy, and ranking factors.',
     author: 'Corey Spicer',
     date: '2024-09-18',
     category: 'seo',
@@ -2099,12 +2146,13 @@ Disallow: /admin/
       <p>Video SEO represents a powerful opportunity to reach audiences through engaging visual content. Success requires understanding platform-specific ranking factors, conducting keyword research, optimizing all video elements, creating valuable content, and promoting videos strategically.</p>
 
       <p>Ready to optimize your video content for maximum visibility? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert video SEO strategy and YouTube optimization that drives results.</p>
-    `
+    `,
   },
   'ecommerce-seo-organic-traffic-guide': {
     id: 32,
     title: 'E-commerce SEO: Driving Organic Traffic to Your Online Store',
-    excerpt: 'Increase organic traffic to your e-commerce store with proven SEO strategies. Learn product page optimization, technical SEO, and link building.',
+    excerpt:
+      'Increase organic traffic to your e-commerce store with proven SEO strategies. Learn product page optimization, technical SEO, and link building.',
     author: 'Corey Spicer',
     date: '2024-09-20',
     category: 'seo',
@@ -2127,12 +2175,13 @@ Disallow: /admin/
       <p>E-commerce SEO delivers sustainable organic traffic and revenue for online stores. Success requires technical excellence, strategic keyword targeting, unique product content, category optimization, smart internal linking, quality backlinks, and supporting content marketing.</p>
 
       <p>Ready to increase organic traffic and revenue for your e-commerce store? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert e-commerce SEO strategy and implementation that drives measurable sales growth.</p>
-    `
+    `,
   },
   'ecommerce-seo-driving-sales-through-search': {
     id: 33,
     title: 'E-commerce SEO: Driving Sales Through Search',
-    excerpt: 'Convert search traffic into sales with advanced e-commerce SEO tactics. Master product optimization, user experience, and conversion strategies.',
+    excerpt:
+      'Convert search traffic into sales with advanced e-commerce SEO tactics. Master product optimization, user experience, and conversion strategies.',
     author: 'Corey Spicer',
     date: '2024-09-21',
     category: 'seo',
@@ -2155,12 +2204,13 @@ Disallow: /admin/
       <p>E-commerce SEO success ultimately measures in revenue, not just traffic. Focus on strategies that increase average order value, reduce cart abandonment, improve conversion rates, and maximize customer lifetime value. Combine SEO with CRO, personalization, and remarketing for comprehensive organic revenue growth.</p>
 
       <p>Ready to turn organic search traffic into predictable revenue? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for e-commerce SEO strategies designed to drive sales and maximize ROI from organic traffic.</p>
-    `
+    `,
   },
   'web-design-trends-2025': {
     id: 3,
     title: 'Web Design Trends to Watch in 2025',
-    excerpt: 'Stay ahead of the curve with the latest web design trends. From AI-powered personalization to immersive 3D experiences, discover what\'s shaping modern web design.',
+    excerpt:
+      "Stay ahead of the curve with the latest web design trends. From AI-powered personalization to immersive 3D experiences, discover what's shaping modern web design.",
     author: 'Corey Spicer',
     date: '2024-08-22',
     category: 'web-design',
@@ -2216,12 +2266,13 @@ Disallow: /admin/
       <p>Web design trends in 2025 emphasize personalization, interactivity, performance, and inclusivity. Success requires balancing cutting-edge techniques with fundamental design principles, implementing trends that serve your specific audience, and continuously evolving your design as technologies and expectations change.</p>
 
       <p>Ready to create a modern website that leverages the latest design trends while driving business results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert web design that combines current trends with timeless effectiveness.</p>
-    `
+    `,
   },
   'psychology-color-web-design': {
     id: 22,
     title: 'The Psychology of Color in Web Design',
-    excerpt: 'Understand how color choices impact user behavior and conversions. Learn color theory, psychology, and strategic implementation for your website.',
+    excerpt:
+      'Understand how color choices impact user behavior and conversions. Learn color theory, psychology, and strategic implementation for your website.',
     author: 'Corey Spicer',
     date: '2024-09-10',
     category: 'web-design',
@@ -2263,12 +2314,13 @@ Disallow: /admin/
       <p>Color psychology provides powerful tools for influencing user emotions, perceptions, and behaviors. Strategic color choices enhance brand identity, guide user attention, improve usability, and drive conversions. Success requires understanding psychological color associations, considering cultural contexts, ensuring accessibility, maintaining consistency, and testing to optimize for your specific audience.</p>
 
       <p>Ready to leverage color psychology to create more effective, conversion-focused website designs? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert web design that strategically applies color psychology to drive business results.</p>
-    `
+    `,
   },
   'mobile-first-design-optimization-guide': {
     id: 23,
     title: 'Mobile-First Design: Complete Optimization Guide',
-    excerpt: 'Master mobile-first design principles to create exceptional mobile experiences. Learn responsive strategies, touch optimization, and performance best practices.',
+    excerpt:
+      'Master mobile-first design principles to create exceptional mobile experiences. Learn responsive strategies, touch optimization, and performance best practices.',
     author: 'Corey Spicer',
     date: '2024-09-11',
     category: 'web-design',
@@ -2306,12 +2358,13 @@ Disallow: /admin/
       <p>Mobile-first design ensures users receive optimal experiences regardless of device. Success requires designing for mobile constraints first, optimizing aggressively for touch and performance, implementing responsive layouts thoughtfully, testing extensively across devices, and continuously refining based on mobile analytics and user feedback.</p>
 
       <p>Ready to create mobile experiences that delight users and drive conversions? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert mobile-first design and development that delivers exceptional mobile experiences.</p>
-    `
+    `,
   },
   'landing-page-optimization-higher-conversions': {
     id: 24,
     title: 'Landing Page Optimization for Higher Conversions',
-    excerpt: 'Boost conversion rates with optimized landing pages. Learn design principles, copywriting strategies, and testing methods that drive results.',
+    excerpt:
+      'Boost conversion rates with optimized landing pages. Learn design principles, copywriting strategies, and testing methods that drive results.',
     author: 'Corey Spicer',
     date: '2024-09-12',
     category: 'web-design',
@@ -2361,12 +2414,13 @@ Disallow: /admin/
       <p>Landing page optimization dramatically improves marketing ROI by converting more visitors into leads and customers without increasing traffic costs. Success requires focused pages with singular goals, compelling copy addressing visitor needs, strategic design directing attention, prominent CTAs minimizing friction, trust-building elements, mobile optimization, and systematic testing for continuous improvement.</p>
 
       <p>Ready to create landing pages that convert visitors into customers at dramatically higher rates? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert landing page design, optimization, and testing that drives measurable conversion improvements and ROI.</p>
-    `
+    `,
   },
   'measure-roi-digital-marketing-campaigns': {
     id: 6,
     title: 'How to Measure ROI on Your Digital Marketing Campaigns',
-    excerpt: 'Learn to accurately measure and improve marketing ROI. Discover tracking methods, attribution models, and optimization strategies for better results.',
+    excerpt:
+      'Learn to accurately measure and improve marketing ROI. Discover tracking methods, attribution models, and optimization strategies for better results.',
     author: 'Corey Spicer',
     date: '2024-08-25',
     category: 'marketing-strategy',
@@ -2392,12 +2446,13 @@ Disallow: /admin/
       <p>Regular ROI analysis informs optimization decisions. Review performance monthly, reallocate budgets to high-ROI channels, eliminate or improve low-ROI activities, test variations to improve results, and refine targeting and messaging. Data-driven optimization compounds returns over time, continuously improving marketing efficiency.</p>
 
       <p>Ready to implement comprehensive ROI tracking and optimize your marketing performance? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert analytics implementation and marketing optimization that maximizes ROI.</p>
-    `
+    `,
   },
   'building-strong-brand-identity-digital-age': {
     id: 8,
     title: 'Building a Strong Brand Identity in the Digital Age',
-    excerpt: 'Create a memorable brand identity that resonates with your audience. Learn brand strategy, visual identity, messaging, and consistency across channels.',
+    excerpt:
+      'Create a memorable brand identity that resonates with your audience. Learn brand strategy, visual identity, messaging, and consistency across channels.',
     author: 'Corey Spicer',
     date: '2024-08-27',
     category: 'marketing-strategy',
@@ -2423,12 +2478,13 @@ Disallow: /admin/
       <p>Consistency builds recognition and trust. Create comprehensive brand guidelines documenting all brand standards, train employees and partners on brand usage, audit brand applications regularly, use templates ensuring consistency, and enforce brand standards across departments. Brand consistency should extend across website, social media, advertising, packaging, customer service, and all customer touchpoints.</p>
 
       <p>Ready to develop a powerful brand identity that differentiates your business and resonates with customers? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert brand strategy and identity development.</p>
-    `
+    `,
   },
   'marketing-automation-streamlining-guide': {
     id: 13,
     title: 'Marketing Automation: Streamlining Your Marketing Efforts',
-    excerpt: 'Increase efficiency with marketing automation. Learn platforms, workflow automation, lead nurturing, and best practices for automated marketing success.',
+    excerpt:
+      'Increase efficiency with marketing automation. Learn platforms, workflow automation, lead nurturing, and best practices for automated marketing success.',
     author: 'Corey Spicer',
     date: '2024-09-01',
     category: 'marketing-strategy',
@@ -2454,12 +2510,13 @@ Disallow: /admin/
       <p>Track key metrics including email open and click rates, conversion rates by workflow, lead scoring accuracy, sales-accepted lead rate, time saved through automation, revenue attributed to automated campaigns, and customer lifecycle metrics. Regular analysis enables continuous optimization of automated workflows.</p>
 
       <p>Ready to implement marketing automation that increases efficiency and improves results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert marketing automation strategy, implementation, and optimization.</p>
-    `
+    `,
   },
   'marketing-automation-workflows-convert': {
     id: 17,
     title: 'Marketing Automation Workflows That Convert',
-    excerpt: 'Create high-converting automation workflows. Learn advanced segmentation, behavioral triggers, and optimization strategies for maximum conversions.',
+    excerpt:
+      'Create high-converting automation workflows. Learn advanced segmentation, behavioral triggers, and optimization strategies for maximum conversions.',
     author: 'Corey Spicer',
     date: '2024-09-05',
     category: 'marketing-strategy',
@@ -2482,12 +2539,13 @@ Disallow: /admin/
       <p>Continuously optimize workflows by analyzing conversion rates at each step, identifying drop-off points, A/B testing variations, refining timing and frequency, improving personalization, and adjusting based on performance data. Small improvements compound into significant conversion increases over time.</p>
 
       <p>Ready to create marketing automation workflows that convert prospects into customers? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert workflow design, implementation, and optimization.</p>
-    `
+    `,
   },
   'ai-digital-marketing-tools-strategies-2025': {
     id: 34,
     title: 'AI in Digital Marketing: Tools and Strategies for 2025',
-    excerpt: 'Leverage artificial intelligence to transform your marketing. Explore AI tools, automation strategies, and future trends in AI-powered marketing.',
+    excerpt:
+      'Leverage artificial intelligence to transform your marketing. Explore AI tools, automation strategies, and future trends in AI-powered marketing.',
     author: 'Corey Spicer',
     date: '2024-09-22',
     category: 'marketing-strategy',
@@ -2513,12 +2571,13 @@ Disallow: /admin/
       <p>Use AI ethically by maintaining human oversight, being transparent about AI usage, protecting customer privacy, avoiding bias in AI models, and ensuring accuracy of AI-generated content. AI should augment human capabilities, not replace human judgment and creativity.</p>
 
       <p>Ready to leverage AI to transform your digital marketing? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert AI marketing strategy and implementation.</p>
-    `
+    `,
   },
   'content-marketing-strategy-that-converts': {
     id: 9,
     title: 'Content Marketing Strategy That Actually Converts',
-    excerpt: 'Build a content marketing strategy that drives real business results. Learn content planning, creation, distribution, and measurement for conversions.',
+    excerpt:
+      'Build a content marketing strategy that drives real business results. Learn content planning, creation, distribution, and measurement for conversions.',
     author: 'Corey Spicer',
     date: '2024-08-28',
     category: 'content-marketing',
@@ -2550,12 +2609,13 @@ Disallow: /admin/
       <p>Track key metrics including traffic and pageviews, engagement metrics (time on page, bounce rate), social shares and comments, leads and conversions generated, SEO rankings and organic traffic, and revenue attributed to content. Analyze performance regularly to identify top content, understand what resonates, and optimize underperforming content.</p>
 
       <p>Ready to build a content marketing strategy that drives real business results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert content strategy, creation, and promotion that converts.</p>
-    `
+    `,
   },
   'video-marketing-compelling-content-guide': {
     id: 19,
     title: 'Video Marketing: Creating Compelling Video Content',
-    excerpt: 'Master video marketing with our complete guide. Learn video types, production tips, optimization strategies, and distribution methods that engage audiences.',
+    excerpt:
+      'Master video marketing with our complete guide. Learn video types, production tips, optimization strategies, and distribution methods that engage audiences.',
     author: 'Corey Spicer',
     date: '2024-09-07',
     category: 'content-marketing',
@@ -2578,12 +2638,13 @@ Disallow: /admin/
       <p>Track video metrics including views and impressions, watch time and completion rate, engagement (likes, comments, shares), click-through rate on CTAs, conversions generated, and audience retention graphs. Analyze performance to understand what resonates and optimize future video content.</p>
 
       <p>Ready to leverage video marketing to engage audiences and drive results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert video marketing strategy and production.</p>
-    `
+    `,
   },
   'blogging-for-business-traffic-leads': {
     id: 25,
     title: 'Blogging for Business: Driving Traffic and Leads',
-    excerpt: 'Build a successful business blog that attracts traffic and generates leads. Learn content strategy, SEO optimization, and lead generation tactics.',
+    excerpt:
+      'Build a successful business blog that attracts traffic and generates leads. Learn content strategy, SEO optimization, and lead generation tactics.',
     author: 'Corey Spicer',
     date: '2024-09-13',
     category: 'content-marketing',
@@ -2609,12 +2670,13 @@ Disallow: /admin/
       <p>Generate leads from blog traffic using clear CTAs throughout posts, content upgrades and lead magnets, exit-intent popups, email subscription forms, gated premium content, and chatbots engaging visitors. Every blog post should guide readers toward conversion opportunities aligned with their interests and journey stage.</p>
 
       <p>Ready to build a business blog that drives traffic, leads, and revenue? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert blog strategy, content creation, and optimization.</p>
-    `
+    `,
   },
   'podcast-marketing-audience-brand-growth': {
     id: 29,
     title: 'Podcast Marketing: Building Audience and Brand Growth',
-    excerpt: 'Launch and grow a successful business podcast. Learn content strategy, production tips, distribution methods, and audience building tactics.',
+    excerpt:
+      'Launch and grow a successful business podcast. Learn content strategy, production tips, distribution methods, and audience building tactics.',
     author: 'Corey Spicer',
     date: '2024-09-17',
     category: 'content-marketing',
@@ -2640,12 +2702,13 @@ Disallow: /admin/
       <p>Monetize podcasts through sponsorships and advertising, affiliate marketing, premium content offerings, live events and workshops, and using podcasts for business development. Track metrics including downloads and listens, subscriber growth, listener retention, reviews and ratings, and conversions generated. Analyze performance to optimize content and grow audience.</p>
 
       <p>Ready to launch a podcast that builds audience, establishes authority, and grows your brand? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert podcast strategy and production.</p>
-    `
+    `,
   },
   'email-marketing-best-practices-2025': {
     id: 10,
     title: 'Email Marketing Best Practices for 2025',
-    excerpt: 'Master email marketing with current best practices. Learn segmentation, personalization, automation, and strategies that drive engagement and conversions.',
+    excerpt:
+      'Master email marketing with current best practices. Learn segmentation, personalization, automation, and strategies that drive engagement and conversions.',
     author: 'Corey Spicer',
     date: '2024-08-29',
     category: 'email-marketing',
@@ -2674,12 +2737,13 @@ Disallow: /admin/
       <p>Track key email metrics including open rate, click-through rate, conversion rate, unsubscribe rate, bounce rate, list growth rate, and ROI. Analyze performance to optimize subject lines, content, timing, frequency, and segmentation. A/B test continuously to improve results.</p>
 
       <p>Ready to build an email marketing program that drives engagement and revenue? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert email marketing strategy and execution.</p>
-    `
+    `,
   },
   'email-list-building-subscriber-growth': {
     id: 18,
     title: 'Email List Building: Growing Your Subscriber Base',
-    excerpt: 'Build a valuable email list with proven growth strategies. Learn lead magnets, opt-in optimization, and tactics for acquiring engaged subscribers.',
+    excerpt:
+      'Build a valuable email list with proven growth strategies. Learn lead magnets, opt-in optimization, and tactics for acquiring engaged subscribers.',
     author: 'Corey Spicer',
     date: '2024-09-06',
     category: 'email-marketing',
@@ -2702,12 +2766,13 @@ Disallow: /admin/
       <p>Focus on quality over quantity by confirming subscribers with double opt-in, regularly cleaning inactive subscribers, making unsubscribing easy, segmenting based on engagement, and providing consistent value. Engaged smaller lists outperform large disengaged lists in deliverability and ROI.</p>
 
       <p>Ready to build a valuable email list that drives business growth? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert list building strategies and implementation.</p>
-    `
+    `,
   },
   'sms-marketing-mobile-customer-engagement': {
     id: 26,
     title: 'SMS Marketing: Engaging Customers on Mobile',
-    excerpt: 'Reach customers instantly with SMS marketing. Learn compliance, best practices, automation, and strategies for effective text message marketing.',
+    excerpt:
+      'Reach customers instantly with SMS marketing. Learn compliance, best practices, automation, and strategies for effective text message marketing.',
     author: 'Corey Spicer',
     date: '2024-09-14',
     category: 'email-marketing',
@@ -2733,12 +2798,13 @@ Disallow: /admin/
       <p>Automate SMS workflows for welcome series, abandoned cart recovery, post-purchase follow-up, and re-engagement campaigns. Integrate SMS with email marketing, CRM, and e-commerce platforms for coordinated multi-channel communication.</p>
 
       <p>Ready to engage customers instantly with effective SMS marketing? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for compliant, high-performing SMS marketing programs.</p>
-    `
+    `,
   },
   'email-deliverability-best-practices-guide': {
     id: 31,
     title: 'Email Deliverability: Best Practices Guide',
-    excerpt: 'Ensure your emails reach the inbox. Master technical requirements, sender reputation, content optimization, and monitoring for maximum deliverability.',
+    excerpt:
+      'Ensure your emails reach the inbox. Master technical requirements, sender reputation, content optimization, and monitoring for maximum deliverability.',
     author: 'Corey Spicer',
     date: '2024-09-19',
     category: 'email-marketing',
@@ -2764,12 +2830,13 @@ Disallow: /admin/
       <p>Track deliverability metrics including inbox placement rate, bounce rate (hard and soft), complaint rate, open rate trends, and blacklist status. Use tools like Google Postmaster Tools, sender score monitoring, and email deliverability testing services. Address issues promptly to prevent escalation.</p>
 
       <p>Ready to optimize email deliverability and ensure your messages reach the inbox? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert deliverability optimization and monitoring.</p>
-    `
+    `,
   },
   'google-analytics-4-essential-guide': {
     id: 7,
     title: 'Google Analytics 4: The Essential Guide',
-    excerpt: 'Master Google Analytics 4 with our comprehensive guide. Learn setup, reporting, analysis, and insights to make data-driven marketing decisions.',
+    excerpt:
+      'Master Google Analytics 4 with our comprehensive guide. Learn setup, reporting, analysis, and insights to make data-driven marketing decisions.',
     author: 'Corey Spicer',
     date: '2024-08-26',
     category: 'analytics',
@@ -2795,12 +2862,13 @@ Disallow: /admin/
       <p>Leverage GA4 insights to optimize marketing by identifying top-performing channels, understanding user behavior and journeys, improving conversion funnels, segmenting audiences for targeting, and measuring campaign effectiveness. Regular analysis informs strategic decisions that improve marketing ROI.</p>
 
       <p>Ready to master GA4 and make better data-driven marketing decisions? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert GA4 setup, training, and analytics consulting.</p>
-    `
+    `,
   },
   'data-driven-marketing-analytics-guide': {
     id: 11,
     title: 'Data-Driven Marketing: Analytics and Insights Guide',
-    excerpt: 'Transform marketing with data-driven decision making. Learn analytics frameworks, tools, measurement strategies, and optimization techniques.',
+    excerpt:
+      'Transform marketing with data-driven decision making. Learn analytics frameworks, tools, measurement strategies, and optimization techniques.',
     author: 'Corey Spicer',
     date: '2024-08-30',
     category: 'analytics',
@@ -2826,12 +2894,13 @@ Disallow: /admin/
       <p>Use data to guide continuous improvement through A/B testing variations, multivariate testing multiple elements, analyzing test results for statistical significance, implementing winning variations, and documenting learnings. Systematic testing compounds small improvements into significant results over time.</p>
 
       <p>Ready to transform marketing with data-driven strategies? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert analytics implementation and optimization.</p>
-    `
+    `,
   },
   'marketing-attribution-customer-journey-guide': {
     id: 21,
     title: 'Marketing Attribution: Understanding the Customer Journey',
-    excerpt: 'Master marketing attribution to understand what drives conversions. Learn attribution models, tools, and strategies for accurate performance measurement.',
+    excerpt:
+      'Master marketing attribution to understand what drives conversions. Learn attribution models, tools, and strategies for accurate performance measurement.',
     author: 'Corey Spicer',
     date: '2024-09-09',
     category: 'analytics',
@@ -2854,12 +2923,13 @@ Disallow: /admin/
       <p>Build effective attribution by defining conversion events to track, implementing comprehensive tracking across channels, selecting appropriate attribution models, analyzing attribution reports regularly, and optimizing based on insights. Attribution reveals true channel performance and informs budget allocation decisions.</p>
 
       <p>Ready to implement marketing attribution that reveals true ROI? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert attribution strategy and implementation.</p>
-    `
+    `,
   },
   'content-marketing-roi-measurement-strategies': {
     id: 35,
     title: 'Content Marketing ROI: Measurement Strategies',
-    excerpt: 'Measure and prove content marketing ROI. Learn tracking methods, attribution strategies, and metrics that demonstrate content\'s business impact.',
+    excerpt:
+      "Measure and prove content marketing ROI. Learn tracking methods, attribution strategies, and metrics that demonstrate content's business impact.",
     author: 'Corey Spicer',
     date: '2024-09-23',
     category: 'analytics',
@@ -2885,12 +2955,13 @@ Disallow: /admin/
       <p>Monitor metrics including traffic and pageviews, engagement (time on page, scroll depth), conversion rate, leads generated, content-influenced revenue, organic rankings, backlinks earned, and social shares. Track both leading indicators (traffic, engagement) and lagging indicators (conversions, revenue).</p>
 
       <p>Ready to measure and improve content marketing ROI? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert content analytics and ROI measurement.</p>
-    `
+    `,
   },
   'google-analytics-4-setup-optimization-guide': {
     id: 36,
     title: 'Google Analytics 4: Setup and Optimization Guide',
-    excerpt: 'Set up GA4 correctly for accurate tracking and insights. Learn configuration, event tracking, conversions, and optimization best practices.',
+    excerpt:
+      'Set up GA4 correctly for accurate tracking and insights. Learn configuration, event tracking, conversions, and optimization best practices.',
     author: 'Corey Spicer',
     date: '2024-09-24',
     category: 'analytics',
@@ -2916,12 +2987,13 @@ Disallow: /admin/
       <p>Maintain GA4 effectiveness by regularly auditing data quality, removing spam traffic with filters, testing tracking implementation, documenting configuration changes, training team on GA4 usage, and staying current with new features. Ongoing optimization ensures continued value from analytics investment.</p>
 
       <p>Ready for expert GA4 setup and optimization? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for comprehensive GA4 implementation and training.</p>
-    `
+    `,
   },
   'conversion-rate-optimization-guide': {
     id: 12,
     title: 'Conversion Rate Optimization: The Complete Guide',
-    excerpt: 'Increase conversions without increasing traffic. Learn CRO methodology, testing strategies, and optimization tactics that boost conversion rates.',
+    excerpt:
+      'Increase conversions without increasing traffic. Learn CRO methodology, testing strategies, and optimization tactics that boost conversion rates.',
     author: 'Corey Spicer',
     date: '2024-08-31',
     category: 'conversion-optimization',
@@ -2947,12 +3019,13 @@ Disallow: /admin/
       <p>Track conversion rate by segment and page, revenue per visitor, average order value, cart abandonment rate, and form completion rate. Calculate the ROI of CRO efforts and reinvest in continued optimization. CRO provides ongoing returns through incremental improvements.</p>
 
       <p>Ready to dramatically improve conversion rates and revenue? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert CRO strategy, testing, and optimization.</p>
-    `
+    `,
   },
   'website-performance-optimization-guide': {
     id: 27,
     title: 'Website Performance Optimization Guide',
-    excerpt: 'Speed up your website for better user experience and SEO. Learn technical optimization, image optimization, and performance monitoring strategies.',
+    excerpt:
+      'Speed up your website for better user experience and SEO. Learn technical optimization, image optimization, and performance monitoring strategies.',
     author: 'Corey Spicer',
     date: '2024-09-15',
     category: 'conversion-optimization',
@@ -2978,12 +3051,13 @@ Disallow: /admin/
       <p>Maintain performance through regular monitoring, setting performance budgets, testing after changes, addressing regressions promptly, and optimizing continuously. Performance degrades over time without active maintenance. Ongoing monitoring ensures sustained fast experiences.</p>
 
       <p>Ready to dramatically improve website performance? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert performance optimization and monitoring.</p>
-    `
+    `,
   },
   'conversion-rate-optimization-testing-guide': {
     id: 28,
     title: 'Conversion Rate Optimization: Testing and Implementation',
-    excerpt: 'Run effective A/B tests and optimization experiments. Learn testing methodology, tools, analysis, and implementation for continuous improvement.',
+    excerpt:
+      'Run effective A/B tests and optimization experiments. Learn testing methodology, tools, analysis, and implementation for continuous improvement.',
     author: 'Corey Spicer',
     date: '2024-09-16',
     category: 'conversion-optimization',
@@ -3009,12 +3083,13 @@ Disallow: /admin/
       <p>Build testing culture by running tests consistently, documenting all test results, sharing learnings across teams, implementing winning variations promptly, and building on successful tests. Systematic testing compounds small improvements into substantial conversion increases over time.</p>
 
       <p>Ready to implement systematic testing programs that drive conversion growth? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert testing strategy and execution.</p>
-    `
+    `,
   },
   'google-ads-mastery-ppc-strategies': {
     id: 37,
     title: 'Google Ads Mastery: PPC Strategies for Success',
-    excerpt: 'Master Google Ads with proven strategies. Learn campaign structure, bidding, optimization, and advanced tactics for profitable PPC advertising.',
+    excerpt:
+      'Master Google Ads with proven strategies. Learn campaign structure, bidding, optimization, and advanced tactics for profitable PPC advertising.',
     author: 'Corey Spicer',
     date: '2024-09-25',
     category: 'paid-advertising',
@@ -3043,12 +3118,13 @@ Disallow: /admin/
       <p>Track conversions including purchases, lead form submissions, phone calls, and other valuable actions. Analyze performance by campaign, ad group, keyword, and ad. Optimize by pausing underperformers, increasing bids on profitable keywords, adding negative keywords, refining targeting, and improving landing pages. Continuous optimization drives improved ROI over time.</p>
 
       <p>Ready to master Google Ads and drive profitable growth? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert PPC management and optimization.</p>
-    `
+    `,
   },
   'retargeting-campaigns-converting-lost-visitors': {
     id: 38,
     title: 'Retargeting Campaigns: Converting Lost Visitors',
-    excerpt: 'Bring back lost visitors with effective retargeting. Learn audience segmentation, creative strategies, and optimization for maximum conversions.',
+    excerpt:
+      'Bring back lost visitors with effective retargeting. Learn audience segmentation, creative strategies, and optimization for maximum conversions.',
     author: 'Corey Spicer',
     date: '2024-09-26',
     category: 'paid-advertising',
@@ -3074,12 +3150,13 @@ Disallow: /admin/
       <p>Track retargeting metrics including impression and click-through rates, conversion rate, cost per conversion, view-through conversions, and incremental lift over baseline. Use attribution to understand retargeting's role in conversion paths. Measure return on ad spend to ensure profitability.</p>
 
       <p>Ready to implement retargeting campaigns that convert lost visitors into customers? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert retargeting strategy and management.</p>
-    `
+    `,
   },
   'influencer-marketing-authentic-reach-guide': {
     id: 39,
     title: 'Influencer Marketing: Building Authentic Reach',
-    excerpt: 'Partner with influencers to expand reach and build trust. Learn influencer selection, campaign management, and measurement for authentic marketing.',
+    excerpt:
+      'Partner with influencers to expand reach and build trust. Learn influencer selection, campaign management, and measurement for authentic marketing.',
     author: 'Corey Spicer',
     date: '2024-09-27',
     category: 'partnerships',
@@ -3105,12 +3182,13 @@ Disallow: /admin/
       <p>Track influencer performance through reach and impressions, engagement metrics (likes, comments, shares), website traffic and conversions, affiliate sales or coupon usage, brand sentiment and awareness lift, and cost per engagement or acquisition. Compare performance across influencers to identify top partners.</p>
 
       <p>Ready to build authentic influencer partnerships that drive reach and conversions? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert influencer marketing strategy and management.</p>
-    `
+    `,
   },
   'affiliate-marketing-profitable-partnership-programs': {
     id: 40,
     title: 'Affiliate Marketing: Building Profitable Partnership Programs',
-    excerpt: 'Scale growth through affiliate partnerships. Learn program setup, affiliate recruitment, management, and optimization for maximum revenue.',
+    excerpt:
+      'Scale growth through affiliate partnerships. Learn program setup, affiliate recruitment, management, and optimization for maximum revenue.',
     author: 'Corey Spicer',
     date: '2024-09-28',
     category: 'partnerships',
@@ -3136,12 +3214,13 @@ Disallow: /admin/
       <p>Optimize affiliate programs by monitoring affiliate performance, identifying and activating inactive affiliates, preventing fraud and policy violations, testing commission structures, providing top performers with exclusive benefits, and continuously recruiting new affiliates. Active program management maximizes affiliate channel ROI.</p>
 
       <p>Ready to build profitable affiliate programs that drive scalable growth? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert affiliate program development and management.</p>
-    `
+    `,
   },
   'influencer-marketing-campaign-management': {
     id: 41,
     title: 'Influencer Marketing: Campaign Management Best Practices',
-    excerpt: 'Execute successful influencer campaigns from planning to measurement. Learn workflow, creative direction, compliance, and performance optimization.',
+    excerpt:
+      'Execute successful influencer campaigns from planning to measurement. Learn workflow, creative direction, compliance, and performance optimization.',
     author: 'Corey Spicer',
     date: '2024-09-29',
     category: 'partnerships',
@@ -3167,12 +3246,13 @@ Disallow: /admin/
       <p>Ensure FTC compliance through clear sponsorship disclosures (#ad, #sponsored), disclosure placement visibility, platform-specific disclosure methods, training influencers on requirements, and monitoring compliance. Non-compliance risks penalties and damages credibility.</p>
 
       <p>Ready to execute influencer campaigns that drive authentic reach and results? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert influencer campaign management.</p>
-    `
+    `,
   },
   'b2b-lead-generation-strategies-2025': {
     id: 42,
     title: 'B2B Lead Generation Strategies for 2025',
-    excerpt: 'Generate quality B2B leads with proven strategies. Learn demand generation, content marketing, outreach, and tactics that fill your sales pipeline.',
+    excerpt:
+      'Generate quality B2B leads with proven strategies. Learn demand generation, content marketing, outreach, and tactics that fill your sales pipeline.',
     author: 'Corey Spicer',
     date: '2024-09-30',
     category: 'partnerships',
@@ -3198,12 +3278,13 @@ Disallow: /admin/
       <p>Qualify leads using demographic fit (company size, industry, role), behavioral engagement (content consumption, website activity), and explicit interest (form submissions, demo requests). Implement lead scoring to prioritize sales follow-up on highest-potential leads. Align sales and marketing on qualification criteria.</p>
 
       <p>Ready to build B2B lead generation programs that consistently fill your pipeline? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert B2B demand generation and lead generation.</p>
-    `
+    `,
   },
   'mobile-app-marketing-user-acquisition': {
     id: 43,
     title: 'Mobile App Marketing: User Acquisition Strategies',
-    excerpt: 'Acquire and retain mobile app users with proven strategies. Learn app store optimization, paid acquisition, and retention tactics for app growth.',
+    excerpt:
+      'Acquire and retain mobile app users with proven strategies. Learn app store optimization, paid acquisition, and retention tactics for app growth.',
     author: 'Corey Spicer',
     date: '2024-10-01',
     category: 'partnerships',
@@ -3229,12 +3310,13 @@ Disallow: /admin/
       <p>Retain users through onboarding optimizing first-time user experience, push notifications re-engaging users, in-app messaging providing value, regular feature updates adding value, personalization improving relevance, and gamification increasing engagement. Retention optimization increases LTV and improves acquisition ROI.</p>
 
       <p>Ready to drive user acquisition and growth for your mobile app? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert mobile app marketing strategy and execution.</p>
-    `
+    `,
   },
   'local-business-reputation-management-guide': {
     id: 44,
     title: 'Local Business Reputation Management Guide',
-    excerpt: 'Protect and enhance your local business reputation. Learn review management, response strategies, and tactics for building trust and credibility.',
+    excerpt:
+      'Protect and enhance your local business reputation. Learn review management, response strategies, and tactics for building trust and credibility.',
     author: 'Corey Spicer',
     date: '2024-10-02',
     category: 'partnerships',
@@ -3260,18 +3342,25 @@ Disallow: /admin/
       <p>Develop strong reputation through consistently excellent service, proactive customer communication, addressing issues before they become complaints, showcasing positive reviews on website and marketing, and building community relationships beyond online reviews. Positive reputation compounds over time through accumulated positive reviews and brand equity.</p>
 
       <p>Ready to protect and enhance your local business reputation? <a href="https://thinkments.com/get-a-quote" target="_blank">Contact ThinkMents today</a> for expert reputation management strategy and review generation.</p>
-    `
+    `,
   },
   'social-media-crisis-management-strategies': {
     id: 45,
     title: 'Social Media Crisis Management: Proven Strategies to Protect Your Brand (2025)',
-    excerpt: 'Learn how to prevent, identify, and manage social media crises with proven strategies for communication, rapid response, and post-crisis recovery. Complete framework + real examples.',
+    excerpt:
+      'Learn how to prevent, identify, and manage social media crises with proven strategies for communication, rapid response, and post-crisis recovery. Complete framework + real examples.',
     author: 'Corey Spicer',
     date: '2024-10-03',
     category: 'partnerships',
     readTime: '12 min read',
     image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop',
-    tags: ['Crisis Management', 'Social Media', 'Reputation Management', 'Communications', 'Brand Protection'],
+    tags: [
+      'Crisis Management',
+      'Social Media',
+      'Reputation Management',
+      'Communications',
+      'Brand Protection',
+    ],
     content: `
       <p>Social media crises can escalate in minutes, transforming a small issue into a brand-threatening catastrophe. A single viral post can reach millions, damage your reputation, and cost your business significantly. In 2025, effective <strong>social media crisis management</strong> isn't optional—it's essential for business survival. This comprehensive guide teaches you how to prevent, identify, respond to, and recover from social media crises using proven frameworks and real-world examples.</p>
 
@@ -3436,8 +3525,8 @@ Disallow: /admin/
         <li><a href="https://thinkments.com/strategic-seo">Strategic SEO Services</a> - Improve your online visibility and brand presence</li>
         <li><a href="https://thinkments.com/digital-marketing">Digital Marketing Services</a> - Comprehensive marketing solutions for brand growth</li>
       </ul>
-    `
-  }
+    `,
+  },
 };
 
 // Get blog post data by slug
@@ -3448,7 +3537,7 @@ const getBlogPostBySlug = (slug: string) => {
 // Get related blog posts
 const getRelatedPosts = (currentId: number, category: string, limit = 3) => {
   return Object.values(basicBlogPosts)
-    .filter(post => post.id !== currentId && post.category === category)
+    .filter((post) => post.id !== currentId && post.category === category)
     .slice(0, limit);
 };
 
@@ -3488,10 +3577,10 @@ export default function BlogPostPage() {
   }
 
   const relatedPosts = getRelatedPosts(post.id, post.category);
-  
+
   // Track page view
   usePageTracking(post.title);
-  
+
   // Inject Article schema and Breadcrumb schema
   useEffect(() => {
     const articleSchema = generateArticleSchema({
@@ -3501,21 +3590,21 @@ export default function BlogPostPage() {
       datePublished: post.date,
       dateModified: post.date,
       author: post.author,
-      url: `${BASE_URL}/blog/${slug}`
+      url: `${BASE_URL}/blog/${slug}`,
     });
-    
+
     const breadcrumbSchema = generateBreadcrumbSchema([
       { name: 'Home', url: BASE_URL },
       { name: 'Blog', url: `${BASE_URL}/blog` },
-      { name: post.title, url: `${BASE_URL}/blog/${slug}` }
+      { name: post.title, url: `${BASE_URL}/blog/${slug}` },
     ]);
-    
+
     const cleanup1 = injectSchema(articleSchema);
     const cleanup2 = injectSchema(breadcrumbSchema);
-    
+
     // Update page title and meta description
     document.title = `${post.title} - ThinkMents Blog`;
-    
+
     let metaDesc = document.querySelector('meta[name="description"]') as HTMLMetaElement;
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -3523,7 +3612,7 @@ export default function BlogPostPage() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content = post.excerpt;
-    
+
     return () => {
       if (cleanup1) cleanup1();
       if (cleanup2) cleanup2();
@@ -3538,9 +3627,9 @@ export default function BlogPostPage() {
         url={`/blog/${slug}`}
         type="article"
       />
-      
+
       <ReadingProgress />
-      
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -3549,227 +3638,237 @@ export default function BlogPostPage() {
       >
         {/* Breadcrumbs */}
         <div className="container mx-auto px-4 pt-24 pb-4">
-        <Breadcrumbs 
-          items={[
-            { name: 'Blog', url: '/blog' },
-            { name: post.title, url: `/blog/${slug}` }
-          ]}
-        />
-      </div>
-
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              className="text-center mb-8"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <Badge className="mb-4 bg-gradient-to-r from-primary to-accent text-white">
-                {post.category.charAt(0).toUpperCase() + post.category.slice(1).replace('-', ' ')}
-              </Badge>
-              
-              <h1 className="text-3xl md:text-4xl lg:text-5xl mb-6">
-                {post.title}
-              </h1>
-
-              <div className="flex items-center justify-center text-muted-foreground space-x-6 mb-6">
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>{new Date(post.date).toLocaleDateString('en-US', { 
-                    year: 'numeric',
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <User className="w-4 h-4" />
-                  <span>{post.author}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{post.readTime}</span>
-                </div>
-              </div>
-
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                {post.excerpt}
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50">
-                <ImageWithFallback
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-64 md:h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              </div>
-            </motion.div>
-          </div>
+          <Breadcrumbs
+            items={[
+              { name: 'Blog', url: '/blog' },
+              { name: post.title, url: `/blog/${slug}` },
+            ]}
+          />
         </div>
-      </section>
 
-      {/* Article Content */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col lg:flex-row gap-12">
-              {/* Main Content */}
-              <motion.article
-                className="flex-1"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+        {/* Hero Section */}
+        <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                className="text-center mb-8"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
               >
-                <BlogContent content={post.content} />
+                <Badge className="mb-4 bg-gradient-to-r from-primary to-accent text-white">
+                  {post.category.charAt(0).toUpperCase() + post.category.slice(1).replace('-', ' ')}
+                </Badge>
 
-                {/* Tags */}
-                <div className="mt-12 pt-8 border-t-2 border-dashed border-muted">
-                  <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">Topics Covered</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {post.tags.map((tag, index) => (
-                      <motion.span
-                        key={tag}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 hover:from-primary/20 hover:to-accent/20 border border-primary/20 rounded-full text-sm transition-all cursor-pointer"
-                      >
-                        <Tag className="w-3.5 h-3.5 text-primary" />
-                        <span>{tag}</span>
-                      </motion.span>
-                    ))}
+                <h1 className="text-3xl md:text-4xl lg:text-5xl mb-6">{post.title}</h1>
+
+                <div className="flex items-center justify-center text-muted-foreground space-x-6 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <User className="w-4 h-4" />
+                    <span>{post.author}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Clock className="w-4 h-4" />
+                    <span>{post.readTime}</span>
                   </div>
                 </div>
 
-                {/* Share Section */}
-                <div className="mt-8 p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/10">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-1">Found this helpful?</h3>
-                      <p className="text-foreground">Share this article with your network</p>
-                    </div>
-                    <ShareButton 
-                      url={`/blog/${slug}`}
-                      title={post.title}
-                      description={post.excerpt}
-                      size="default"
-                      variant="default"
-                    />
-                  </div>
-                </div>
-              </motion.article>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{post.excerpt}</p>
+              </motion.div>
 
-              {/* Sidebar */}
-              <motion.aside
-                className="lg:w-80"
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+              <motion.div
+                className="mb-12"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {/* Table of Contents */}
-                <div className="mb-8 hidden lg:block">
-                  <TableOfContents content={post.content} />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+                  <ImageWithFallback
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-64 md:h-96 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
                 </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
-                {/* Author Info */}
-                <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 mb-8 border border-primary/10 shadow-sm">
-                  <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">About the Author</h3>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white text-xl shadow-lg flex-shrink-0">
-                      {post.author.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-lg mb-1">{post.author}</p>
-                      <p className="text-sm text-muted-foreground mb-3">Digital Marketing Expert</p>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Helping businesses grow through strategic digital marketing and proven SEO techniques.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        {/* Article Content */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col lg:flex-row gap-12">
+                {/* Main Content */}
+                <motion.article
+                  className="flex-1"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  <BlogContent content={post.content} />
 
-                {/* Related Posts */}
-                {relatedPosts.length > 0 && (
-                  <div className="bg-gradient-to-br from-muted/30 to-muted/50 rounded-xl p-6 border border-border/50 shadow-sm">
-                    <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">Continue Reading</h3>
-                    <div className="space-y-4">
-                      {relatedPosts.map((relatedPost) => (
-                        <Link
-                          key={relatedPost.id}
-                          to={`/blog/${Object.keys(basicBlogPosts).find(key => basicBlogPosts[key as keyof typeof basicBlogPosts].id === relatedPost.id)}`}
-                          className="block group"
+                  {/* Tags */}
+                  <div className="mt-12 pt-8 border-t-2 border-dashed border-muted">
+                    <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                      Topics Covered
+                    </h3>
+                    <div className="flex flex-wrap gap-3">
+                      {post.tags.map((tag, index) => (
+                        <motion.span
+                          key={tag}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 hover:from-primary/20 hover:to-accent/20 border border-primary/20 rounded-full text-sm transition-all cursor-pointer"
                         >
-                          <div className="flex space-x-3">
-                            <ImageWithFallback
-                              src={relatedPost.image}
-                              alt={relatedPost.title}
-                              className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                            />
-                            <div className="flex-1 min-w-0">
-                              <h4 className="text-sm group-hover:text-primary transition-colors line-clamp-2">
-                                {relatedPost.title}
-                              </h4>
-                              <p className="text-xs text-muted-foreground mt-1">
-                                {relatedPost.readTime}
-                              </p>
-                            </div>
-                          </div>
-                        </Link>
+                          <Tag className="w-3.5 h-3.5 text-primary" />
+                          <span>{tag}</span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
-                )}
-              </motion.aside>
+
+                  {/* Share Section */}
+                  <div className="mt-8 p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/10">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="flex-1">
+                        <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                          Found this helpful?
+                        </h3>
+                        <p className="text-foreground">Share this article with your network</p>
+                      </div>
+                      <ShareButton
+                        url={`/blog/${slug}`}
+                        title={post.title}
+                        description={post.excerpt}
+                        size="default"
+                        variant="default"
+                      />
+                    </div>
+                  </div>
+                </motion.article>
+
+                {/* Sidebar */}
+                <motion.aside
+                  className="lg:w-80"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  {/* Table of Contents */}
+                  <div className="mb-8 hidden lg:block">
+                    <TableOfContents content={post.content} />
+                  </div>
+
+                  {/* Author Info */}
+                  <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 mb-8 border border-primary/10 shadow-sm">
+                    <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                      About the Author
+                    </h3>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white text-xl shadow-lg flex-shrink-0">
+                        {post.author
+                          .split(' ')
+                          .map((n) => n[0])
+                          .join('')}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-lg mb-1">{post.author}</p>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          Digital Marketing Expert
+                        </p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          Helping businesses grow through strategic digital marketing and proven SEO
+                          techniques.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Related Posts */}
+                  {relatedPosts.length > 0 && (
+                    <div className="bg-gradient-to-br from-muted/30 to-muted/50 rounded-xl p-6 border border-border/50 shadow-sm">
+                      <h3 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                        Continue Reading
+                      </h3>
+                      <div className="space-y-4">
+                        {relatedPosts.map((relatedPost) => (
+                          <Link
+                            key={relatedPost.id}
+                            to={`/blog/${Object.keys(basicBlogPosts).find((key) => basicBlogPosts[key as keyof typeof basicBlogPosts].id === relatedPost.id)}`}
+                            className="block group"
+                          >
+                            <div className="flex space-x-3">
+                              <ImageWithFallback
+                                src={relatedPost.image}
+                                alt={relatedPost.title}
+                                className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-sm group-hover:text-primary transition-colors line-clamp-2">
+                                  {relatedPost.title}
+                                </h4>
+                                <p className="text-xs text-muted-foreground mt-1">
+                                  {relatedPost.readTime}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </motion.aside>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            className="max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl mb-6">
-              Ready to Grow Your{' '}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Business?
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Let's discuss how we can help implement these strategies for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/get-a-quote">
-                <Button className="bg-gradient-to-r from-primary to-accent">
-                  Get Free Quote
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline">
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
+          <div className="container mx-auto px-4 text-center">
+            <motion.div
+              className="max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl mb-6">
+                Ready to Grow Your{' '}
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Business?
+                </span>
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Let's discuss how we can help implement these strategies for your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/get-a-quote">
+                  <Button className="bg-gradient-to-r from-primary to-accent">
+                    Get Free Quote
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="outline">Contact Us</Button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
       </motion.div>
     </>
   );

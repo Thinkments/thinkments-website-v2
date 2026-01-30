@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 /**
  * Performance Optimizer Component
- * 
+ *
  * Implements various performance optimizations:
  * - Lazy loads non-critical resources
  * - Defers analytics scripts
@@ -16,7 +16,7 @@ export default function PerformanceOptimizer() {
     const loadDeferredScripts = () => {
       // Analytics and tracking scripts should load after page content
       // This is a placeholder - add your analytics scripts here
-      
+
       // Example: Load Google Analytics after page load
       if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
         (window as any).requestIdleCallback(() => {
@@ -123,19 +123,19 @@ export function useLazyLoad(threshold = 0.1) {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const target = entry.target as HTMLElement;
-              
+
               // Lazy load images
               if (target.tagName === 'IMG' && target.dataset.src) {
                 (target as HTMLImageElement).src = target.dataset.src;
                 target.removeAttribute('data-src');
               }
-              
+
               // Lazy load background images
               if (target.dataset.bgSrc) {
                 target.style.backgroundImage = `url(${target.dataset.bgSrc})`;
                 target.removeAttribute('data-bg-src');
               }
-              
+
               observer.unobserve(target);
             }
           });
@@ -143,7 +143,7 @@ export function useLazyLoad(threshold = 0.1) {
         {
           rootMargin: '50px',
           threshold: threshold,
-        }
+        },
       );
 
       // Observe all lazy-loadable elements
@@ -165,7 +165,7 @@ export function deferNonCriticalCSS(href: string) {
   link.rel = 'stylesheet';
   link.href = href;
   link.media = 'print';
-  link.onload = function() {
+  link.onload = function () {
     link.media = 'all';
   };
   document.head.appendChild(link);

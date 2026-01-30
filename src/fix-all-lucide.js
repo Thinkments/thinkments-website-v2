@@ -44,10 +44,10 @@ const files = [
   '/components/Footer.tsx',
   '/components/Header.tsx',
   '/components/ShareButton.tsx',
-  '/components/TableOfContents.tsx'
+  '/components/TableOfContents.tsx',
 ];
 
-files.forEach(file => {
+files.forEach((file) => {
   const filePath = path.join(process.cwd(), file);
   try {
     let content = fs.readFileSync(filePath, 'utf8');

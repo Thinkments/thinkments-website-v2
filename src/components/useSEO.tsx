@@ -16,21 +16,28 @@ interface UseSEOOptions {
 
 export function useSEO(customConfig?: UseSEOOptions) {
   const location = useLocation();
-  
+
   // Get default config based on current path
   const defaultConfig = getSeoConfig(location.pathname);
-  
+
   // Merge default and custom configs
   const seoConfig: PageSEOConfig = {
-    title: customConfig?.title || defaultConfig?.title || 'ThinkMents - Digital Marketing & Web Design Agency',
-    description: customConfig?.description || defaultConfig?.description || 'Professional digital marketing and web design services',
-    keywords: customConfig?.keywords || defaultConfig?.keywords || 'digital marketing, web design, SEO',
+    title:
+      customConfig?.title ||
+      defaultConfig?.title ||
+      'ThinkMents - Digital Marketing & Web Design Agency',
+    description:
+      customConfig?.description ||
+      defaultConfig?.description ||
+      'Professional digital marketing and web design services',
+    keywords:
+      customConfig?.keywords || defaultConfig?.keywords || 'digital marketing, web design, SEO',
     url: location.pathname,
     type: customConfig?.type || defaultConfig?.type || 'website',
     image: customConfig?.image || defaultConfig?.image,
     structuredData: customConfig?.structuredData || defaultConfig?.structuredData,
     noindex: customConfig?.noindex || defaultConfig?.noindex || false,
-    canonical: customConfig?.canonical || defaultConfig?.canonical
+    canonical: customConfig?.canonical || defaultConfig?.canonical,
   };
 
   return seoConfig;
@@ -44,7 +51,7 @@ interface SEOWrapperProps {
 
 export function SEOWrapper({ children, config }: SEOWrapperProps) {
   const seoConfig = useSEO(config);
-  
+
   return (
     <>
       <SEO

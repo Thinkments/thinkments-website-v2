@@ -12,12 +12,12 @@ interface ShareButtonProps {
   variant?: 'default' | 'outline' | 'ghost';
 }
 
-export function ShareButton({ 
-  url, 
-  title, 
-  description = '', 
-  size = 'sm', 
-  variant = 'outline' 
+export function ShareButton({
+  url,
+  title,
+  description = '',
+  size = 'sm',
+  variant = 'outline',
 }: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ export function ShareButton({
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
   };
 
   const copyToClipboard = async () => {
@@ -69,11 +69,9 @@ export function ShareButton({
         <div className="space-y-4">
           <div>
             <h4 className="font-medium mb-2">Share this article</h4>
-            <p className="text-sm text-muted-foreground">
-              {title}
-            </p>
+            <p className="text-sm text-muted-foreground">{title}</p>
           </div>
-          
+
           <div className="grid grid-cols-3 gap-2">
             <Button
               variant="outline"
@@ -106,9 +104,7 @@ export function ShareButton({
 
           <div className="border-t pt-3">
             <div className="flex items-center gap-2">
-              <div className="flex-1 p-2 bg-muted rounded text-sm truncate">
-                {shareUrl}
-              </div>
+              <div className="flex-1 p-2 bg-muted rounded text-sm truncate">{shareUrl}</div>
               <Button
                 variant="outline"
                 size="sm"

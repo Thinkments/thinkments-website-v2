@@ -23,11 +23,18 @@ import {
   Clock,
   Sliders,
   Zap,
-  Settings as SettingsIcon
+  Settings as SettingsIcon,
 } from 'lucide-react';
 
 type TabType = 'layouts' | 'themes';
-type PageType = 'homepage' | 'service' | 'location' | 'blog-list' | 'blog-post' | 'contact' | 'about';
+type PageType =
+  | 'homepage'
+  | 'service'
+  | 'location'
+  | 'blog-list'
+  | 'blog-post'
+  | 'contact'
+  | 'about';
 type DeviceType = 'desktop' | 'tablet' | 'mobile';
 
 interface LayoutOption {
@@ -238,10 +245,7 @@ export default function LayoutAndThemeManager() {
               <ExternalLink className="w-4 h-4 mr-2" />
               Preview Site
             </Button>
-            <Button
-              variant="outline"
-              className="text-gray-600"
-            >
+            <Button variant="outline" className="text-gray-600">
               <RotateCcw className="w-4 h-4 mr-2" />
               Reset to Default
             </Button>
@@ -254,9 +258,7 @@ export default function LayoutAndThemeManager() {
         <button
           onClick={() => setActiveTab('layouts')}
           className={`px-6 py-3 font-medium transition-colors relative ${
-            activeTab === 'layouts'
-              ? 'text-[#1E3A5F]'
-              : 'text-gray-500 hover:text-gray-700'
+            activeTab === 'layouts' ? 'text-[#1E3A5F]' : 'text-gray-500 hover:text-gray-700'
           }`}
         >
           <div className="flex items-center space-x-2">
@@ -273,9 +275,7 @@ export default function LayoutAndThemeManager() {
         <button
           onClick={() => setActiveTab('themes')}
           className={`px-6 py-3 font-medium transition-colors relative ${
-            activeTab === 'themes'
-              ? 'text-[#1E3A5F]'
-              : 'text-gray-500 hover:text-gray-700'
+            activeTab === 'themes' ? 'text-[#1E3A5F]' : 'text-gray-500 hover:text-gray-700'
           }`}
         >
           <div className="flex items-center space-x-2">
@@ -346,11 +346,10 @@ export default function LayoutAndThemeManager() {
                         <div className="flex-1">
                           <h3 className="font-semibold text-[#1E3A5F] mb-2">AI Recommendation</h3>
                           <p className="text-sm text-gray-700 mb-3">
-                            Based on your brand identity and industry, we recommend the <strong>Classic Hero</strong> layout for your Homepage
+                            Based on your brand identity and industry, we recommend the{' '}
+                            <strong>Classic Hero</strong> layout for your Homepage
                           </p>
-                          <button
-                            className="text-sm text-[#00B4D8] hover:text-[#1E3A5F] font-medium flex items-center space-x-1"
-                          >
+                          <button className="text-sm text-[#00B4D8] hover:text-[#1E3A5F] font-medium flex items-center space-x-1">
                             <span>Why this layout?</span>
                             <ChevronRight className="w-4 h-4" />
                           </button>
@@ -488,13 +487,15 @@ export default function LayoutAndThemeManager() {
                               className="p-3 bg-white rounded-lg border border-gray-200 hover:border-[#00B4D8] transition-colors cursor-pointer"
                             >
                               <div className="flex space-x-1 mb-2">
-                                {Object.values(theme.colors).slice(0, 3).map((color, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="flex-1 h-8 rounded"
-                                    style={{ backgroundColor: color }}
-                                  />
-                                ))}
+                                {Object.values(theme.colors)
+                                  .slice(0, 3)
+                                  .map((color, idx) => (
+                                    <div
+                                      key={idx}
+                                      className="flex-1 h-8 rounded"
+                                      style={{ backgroundColor: color }}
+                                    />
+                                  ))}
                               </div>
                               <p className="text-xs font-medium text-gray-900">{theme.name}</p>
                             </div>
@@ -601,23 +602,25 @@ export default function LayoutAndThemeManager() {
                     <CardContent>
                       <div className="space-y-4">
                         {/* Color Pickers */}
-                        {['Primary', 'Accent', 'Secondary', 'Background', 'Text'].map((colorName) => (
-                          <div key={colorName} className="flex items-center space-x-4">
-                            <label className="w-32 text-sm font-medium text-gray-700">
-                              {colorName} Color
-                            </label>
-                            <input
-                              type="color"
-                              defaultValue="#1E3A5F"
-                              className="w-16 h-10 rounded border border-gray-300 cursor-pointer"
-                            />
-                            <input
-                              type="text"
-                              defaultValue="#1E3A5F"
-                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono"
-                            />
-                          </div>
-                        ))}
+                        {['Primary', 'Accent', 'Secondary', 'Background', 'Text'].map(
+                          (colorName) => (
+                            <div key={colorName} className="flex items-center space-x-4">
+                              <label className="w-32 text-sm font-medium text-gray-700">
+                                {colorName} Color
+                              </label>
+                              <input
+                                type="color"
+                                defaultValue="#1E3A5F"
+                                className="w-16 h-10 rounded border border-gray-300 cursor-pointer"
+                              />
+                              <input
+                                type="text"
+                                defaultValue="#1E3A5F"
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono"
+                              />
+                            </div>
+                          ),
+                        )}
 
                         {/* Font Selectors */}
                         <div className="flex items-center space-x-4">
@@ -675,16 +678,11 @@ export default function LayoutAndThemeManager() {
 
                         {/* Action Buttons */}
                         <div className="flex space-x-3 pt-4 border-t border-gray-200">
-                          <Button
-                            className="flex-1 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
-                          >
+                          <Button className="flex-1 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                             <Check className="w-4 h-4 mr-2" />
                             Save as New Theme
                           </Button>
-                          <Button
-                            variant="outline"
-                            className="flex-1"
-                          >
+                          <Button variant="outline" className="flex-1">
                             <Eye className="w-4 h-4 mr-2" />
                             Preview Changes
                           </Button>
@@ -800,8 +798,8 @@ export default function LayoutAndThemeManager() {
                     previewDevice === 'desktop'
                       ? 'w-full h-64'
                       : previewDevice === 'tablet'
-                      ? 'w-2/3 h-64'
-                      : 'w-1/3 h-64'
+                        ? 'w-2/3 h-64'
+                        : 'w-1/3 h-64'
                   }`}
                 >
                   <div className="h-full flex items-center justify-center text-gray-400">
@@ -844,7 +842,11 @@ export default function LayoutAndThemeManager() {
             <CardContent>
               <div className="space-y-4">
                 <label className="flex items-center space-x-3 cursor-pointer">
-                  <input type="checkbox" defaultChecked className="w-4 h-4 text-[#00B4D8] rounded" />
+                  <input
+                    type="checkbox"
+                    defaultChecked
+                    className="w-4 h-4 text-[#00B4D8] rounded"
+                  />
                   <span className="text-sm text-gray-700">Apply theme to all pages</span>
                 </label>
                 <label className="flex items-center space-x-3 cursor-pointer">

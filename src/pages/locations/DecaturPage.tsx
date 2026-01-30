@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Phone, MapPin, Award, Users, TrendingUp, CheckCircle, ChevronDown, Star, Heart } from 'lucide-react';
+import {
+  Phone,
+  MapPin,
+  Award,
+  Users,
+  TrendingUp,
+  CheckCircle,
+  ChevronDown,
+  Star,
+  Heart,
+} from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Helmet } from 'react-helmet-async';
 
@@ -12,105 +22,117 @@ export default function DecaturPage() {
     {
       title: 'Local SEO & Search Marketing',
       description: 'Put your Decatur business on the map with powerful local SEO strategies.',
-      link: '/marketing-seo'
+      link: '/marketing-seo',
     },
     {
       title: 'Custom Website Development',
-      description: 'Beautiful, functional websites that showcase what makes your Decatur business special.',
-      link: '/web-development'
+      description:
+        'Beautiful, functional websites that showcase what makes your Decatur business special.',
+      link: '/web-development',
     },
     {
       title: 'Google Business Profile',
       description: 'Dominate local Decatur searches and attract more walk-in customers.',
-      link: '/google-business-profile'
+      link: '/google-business-profile',
     },
     {
       title: 'Paid Advertising Campaigns',
       description: 'Targeted ads that reach Decatur and Wise County customers ready to buy.',
-      link: '/paid-advertising'
+      link: '/paid-advertising',
     },
     {
       title: 'Social Media Marketing',
       description: 'Connect with the Decatur community and build loyal customer relationships.',
-      link: '/social-media'
+      link: '/social-media',
     },
     {
       title: 'Content & Video Marketing',
       description: 'Tell your story in ways that resonate with Decatur residents and beyond.',
-      link: '/content-marketing'
-    }
+      link: '/content-marketing',
+    },
   ];
 
   const whyChoose = [
     {
       title: 'Hometown Advantage',
-      description: 'We\'re based right here in Decatur at 301 South Washburn St. We know this community because we\'re part of it - shopping at the same stores, supporting local events, and investing in Wise County\'s future.'
+      description:
+        "We're based right here in Decatur at 301 South Washburn St. We know this community because we're part of it - shopping at the same stores, supporting local events, and investing in Wise County's future.",
     },
     {
       title: 'Small-Town Values, Big Results',
-      description: 'We bring sophisticated digital marketing expertise while maintaining the personal service and integrity Decatur businesses expect. You\'ll never be just a number with us.'
+      description:
+        "We bring sophisticated digital marketing expertise while maintaining the personal service and integrity Decatur businesses expect. You'll never be just a number with us.",
     },
     {
       title: 'Proven Local Success',
-      description: 'We\'ve helped Decatur and Wise County businesses thrive for two decades. From Main Street shops to service providers across the region, we understand what works here.'
+      description:
+        "We've helped Decatur and Wise County businesses thrive for two decades. From Main Street shops to service providers across the region, we understand what works here.",
     },
     {
       title: 'Community Investment',
-      description: 'When Decatur businesses succeed, our community prospers. We\'re committed to helping local entrepreneurs and established companies achieve their goals and create jobs.'
-    }
+      description:
+        "When Decatur businesses succeed, our community prospers. We're committed to helping local entrepreneurs and established companies achieve their goals and create jobs.",
+    },
   ];
 
   const faqs = [
     {
       question: 'What digital marketing services do you offer in Decatur?',
-      answer: 'As your hometown digital marketing agency, we provide Decatur businesses with everything needed to succeed online: local SEO to rank higher in Decatur and Wise County searches, professional web design, Google Business Profile optimization, PPC advertising, social media management, content marketing, video production, and comprehensive analytics. We create personalized strategies for each Decatur client based on your goals and budget.'
+      answer:
+        'As your hometown digital marketing agency, we provide Decatur businesses with everything needed to succeed online: local SEO to rank higher in Decatur and Wise County searches, professional web design, Google Business Profile optimization, PPC advertising, social media management, content marketing, video production, and comprehensive analytics. We create personalized strategies for each Decatur client based on your goals and budget.',
     },
     {
       question: 'How much does SEO cost for Decatur businesses?',
-      answer: 'SEO services for Decatur businesses typically start around $1,500 to $3,500 monthly, depending on your competition level and target market. Decatur offers great opportunities for local businesses to dominate search results without competing against huge metropolitan markets. We\'ll create an affordable strategy during your free consultation that fits your budget while delivering real growth.'
+      answer:
+        "SEO services for Decatur businesses typically start around $1,500 to $3,500 monthly, depending on your competition level and target market. Decatur offers great opportunities for local businesses to dominate search results without competing against huge metropolitan markets. We'll create an affordable strategy during your free consultation that fits your budget while delivering real growth.",
     },
     {
       question: 'Do you work with small businesses in Decatur?',
-      answer: 'Absolutely - small businesses are the backbone of Decatur! We work with local shops, restaurants, service providers, healthcare practices, and entrepreneurs throughout Wise County. We understand the challenges small business owners face and design cost-effective marketing solutions that generate results without requiring Fortune 500 budgets. Your success is our success.'
+      answer:
+        'Absolutely - small businesses are the backbone of Decatur! We work with local shops, restaurants, service providers, healthcare practices, and entrepreneurs throughout Wise County. We understand the challenges small business owners face and design cost-effective marketing solutions that generate results without requiring Fortune 500 budgets. Your success is our success.',
     },
     {
       question: 'How long does it take to see digital marketing results?',
-      answer: 'Timeline varies by service. PPC campaigns can bring Decatur leads within days. Local SEO typically shows significant improvement in 3-6 months as we build your presence in Decatur searches. Social media grows steadily over 2-4 months. We establish clear timelines upfront and provide monthly reports so you always know how your investment is performing and what results we\'re achieving.'
+      answer:
+        "Timeline varies by service. PPC campaigns can bring Decatur leads within days. Local SEO typically shows significant improvement in 3-6 months as we build your presence in Decatur searches. Social media grows steadily over 2-4 months. We establish clear timelines upfront and provide monthly reports so you always know how your investment is performing and what results we're achieving.",
     },
     {
       question: 'Do you offer free consultations for Decatur businesses?',
-      answer: 'Yes! We offer complimentary consultations to all Decatur and Wise County businesses. Stop by our office at 301 South Washburn St Suite D, or we can meet at your location. We\'ll review your current marketing, discuss your goals, and provide honest recommendations - no pressure, no obligation. Just neighborly advice from folks who want to see your business thrive.'
+      answer:
+        "Yes! We offer complimentary consultations to all Decatur and Wise County businesses. Stop by our office at 301 South Washburn St Suite D, or we can meet at your location. We'll review your current marketing, discuss your goals, and provide honest recommendations - no pressure, no obligation. Just neighborly advice from folks who want to see your business thrive.",
     },
     {
       question: 'What industries do you serve in Decatur?',
-      answer: 'We serve all Decatur industries: retail shops on the Square, restaurants and hospitality, professional services (lawyers, accountants, insurance), healthcare providers, real estate agencies, home services and contractors, automotive businesses, agriculture-related companies, and more. Every industry has unique needs, and we tailor strategies to your specific market, whether you serve Decatur exclusively or the broader DFW region.'
-    }
+      answer:
+        'We serve all Decatur industries: retail shops on the Square, restaurants and hospitality, professional services (lawyers, accountants, insurance), healthcare providers, real estate agencies, home services and contractors, automotive businesses, agriculture-related companies, and more. Every industry has unique needs, and we tailor strategies to your specific market, whether you serve Decatur exclusively or the broader DFW region.',
+    },
   ];
 
   const localStats = [
     { number: '20+', label: 'Years in Decatur' },
     { number: '25+', label: 'Decatur Clients' },
     { number: '320%', label: 'Avg. Growth Rate' },
-    { number: '100%', label: 'Local Ownership' }
+    { number: '100%', label: 'Local Ownership' },
   ];
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'ThinkMents - Digital Marketing Agency',
-    description: 'Digital marketing agency based in Decatur, TX providing SEO, web design, and comprehensive marketing solutions.',
+    description:
+      'Digital marketing agency based in Decatur, TX providing SEO, web design, and comprehensive marketing solutions.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '301 South Washburn St, Suite D',
       addressLocality: 'Decatur',
       addressRegion: 'TX',
       postalCode: '76234',
-      addressCountry: 'US'
+      addressCountry: 'US',
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '33.2283526',
-      longitude: '-97.5883743'
+      longitude: '-97.5883743',
     },
     telephone: '+19403151023',
     email: 'info@thinkments.com',
@@ -118,38 +140,45 @@ export default function DecaturPage() {
     areaServed: {
       '@type': 'City',
       name: 'Decatur',
-      '@id': 'https://en.wikipedia.org/wiki/Decatur,_Texas'
+      '@id': 'https://en.wikipedia.org/wiki/Decatur,_Texas',
     },
     priceRange: '$$',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '103'
-    }
+      reviewCount: '103',
+    },
   };
 
   return (
     <>
       <Helmet>
         <title>Digital Marketing Agency in Decatur, TX | ThinkMents</title>
-        <meta name="description" content="ThinkMents provides SEO, web design & digital marketing services to businesses in Decatur, Texas. 20+ years experience. Free consultation." />
+        <meta
+          name="description"
+          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Decatur, Texas. 20+ years experience. Free consultation."
+        />
         <meta property="og:title" content="Digital Marketing Agency in Decatur, TX | ThinkMents" />
-        <meta property="og:description" content="ThinkMents provides SEO, web design & digital marketing services to businesses in Decatur, Texas. 20+ years experience. Free consultation." />
+        <meta
+          property="og:description"
+          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Decatur, Texas. 20+ years experience. Free consultation."
+        />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations/decatur" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#234B70] to-[#2C5282] text-white py-20 lg:py-32 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -164,25 +193,24 @@ export default function DecaturPage() {
                 <span className="text-sm font-semibold">Proudly Serving Our Hometown</span>
               </div>
 
-              <h1 className="mb-6">
-                Digital Marketing Agency in Decatur, Texas
-              </h1>
+              <h1 className="mb-6">Digital Marketing Agency in Decatur, Texas</h1>
 
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-                Your hometown digital marketing partner. ThinkMents delivers SEO, web design, and results-driven marketing to Decatur businesses and beyond.
+                Your hometown digital marketing partner. ThinkMents delivers SEO, web design, and
+                results-driven marketing to Decatur businesses and beyond.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -230,10 +258,18 @@ export default function DecaturPage() {
               >
                 <h2 className="mb-6">Decatur's Digital Marketing Partner Since 2002</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Decatur is more than our business location - it's our home. For over 20 years, ThinkMents has been proud to serve the businesses and community of Decatur and Wise County. From the historic courthouse square to growing residential neighborhoods, we've watched this town evolve and helped local businesses thrive through every change.
+                  Decatur is more than our business location - it's our home. For over 20 years,
+                  ThinkMents has been proud to serve the businesses and community of Decatur and
+                  Wise County. From the historic courthouse square to growing residential
+                  neighborhoods, we've watched this town evolve and helped local businesses thrive
+                  through every change.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Whether you're a third-generation family business on the Square, a service provider serving Wise County, or a growing company ready to expand beyond Decatur, we provide the digital marketing expertise you need with the hometown service you deserve. We're invested in this community's success because when Decatur businesses prosper, we all benefit. Let's grow together.
+                  Whether you're a third-generation family business on the Square, a service
+                  provider serving Wise County, or a growing company ready to expand beyond Decatur,
+                  we provide the digital marketing expertise you need with the hometown service you
+                  deserve. We're invested in this community's success because when Decatur
+                  businesses prosper, we all benefit. Let's grow together.
                 </p>
               </motion.div>
             </div>
@@ -267,9 +303,7 @@ export default function DecaturPage() {
                       <h3 className="text-xl font-bold text-[#1E3A5F] mb-3 group-hover:text-[#00B4D8] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed mb-4">
-                        {service.description}
-                      </p>
+                      <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
                       <span className="text-sm font-semibold text-[#00B4D8] group-hover:underline">
                         Learn More →
                       </span>
@@ -393,23 +427,24 @@ export default function DecaturPage() {
             >
               <h2 className="text-white mb-6">Ready to Grow Your Decatur Business?</h2>
               <p className="text-xl text-white/90 mb-4 leading-relaxed max-w-2xl mx-auto">
-                Stop by our office at 301 South Washburn St Suite D, give us a call, or schedule your free consultation online.
+                Stop by our office at 301 South Washburn St Suite D, give us a call, or schedule
+                your free consultation online.
               </p>
               <p className="text-lg text-white/80 mb-8">
                 Let's discuss how we can help your business thrive in Decatur and beyond.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Schedule Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -427,7 +462,9 @@ export default function DecaturPage() {
                     <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                   ))}
                 </div>
-                <span className="text-white/90">5.0 Rating | 103+ Reviews | Proudly Serving Decatur Since 2002</span>
+                <span className="text-white/90">
+                  5.0 Rating | 103+ Reviews | Proudly Serving Decatur Since 2002
+                </span>
               </div>
             </motion.div>
           </div>

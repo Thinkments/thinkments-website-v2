@@ -1,7 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { MapPin, Phone, ArrowRight, Building2, Users, Award, TrendingUp, CheckCircle, Globe, Map } from 'lucide-react';
+import {
+  MapPin,
+  Phone,
+  ArrowRight,
+  Building2,
+  Users,
+  Award,
+  TrendingUp,
+  CheckCircle,
+  Globe,
+  Map,
+} from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Helmet } from 'react-helmet-async';
 
@@ -10,28 +21,28 @@ export default function LocationsPage() {
     {
       city: 'Dallas',
       tagline: 'Competitive metropolitan marketing for Dallas businesses',
-      slug: 'dallas'
+      slug: 'dallas',
     },
     {
       city: 'Fort Worth',
       tagline: 'Western heritage meets digital innovation',
-      slug: 'fort-worth'
+      slug: 'fort-worth',
     },
     {
       city: 'Denton',
       tagline: 'University town meets entrepreneurial spirit',
-      slug: 'denton'
+      slug: 'denton',
     },
     {
       city: 'Decatur',
       tagline: 'Our hometown - where it all began',
-      slug: 'decatur'
+      slug: 'decatur',
     },
     {
       city: 'North Texas',
       tagline: 'Regional coverage across the DFW metroplex',
-      slug: 'north-texas'
-    }
+      slug: 'north-texas',
+    },
   ];
 
   const additionalAreas = [
@@ -49,7 +60,7 @@ export default function LocationsPage() {
     'Southlake',
     'Colleyville',
     'Keller',
-    'Coppell'
+    'Coppell',
   ];
 
   const services = [
@@ -58,43 +69,55 @@ export default function LocationsPage() {
     { name: 'Web Design & Development', href: '/web-development' },
     { name: 'PPC & Paid Advertising', href: '/paid-advertising' },
     { name: 'Social Media Marketing', href: '/social-media' },
-    { name: 'Content Marketing', href: '/content-marketing' }
+    { name: 'Content Marketing', href: '/content-marketing' },
   ];
 
   const stats = [
     { number: '20+', label: 'Years Experience', icon: Award },
     { number: '31', label: 'States Served', icon: MapPin },
     { number: '5.0', label: 'Google Rating', icon: TrendingUp },
-    { number: '103+', label: 'Client Reviews', icon: Users }
+    { number: '103+', label: 'Client Reviews', icon: Users },
   ];
 
   const whyLocationMatters = [
     {
       title: 'Texas Business Culture',
-      description: 'We understand the values, work ethic, and relationship-driven approach that defines Texas business. This isn\'t just marketing knowledge - it\'s cultural fluency.'
+      description:
+        "We understand the values, work ethic, and relationship-driven approach that defines Texas business. This isn't just marketing knowledge - it's cultural fluency.",
     },
     {
       title: 'Local Market Expertise',
-      description: 'From Dallas\' competitive corporate landscape to small-town community businesses, we know how to position your brand for success in diverse Texas markets.'
+      description:
+        "From Dallas' competitive corporate landscape to small-town community businesses, we know how to position your brand for success in diverse Texas markets.",
     },
     {
       title: 'National Experience',
-      description: 'While rooted in Texas, our work spans 31 states. We bring big-market strategies with local market understanding to every client relationship.'
-    }
+      description:
+        'While rooted in Texas, our work spans 31 states. We bring big-market strategies with local market understanding to every client relationship.',
+    },
   ];
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
     <>
       <Helmet>
         <title>Service Areas | Digital Marketing Agency in Texas | ThinkMents</title>
-        <meta name="description" content="ThinkMents provides digital marketing services across Texas and 31 states. Headquartered in Decatur, TX, serving Dallas, Fort Worth, Denton & beyond." />
-        <meta property="og:title" content="Service Areas | Digital Marketing Agency in Texas | ThinkMents" />
-        <meta property="og:description" content="ThinkMents provides digital marketing services across Texas and 31 states. Headquartered in Decatur, TX, serving Dallas, Fort Worth, Denton & beyond." />
+        <meta
+          name="description"
+          content="ThinkMents provides digital marketing services across Texas and 31 states. Headquartered in Decatur, TX, serving Dallas, Fort Worth, Denton & beyond."
+        />
+        <meta
+          property="og:title"
+          content="Service Areas | Digital Marketing Agency in Texas | ThinkMents"
+        />
+        <meta
+          property="og:description"
+          content="ThinkMents provides digital marketing services across Texas and 31 states. Headquartered in Decatur, TX, serving Dallas, Fort Worth, Denton & beyond."
+        />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations" />
       </Helmet>
@@ -103,10 +126,13 @@ export default function LocationsPage() {
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#234B70] to-[#2C5282] text-white py-20 lg:py-32 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -122,25 +148,25 @@ export default function LocationsPage() {
                 <span className="text-sm font-semibold">Service Areas</span>
               </div>
 
-              <h1 className="mb-6">
-                Digital Marketing Services Across Texas & Nationwide
-              </h1>
+              <h1 className="mb-6">Digital Marketing Services Across Texas & Nationwide</h1>
 
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                From our headquarters in Decatur, Texas, ThinkMents delivers results-driven digital marketing to businesses in 31 states. Whether you're local to North Texas or across the country, we bring 20+ years of experience to help your business grow.
+                From our headquarters in Decatur, Texas, ThinkMents delivers results-driven digital
+                marketing to businesses in 31 states. Whether you're local to North Texas or across
+                the country, we bring 20+ years of experience to help your business grow.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Get Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -193,13 +219,19 @@ export default function LocationsPage() {
               >
                 <div className="inline-flex items-center gap-2 bg-[#00B4D8]/10 px-4 py-2 rounded-full mb-4">
                   <Building2 className="w-4 h-4 text-[#00B4D8]" />
-                  <span className="text-sm font-semibold text-[#1E3A5F]">Headquartered in Texas</span>
+                  <span className="text-sm font-semibold text-[#1E3A5F]">
+                    Headquartered in Texas
+                  </span>
                 </div>
-                
+
                 <h2 className="mb-6">Our Home Base: Decatur, Texas</h2>
-                
+
                 <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  ThinkMents is proudly headquartered in Decatur, Texas - a thriving small-town community in the heart of North Texas. Since 2002, we've called Decatur home, building deep roots in the local business community while serving clients across Texas and the nation. Our Texas heritage shapes everything we do, from our work ethic to our commitment to building lasting client relationships.
+                  ThinkMents is proudly headquartered in Decatur, Texas - a thriving small-town
+                  community in the heart of North Texas. Since 2002, we've called Decatur home,
+                  building deep roots in the local business community while serving clients across
+                  Texas and the nation. Our Texas heritage shapes everything we do, from our work
+                  ethic to our commitment to building lasting client relationships.
                 </p>
 
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 border border-gray-200">
@@ -215,7 +247,7 @@ export default function LocationsPage() {
                             <p>Decatur, TX 76234</p>
                           </div>
                         </div>
-                        
+
                         <div className="flex items-start gap-3">
                           <Phone className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" />
                           <div>
@@ -231,12 +263,11 @@ export default function LocationsPage() {
                     <div className="text-left">
                       <h3 className="font-bold text-[#1E3A5F] mb-4">Schedule a Meeting</h3>
                       <p className="text-gray-700 mb-4">
-                        We welcome in-person meetings at our Decatur office or can meet at your location throughout North Texas. Remote consultations are available for clients nationwide.
+                        We welcome in-person meetings at our Decatur office or can meet at your
+                        location throughout North Texas. Remote consultations are available for
+                        clients nationwide.
                       </p>
-                      <Button 
-                        asChild 
-                        className="bg-[#00B4D8] hover:bg-[#0090B0] text-white"
-                      >
+                      <Button asChild className="bg-[#00B4D8] hover:bg-[#0090B0] text-white">
                         <Link to="/free-consultation">Schedule Consultation</Link>
                       </Button>
                     </div>
@@ -253,7 +284,8 @@ export default function LocationsPage() {
             <div className="text-center mb-12">
               <h2 className="mb-4">Texas Service Areas</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our dedicated digital marketing services for businesses across Texas. Each location page features information tailored to your local market.
+                Explore our dedicated digital marketing services for businesses across Texas. Each
+                location page features information tailored to your local market.
               </p>
             </div>
 
@@ -278,9 +310,7 @@ export default function LocationsPage() {
                             {location.city}
                           </h3>
                         </div>
-                        <p className="text-sm text-gray-600">
-                          {location.tagline}
-                        </p>
+                        <p className="text-sm text-gray-600">{location.tagline}</p>
                       </div>
                       <ArrowRight className="w-5 h-5 text-[#00B4D8] group-hover:translate-x-1 transition-transform flex-shrink-0 ml-2" />
                     </div>
@@ -309,7 +339,8 @@ export default function LocationsPage() {
               >
                 <h2 className="mb-4">North Texas & DFW Metroplex</h2>
                 <p className="text-xl text-gray-600">
-                  Beyond our primary service areas, we serve businesses throughout the entire DFW metroplex and surrounding communities.
+                  Beyond our primary service areas, we serve businesses throughout the entire DFW
+                  metroplex and surrounding communities.
                 </p>
               </motion.div>
 
@@ -319,8 +350,10 @@ export default function LocationsPage() {
                 viewport={{ once: true }}
                 className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 border border-gray-200"
               >
-                <h3 className="font-bold text-[#1E3A5F] mb-6 text-center">Additional Cities & Counties We Serve:</h3>
-                
+                <h3 className="font-bold text-[#1E3A5F] mb-6 text-center">
+                  Additional Cities & Counties We Serve:
+                </h3>
+
                 <div className="flex flex-wrap justify-center gap-3 mb-6">
                   {additionalAreas.map((area, index) => (
                     <span
@@ -355,9 +388,13 @@ export default function LocationsPage() {
                 </div>
 
                 <h2 className="text-white mb-6">Serving Businesses in 31 States</h2>
-                
+
                 <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                  While we're proudly Texas-based, our digital marketing expertise extends nationwide. We work with clients from coast to coast, delivering the same results-driven strategies remotely. Distance doesn't limit our ability to understand your market, collaborate effectively, and drive measurable results for your business.
+                  While we're proudly Texas-based, our digital marketing expertise extends
+                  nationwide. We work with clients from coast to coast, delivering the same
+                  results-driven strategies remotely. Distance doesn't limit our ability to
+                  understand your market, collaborate effectively, and drive measurable results for
+                  your business.
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -386,7 +423,8 @@ export default function LocationsPage() {
               <div className="text-center mb-12">
                 <h2 className="mb-4">Services Available in All Locations</h2>
                 <p className="text-xl text-gray-600">
-                  Whether you're local to Texas or across the country, we provide comprehensive digital marketing solutions.
+                  Whether you're local to Texas or across the country, we provide comprehensive
+                  digital marketing solutions.
                 </p>
               </div>
 
@@ -409,9 +447,7 @@ export default function LocationsPage() {
                         </h3>
                         <ArrowRight className="w-5 h-5 text-[#00B4D8] group-hover:translate-x-1 transition-transform" />
                       </div>
-                      <p className="text-sm text-gray-600">
-                        Available for all locations
-                      </p>
+                      <p className="text-sm text-gray-600">Available for all locations</p>
                     </Link>
                   </motion.div>
                 ))}
@@ -427,7 +463,8 @@ export default function LocationsPage() {
               <div className="text-center mb-12">
                 <h2 className="mb-4">Local Expertise, National Reach</h2>
                 <p className="text-xl text-gray-600">
-                  Understanding your market - whether it's local, regional, or national - is critical to digital marketing success.
+                  Understanding your market - whether it's local, regional, or national - is
+                  critical to digital marketing success.
                 </p>
               </div>
 
@@ -464,20 +501,21 @@ export default function LocationsPage() {
             >
               <h2 className="text-white mb-6">Let's Grow Your Business</h2>
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Whether you're in Dallas, Decatur, or anywhere in between, we're ready to help you achieve your digital marketing goals.
+                Whether you're in Dallas, Decatur, or anywhere in between, we're ready to help you
+                achieve your digital marketing goals.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Schedule Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"

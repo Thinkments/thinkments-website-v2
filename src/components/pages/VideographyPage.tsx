@@ -14,77 +14,91 @@ export default function VideographyPage() {
       icon: Video,
       title: 'Corporate Videos',
       description: 'Professional corporate videos that showcase your business and build trust.',
-      features: ['Company Overviews', 'Team Introductions', 'Product Demos', 'Testimonials']
+      features: ['Company Overviews', 'Team Introductions', 'Product Demos', 'Testimonials'],
     },
     {
       icon: Camera,
       title: 'Marketing Videos',
       description: 'Engaging marketing videos that drive conversions and boost brand awareness.',
-      features: ['Promotional Videos', 'Social Media Content', 'Advertisement Videos', 'Event Coverage']
+      features: [
+        'Promotional Videos',
+        'Social Media Content',
+        'Advertisement Videos',
+        'Event Coverage',
+      ],
     },
     {
       icon: Edit,
       title: 'Post Production',
       description: 'Professional editing and post-production services for polished final products.',
-      features: ['Video Editing', 'Color Correction', 'Motion Graphics', 'Audio Enhancement']
+      features: ['Video Editing', 'Color Correction', 'Motion Graphics', 'Audio Enhancement'],
     },
     {
       icon: Play,
       title: 'Live Streaming',
       description: 'Professional live streaming services for events, meetings, and presentations.',
-      features: ['Event Streaming', 'Webinar Production', 'Multi-Camera Setup', 'Real-time Switching']
-    }
+      features: [
+        'Event Streaming',
+        'Webinar Production',
+        'Multi-Camera Setup',
+        'Real-time Switching',
+      ],
+    },
   ];
 
   const videographyStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Professional Videography Services",
-    "description": "Tell your story with compelling video content that engages audiences and drives results. From corporate videos to marketing campaigns, create professional videos that make an impact.",
-    "provider": {
-      "@type": "Organization",
-      "name": "ThinkMents",
-      "url": "https://thinkments.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Professional Videography Services',
+    description:
+      'Tell your story with compelling video content that engages audiences and drives results. From corporate videos to marketing campaigns, create professional videos that make an impact.',
+    provider: {
+      '@type': 'Organization',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "serviceType": "Videography",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Videography Services",
-      "itemListElement": [
+    serviceType: 'Videography',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Videography Services',
+      itemListElement: [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Corporate Videos",
-            "description": "Professional corporate videos that showcase your business and build trust"
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Corporate Videos',
+            description:
+              'Professional corporate videos that showcase your business and build trust',
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Marketing Videos",
-            "description": "Engaging marketing videos that drive conversions and boost brand awareness"
-          }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Marketing Videos',
+            description:
+              'Engaging marketing videos that drive conversions and boost brand awareness',
+          },
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Live Streaming",
-            "description": "Professional live streaming services for events, meetings, and presentations"
-          }
-        }
-      ]
-    }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Live Streaming',
+            description:
+              'Professional live streaming services for events, meetings, and presentations',
+          },
+        },
+      ],
+    },
   };
 
   return (
@@ -97,7 +111,7 @@ export default function VideographyPage() {
         type="service"
         structuredData={videographyStructuredData}
       />
-      
+
       <motion.div
         className=""
         initial={{ opacity: 0 }}
@@ -120,14 +134,16 @@ export default function VideographyPage() {
                 </span>{' '}
                 Services
               </motion.h1>
-              
+
               <motion.p
                 className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Tell your story with compelling video content that engages audiences and drives results. From corporate videos to marketing campaigns, we create professional videos that make an impact and elevate your brand presence.
+                Tell your story with compelling video content that engages audiences and drives
+                results. From corporate videos to marketing campaigns, we create professional videos
+                that make an impact and elevate your brand presence.
               </motion.p>
 
               <motion.div
@@ -169,7 +185,8 @@ export default function VideographyPage() {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                From concept to completion, we handle every aspect of video production to bring your vision to life.
+                From concept to completion, we handle every aspect of video production to bring your
+                vision to life.
               </p>
             </motion.div>
 
@@ -242,7 +259,8 @@ export default function VideographyPage() {
                 </div>
                 <h3 className="text-xl mb-4">Professional Quality</h3>
                 <p className="text-muted-foreground">
-                  High-end equipment and experienced team ensure every video meets professional standards.
+                  High-end equipment and experienced team ensure every video meets professional
+                  standards.
                 </p>
               </motion.div>
 
@@ -258,7 +276,8 @@ export default function VideographyPage() {
                 </div>
                 <h3 className="text-xl mb-4">Full Service</h3>
                 <p className="text-muted-foreground">
-                  From pre-production planning to final delivery, we handle every aspect of your video project.
+                  From pre-production planning to final delivery, we handle every aspect of your
+                  video project.
                 </p>
               </motion.div>
 
@@ -298,7 +317,8 @@ export default function VideographyPage() {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Let's discuss your video project and create compelling content that engages your audience and drives results.
+                Let's discuss your video project and create compelling content that engages your
+                audience and drives results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/get-a-quote">

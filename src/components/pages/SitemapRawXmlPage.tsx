@@ -23,7 +23,7 @@ export default function SitemapRawXmlPage() {
     { path: '/blog', priority: '0.8', changefreq: 'daily' },
     { path: '/store', priority: '0.7', changefreq: 'weekly' },
     { path: '/contact', priority: '0.8', changefreq: 'monthly' },
-    { path: '/get-a-quote', priority: '0.9', changefreq: 'weekly' }
+    { path: '/get-a-quote', priority: '0.9', changefreq: 'weekly' },
   ];
 
   // Service detail routes
@@ -60,22 +60,26 @@ export default function SitemapRawXmlPage() {
     { path: '/store/google-business-profile-foundation', priority: '0.7', changefreq: 'weekly' },
     { path: '/store/google-business-profile-professional', priority: '0.7', changefreq: 'weekly' },
     { path: '/store/google-business-profile-growth', priority: '0.7', changefreq: 'weekly' },
-    { path: '/store/google-business-profile-growth-enhanced', priority: '0.7', changefreq: 'weekly' },
+    {
+      path: '/store/google-business-profile-growth-enhanced',
+      priority: '0.7',
+      changefreq: 'weekly',
+    },
     { path: '/store/google-business-profile-einsteinium', priority: '0.7', changefreq: 'weekly' },
   ];
 
   // Location-specific routes
-  const locationRoutes = LOCATION_ROUTES.map(location => ({
+  const locationRoutes = LOCATION_ROUTES.map((location) => ({
     path: `/digital-marketing-${location}`,
     priority: '0.7',
-    changefreq: 'monthly'
+    changefreq: 'monthly',
   }));
 
   // Blog post routes - all 50 blog posts
-  const blogRoutes = BLOG_SLUGS.map(slug => ({
+  const blogRoutes = BLOG_SLUGS.map((slug) => ({
     path: `/blog/${slug}`,
     priority: '0.6',
-    changefreq: 'monthly'
+    changefreq: 'monthly',
   }));
 
   // Case study routes
@@ -96,7 +100,7 @@ export default function SitemapRawXmlPage() {
   const legalRoutes = [
     { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
     { path: '/terms-of-service', priority: '0.3', changefreq: 'yearly' },
-    { path: '/design-transfer-agreement', priority: '0.3', changefreq: 'yearly' }
+    { path: '/design-transfer-agreement', priority: '0.3', changefreq: 'yearly' },
   ];
 
   // Technical/SEO routes
@@ -105,7 +109,7 @@ export default function SitemapRawXmlPage() {
     { path: '/sitemap-xml', priority: '0.5', changefreq: 'monthly' },
     { path: '/robots-txt', priority: '0.3', changefreq: 'monthly' },
     { path: '/robots', priority: '0.3', changefreq: 'monthly' },
-    { path: '/llm-txt', priority: '0.3', changefreq: 'monthly' }
+    { path: '/llm-txt', priority: '0.3', changefreq: 'monthly' },
   ];
 
   // Combine all routes
@@ -117,7 +121,7 @@ export default function SitemapRawXmlPage() {
     ...blogRoutes,
     ...caseStudyRoutes,
     ...legalRoutes,
-    ...technicalRoutes
+    ...technicalRoutes,
   ];
 
   // Generate XML sitemap content
@@ -126,22 +130,24 @@ export default function SitemapRawXmlPage() {
     const urlsetOpen = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
     const urlsetClose = '</urlset>';
 
-    const urls = allRoutes.map(route => {
-      // Escape any special XML characters in URLs
-      const escapedPath = route.path
-        .replace(/&/g, '&')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
+    const urls = allRoutes
+      .map((route) => {
+        // Escape any special XML characters in URLs
+        const escapedPath = route.path
+          .replace(/&/g, '&')
+          .replace(/</g, '<')
+          .replace(/>/g, '>')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&apos;');
 
-      return `  <url>
+        return `  <url>
     <loc>${baseUrl}${escapedPath}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`;
-    }).join('\n');
+      })
+      .join('\n');
 
     return `${xmlDeclaration}
 ${urlsetOpen}
@@ -153,17 +159,18 @@ ${urlsetClose}`;
     // Completely strip the page of all styling to look like pure XML
     const originalBodyClass = document.body.className;
     const originalBodyStyle = document.body.getAttribute('style') || '';
-    
+
     // Remove all body classes and styles
     document.body.className = '';
-    document.body.style.cssText = 'margin: 0; padding: 0; background: white; color: black; font-family: monospace; font-size: 12px; line-height: 1.5;';
-    
+    document.body.style.cssText =
+      'margin: 0; padding: 0; background: white; color: black; font-family: monospace; font-size: 12px; line-height: 1.5;';
+
     // Try to set the root element to minimal styling
     const root = document.getElementById('root');
     if (root) {
       root.style.cssText = 'margin: 0; padding: 0;';
     }
-    
+
     return () => {
       // Restore on unmount
       document.body.className = originalBodyClass;
@@ -173,20 +180,22 @@ ${urlsetClose}`;
 
   // Output raw XML with minimal HTML wrapper
   return (
-    <pre style={{ 
-      margin: 0, 
-      padding: 0, 
-      fontFamily: 'monospace',
-      fontSize: '12px',
-      lineHeight: '1.5',
-      whiteSpace: 'pre',
-      wordWrap: 'normal',
-      backgroundColor: 'white',
-      color: 'black',
-      border: 'none',
-      outline: 'none'
-    }}>
-{generateXmlSitemap()}
+    <pre
+      style={{
+        margin: 0,
+        padding: 0,
+        fontFamily: 'monospace',
+        fontSize: '12px',
+        lineHeight: '1.5',
+        whiteSpace: 'pre',
+        wordWrap: 'normal',
+        backgroundColor: 'white',
+        color: 'black',
+        border: 'none',
+        outline: 'none',
+      }}
+    >
+      {generateXmlSitemap()}
     </pre>
   );
 }

@@ -28,7 +28,7 @@ import {
   Link as LinkIcon,
   BarChart3,
   PieChart as PieChartIcon,
-  Repeat
+  Repeat,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -48,7 +48,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 // Mock data
@@ -60,7 +60,7 @@ const invoices = [
     dateIssued: '2025-01-01',
     dueDate: '2025-01-31',
     status: 'paid',
-    paidDate: '2025-01-28'
+    paidDate: '2025-01-28',
   },
   {
     id: 'INV-002',
@@ -69,7 +69,7 @@ const invoices = [
     dateIssued: '2025-01-05',
     dueDate: '2025-02-04',
     status: 'sent',
-    viewedDate: '2025-01-06'
+    viewedDate: '2025-01-06',
   },
   {
     id: 'INV-003',
@@ -77,7 +77,7 @@ const invoices = [
     amount: 4800,
     dateIssued: '2024-12-15',
     dueDate: '2025-01-14',
-    status: 'overdue'
+    status: 'overdue',
   },
   {
     id: 'INV-004',
@@ -86,7 +86,7 @@ const invoices = [
     dateIssued: '2025-01-10',
     dueDate: '2025-02-09',
     status: 'viewed',
-    viewedDate: '2025-01-11'
+    viewedDate: '2025-01-11',
   },
   {
     id: 'INV-005',
@@ -94,8 +94,8 @@ const invoices = [
     amount: 2900,
     dateIssued: '2025-01-15',
     dueDate: '2025-01-30',
-    status: 'draft'
-  }
+    status: 'draft',
+  },
 ];
 
 const revenueData = [
@@ -110,7 +110,7 @@ const revenueData = [
   { month: 'Oct', revenue: 24100, previousYear: 19800 },
   { month: 'Nov', revenue: 23600, previousYear: 20200 },
   { month: 'Dec', revenue: 26800, previousYear: 22100 },
-  { month: 'Jan', revenue: 28500, previousYear: 24300 }
+  { month: 'Jan', revenue: 28500, previousYear: 24300 },
 ];
 
 const expenses = [
@@ -121,7 +121,7 @@ const expenses = [
     category: 'Software',
     date: '2025-01-05',
     client: null,
-    receipt: true
+    receipt: true,
   },
   {
     id: '2',
@@ -130,7 +130,7 @@ const expenses = [
     category: 'Contractors',
     date: '2025-01-10',
     client: 'Acme Corporation',
-    receipt: true
+    receipt: true,
   },
   {
     id: '3',
@@ -139,24 +139,24 @@ const expenses = [
     category: 'Marketing',
     date: '2025-01-12',
     client: 'TechStart Inc',
-    receipt: false
+    receipt: false,
   },
   {
     id: '4',
     description: 'Office Supplies',
-    amount: 125.50,
+    amount: 125.5,
     category: 'Office',
     date: '2025-01-15',
     client: null,
-    receipt: true
-  }
+    receipt: true,
+  },
 ];
 
 const expenseCategories = [
   { name: 'Software', value: 35, color: '#00B4D8' },
   { name: 'Contractors', value: 28, color: '#1E3A5F' },
   { name: 'Marketing', value: 22, color: '#FF6B35' },
-  { name: 'Office', value: 15, color: '#10b981' }
+  { name: 'Office', value: 15, color: '#10b981' },
 ];
 
 const recurringInvoices = [
@@ -166,7 +166,7 @@ const recurringInvoices = [
     amount: 5500,
     frequency: 'Monthly',
     nextDate: '2025-02-01',
-    status: 'active'
+    status: 'active',
   },
   {
     id: '2',
@@ -174,8 +174,8 @@ const recurringInvoices = [
     amount: 3200,
     frequency: 'Monthly',
     nextDate: '2025-02-05',
-    status: 'active'
-  }
+    status: 'active',
+  },
 ];
 
 export default function InvoicesExpenses() {
@@ -183,15 +183,13 @@ export default function InvoicesExpenses() {
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
   const [showExpenseModal, setShowExpenseModal] = useState(false);
   const [showInvoiceDetail, setShowInvoiceDetail] = useState(false);
-  const [selectedInvoice, setSelectedInvoice] = useState<typeof invoices[0] | null>(null);
+  const [selectedInvoice, setSelectedInvoice] = useState<(typeof invoices)[0] | null>(null);
   const [filterStatus, setFilterStatus] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [showComparison, setShowComparison] = useState(false);
 
   // Invoice form state
-  const [lineItems, setLineItems] = useState([
-    { description: '', quantity: 1, rate: 0 }
-  ]);
+  const [lineItems, setLineItems] = useState([{ description: '', quantity: 1, rate: 0 }]);
 
   const stats = {
     revenueThisMonth: { amount: 28500, change: 12.5 },
@@ -199,7 +197,7 @@ export default function InvoicesExpenses() {
     overdue: 4800,
     paidThisMonth: 12700,
     avgDaysToPay: 24,
-    activeClients: 12
+    activeClients: 12,
   };
 
   const addLineItem = () => {
@@ -211,25 +209,33 @@ export default function InvoicesExpenses() {
   };
 
   const calculateSubtotal = () => {
-    return lineItems.reduce((sum, item) => sum + (item.quantity * item.rate), 0);
+    return lineItems.reduce((sum, item) => sum + item.quantity * item.rate, 0);
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'paid': return 'bg-green-100 text-green-700';
-      case 'sent': return 'bg-blue-100 text-blue-700';
-      case 'viewed': return 'bg-[#00B4D8]/10 text-[#00B4D8]';
-      case 'overdue': return 'bg-red-100 text-red-700';
-      case 'draft': return 'bg-gray-100 text-gray-700';
-      case 'partially-paid': return 'bg-yellow-100 text-yellow-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case 'paid':
+        return 'bg-green-100 text-green-700';
+      case 'sent':
+        return 'bg-blue-100 text-blue-700';
+      case 'viewed':
+        return 'bg-[#00B4D8]/10 text-[#00B4D8]';
+      case 'overdue':
+        return 'bg-red-100 text-red-700';
+      case 'draft':
+        return 'bg-gray-100 text-gray-700';
+      case 'partially-paid':
+        return 'bg-yellow-100 text-yellow-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
     }
   };
 
-  const filteredInvoices = invoices.filter(invoice => {
+  const filteredInvoices = invoices.filter((invoice) => {
     const matchesStatus = filterStatus === 'all' || invoice.status === filterStatus;
-    const matchesSearch = invoice.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         invoice.id.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch =
+      invoice.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      invoice.id.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesStatus && matchesSearch;
   });
 
@@ -249,7 +255,7 @@ export default function InvoicesExpenses() {
           {[
             { id: 'invoices', label: 'Invoices', icon: FileText },
             { id: 'expenses', label: 'Expenses', icon: Receipt },
-            { id: 'reports', label: 'Reports', icon: BarChart3 }
+            { id: 'reports', label: 'Reports', icon: BarChart3 },
           ].map((tab) => {
             const Icon = tab.icon;
             return (
@@ -303,9 +309,7 @@ export default function InvoicesExpenses() {
               <AlertCircle className="w-4 h-4 text-red-600" />
               <div className="text-sm text-gray-600">Overdue</div>
             </div>
-            <div className="text-2xl font-bold text-red-600">
-              ${stats.overdue.toLocaleString()}
-            </div>
+            <div className="text-2xl font-bold text-red-600">${stats.overdue.toLocaleString()}</div>
           </Card>
 
           <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
@@ -367,7 +371,12 @@ export default function InvoicesExpenses() {
                   <Legend />
                   <Bar dataKey="revenue" fill="#00B4D8" name="Current Year" radius={[4, 4, 0, 0]} />
                   {showComparison && (
-                    <Bar dataKey="previousYear" fill="#94a3b8" name="Previous Year" radius={[4, 4, 0, 0]} />
+                    <Bar
+                      dataKey="previousYear"
+                      fill="#94a3b8"
+                      name="Previous Year"
+                      radius={[4, 4, 0, 0]}
+                    />
                   )}
                 </BarChart>
               </ResponsiveContainer>
@@ -420,13 +429,27 @@ export default function InvoicesExpenses() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Invoice #</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Client</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Amount</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Issued</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Due Date</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Invoice #
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Client
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Amount
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Issued
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Due Date
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Status
+                      </th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -467,11 +490,17 @@ export default function InvoicesExpenses() {
                               <Eye className="w-4 h-4 text-gray-600" />
                             </button>
                             {invoice.status === 'overdue' && (
-                              <button className="p-2 hover:bg-gray-100 rounded transition-colors" title="Send Reminder">
+                              <button
+                                className="p-2 hover:bg-gray-100 rounded transition-colors"
+                                title="Send Reminder"
+                              >
                                 <Send className="w-4 h-4 text-[#00B4D8]" />
                               </button>
                             )}
-                            <button className="p-2 hover:bg-gray-100 rounded transition-colors" title="Download">
+                            <button
+                              className="p-2 hover:bg-gray-100 rounded transition-colors"
+                              title="Download"
+                            >
                               <Download className="w-4 h-4 text-gray-600" />
                             </button>
                           </div>
@@ -498,7 +527,10 @@ export default function InvoicesExpenses() {
 
               <div className="space-y-3">
                 {recurringInvoices.map((recurring) => (
-                  <div key={recurring.id} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                  <div
+                    key={recurring.id}
+                    className="p-4 bg-gray-50 rounded-lg border border-gray-200"
+                  >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <div>
@@ -513,7 +545,9 @@ export default function InvoicesExpenses() {
                           <div className="text-sm text-gray-600">Next Invoice</div>
                           <div className="font-medium text-[#1E3A5F]">{recurring.nextDate}</div>
                         </div>
-                        <Badge className="bg-green-100 text-green-700 capitalize">{recurring.status}</Badge>
+                        <Badge className="bg-green-100 text-green-700 capitalize">
+                          {recurring.status}
+                        </Badge>
                         <div className="flex items-center space-x-2">
                           <button className="p-2 hover:bg-gray-100 rounded transition-colors">
                             <Edit2 className="w-4 h-4 text-gray-600" />
@@ -538,7 +572,7 @@ export default function InvoicesExpenses() {
               {/* Expense Category Chart */}
               <Card className="lg:col-span-1 p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">Expenses by Category</h3>
-                
+
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
                     <Pie
@@ -577,7 +611,7 @@ export default function InvoicesExpenses() {
               {/* Monthly Totals */}
               <Card className="lg:col-span-2 p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">Monthly Expense Totals</h3>
-                
+
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={revenueData.slice(-6)}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -614,20 +648,36 @@ export default function InvoicesExpenses() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Date</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Description</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Category</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Amount</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Client</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Receipt</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Date
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Description
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Category
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Amount
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Client
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Receipt
+                      </th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {expenses.map((expense) => (
                       <tr key={expense.id} className="border-b border-gray-100 hover:bg-gray-50">
                         <td className="py-4 px-4 text-gray-600">{expense.date}</td>
-                        <td className="py-4 px-4 font-medium text-[#1E3A5F]">{expense.description}</td>
+                        <td className="py-4 px-4 font-medium text-[#1E3A5F]">
+                          {expense.description}
+                        </td>
                         <td className="py-4 px-4">
                           <Badge className="bg-blue-100 text-blue-700">{expense.category}</Badge>
                         </td>
@@ -677,12 +727,14 @@ export default function InvoicesExpenses() {
                     { client: 'Digital Innovations Co', amount: 29200, percentage: 24 },
                     { client: 'TechStart Inc', amount: 24800, percentage: 21 },
                     { client: 'Retail Solutions LLC', amount: 18400, percentage: 15 },
-                    { client: 'Others', amount: 9100, percentage: 8 }
+                    { client: 'Others', amount: 9100, percentage: 8 },
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-medium text-[#1E3A5F]">{item.client}</span>
-                        <span className="text-sm font-bold text-gray-700">${item.amount.toLocaleString()}</span>
+                        <span className="text-sm font-bold text-gray-700">
+                          ${item.amount.toLocaleString()}
+                        </span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
@@ -698,14 +750,14 @@ export default function InvoicesExpenses() {
               {/* Paid vs Outstanding */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">Accounts Receivable</h3>
-                
+
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
                     <Pie
                       data={[
                         { name: 'Paid', value: 65, color: '#10b981' },
                         { name: 'Outstanding', value: 25, color: '#00B4D8' },
-                        { name: 'Overdue', value: 10, color: '#ef4444' }
+                        { name: 'Overdue', value: 10, color: '#ef4444' },
                       ]}
                       cx="50%"
                       cy="50%"
@@ -717,7 +769,7 @@ export default function InvoicesExpenses() {
                       {[
                         { name: 'Paid', value: 65, color: '#10b981' },
                         { name: 'Outstanding', value: 25, color: '#00B4D8' },
-                        { name: 'Overdue', value: 10, color: '#ef4444' }
+                        { name: 'Overdue', value: 10, color: '#ef4444' },
                       ].map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.color} />
                       ))}
@@ -730,7 +782,7 @@ export default function InvoicesExpenses() {
                   {[
                     { name: 'Paid', value: 65, color: '#10b981', amount: 78000 },
                     { name: 'Outstanding', value: 25, color: '#00B4D8', amount: 30000 },
-                    { name: 'Overdue', value: 10, color: '#ef4444', amount: 12000 }
+                    { name: 'Overdue', value: 10, color: '#ef4444', amount: 12000 },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
@@ -740,7 +792,9 @@ export default function InvoicesExpenses() {
                         />
                         <span className="text-sm font-medium text-[#1E3A5F]">{item.name}</span>
                       </div>
-                      <span className="text-sm font-bold text-gray-700">${item.amount.toLocaleString()}</span>
+                      <span className="text-sm font-bold text-gray-700">
+                        ${item.amount.toLocaleString()}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -750,7 +804,7 @@ export default function InvoicesExpenses() {
             {/* Report Actions */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="font-bold text-[#1E3A5F] mb-6">Generate Reports</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { name: 'Profit & Loss Statement', icon: BarChart3 },
@@ -758,7 +812,7 @@ export default function InvoicesExpenses() {
                   { name: 'Revenue by Service', icon: PieChartIcon },
                   { name: 'Client Statement', icon: FileText },
                   { name: 'Tax Summary', icon: Receipt },
-                  { name: 'Custom Report', icon: Settings }
+                  { name: 'Custom Report', icon: Settings },
                 ].map((report, i) => {
                   const Icon = report.icon;
                   return (
@@ -946,10 +1000,7 @@ export default function InvoicesExpenses() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Notes / Terms
                     </label>
-                    <Textarea
-                      placeholder="Payment terms, project details, etc."
-                      rows={3}
-                    />
+                    <Textarea placeholder="Payment terms, project details, etc." rows={3} />
                   </div>
 
                   <div className="flex items-center justify-end space-x-3 pt-4 border-t border-gray-200">
@@ -1106,7 +1157,9 @@ export default function InvoicesExpenses() {
             >
               <Card className="w-full max-w-4xl bg-white rounded-lg shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Invoice {selectedInvoice.id}</h2>
+                  <h2 className="text-2xl font-bold text-[#1E3A5F]">
+                    Invoice {selectedInvoice.id}
+                  </h2>
                   <button
                     onClick={() => {
                       setShowInvoiceDetail(false);
@@ -1125,7 +1178,9 @@ export default function InvoicesExpenses() {
                       <h3 className="text-3xl font-bold text-[#1E3A5F] mb-2">INVOICE</h3>
                       <p className="text-gray-600">{selectedInvoice.id}</p>
                     </div>
-                    <Badge className={`${getStatusColor(selectedInvoice.status)} capitalize text-lg px-4 py-2`}>
+                    <Badge
+                      className={`${getStatusColor(selectedInvoice.status)} capitalize text-lg px-4 py-2`}
+                    >
                       {selectedInvoice.status}
                     </Badge>
                   </div>
@@ -1157,17 +1212,25 @@ export default function InvoicesExpenses() {
                   <table className="w-full mb-8">
                     <thead>
                       <tr className="border-b-2 border-gray-300">
-                        <th className="text-left py-3 text-sm font-semibold text-gray-600">Description</th>
+                        <th className="text-left py-3 text-sm font-semibold text-gray-600">
+                          Description
+                        </th>
                         <th className="text-right py-3 text-sm font-semibold text-gray-600">Qty</th>
-                        <th className="text-right py-3 text-sm font-semibold text-gray-600">Rate</th>
-                        <th className="text-right py-3 text-sm font-semibold text-gray-600">Amount</th>
+                        <th className="text-right py-3 text-sm font-semibold text-gray-600">
+                          Rate
+                        </th>
+                        <th className="text-right py-3 text-sm font-semibold text-gray-600">
+                          Amount
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr className="border-b border-gray-200">
                         <td className="py-4 text-gray-700">SEO Services - Monthly Package</td>
                         <td className="py-4 text-right text-gray-700">1</td>
-                        <td className="py-4 text-right text-gray-700">${selectedInvoice.amount.toLocaleString()}</td>
+                        <td className="py-4 text-right text-gray-700">
+                          ${selectedInvoice.amount.toLocaleString()}
+                        </td>
                         <td className="py-4 text-right font-semibold text-[#1E3A5F]">
                           ${selectedInvoice.amount.toLocaleString()}
                         </td>

@@ -15,7 +15,7 @@ import {
   Settings,
   Bell,
   Smartphone,
-  Monitor as MonitorIcon
+  Monitor as MonitorIcon,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -33,14 +33,14 @@ import {
   Legend,
   ResponsiveContainer,
   Area,
-  AreaChart
+  AreaChart,
 } from 'recharts';
 
 // Mock data
 const websites = [
   { id: '1', name: 'ThinkMents Main Site', url: 'thinkments.com', status: 'online' },
   { id: '2', name: 'Acme Corporation', url: 'acmecorp.com', status: 'online' },
-  { id: '3', name: 'TechStart Blog', url: 'blog.techstart.io', status: 'online' }
+  { id: '3', name: 'TechStart Blog', url: 'blog.techstart.io', status: 'online' },
 ];
 
 const uptimeData = [
@@ -50,7 +50,7 @@ const uptimeData = [
   { date: 'Jan 15', uptime: 100 },
   { date: 'Jan 20', uptime: 100 },
   { date: 'Jan 25', uptime: 99.8 },
-  { date: 'Today', uptime: 100 }
+  { date: 'Today', uptime: 100 },
 ];
 
 const responseTimeData = [
@@ -60,7 +60,7 @@ const responseTimeData = [
   { time: '12:00', responseTime: 456 },
   { time: '16:00', responseTime: 380 },
   { time: '20:00', responseTime: 290 },
-  { time: 'Now', responseTime: 235 }
+  { time: 'Now', responseTime: 235 },
 ];
 
 const incidents = [
@@ -70,7 +70,7 @@ const incidents = [
     duration: '2 min 15 sec',
     type: 'Timeout',
     cause: 'Server overload',
-    status: 'resolved'
+    status: 'resolved',
   },
   {
     id: '2',
@@ -78,15 +78,15 @@ const incidents = [
     duration: '8 min 42 sec',
     type: '500 Server Error',
     cause: 'Database connection issue',
-    status: 'resolved'
-  }
+    status: 'resolved',
+  },
 ];
 
 const allSites = [
   { id: '1', name: 'ThinkMents Main', status: 'online', uptime: 99.97, responseTime: 235 },
   { id: '2', name: 'Acme Corp', status: 'online', uptime: 99.94, responseTime: 189 },
   { id: '3', name: 'TechStart Blog', status: 'online', uptime: 100, responseTime: 156 },
-  { id: '4', name: 'Retail Solutions', status: 'online', uptime: 99.89, responseTime: 412 }
+  { id: '4', name: 'Retail Solutions', status: 'online', uptime: 99.89, responseTime: 412 },
 ];
 
 export default function UptimeMonitor() {
@@ -103,7 +103,7 @@ export default function UptimeMonitor() {
     incidentsThisMonth: 2,
     sslValid: '2025-12-15',
     speedScoreMobile: 87,
-    speedScoreDesktop: 94
+    speedScoreDesktop: 94,
   };
 
   return (
@@ -141,9 +141,7 @@ export default function UptimeMonitor() {
               <button
                 onClick={() => setActiveTab('uptime')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === 'uptime'
-                    ? 'bg-white text-[#1E3A5F] shadow'
-                    : 'text-gray-600'
+                  activeTab === 'uptime' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
                 }`}
               >
                 <Activity className="w-4 h-4" />
@@ -152,9 +150,7 @@ export default function UptimeMonitor() {
               <button
                 onClick={() => setActiveTab('speed')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === 'speed'
-                    ? 'bg-white text-[#1E3A5F] shadow'
-                    : 'text-gray-600'
+                  activeTab === 'speed' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
                 }`}
               >
                 <Zap className="w-4 h-4" />
@@ -334,11 +330,21 @@ export default function UptimeMonitor() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Date/Time</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Duration</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Type</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Root Cause</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Date/Time
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Duration
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Type
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Root Cause
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Status
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -351,7 +357,9 @@ export default function UptimeMonitor() {
                         </td>
                         <td className="py-4 px-4 text-gray-600">{incident.cause}</td>
                         <td className="py-4 px-4">
-                          <Badge className="bg-green-100 text-green-700 capitalize">{incident.status}</Badge>
+                          <Badge className="bg-green-100 text-green-700 capitalize">
+                            {incident.status}
+                          </Badge>
                         </td>
                       </tr>
                     ))}
@@ -369,12 +377,17 @@ export default function UptimeMonitor() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {allSites.map((site) => (
-                  <div key={site.id} className="p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                  <div
+                    key={site.id}
+                    className="p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                  >
                     <div className="flex items-center justify-between mb-3">
                       <span className="font-semibold text-[#1E3A5F]">{site.name}</span>
-                      <div className={`w-3 h-3 rounded-full ${
-                        site.status === 'online' ? 'bg-green-500' : 'bg-red-500'
-                      }`} />
+                      <div
+                        className={`w-3 h-3 rounded-full ${
+                          site.status === 'online' ? 'bg-green-500' : 'bg-red-500'
+                        }`}
+                      />
                     </div>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center justify-between">
@@ -432,15 +445,15 @@ export default function UptimeMonitor() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center flex-col">
-                      <div className="text-4xl font-bold text-[#1E3A5F]">{stats.speedScoreMobile}</div>
+                      <div className="text-4xl font-bold text-[#1E3A5F]">
+                        {stats.speedScoreMobile}
+                      </div>
                       <div className="text-sm text-gray-600">/ 100</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-center text-sm text-gray-600">
-                  Last tested: 2 hours ago
-                </div>
+                <div className="text-center text-sm text-gray-600">Last tested: 2 hours ago</div>
               </Card>
 
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
@@ -477,22 +490,22 @@ export default function UptimeMonitor() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center flex-col">
-                      <div className="text-4xl font-bold text-[#1E3A5F]">{stats.speedScoreDesktop}</div>
+                      <div className="text-4xl font-bold text-[#1E3A5F]">
+                        {stats.speedScoreDesktop}
+                      </div>
                       <div className="text-sm text-gray-600">/ 100</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-center text-sm text-gray-600">
-                  Last tested: 2 hours ago
-                </div>
+                <div className="text-center text-sm text-gray-600">Last tested: 2 hours ago</div>
               </Card>
             </div>
 
             {/* Core Web Vitals */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Core Web Vitals</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                   <div className="text-sm text-gray-600 mb-2">Largest Contentful Paint (LCP)</div>
@@ -525,38 +538,42 @@ export default function UptimeMonitor() {
                     category: 'Images',
                     title: 'Optimize images',
                     impact: 'Save 2.4s load time',
-                    description: 'Serve images in next-gen formats like WebP'
+                    description: 'Serve images in next-gen formats like WebP',
                   },
                   {
                     priority: 'high',
                     category: 'JavaScript',
                     title: 'Reduce unused JavaScript',
                     impact: 'Save 1.8s load time',
-                    description: 'Remove or defer unused JS to improve performance'
+                    description: 'Remove or defer unused JS to improve performance',
                   },
                   {
                     priority: 'medium',
                     category: 'CSS',
                     title: 'Minimize render-blocking CSS',
                     impact: 'Save 0.9s load time',
-                    description: 'Inline critical CSS and defer non-critical styles'
+                    description: 'Inline critical CSS and defer non-critical styles',
                   },
                   {
                     priority: 'low',
                     category: 'Server',
                     title: 'Enable text compression',
                     impact: 'Save 0.3s load time',
-                    description: 'Enable gzip or brotli compression on server'
-                  }
+                    description: 'Enable gzip or brotli compression on server',
+                  },
                 ].map((rec, index) => (
                   <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center space-x-3">
-                        <Badge className={`${
-                          rec.priority === 'high' ? 'bg-red-100 text-red-700' :
-                          rec.priority === 'medium' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-gray-100 text-gray-700'
-                        } capitalize`}>
+                        <Badge
+                          className={`${
+                            rec.priority === 'high'
+                              ? 'bg-red-100 text-red-700'
+                              : rec.priority === 'medium'
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-gray-100 text-gray-700'
+                          } capitalize`}
+                        >
                           {rec.priority}
                         </Badge>
                         <Badge className="bg-blue-100 text-blue-700">{rec.category}</Badge>

@@ -21,54 +21,54 @@ interface RelatedServicesProps {
  * Shows contextually relevant services to encourage exploration
  * Improves internal linking structure for SEO
  */
-export const RelatedServices: React.FC<RelatedServicesProps> = ({ 
-  currentService, 
-  maxServices = 3 
+export const RelatedServices: React.FC<RelatedServicesProps> = ({
+  currentService,
+  maxServices = 3,
 }) => {
   const allServices: Service[] = [
-    { 
-      name: 'Web Design', 
+    {
+      name: 'Web Design',
       path: '/web-design',
       description: 'Custom website design that converts visitors into customers',
-      icon: <Monitor className="w-6 h-6" />
+      icon: <Monitor className="w-6 h-6" />,
     },
-    { 
-      name: 'SEO Services', 
+    {
+      name: 'SEO Services',
       path: '/services/seo',
       description: 'Rank higher on Google and drive organic traffic to your site',
-      icon: <TrendingUp className="w-6 h-6" />
+      icon: <TrendingUp className="w-6 h-6" />,
     },
-    { 
-      name: 'Videography', 
+    {
+      name: 'Videography',
       path: '/videography',
       description: 'Professional video production that tells your brand story',
-      icon: <Video className="w-6 h-6" />
+      icon: <Video className="w-6 h-6" />,
     },
-    { 
-      name: 'Graphic Design', 
+    {
+      name: 'Graphic Design',
       path: '/services/graphic-design',
       description: 'Eye-catching graphics that elevate your brand identity',
-      icon: <Palette className="w-6 h-6" />
+      icon: <Palette className="w-6 h-6" />,
     },
-    { 
-      name: 'AI Podcast Production', 
+    {
+      name: 'AI Podcast Production',
       path: '/ai-podcast-production',
       description: 'AI-powered podcast creation with professional editing',
-      icon: <Sparkles className="w-6 h-6" />
+      icon: <Sparkles className="w-6 h-6" />,
     },
-    { 
-      name: 'AI 3D Generation', 
+    {
+      name: 'AI 3D Generation',
       path: '/ai-3d-generation',
       description: 'Transform product photos into stunning 3D models',
-      icon: <Box className="w-6 h-6" />
-    }
+      icon: <Box className="w-6 h-6" />,
+    },
   ];
-  
+
   // Filter out current service and limit results
   const relatedServices = allServices
-    .filter(service => service.name !== currentService)
+    .filter((service) => service.name !== currentService)
     .slice(0, maxServices);
-  
+
   return (
     <section className="py-20 px-4 bg-accent/5">
       <div className="container mx-auto max-w-7xl">

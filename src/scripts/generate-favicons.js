@@ -1,6 +1,6 @@
 /**
  * Generate PNG favicons from SVG source files
- * 
+ *
  * Usage:
  *   npm install sharp
  *   node scripts/generate-favicons.js
@@ -17,28 +17,28 @@ const conversions = [
   {
     input: 'favicon-16x16.svg',
     output: 'favicon-16x16.png',
-    size: 16
+    size: 16,
   },
   {
     input: 'favicon-32x32.svg',
     output: 'favicon-32x32.png',
-    size: 32
+    size: 32,
   },
   {
     input: 'apple-touch-icon.svg',
     output: 'apple-touch-icon.png',
-    size: 180
+    size: 180,
   },
   {
     input: 'android-chrome-192x192.svg',
     output: 'android-chrome-192x192.png',
-    size: 192
+    size: 192,
   },
   {
     input: 'android-chrome-512x512.svg',
     output: 'android-chrome-512x512.png',
-    size: 512
-  }
+    size: 512,
+  },
 ];
 
 async function generateFavicons() {
@@ -54,15 +54,14 @@ async function generateFavicons() {
     }
 
     try {
-      await sharp(inputPath)
-        .resize(conversion.size, conversion.size)
-        .png()
-        .toFile(outputPath);
+      await sharp(inputPath).resize(conversion.size, conversion.size).png().toFile(outputPath);
 
       const stats = fs.statSync(outputPath);
       const sizeKB = (stats.size / 1024).toFixed(2);
-      
-      console.log(`✅ Generated ${conversion.output} (${conversion.size}x${conversion.size}) - ${sizeKB} KB`);
+
+      console.log(
+        `✅ Generated ${conversion.output} (${conversion.size}x${conversion.size}) - ${sizeKB} KB`,
+      );
     } catch (error) {
       console.error(`❌ Error generating ${conversion.output}:`, error.message);
     }

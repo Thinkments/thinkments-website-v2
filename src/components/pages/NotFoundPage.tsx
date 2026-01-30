@@ -35,34 +35,34 @@ export default function NotFoundPage() {
       paddleWidth: 10,
       paddleHeight: 80,
       ballSize: 8,
-      
+
       player: {
         x: 20,
         y: canvasHeight / 2 - 40,
         dy: 0,
-        speed: 6
+        speed: 6,
       },
-      
+
       ai: {
         x: canvasWidth - 30,
         y: canvasHeight / 2 - 40,
         dy: 0,
-        speed: 4
+        speed: 4,
       },
-      
+
       ball: {
         x: canvasWidth / 2,
         y: canvasHeight / 2,
         dx: 4,
         dy: 4,
         baseSpeed: 4,
-        maxSpeed: 10
+        maxSpeed: 10,
       },
 
       keys: {
         up: false,
-        down: false
-      }
+        down: false,
+      },
     };
 
     gameRef.current = game;
@@ -83,7 +83,7 @@ export default function NotFoundPage() {
       const rect = canvas.getBoundingClientRect();
       const mouseY = e.clientY - rect.top;
       game.player.y = mouseY - game.paddleHeight / 2;
-      
+
       // Keep paddle in bounds
       if (game.player.y < 0) game.player.y = 0;
       if (game.player.y > canvasHeight - game.paddleHeight) {
@@ -98,7 +98,7 @@ export default function NotFoundPage() {
       const touch = e.touches[0];
       const touchY = touch.clientY - rect.top;
       game.player.y = touchY - game.paddleHeight / 2;
-      
+
       // Keep paddle in bounds
       if (game.player.y < 0) game.player.y = 0;
       if (game.player.y > canvasHeight - game.paddleHeight) {
@@ -122,7 +122,7 @@ export default function NotFoundPage() {
       ctx.beginPath();
       ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fill();
-      
+
       // Add glow effect
       ctx.shadowBlur = 15;
       ctx.shadowColor = color;
@@ -133,7 +133,7 @@ export default function NotFoundPage() {
     const drawGrid = () => {
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
       ctx.lineWidth = 1;
-      
+
       // Vertical lines
       for (let x = 0; x < canvasWidth; x += 40) {
         ctx.beginPath();
@@ -141,7 +141,7 @@ export default function NotFoundPage() {
         ctx.lineTo(x, canvasHeight);
         ctx.stroke();
       }
-      
+
       // Horizontal lines
       for (let y = 0; y < canvasHeight; y += 40) {
         ctx.beginPath();
@@ -149,7 +149,7 @@ export default function NotFoundPage() {
         ctx.lineTo(canvasWidth, y);
         ctx.stroke();
       }
-      
+
       // Center line
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
       ctx.lineWidth = 2;
@@ -210,10 +210,11 @@ export default function NotFoundPage() {
         game.ball.y < game.player.y + game.paddleHeight
       ) {
         // Calculate hit position for angle
-        const hitPos = (game.ball.y - (game.player.y + game.paddleHeight / 2)) / (game.paddleHeight / 2);
+        const hitPos =
+          (game.ball.y - (game.player.y + game.paddleHeight / 2)) / (game.paddleHeight / 2);
         game.ball.dx = Math.abs(game.ball.dx);
         game.ball.dy = hitPos * 5;
-        
+
         // Speed up slightly
         const speed = Math.sqrt(game.ball.dx * game.ball.dx + game.ball.dy * game.ball.dy);
         if (speed < game.ball.maxSpeed) {
@@ -230,10 +231,11 @@ export default function NotFoundPage() {
         game.ball.y < game.ai.y + game.paddleHeight
       ) {
         // Calculate hit position for angle
-        const hitPos = (game.ball.y - (game.ai.y + game.paddleHeight / 2)) / (game.paddleHeight / 2);
+        const hitPos =
+          (game.ball.y - (game.ai.y + game.paddleHeight / 2)) / (game.paddleHeight / 2);
         game.ball.dx = -Math.abs(game.ball.dx);
         game.ball.dy = hitPos * 5;
-        
+
         // Speed up slightly
         const speed = Math.sqrt(game.ball.dx * game.ball.dx + game.ball.dy * game.ball.dy);
         if (speed < game.ball.maxSpeed) {
@@ -245,7 +247,7 @@ export default function NotFoundPage() {
       // Score points
       if (game.ball.x < 0) {
         // AI scores
-        setAiScore(prev => {
+        setAiScore((prev) => {
           const newScore = prev + 1;
           if (newScore >= 5) {
             setGameState('ended');
@@ -256,7 +258,7 @@ export default function NotFoundPage() {
         resetBall();
       } else if (game.ball.x > canvasWidth) {
         // Player scores
-        setPlayerScore(prev => {
+        setPlayerScore((prev) => {
           const newScore = prev + 1;
           if (newScore >= 5) {
             setGameState('ended');
@@ -279,7 +281,7 @@ export default function NotFoundPage() {
     const render = () => {
       // Clear canvas
       drawRect(0, 0, canvasWidth, canvasHeight, '#1E3A5F');
-      
+
       // Draw grid
       drawGrid();
 
@@ -333,7 +335,7 @@ export default function NotFoundPage() {
   };
 
   const togglePause = () => {
-    setGameState(prev => prev === 'playing' ? 'paused' : 'playing');
+    setGameState((prev) => (prev === 'playing' ? 'paused' : 'playing'));
   };
 
   const playAgain = () => {
@@ -426,14 +428,11 @@ export default function NotFoundPage() {
                         )}
                       </h3>
                       <p className="text-gray-600 mb-6">
-                        {winner === 'player' 
-                          ? 'Great job! You beat the computer!' 
+                        {winner === 'player'
+                          ? 'Great job! You beat the computer!'
                           : 'The computer won this time. Try again?'}
                       </p>
-                      <Button
-                        onClick={playAgain}
-                        className="bg-[#00B4D8] hover:bg-[#0096b8]"
-                      >
+                      <Button onClick={playAgain} className="bg-[#00B4D8] hover:bg-[#0096b8]">
                         <RotateCcw className="w-4 h-4 mr-2" />
                         Play Again
                       </Button>
@@ -446,15 +445,12 @@ export default function NotFoundPage() {
               <div className="flex flex-col items-center space-y-4">
                 <div className="flex items-center space-x-3">
                   {gameState === 'idle' && (
-                    <Button
-                      onClick={startGame}
-                      className="bg-[#00B4D8] hover:bg-[#0096b8]"
-                    >
+                    <Button onClick={startGame} className="bg-[#00B4D8] hover:bg-[#0096b8]">
                       <Play className="w-4 h-4 mr-2" />
                       Start Game
                     </Button>
                   )}
-                  
+
                   {(gameState === 'playing' || gameState === 'paused') && (
                     <>
                       <Button
@@ -502,21 +498,16 @@ export default function NotFoundPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 text-center"
           >
-            <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">
-              Or get back to business...
-            </h3>
-            
+            <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">Or get back to business...</h3>
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <Button
-                asChild
-                className="bg-[#00B4D8] hover:bg-[#0096b8] min-w-[160px]"
-              >
+              <Button asChild className="bg-[#00B4D8] hover:bg-[#0096b8] min-w-[160px]">
                 <Link to="/">
                   <Home className="w-4 h-4 mr-2" />
                   Go Home
                 </Link>
               </Button>
-              
+
               <Button
                 asChild
                 variant="outline"
@@ -535,7 +526,10 @@ export default function NotFoundPage() {
                 Home
               </Link>
               <span className="text-gray-300">|</span>
-              <Link to="/services" className="hover:text-[#00B4D8] hover:underline transition-colors">
+              <Link
+                to="/services"
+                className="hover:text-[#00B4D8] hover:underline transition-colors"
+              >
                 Services
               </Link>
               <span className="text-gray-300">|</span>
@@ -547,7 +541,10 @@ export default function NotFoundPage() {
                 Blog
               </Link>
               <span className="text-gray-300">|</span>
-              <Link to="/get-a-quote" className="hover:text-[#00B4D8] hover:underline transition-colors">
+              <Link
+                to="/get-a-quote"
+                className="hover:text-[#00B4D8] hover:underline transition-colors"
+              >
                 Contact
               </Link>
             </div>
@@ -569,8 +566,8 @@ export default function NotFoundPage() {
                 <span>(940) 315-1023</span>
               </a>
               <span className="hidden md:block text-gray-300">|</span>
-              <a 
-                href="mailto:info@thinkments.com" 
+              <a
+                href="mailto:info@thinkments.com"
                 className="flex items-center space-x-2 text-gray-600 hover:text-[#00B4D8] transition-colors"
               >
                 <Mail className="w-4 h-4" />

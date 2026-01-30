@@ -14,7 +14,7 @@ export default function NewsletterSignup({
   variant = 'default',
   title = 'Get Marketing Tips Weekly',
   description = 'Join 2,500+ business owners who get our best insights delivered to their inbox. No spam, unsubscribe anytime.',
-  className = ''
+  className = '',
 }: NewsletterSignupProps) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -44,15 +44,15 @@ export default function NewsletterSignup({
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
           'form-name': 'newsletter',
-          'email': email
-        }).toString()
+          email: email,
+        }).toString(),
       });
 
       if (response.ok) {
         setStatus('success');
         setMessage('Thanks for subscribing! Check your inbox.');
         setEmail('');
-        
+
         // Reset after 5 seconds
         setTimeout(() => {
           setStatus('idle');
@@ -64,7 +64,7 @@ export default function NewsletterSignup({
     } catch (error) {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');
-      
+
       // Reset error after 5 seconds
       setTimeout(() => {
         setStatus('idle');
@@ -76,7 +76,9 @@ export default function NewsletterSignup({
   // Sidebar variant (compact, for blog sidebar)
   if (variant === 'sidebar') {
     return (
-      <div className={`bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-lg p-6 text-white ${className}`}>
+      <div
+        className={`bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-lg p-6 text-white ${className}`}
+      >
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-sm text-white/90 mb-4">{description}</p>
 
@@ -90,7 +92,7 @@ export default function NewsletterSignup({
             required
             disabled={status === 'loading' || status === 'success'}
           />
-          
+
           <Button
             type="submit"
             className="w-full bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold"
@@ -204,9 +206,7 @@ export default function NewsletterSignup({
               </motion.p>
             )}
 
-            <p className="text-xs text-gray-500">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
+            <p className="text-xs text-gray-500">We respect your privacy. Unsubscribe anytime.</p>
           </form>
         </div>
       </div>
@@ -274,9 +274,7 @@ export default function NewsletterSignup({
             </motion.p>
           )}
 
-          <p className="text-xs text-white/50">
-            We respect your privacy. Unsubscribe anytime.
-          </p>
+          <p className="text-xs text-white/50">We respect your privacy. Unsubscribe anytime.</p>
         </form>
       </div>
 

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const ERROR_IMG_SRC =
-  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg=='
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg==';
 
 interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   loading?: 'lazy' | 'eager';
@@ -10,24 +10,24 @@ interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElemen
 }
 
 export function ImageWithFallback(props: ImageWithFallbackProps) {
-  const [didError, setDidError] = useState(false)
+  const [didError, setDidError] = useState(false);
 
   const handleError = () => {
-    setDidError(true)
-  }
+    setDidError(true);
+  };
 
-  const { 
-    src, 
-    alt, 
-    style, 
-    className, 
+  const {
+    src,
+    alt,
+    style,
+    className,
     loading = 'lazy',
     priority = false,
     fetchPriority = 'auto',
     width,
     height,
-    ...rest 
-  } = props
+    ...rest
+  } = props;
 
   // If priority is set, override loading to eager and set high fetch priority
   const finalLoading = priority ? 'eager' : loading;
@@ -39,10 +39,10 @@ export function ImageWithFallback(props: ImageWithFallbackProps) {
       style={style}
     >
       <div className="flex items-center justify-center w-full h-full">
-        <img 
-          src={ERROR_IMG_SRC} 
-          alt="Error loading image" 
-          {...rest} 
+        <img
+          src={ERROR_IMG_SRC}
+          alt="Error loading image"
+          {...rest}
           data-original-url={src}
           width={width}
           height={height}
@@ -50,18 +50,18 @@ export function ImageWithFallback(props: ImageWithFallbackProps) {
       </div>
     </div>
   ) : (
-    <img 
-      src={src} 
-      alt={alt} 
-      className={className} 
-      style={style} 
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      style={style}
       loading={finalLoading}
       fetchPriority={finalFetchPriority}
       width={width}
       height={height}
       decoding="async"
-      {...rest} 
-      onError={handleError} 
+      {...rest}
+      onError={handleError}
     />
-  )
+  );
 }

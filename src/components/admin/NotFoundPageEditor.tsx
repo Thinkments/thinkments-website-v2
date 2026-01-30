@@ -47,7 +47,7 @@ import {
   Layers,
   Grid,
   Waves,
-  Circle
+  Circle,
 } from 'lucide-react';
 
 type TabType = 'content' | 'interactive' | 'navigation' | 'contact' | 'design';
@@ -76,7 +76,7 @@ interface PageSettings {
   subtextColor: string;
   customMessage: string;
   showCustomMessage: boolean;
-  
+
   // Interactive
   enablePongGame: boolean;
   pongGameTitle: string;
@@ -91,7 +91,7 @@ interface PageSettings {
   searchPlaceholder: string;
   enableEasterEgg: boolean;
   easterEggMessage: string;
-  
+
   // Navigation
   enableQuickLinks: boolean;
   quickLinksTitle: string;
@@ -105,7 +105,7 @@ interface PageSettings {
   secondaryButtonUrl: string;
   showGoBackButton: boolean;
   goBackButtonText: string;
-  
+
   // Contact
   showContactSection: boolean;
   contactSectionTitle: string;
@@ -116,7 +116,7 @@ interface PageSettings {
   emailAddress: string;
   emailMailto: boolean;
   showLiveChat: boolean;
-  
+
   // Design
   backgroundType: 'solid' | 'gradient' | 'image' | 'pattern';
   solidColor: string;
@@ -150,16 +150,17 @@ export default function NotFoundPageEditor() {
     text404Style: 'gradient',
     text404Size: 120,
     text404Animation: 'float',
-    headline: "Oops! Page Not Found",
+    headline: 'Oops! Page Not Found',
     headlineSize: 48,
     headlineColor: '#1E3A5F',
     headlineAlign: 'center',
-    subtext: "The page you're looking for might have been moved, deleted, or never existed. Let's get you back on track.",
+    subtext:
+      "The page you're looking for might have been moved, deleted, or never existed. Let's get you back on track.",
     subtextSize: 18,
     subtextColor: '#6B7280',
     customMessage: '',
     showCustomMessage: false,
-    
+
     // Interactive defaults
     enablePongGame: true,
     pongGameTitle: 'Play Pong while you wait!',
@@ -174,7 +175,7 @@ export default function NotFoundPageEditor() {
     searchPlaceholder: 'Search our site...',
     enableEasterEgg: false,
     easterEggMessage: '🎉 You found the secret!',
-    
+
     // Navigation defaults
     enableQuickLinks: true,
     quickLinksTitle: 'Popular Pages',
@@ -193,7 +194,7 @@ export default function NotFoundPageEditor() {
     secondaryButtonUrl: '/contact',
     showGoBackButton: true,
     goBackButtonText: 'Go Back',
-    
+
     // Contact defaults
     showContactSection: true,
     contactSectionTitle: 'Need Help?',
@@ -204,7 +205,7 @@ export default function NotFoundPageEditor() {
     emailAddress: 'info@thinkments.com',
     emailMailto: true,
     showLiveChat: false,
-    
+
     // Design defaults
     backgroundType: 'gradient',
     solidColor: '#F8F9FA',
@@ -226,25 +227,29 @@ export default function NotFoundPageEditor() {
   });
 
   const updateSetting = (key: keyof PageSettings, value: any) => {
-    setSettings(prev => ({ ...prev, [key]: value }));
+    setSettings((prev) => ({ ...prev, [key]: value }));
     setHasUnsavedChanges(true);
   };
 
   const handleSave = () => {
     // Save settings logic here
     setHasUnsavedChanges(false);
-    setLastSaved(new Date().toLocaleString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    }));
+    setLastSaved(
+      new Date().toLocaleString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+      }),
+    );
   };
 
   const handleReset = () => {
-    if (window.confirm('Are you sure you want to reset to default settings? This cannot be undone.')) {
+    if (
+      window.confirm('Are you sure you want to reset to default settings? This cannot be undone.')
+    ) {
       // Reset to defaults
       setHasUnsavedChanges(false);
     }
@@ -256,9 +261,12 @@ export default function NotFoundPageEditor() {
 
   const getDeviceWidth = () => {
     switch (deviceType) {
-      case 'mobile': return '375px';
-      case 'tablet': return '768px';
-      case 'desktop': return '100%';
+      case 'mobile':
+        return '375px';
+      case 'tablet':
+        return '768px';
+      case 'desktop':
+        return '100%';
     }
   };
 
@@ -282,17 +290,11 @@ export default function NotFoundPageEditor() {
             )}
           </div>
           <div className="flex items-center space-x-3">
-            <Button
-              variant="outline"
-              onClick={handleReset}
-            >
+            <Button variant="outline" onClick={handleReset}>
               <RotateCcw className="w-4 h-4 mr-2" />
               Reset to Default
             </Button>
-            <Button
-              variant="outline"
-              onClick={handlePreview}
-            >
+            <Button variant="outline" onClick={handlePreview}>
               <Eye className="w-4 h-4 mr-2" />
               Preview
             </Button>
@@ -358,7 +360,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium text-gray-900">Show &quot;404&quot; text</label>
+                      <label className="text-sm font-medium text-gray-900">
+                        Show &quot;404&quot; text
+                      </label>
                       <label className="relative inline-flex items-center cursor-pointer">
                         <input
                           type="checkbox"
@@ -373,7 +377,9 @@ export default function NotFoundPageEditor() {
                     {settings.show404Text && (
                       <>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">404 Text Style</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            404 Text Style
+                          </label>
                           <select
                             value={settings.text404Style}
                             onChange={(e) => updateSetting('text404Style', e.target.value)}
@@ -402,7 +408,9 @@ export default function NotFoundPageEditor() {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Animation</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Animation
+                          </label>
                           <select
                             value={settings.text404Animation}
                             onChange={(e) => updateSetting('text404Animation', e.target.value)}
@@ -426,7 +434,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Headline Text</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Headline Text
+                      </label>
                       <input
                         type="text"
                         value={settings.headline}
@@ -468,7 +478,9 @@ export default function NotFoundPageEditor() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Alignment</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Alignment
+                      </label>
                       <div className="flex space-x-2">
                         {[
                           { value: 'left', icon: AlignLeft },
@@ -499,7 +511,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Subtext</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Subtext
+                      </label>
                       <textarea
                         value={settings.subtext}
                         onChange={(e) => updateSetting('subtext', e.target.value)}
@@ -601,7 +615,9 @@ export default function NotFoundPageEditor() {
                   {settings.enablePongGame && (
                     <CardContent className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Game Title</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Game Title
+                        </label>
                         <input
                           type="text"
                           value={settings.pongGameTitle}
@@ -612,7 +628,9 @@ export default function NotFoundPageEditor() {
 
                       <div className="grid grid-cols-3 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Ball Color</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Ball Color
+                          </label>
                           <input
                             type="color"
                             value={settings.pongBallColor}
@@ -621,7 +639,9 @@ export default function NotFoundPageEditor() {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Paddle Color</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Paddle Color
+                          </label>
                           <input
                             type="color"
                             value={settings.pongPaddleColor}
@@ -630,7 +650,9 @@ export default function NotFoundPageEditor() {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Background</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Background
+                          </label>
                           <input
                             type="color"
                             value={settings.pongBgColor}
@@ -641,7 +663,9 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Game Speed</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Game Speed
+                        </label>
                         <select
                           value={settings.pongSpeed}
                           onChange={(e) => updateSetting('pongSpeed', e.target.value)}
@@ -654,10 +678,14 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Winning Score</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Winning Score
+                        </label>
                         <select
                           value={settings.pongWinningScore}
-                          onChange={(e) => updateSetting('pongWinningScore', parseInt(e.target.value) as any)}
+                          onChange={(e) =>
+                            updateSetting('pongWinningScore', parseInt(e.target.value) as any)
+                          }
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                         >
                           <option value="3">3 points</option>
@@ -667,12 +695,16 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium text-gray-900">Show Instructions</label>
+                        <label className="text-sm font-medium text-gray-900">
+                          Show Instructions
+                        </label>
                         <label className="relative inline-flex items-center cursor-pointer">
                           <input
                             type="checkbox"
                             checked={settings.pongShowInstructions}
-                            onChange={(e) => updateSetting('pongShowInstructions', e.target.checked)}
+                            onChange={(e) =>
+                              updateSetting('pongShowInstructions', e.target.checked)
+                            }
                             className="sr-only peer"
                           />
                           <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
@@ -689,7 +721,9 @@ export default function NotFoundPageEditor() {
                       <CardTitle className="text-lg">Alternative Games</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Select Game</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Select Game
+                      </label>
                       <select
                         value={settings.alternativeGame}
                         onChange={(e) => updateSetting('alternativeGame', e.target.value)}
@@ -726,7 +760,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   {settings.enableSearchBar && (
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Search Placeholder</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Search Placeholder
+                      </label>
                       <input
                         type="text"
                         value={settings.searchPlaceholder}
@@ -758,7 +794,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   {settings.enableEasterEgg && (
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Hidden Message</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Hidden Message
+                      </label>
                       <input
                         type="text"
                         value={settings.easterEggMessage}
@@ -797,7 +835,9 @@ export default function NotFoundPageEditor() {
                   {settings.enableQuickLinks && (
                     <CardContent className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Section Title</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Section Title
+                        </label>
                         <input
                           type="text"
                           value={settings.quickLinksTitle}
@@ -807,10 +847,14 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Number of Links to Show</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Number of Links to Show
+                        </label>
                         <select
                           value={settings.numberOfLinks}
-                          onChange={(e) => updateSetting('numberOfLinks', parseInt(e.target.value) as any)}
+                          onChange={(e) =>
+                            updateSetting('numberOfLinks', parseInt(e.target.value) as any)
+                          }
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                         >
                           <option value="3">3 links</option>
@@ -820,10 +864,15 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-3">Link Items (drag to reorder)</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                          Link Items (drag to reorder)
+                        </label>
                         <div className="space-y-2">
                           {settings.quickLinks.slice(0, settings.numberOfLinks).map((link, idx) => (
-                            <div key={link.id} className="border-2 border-gray-200 rounded-lg p-3 hover:border-gray-300">
+                            <div
+                              key={link.id}
+                              className="border-2 border-gray-200 rounded-lg p-3 hover:border-gray-300"
+                            >
                               <div className="flex items-center space-x-2 mb-2">
                                 <GripVertical className="w-4 h-4 text-gray-400 cursor-move" />
                                 <input
@@ -909,7 +958,9 @@ export default function NotFoundPageEditor() {
                     {/* Secondary Button */}
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-medium text-gray-900">Secondary Button</label>
+                        <label className="text-sm font-medium text-gray-900">
+                          Secondary Button
+                        </label>
                         <label className="relative inline-flex items-center cursor-pointer">
                           <input
                             type="checkbox"
@@ -960,7 +1011,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   {settings.showGoBackButton && (
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Button Text</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Button Text
+                      </label>
                       <input
                         type="text"
                         value={settings.goBackButtonText}
@@ -994,7 +1047,9 @@ export default function NotFoundPageEditor() {
                   {settings.showContactSection && (
                     <CardContent className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Section Title</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Section Title
+                        </label>
                         <input
                           type="text"
                           value={settings.contactSectionTitle}
@@ -1032,7 +1087,9 @@ export default function NotFoundPageEditor() {
                               <input
                                 type="checkbox"
                                 checked={settings.phoneClickToCall}
-                                onChange={(e) => updateSetting('phoneClickToCall', e.target.checked)}
+                                onChange={(e) =>
+                                  updateSetting('phoneClickToCall', e.target.checked)
+                                }
                                 className="w-4 h-4 text-[#00B4D8] rounded"
                               />
                               <span className="text-gray-700">Enable click-to-call</span>
@@ -1113,7 +1170,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Background Type</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Background Type
+                      </label>
                       <div className="grid grid-cols-4 gap-2">
                         {[
                           { value: 'solid', icon: Circle, label: 'Solid' },
@@ -1139,7 +1198,9 @@ export default function NotFoundPageEditor() {
 
                     {settings.backgroundType === 'solid' && (
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Color</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Color
+                        </label>
                         <div className="flex items-center space-x-2">
                           <input
                             type="color"
@@ -1161,7 +1222,9 @@ export default function NotFoundPageEditor() {
                       <div className="space-y-3">
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">Color 1</label>
+                            <label className="block text-sm font-medium text-gray-900 mb-2">
+                              Color 1
+                            </label>
                             <input
                               type="color"
                               value={settings.gradientColor1}
@@ -1170,7 +1233,9 @@ export default function NotFoundPageEditor() {
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">Color 2</label>
+                            <label className="block text-sm font-medium text-gray-900 mb-2">
+                              Color 2
+                            </label>
                             <input
                               type="color"
                               value={settings.gradientColor2}
@@ -1180,7 +1245,9 @@ export default function NotFoundPageEditor() {
                           </div>
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Direction</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Direction
+                          </label>
                           <select
                             value={settings.gradientDirection}
                             onChange={(e) => updateSetting('gradientDirection', e.target.value)}
@@ -1198,7 +1265,9 @@ export default function NotFoundPageEditor() {
                     {settings.backgroundType === 'image' && (
                       <div className="space-y-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Image URL</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Image URL
+                          </label>
                           <input
                             type="text"
                             value={settings.backgroundImage}
@@ -1216,7 +1285,9 @@ export default function NotFoundPageEditor() {
                             min="0"
                             max="100"
                             value={settings.imageOverlayOpacity}
-                            onChange={(e) => updateSetting('imageOverlayOpacity', parseInt(e.target.value))}
+                            onChange={(e) =>
+                              updateSetting('imageOverlayOpacity', parseInt(e.target.value))
+                            }
                             className="w-full"
                           />
                         </div>
@@ -1225,7 +1296,9 @@ export default function NotFoundPageEditor() {
 
                     {settings.backgroundType === 'pattern' && (
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Pattern</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Pattern
+                        </label>
                         <select
                           value={settings.pattern}
                           onChange={(e) => updateSetting('pattern', e.target.value)}
@@ -1263,24 +1336,32 @@ export default function NotFoundPageEditor() {
                     {!settings.useBrandColors && (
                       <div className="space-y-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Primary Color</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Primary Color
+                          </label>
                           <div className="flex items-center space-x-2">
                             <input
                               type="color"
                               value={settings.primaryColorOverride}
-                              onChange={(e) => updateSetting('primaryColorOverride', e.target.value)}
+                              onChange={(e) =>
+                                updateSetting('primaryColorOverride', e.target.value)
+                              }
                               className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
                             />
                             <input
                               type="text"
                               value={settings.primaryColorOverride}
-                              onChange={(e) => updateSetting('primaryColorOverride', e.target.value)}
+                              onChange={(e) =>
+                                updateSetting('primaryColorOverride', e.target.value)
+                              }
                               className="flex-1 px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
                             />
                           </div>
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Accent Color</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Accent Color
+                          </label>
                           <div className="flex items-center space-x-2">
                             <input
                               type="color"
@@ -1308,7 +1389,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Content Alignment</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Content Alignment
+                      </label>
                       <div className="flex space-x-2">
                         {[
                           { value: 'left', icon: AlignLeft },
@@ -1346,7 +1429,9 @@ export default function NotFoundPageEditor() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium text-gray-900">Vertical Centering</label>
+                      <label className="text-sm font-medium text-gray-900">
+                        Vertical Centering
+                      </label>
                       <label className="relative inline-flex items-center cursor-pointer">
                         <input
                           type="checkbox"
@@ -1367,7 +1452,9 @@ export default function NotFoundPageEditor() {
                   </CardHeader>
                   <CardContent>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Page Load Animation</label>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Page Load Animation
+                      </label>
                       <select
                         value={settings.pageLoadAnimation}
                         onChange={(e) => updateSetting('pageLoadAnimation', e.target.value)}
@@ -1393,11 +1480,19 @@ export default function NotFoundPageEditor() {
               <div className="flex items-center justify-between mb-4">
                 <CardTitle className="text-lg">Live Preview</CardTitle>
                 <div className="flex items-center space-x-2">
-                  <Button size="sm" variant="ghost" onClick={() => setZoomLevel(Math.max(50, zoomLevel - 25) as ZoomLevel)}>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => setZoomLevel(Math.max(50, zoomLevel - 25) as ZoomLevel)}
+                  >
                     <ZoomOut className="w-4 h-4" />
                   </Button>
                   <span className="text-sm text-gray-600">{zoomLevel}%</span>
-                  <Button size="sm" variant="ghost" onClick={() => setZoomLevel(Math.min(100, zoomLevel + 25) as ZoomLevel)}>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => setZoomLevel(Math.min(100, zoomLevel + 25) as ZoomLevel)}
+                  >
                     <ZoomIn className="w-4 h-4" />
                   </Button>
                 </div>
@@ -1423,42 +1518,59 @@ export default function NotFoundPageEditor() {
               </div>
             </CardHeader>
             <CardContent>
-              <div 
+              <div
                 className="border-2 border-gray-300 rounded-lg overflow-hidden bg-gray-100"
                 style={{
                   transform: `scale(${getZoomScale()})`,
                   transformOrigin: 'top center',
-                  height: deviceType === 'mobile' ? '667px' : '500px'
+                  height: deviceType === 'mobile' ? '667px' : '500px',
                 }}
               >
-                <div 
+                <div
                   className="bg-white h-full overflow-auto"
                   style={{
                     width: getDeviceWidth(),
                     margin: '0 auto',
-                    background: settings.backgroundType === 'gradient' 
-                      ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
-                      : settings.solidColor
+                    background:
+                      settings.backgroundType === 'gradient'
+                        ? `linear-gradient(${settings.gradientDirection}, ${settings.gradientColor1}, ${settings.gradientColor2})`
+                        : settings.solidColor,
                   }}
                 >
-                  <div className={`h-full flex ${settings.verticalCentering ? 'items-center' : 'items-start pt-20'} justify-center p-8`}>
-                    <div style={{ maxWidth: `${settings.contentMaxWidth}px`, textAlign: settings.contentAlignment }}>
+                  <div
+                    className={`h-full flex ${settings.verticalCentering ? 'items-center' : 'items-start pt-20'} justify-center p-8`}
+                  >
+                    <div
+                      style={{
+                        maxWidth: `${settings.contentMaxWidth}px`,
+                        textAlign: settings.contentAlignment,
+                      }}
+                    >
                       {/* 404 Text */}
                       {settings.show404Text && (
-                        <div 
+                        <div
                           className="mb-4"
                           style={{
                             fontSize: `${settings.text404Size}px`,
                             fontWeight: 'bold',
-                            background: settings.text404Style === 'gradient' 
-                              ? 'linear-gradient(to right, #1E3A5F, #00B4D8)'
-                              : settings.text404Style === 'solid'
-                              ? settings.primaryColorOverride
-                              : 'transparent',
-                            WebkitBackgroundClip: settings.text404Style === 'gradient' ? 'text' : 'unset',
-                            WebkitTextFillColor: settings.text404Style === 'gradient' ? 'transparent' : 'inherit',
-                            color: settings.text404Style === 'outlined' ? 'transparent' : settings.primaryColorOverride,
-                            WebkitTextStroke: settings.text404Style === 'outlined' ? `2px ${settings.primaryColorOverride}` : 'none'
+                            background:
+                              settings.text404Style === 'gradient'
+                                ? 'linear-gradient(to right, #1E3A5F, #00B4D8)'
+                                : settings.text404Style === 'solid'
+                                  ? settings.primaryColorOverride
+                                  : 'transparent',
+                            WebkitBackgroundClip:
+                              settings.text404Style === 'gradient' ? 'text' : 'unset',
+                            WebkitTextFillColor:
+                              settings.text404Style === 'gradient' ? 'transparent' : 'inherit',
+                            color:
+                              settings.text404Style === 'outlined'
+                                ? 'transparent'
+                                : settings.primaryColorOverride,
+                            WebkitTextStroke:
+                              settings.text404Style === 'outlined'
+                                ? `2px ${settings.primaryColorOverride}`
+                                : 'none',
                           }}
                         >
                           404
@@ -1466,22 +1578,22 @@ export default function NotFoundPageEditor() {
                       )}
 
                       {/* Headline */}
-                      <h1 
+                      <h1
                         className="font-bold mb-4"
                         style={{
                           fontSize: `${settings.headlineSize}px`,
-                          color: settings.headlineColor
+                          color: settings.headlineColor,
                         }}
                       >
                         {settings.headline}
                       </h1>
 
                       {/* Subtext */}
-                      <p 
+                      <p
                         className="mb-6"
                         style={{
                           fontSize: `${settings.subtextSize}px`,
-                          color: settings.subtextColor
+                          color: settings.subtextColor,
                         }}
                       >
                         {settings.subtext}
@@ -1504,7 +1616,7 @@ export default function NotFoundPageEditor() {
                       {/* Buttons */}
                       <div className="flex flex-wrap gap-3 mb-6">
                         {settings.showPrimaryButton && (
-                          <button 
+                          <button
                             className="px-6 py-2 rounded-lg text-white text-sm font-medium"
                             style={{ background: settings.accentColorOverride }}
                           >
@@ -1512,11 +1624,11 @@ export default function NotFoundPageEditor() {
                           </button>
                         )}
                         {settings.showSecondaryButton && (
-                          <button 
+                          <button
                             className="px-6 py-2 rounded-lg text-sm font-medium border-2"
-                            style={{ 
+                            style={{
                               borderColor: settings.accentColorOverride,
-                              color: settings.accentColorOverride
+                              color: settings.accentColorOverride,
                             }}
                           >
                             {settings.secondaryButtonText}
@@ -1530,7 +1642,7 @@ export default function NotFoundPageEditor() {
                           <h3 className="font-semibold mb-3 text-sm">{settings.quickLinksTitle}</h3>
                           <div className="grid grid-cols-2 gap-2">
                             {settings.quickLinks.slice(0, settings.numberOfLinks).map((link) => (
-                              <a 
+                              <a
                                 key={link.id}
                                 href={link.url}
                                 className="text-sm hover:underline"
@@ -1548,7 +1660,9 @@ export default function NotFoundPageEditor() {
                         <div className="text-sm">
                           <p className="font-semibold mb-2">{settings.contactSectionTitle}</p>
                           {settings.showPhone && (
-                            <p className="mb-1" style={{ color: settings.linkColor }}>{settings.phoneNumber}</p>
+                            <p className="mb-1" style={{ color: settings.linkColor }}>
+                              {settings.phoneNumber}
+                            </p>
                           )}
                           {settings.showEmail && (
                             <p style={{ color: settings.linkColor }}>{settings.emailAddress}</p>

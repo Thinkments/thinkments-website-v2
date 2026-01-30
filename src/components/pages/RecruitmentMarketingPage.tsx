@@ -4,7 +4,7 @@ import { motion, useInView } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
+import {
   Phone,
   Star,
   ChevronRight,
@@ -22,7 +22,7 @@ import {
   HelpCircle,
   Share2,
   Lightbulb,
-  BarChart3
+  BarChart3,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -51,60 +51,72 @@ export default function RecruitmentMarketingPage() {
     {
       icon: Briefcase,
       title: 'Employer Brand Development',
-      description: 'Define and communicate what makes your company a great place to work. We develop employer value propositions that resonate with your ideal candidates—articulating culture, benefits, growth opportunities, and what sets you apart. Your employer brand is then consistently communicated across your careers page, job postings, social media, and all recruitment touchpoints.'
+      description:
+        'Define and communicate what makes your company a great place to work. We develop employer value propositions that resonate with your ideal candidates—articulating culture, benefits, growth opportunities, and what sets you apart. Your employer brand is then consistently communicated across your careers page, job postings, social media, and all recruitment touchpoints.',
     },
     {
       icon: FileText,
       title: 'Careers Page Optimization',
-      description: 'Transform your careers page from a job listing into a recruitment tool. We create compelling careers pages that showcase your culture, introduce your team, highlight benefits, and make applying easy. Optimized careers pages rank in search results for job-related keywords, attracting candidates actively searching for opportunities in your industry and location.'
+      description:
+        'Transform your careers page from a job listing into a recruitment tool. We create compelling careers pages that showcase your culture, introduce your team, highlight benefits, and make applying easy. Optimized careers pages rank in search results for job-related keywords, attracting candidates actively searching for opportunities in your industry and location.',
     },
     {
       icon: Target,
       title: 'Job Posting Optimization',
-      description: 'Write job postings that attract qualified candidates and rank in job search results. We optimize titles, descriptions, and requirements for both human readers and search algorithms. Our job postings clearly communicate opportunities while filtering for candidates who are genuinely good fits.'
+      description:
+        'Write job postings that attract qualified candidates and rank in job search results. We optimize titles, descriptions, and requirements for both human readers and search algorithms. Our job postings clearly communicate opportunities while filtering for candidates who are genuinely good fits.',
     },
     {
       icon: Share2,
       title: 'Social Media Recruiting',
-      description: 'Reach candidates where they spend time—on social media. We develop recruitment-focused social content showcasing your culture, team, and opportunities. Targeted advertising reaches passive candidates based on skills, experience, industry, and location. LinkedIn strategies connect with professionals in your target talent pool.'
+      description:
+        'Reach candidates where they spend time—on social media. We develop recruitment-focused social content showcasing your culture, team, and opportunities. Targeted advertising reaches passive candidates based on skills, experience, industry, and location. LinkedIn strategies connect with professionals in your target talent pool.',
     },
     {
       icon: Users,
       title: 'Employee Advocacy Programs',
-      description: 'Turn your employees into recruitment ambassadors. We help you develop employee advocacy programs that encourage team members to share opportunities and company content with their networks. Employee referrals typically result in faster hires, better cultural fit, and longer retention.'
+      description:
+        'Turn your employees into recruitment ambassadors. We help you develop employee advocacy programs that encourage team members to share opportunities and company content with their networks. Employee referrals typically result in faster hires, better cultural fit, and longer retention.',
     },
     {
       icon: Shield,
       title: 'Reputation Management for Employers',
-      description: 'Build and protect your employer reputation on review sites. We help you encourage reviews from current employees on Glassdoor, Indeed, and other platforms. We develop response strategies for negative reviews and address legitimate concerns that could hurt recruiting efforts.'
-    }
+      description:
+        'Build and protect your employer reputation on review sites. We help you encourage reviews from current employees on Glassdoor, Indeed, and other platforms. We develop response strategies for negative reviews and address legitimate concerns that could hurt recruiting efforts.',
+    },
   ];
 
   const faqs = [
     {
       question: 'How is recruitment marketing different from traditional recruiting?',
-      answer: 'Traditional recruiting is reactive—posting jobs and waiting for applications. Recruitment marketing is proactive—building awareness and interest before positions open so you have a pipeline of interested candidates ready to engage.'
+      answer:
+        'Traditional recruiting is reactive—posting jobs and waiting for applications. Recruitment marketing is proactive—building awareness and interest before positions open so you have a pipeline of interested candidates ready to engage.',
     },
     {
       question: 'How long does it take to see results?',
-      answer: 'Some tactics like job posting optimization show immediate impact. Employer brand building is longer-term, typically showing meaningful results in 3-6 months as content accumulates and reputation improves.'
+      answer:
+        'Some tactics like job posting optimization show immediate impact. Employer brand building is longer-term, typically showing meaningful results in 3-6 months as content accumulates and reputation improves.',
     },
     {
       question: 'Do you replace our HR team or recruiters?',
-      answer: 'No. We complement your internal team by handling marketing aspects of recruitment—employer branding, content creation, advertising, and optimization. Your team continues to manage the hiring process itself.'
+      answer:
+        'No. We complement your internal team by handling marketing aspects of recruitment—employer branding, content creation, advertising, and optimization. Your team continues to manage the hiring process itself.',
     },
     {
       question: 'Can you help with specific hard-to-fill positions?',
-      answer: 'Yes. We develop targeted campaigns for specific roles, reaching passive candidates with the skills and experience you need through precise targeting on LinkedIn and other platforms.'
+      answer:
+        'Yes. We develop targeted campaigns for specific roles, reaching passive candidates with the skills and experience you need through precise targeting on LinkedIn and other platforms.',
     },
     {
       question: 'How do you measure success?',
-      answer: 'We track application volume, applicant quality, source attribution, time-to-fill, and cost-per-hire. We focus on metrics that matter for hiring outcomes, not vanity metrics.'
+      answer:
+        'We track application volume, applicant quality, source attribution, time-to-fill, and cost-per-hire. We focus on metrics that matter for hiring outcomes, not vanity metrics.',
     },
     {
       question: 'What if we have a bad reputation on Glassdoor?',
-      answer: 'We develop employer reputation recovery strategies including encouraging reviews from satisfied employees, responding professionally to criticism, and addressing legitimate concerns that could be improved.'
-    }
+      answer:
+        'We develop employer reputation recovery strategies including encouraging reviews from satisfied employees, responding professionally to criticism, and addressing legitimate concerns that could be improved.',
+    },
   ];
 
   return (
@@ -117,17 +129,18 @@ export default function RecruitmentMarketingPage() {
       />
 
       {/* Hero */}
-      <section 
+      <section
         ref={heroRef}
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1080&fit=crop)',
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1080&fit=crop)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 via-[#1E3A5F]/85 to-[#1E3A5F]/75"></div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -147,7 +160,10 @@ export default function RecruitmentMarketingPage() {
                 TALENT ACQUISITION EXPERTS SINCE 2002
               </Badge>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl text-white mb-6"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Recruitment Marketing That Attracts Top Talent
               </h1>
 
@@ -160,7 +176,7 @@ export default function RecruitmentMarketingPage() {
                   { stat: '73%', label: 'Passive Job Seekers' },
                   { stat: '31', label: 'States Served' },
                   { stat: '20+', label: 'Years Experience' },
-                  { stat: '50%', label: 'More Applicants' }
+                  { stat: '50%', label: 'More Applicants' },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -169,12 +185,8 @@ export default function RecruitmentMarketingPage() {
                     transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-3xl md:text-4xl text-[#00B4D8] mb-2">
-                      {item.stat}
-                    </div>
-                    <div className="text-white/80 text-sm">
-                      {item.label}
-                    </div>
+                    <div className="text-3xl md:text-4xl text-[#00B4D8] mb-2">{item.stat}</div>
+                    <div className="text-white/80 text-sm">{item.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -185,15 +197,15 @@ export default function RecruitmentMarketingPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white px-8"
                 >
                   <Link to="/free-consultation">Start Attracting Talent</Link>
                 </Button>
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] px-8"
                 >
@@ -219,7 +231,17 @@ export default function RecruitmentMarketingPage() {
           >
             <div className="bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white rounded-lg shadow-lg p-8 md:p-10">
               <p className="text-lg md:text-xl leading-relaxed">
-                Finding and attracting top talent is one of the biggest challenges businesses face today. <strong>Recruitment marketing applies the same strategies that attract customers to attract candidates—building your employer brand, reaching passive job seekers, and creating compelling reasons for talented people to choose your company.</strong> ThinkMents has been helping businesses with recruitment marketing since 2002, understanding that great employees are the foundation of great companies. With over 20 years of experience in digital marketing across 31 states, we bring proven strategies to help you build a talent pipeline that supports your growth.
+                Finding and attracting top talent is one of the biggest challenges businesses face
+                today.{' '}
+                <strong>
+                  Recruitment marketing applies the same strategies that attract customers to
+                  attract candidates—building your employer brand, reaching passive job seekers, and
+                  creating compelling reasons for talented people to choose your company.
+                </strong>{' '}
+                ThinkMents has been helping businesses with recruitment marketing since 2002,
+                understanding that great employees are the foundation of great companies. With over
+                20 years of experience in digital marketing across 31 states, we bring proven
+                strategies to help you build a talent pipeline that supports your growth.
               </p>
             </div>
           </motion.div>
@@ -237,7 +259,10 @@ export default function RecruitmentMarketingPage() {
           >
             <div className="text-center mb-12">
               <TrendingUp className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-5xl text-[#1E3A5F] mb-4"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 The Talent Acquisition Challenge
               </h2>
               <p className="text-xl text-gray-600">
@@ -247,12 +272,21 @@ export default function RecruitmentMarketingPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {[
-                { stat: '73%', label: 'of candidates are passive job seekers who aren\'t actively looking' },
-                { stat: '75%', label: 'of job seekers research company reputation before applying' },
+                {
+                  stat: '73%',
+                  label: "of candidates are passive job seekers who aren't actively looking",
+                },
+                {
+                  stat: '75%',
+                  label: 'of job seekers research company reputation before applying',
+                },
                 { stat: '50%', label: 'more qualified applicants with strong employer brands' },
-                { stat: '69%', label: 'would reject an offer from a company with a bad reputation' },
+                {
+                  stat: '69%',
+                  label: 'would reject an offer from a company with a bad reputation',
+                },
                 { stat: '30%', label: 'of first-year salary is the average cost of a bad hire' },
-                { stat: '62%', label: 'increase in time-to-fill over the past decade' }
+                { stat: '62%', label: 'increase in time-to-fill over the past decade' },
               ].map((stat, idx) => (
                 <Card key={idx} className="border-t-4 border-t-[#00B4D8] text-center">
                   <CardContent className="p-6">
@@ -265,10 +299,18 @@ export default function RecruitmentMarketingPage() {
 
             <div className="bg-white rounded-lg shadow-lg p-8">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                <strong>Posting jobs and waiting for applications doesn't reach the best candidates—they're already employed and not browsing job boards.</strong> Recruitment marketing reaches passive candidates by building awareness, interest, and desire before positions even open.
+                <strong>
+                  Posting jobs and waiting for applications doesn't reach the best
+                  candidates—they're already employed and not browsing job boards.
+                </strong>{' '}
+                Recruitment marketing reaches passive candidates by building awareness, interest,
+                and desire before positions even open.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Your employer brand is how potential employees perceive your company as a place to work. A strong employer brand attracts better candidates, reduces recruiting costs, and improves retention. Every touchpoint matters—your website, social media, reviews on Glassdoor and Indeed, and how current employees talk about working for you.
+                Your employer brand is how potential employees perceive your company as a place to
+                work. A strong employer brand attracts better candidates, reduces recruiting costs,
+                and improves retention. Every touchpoint matters—your website, social media, reviews
+                on Glassdoor and Indeed, and how current employees talk about working for you.
               </p>
             </div>
           </motion.div>
@@ -284,7 +326,10 @@ export default function RecruitmentMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Comprehensive Recruitment Services
             </h2>
           </motion.div>
@@ -303,13 +348,14 @@ export default function RecruitmentMarketingPage() {
                       <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-lg flex items-center justify-center">
                         <service.icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <h3
+                        className="text-xl text-[#1E3A5F]"
+                        style={{ fontFamily: 'Playfair Display, serif' }}
+                      >
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">
-                      {service.description}
-                    </p>
+                    <p className="text-gray-700 leading-relaxed">{service.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -319,7 +365,10 @@ export default function RecruitmentMarketingPage() {
       </section>
 
       {/* Process */}
-      <section ref={processRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white">
+      <section
+        ref={processRef}
+        className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -329,7 +378,10 @@ export default function RecruitmentMarketingPage() {
           >
             <div className="text-center mb-12">
               <BarChart3 className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-5xl mb-4"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 How We Build Your Recruitment Marketing Strategy
               </h2>
             </div>
@@ -338,20 +390,40 @@ export default function RecruitmentMarketingPage() {
               {[
                 {
                   title: 'Discovery & Assessment',
-                  items: ['Understand your hiring needs and challenges', 'Audit current employer brand presence', 'Analyze competitor employer positioning', 'Review current recruitment metrics']
+                  items: [
+                    'Understand your hiring needs and challenges',
+                    'Audit current employer brand presence',
+                    'Analyze competitor employer positioning',
+                    'Review current recruitment metrics',
+                  ],
                 },
                 {
                   title: 'Strategy Development',
-                  items: ['Define employer value proposition', 'Identify target candidate personas', 'Select priority channels and tactics', 'Create content and campaign plans']
+                  items: [
+                    'Define employer value proposition',
+                    'Identify target candidate personas',
+                    'Select priority channels and tactics',
+                    'Create content and campaign plans',
+                  ],
                 },
                 {
                   title: 'Implementation',
-                  items: ['Optimize careers page and job postings', 'Create recruitment content', 'Launch social media recruiting campaigns', 'Set up tracking and attribution']
+                  items: [
+                    'Optimize careers page and job postings',
+                    'Create recruitment content',
+                    'Launch social media recruiting campaigns',
+                    'Set up tracking and attribution',
+                  ],
                 },
                 {
                   title: 'Ongoing Optimization',
-                  items: ['Monitor application quality and volume', 'Refine targeting and messaging', 'Generate employer reviews', 'Adjust strategy based on hiring results']
-                }
+                  items: [
+                    'Monitor application quality and volume',
+                    'Refine targeting and messaging',
+                    'Generate employer reviews',
+                    'Adjust strategy based on hiring results',
+                  ],
+                },
               ].map((phase, idx) => (
                 <Card key={idx} className="bg-white/10 backdrop-blur-sm border-white/20">
                   <CardContent className="p-6">
@@ -371,7 +443,10 @@ export default function RecruitmentMarketingPage() {
 
             <div className="mt-8 bg-[#FF6B35] rounded-lg p-6">
               <p className="text-white text-lg text-center">
-                <strong>We measure recruitment marketing by quality of applicants and time-to-fill, not just application volume.</strong>
+                <strong>
+                  We measure recruitment marketing by quality of applicants and time-to-fill, not
+                  just application volume.
+                </strong>
               </p>
             </div>
           </motion.div>
@@ -389,20 +464,46 @@ export default function RecruitmentMarketingPage() {
           >
             <div className="text-center mb-12">
               <UserCheck className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-5xl text-[#1E3A5F] mb-4"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Recruitment Marketing For Every Hiring Need
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { title: 'High-Volume Hiring', description: 'Businesses hiring multiple positions benefit from scalable recruitment marketing that builds ongoing candidate pipelines.' },
-                { title: 'Specialized Roles', description: 'Hard-to-fill technical or specialized positions require targeted outreach to passive candidates with specific skills.' },
-                { title: 'Competitive Markets', description: 'Companies in tight labor markets need strong employer brands to win candidates considering multiple offers.' },
-                { title: 'Growth-Stage Companies', description: 'Rapidly growing businesses need recruitment infrastructure that scales with their hiring needs.' },
-                { title: 'Employer Brand Repair', description: 'Organizations with reputation challenges need strategic efforts to rebuild their employer image.' }
+                {
+                  title: 'High-Volume Hiring',
+                  description:
+                    'Businesses hiring multiple positions benefit from scalable recruitment marketing that builds ongoing candidate pipelines.',
+                },
+                {
+                  title: 'Specialized Roles',
+                  description:
+                    'Hard-to-fill technical or specialized positions require targeted outreach to passive candidates with specific skills.',
+                },
+                {
+                  title: 'Competitive Markets',
+                  description:
+                    'Companies in tight labor markets need strong employer brands to win candidates considering multiple offers.',
+                },
+                {
+                  title: 'Growth-Stage Companies',
+                  description:
+                    'Rapidly growing businesses need recruitment infrastructure that scales with their hiring needs.',
+                },
+                {
+                  title: 'Employer Brand Repair',
+                  description:
+                    'Organizations with reputation challenges need strategic efforts to rebuild their employer image.',
+                },
               ].map((type, idx) => (
-                <Card key={idx} className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-[#00B4D8]">
+                <Card
+                  key={idx}
+                  className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-[#00B4D8]"
+                >
                   <CardContent className="p-6">
                     <h3 className="text-lg text-[#1E3A5F] mb-3">{type.title}</h3>
                     <p className="text-gray-700 leading-relaxed">{type.description}</p>
@@ -425,7 +526,10 @@ export default function RecruitmentMarketingPage() {
           >
             <div className="text-center mb-12">
               <Lightbulb className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-5xl text-[#1E3A5F] mb-4"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Content That Attracts Talent
               </h2>
             </div>
@@ -444,7 +548,7 @@ export default function RecruitmentMarketingPage() {
                   'Company mission and values content',
                   'Team event and celebration coverage',
                   'Industry expertise and thought leadership',
-                  'Community involvement and social responsibility'
+                  'Community involvement and social responsibility',
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" />
@@ -453,7 +557,8 @@ export default function RecruitmentMarketingPage() {
                 ))}
               </div>
               <p className="text-lg text-gray-700 mt-6">
-                This content builds your employer brand across your website, social media, email, and advertising—creating multiple touchpoints that influence candidate perception.
+                This content builds your employer brand across your website, social media, email,
+                and advertising—creating multiple touchpoints that influence candidate perception.
               </p>
             </div>
           </motion.div>
@@ -471,7 +576,10 @@ export default function RecruitmentMarketingPage() {
           >
             <div className="text-center mb-12">
               <HelpCircle className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-5xl text-[#1E3A5F] mb-4"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Frequently Asked Questions
               </h2>
             </div>
@@ -497,19 +605,34 @@ export default function RecruitmentMarketingPage() {
             <div className="mt-8 text-center">
               <p className="text-gray-600 mb-4">Explore related services:</p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/social-media" className="text-[#00B4D8] hover:underline flex items-center gap-1">
+                <Link
+                  to="/social-media"
+                  className="text-[#00B4D8] hover:underline flex items-center gap-1"
+                >
                   Social Media <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/content-marketing" className="text-[#00B4D8] hover:underline flex items-center gap-1">
+                <Link
+                  to="/content-marketing"
+                  className="text-[#00B4D8] hover:underline flex items-center gap-1"
+                >
                   Content Marketing <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/reputation-management" className="text-[#00B4D8] hover:underline flex items-center gap-1">
+                <Link
+                  to="/reputation-management"
+                  className="text-[#00B4D8] hover:underline flex items-center gap-1"
+                >
                   Reputation Management <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/business-solutions" className="text-[#00B4D8] hover:underline flex items-center gap-1">
+                <Link
+                  to="/business-solutions"
+                  className="text-[#00B4D8] hover:underline flex items-center gap-1"
+                >
                   Business Solutions <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/services" className="text-[#00B4D8] hover:underline flex items-center gap-1">
+                <Link
+                  to="/services"
+                  className="text-[#00B4D8] hover:underline flex items-center gap-1"
+                >
                   All Services <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -519,7 +642,10 @@ export default function RecruitmentMarketingPage() {
       </section>
 
       {/* CTA */}
-      <section ref={ctaRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -527,16 +653,20 @@ export default function RecruitmentMarketingPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl mb-6"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Ready to Attract Top Talent?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Let's build a recruitment marketing strategy that brings the best candidates to your door.
+              Let's build a recruitment marketing strategy that brings the best candidates to your
+              door.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 size="lg"
                 className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white px-8"
               >
@@ -545,7 +675,7 @@ export default function RecruitmentMarketingPage() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <a 
+              <a
                 href="tel:9403151023"
                 className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
               >

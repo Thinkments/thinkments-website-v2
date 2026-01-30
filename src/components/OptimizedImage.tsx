@@ -21,15 +21,15 @@ export function OptimizedImage({
   loading = 'lazy',
   priority = false,
   onLoad,
-  onError
+  onError,
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
-  
+
   // Determine if we should use lazy loading
   const shouldLazyLoad = !priority && loading === 'lazy';
-  
+
   // Generate WebP source if original is not already WebP
   const getWebPSource = (originalSrc: string) => {
     if (originalSrc.endsWith('.webp') || originalSrc.includes('unsplash')) {
@@ -39,23 +39,23 @@ export function OptimizedImage({
     // For now, return null as we're using external images
     return null;
   };
-  
+
   const webpSrc = getWebPSource(src);
-  
+
   const handleLoad = () => {
     setIsLoaded(true);
     onLoad?.();
   };
-  
+
   const handleError = () => {
     setHasError(true);
     onError?.();
   };
-  
+
   // Intersection Observer for lazy loading
   useEffect(() => {
     if (!shouldLazyLoad || !imgRef.current) return;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -71,24 +71,24 @@ export function OptimizedImage({
         });
       },
       {
-        rootMargin: '50px'
-      }
+        rootMargin: '50px',
+      },
     );
-    
+
     if (imgRef.current) {
       observer.observe(imgRef.current);
     }
-    
+
     return () => {
       if (imgRef.current) {
         observer.unobserve(imgRef.current);
       }
     };
   }, [shouldLazyLoad]);
-  
+
   if (hasError) {
     return (
-      <div 
+      <div
         className={`bg-muted flex items-center justify-center ${className}`}
         style={{ width, height }}
       >
@@ -96,12 +96,10 @@ export function OptimizedImage({
       </div>
     );
   }
-  
+
   return (
     <picture>
-      {webpSrc && (
-        <source srcSet={webpSrc} type="image/webp" />
-      )}
+      {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
       <img
         ref={imgRef}
         src={shouldLazyLoad ? undefined : src}

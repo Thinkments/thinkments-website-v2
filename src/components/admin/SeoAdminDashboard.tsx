@@ -136,7 +136,7 @@ Sitemap: https://thinkments.com/sitemap.xml`;
     // Load default content or from localStorage
     const savedRobots = localStorage.getItem('robotsContent');
     const savedSchema = localStorage.getItem('businessSchema');
-    
+
     setRobotsContent(savedRobots || defaultRobotsContent);
     setBusinessSchema(savedSchema || defaultBusinessSchema);
   };
@@ -148,7 +148,9 @@ Sitemap: https://thinkments.com/sitemap.xml`;
   };
 
   const downloadFile = (content: string, filename: string) => {
-    const blob = new Blob([content], { type: filename.endsWith('.json') ? 'application/json' : 'text/plain' });
+    const blob = new Blob([content], {
+      type: filename.endsWith('.json') ? 'application/json' : 'text/plain',
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -181,13 +183,11 @@ Sitemap: https://thinkments.com/sitemap.xml`;
           <div>
             <h1 className="text-3xl mb-2">SEO Configuration Manager</h1>
             <p className="text-muted-foreground">
-              Manage your robots.txt and business schema configurations. Edit, export, and deploy your SEO files.
+              Manage your robots.txt and business schema configurations. Edit, export, and deploy
+              your SEO files.
             </p>
           </div>
-          <Button
-            onClick={saveToLocalStorage}
-            className="flex items-center"
-          >
+          <Button onClick={saveToLocalStorage} className="flex items-center">
             <Save className="w-4 h-4 mr-2" />
             Save Changes
           </Button>
@@ -199,7 +199,8 @@ Sitemap: https://thinkments.com/sitemap.xml`;
         <AlertTriangle className="h-4 w-4 text-blue-600" />
         <AlertDescription>
           <span className="text-blue-800">
-            <strong>Local Mode:</strong> Changes are saved to your browser. Download and deploy files manually to your website.
+            <strong>Local Mode:</strong> Changes are saved to your browser. Download and deploy
+            files manually to your website.
           </span>
         </AlertDescription>
       </Alert>
@@ -247,8 +248,13 @@ Sitemap: https://thinkments.com/sitemap.xml`;
                 placeholder="Enter your robots.txt content here..."
               />
               <div className="mt-4 text-sm text-muted-foreground">
-                <p><strong>Deploy to:</strong> https://thinkments.com/robots.txt</p>
-                <p>This file tells search engines which pages they can and cannot crawl on your website.</p>
+                <p>
+                  <strong>Deploy to:</strong> https://thinkments.com/robots.txt
+                </p>
+                <p>
+                  This file tells search engines which pages they can and cannot crawl on your
+                  website.
+                </p>
                 <p>Characters: {robotsContent.length}</p>
               </div>
             </CardContent>
@@ -288,16 +294,21 @@ Sitemap: https://thinkments.com/sitemap.xml`;
                 placeholder="Enter your business schema JSON-LD here..."
               />
               <div className="mt-4 text-sm text-muted-foreground">
-                <p>This structured data helps search engines understand your business information.</p>
+                <p>
+                  This structured data helps search engines understand your business information.
+                </p>
                 <p>Add this to your website&apos;s &lt;head&gt; section as a JSON-LD script tag.</p>
-                <p>Characters: {businessSchema.length} | Valid JSON: {(() => {
-                  try {
-                    JSON.parse(businessSchema);
-                    return '✅ Yes';
-                  } catch {
-                    return '❌ No';
-                  }
-                })()}</p>
+                <p>
+                  Characters: {businessSchema.length} | Valid JSON:{' '}
+                  {(() => {
+                    try {
+                      JSON.parse(businessSchema);
+                      return '✅ Yes';
+                    } catch {
+                      return '❌ No';
+                    }
+                  })()}
+                </p>
               </div>
             </CardContent>
           </Card>

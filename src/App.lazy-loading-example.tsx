@@ -27,15 +27,31 @@ const DigitalMarketingPage = lazy(() => import('./components/pages/DigitalMarket
 const VideographyPage = lazy(() => import('./components/pages/VideographyPage'));
 const StrategicSEOPage = lazy(() => import('./components/pages/StrategicSEOPage'));
 const AIOptimizationPage = lazy(() => import('./components/pages/AIOptimizationPage'));
-const DigitalMarketingAreasPage = lazy(() => import('./components/pages/DigitalMarketingAreasPage'));
+const DigitalMarketingAreasPage = lazy(
+  () => import('./components/pages/DigitalMarketingAreasPage'),
+);
 const LocationMarketingPage = lazy(() => import('./components/pages/LocationMarketingPage'));
-const LocationMarketingServicesPage = lazy(() => import('./components/pages/LocationMarketingServicesPage'));
-const GoogleBusinessProfileGrowthPage = lazy(() => import('./components/pages/GoogleBusinessProfileGrowthPage'));
-const GoogleBusinessProfileProfessionalPage = lazy(() => import('./components/pages/GoogleBusinessProfileProfessionalPage'));
-const GoogleBusinessProfileFoundationPage = lazy(() => import('./components/pages/GoogleBusinessProfileFoundationPage'));
-const GoogleBusinessProfileConciergePage = lazy(() => import('./components/pages/GoogleBusinessProfileConciergePage'));
-const GoogleBusinessProfileEinsteinium = lazy(() => import('./components/pages/GoogleBusinessProfileEinsteinium'));
-const GoogleBusinessProfileGrowthEnhancedPage = lazy(() => import('./components/pages/GoogleBusinessProfileGrowthEnhancedPage'));
+const LocationMarketingServicesPage = lazy(
+  () => import('./components/pages/LocationMarketingServicesPage'),
+);
+const GoogleBusinessProfileGrowthPage = lazy(
+  () => import('./components/pages/GoogleBusinessProfileGrowthPage'),
+);
+const GoogleBusinessProfileProfessionalPage = lazy(
+  () => import('./components/pages/GoogleBusinessProfileProfessionalPage'),
+);
+const GoogleBusinessProfileFoundationPage = lazy(
+  () => import('./components/pages/GoogleBusinessProfileFoundationPage'),
+);
+const GoogleBusinessProfileConciergePage = lazy(
+  () => import('./components/pages/GoogleBusinessProfileConciergePage'),
+);
+const GoogleBusinessProfileEinsteinium = lazy(
+  () => import('./components/pages/GoogleBusinessProfileEinsteinium'),
+);
+const GoogleBusinessProfileGrowthEnhancedPage = lazy(
+  () => import('./components/pages/GoogleBusinessProfileGrowthEnhancedPage'),
+);
 const CaseStudiesPage = lazy(() => import('./components/pages/CaseStudiesPage'));
 const BlogPage = lazy(() => import('./components/pages/BlogPage'));
 const BlogPostPage = lazy(() => import('./components/pages/BlogPostPage'));
@@ -45,7 +61,9 @@ const StorePage = lazy(() => import('./components/pages/StorePage'));
 const ProductPage = lazy(() => import('./components/pages/ProductPage'));
 const PrivacyPolicyPage = lazy(() => import('./components/pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./components/pages/TermsOfServicePage'));
-const DesignTransferAgreementPage = lazy(() => import('./components/pages/DesignTransferAgreementPage'));
+const DesignTransferAgreementPage = lazy(
+  () => import('./components/pages/DesignTransferAgreementPage'),
+);
 const SitemapPage = lazy(() => import('./components/pages/SitemapPage'));
 const SitemapXmlPage = lazy(() => import('./components/pages/SitemapXmlPage'));
 const SitemapRawXmlPage = lazy(() => import('./components/pages/SitemapRawXmlPage'));
@@ -77,7 +95,7 @@ function LoadingFallback() {
 // Layout component that conditionally renders Header and Footer
 function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  
+
   // Routes that should not have Header/Footer (raw XML/text routes)
   const noLayoutRoutes = ['/sitemap-xml', '/sitemap-raw', '/robots-txt', '/llm-txt'];
   const shouldHideLayout = noLayoutRoutes.includes(location.pathname);
@@ -89,9 +107,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden m-0 p-0">
       <Header />
-      <AnimatePresence mode="wait">
-        {children}
-      </AnimatePresence>
+      <AnimatePresence mode="wait">{children}</AnimatePresence>
       <Footer />
     </div>
   );
@@ -103,66 +119,85 @@ function AppRoutes() {
       <Routes>
         {/* Homepage - loaded immediately, no lazy loading */}
         <Route path="/" element={<HomePage />} />
-        
+
         {/* Redirect routes */}
         {REDIRECT_ROUTES.map(({ from, to }) => (
           <Route key={from} path={from} element={<Navigate to={to} replace />} />
         ))}
-        
+
         {/* About routes */}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/our-story" element={<OurStoryPage />} />
-        
+
         {/* Service routes */}
         <Route path="/services" element={<ServicesPage />} />
         {SERVICE_ROUTES.map(({ path, service }) => (
-          <Route key={path} path={`/services/${path}`} element={<ServiceDetailPage service={service} />} />
+          <Route
+            key={path}
+            path={`/services/${path}`}
+            element={<ServiceDetailPage service={service} />}
+          />
         ))}
-        
+
         {/* Main service pages */}
         <Route path="/web-design" element={<WebDesignPage />} />
         <Route path="/virtual-tours" element={<VirtualToursPage />} />
         <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
         <Route path="/videography" element={<VideographyPage />} />
-        
+
         {/* Specialized service pages */}
         <Route path="/strategic-seo" element={<StrategicSEOPage />} />
         <Route path="/artificial-intelligence-optimization" element={<AIOptimizationPage />} />
         <Route path="/digital-marketing-areas" element={<DigitalMarketingAreasPage />} />
         <Route path="/location-marketing" element={<LocationMarketingServicesPage />} />
-        <Route path="/Google-Business-Profile-Growth-Managed-Essentials" element={<GoogleBusinessProfileGrowthPage />} />
-        <Route path="/Google-Business-Profile-Professional-Complete-Management" element={<GoogleBusinessProfileProfessionalPage />} />
-        <Route path="/Google-Business-Profile-Foundation-Audit-&-Setup" element={<GoogleBusinessProfileFoundationPage />} />
-        <Route path="/Google-Business-Profile-Concierge-Ultimate-Visibility" element={<GoogleBusinessProfileEinsteinium />} />
-        <Route path="/Google-Business-Profile-Growth-Enhanced-Essentials" element={<GoogleBusinessProfileGrowthEnhancedPage />} />
-        
+        <Route
+          path="/Google-Business-Profile-Growth-Managed-Essentials"
+          element={<GoogleBusinessProfileGrowthPage />}
+        />
+        <Route
+          path="/Google-Business-Profile-Professional-Complete-Management"
+          element={<GoogleBusinessProfileProfessionalPage />}
+        />
+        <Route
+          path="/Google-Business-Profile-Foundation-Audit-&-Setup"
+          element={<GoogleBusinessProfileFoundationPage />}
+        />
+        <Route
+          path="/Google-Business-Profile-Concierge-Ultimate-Visibility"
+          element={<GoogleBusinessProfileEinsteinium />}
+        />
+        <Route
+          path="/Google-Business-Profile-Growth-Enhanced-Essentials"
+          element={<GoogleBusinessProfileGrowthEnhancedPage />}
+        />
+
         {/* Location-specific digital marketing pages */}
-        {LOCATION_ROUTES.map(location => (
-          <Route 
-            key={location} 
-            path={`/digital-marketing-${location}`} 
-            element={<LocationMarketingPage location={location} />} 
+        {LOCATION_ROUTES.map((location) => (
+          <Route
+            key={location}
+            path={`/digital-marketing-${location}`}
+            element={<LocationMarketingPage location={location} />}
           />
         ))}
-        
+
         {/* Store routes */}
         <Route path="/store" element={<StorePage />} />
         <Route path="/store/p/:productSlug" element={<ProductPage />} />
-        
+
         {/* Content routes */}
         <Route path="/case-studies" element={<CaseStudiesPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
-        
+
         {/* Contact routes */}
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/get-a-quote" element={<QuotePage />} />
-        
+
         {/* Legal pages */}
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="/design-transfer-agreement" element={<DesignTransferAgreementPage />} />
-        
+
         {/* SEO and Technical pages - extensionless URLs for Figma Make compatibility */}
         <Route path="/sitemap" element={<SitemapPage />} />
         <Route path="/sitemap-xml" element={<SitemapRawXmlPage />} />
@@ -170,10 +205,10 @@ function AppRoutes() {
         <Route path="/robots-txt" element={<RobotsTxtPlain />} />
         <Route path="/robots" element={<RobotsPage />} />
         <Route path="/llm-txt" element={<LlmPage />} />
-        
+
         {/* Admin */}
         <Route path="/admin" element={<AdminPage />} />
-        
+
         {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

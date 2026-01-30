@@ -7,7 +7,7 @@ function copyStaticFiles() {
   try {
     // Define paths
     const publicDir = path.join(__dirname, '..', 'public');
-    
+
     // Ensure public directory exists
     if (!fs.existsSync(publicDir)) {
       fs.mkdirSync(publicDir, { recursive: true });
@@ -21,16 +21,16 @@ function copyStaticFiles() {
       { name: 'llm.txt', required: false },
       { name: '.htaccess', required: false },
       { name: 'netlify.toml', required: false },
-      { name: 'vercel.json', required: false }
+      { name: 'vercel.json', required: false },
     ];
 
     console.log('\n🔍 Checking static files in public directory...\n');
 
     // Check each file
     let hasErrors = false;
-    staticFiles.forEach(file => {
+    staticFiles.forEach((file) => {
       const filePath = path.join(publicDir, file.name);
-      
+
       // Check if it's a file (not a directory)
       if (fs.existsSync(filePath)) {
         const stats = fs.statSync(filePath);
@@ -52,9 +52,9 @@ function copyStaticFiles() {
     const robotsPath = path.join(publicDir, 'robots.txt');
     if (fs.existsSync(robotsPath) && fs.statSync(robotsPath).isFile()) {
       const content = fs.readFileSync(robotsPath, 'utf-8');
-      const lines = content.split('\n').filter(line => line.trim()).length;
+      const lines = content.split('\n').filter((line) => line.trim()).length;
       console.log(`\n📄 robots.txt has ${lines} non-empty lines`);
-      
+
       // Validate robots.txt format
       if (!content.includes('User-agent:')) {
         console.error('❌ ERROR: robots.txt missing User-agent directive');

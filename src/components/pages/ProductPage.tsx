@@ -4,7 +4,15 @@ import { Link, useParams } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { ShoppingCart, ArrowLeft, Star, Truck, Shield, RotateCcw, Heart } from 'lucide-react@0.487.0';
+import {
+  ShoppingCart,
+  ArrowLeft,
+  Star,
+  Truck,
+  Shield,
+  RotateCcw,
+  Heart,
+} from 'lucide-react@0.487.0';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 
 export default function ProductPage() {
@@ -22,11 +30,12 @@ export default function ProductPage() {
       originalPrice: 29.99,
       rating: 5,
       reviews: 12,
-      description: 'A fun twist on digital marketing with our "If You Want It Done Right, Call Berry White!" t-shirt. Made from 100% cotton, this comfortable unisex tee is perfect for marketing professionals with a sense of humor.',
+      description:
+        'A fun twist on digital marketing with our "If You Want It Done Right, Call Berry White!" t-shirt. Made from 100% cotton, this comfortable unisex tee is perfect for marketing professionals with a sense of humor.',
       images: [
         'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop',
         'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600&h=600&fit=crop'
+        'https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600&h=600&fit=crop',
       ],
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       colors: ['Black', 'Black Heather', 'Asphalt'],
@@ -35,8 +44,8 @@ export default function ProductPage() {
         'Pre-shrunk for perfect fit',
         'Soft and comfortable',
         'Unisex sizing',
-        'Tear-away label'
-      ]
+        'Tear-away label',
+      ],
     },
     'unisex-t-shirt': {
       id: 2,
@@ -44,18 +53,12 @@ export default function ProductPage() {
       price: 22.99,
       rating: 5,
       reviews: 8,
-      description: 'Show your ThinkMents pride with our classic logo t-shirt. Featuring our signature logo on a premium quality unisex tee.',
-      images: [
-        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=600&fit=crop'
-      ],
+      description:
+        'Show your ThinkMents pride with our classic logo t-shirt. Featuring our signature logo on a premium quality unisex tee.',
+      images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=600&fit=crop'],
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       colors: ['Black', 'White', 'Navy'],
-      features: [
-        '100% cotton',
-        'Classic fit',
-        'Ribbed collar',
-        'Machine washable'
-      ]
+      features: ['100% cotton', 'Classic fit', 'Ribbed collar', 'Machine washable'],
     },
     'white-glossy-mug': {
       id: 3,
@@ -63,18 +66,12 @@ export default function ProductPage() {
       price: 15.99,
       rating: 4,
       reviews: 15,
-      description: 'Start your morning right with our premium ceramic mug featuring the ThinkMents logo. Perfect for coffee, tea, or any hot beverage.',
-      images: [
-        'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&h=600&fit=crop'
-      ],
+      description:
+        'Start your morning right with our premium ceramic mug featuring the ThinkMents logo. Perfect for coffee, tea, or any hot beverage.',
+      images: ['https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&h=600&fit=crop'],
       sizes: ['11 oz', '15 oz', '20 oz'],
       colors: ['White'],
-      features: [
-        'Ceramic construction',
-        'Dishwasher safe',
-        'Microwave safe',
-        'Glossy finish'
-      ]
+      features: ['Ceramic construction', 'Dishwasher safe', 'Microwave safe', 'Glossy finish'],
     },
     'five-panel-cap': {
       id: 4,
@@ -82,19 +79,18 @@ export default function ProductPage() {
       price: 18.99,
       rating: 5,
       reviews: 6,
-      description: 'Complete your look with our stylish five-panel cap featuring the embroidered ThinkMents logo.',
-      images: [
-        'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&h=600&fit=crop'
-      ],
+      description:
+        'Complete your look with our stylish five-panel cap featuring the embroidered ThinkMents logo.',
+      images: ['https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&h=600&fit=crop'],
       sizes: ['One Size'],
       colors: ['Black'],
       features: [
         'Five-panel construction',
         'Embroidered logo',
         'Adjustable strap',
-        'One size fits most'
-      ]
-    }
+        'One size fits most',
+      ],
+    },
   };
 
   const product = productSlug ? products[productSlug] : null;
@@ -110,7 +106,9 @@ export default function ProductPage() {
       >
         <div className="text-center">
           <h1 className="text-4xl mb-4">Product Not Found</h1>
-          <p className="text-muted-foreground mb-8">The product you're looking for doesn't exist.</p>
+          <p className="text-muted-foreground mb-8">
+            The product you're looking for doesn't exist.
+          </p>
           <Link to="/store">
             <Button className="bg-gradient-to-r from-primary to-accent">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -133,7 +131,9 @@ export default function ProductPage() {
       <section className="py-6 border-b">
         <div className="container mx-auto px-4">
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <Link to="/store" className="hover:text-primary transition-colors">Store</Link>
+            <Link to="/store" className="hover:text-primary transition-colors">
+              Store
+            </Link>
             <span>/</span>
             <span>{product.name}</span>
           </div>
@@ -157,7 +157,7 @@ export default function ProductPage() {
                   className="w-full h-96 object-cover rounded-lg"
                 />
               </div>
-              
+
               {product.images.length > 1 && (
                 <div className="flex space-x-2">
                   {product.images.map((image: string, index: number) => (
@@ -190,9 +190,7 @@ export default function ProductPage() {
                   <Star
                     key={i}
                     className={`w-5 h-5 ${
-                      i < product.rating
-                        ? 'fill-yellow-400 text-yellow-400'
-                        : 'text-gray-300'
+                      i < product.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
                     }`}
                   />
                 ))}
@@ -200,7 +198,7 @@ export default function ProductPage() {
               </div>
 
               <h1 className="text-3xl md:text-4xl mb-4">{product.name}</h1>
-              
+
               <div className="flex items-center space-x-4 mb-6">
                 <span className="text-3xl">${product.price}</span>
                 {product.originalPrice && (
@@ -215,9 +213,7 @@ export default function ProductPage() {
                 )}
               </div>
 
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {product.description}
-              </p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">{product.description}</p>
 
               {/* Options */}
               <div className="space-y-6 mb-8">

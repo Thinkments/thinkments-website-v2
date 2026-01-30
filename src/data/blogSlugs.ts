@@ -60,5 +60,5 @@ export const BLOG_SLUGS = [
   'graphic-design-services-from-thinkments-unlocking-your-businesss-visual-potential',
   'the-fundamentals-of-digital-marketing-grow-your-business-with-thinkments',
   'what-steps-can-you-take-to-elevate-your-digital-presence',
-  'thinkments-virtual-tours-and-your-restaurant'
+  'thinkments-virtual-tours-and-your-restaurant',
 ];

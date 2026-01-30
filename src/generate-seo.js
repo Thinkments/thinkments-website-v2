@@ -13,4 +13,6 @@ console.log('   3. Submit https://thinkments.com/sitemap.xml to Google Search Co
 console.log('   4. Add your Google Analytics ID to replace "GA_MEASUREMENT_ID"');
 console.log('   5. Test indexing status in Google Search Console');
 console.log('\n✨ All pages now have proper "index,follow" meta tags for SEO!');
-console.log('🔍 Fixed missing SEO components in AboutPage, ServiceDetailPage, and LocationMarketingPage');
+console.log(
+  '🔍 Fixed missing SEO components in AboutPage, ServiceDetailPage, and LocationMarketingPage',
+);

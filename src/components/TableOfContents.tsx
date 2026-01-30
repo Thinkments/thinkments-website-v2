@@ -22,15 +22,15 @@ export function TableOfContents({ content }: TableOfContentsProps) {
     const doc = parser.parseFromString(content, 'text/html');
     const h2Elements = doc.querySelectorAll('h2');
     const h3Elements = doc.querySelectorAll('h3');
-    
+
     const allHeadings: TOCItem[] = [];
-    
+
     h2Elements.forEach((h2, index) => {
       const text = h2.textContent || '';
       const id = `heading-h2-${index}`;
       allHeadings.push({ id, text, level: 2 });
     });
-    
+
     h3Elements.forEach((h3, index) => {
       const text = h3.textContent || '';
       const id = `heading-h3-${index}`;
@@ -48,7 +48,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
           }
         });
       },
-      { rootMargin: '-80px 0px -80% 0px' }
+      { rootMargin: '-80px 0px -80% 0px' },
     );
 
     // Observe all headings
@@ -82,7 +82,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
         <List className="w-5 h-5 text-primary" />
         <h3 className="text-lg font-semibold">Table of Contents</h3>
       </div>
-      
+
       <nav className="space-y-2">
         {headings.map((heading, index) => (
           <motion.button
@@ -95,16 +95,19 @@ export function TableOfContents({ content }: TableOfContentsProps) {
               w-full text-left text-sm py-2 px-3 rounded-lg transition-all
               flex items-start gap-2 group
               ${heading.level === 3 ? 'pl-6' : ''}
-              ${activeId === heading.id 
-                ? 'bg-primary/10 text-primary font-medium' 
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+              ${
+                activeId === heading.id
+                  ? 'bg-primary/10 text-primary font-medium'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
               }
             `}
           >
-            <ChevronRight className={`
+            <ChevronRight
+              className={`
               w-4 h-4 flex-shrink-0 mt-0.5 transition-transform
               ${activeId === heading.id ? 'text-primary' : 'text-muted-foreground group-hover:translate-x-1'}
-            `} />
+            `}
+            />
             <span className="flex-1 leading-snug">{heading.text}</span>
           </motion.button>
         ))}

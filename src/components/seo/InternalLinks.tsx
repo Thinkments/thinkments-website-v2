@@ -25,14 +25,14 @@ interface InternalLinksProps {
  */
 export const InternalLinks: React.FC<InternalLinksProps> = ({
   links,
-  title = "Related Services & Resources",
-  description = "Explore more of our digital marketing services and resources",
-  columns = 3
+  title = 'Related Services & Resources',
+  description = 'Explore more of our digital marketing services and resources',
+  columns = 3,
 }) => {
   const gridCols = {
     2: 'md:grid-cols-2',
     3: 'md:grid-cols-3',
-    4: 'md:grid-cols-4'
+    4: 'md:grid-cols-4',
   };
 
   return (
@@ -46,9 +46,7 @@ export const InternalLinks: React.FC<InternalLinksProps> = ({
         >
           <h2 className="mb-4">{title}</h2>
           {description && (
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              {description}
-            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{description}</p>
           )}
         </motion.div>
 
@@ -73,9 +71,7 @@ export const InternalLinks: React.FC<InternalLinksProps> = ({
                       {link.title}
                       <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all" />
                     </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {link.description}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{link.description}</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -96,12 +92,12 @@ interface QuickLinksProps {
   title?: string;
 }
 
-export const QuickLinks: React.FC<QuickLinksProps> = ({ links, title = "Quick Links" }) => {
+export const QuickLinks: React.FC<QuickLinksProps> = ({ links, title = 'Quick Links' }) => {
   return (
     <div className="space-y-3">
       <h4 className="text-sm uppercase tracking-wider">{title}</h4>
       <ul className="space-y-2">
-        {links.map(link => (
+        {links.map((link) => (
           <li key={link.href}>
             <Link
               to={link.href}
@@ -149,9 +145,7 @@ export const CTALinks: React.FC<CTALinksProps> = ({ primaryCTA, secondaryCTA }) 
             <Card className="h-full bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/20">
               <CardContent className="p-8">
                 <h3 className="mb-3">{primaryCTA.title}</h3>
-                <p className="text-muted-foreground mb-6">
-                  {primaryCTA.description}
-                </p>
+                <p className="text-muted-foreground mb-6">{primaryCTA.description}</p>
                 <Link
                   to={primaryCTA.href}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
@@ -172,9 +166,7 @@ export const CTALinks: React.FC<CTALinksProps> = ({ primaryCTA, secondaryCTA }) 
               <Card className="h-full bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border-accent/20">
                 <CardContent className="p-8">
                   <h3 className="mb-3">{secondaryCTA.title}</h3>
-                  <p className="text-muted-foreground mb-6">
-                    {secondaryCTA.description}
-                  </p>
+                  <p className="text-muted-foreground mb-6">{secondaryCTA.description}</p>
                   <Link
                     to={secondaryCTA.href}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"

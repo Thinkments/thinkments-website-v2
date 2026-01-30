@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Phone, MapPin, Award, Users, TrendingUp, CheckCircle, ChevronDown, Star } from 'lucide-react';
+import {
+  Phone,
+  MapPin,
+  Award,
+  Users,
+  TrendingUp,
+  CheckCircle,
+  ChevronDown,
+  Star,
+} from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Helmet } from 'react-helmet-async';
 
@@ -12,105 +21,119 @@ export default function DentonPage() {
     {
       title: 'SEO for Denton Businesses',
       description: 'Boost your rankings in Denton local searches and connect with more customers.',
-      link: '/marketing-seo'
+      link: '/marketing-seo',
     },
     {
       title: 'Web Design & Development',
-      description: 'Modern, mobile-friendly websites that capture Denton\'s creative and innovative spirit.',
-      link: '/web-development'
+      description:
+        "Modern, mobile-friendly websites that capture Denton's creative and innovative spirit.",
+      link: '/web-development',
     },
     {
       title: 'Google Business Management',
-      description: 'Optimize your local listings to appear when Denton customers search for your services.',
-      link: '/google-business-profile'
+      description:
+        'Optimize your local listings to appear when Denton customers search for your services.',
+      link: '/google-business-profile',
     },
     {
       title: 'PPC Advertising',
       description: 'Reach Denton audiences at the perfect moment with targeted paid advertising.',
-      link: '/paid-advertising'
+      link: '/paid-advertising',
     },
     {
       title: 'Social Media Strategy',
-      description: 'Build connections with Denton\'s engaged online community across all platforms.',
-      link: '/social-media'
+      description: "Build connections with Denton's engaged online community across all platforms.",
+      link: '/social-media',
     },
     {
       title: 'Content Marketing',
-      description: 'Create valuable content that resonates with Denton residents and business clients.',
-      link: '/content-marketing'
-    }
+      description:
+        'Create valuable content that resonates with Denton residents and business clients.',
+      link: '/content-marketing',
+    },
   ];
 
   const whyChoose = [
     {
-      title: 'Understanding Denton\'s Market',
-      description: 'Denton\'s unique blend of university culture, local businesses, and growing tech scene requires specialized marketing approaches we\'ve perfected over 15+ years.'
+      title: "Understanding Denton's Market",
+      description:
+        "Denton's unique blend of university culture, local businesses, and growing tech scene requires specialized marketing approaches we've perfected over 15+ years.",
     },
     {
       title: 'Regional Connection',
-      description: 'Based in nearby Wise County, we understand North Texas communities like Denton and provide responsive, personalized service that larger agencies can\'t match.'
+      description:
+        "Based in nearby Wise County, we understand North Texas communities like Denton and provide responsive, personalized service that larger agencies can't match.",
     },
     {
       title: 'Decades of Proven Results',
-      description: 'Since 2002, we\'ve helped Denton-area businesses grow through data-driven strategies and creative solutions that generate real ROI.'
+      description:
+        "Since 2002, we've helped Denton-area businesses grow through data-driven strategies and creative solutions that generate real ROI.",
     },
     {
       title: 'Exceptional Client Service',
-      description: 'Our 5.0 Google rating and 103+ reviews reflect our commitment to transparency, communication, and delivering outstanding results for every client.'
-    }
+      description:
+        'Our 5.0 Google rating and 103+ reviews reflect our commitment to transparency, communication, and delivering outstanding results for every client.',
+    },
   ];
 
   const faqs = [
     {
       question: 'What digital marketing services do you offer in Denton?',
-      answer: 'We offer Denton businesses a full suite of digital marketing services: local SEO to improve search visibility, custom web design and development, Google Business Profile optimization, strategic PPC campaigns, social media management, content marketing, video production, and comprehensive analytics. We tailor each service to align with Denton\'s unique market characteristics and your specific business goals.'
+      answer:
+        "We offer Denton businesses a full suite of digital marketing services: local SEO to improve search visibility, custom web design and development, Google Business Profile optimization, strategic PPC campaigns, social media management, content marketing, video production, and comprehensive analytics. We tailor each service to align with Denton's unique market characteristics and your specific business goals.",
     },
     {
       question: 'How much does SEO cost for Denton businesses?',
-      answer: 'SEO pricing for Denton businesses typically ranges from $1,500 to $4,500 monthly, based on your industry competitiveness, target geographic area, and objectives. Denton offers great opportunities for local businesses, and we design affordable strategies that deliver results. We\'ll provide transparent pricing during your complimentary consultation based on your specific situation.'
+      answer:
+        "SEO pricing for Denton businesses typically ranges from $1,500 to $4,500 monthly, based on your industry competitiveness, target geographic area, and objectives. Denton offers great opportunities for local businesses, and we design affordable strategies that deliver results. We'll provide transparent pricing during your complimentary consultation based on your specific situation.",
     },
     {
       question: 'Do you work with small businesses in Denton?',
-      answer: 'Definitely! We love working with Denton small businesses - from shops around the Square to service providers throughout Denton County. We recognize that small businesses operate with tight budgets and need marketing that pays for itself. Our strategies are designed to be cost-effective while delivering measurable growth for Denton\'s entrepreneurial community.'
+      answer:
+        "Definitely! We love working with Denton small businesses - from shops around the Square to service providers throughout Denton County. We recognize that small businesses operate with tight budgets and need marketing that pays for itself. Our strategies are designed to be cost-effective while delivering measurable growth for Denton's entrepreneurial community.",
     },
     {
       question: 'How long does it take to see digital marketing results?',
-      answer: 'Results timing depends on the service. PPC advertising can bring Denton leads within days of launch. SEO typically shows meaningful progress in 3-6 months as we improve your Denton search rankings. Social media and content marketing build momentum over 2-4 months. We establish clear expectations upfront and deliver detailed monthly reports showing your measurable progress.'
+      answer:
+        'Results timing depends on the service. PPC advertising can bring Denton leads within days of launch. SEO typically shows meaningful progress in 3-6 months as we improve your Denton search rankings. Social media and content marketing build momentum over 2-4 months. We establish clear expectations upfront and deliver detailed monthly reports showing your measurable progress.',
     },
     {
       question: 'Do you offer free consultations for Denton businesses?',
-      answer: 'Yes, we provide free consultations to all Denton businesses! We\'ll review your current digital presence, discuss your growth goals, analyze Denton market competition, and recommend proven strategies tailored to your needs. There\'s zero obligation - just honest advice from experienced professionals who want to see Denton businesses succeed.'
+      answer:
+        "Yes, we provide free consultations to all Denton businesses! We'll review your current digital presence, discuss your growth goals, analyze Denton market competition, and recommend proven strategies tailored to your needs. There's zero obligation - just honest advice from experienced professionals who want to see Denton businesses succeed.",
     },
     {
       question: 'What industries do you serve in Denton?',
-      answer: 'We serve Denton businesses across all sectors: restaurants and entertainment venues, professional services, retail and boutique shops, healthcare practices, real estate agencies, home services and contractors, technology companies, education-related businesses, and more. Denton\'s diverse economy provides unique opportunities, and we create industry-specific strategies that work for your target market.'
-    }
+      answer:
+        "We serve Denton businesses across all sectors: restaurants and entertainment venues, professional services, retail and boutique shops, healthcare practices, real estate agencies, home services and contractors, technology companies, education-related businesses, and more. Denton's diverse economy provides unique opportunities, and we create industry-specific strategies that work for your target market.",
+    },
   ];
 
   const localStats = [
     { number: '15+', label: 'Years in Denton Area' },
     { number: '35+', label: 'Denton Clients' },
     { number: '275%', label: 'Avg. Visibility Increase' },
-    { number: '5.0', label: 'Google Rating' }
+    { number: '5.0', label: 'Google Rating' },
   ];
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'ThinkMents - Digital Marketing Agency',
-    description: 'Digital marketing agency serving Denton, TX with SEO, web design, and comprehensive marketing solutions.',
+    description:
+      'Digital marketing agency serving Denton, TX with SEO, web design, and comprehensive marketing solutions.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '301 South Washburn St, Suite D',
       addressLocality: 'Decatur',
       addressRegion: 'TX',
       postalCode: '76234',
-      addressCountry: 'US'
+      addressCountry: 'US',
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '33.2283526',
-      longitude: '-97.5883743'
+      longitude: '-97.5883743',
     },
     telephone: '+19403151023',
     email: 'info@thinkments.com',
@@ -118,38 +141,45 @@ export default function DentonPage() {
     areaServed: {
       '@type': 'City',
       name: 'Denton',
-      '@id': 'https://en.wikipedia.org/wiki/Denton,_Texas'
+      '@id': 'https://en.wikipedia.org/wiki/Denton,_Texas',
     },
     priceRange: '$$',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '103'
-    }
+      reviewCount: '103',
+    },
   };
 
   return (
     <>
       <Helmet>
         <title>Digital Marketing Agency in Denton, TX | ThinkMents</title>
-        <meta name="description" content="ThinkMents provides SEO, web design & digital marketing services to businesses in Denton, Texas. 20+ years experience. Free consultation." />
+        <meta
+          name="description"
+          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Denton, Texas. 20+ years experience. Free consultation."
+        />
         <meta property="og:title" content="Digital Marketing Agency in Denton, TX | ThinkMents" />
-        <meta property="og:description" content="ThinkMents provides SEO, web design & digital marketing services to businesses in Denton, Texas. 20+ years experience. Free consultation." />
+        <meta
+          property="og:description"
+          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Denton, Texas. 20+ years experience. Free consultation."
+        />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations/denton" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#234B70] to-[#2C5282] text-white py-20 lg:py-32 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -164,25 +194,24 @@ export default function DentonPage() {
                 <span className="text-sm font-semibold">Serving Denton, Texas</span>
               </div>
 
-              <h1 className="mb-6">
-                Digital Marketing Agency in Denton, Texas
-              </h1>
+              <h1 className="mb-6">Digital Marketing Agency in Denton, Texas</h1>
 
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-                ThinkMents delivers SEO, web design, and results-driven marketing to businesses in Denton and surrounding areas.
+                ThinkMents delivers SEO, web design, and results-driven marketing to businesses in
+                Denton and surrounding areas.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -230,10 +259,18 @@ export default function DentonPage() {
               >
                 <h2 className="mb-6">Your Denton Digital Marketing Partner</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Denton is a vibrant community that blends university innovation with local entrepreneurship and small-town charm. From the historic Downtown Square to the UNT and TWU campuses, Rayzor Ranch's retail hub, and the growing residential areas, Denton offers diverse opportunities for businesses ready to grow.
+                  Denton is a vibrant community that blends university innovation with local
+                  entrepreneurship and small-town charm. From the historic Downtown Square to the
+                  UNT and TWU campuses, Rayzor Ranch's retail hub, and the growing residential
+                  areas, Denton offers diverse opportunities for businesses ready to grow.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  For over 15 years, ThinkMents has partnered with Denton County businesses to increase online visibility, attract more customers, and drive sustainable growth. Based just 30 minutes away, we combine local market knowledge with cutting-edge digital marketing expertise. Whether you're targeting Denton residents, UNT/TWU students, or expanding throughout North Texas, we create customized strategies that deliver measurable results.
+                  For over 15 years, ThinkMents has partnered with Denton County businesses to
+                  increase online visibility, attract more customers, and drive sustainable growth.
+                  Based just 30 minutes away, we combine local market knowledge with cutting-edge
+                  digital marketing expertise. Whether you're targeting Denton residents, UNT/TWU
+                  students, or expanding throughout North Texas, we create customized strategies
+                  that deliver measurable results.
                 </p>
               </motion.div>
             </div>
@@ -267,9 +304,7 @@ export default function DentonPage() {
                       <h3 className="text-xl font-bold text-[#1E3A5F] mb-3 group-hover:text-[#00B4D8] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed mb-4">
-                        {service.description}
-                      </p>
+                      <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
                       <span className="text-sm font-semibold text-[#00B4D8] group-hover:underline">
                         Learn More →
                       </span>
@@ -393,20 +428,21 @@ export default function DentonPage() {
             >
               <h2 className="text-white mb-6">Ready to Grow Your Denton Business?</h2>
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Let's discuss how digital marketing can help you reach more Denton customers and achieve your business goals.
+                Let's discuss how digital marketing can help you reach more Denton customers and
+                achieve your business goals.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Schedule Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -424,7 +460,9 @@ export default function DentonPage() {
                     <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                   ))}
                 </div>
-                <span className="text-white/90">5.0 Rating | 103+ Reviews | 20+ Years Experience</span>
+                <span className="text-white/90">
+                  5.0 Rating | 103+ Reviews | 20+ Years Experience
+                </span>
               </div>
             </motion.div>
           </div>

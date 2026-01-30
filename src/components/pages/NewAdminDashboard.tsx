@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  LayoutDashboard, 
-  FileText, 
-  Image as ImageIcon, 
-  Plus, 
-  Calendar, 
-  Search as SearchIcon, 
-  Settings, 
+import {
+  LayoutDashboard,
+  FileText,
+  Image as ImageIcon,
+  Plus,
+  Calendar,
+  Search as SearchIcon,
+  Settings,
   Route,
   Menu,
   X,
@@ -30,7 +30,7 @@ import {
   Users,
   MapPin,
   Activity,
-  Brain
+  Brain,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -118,9 +118,7 @@ const navigationItems: NavItem[] = [
     id: 'seo',
     label: 'SEO Center',
     icon: SearchIcon,
-    children: [
-      { id: 'seo-center', label: 'SEO Dashboard', icon: SearchIcon },
-    ],
+    children: [{ id: 'seo-center', label: 'SEO Dashboard', icon: SearchIcon }],
   },
   { id: 'redirects', label: 'Redirects', icon: Route },
   { id: 'settings', label: 'Settings', icon: Settings },
@@ -134,8 +132,8 @@ export default function NewAdminDashboard() {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
   const toggleMenu = (menuId: string) => {
-    setExpandedMenus(prev =>
-      prev.includes(menuId) ? prev.filter(id => id !== menuId) : [...prev, menuId]
+    setExpandedMenus((prev) =>
+      prev.includes(menuId) ? prev.filter((id) => id !== menuId) : [...prev, menuId],
     );
   };
 
@@ -213,7 +211,7 @@ export default function NewAdminDashboard() {
         type="website"
         noindex={true}
       />
-      
+
       <div className="min-h-screen bg-[#F8F9FA]">
         {/* Top Header */}
         <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50">
@@ -228,7 +226,10 @@ export default function NewAdminDashboard() {
               >
                 <Menu className="w-5 h-5" />
               </Button>
-              <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+              <a
+                href="/"
+                className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+              >
                 <div className="w-8 h-8 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">TM</span>
                 </div>
@@ -262,7 +263,7 @@ export default function NewAdminDashboard() {
                 <Bell className="w-5 h-5 text-gray-600" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-[#FF6B35] rounded-full"></span>
               </Button>
-              
+
               <div className="flex items-center space-x-2 px-2 py-1 hover:bg-gray-100 rounded-lg cursor-pointer">
                 <div className="w-8 h-8 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-white" />
@@ -368,14 +369,8 @@ export default function NewAdminDashboard() {
         </AnimatePresence>
 
         {/* Main Content */}
-        <main
-          className={`pt-16 transition-all duration-300 ${
-            sidebarOpen ? 'ml-64' : 'ml-0'
-          }`}
-        >
-          <div className="p-6">
-            {renderPage()}
-          </div>
+        <main className={`pt-16 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-0'}`}>
+          <div className="p-6">{renderPage()}</div>
         </main>
 
         {/* Quick Create Floating Button */}

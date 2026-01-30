@@ -54,16 +54,16 @@ import {
   DollarSign,
   FileText,
   Link as LinkIcon,
-  Maximize2
+  Maximize2,
 } from 'lucide-react';
 
-type EmailType = 
-  | 'newsletter' 
-  | 'sales' 
-  | 'welcome' 
-  | 'followup' 
-  | 'reengagement' 
-  | 'announcement' 
+type EmailType =
+  | 'newsletter'
+  | 'sales'
+  | 'welcome'
+  | 'followup'
+  | 'reengagement'
+  | 'announcement'
   | 'event';
 
 type DeviceType = 'desktop' | 'mobile';
@@ -149,18 +149,18 @@ export default function EmailCampaignWriter() {
   const [keyPoints, setKeyPoints] = useState<string[]>(['']);
   const [ctaGoal, setCtaGoal] = useState('visit-website');
   const [emailLength, setEmailLength] = useState<'short' | 'medium' | 'long'>('medium');
-  
+
   const [generatedSubjects, setGeneratedSubjects] = useState<SubjectLine[]>([]);
   const [selectedSubject, setSelectedSubject] = useState<string>('');
   const [previewText, setPreviewText] = useState('');
   const [generatedBody, setGeneratedBody] = useState('');
-  
+
   const [device, setDevice] = useState<DeviceType>('desktop');
   const [template, setTemplate] = useState<TemplateType>('clean');
   const [showTokens, setShowTokens] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [showABTest, setShowABTest] = useState(false);
-  
+
   const [sequenceEmails, setSequenceEmails] = useState<any[]>([]);
 
   const generateSubjectLines = () => {
@@ -194,7 +194,7 @@ Best regards,
 The ThinkMents Team
 
 P.S. This month only, we're offering a complimentary website audit. Click the link above to claim yours!`;
-      
+
       setGeneratedBody(sampleBody);
       setIsGenerating(false);
     }, 2000);
@@ -243,7 +243,10 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
 
         <div className="space-y-4">
           {mockCampaigns.map((campaign) => (
-            <Card key={campaign.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+            <Card
+              key={campaign.id}
+              className="border-0 shadow-md hover:shadow-lg transition-shadow"
+            >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
@@ -254,8 +257,8 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                           campaign.status === 'sent'
                             ? 'bg-green-500/10 text-green-600 border-green-500/20'
                             : campaign.status === 'scheduled'
-                            ? 'bg-blue-500/10 text-blue-600 border-blue-500/20'
-                            : 'bg-gray-500/10 text-gray-600 border-gray-500/20'
+                              ? 'bg-blue-500/10 text-blue-600 border-blue-500/20'
+                              : 'bg-gray-500/10 text-gray-600 border-gray-500/20'
                         }
                       >
                         {campaign.status}
@@ -306,19 +309,41 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
   // TEMPLATES VIEW
   if (viewMode === 'templates') {
     const mockTemplates = [
-      { id: '1', name: 'Monthly Newsletter', category: 'Newsletter', uses: 24, lastUsed: '2024-05-10' },
+      {
+        id: '1',
+        name: 'Monthly Newsletter',
+        category: 'Newsletter',
+        uses: 24,
+        lastUsed: '2024-05-10',
+      },
       { id: '2', name: 'Product Launch', category: 'Sales', uses: 12, lastUsed: '2024-04-15' },
       { id: '3', name: 'Welcome Email #1', category: 'Welcome', uses: 45, lastUsed: '2024-05-18' },
       { id: '4', name: 'Event Reminder', category: 'Event', uses: 8, lastUsed: '2024-03-22' },
-      { id: '5', name: 'Follow-up Sequence', category: 'Follow-up', uses: 18, lastUsed: '2024-05-12' },
-      { id: '6', name: 'Re-engagement Campaign', category: 'Re-engagement', uses: 6, lastUsed: '2024-04-28' },
+      {
+        id: '5',
+        name: 'Follow-up Sequence',
+        category: 'Follow-up',
+        uses: 18,
+        lastUsed: '2024-05-12',
+      },
+      {
+        id: '6',
+        name: 'Re-engagement Campaign',
+        category: 'Re-engagement',
+        uses: 6,
+        lastUsed: '2024-04-28',
+      },
     ];
 
     return (
       <div>
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" onClick={() => setViewMode('builder')} className="text-gray-600">
+            <Button
+              variant="ghost"
+              onClick={() => setViewMode('builder')}
+              className="text-gray-600"
+            >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Builder
             </Button>
@@ -335,14 +360,16 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
 
         {/* Filter Tabs */}
         <div className="flex space-x-2 mb-6 overflow-x-auto pb-2">
-          {['All', 'Newsletter', 'Sales', 'Welcome', 'Event', 'Follow-up', 'Re-engagement'].map((cat) => (
-            <button
-              key={cat}
-              className="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-[#00B4D8] hover:bg-[#00B4D8]/5 text-sm whitespace-nowrap transition-colors"
-            >
-              {cat}
-            </button>
-          ))}
+          {['All', 'Newsletter', 'Sales', 'Welcome', 'Event', 'Follow-up', 'Re-engagement'].map(
+            (cat) => (
+              <button
+                key={cat}
+                className="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-[#00B4D8] hover:bg-[#00B4D8]/5 text-sm whitespace-nowrap transition-colors"
+              >
+                {cat}
+              </button>
+            ),
+          )}
         </div>
 
         {/* Templates Grid */}
@@ -377,7 +404,10 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                 </div>
 
                 <div className="flex space-x-2">
-                  <Button size="sm" className="flex-1 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                  <Button
+                    size="sm"
+                    className="flex-1 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                  >
                     <PlayCircle className="w-4 h-4 mr-1" />
                     Use Template
                   </Button>
@@ -399,17 +429,45 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
   // EMAIL SEQUENCE BUILDER VIEW
   if (viewMode === 'sequence') {
     const mockSequence = [
-      { id: '1', title: 'Welcome Email', delay: 'Send immediately', subject: 'Welcome to ThinkMents!', status: 'active' },
-      { id: '2', title: 'Getting Started', delay: '3 days after', subject: "Here's how to get started", status: 'active' },
-      { id: '3', title: 'Value Proposition', delay: '7 days after', subject: 'See what makes us different', status: 'active' },
-      { id: '4', title: 'Social Proof', delay: '14 days after', subject: 'Client success stories', status: 'draft' },
+      {
+        id: '1',
+        title: 'Welcome Email',
+        delay: 'Send immediately',
+        subject: 'Welcome to ThinkMents!',
+        status: 'active',
+      },
+      {
+        id: '2',
+        title: 'Getting Started',
+        delay: '3 days after',
+        subject: "Here's how to get started",
+        status: 'active',
+      },
+      {
+        id: '3',
+        title: 'Value Proposition',
+        delay: '7 days after',
+        subject: 'See what makes us different',
+        status: 'active',
+      },
+      {
+        id: '4',
+        title: 'Social Proof',
+        delay: '14 days after',
+        subject: 'Client success stories',
+        status: 'draft',
+      },
     ];
 
     return (
       <div>
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" onClick={() => setViewMode('builder')} className="text-gray-600">
+            <Button
+              variant="ghost"
+              onClick={() => setViewMode('builder')}
+              className="text-gray-600"
+            >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Builder
             </Button>
@@ -436,9 +494,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
             <div className="flex items-center justify-between">
               <CardTitle>Welcome Series</CardTitle>
               <div className="flex items-center space-x-2">
-                <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
-                  Active
-                </Badge>
+                <Badge className="bg-green-500/10 text-green-600 border-green-500/20">Active</Badge>
                 <span className="text-sm text-gray-600">4 emails • 21 day sequence</span>
               </div>
             </div>
@@ -458,14 +514,18 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                   >
                     {/* Timeline Dot */}
                     <div className="relative z-10">
-                      <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
-                        email.status === 'active'
-                          ? 'bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F]'
-                          : 'bg-gray-200'
-                      }`}>
-                        <Mail className={`w-7 h-7 ${
-                          email.status === 'active' ? 'text-white' : 'text-gray-400'
-                        }`} />
+                      <div
+                        className={`w-16 h-16 rounded-full flex items-center justify-center ${
+                          email.status === 'active'
+                            ? 'bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F]'
+                            : 'bg-gray-200'
+                        }`}
+                      >
+                        <Mail
+                          className={`w-7 h-7 ${
+                            email.status === 'active' ? 'text-white' : 'text-gray-400'
+                          }`}
+                        />
                       </div>
                       <div className="absolute -right-2 top-0">
                         <GripVertical className="w-5 h-5 text-gray-400 cursor-move" />
@@ -478,7 +538,9 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-1">
-                              <h4 className="font-semibold text-[#1E3A5F]">Email {index + 1}: {email.title}</h4>
+                              <h4 className="font-semibold text-[#1E3A5F]">
+                                Email {index + 1}: {email.title}
+                              </h4>
                               <Badge className="bg-blue-50 text-blue-600 text-xs">
                                 <Clock className="w-3 h-3 mr-1" />
                                 {email.delay}
@@ -551,9 +613,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Trigger
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Trigger</label>
                 <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                   <option>New subscriber signs up</option>
                   <option>Form submission</option>
@@ -575,7 +635,12 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
             </div>
 
             <div className="flex items-center space-x-2">
-              <input type="checkbox" id="skip-weekends" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
+              <input
+                type="checkbox"
+                id="skip-weekends"
+                className="w-4 h-4 text-[#00B4D8] rounded"
+                defaultChecked
+              />
               <label htmlFor="skip-weekends" className="text-sm text-gray-700">
                 Skip weekends (don&apos;t send on Sat/Sun)
               </label>
@@ -599,7 +664,11 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
       <div>
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" onClick={() => setViewMode('campaigns')} className="text-gray-600">
+            <Button
+              variant="ghost"
+              onClick={() => setViewMode('campaigns')}
+              className="text-gray-600"
+            >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Campaigns
             </Button>
@@ -711,7 +780,22 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                     style={{ height: `${(val / 40) * 100}%` }}
                   />
                   <span className="text-xs text-gray-600 mt-2">
-                    {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][idx]}
+                    {
+                      [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec',
+                      ][idx]
+                    }
                   </span>
                 </div>
               ))}
@@ -873,7 +957,9 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                 {stepNum < 2 && (
                   <div
                     className={`flex-1 h-1 rounded ${
-                      step > stepNum ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F]' : 'bg-gray-200'
+                      step > stepNum
+                        ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F]'
+                        : 'bg-gray-200'
                     }`}
                   />
                 )}
@@ -891,9 +977,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Campaign Name
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Campaign Name</label>
               <input
                 type="text"
                 value={campaignName}
@@ -904,9 +988,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Email Type
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-3">Email Type</label>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {emailTypes.map((type) => {
                   const Icon = type.icon;
@@ -922,9 +1004,11 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                           : 'border-gray-200 hover:border-[#00B4D8]/50'
                       }`}
                     >
-                      <Icon className={`w-6 h-6 mb-2 ${
-                        emailType === type.id ? 'text-[#00B4D8]' : 'text-gray-400'
-                      }`} />
+                      <Icon
+                        className={`w-6 h-6 mb-2 ${
+                          emailType === type.id ? 'text-[#00B4D8]' : 'text-gray-400'
+                        }`}
+                      />
                       <p className="font-medium text-sm text-gray-900 mb-1">{type.label}</p>
                       <p className="text-xs text-gray-500">{type.desc}</p>
                     </motion.button>
@@ -934,9 +1018,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Client/Brand
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Client/Brand</label>
               <select
                 value={selectedClient}
                 onChange={(e) => setSelectedClient(e.target.value)}
@@ -1012,10 +1094,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
             </div>
 
             <div className="flex justify-between">
-              <Button
-                variant="outline"
-                onClick={() => setStep(1)}
-              >
+              <Button variant="outline" onClick={() => setStep(1)}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back
               </Button>
@@ -1163,12 +1242,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                       </div>
                     ))}
                   </div>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={addKeyPoint}
-                    className="mt-2"
-                  >
+                  <Button size="sm" variant="outline" onClick={addKeyPoint} className="mt-2">
                     <Plus className="w-4 h-4 mr-1" />
                     Add Point
                   </Button>
@@ -1275,10 +1349,14 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                       );
                     })}
                   </div>
-                  
+
                   {/* Quick Save Options */}
                   <div className="mt-4 pt-4 border-t border-gray-200">
-                    <Button size="sm" variant="outline" className="w-full justify-start text-[#00B4D8] border-[#00B4D8]">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="w-full justify-start text-[#00B4D8] border-[#00B4D8]"
+                    >
                       <Save className="w-4 h-4 mr-2" />
                       Save as Template
                     </Button>
@@ -1295,7 +1373,9 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                   className="flex items-center justify-between w-full"
                 >
                   <CardTitle className="text-lg">Personalization Tokens</CardTitle>
-                  <ChevronDown className={`w-5 h-5 transition-transform ${showTokens ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform ${showTokens ? 'rotate-180' : ''}`}
+                  />
                 </button>
               </CardHeader>
               {showTokens && (
@@ -1404,9 +1484,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                       <p className="text-sm font-semibold text-gray-900">
                         {selectedSubject || 'Your email subject will appear here'}
                       </p>
-                      {previewText && (
-                        <p className="text-xs text-gray-500">{previewText}</p>
-                      )}
+                      {previewText && <p className="text-xs text-gray-500">{previewText}</p>}
                     </div>
                   </div>
 
@@ -1418,9 +1496,15 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                           className="whitespace-pre-wrap text-sm text-gray-800 leading-relaxed"
                           dangerouslySetInnerHTML={{
                             __html: generatedBody
-                              .replace(/\{FirstName\}/g, '<span class="bg-yellow-100 px-1 rounded">{FirstName}</span>')
+                              .replace(
+                                /\{FirstName\}/g,
+                                '<span class="bg-yellow-100 px-1 rounded">{FirstName}</span>',
+                              )
                               .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                              .replace(/\[(.*?)\]/g, '<button class="inline-block px-6 py-3 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white rounded-lg font-semibold mt-4 mb-4">$1</button>'),
+                              .replace(
+                                /\[(.*?)\]/g,
+                                '<button class="inline-block px-6 py-3 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white rounded-lg font-semibold mt-4 mb-4">$1</button>',
+                              ),
                           }}
                         />
                       </div>
@@ -1438,7 +1522,13 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                       ThinkMents Digital Marketing | Decatur, TX
                     </p>
                     <p className="text-xs text-gray-400 text-center mt-2">
-                      <a href="#" className="underline">Unsubscribe</a> | <a href="#" className="underline">View in browser</a>
+                      <a href="#" className="underline">
+                        Unsubscribe
+                      </a>{' '}
+                      |{' '}
+                      <a href="#" className="underline">
+                        View in browser
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -1460,7 +1550,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                         Text
                       </Button>
                     </div>
-                    
+
                     <div className="pt-2 border-t border-gray-200">
                       <p className="text-xs text-gray-600 mb-2">Send to:</p>
                       <div className="space-y-1">
@@ -1473,9 +1563,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                             disabled
                           >
                             <span>{platform}</span>
-                            <Badge className="bg-gray-200 text-gray-600 text-xs">
-                              Soon
-                            </Badge>
+                            <Badge className="bg-gray-200 text-gray-600 text-xs">Soon</Badge>
                           </Button>
                         ))}
                       </div>
@@ -1527,13 +1615,7 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Test Percentage: 50%
                     </label>
-                    <input
-                      type="range"
-                      min="10"
-                      max="50"
-                      defaultValue="50"
-                      className="w-full"
-                    />
+                    <input type="range" min="10" max="50" defaultValue="50" className="w-full" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">

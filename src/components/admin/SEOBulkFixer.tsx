@@ -32,7 +32,7 @@ import {
   Grid,
   List,
   Lightbulb,
-  XCircle
+  XCircle,
 } from 'lucide-react';
 
 type ScanStatus = 'idle' | 'scanning' | 'complete';
@@ -80,21 +80,24 @@ const mockScanResults: ScanResult = {
       pageTitle: 'Web Design Services in Fort Worth',
       url: '/services/web-design/fort-worth',
       current: 'Missing',
-      aiSuggestion: 'Professional web design services in Fort Worth, TX. Custom websites built by ThinkMents to help your business grow online. Get a free consultation today.',
+      aiSuggestion:
+        'Professional web design services in Fort Worth, TX. Custom websites built by ThinkMents to help your business grow online. Get a free consultation today.',
     },
     {
       id: '2',
       pageTitle: 'Digital Marketing Agency Decatur',
       url: '/location/decatur',
       current: 'Missing',
-      aiSuggestion: 'Top-rated digital marketing agency in Decatur, TX. ThinkMents offers SEO, web design, and social media marketing to boost your local business presence.',
+      aiSuggestion:
+        'Top-rated digital marketing agency in Decatur, TX. ThinkMents offers SEO, web design, and social media marketing to boost your local business presence.',
     },
     {
       id: '3',
       pageTitle: 'SEO Services Dallas',
       url: '/services/seo/dallas',
       current: 'Too short (45 chars)',
-      aiSuggestion: 'Expert SEO services in Dallas, TX by ThinkMents. Increase your search rankings and drive more traffic to your website with our proven strategies.',
+      aiSuggestion:
+        'Expert SEO services in Dallas, TX by ThinkMents. Increase your search rankings and drive more traffic to your website with our proven strategies.',
     },
   ],
   titleIssues: [
@@ -119,7 +122,8 @@ const mockScanResults: ScanResult = {
       fileName: 'team-photo.jpg',
       url: '/assets/images/team-photo.jpg',
       page: '/about',
-      aiSuggestion: 'ThinkMents digital marketing team collaborating on client project in Decatur office',
+      aiSuggestion:
+        'ThinkMents digital marketing team collaborating on client project in Decatur office',
     },
   ],
   h1Issues: [
@@ -195,7 +199,7 @@ export default function SEOBulkFixer() {
 
   const toggleSelection = (id: string) => {
     setSelectedItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -266,7 +270,9 @@ export default function SEOBulkFixer() {
       <div>
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-[#1E3A5F]">SEO Bulk Fixer</h1>
-          <p className="text-gray-600 mt-1">Scan and fix missing SEO data across your entire site</p>
+          <p className="text-gray-600 mt-1">
+            Scan and fix missing SEO data across your entire site
+          </p>
         </div>
 
         <Card className="border-0 shadow-md">
@@ -275,13 +281,11 @@ export default function SEOBulkFixer() {
               <div className="w-20 h-20 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="w-10 h-10 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">
-                Start Your First SEO Scan
-              </h2>
+              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Start Your First SEO Scan</h2>
               <p className="text-gray-600 mb-6 text-lg">
-                Our AI-powered scanner will analyze your entire website to find missing meta descriptions,
-                image alt text, page titles, H1 tags, and more. Get instant AI-generated suggestions to fix
-                all issues with one click.
+                Our AI-powered scanner will analyze your entire website to find missing meta
+                descriptions, image alt text, page titles, H1 tags, and more. Get instant
+                AI-generated suggestions to fix all issues with one click.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {[
@@ -395,7 +399,9 @@ export default function SEOBulkFixer() {
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-3xl font-bold text-[#1E3A5F]">SEO Bulk Fixer</h1>
-            <p className="text-gray-600 mt-1">Scan and fix missing SEO data across your entire site</p>
+            <p className="text-gray-600 mt-1">
+              Scan and fix missing SEO data across your entire site
+            </p>
             <div className="flex items-center space-x-2 mt-2">
               <Clock className="w-4 h-4 text-gray-400" />
               <span className="text-sm text-gray-500">Last scan: {lastScan}</span>
@@ -438,9 +444,7 @@ export default function SEOBulkFixer() {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Pages Scanned</p>
-                  <p className="text-3xl font-bold text-[#1E3A5F]">
-                    {scanResults.pagesScanned}
-                  </p>
+                  <p className="text-3xl font-bold text-[#1E3A5F]">{scanResults.pagesScanned}</p>
                   <p className="text-xs text-gray-500 mt-1">Total pages analyzed</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -456,9 +460,7 @@ export default function SEOBulkFixer() {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Issues Found</p>
-                  <p className="text-3xl font-bold text-[#FF6B35]">
-                    {scanResults.issuesFound}
-                  </p>
+                  <p className="text-3xl font-bold text-[#FF6B35]">{scanResults.issuesFound}</p>
                   <p className="text-xs text-gray-500 mt-1">Items need attention</p>
                 </div>
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
@@ -484,14 +486,7 @@ export default function SEOBulkFixer() {
                 </div>
                 <div className="relative w-16 h-16">
                   <svg className="w-16 h-16 transform -rotate-90">
-                    <circle
-                      cx="32"
-                      cy="32"
-                      r="28"
-                      stroke="#E5E7EB"
-                      strokeWidth="6"
-                      fill="none"
-                    />
+                    <circle cx="32" cy="32" r="28" stroke="#E5E7EB" strokeWidth="6" fill="none" />
                     <circle
                       cx="32"
                       cy="32"
@@ -520,9 +515,7 @@ export default function SEOBulkFixer() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Quick Fix Available</p>
-                  <p className="text-3xl font-bold text-green-600">
-                    {scanResults.quickFixCount}
-                  </p>
+                  <p className="text-3xl font-bold text-green-600">{scanResults.quickFixCount}</p>
                   <p className="text-xs text-gray-500 mt-1">Can be auto-fixed</p>
                 </div>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -547,11 +540,7 @@ export default function SEOBulkFixer() {
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">SEO Issues</CardTitle>
             <div className="flex items-center space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-[#00B4D8] text-[#00B4D8]"
-              >
+              <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
                 <Download className="w-4 h-4 mr-2" />
                 Export
               </Button>
@@ -583,11 +572,7 @@ export default function SEOBulkFixer() {
                 >
                   <Icon className="w-4 h-4" />
                   <span className="text-sm font-medium">{tab.label}</span>
-                  {count > 0 && (
-                    <Badge className="bg-[#FF6B35] text-white text-xs">
-                      {count}
-                    </Badge>
-                  )}
+                  {count > 0 && <Badge className="bg-[#FF6B35] text-white text-xs">{count}</Badge>}
                 </button>
               );
             })}
@@ -607,9 +592,7 @@ export default function SEOBulkFixer() {
                   <span className="text-sm text-gray-700">Select All</span>
                 </label>
                 {selectedItems.length > 0 && (
-                  <span className="text-sm text-gray-600">
-                    {selectedItems.length} selected
-                  </span>
+                  <span className="text-sm text-gray-600">{selectedItems.length} selected</span>
                 )}
               </div>
               <div className="flex space-x-2">
@@ -677,9 +660,7 @@ export default function SEOBulkFixer() {
                     <p className="text-xs text-gray-500 mb-1 truncate">{image.fileName}</p>
                     <p className="text-xs text-[#00B4D8] mb-2 truncate">{image.page}</p>
                     <div className="p-2 bg-green-50 rounded border border-green-200 mb-2">
-                      <p className="text-xs text-green-800 line-clamp-2">
-                        {image.aiSuggestion}
-                      </p>
+                      <p className="text-xs text-green-800 line-clamp-2">{image.aiSuggestion}</p>
                     </div>
                     <div className="flex space-x-1">
                       <Button size="sm" className="flex-1 text-xs bg-[#00B4D8] text-white">
@@ -741,9 +722,7 @@ export default function SEOBulkFixer() {
                             Current:
                           </label>
                           <div className="p-2 bg-red-50 rounded border border-red-200">
-                            <p className="text-sm text-red-800">
-                              {issue.current}
-                            </p>
+                            <p className="text-sm text-red-800">{issue.current}</p>
                           </div>
                         </div>
 
@@ -792,9 +771,7 @@ export default function SEOBulkFixer() {
                             </div>
                           ) : (
                             <div className="p-3 bg-green-50 rounded border border-green-200">
-                              <p className="text-sm text-green-800">
-                                {issue.aiSuggestion}
-                              </p>
+                              <p className="text-sm text-green-800">{issue.aiSuggestion}</p>
                               <div className="flex items-center justify-between mt-2 pt-2 border-t border-green-200">
                                 <span className="text-xs text-green-700">
                                   {issue.aiSuggestion.length} characters
@@ -873,22 +850,14 @@ export default function SEOBulkFixer() {
                   </div>
                 </div>
                 <div className="flex space-x-3">
-                  <Button
-                    variant="outline"
-                    onClick={clearSelection}
-                  >
+                  <Button variant="outline" onClick={clearSelection}>
                     Clear Selection
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="border-[#00B4D8] text-[#00B4D8]"
-                  >
+                  <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8]">
                     <Download className="w-4 h-4 mr-2" />
                     Export to CSV
                   </Button>
-                  <Button
-                    className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white px-8"
-                  >
+                  <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white px-8">
                     <Sparkles className="w-5 h-5 mr-2" />
                     Apply All AI Suggestions
                   </Button>
@@ -918,7 +887,9 @@ export default function SEOBulkFixer() {
             >
               <div className="p-6 border-b border-gray-200">
                 <h2 className="text-2xl font-bold text-[#1E3A5F]">Scan Settings</h2>
-                <p className="text-gray-600 mt-1">Configure what to scan and how AI generates suggestions</p>
+                <p className="text-gray-600 mt-1">
+                  Configure what to scan and how AI generates suggestions
+                </p>
               </div>
 
               <div className="p-6 space-y-6">
@@ -949,13 +920,7 @@ export default function SEOBulkFixer() {
                   <label className="block font-semibold text-[#1E3A5F] mb-3">
                     Meta Description Target Length
                   </label>
-                  <input
-                    type="range"
-                    min="140"
-                    max="160"
-                    defaultValue="155"
-                    className="w-full"
-                  />
+                  <input type="range" min="140" max="160" defaultValue="155" className="w-full" />
                   <div className="flex justify-between text-sm text-gray-600 mt-1">
                     <span>140 chars</span>
                     <span>155 chars</span>
@@ -965,9 +930,7 @@ export default function SEOBulkFixer() {
 
                 {/* Alt Text Style */}
                 <div>
-                  <label className="block font-semibold text-[#1E3A5F] mb-3">
-                    Alt Text Style
-                  </label>
+                  <label className="block font-semibold text-[#1E3A5F] mb-3">Alt Text Style</label>
                   <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                     <option>Descriptive (Detailed descriptions)</option>
                     <option>Concise (Short and simple)</option>
@@ -978,7 +941,7 @@ export default function SEOBulkFixer() {
                 {/* AI Generation Settings */}
                 <div className="pt-6 border-t border-gray-200">
                   <h3 className="font-semibold text-[#1E3A5F] mb-3">AI Generation Settings</h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1003,9 +966,7 @@ export default function SEOBulkFixer() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Tone
-                      </label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Tone</label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                         <option>Professional</option>
                         <option>Casual</option>
@@ -1139,9 +1100,7 @@ export default function SEOBulkFixer() {
               </div>
 
               <div className="p-6 border-t border-gray-200 flex justify-end">
-                <Button onClick={() => setShowHistory(false)}>
-                  Close
-                </Button>
+                <Button onClick={() => setShowHistory(false)}>Close</Button>
               </div>
             </motion.div>
           </motion.div>

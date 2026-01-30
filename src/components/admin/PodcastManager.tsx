@@ -42,7 +42,7 @@ import {
   GripVertical,
   Music,
   Headphones,
-  Radio
+  Radio,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -64,7 +64,7 @@ import {
   Legend,
   ResponsiveContainer,
   AreaChart,
-  Area
+  Area,
 } from 'recharts';
 
 // Mock data
@@ -77,7 +77,7 @@ const episodes = [
     duration: '45:32',
     status: 'published',
     downloads: 3420,
-    thumbnail: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=300&h=300&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=300&h=300&fit=crop',
   },
   {
     id: '2',
@@ -87,7 +87,7 @@ const episodes = [
     duration: '38:15',
     status: 'scheduled',
     downloads: 0,
-    thumbnail: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop',
   },
   {
     id: '3',
@@ -97,7 +97,7 @@ const episodes = [
     duration: '52:18',
     status: 'published',
     downloads: 5820,
-    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=300&h=300&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=300&h=300&fit=crop',
   },
   {
     id: '4',
@@ -107,8 +107,8 @@ const episodes = [
     duration: '41:45',
     status: 'published',
     downloads: 4150,
-    thumbnail: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=300&h=300&fit=crop'
-  }
+    thumbnail: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=300&h=300&fit=crop',
+  },
 ];
 
 const downloadsData = [
@@ -118,31 +118,57 @@ const downloadsData = [
   { date: 'Jan 15', downloads: 1580 },
   { date: 'Jan 20', downloads: 1320 },
   { date: 'Jan 25', downloads: 1750 },
-  { date: 'Today', downloads: 2100 }
+  { date: 'Today', downloads: 2100 },
 ];
 
 const platformData = [
   { name: 'Apple Podcasts', value: 45, color: '#A855F7' },
   { name: 'Spotify', value: 35, color: '#1DB954' },
   { name: 'Google Podcasts', value: 12, color: '#4285F4' },
-  { name: 'Website', value: 8, color: '#00B4D8' }
+  { name: 'Website', value: 8, color: '#00B4D8' },
 ];
 
 const topEpisodes = [
-  { rank: 1, title: 'The Future of Digital Marketing with AI', downloads: 8420, avgDuration: '38:20', completion: 85 },
-  { rank: 2, title: 'Building a Brand on Social Media', downloads: 7820, avgDuration: '45:12', completion: 78 },
-  { rank: 3, title: 'SEO Trends to Watch in 2025', downloads: 6150, avgDuration: '32:15', completion: 82 },
-  { rank: 4, title: 'Content Marketing Strategies', downloads: 5890, avgDuration: '35:42', completion: 76 }
+  {
+    rank: 1,
+    title: 'The Future of Digital Marketing with AI',
+    downloads: 8420,
+    avgDuration: '38:20',
+    completion: 85,
+  },
+  {
+    rank: 2,
+    title: 'Building a Brand on Social Media',
+    downloads: 7820,
+    avgDuration: '45:12',
+    completion: 78,
+  },
+  {
+    rank: 3,
+    title: 'SEO Trends to Watch in 2025',
+    downloads: 6150,
+    avgDuration: '32:15',
+    completion: 82,
+  },
+  {
+    rank: 4,
+    title: 'Content Marketing Strategies',
+    downloads: 5890,
+    avgDuration: '35:42',
+    completion: 76,
+  },
 ];
 
 export default function PodcastManager() {
-  const [activeView, setActiveView] = useState<'episodes' | 'upload' | 'analytics' | 'settings'>('episodes');
+  const [activeView, setActiveView] = useState<'episodes' | 'upload' | 'analytics' | 'settings'>(
+    'episodes',
+  );
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [selectedEpisode, setSelectedEpisode] = useState<typeof episodes[0] | null>(null);
+  const [selectedEpisode, setSelectedEpisode] = useState<(typeof episodes)[0] | null>(null);
   const [showChapters, setShowChapters] = useState(false);
   const [showGuests, setShowGuests] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -152,16 +178,21 @@ export default function PodcastManager() {
     totalDownloads: 128400,
     downloadsThisMonth: { value: 18500, change: 15.3 },
     avgDuration: '42:15',
-    subscribers: 8420
+    subscribers: 8420,
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'published': return 'bg-green-100 text-green-700';
-      case 'scheduled': return 'bg-blue-100 text-blue-700';
-      case 'draft': return 'bg-gray-100 text-gray-700';
-      case 'processing': return 'bg-yellow-100 text-yellow-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case 'published':
+        return 'bg-green-100 text-green-700';
+      case 'scheduled':
+        return 'bg-blue-100 text-blue-700';
+      case 'draft':
+        return 'bg-gray-100 text-gray-700';
+      case 'processing':
+        return 'bg-yellow-100 text-yellow-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
     }
   };
 
@@ -183,7 +214,7 @@ export default function PodcastManager() {
               { id: 'episodes', label: 'Episodes', icon: Music },
               { id: 'upload', label: 'Upload New', icon: Upload },
               { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-              { id: 'settings', label: 'Settings', icon: Settings }
+              { id: 'settings', label: 'Settings', icon: Settings },
             ].map((tab) => {
               const Icon = tab.icon;
               return (
@@ -325,14 +356,19 @@ export default function PodcastManager() {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {episodes.map((episode) => (
-                  <Card key={episode.id} className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+                  <Card
+                    key={episode.id}
+                    className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-shadow"
+                  >
                     <div className="relative">
                       <img
                         src={episode.thumbnail}
                         alt={episode.title}
                         className="w-full h-48 object-cover"
                       />
-                      <Badge className={`${getStatusColor(episode.status)} absolute top-3 right-3 capitalize`}>
+                      <Badge
+                        className={`${getStatusColor(episode.status)} absolute top-3 right-3 capitalize`}
+                      >
                         {episode.status}
                       </Badge>
                     </div>
@@ -380,11 +416,17 @@ export default function PodcastManager() {
                           >
                             <Edit2 className="w-4 h-4 text-gray-600" />
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors" title="Copy Link">
+                          <button
+                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            title="Copy Link"
+                          >
                             <Copy className="w-4 h-4 text-gray-600" />
                           </button>
                         </div>
-                        <button className="p-2 hover:bg-red-50 rounded transition-colors" title="Delete">
+                        <button
+                          className="p-2 hover:bg-red-50 rounded transition-colors"
+                          title="Delete"
+                        >
                           <Trash2 className="w-4 h-4 text-red-600" />
                         </button>
                       </div>
@@ -398,19 +440,35 @@ export default function PodcastManager() {
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-gray-200 bg-gray-50">
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Episode</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Title</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Date</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Duration</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Downloads</th>
-                        <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                          Episode
+                        </th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                          Title
+                        </th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                          Date
+                        </th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                          Duration
+                        </th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                          Status
+                        </th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                          Downloads
+                        </th>
+                        <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                          Actions
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       {episodes.map((episode) => (
                         <tr key={episode.id} className="border-b border-gray-100 hover:bg-gray-50">
-                          <td className="py-4 px-4 font-semibold text-[#00B4D8]">#{episode.number}</td>
+                          <td className="py-4 px-4 font-semibold text-[#00B4D8]">
+                            #{episode.number}
+                          </td>
                           <td className="py-4 px-4">
                             <div className="flex items-center space-x-3">
                               <img
@@ -429,7 +487,9 @@ export default function PodcastManager() {
                             </Badge>
                           </td>
                           <td className="py-4 px-4 font-semibold text-green-600">
-                            {episode.status === 'published' ? episode.downloads.toLocaleString() : '-'}
+                            {episode.status === 'published'
+                              ? episode.downloads.toLocaleString()
+                              : '-'}
                           </td>
                           <td className="py-4 px-4">
                             <div className="flex items-center justify-end space-x-2">
@@ -474,21 +534,25 @@ export default function PodcastManager() {
               {/* Audio Upload */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Audio File</h3>
-                
+
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer bg-gray-50">
                   <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                   <p className="text-lg font-medium text-gray-700 mb-2">
                     Drag and drop your audio file here
                   </p>
                   <p className="text-sm text-gray-500 mb-4">or click to browse</p>
-                  <p className="text-xs text-gray-400">Supported formats: MP3, WAV, M4A (max 500MB)</p>
+                  <p className="text-xs text-gray-400">
+                    Supported formats: MP3, WAV, M4A (max 500MB)
+                  </p>
                 </div>
 
                 {uploadProgress > 0 && (
                   <div className="mt-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-gray-700">Uploading...</span>
-                      <span className="text-sm font-semibold text-[#00B4D8]">{uploadProgress}%</span>
+                      <span className="text-sm font-semibold text-[#00B4D8]">
+                        {uploadProgress}%
+                      </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
@@ -523,7 +587,7 @@ export default function PodcastManager() {
               {/* Episode Information */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Episode Information</h3>
-                
+
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -651,7 +715,9 @@ export default function PodcastManager() {
                   className="flex items-center justify-between w-full mb-4"
                 >
                   <h3 className="text-xl font-bold text-[#1E3A5F]">Guest Information</h3>
-                  <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform ${showGuests ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-600 transition-transform ${showGuests ? 'rotate-180' : ''}`}
+                  />
                 </button>
 
                 <AnimatePresence>
@@ -694,7 +760,11 @@ export default function PodcastManager() {
                         </div>
                       </div>
 
-                      <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-[#00B4D8] text-[#00B4D8]"
+                      >
                         <Plus className="w-3 h-3 mr-2" />
                         Add Another Guest
                       </Button>
@@ -710,7 +780,9 @@ export default function PodcastManager() {
                   className="flex items-center justify-between w-full mb-4"
                 >
                   <h3 className="text-xl font-bold text-[#1E3A5F]">Chapters/Timestamps</h3>
-                  <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform ${showChapters ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-600 transition-transform ${showChapters ? 'rotate-180' : ''}`}
+                  />
                 </button>
 
                 <AnimatePresence>
@@ -724,9 +796,12 @@ export default function PodcastManager() {
                       {[
                         { time: '00:00:00', title: 'Introduction' },
                         { time: '00:05:30', title: 'Topic Discussion' },
-                        { time: '00:35:15', title: 'Q&A Session' }
+                        { time: '00:35:15', title: 'Q&A Session' },
                       ].map((chapter, i) => (
-                        <div key={i} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div
+                          key={i}
+                          className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
+                        >
                           <GripVertical className="w-4 h-4 text-gray-400 cursor-move" />
                           <Input value={chapter.time} className="w-32" />
                           <Input value={chapter.title} className="flex-1" />
@@ -737,7 +812,11 @@ export default function PodcastManager() {
                       ))}
 
                       <div className="flex items-center space-x-2">
-                        <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-[#00B4D8] text-[#00B4D8]"
+                        >
                           <Plus className="w-3 h-3 mr-2" />
                           Add Chapter
                         </Button>
@@ -756,7 +835,7 @@ export default function PodcastManager() {
               {/* Episode Artwork */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Episode Artwork</h3>
-                
+
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#00B4D8] transition-colors cursor-pointer mb-4">
                   <ImageIcon className="w-8 h-8 text-gray-400 mx-auto mb-3" />
                   <p className="text-sm font-medium text-gray-700 mb-1">Upload episode cover</p>
@@ -772,12 +851,10 @@ export default function PodcastManager() {
               {/* Tags & Categories */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Tags & Categories</h3>
-                
+
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Tags
-                    </label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Tags</label>
                     <Input placeholder="Add tags..." />
                     <div className="flex flex-wrap gap-2 mt-2">
                       {['Marketing', 'SEO', 'Digital'].map((tag, i) => (
@@ -810,7 +887,7 @@ export default function PodcastManager() {
               {/* SEO & Visibility */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">SEO & Visibility</h3>
-                
+
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -834,13 +911,13 @@ export default function PodcastManager() {
               {/* Transcript */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Transcript</h3>
-                
+
                 <div className="space-y-3">
                   <Button className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                     <Sparkles className="w-4 h-4 mr-2" />
                     Auto-Generate Transcript
                   </Button>
-                  
+
                   <Button variant="outline" className="w-full border-gray-300">
                     <Upload className="w-4 h-4 mr-2" />
                     Upload Transcript File
@@ -956,7 +1033,7 @@ export default function PodcastManager() {
               {/* Platform Breakdown */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Listening Platforms</h3>
-                
+
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
                     <Pie
@@ -995,18 +1072,20 @@ export default function PodcastManager() {
               {/* Geographic */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Top Locations</h3>
-                
+
                 <div className="space-y-3">
                   {[
                     { country: 'United States', downloads: 48200, percentage: 42 },
                     { country: 'United Kingdom', downloads: 18500, percentage: 16 },
                     { country: 'Canada', downloads: 12300, percentage: 11 },
                     { country: 'Australia', downloads: 9800, percentage: 8 },
-                    { country: 'Germany', downloads: 8200, percentage: 7 }
+                    { country: 'Germany', downloads: 8200, percentage: 7 },
                   ].map((location, i) => (
                     <div key={i}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-[#1E3A5F]">{location.country}</span>
+                        <span className="text-sm font-medium text-[#1E3A5F]">
+                          {location.country}
+                        </span>
                         <span className="text-sm font-bold text-gray-700">
                           {location.downloads.toLocaleString()}
                         </span>
@@ -1026,16 +1105,26 @@ export default function PodcastManager() {
             {/* Top Episodes */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Top Performing Episodes</h3>
-              
+
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Rank</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Episode</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Downloads</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Avg Duration</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Completion</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Rank
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Episode
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Downloads
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Avg Duration
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Completion
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1059,7 +1148,9 @@ export default function PodcastManager() {
                                 style={{ width: `${episode.completion}%` }}
                               />
                             </div>
-                            <span className="text-sm font-semibold text-gray-700">{episode.completion}%</span>
+                            <span className="text-sm font-semibold text-gray-700">
+                              {episode.completion}%
+                            </span>
                           </div>
                         </td>
                       </tr>
@@ -1077,7 +1168,7 @@ export default function PodcastManager() {
             {/* Show Information */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Podcast Information</h3>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -1090,10 +1181,7 @@ export default function PodcastManager() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Description
                   </label>
-                  <Textarea
-                    placeholder="Your podcast description..."
-                    rows={4}
-                  />
+                  <Textarea placeholder="Your podcast description..." rows={4} />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -1131,7 +1219,7 @@ export default function PodcastManager() {
             {/* RSS Feed */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">RSS Feed</h3>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -1151,7 +1239,9 @@ export default function PodcastManager() {
 
                 <div className="flex items-center space-x-2 p-3 bg-green-50 rounded-lg border border-green-200">
                   <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-green-700">Feed is valid and active</span>
+                  <span className="text-sm font-medium text-green-700">
+                    Feed is valid and active
+                  </span>
                 </div>
               </div>
             </Card>
@@ -1159,29 +1249,35 @@ export default function PodcastManager() {
             {/* Distribution */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Platform Distribution</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
                   { name: 'Apple Podcasts', status: 'connected', icon: Radio, color: 'purple' },
                   { name: 'Spotify', status: 'connected', icon: Music, color: 'green' },
                   { name: 'Google Podcasts', status: 'pending', icon: Radio, color: 'blue' },
-                  { name: 'Amazon Music', status: 'not-connected', icon: Music, color: 'orange' }
+                  { name: 'Amazon Music', status: 'not-connected', icon: Music, color: 'orange' },
                 ].map((platform, i) => {
                   const Icon = platform.icon;
                   return (
                     <div key={i} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center space-x-3">
-                          <div className={`w-10 h-10 bg-${platform.color}-100 rounded-lg flex items-center justify-center`}>
+                          <div
+                            className={`w-10 h-10 bg-${platform.color}-100 rounded-lg flex items-center justify-center`}
+                          >
                             <Icon className="w-5 h-5 text-gray-700" />
                           </div>
                           <span className="font-semibold text-[#1E3A5F]">{platform.name}</span>
                         </div>
-                        <Badge className={`${
-                          platform.status === 'connected' ? 'bg-green-100 text-green-700' :
-                          platform.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-gray-100 text-gray-700'
-                        } capitalize`}>
+                        <Badge
+                          className={`${
+                            platform.status === 'connected'
+                              ? 'bg-green-100 text-green-700'
+                              : platform.status === 'pending'
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-gray-100 text-gray-700'
+                          } capitalize`}
+                        >
                           {platform.status}
                         </Badge>
                       </div>
@@ -1191,7 +1287,10 @@ export default function PodcastManager() {
                           View on Platform
                         </Button>
                       ) : (
-                        <Button size="sm" className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white">
+                        <Button
+                          size="sm"
+                          className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white"
+                        >
                           Connect
                         </Button>
                       )}
@@ -1204,7 +1303,7 @@ export default function PodcastManager() {
             {/* Embed Settings */}
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Embed Player</h3>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">

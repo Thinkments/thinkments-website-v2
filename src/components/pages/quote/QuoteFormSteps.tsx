@@ -22,7 +22,7 @@ export function Step1BasicInfo({ formData, setFormData }: FormStepProps) {
           <label className="block text-sm font-medium mb-2">Full Name *</label>
           <Input
             value={formData.name}
-            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+            onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
             placeholder="John Doe"
             required
           />
@@ -32,7 +32,7 @@ export function Step1BasicInfo({ formData, setFormData }: FormStepProps) {
           <Input
             type="email"
             value={formData.email}
-            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+            onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
             placeholder="john@example.com"
             required
           />
@@ -44,7 +44,7 @@ export function Step1BasicInfo({ formData, setFormData }: FormStepProps) {
           <Input
             type="tel"
             value={formData.phone}
-            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+            onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
             placeholder="(940) 123-4567"
           />
         </div>
@@ -52,7 +52,7 @@ export function Step1BasicInfo({ formData, setFormData }: FormStepProps) {
           <label className="block text-sm font-medium mb-2">Company Name</label>
           <Input
             value={formData.company}
-            onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
+            onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
             placeholder="Your Company"
           />
         </div>
@@ -62,7 +62,7 @@ export function Step1BasicInfo({ formData, setFormData }: FormStepProps) {
         <Input
           type="url"
           value={formData.website}
-          onChange={(e) => setFormData(prev => ({ ...prev, website: e.target.value }))}
+          onChange={(e) => setFormData((prev) => ({ ...prev, website: e.target.value }))}
           placeholder="https://www.yourwebsite.com"
         />
       </div>
@@ -72,11 +72,11 @@ export function Step1BasicInfo({ formData, setFormData }: FormStepProps) {
 
 export function Step2Services({ formData, setFormData }: FormStepProps) {
   const handleServiceToggle = (serviceId: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       services: prev.services.includes(serviceId)
-        ? prev.services.filter(s => s !== serviceId)
-        : [...prev.services, serviceId]
+        ? prev.services.filter((s) => s !== serviceId)
+        : [...prev.services, serviceId],
     }));
   };
 
@@ -139,20 +139,18 @@ export function Step3ProjectDetails({ formData, setFormData }: FormStepProps) {
                     ? 'border-primary bg-primary/5'
                     : 'border-border hover:border-primary/50'
                 }`}
-                onClick={() => setFormData(prev => ({ ...prev, budget: range }))}
+                onClick={() => setFormData((prev) => ({ ...prev, budget: range }))}
                 whileHover={{ scale: 1.01 }}
               >
                 <div className="flex items-center justify-between">
                   <span>{range}</span>
-                  {formData.budget === range && (
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                  )}
+                  {formData.budget === range && <CheckCircle className="w-4 h-4 text-primary" />}
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-        
+
         <div>
           <label className="block text-sm font-medium mb-2">Timeline</label>
           <div className="space-y-2">
@@ -164,7 +162,7 @@ export function Step3ProjectDetails({ formData, setFormData }: FormStepProps) {
                     ? 'border-primary bg-primary/5'
                     : 'border-border hover:border-primary/50'
                 }`}
-                onClick={() => setFormData(prev => ({ ...prev, timeline: timeline }))}
+                onClick={() => setFormData((prev) => ({ ...prev, timeline: timeline }))}
                 whileHover={{ scale: 1.01 }}
               >
                 <div className="flex items-center justify-between">
@@ -178,23 +176,23 @@ export function Step3ProjectDetails({ formData, setFormData }: FormStepProps) {
           </div>
         </div>
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium mb-2">Project Description *</label>
         <Textarea
           value={formData.description}
-          onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+          onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
           placeholder="Please describe your project, what you're looking to achieve, and any specific requirements..."
           rows={4}
           required
         />
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium mb-2">Business Goals</label>
         <Textarea
           value={formData.goals}
-          onChange={(e) => setFormData(prev => ({ ...prev, goals: e.target.value }))}
+          onChange={(e) => setFormData((prev) => ({ ...prev, goals: e.target.value }))}
           placeholder="What are your main business objectives? (e.g., increase sales, improve brand awareness, generate leads...)"
           rows={3}
         />
@@ -215,38 +213,38 @@ export function Step4AdditionalInfo({ formData, setFormData }: FormStepProps) {
         <label className="block text-sm font-medium mb-2">Current Marketing Efforts</label>
         <Textarea
           value={formData.currentMarketing}
-          onChange={(e) => setFormData(prev => ({ ...prev, currentMarketing: e.target.value }))}
+          onChange={(e) => setFormData((prev) => ({ ...prev, currentMarketing: e.target.value }))}
           placeholder="Tell us about your current marketing strategies, what's working, what's not..."
           rows={3}
         />
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium mb-2">Main Challenges</label>
         <Textarea
           value={formData.challenges}
-          onChange={(e) => setFormData(prev => ({ ...prev, challenges: e.target.value }))}
+          onChange={(e) => setFormData((prev) => ({ ...prev, challenges: e.target.value }))}
           placeholder="What are the biggest challenges you're facing with your current digital presence?"
           rows={3}
         />
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium mb-2">Target Audience</label>
         <Textarea
           value={formData.targetAudience}
-          onChange={(e) => setFormData(prev => ({ ...prev, targetAudience: e.target.value }))}
+          onChange={(e) => setFormData((prev) => ({ ...prev, targetAudience: e.target.value }))}
           placeholder="Describe your ideal customers, their demographics, interests, and behaviors..."
           rows={3}
         />
       </div>
-      
+
       <div className="bg-muted/50 rounded-lg p-4">
         <h3 className="font-medium mb-2">Ready to Submit?</h3>
         <p className="text-sm text-muted-foreground">
-          Once you submit this form, our team will review your information and prepare 
-          a custom proposal tailored to your needs. We'll contact you within 24 hours 
-          to discuss your project and answer any questions.
+          Once you submit this form, our team will review your information and prepare a custom
+          proposal tailored to your needs. We'll contact you within 24 hours to discuss your project
+          and answer any questions.
         </p>
       </div>
     </motion.div>

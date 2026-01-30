@@ -4,80 +4,101 @@ import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { ArrowRight, MapPin, Camera, Users, TrendingUp, Phone, Star, Globe, Eye, MessageSquare, Shield, Award, Zap } from 'lucide-react@0.487.0';
+import {
+  ArrowRight,
+  MapPin,
+  Camera,
+  Users,
+  TrendingUp,
+  Phone,
+  Star,
+  Globe,
+  Eye,
+  MessageSquare,
+  Shield,
+  Award,
+  Zap,
+} from 'lucide-react@0.487.0';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
 export default function GoogleBusinessProfileProfessionalPage() {
   const serviceStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Silver - Google Business Profile Professional Complete Management",
-    "description": "Comprehensive Google Business Profile management service for consistent local lead generation and map pack domination",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "ThinkMents",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "301 S Washburn St Unit D",
-        "addressLocality": "Decatur",
-        "addressRegion": "TX",
-        "postalCode": "76234",
-        "addressCountry": "US"
-      }
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Silver - Google Business Profile Professional Complete Management',
+    description:
+      'Comprehensive Google Business Profile management service for consistent local lead generation and map pack domination',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'ThinkMents',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '301 S Washburn St Unit D',
+        addressLocality: 'Decatur',
+        addressRegion: 'TX',
+        postalCode: '76234',
+        addressCountry: 'US',
+      },
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "349",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "349",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M"
-      }
+    offers: {
+      '@type': 'Offer',
+      price: '349',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '349',
+        priceCurrency: 'USD',
+        billingIncrement: 'P1M',
+      },
     },
-    "serviceType": "Google Business Profile Professional Management",
-    "areaServed": "United States"
+    serviceType: 'Google Business Profile Professional Management',
+    areaServed: 'United States',
   };
 
   const features = [
     {
       icon: MessageSquare,
       title: 'Strategic Google Posts',
-      description: 'Professionally crafted Google posts that engage your audience and boost local search visibility.',
-      color: 'from-blue-500 to-purple-600'
+      description:
+        'Professionally crafted Google posts that engage your audience and boost local search visibility.',
+      color: 'from-blue-500 to-purple-600',
     },
     {
       icon: Star,
       title: 'Review Management',
-      description: 'Diligent review monitoring with professional responses that build trust and credibility.',
-      color: 'from-green-500 to-teal-600'
+      description:
+        'Diligent review monitoring with professional responses that build trust and credibility.',
+      color: 'from-green-500 to-teal-600',
     },
     {
       icon: Eye,
       title: 'Q&A Monitoring',
-      description: 'Proactive question and answer monitoring to ensure accurate information and engagement.',
-      color: 'from-orange-500 to-red-600'
+      description:
+        'Proactive question and answer monitoring to ensure accurate information and engagement.',
+      color: 'from-orange-500 to-red-600',
     },
     {
       icon: TrendingUp,
       title: 'Local Search Ranking',
-      description: 'Continuous optimization efforts that significantly improve your local search ranking.',
-      color: 'from-pink-500 to-rose-600'
+      description:
+        'Continuous optimization efforts that significantly improve your local search ranking.',
+      color: 'from-pink-500 to-rose-600',
     },
     {
       icon: MapPin,
       title: 'Map Pack Domination',
-      description: 'Strategic optimization to help your business dominate the local map pack results.',
-      color: 'from-indigo-500 to-blue-600'
+      description:
+        'Strategic optimization to help your business dominate the local map pack results.',
+      color: 'from-indigo-500 to-blue-600',
     },
     {
       icon: Users,
       title: 'Customer Acquisition',
-      description: 'Transform your profile into a reliable, evergreen source for new customer acquisition.',
-      color: 'from-yellow-500 to-orange-600'
-    }
+      description:
+        'Transform your profile into a reliable, evergreen source for new customer acquisition.',
+      color: 'from-yellow-500 to-orange-600',
+    },
   ];
 
   const packageDetails = {
@@ -97,35 +118,38 @@ export default function GoogleBusinessProfileProfessionalPage() {
       'Photo management & optimization',
       'Business information accuracy monitoring',
       'Local citation consistency checks',
-      'Monthly strategy consultation calls'
+      'Monthly strategy consultation calls',
     ],
     highlights: [
       'Complete hands-off management',
       'Dedicated Google Partner expertise',
       'Proven local domination strategies',
-      'Priority support & consultation'
-    ]
+      'Priority support & consultation',
+    ],
   };
 
   const benefits = [
     {
       icon: Shield,
       title: 'Complete Management',
-      description: 'Comprehensive monthly management including strategic posts, review responses, and Q&A monitoring.',
-      stats: 'Hands-off solution'
+      description:
+        'Comprehensive monthly management including strategic posts, review responses, and Q&A monitoring.',
+      stats: 'Hands-off solution',
     },
     {
       icon: Award,
       title: 'Build Trust & Authority',
-      description: 'Professional review management and responses that build credibility and trust with potential customers.',
-      stats: '95% positive sentiment'
+      description:
+        'Professional review management and responses that build credibility and trust with potential customers.',
+      stats: '95% positive sentiment',
     },
     {
       icon: Zap,
       title: 'Evergreen Lead Source',
-      description: 'Turn your Google Business Profile into a reliable, consistent source for new customer acquisition.',
-      stats: '200% more leads'
-    }
+      description:
+        'Turn your Google Business Profile into a reliable, consistent source for new customer acquisition.',
+      stats: '200% more leads',
+    },
   ];
 
   const comparisonFeatures = [
@@ -136,7 +160,7 @@ export default function GoogleBusinessProfileProfessionalPage() {
     { feature: 'Performance Reporting', included: true },
     { feature: 'Strategy Consultation Calls', included: true },
     { feature: 'Priority Support', included: true },
-    { feature: 'Competitor Analysis', included: true }
+    { feature: 'Competitor Analysis', included: true },
   ];
 
   return (
@@ -180,7 +204,7 @@ export default function GoogleBusinessProfileProfessionalPage() {
                   Professional Complete Management
                 </span>
               </motion.h1>
-              
+
               <motion.div
                 className="flex items-center justify-center mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -190,14 +214,18 @@ export default function GoogleBusinessProfileProfessionalPage() {
                 <span className="text-3xl md:text-4xl font-bold text-primary">$349.00</span>
                 <span className="text-xl text-muted-foreground ml-2">/month</span>
               </motion.div>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Unlock consistent local lead generation with our Google Business Profile Professional: Complete Management package, your pathway to dominating the local map pack. We provide comprehensive monthly management, including strategic Google post creation, diligent review management with professional responses, and proactive question and answer monitoring.
+                Unlock consistent local lead generation with our Google Business Profile
+                Professional: Complete Management package, your pathway to dominating the local map
+                pack. We provide comprehensive monthly management, including strategic Google post
+                creation, diligent review management with professional responses, and proactive
+                question and answer monitoring.
               </motion.p>
 
               <motion.div
@@ -239,7 +267,9 @@ export default function GoogleBusinessProfileProfessionalPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our continuous optimization efforts significantly improve your local search ranking and Google Maps visibility, ensuring your business stands out and builds trust with positive reviews.
+                Our continuous optimization efforts significantly improve your local search ranking
+                and Google Maps visibility, ensuring your business stands out and builds trust with
+                positive reviews.
               </p>
             </motion.div>
 
@@ -264,14 +294,12 @@ export default function GoogleBusinessProfileProfessionalPage() {
                       >
                         <feature.icon className="w-8 h-8 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-                      
-                      <p className="text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
+
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -298,7 +326,8 @@ export default function GoogleBusinessProfileProfessionalPage() {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  Turn your Google Business Profile into a reliable, evergreen source for new customer acquisition
+                  Turn your Google Business Profile into a reliable, evergreen source for new
+                  customer acquisition
                 </p>
               </motion.div>
 
@@ -309,9 +338,7 @@ export default function GoogleBusinessProfileProfessionalPage() {
                 viewport={{ once: true }}
               >
                 <Card className="relative overflow-hidden border-2 border-primary/20">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                   <CardContent className="p-8 relative z-10">
                     <div className="text-center mb-8">
                       <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 rounded-full mb-4">
@@ -320,8 +347,12 @@ export default function GoogleBusinessProfileProfessionalPage() {
                       </div>
                       <h3 className="text-2xl md:text-3xl mb-2">{packageDetails.name}</h3>
                       <div className="flex items-center justify-center mb-4">
-                        <span className="text-4xl md:text-5xl font-bold text-primary">{packageDetails.price}</span>
-                        <span className="text-xl text-muted-foreground ml-2">{packageDetails.billing}</span>
+                        <span className="text-4xl md:text-5xl font-bold text-primary">
+                          {packageDetails.price}
+                        </span>
+                        <span className="text-xl text-muted-foreground ml-2">
+                          {packageDetails.billing}
+                        </span>
                       </div>
                       <p className="text-lg text-muted-foreground">{packageDetails.description}</p>
                     </div>
@@ -372,7 +403,9 @@ export default function GoogleBusinessProfileProfessionalPage() {
                                 <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
                                   <div className="w-2 h-2 bg-white rounded-full" />
                                 </div>
-                                <span className="text-sm text-muted-foreground">{item.feature}</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {item.feature}
+                                </span>
                               </div>
                             ))}
                           </div>
@@ -416,7 +449,9 @@ export default function GoogleBusinessProfileProfessionalPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Build trust with positive reviews and turn your Google Business Profile into a reliable, evergreen source for new customer acquisition with our comprehensive management approach.
+                Build trust with positive reviews and turn your Google Business Profile into a
+                reliable, evergreen source for new customer acquisition with our comprehensive
+                management approach.
               </p>
             </motion.div>
 
@@ -438,18 +473,16 @@ export default function GoogleBusinessProfileProfessionalPage() {
                       >
                         <benefit.icon className="w-10 h-10 text-white" />
                       </motion.div>
-                      
+
                       <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
                         {benefit.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {benefit.description}
                       </p>
 
-                      <div className="text-lg font-semibold text-primary">
-                        {benefit.stats}
-                      </div>
+                      <div className="text-lg font-semibold text-primary">{benefit.stats}</div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -475,7 +508,8 @@ export default function GoogleBusinessProfileProfessionalPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Start dominating your local market with our comprehensive Google Business Profile management. Let us handle everything while you focus on serving customers.
+                Start dominating your local market with our comprehensive Google Business Profile
+                management. Let us handle everything while you focus on serving customers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

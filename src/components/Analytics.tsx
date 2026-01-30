@@ -13,7 +13,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
   googleAnalyticsId, // Only use if provided
   googleTagManagerId, // Only use if provided
   facebookPixelId, // Only use if provided
-  ahrefsKey = 'OZ+cHSWsj6kRBjMSfS0y6A' // Default Ahrefs key
+  ahrefsKey = 'OZ+cHSWsj6kRBjMSfS0y6A', // Default Ahrefs key
 }) => {
   const location = useLocation();
 
@@ -22,7 +22,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
     if (typeof window !== 'undefined' && window.gtag && googleAnalyticsId) {
       window.gtag('config', googleAnalyticsId, {
         page_path: location.pathname + location.search,
-        page_title: document.title
+        page_title: document.title,
       });
     }
 
@@ -37,11 +37,7 @@ const Analytics: React.FC<AnalyticsProps> = ({
       <Helmet>
         {/* Ahrefs Analytics - Deferred for Performance */}
         {ahrefsKey && (
-          <script 
-            src="https://analytics.ahrefs.com/analytics.js" 
-            data-key={ahrefsKey}
-            defer
-          />
+          <script src="https://analytics.ahrefs.com/analytics.js" data-key={ahrefsKey} defer />
         )}
 
         {/* Google Tag Manager - Deferred for Performance */}
@@ -60,7 +56,10 @@ const Analytics: React.FC<AnalyticsProps> = ({
         {/* Google Analytics 4 - Deferred for Performance */}
         {googleAnalyticsId && (
           <>
-            <script defer src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
+            <script
+              defer
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+            ></script>
             <script defer>
               {`
                 window.dataLayer = window.dataLayer || [];
@@ -97,21 +96,21 @@ const Analytics: React.FC<AnalyticsProps> = ({
       {/* Noscript fallbacks - only render if IDs are provided */}
       {googleTagManagerId && (
         <noscript>
-          <iframe 
+          <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${googleTagManagerId}`}
-            height="0" 
-            width="0" 
+            height="0"
+            width="0"
             style={{ display: 'none', visibility: 'hidden' }}
             title="Google Tag Manager"
           />
         </noscript>
       )}
-      
+
       {facebookPixelId && (
         <noscript>
-          <img 
-            height="1" 
-            width="1" 
+          <img
+            height="1"
+            width="1"
             style={{ display: 'none' }}
             src={`https://www.facebook.com/tr?id=${facebookPixelId}&ev=PageView&noscript=1`}
             alt=""

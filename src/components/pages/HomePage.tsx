@@ -26,7 +26,7 @@ import {
   Zap,
   Shield,
   FileText,
-  BarChart3
+  BarChart3,
 } from 'lucide-react';
 import SEO from '../SEO';
 import heroImage from '../../assets/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png';
@@ -52,58 +52,60 @@ export default function HomePage() {
 
   // LocalBusiness Structured Data
   const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "ThinkMents Digital Marketing Agency",
-    "alternateName": "ThinkMents",
-    "description": "Texas digital marketing agency since 2002. Local SEO, web design, PPC & AI solutions for SMBs and enterprise. Decatur HQ, serving 31 states.",
-    "url": "https://thinkments.com",
-    "logo": "https://thinkments.com/logo.png",
-    "image": "https://images.unsplash.com/photo-1758518729685-f88df7890776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZ3xlbnwxfHx8fDE3NjU0NDE1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "telephone": "(940) 315-1023",
-    "email": "info@thinkments.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "301 South Washburn St, Suite D",
-      "addressLocality": "Decatur",
-      "addressRegion": "TX",
-      "postalCode": "76234",
-      "addressCountry": "US"
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'ThinkMents Digital Marketing Agency',
+    alternateName: 'ThinkMents',
+    description:
+      'Texas digital marketing agency since 2002. Local SEO, web design, PPC & AI solutions for SMBs and enterprise. Decatur HQ, serving 31 states.',
+    url: 'https://thinkments.com',
+    logo: 'https://thinkments.com/logo.png',
+    image:
+      'https://images.unsplash.com/photo-1758518729685-f88df7890776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZ3xlbnwxfHx8fDE3NjU0NDE1NTF8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    telephone: '(940) 315-1023',
+    email: 'info@thinkments.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '301 South Washburn St, Suite D',
+      addressLocality: 'Decatur',
+      addressRegion: 'TX',
+      postalCode: '76234',
+      addressCountry: 'US',
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 33.2283526,
-      "longitude": -97.5883743
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 33.2283526,
+      longitude: -97.5883743,
     },
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "103",
-      "bestRating": "5"
+    openingHours: 'Mo-Fr 08:00-18:00',
+    priceRange: '$$',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '103',
+      bestRating: '5',
     },
-    "sameAs": [
-      "https://www.facebook.com/ThinkMents/",
-      "https://www.linkedin.com/company/thinkments",
-      "https://www.instagram.com/thinkments/",
-      "https://www.youtube.com/@ThinkMents"
+    sameAs: [
+      'https://www.facebook.com/ThinkMents/',
+      'https://www.linkedin.com/company/thinkments',
+      'https://www.instagram.com/thinkments/',
+      'https://www.youtube.com/@ThinkMents',
     ],
-    "areaServed": [
+    areaServed: [
       {
-        "@type": "State",
-        "name": "Texas"
+        '@type': 'State',
+        name: 'Texas',
       },
       {
-        "@type": "Country",
-        "name": "United States"
-      }
+        '@type': 'Country',
+        name: 'United States',
+      },
     ],
-    "foundingDate": "2002",
-    "founder": {
-      "@type": "Person",
-      "name": "Corey Rumble"
-    }
+    foundingDate: '2002',
+    founder: {
+      '@type': 'Person',
+      name: 'Corey Rumble',
+    },
   };
 
   return (
@@ -129,7 +131,7 @@ export default function HomePage() {
             backgroundImage: `url(${heroImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
           }}
         ></div>
 
@@ -144,13 +146,17 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Digital Marketing Agency in Texas
               </h1>
 
               {/* Subheadline */}
               <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed">
-                Trusted experience + Digital innovation = <span className="text-[#F7B928]">Golden results</span>
+                Trusted experience + Digital innovation ={' '}
+                <span className="text-[#F7B928]">Golden results</span>
               </p>
 
               {/* Stats Row */}
@@ -159,7 +165,7 @@ export default function HomePage() {
                   { stat: '20+', label: 'Years' },
                   { stat: '31', label: 'States' },
                   { stat: '5.0', label: 'Rating' },
-                  { stat: '$500M+', label: 'Generated' }
+                  { stat: '$500M+', label: 'Generated' },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -168,12 +174,13 @@ export default function HomePage() {
                     transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-4xl md:text-5xl text-[#F7B928] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <div
+                      className="text-4xl md:text-5xl text-[#F7B928] mb-2"
+                      style={{ fontFamily: 'Playfair Display, serif' }}
+                    >
                       {item.stat}
                     </div>
-                    <div className="text-white/90">
-                      {item.label}
-                    </div>
+                    <div className="text-white/90">{item.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -239,11 +246,15 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Tailored Solutions for Your Business
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Whether you're a local business in Decatur or a growing enterprise, we have the expertise to help you succeed.
+              Whether you're a local business in Decatur or a growing enterprise, we have the
+              expertise to help you succeed.
             </p>
           </motion.div>
 
@@ -260,11 +271,15 @@ export default function HomePage() {
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Store className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3
+                      className="text-2xl text-[#1E3A5F] mb-4"
+                      style={{ fontFamily: 'Playfair Display, serif' }}
+                    >
                       Local Businesses & SMBs
                     </h3>
                     <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                      Get found by local customers, dominate Google Maps, and grow your Decatur or North Texas business with proven local SEO strategies.
+                      Get found by local customers, dominate Google Maps, and grow your Decatur or
+                      North Texas business with proven local SEO strategies.
                     </p>
                     <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                       Explore Local Solutions
@@ -287,11 +302,15 @@ export default function HomePage() {
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#F7B928] to-[#1E3A5F] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Building2 className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3
+                      className="text-2xl text-[#1E3A5F] mb-4"
+                      style={{ fontFamily: 'Playfair Display, serif' }}
+                    >
                       Enterprise & Growth Companies
                     </h3>
                     <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                      Scale with AI automation, advanced analytics, and innovative strategies that deliver long-term ROI across multiple markets.
+                      Scale with AI automation, advanced analytics, and innovative strategies that
+                      deliver long-term ROI across multiple markets.
                     </p>
                     <div className="flex items-center gap-2 text-[#F7B928] font-semibold group-hover:gap-3 transition-all">
                       Explore Enterprise Solutions
@@ -306,7 +325,10 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 3: Problem/Solution Navigation (NEW) */}
-      <section ref={problemsRef} className="py-12 md:py-20 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844]">
+      <section
+        ref={problemsRef}
+        className="py-12 md:py-20 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844]"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -314,7 +336,10 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl text-white mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               What Challenge Can We Solve For You?
             </h2>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
@@ -328,26 +353,26 @@ export default function HomePage() {
                 icon: SearchCheck,
                 problem: 'Need More Qualified Leads?',
                 link: '/marketing-seo',
-                delay: 0.1
+                delay: 0.1,
               },
               {
                 icon: MapPin,
                 problem: 'Struggling to Get Found Locally?',
                 link: '/local-seo',
-                delay: 0.2
+                delay: 0.2,
               },
               {
                 icon: MousePointerClick,
                 problem: 'Website Not Converting?',
                 link: '/conversion-rate-optimization',
-                delay: 0.3
+                delay: 0.3,
               },
               {
                 icon: Sparkles,
                 problem: 'Want to Leverage AI?',
                 link: '/ai-automation',
-                delay: 0.4
-              }
+                delay: 0.4,
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -361,9 +386,7 @@ export default function HomePage() {
                       <div className="w-14 h-14 rounded-lg bg-[#00B4D8] flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                         <item.icon className="w-7 h-7 text-white" />
                       </div>
-                      <p className="text-white text-lg mb-3">
-                        {item.problem}
-                      </p>
+                      <p className="text-white text-lg mb-3">{item.problem}</p>
                       <div className="flex items-center justify-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                         Find Solution
                         <ArrowRight className="w-4 h-4" />
@@ -386,11 +409,15 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Our Services
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive digital marketing solutions designed to drive measurable results for your business.
+              Comprehensive digital marketing solutions designed to drive measurable results for
+              your business.
             </p>
           </motion.div>
 
@@ -399,45 +426,51 @@ export default function HomePage() {
               {
                 icon: Target,
                 title: 'SEO & Search Marketing',
-                benefit: 'Rank higher, get found faster, and convert more customers with proven SEO strategies.',
+                benefit:
+                  'Rank higher, get found faster, and convert more customers with proven SEO strategies.',
                 link: '/marketing-seo',
-                delay: 0.1
+                delay: 0.1,
               },
               {
                 icon: MapPin,
                 title: 'Google Business Profile',
-                benefit: 'Dominate local search results and attract customers actively looking for your services.',
+                benefit:
+                  'Dominate local search results and attract customers actively looking for your services.',
                 link: '/google-business-profile',
-                delay: 0.2
+                delay: 0.2,
               },
               {
                 icon: Code,
                 title: 'Web Design & Development',
-                benefit: 'Beautiful, conversion-focused websites that turn visitors into customers.',
+                benefit:
+                  'Beautiful, conversion-focused websites that turn visitors into customers.',
                 link: '/web-development',
-                delay: 0.3
+                delay: 0.3,
               },
               {
                 icon: Megaphone,
                 title: 'Paid Advertising',
-                benefit: 'Get immediate results with expertly managed Google Ads, Facebook, and YouTube campaigns.',
+                benefit:
+                  'Get immediate results with expertly managed Google Ads, Facebook, and YouTube campaigns.',
                 link: '/paid-advertising',
-                delay: 0.4
+                delay: 0.4,
               },
               {
                 icon: Brain,
                 title: 'AI & Automation',
-                benefit: 'Stay ahead of competitors with AI-powered content, chatbots, and automated workflows.',
+                benefit:
+                  'Stay ahead of competitors with AI-powered content, chatbots, and automated workflows.',
                 link: '/ai-automation',
-                delay: 0.5
+                delay: 0.5,
               },
               {
                 icon: SearchCheck,
                 title: 'Local SEO',
-                benefit: 'Own your local market and become the go-to choice for customers in your area.',
+                benefit:
+                  'Own your local market and become the go-to choice for customers in your area.',
                 link: '/local-seo',
-                delay: 0.6
-              }
+                delay: 0.6,
+              },
             ].map((service, idx) => (
               <motion.div
                 key={idx}
@@ -451,12 +484,8 @@ export default function HomePage() {
                       <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <service.icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {service.benefit}
-                      </p>
+                      <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">{service.title}</h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{service.benefit}</p>
                       <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                         Learn More
                         <ArrowRight className="w-4 h-4" />
@@ -494,11 +523,15 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Why Partner With ThinkMents?
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              We're not just another digital marketing agency. We're your growth partner, committed to your success.
+              We're not just another digital marketing agency. We're your growth partner, committed
+              to your success.
             </p>
           </motion.div>
 
@@ -507,27 +540,31 @@ export default function HomePage() {
               {
                 icon: Award,
                 title: '20+ Years Experience',
-                description: 'Since 2002, we\'ve helped businesses navigate every digital shift—from dial-up to AI.',
-                delay: 0.1
+                description:
+                  "Since 2002, we've helped businesses navigate every digital shift—from dial-up to AI.",
+                delay: 0.1,
               },
               {
                 icon: Users,
                 title: 'True Partnership',
-                description: 'We\'re an extension of your team, not just a vendor. Your success is our success.',
-                delay: 0.2
+                description:
+                  "We're an extension of your team, not just a vendor. Your success is our success.",
+                delay: 0.2,
               },
               {
                 icon: TrendingUp,
                 title: 'Results-Driven',
-                description: '$500M+ in client revenue generated. We don\'t just promise results—we deliver them.',
-                delay: 0.3
+                description:
+                  "$500M+ in client revenue generated. We don't just promise results—we deliver them.",
+                delay: 0.3,
               },
               {
                 icon: Zap,
                 title: 'Local Roots, National Reach',
-                description: 'Headquartered in Decatur, TX, serving businesses across 31 states with personal service.',
-                delay: 0.4
-              }
+                description:
+                  'Headquartered in Decatur, TX, serving businesses across 31 states with personal service.',
+                delay: 0.4,
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -540,12 +577,8 @@ export default function HomePage() {
                     <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 mx-auto">
                       <item.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="text-xl text-[#1E3A5F] mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <h3 className="text-xl text-[#1E3A5F] mb-3">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -588,7 +621,9 @@ export default function HomePage() {
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-[#00B4D8] mx-auto mb-3" />
                 <p className="text-2xl text-[#1E3A5F] mb-1">Headquartered in Decatur, Texas</p>
-                <p className="text-gray-600">Proudly serving Dallas-Fort Worth, North Texas & businesses nationwide</p>
+                <p className="text-gray-600">
+                  Proudly serving Dallas-Fort Worth, North Texas & businesses nationwide
+                </p>
               </div>
             </div>
           </motion.div>
@@ -596,7 +631,10 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 7: Featured Resources (NEW) */}
-      <section ref={resourcesRef} className="py-12 md:py-20 bg-gradient-to-br from-[#00B4D8]/5 to-[#1E3A5F]/5">
+      <section
+        ref={resourcesRef}
+        className="py-12 md:py-20 bg-gradient-to-br from-[#00B4D8]/5 to-[#1E3A5F]/5"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -604,7 +642,10 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Learn From Our Experts
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -617,10 +658,11 @@ export default function HomePage() {
               {
                 icon: FileText,
                 title: 'Case Studies',
-                description: 'See how we\'ve helped businesses like yours generate millions in revenue.',
+                description:
+                  "See how we've helped businesses like yours generate millions in revenue.",
                 link: '/case-studies',
                 cta: 'View Case Studies',
-                delay: 0.1
+                delay: 0.1,
               },
               {
                 icon: BarChart3,
@@ -628,16 +670,16 @@ export default function HomePage() {
                 description: 'Real results from real businesses across 18 industries.',
                 link: '/portfolio',
                 cta: 'See Our Work',
-                delay: 0.2
+                delay: 0.2,
               },
               {
                 icon: CheckCircle,
                 title: 'Free Consultation',
-                description: 'Let\'s discuss your goals and create a custom growth strategy.',
+                description: "Let's discuss your goals and create a custom growth strategy.",
                 link: '/free-consultation',
                 cta: 'Schedule Now',
-                delay: 0.3
-              }
+                delay: 0.3,
+              },
             ].map((resource, idx) => (
               <motion.div
                 key={idx}
@@ -651,12 +693,8 @@ export default function HomePage() {
                       <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                         <resource.icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="text-xl text-[#1E3A5F] mb-3">
-                        {resource.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {resource.description}
-                      </p>
+                      <h3 className="text-xl text-[#1E3A5F] mb-3">{resource.title}</h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{resource.description}</p>
                       <div className="flex items-center justify-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
                         {resource.cta}
                         <ArrowRight className="w-4 h-4" />
@@ -671,13 +709,19 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 8 & 9: Final CTA Section (Enhanced) */}
-      <section ref={ctaRef} className="py-16 md:py-24 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844] relative overflow-hidden">
+      <section
+        ref={ctaRef}
+        className="py-16 md:py-24 bg-gradient-to-br from-[#1E3A5F] to-[#0F2844] relative overflow-hidden"
+      >
         {/* Decorative Background */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -687,11 +731,15 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl mb-6"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Ready to Grow Your Business?
             </h2>
             <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
-              Whether you're a local shop in Decatur or a nationwide enterprise, we're ready to help you achieve your goals. Let's start with a free consultation.
+              Whether you're a local shop in Decatur or a nationwide enterprise, we're ready to help
+              you achieve your goals. Let's start with a free consultation.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">

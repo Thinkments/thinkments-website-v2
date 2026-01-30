@@ -35,25 +35,19 @@ import {
   TrendingUp,
   MessageSquare,
   Globe,
-  Hash
+  Hash,
 } from 'lucide-react';
 
-type ContentType = 
-  | 'website' 
-  | 'blog' 
-  | 'email' 
-  | 'social' 
-  | 'video' 
-  | 'google-business' 
+type ContentType =
+  | 'website'
+  | 'blog'
+  | 'email'
+  | 'social'
+  | 'video'
+  | 'google-business'
   | 'ad-copy';
 
-type ToneType = 
-  | 'professional' 
-  | 'friendly' 
-  | 'bold' 
-  | 'casual' 
-  | 'urgent' 
-  | 'educational';
+type ToneType = 'professional' | 'friendly' | 'bold' | 'casual' | 'urgent' | 'educational';
 
 type LengthType = 'short' | 'medium' | 'long';
 
@@ -97,14 +91,14 @@ export default function AIWriterTool() {
   const [location, setLocation] = useState('');
   const [readingLevel, setReadingLevel] = useState('standard');
   const [matchBrand, setMatchBrand] = useState(true);
-  
+
   const [generatedContent, setGeneratedContent] = useState('');
   const [versions, setVersions] = useState<string[]>([]);
   const [currentVersion, setCurrentVersion] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const [wordCount, setWordCount] = useState(0);
   const [charCount, setCharCount] = useState(0);
-  
+
   const [showBrandSettings, setShowBrandSettings] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
   const [showRefinement, setShowRefinement] = useState(false);
@@ -112,20 +106,20 @@ export default function AIWriterTool() {
 
   // Website-specific
   const [sectionType, setSectionType] = useState('hero');
-  
+
   // Blog-specific
   const [blogTitle, setBlogTitle] = useState('');
-  
+
   // Email-specific
   const [emailType, setEmailType] = useState('newsletter');
   const [subjectLines, setSubjectLines] = useState<string[]>([]);
-  
+
   // Social-specific
   const [socialPlatform, setSocialPlatform] = useState('facebook');
 
   const handleGenerate = () => {
     setIsGenerating(true);
-    
+
     // Simulate AI generation
     setTimeout(() => {
       const sampleContent = `Unlock Your Business Potential with ThinkMents Digital Marketing
@@ -135,7 +129,7 @@ At ThinkMents, we don't just create websites—we build digital experiences that
 From responsive design to seamless user experiences, we combine cutting-edge technology with strategic marketing insights to deliver results that matter. Whether you're looking to refresh your existing site or build something entirely new, we're here to make your vision a reality.
 
 Ready to take your online presence to the next level? Let's talk about how we can help your business grow.`;
-      
+
       setGeneratedContent(sampleContent);
       setVersions([...versions, sampleContent]);
       setCurrentVersion(versions.length);
@@ -166,9 +160,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Section Type
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Type</label>
               <select
                 value={sectionType}
                 onChange={(e) => setSectionType(e.target.value)}
@@ -190,21 +182,15 @@ Ready to take your online presence to the next level? Let's talk about how we ca
             </div>
           </div>
         );
-      
+
       case 'blog':
         return (
           <div className="space-y-4">
-            <Button
-              variant="outline"
-              className="w-full border-[#00B4D8] text-[#00B4D8]"
-            >
+            <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
               <Lightbulb className="w-4 h-4 mr-2" />
               Generate Title Ideas
             </Button>
-            <Button
-              variant="outline"
-              className="w-full border-[#00B4D8] text-[#00B4D8]"
-            >
+            <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
               <FileText className="w-4 h-4 mr-2" />
               Generate Outline
             </Button>
@@ -215,14 +201,12 @@ Ready to take your online presence to the next level? Let's talk about how we ca
             </div>
           </div>
         );
-      
+
       case 'email':
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Type
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email Type</label>
               <select
                 value={emailType}
                 onChange={(e) => setEmailType(e.target.value)}
@@ -235,10 +219,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                 <option value="reengagement">Re-engagement</option>
               </select>
             </div>
-            <Button
-              variant="outline"
-              className="w-full border-[#00B4D8] text-[#00B4D8]"
-            >
+            <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
               <Sparkles className="w-4 h-4 mr-2" />
               Generate 5 Subject Lines
             </Button>
@@ -249,14 +230,12 @@ Ready to take your online presence to the next level? Let's talk about how we ca
             </div>
           </div>
         );
-      
+
       case 'social':
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Platform
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Platform</label>
               <div className="grid grid-cols-2 gap-2">
                 {['Facebook', 'Instagram', 'LinkedIn', 'Twitter/X'].map((platform) => (
                   <button
@@ -273,21 +252,19 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                 ))}
               </div>
             </div>
-            <Button
-              variant="outline"
-              className="w-full border-[#00B4D8] text-[#00B4D8]"
-            >
+            <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
               <Hash className="w-4 h-4 mr-2" />
               Generate Hashtags
             </Button>
             <div className="p-3 bg-pink-50 rounded-lg border border-pink-200">
               <p className="text-sm text-pink-800">
-                <strong>Character limit:</strong> {socialPlatform === 'twitter/x' ? '280' : 'Recommended 150-200'}
+                <strong>Character limit:</strong>{' '}
+                {socialPlatform === 'twitter/x' ? '280' : 'Recommended 150-200'}
               </p>
             </div>
           </div>
         );
-      
+
       default:
         return null;
     }
@@ -299,11 +276,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
         {/* Library Header */}
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              onClick={() => setShowLibrary(false)}
-              className="text-gray-600"
-            >
+            <Button variant="ghost" onClick={() => setShowLibrary(false)} className="text-gray-600">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Writer
             </Button>
@@ -331,10 +304,30 @@ Ready to take your online presence to the next level? Let's talk about how we ca
         {/* Library Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { title: 'Homepage Hero Section', type: 'website', date: '2 hours ago', client: 'ThinkMents' },
-            { title: 'SEO Blog Post: Digital Marketing Tips', type: 'blog', date: 'Yesterday', client: 'ThinkMents' },
-            { title: 'Welcome Email Campaign', type: 'email', date: '3 days ago', client: 'Client A' },
-            { title: 'LinkedIn Post: Industry Insights', type: 'social', date: '1 week ago', client: 'ThinkMents' },
+            {
+              title: 'Homepage Hero Section',
+              type: 'website',
+              date: '2 hours ago',
+              client: 'ThinkMents',
+            },
+            {
+              title: 'SEO Blog Post: Digital Marketing Tips',
+              type: 'blog',
+              date: 'Yesterday',
+              client: 'ThinkMents',
+            },
+            {
+              title: 'Welcome Email Campaign',
+              type: 'email',
+              date: '3 days ago',
+              client: 'Client A',
+            },
+            {
+              title: 'LinkedIn Post: Industry Insights',
+              type: 'social',
+              date: '1 week ago',
+              client: 'ThinkMents',
+            },
           ].map((item, idx) => (
             <Card key={idx} className="border-0 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
@@ -355,7 +348,8 @@ Ready to take your online presence to the next level? Let's talk about how we ca
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-                  Sample content preview would appear here showing the first few lines of the generated content...
+                  Sample content preview would appear here showing the first few lines of the
+                  generated content...
                 </p>
                 <div className="flex space-x-2">
                   <Button size="sm" variant="outline" className="flex-1">
@@ -489,9 +483,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Tone
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Tone</label>
                 <select
                   value={tone}
                   onChange={(e) => setTone(e.target.value as ToneType)}
@@ -504,7 +496,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                   ))}
                 </select>
               </div>
-              
+
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
@@ -539,7 +531,9 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                 ))}
               </div>
               <div className="mt-3 text-sm text-gray-600 text-center">
-                Target: {length === 'short' ? '100-200' : length === 'medium' ? '200-500' : '500-1000'} words
+                Target:{' '}
+                {length === 'short' ? '100-200' : length === 'medium' ? '200-500' : '500-1000'}{' '}
+                words
               </div>
             </CardContent>
           </Card>
@@ -557,10 +551,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                 placeholder="web design, digital marketing, Texas"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               />
-              <Button
-                variant="outline"
-                className="w-full border-[#00B4D8] text-[#00B4D8]"
-              >
+              <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
                 <Target className="w-4 h-4 mr-2" />
                 Suggest Keywords
               </Button>
@@ -582,7 +573,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                 />
                 <span className="text-sm text-gray-700">Include call-to-action</span>
               </label>
-              
+
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
@@ -594,9 +585,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
               </label>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Localize for
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Localize for</label>
                 <select
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
@@ -649,11 +638,8 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                 </>
               )}
             </Button>
-            
-            <Button
-              variant="outline"
-              className="w-full border-[#00B4D8] text-[#00B4D8]"
-            >
+
+            <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
               <Wand2 className="w-4 h-4 mr-2" />
               Generate 3 Variations
             </Button>
@@ -761,17 +747,11 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                       <Copy className="w-4 h-4 mr-2" />
                       Copy
                     </Button>
-                    <Button
-                      variant="outline"
-                      className="border-[#00B4D8] text-[#00B4D8]"
-                    >
+                    <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8]">
                       <Download className="w-4 h-4 mr-2" />
                       Export
                     </Button>
-                    <Button
-                      variant="outline"
-                      className="border-[#00B4D8] text-[#00B4D8]"
-                    >
+                    <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8]">
                       <Save className="w-4 h-4 mr-2" />
                       Save
                     </Button>
@@ -919,9 +899,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
 
               <div className="p-6 space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Brand Name
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Brand Name</label>
                   <input
                     type="text"
                     defaultValue="ThinkMents Digital Marketing"
@@ -970,7 +948,9 @@ Ready to take your online presence to the next level? Let's talk about how we ca
                       <label key={trait} className="flex items-center space-x-2 cursor-pointer">
                         <input
                           type="checkbox"
-                          defaultChecked={['Professional', 'Friendly', 'Trustworthy'].includes(trait)}
+                          defaultChecked={['Professional', 'Friendly', 'Trustworthy'].includes(
+                            trait,
+                          )}
                           className="w-4 h-4 text-[#00B4D8] rounded"
                         />
                         <span className="text-sm text-gray-700">{trait}</span>
@@ -1014,10 +994,7 @@ Ready to take your online presence to the next level? Let's talk about how we ca
               </div>
 
               <div className="p-6 border-t border-gray-200 flex justify-end space-x-3">
-                <Button
-                  variant="outline"
-                  onClick={() => setShowBrandSettings(false)}
-                >
+                <Button variant="outline" onClick={() => setShowBrandSettings(false)}>
                   Cancel
                 </Button>
                 <Button

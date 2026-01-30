@@ -7,7 +7,7 @@ const iconMap = {
   Clock,
   DollarSign,
   Users,
-  Zap
+  Zap,
 };
 
 export default function QuoteBenefits() {
@@ -17,7 +17,7 @@ export default function QuoteBenefits() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {benefits.map((benefit, index) => {
             const IconComponent = iconMap[benefit.icon as keyof typeof iconMap];
-            
+
             return (
               <motion.div
                 key={benefit.title}

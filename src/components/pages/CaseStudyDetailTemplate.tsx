@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { 
-  ArrowRight, 
-  Star, 
-  CheckCircle, 
+import {
+  ArrowRight,
+  Star,
+  CheckCircle,
   Quote,
   ChevronRight,
   Phone,
@@ -18,7 +18,7 @@ import {
   Award,
   Globe,
   Users,
-  BarChart
+  BarChart,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -80,39 +80,39 @@ interface CaseStudyData {
   duration: string;
   heroImage?: string;
   clientLogo?: string;
-  
+
   // Quick Stats
   quickStats: QuickStat[];
-  
+
   // Challenge
   challenge: Challenge;
-  
+
   // Solution
   solution: {
     description: string;
     services: Service[];
     process?: ProcessPhase[];
   };
-  
+
   // Results
   results: Result[];
-  
+
   // Testimonial
   testimonial?: Testimonial;
   fallbackTestimonial?: string;
-  
+
   // Gallery
   gallery?: string[];
-  
+
   // Key Takeaways
   keyTakeaways: KeyTakeaway[];
-  
+
   // Services
   servicesUsed: Array<{ name: string; link: string; icon?: React.ReactNode }>;
-  
+
   // Related Case Studies
   relatedCaseStudies: RelatedCaseStudy[];
-  
+
   // SEO
   metaDescription: string;
   slug: string;
@@ -132,7 +132,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
   const servicesRef = useRef(null);
   const relatedRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isChallengeInView = useInView(challengeRef, { once: true });
   const isSolutionInView = useInView(solutionRef, { once: true });
   const isResultsInView = useInView(resultsRef, { once: true });
@@ -156,9 +156,13 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
       <div className="bg-gray-50 border-b border-gray-100">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#00B4D8]">Home</Link>
+            <Link to="/" className="hover:text-[#00B4D8]">
+              Home
+            </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link to="/case-studies" className="hover:text-[#00B4D8]">Case Studies</Link>
+            <Link to="/case-studies" className="hover:text-[#00B4D8]">
+              Case Studies
+            </Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-[#1E3A5F] font-medium">{data.clientName}</span>
           </nav>
@@ -190,8 +194,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
               {/* Client Logo */}
               {data.clientLogo && (
                 <div className="mb-8 bg-white rounded-lg p-6 inline-block shadow-md">
-                  <img 
-                    src={data.clientLogo} 
+                  <img
+                    src={data.clientLogo}
                     alt={`${data.clientName} logo`}
                     className="h-16 w-auto object-contain"
                   />
@@ -205,9 +209,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
 
               {/* Tags */}
               <div className="flex flex-wrap gap-3 mb-6">
-                <Badge className="bg-[#00B4D8] text-white px-4 py-2">
-                  {data.industry}
-                </Badge>
+                <Badge className="bg-[#00B4D8] text-white px-4 py-2">{data.industry}</Badge>
                 <Badge variant="outline" className="border-[#1E3A5F] text-[#1E3A5F] px-4 py-2">
                   {data.location}
                 </Badge>
@@ -226,8 +228,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
             >
               {data.heroImage ? (
                 <div className="rounded-lg overflow-hidden shadow-2xl">
-                  <img 
-                    src={data.heroImage} 
+                  <img
+                    src={data.heroImage}
                     alt={data.clientName}
                     className="w-full h-auto object-cover"
                   />
@@ -245,7 +247,9 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
       {/* Quick Stats Bar */}
       <section className="bg-[#00B4D8] py-12 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className={`grid ${data.quickStats.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'} gap-8 text-center text-white`}>
+          <div
+            className={`grid ${data.quickStats.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'} gap-8 text-center text-white`}
+          >
             {data.quickStats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -256,9 +260,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
               >
                 <div className="text-5xl md:text-6xl font-bold mb-2">{stat.number}</div>
                 <div className="text-lg text-white/90">{stat.label}</div>
-                {stat.context && (
-                  <div className="text-sm text-white/70 mt-1">{stat.context}</div>
-                )}
+                {stat.context && <div className="text-sm text-white/70 mt-1">{stat.context}</div>}
               </motion.div>
             ))}
           </div>
@@ -273,9 +275,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
             animate={isChallengeInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-8">
-              The Challenge
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-8">The Challenge</h2>
 
             <Card>
               <CardContent className="p-8">
@@ -310,9 +310,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
             animate={isSolutionInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-8">
-              Our Approach
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] mb-8">Our Approach</h2>
 
             <Card className="mb-8">
               <CardContent className="p-8">
@@ -364,10 +362,13 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
       <section ref={resultsRef} className="py-20 px-4 bg-[#1E3A5F] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px',
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -392,12 +393,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
                   <div className="text-5xl md:text-6xl font-bold text-[#00B4D8] mb-3">
                     {result.number}
                   </div>
-                  <div className="text-xl font-semibold text-white mb-2">
-                    {result.label}
-                  </div>
-                  <div className="text-white/70">
-                    {result.context}
-                  </div>
+                  <div className="text-xl font-semibold text-white mb-2">{result.label}</div>
+                  <div className="text-white/70">{result.context}</div>
                 </motion.div>
               ))}
             </div>
@@ -439,7 +436,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
               </>
             ) : (
               <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed italic">
-                {data.fallbackTestimonial || `Results speak louder than words. This project generated ${data.results[0]?.number} for ${data.clientName}.`}
+                {data.fallbackTestimonial ||
+                  `Results speak louder than words. This project generated ${data.results[0]?.number} for ${data.clientName}.`}
               </p>
             )}
           </motion.div>
@@ -468,8 +466,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
-                    <img 
-                      src={image} 
+                    <img
+                      src={image}
                       alt={`${data.clientName} project ${index + 1}`}
                       className="w-full h-auto object-cover"
                     />
@@ -506,12 +504,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
                       <div className="w-16 h-16 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center mb-6">
                         {takeaway.icon || <Target className="w-8 h-8 text-white" />}
                       </div>
-                      <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
-                        {takeaway.title}
-                      </h3>
-                      <p className="text-gray-700 leading-relaxed">
-                        {takeaway.description}
-                      </p>
+                      <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">{takeaway.title}</h3>
+                      <p className="text-gray-700 leading-relaxed">{takeaway.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -582,11 +576,9 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
                 >
                   <Card className="h-full hover:shadow-xl transition-shadow duration-300">
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
-                        {caseStudy.company}
-                      </h3>
+                      <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">{caseStudy.company}</h3>
                       <p className="text-gray-600 mb-6">{caseStudy.title}</p>
-                      
+
                       <div className="bg-[#F8F9FA] rounded-lg p-4 mb-6">
                         <div className="text-4xl font-bold text-[#00B4D8] mb-1">
                           {caseStudy.stat}
@@ -607,7 +599,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
             </div>
 
             <div className="text-center">
-              <Link 
+              <Link
                 to="/case-studies"
                 className="inline-flex items-center gap-2 text-[#00B4D8] hover:text-[#00B4D8]/80 font-semibold text-lg transition-colors"
               >
@@ -619,7 +611,10 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white relative overflow-hidden">
+      <section
+        ref={ctaRef}
+        className="py-20 px-4 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white relative overflow-hidden"
+      >
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -633,10 +628,8 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Want Results Like These?
-            </h2>
-            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Want Results Like These?</h2>
+
             <p className="text-xl md:text-2xl mb-12 text-white/90">
               Let&apos;s talk about what ThinkMents can do for your business.
             </p>

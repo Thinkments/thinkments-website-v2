@@ -55,7 +55,7 @@ import {
   MoreVertical,
   GripVertical,
   Link as LinkIcon,
-  Sliders
+  Sliders,
 } from 'lucide-react';
 
 type TabType = 'clients' | 'builder' | 'templates' | 'scheduled' | 'history' | 'wins';
@@ -119,7 +119,7 @@ export default function AutomatedClientReporting() {
     reportsSentThisMonth: 18,
     scheduledReports: 12,
     averageScore: 87,
-    winsThisMonth: 34
+    winsThisMonth: 34,
   };
 
   const clients: Client[] = [
@@ -132,7 +132,7 @@ export default function AutomatedClientReporting() {
       nextScheduled: '2025-01-01',
       status: 'active',
       avgScore: 92,
-      recipients: ['ceo@acme.com', 'marketing@acme.com']
+      recipients: ['ceo@acme.com', 'marketing@acme.com'],
     },
     {
       id: '2',
@@ -143,7 +143,7 @@ export default function AutomatedClientReporting() {
       nextScheduled: '2024-12-15',
       status: 'active',
       avgScore: 78,
-      recipients: ['john@smithandsons.com']
+      recipients: ['john@smithandsons.com'],
     },
     {
       id: '3',
@@ -152,23 +152,95 @@ export default function AutomatedClientReporting() {
       frequency: 'none',
       status: 'never-sent',
       avgScore: 0,
-      recipients: []
+      recipients: [],
     },
   ];
 
   const reportSections: ReportSection[] = [
-    { id: 'executive', title: 'Executive Summary', enabled: true, description: 'AI-generated summary of performance', icon: FileText },
-    { id: 'traffic', title: 'Traffic Overview', enabled: true, description: 'Visitors, sessions, bounce rate', icon: Activity },
-    { id: 'seo', title: 'SEO Performance', enabled: true, description: 'Rankings, keywords, backlinks', icon: TrendingUp },
-    { id: 'gbp', title: 'Google Business Profile', enabled: false, description: 'Views, calls, directions', icon: MapPin },
-    { id: 'leads', title: 'Lead Generation', enabled: true, description: 'Inquiries, conversions, sources', icon: Target },
-    { id: 'content', title: 'Content Performance', enabled: false, description: 'Top pages, blog posts', icon: FileText },
-    { id: 'social', title: 'Social Media', enabled: false, description: 'Followers, engagement, posts', icon: Share2 },
-    { id: 'competitors', title: 'Competitor Comparison', enabled: false, description: 'Rankings vs competitors', icon: BarChart3 },
-    { id: 'goals', title: 'Goals & Progress', enabled: true, description: 'Targets vs actual performance', icon: Target },
-    { id: 'wins', title: 'Wins & Achievements', enabled: true, description: 'Highlighted successes', icon: Award },
-    { id: 'recommendations', title: 'Recommendations', enabled: true, description: 'AI-generated next steps', icon: Sparkles },
-    { id: 'upcoming', title: 'Upcoming Work', enabled: false, description: 'Next month focus areas', icon: Calendar },
+    {
+      id: 'executive',
+      title: 'Executive Summary',
+      enabled: true,
+      description: 'AI-generated summary of performance',
+      icon: FileText,
+    },
+    {
+      id: 'traffic',
+      title: 'Traffic Overview',
+      enabled: true,
+      description: 'Visitors, sessions, bounce rate',
+      icon: Activity,
+    },
+    {
+      id: 'seo',
+      title: 'SEO Performance',
+      enabled: true,
+      description: 'Rankings, keywords, backlinks',
+      icon: TrendingUp,
+    },
+    {
+      id: 'gbp',
+      title: 'Google Business Profile',
+      enabled: false,
+      description: 'Views, calls, directions',
+      icon: MapPin,
+    },
+    {
+      id: 'leads',
+      title: 'Lead Generation',
+      enabled: true,
+      description: 'Inquiries, conversions, sources',
+      icon: Target,
+    },
+    {
+      id: 'content',
+      title: 'Content Performance',
+      enabled: false,
+      description: 'Top pages, blog posts',
+      icon: FileText,
+    },
+    {
+      id: 'social',
+      title: 'Social Media',
+      enabled: false,
+      description: 'Followers, engagement, posts',
+      icon: Share2,
+    },
+    {
+      id: 'competitors',
+      title: 'Competitor Comparison',
+      enabled: false,
+      description: 'Rankings vs competitors',
+      icon: BarChart3,
+    },
+    {
+      id: 'goals',
+      title: 'Goals & Progress',
+      enabled: true,
+      description: 'Targets vs actual performance',
+      icon: Target,
+    },
+    {
+      id: 'wins',
+      title: 'Wins & Achievements',
+      enabled: true,
+      description: 'Highlighted successes',
+      icon: Award,
+    },
+    {
+      id: 'recommendations',
+      title: 'Recommendations',
+      enabled: true,
+      description: 'AI-generated next steps',
+      icon: Sparkles,
+    },
+    {
+      id: 'upcoming',
+      title: 'Upcoming Work',
+      enabled: false,
+      description: 'Next month focus areas',
+      icon: Calendar,
+    },
   ];
 
   const templates: ReportTemplate[] = [
@@ -177,21 +249,21 @@ export default function AutomatedClientReporting() {
       name: 'Default Monthly Report',
       description: 'Comprehensive monthly overview',
       sections: ['executive', 'traffic', 'seo', 'leads', 'wins', 'recommendations'],
-      usedByCount: 18
+      usedByCount: 18,
     },
     {
       id: '2',
       name: 'Quick Weekly Update',
       description: 'Brief weekly performance snapshot',
       sections: ['executive', 'traffic', 'wins'],
-      usedByCount: 6
+      usedByCount: 6,
     },
     {
       id: '3',
       name: 'SEO Focus Report',
       description: 'Deep dive into SEO metrics',
       sections: ['executive', 'seo', 'content', 'competitors', 'recommendations'],
-      usedByCount: 4
+      usedByCount: 4,
     },
   ];
 
@@ -204,7 +276,7 @@ export default function AutomatedClientReporting() {
       description: 'Organic traffic increased significantly',
       metric: 'Organic Traffic',
       change: '+47%',
-      date: '2024-12-01'
+      date: '2024-12-01',
     },
     {
       id: '2',
@@ -214,7 +286,7 @@ export default function AutomatedClientReporting() {
       description: 'Ranked #1 for target keyword',
       metric: 'Keywords in Top 3',
       change: '+5',
-      date: '2024-12-05'
+      date: '2024-12-05',
     },
     {
       id: '3',
@@ -224,15 +296,18 @@ export default function AutomatedClientReporting() {
       description: 'Reached 50+ 5-star reviews',
       metric: 'Total Reviews',
       change: '50 reviews',
-      date: '2024-12-08'
+      date: '2024-12-08',
     },
   ];
 
   const getStatusColor = (status: ClientStatus) => {
     switch (status) {
-      case 'active': return 'bg-green-100 text-green-700';
-      case 'paused': return 'bg-yellow-100 text-yellow-700';
-      case 'never-sent': return 'bg-red-100 text-red-700';
+      case 'active':
+        return 'bg-green-100 text-green-700';
+      case 'paused':
+        return 'bg-yellow-100 text-yellow-700';
+      case 'never-sent':
+        return 'bg-red-100 text-red-700';
     }
   };
 
@@ -243,10 +318,8 @@ export default function AutomatedClientReporting() {
   };
 
   const toggleSection = (sectionId: string) => {
-    setSelectedSections(prev =>
-      prev.includes(sectionId)
-        ? prev.filter(id => id !== sectionId)
-        : [...prev, sectionId]
+    setSelectedSections((prev) =>
+      prev.includes(sectionId) ? prev.filter((id) => id !== sectionId) : [...prev, sectionId],
     );
   };
 
@@ -270,10 +343,7 @@ export default function AutomatedClientReporting() {
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <Button
-              variant="outline"
-              onClick={() => setShowSettingsModal(true)}
-            >
+            <Button variant="outline" onClick={() => setShowSettingsModal(true)}>
               <Settings className="w-4 h-4 mr-2" />
               Report Settings
             </Button>
@@ -301,7 +371,9 @@ export default function AutomatedClientReporting() {
               </div>
               <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.activeClients}</p>
               <p className="text-sm text-gray-600 mb-2">Active Clients</p>
-              <a href="#" className="text-xs text-[#00B4D8] hover:underline">Manage Clients →</a>
+              <a href="#" className="text-xs text-[#00B4D8] hover:underline">
+                Manage Clients →
+              </a>
             </CardContent>
           </Card>
 
@@ -330,7 +402,9 @@ export default function AutomatedClientReporting() {
               </div>
               <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.scheduledReports}</p>
               <p className="text-sm text-gray-600 mb-2">Scheduled Reports</p>
-              <a href="#" className="text-xs text-[#00B4D8] hover:underline">View Schedule →</a>
+              <a href="#" className="text-xs text-[#00B4D8] hover:underline">
+                View Schedule →
+              </a>
             </CardContent>
           </Card>
 
@@ -344,7 +418,10 @@ export default function AutomatedClientReporting() {
               <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.averageScore}</p>
               <p className="text-sm text-gray-600 mb-2">Avg Client Score</p>
               <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                <div className="bg-purple-600 h-2 rounded-full" style={{ width: `${stats.averageScore}%` }} />
+                <div
+                  className="bg-purple-600 h-2 rounded-full"
+                  style={{ width: `${stats.averageScore}%` }}
+                />
               </div>
             </CardContent>
           </Card>
@@ -358,7 +435,9 @@ export default function AutomatedClientReporting() {
               </div>
               <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.winsThisMonth}</p>
               <p className="text-sm text-gray-600 mb-2">Wins This Month</p>
-              <a href="#" className="text-xs text-[#00B4D8] hover:underline">View All Wins →</a>
+              <a href="#" className="text-xs text-[#00B4D8] hover:underline">
+                View All Wins →
+              </a>
             </CardContent>
           </Card>
         </div>
@@ -386,13 +465,13 @@ export default function AutomatedClientReporting() {
             {tab.icon && <tab.icon className="w-4 h-4" />}
             <span>{tab.label}</span>
             {tab.count !== undefined && (
-              <Badge className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <Badge
+                className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+              >
                 {tab.count}
               </Badge>
             )}
-            {tab.badge && (
-              <Badge className="bg-[#FF6B35] text-white">{tab.badge}</Badge>
-            )}
+            {tab.badge && <Badge className="bg-[#FF6B35] text-white">{tab.badge}</Badge>}
           </button>
         ))}
       </div>
@@ -431,7 +510,10 @@ export default function AutomatedClientReporting() {
 
             <div className="space-y-3">
               {clients.map((client) => (
-                <Card key={client.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card
+                  key={client.id}
+                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-6">
                     <div className="grid grid-cols-12 gap-4 items-center">
                       <div className="col-span-3 flex items-center space-x-3">
@@ -440,7 +522,10 @@ export default function AutomatedClientReporting() {
                         </div>
                         <div>
                           <p className="font-semibold text-gray-900">{client.name}</p>
-                          <p className="text-xs text-gray-500">{client.recipients.length} recipient{client.recipients.length !== 1 ? 's' : ''}</p>
+                          <p className="text-xs text-gray-500">
+                            {client.recipients.length} recipient
+                            {client.recipients.length !== 1 ? 's' : ''}
+                          </p>
                         </div>
                       </div>
 
@@ -453,9 +538,7 @@ export default function AutomatedClientReporting() {
 
                       <div className="col-span-2">
                         <p className="text-xs text-gray-600 mb-1">Last Sent</p>
-                        <p className="text-sm text-gray-900">
-                          {client.lastSent || 'Never'}
-                        </p>
+                        <p className="text-sm text-gray-900">{client.lastSent || 'Never'}</p>
                       </div>
 
                       <div className="col-span-2">
@@ -549,11 +632,15 @@ export default function AutomatedClientReporting() {
                   {builderStep === 1 && (
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Select Client</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Select Client
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>Choose a client...</option>
                           {clients.map((client) => (
-                            <option key={client.id} value={client.id}>{client.name}</option>
+                            <option key={client.id} value={client.id}>
+                              {client.name}
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -584,7 +671,9 @@ export default function AutomatedClientReporting() {
                   {builderStep === 2 && (
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-3">Report Period</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                          Report Period
+                        </label>
                         <div className="grid grid-cols-4 gap-3">
                           {['Last Week', 'Last Month', 'Last Quarter', 'Custom'].map((period) => (
                             <button
@@ -599,7 +688,9 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Compare To</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Compare To
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>Previous Period</option>
                           <option>Same Period Last Year</option>
@@ -621,7 +712,9 @@ export default function AutomatedClientReporting() {
                   {builderStep === 3 && (
                     <div className="space-y-6">
                       <div className="flex items-center justify-between mb-4">
-                        <label className="text-sm font-medium text-gray-900">Report Sections (drag to reorder)</label>
+                        <label className="text-sm font-medium text-gray-900">
+                          Report Sections (drag to reorder)
+                        </label>
                         <Button size="sm" variant="outline">
                           <Plus className="w-4 h-4 mr-2" />
                           Select All
@@ -630,7 +723,10 @@ export default function AutomatedClientReporting() {
 
                       <div className="space-y-2 max-h-96 overflow-y-auto">
                         {reportSections.map((section) => (
-                          <Card key={section.id} className={`border-2 ${section.enabled ? 'border-[#00B4D8] bg-blue-50' : 'border-gray-200'} cursor-pointer`}>
+                          <Card
+                            key={section.id}
+                            className={`border-2 ${section.enabled ? 'border-[#00B4D8] bg-blue-50' : 'border-gray-200'} cursor-pointer`}
+                          >
                             <CardContent className="p-4">
                               <div className="flex items-center space-x-3">
                                 <GripVertical className="w-4 h-4 text-gray-400 cursor-move" />
@@ -688,10 +784,12 @@ export default function AutomatedClientReporting() {
                               Create Recommendations
                             </Button>
                           </div>
-                          
+
                           <div className="grid grid-cols-2 gap-3">
                             <div>
-                              <label className="block text-xs font-medium text-gray-700 mb-1">Tone</label>
+                              <label className="block text-xs font-medium text-gray-700 mb-1">
+                                Tone
+                              </label>
                               <select className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
                                 <option>Professional</option>
                                 <option>Friendly</option>
@@ -699,7 +797,9 @@ export default function AutomatedClientReporting() {
                               </select>
                             </div>
                             <div>
-                              <label className="block text-xs font-medium text-gray-700 mb-1">Length</label>
+                              <label className="block text-xs font-medium text-gray-700 mb-1">
+                                Length
+                              </label>
                               <select className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
                                 <option>Brief</option>
                                 <option>Standard</option>
@@ -711,7 +811,9 @@ export default function AutomatedClientReporting() {
                       </Card>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Custom Notes</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Custom Notes
+                        </label>
                         <textarea
                           rows={4}
                           placeholder="Add custom commentary or notes to this report..."
@@ -733,7 +835,9 @@ export default function AutomatedClientReporting() {
                   {builderStep === 5 && (
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-3">Report Template</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                          Report Template
+                        </label>
                         <div className="grid grid-cols-3 gap-4">
                           {['Clean', 'Modern', 'Bold', 'Minimal', 'Executive'].map((style) => (
                             <button
@@ -748,7 +852,9 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Branding</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Branding
+                        </label>
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3">
                             <div className="w-16 h-16 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
@@ -764,7 +870,9 @@ export default function AutomatedClientReporting() {
                               <Upload className="w-5 h-5 text-gray-400" />
                             </div>
                             <div className="flex-1">
-                              <p className="text-sm font-medium text-gray-900">Client Logo (Optional)</p>
+                              <p className="text-sm font-medium text-gray-900">
+                                Client Logo (Optional)
+                              </p>
                               <Button size="sm" variant="outline" className="mt-1">
                                 <Upload className="w-3 h-3 mr-2" />
                                 Upload
@@ -775,20 +883,40 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Colors</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Colors
+                        </label>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Primary Color</label>
+                            <label className="block text-xs text-gray-600 mb-1">
+                              Primary Color
+                            </label>
                             <div className="flex items-center space-x-2">
-                              <input type="color" value="#1E3A5F" className="w-12 h-10 border border-gray-300 rounded cursor-pointer" />
-                              <input type="text" value="#1E3A5F" className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg font-mono" />
+                              <input
+                                type="color"
+                                value="#1E3A5F"
+                                className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                              />
+                              <input
+                                type="text"
+                                value="#1E3A5F"
+                                className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg font-mono"
+                              />
                             </div>
                           </div>
                           <div>
                             <label className="block text-xs text-gray-600 mb-1">Accent Color</label>
                             <div className="flex items-center space-x-2">
-                              <input type="color" value="#00B4D8" className="w-12 h-10 border border-gray-300 rounded cursor-pointer" />
-                              <input type="text" value="#00B4D8" className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg font-mono" />
+                              <input
+                                type="color"
+                                value="#00B4D8"
+                                className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                              />
+                              <input
+                                type="text"
+                                value="#00B4D8"
+                                className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg font-mono"
+                              />
                             </div>
                           </div>
                         </div>
@@ -796,8 +924,14 @@ export default function AutomatedClientReporting() {
 
                       <div>
                         <label className="flex items-center space-x-2 mb-2">
-                          <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" defaultChecked />
-                          <span className="text-sm font-medium text-gray-900">Include Cover Page</span>
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4 text-[#00B4D8] rounded"
+                            defaultChecked
+                          />
+                          <span className="text-sm font-medium text-gray-900">
+                            Include Cover Page
+                          </span>
                         </label>
                         <div className="ml-6 space-y-2">
                           <input
@@ -856,7 +990,9 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Email Recipients</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Email Recipients
+                        </label>
                         <input
                           type="email"
                           placeholder="recipient@example.com"
@@ -869,7 +1005,9 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Email Subject</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Email Subject
+                        </label>
                         <input
                           type="text"
                           defaultValue="Your Monthly Marketing Report - December 2024"
@@ -878,7 +1016,9 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Email Body</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Email Body
+                        </label>
                         <textarea
                           rows={4}
                           defaultValue="Hi there,&#10;&#10;Please find your monthly marketing report attached. We're excited to share the great results we've achieved together this month!&#10;&#10;Best regards,&#10;ThinkMents Team"
@@ -892,7 +1032,9 @@ export default function AutomatedClientReporting() {
 
                       <div className="flex items-center space-x-2">
                         <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                        <label className="text-sm text-gray-700">Include executive summary in email body</label>
+                        <label className="text-sm text-gray-700">
+                          Include executive summary in email body
+                        </label>
                       </div>
 
                       <div className="grid grid-cols-2 gap-3">
@@ -926,7 +1068,10 @@ export default function AutomatedClientReporting() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {templates.map((template) => (
-                <Card key={template.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card
+                  key={template.id}
+                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-6">
                     <div className="aspect-video bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
                       <FileText className="w-12 h-12 text-gray-400" />
@@ -937,7 +1082,9 @@ export default function AutomatedClientReporting() {
                       <Badge className="bg-blue-100 text-blue-700">
                         {template.sections.length} sections
                       </Badge>
-                      <span className="text-xs text-gray-500">Used by {template.usedByCount} clients</span>
+                      <span className="text-xs text-gray-500">
+                        Used by {template.usedByCount} clients
+                      </span>
                     </div>
                     <div className="flex space-x-2">
                       <Button size="sm" className="flex-1 bg-[#00B4D8] text-white">
@@ -967,7 +1114,9 @@ export default function AutomatedClientReporting() {
                   <Award className="w-6 h-6 text-yellow-600" />
                   <div>
                     <p className="font-semibold text-yellow-900">Auto-Detected Wins</p>
-                    <p className="text-sm text-yellow-700">AI has found {wins.length} positive achievements to celebrate</p>
+                    <p className="text-sm text-yellow-700">
+                      AI has found {wins.length} positive achievements to celebrate
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -984,9 +1133,13 @@ export default function AutomatedClientReporting() {
                           <Badge className="bg-blue-100 text-blue-700">{win.clientName}</Badge>
                           <Badge className="bg-green-100 text-green-700">{win.type}</Badge>
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{win.description}</h3>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                          {win.description}
+                        </h3>
                         <div className="flex items-center space-x-4 text-sm text-gray-600">
-                          <span>{win.metric}: <strong className="text-green-600">{win.change}</strong></span>
+                          <span>
+                            {win.metric}: <strong className="text-green-600">{win.change}</strong>
+                          </span>
                           <span className="flex items-center">
                             <Calendar className="w-3 h-3 mr-1" />
                             {win.date}

@@ -12,19 +12,19 @@ interface PerformantImageProps extends React.ImgHTMLAttributes<HTMLImageElement>
 
 /**
  * Performance-optimized image component with lazy loading and proper attributes
- * 
+ *
  * Features:
  * - Lazy loading by default (loading="lazy")
  * - Width and height attributes to prevent layout shift
  * - Optional priority loading for above-the-fold images
  * - WebP format support with fallback (when implemented)
- * 
+ *
  * Usage:
- * <PerformantImage 
- *   src="/image.jpg" 
- *   alt="Description" 
- *   width={800} 
- *   height={600} 
+ * <PerformantImage
+ *   src="/image.jpg"
+ *   alt="Description"
+ *   width={800}
+ *   height={600}
  *   lazy={true}
  * />
  */
@@ -38,7 +38,7 @@ export default function PerformantImage({
   priority = false,
   ...props
 }: PerformantImageProps) {
-  const loadingStrategy = priority ? 'eager' : (lazy ? 'lazy' : 'eager');
+  const loadingStrategy = priority ? 'eager' : lazy ? 'lazy' : 'eager';
   const fetchPriority = priority ? 'high' : 'auto';
 
   return (
@@ -58,7 +58,7 @@ export default function PerformantImage({
 
 /**
  * Picture element component for WebP support with fallback
- * 
+ *
  * Usage:
  * <PictureImage
  *   webpSrc="/image.webp"
@@ -89,14 +89,12 @@ export function PictureImage({
   className = '',
   priority = false,
 }: PictureImageProps) {
-  const loadingStrategy = priority ? 'eager' : (lazy ? 'lazy' : 'eager');
+  const loadingStrategy = priority ? 'eager' : lazy ? 'lazy' : 'eager';
   const fetchPriority = priority ? 'high' : 'auto';
 
   return (
     <picture>
-      {webpSrc && (
-        <source srcSet={webpSrc} type="image/webp" />
-      )}
+      {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
       <source srcSet={fallbackSrc} type="image/jpeg" />
       <img
         src={fallbackSrc}
@@ -114,7 +112,7 @@ export function PictureImage({
 
 /**
  * Responsive image component with srcset for different screen sizes
- * 
+ *
  * Usage:
  * <ResponsiveImage
  *   src="/image-800.jpg"
@@ -148,7 +146,7 @@ export function ResponsiveImage({
   className = '',
   priority = false,
 }: ResponsiveImageProps) {
-  const loadingStrategy = priority ? 'eager' : (lazy ? 'lazy' : 'eager');
+  const loadingStrategy = priority ? 'eager' : lazy ? 'lazy' : 'eager';
   const fetchPriority = priority ? 'high' : 'auto';
 
   return (

@@ -18,33 +18,31 @@ interface FAQSectionProps {
  * Reusable FAQ Section with Schema Markup
  * Includes accordion functionality and FAQPage structured data
  */
-export const FAQSection: React.FC<FAQSectionProps> = ({ 
-  faqs, 
-  title = "Frequently Asked Questions" 
+export const FAQSection: React.FC<FAQSectionProps> = ({
+  faqs,
+  title = 'Frequently Asked Questions',
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
-      
+
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
           <motion.div

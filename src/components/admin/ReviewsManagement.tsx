@@ -21,7 +21,7 @@ import {
   Link as LinkIcon,
   ChevronDown,
   Download,
-  Bell
+  Bell,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -37,7 +37,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 // Mock data
@@ -45,7 +45,7 @@ const clients = [
   { id: 'all', name: 'All Locations' },
   { id: '1', name: 'ThinkMents Main Office' },
   { id: '2', name: 'Acme Corporation' },
-  { id: '3', name: 'TechStart Inc' }
+  { id: '3', name: 'TechStart Inc' },
 ];
 
 const platforms = ['All', 'Google', 'Facebook', 'Yelp'];
@@ -59,7 +59,8 @@ const reviews = [
     date: '2025-01-04',
     text: 'Absolutely fantastic service! The ThinkMents team helped us triple our online traffic in just 3 months. Their SEO strategies are top-notch and the communication was excellent throughout.',
     responded: true,
-    response: "Thank you so much for your kind words, Sarah! We're thrilled to have helped your business grow. Looking forward to continuing our partnership!"
+    response:
+      "Thank you so much for your kind words, Sarah! We're thrilled to have helped your business grow. Looking forward to continuing our partnership!",
   },
   {
     id: '2',
@@ -68,7 +69,7 @@ const reviews = [
     rating: 4,
     date: '2025-01-03',
     text: 'Great digital marketing agency. Very professional team and they delivered results. The only reason for 4 stars instead of 5 is the initial onboarding took a bit longer than expected.',
-    responded: false
+    responded: false,
   },
   {
     id: '3',
@@ -78,7 +79,8 @@ const reviews = [
     date: '2025-01-02',
     text: "I can't recommend ThinkMents enough! Their social media management has been a game-changer for our small business. We've seen a 200% increase in engagement.",
     responded: true,
-    response: "Emily, we're so happy to hear about your success! Your business deserves all the attention it's getting. Thank you for trusting us!"
+    response:
+      "Emily, we're so happy to hear about your success! Your business deserves all the attention it's getting. Thank you for trusting us!",
   },
   {
     id: '4',
@@ -87,7 +89,7 @@ const reviews = [
     rating: 2,
     date: '2025-01-01',
     text: "Service was okay but didn't meet expectations. The website redesign took longer than promised and there were several revision cycles.",
-    responded: false
+    responded: false,
   },
   {
     id: '5',
@@ -97,8 +99,9 @@ const reviews = [
     date: '2024-12-30',
     text: 'Outstanding work on our Google Business Profile! We went from barely showing up in local searches to ranking #1 for our main keywords. Worth every penny!',
     responded: true,
-    response: 'Jessica, thank you for the wonderful review! Local SEO is our passion and we\'re thrilled to see your business thriving in local search!'
-  }
+    response:
+      "Jessica, thank you for the wonderful review! Local SEO is our passion and we're thrilled to see your business thriving in local search!",
+  },
 ];
 
 const ratingDistribution = [
@@ -106,7 +109,7 @@ const ratingDistribution = [
   { stars: 4, count: 32 },
   { stars: 3, count: 8 },
   { stars: 2, count: 3 },
-  { stars: 1, count: 2 }
+  { stars: 1, count: 2 },
 ];
 
 const sentimentTrend = [
@@ -115,7 +118,7 @@ const sentimentTrend = [
   { date: 'Dec 15', positive: 90, neutral: 7, negative: 3 },
   { date: 'Dec 22', positive: 92, neutral: 6, negative: 2 },
   { date: 'Dec 29', positive: 91, neutral: 7, negative: 2 },
-  { date: 'Jan 5', positive: 93, neutral: 5, negative: 2 }
+  { date: 'Jan 5', positive: 93, neutral: 5, negative: 2 },
 ];
 
 const templates = [
@@ -123,33 +126,36 @@ const templates = [
     id: '1',
     name: 'Positive Response - General',
     rating: 5,
-    text: 'Thank you so much for your wonderful review! We\'re thrilled to hear about your positive experience. Your feedback means the world to us!'
+    text: "Thank you so much for your wonderful review! We're thrilled to hear about your positive experience. Your feedback means the world to us!",
   },
   {
     id: '2',
     name: 'Positive Response - Specific Service',
     rating: 5,
-    text: 'We\'re so happy to hear that our [service] exceeded your expectations! Thank you for trusting us with your business.'
+    text: "We're so happy to hear that our [service] exceeded your expectations! Thank you for trusting us with your business.",
   },
   {
     id: '3',
     name: 'Neutral Response',
     rating: 3,
-    text: 'Thank you for taking the time to share your feedback. We appreciate your honest review and would love to learn more about how we can improve your experience.'
+    text: 'Thank you for taking the time to share your feedback. We appreciate your honest review and would love to learn more about how we can improve your experience.',
   },
   {
     id: '4',
     name: 'Negative Response - Apology',
     rating: 1,
-    text: 'We sincerely apologize for not meeting your expectations. Your feedback is important to us and we\'d like to make things right. Please contact us directly so we can resolve this issue.'
-  }
+    text: "We sincerely apologize for not meeting your expectations. Your feedback is important to us and we'd like to make things right. Please contact us directly so we can resolve this issue.",
+  },
 ];
 
-const StarRating: React.FC<{ rating: number; size?: 'sm' | 'md' | 'lg' }> = ({ rating, size = 'md' }) => {
+const StarRating: React.FC<{ rating: number; size?: 'sm' | 'md' | 'lg' }> = ({
+  rating,
+  size = 'md',
+}) => {
   const sizeClasses = {
     sm: 'w-4 h-4',
     md: 'w-5 h-5',
-    lg: 'w-6 h-6'
+    lg: 'w-6 h-6',
   };
 
   return (
@@ -167,13 +173,15 @@ const StarRating: React.FC<{ rating: number; size?: 'sm' | 'md' | 'lg' }> = ({ r
 };
 
 export default function ReviewsManagement() {
-  const [activeTab, setActiveTab] = useState<'reviews' | 'templates' | 'requests' | 'sentiment'>('reviews');
+  const [activeTab, setActiveTab] = useState<'reviews' | 'templates' | 'requests' | 'sentiment'>(
+    'reviews',
+  );
   const [selectedClient, setSelectedClient] = useState('all');
   const [selectedPlatform, setSelectedPlatform] = useState('All');
   const [filterView, setFilterView] = useState<'all' | 'needs-response'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [showResponseModal, setShowResponseModal] = useState(false);
-  const [selectedReview, setSelectedReview] = useState<typeof reviews[0] | null>(null);
+  const [selectedReview, setSelectedReview] = useState<(typeof reviews)[0] | null>(null);
   const [responseText, setResponseText] = useState('');
   const [showTemplateModal, setShowTemplateModal] = useState(false);
 
@@ -183,25 +191,30 @@ export default function ReviewsManagement() {
     thisMonth: { count: 28, change: 12.5 },
     avgResponseTime: '2.3 hours',
     responseRate: 94,
-    sentiment: { positive: 93, neutral: 5, negative: 2 }
+    sentiment: { positive: 93, neutral: 5, negative: 2 },
   };
 
   const totalRatings = ratingDistribution.reduce((sum, item) => sum + item.count, 0);
 
-  const filteredReviews = reviews.filter(review => {
-    const matchesSearch = review.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         review.reviewer.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredReviews = reviews.filter((review) => {
+    const matchesSearch =
+      review.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      review.reviewer.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesPlatform = selectedPlatform === 'All' || review.platform === selectedPlatform;
-    const matchesFilter = filterView === 'all' || (filterView === 'needs-response' && !review.responded);
-    
+    const matchesFilter =
+      filterView === 'all' || (filterView === 'needs-response' && !review.responded);
+
     return matchesSearch && matchesPlatform && matchesFilter;
   });
 
   const generateAIResponse = (type: 'professional' | 'friendly' | 'complaint') => {
     const responses = {
-      professional: 'Thank you for taking the time to share your feedback. We truly appreciate your business and are committed to providing exceptional service. Your review helps us continue to improve.',
-      friendly: 'Wow, thank you so much! 🎉 We\'re absolutely thrilled to hear about your experience. Your kind words made our day! We can\'t wait to work with you again!',
-      complaint: 'We sincerely apologize for any inconvenience you\'ve experienced. Your feedback is very important to us, and we\'d like to make this right. Please reach out to us directly at your earliest convenience so we can address your concerns personally.'
+      professional:
+        'Thank you for taking the time to share your feedback. We truly appreciate your business and are committed to providing exceptional service. Your review helps us continue to improve.',
+      friendly:
+        "Wow, thank you so much! 🎉 We're absolutely thrilled to hear about your experience. Your kind words made our day! We can't wait to work with you again!",
+      complaint:
+        "We sincerely apologize for any inconvenience you've experienced. Your feedback is very important to us, and we'd like to make this right. Please reach out to us directly at your earliest convenience so we can address your concerns personally.",
     };
     setResponseText(responses[type]);
   };
@@ -213,7 +226,9 @@ export default function ReviewsManagement() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Reviews Management</h1>
-            <p className="text-gray-600">Monitor and respond to customer reviews across all platforms</p>
+            <p className="text-gray-600">
+              Monitor and respond to customer reviews across all platforms
+            </p>
           </div>
         </div>
 
@@ -223,7 +238,7 @@ export default function ReviewsManagement() {
             { id: 'reviews', label: 'Reviews Feed', icon: Star },
             { id: 'templates', label: 'Response Templates', icon: MessageSquare },
             { id: 'requests', label: 'Review Requests', icon: Send },
-            { id: 'sentiment', label: 'Sentiment Analysis', icon: TrendingUp }
+            { id: 'sentiment', label: 'Sentiment Analysis', icon: TrendingUp },
           ].map((tab) => {
             const Icon = tab.icon;
             return (
@@ -265,9 +280,7 @@ export default function ReviewsManagement() {
                 key={platform}
                 onClick={() => setSelectedPlatform(platform)}
                 className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  selectedPlatform === platform
-                    ? 'bg-white text-[#1E3A5F] shadow'
-                    : 'text-gray-600'
+                  selectedPlatform === platform ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
                 }`}
               >
                 {platform}
@@ -291,9 +304,7 @@ export default function ReviewsManagement() {
             <button
               onClick={() => setFilterView('all')}
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                filterView === 'all'
-                  ? 'bg-white text-[#1E3A5F] shadow'
-                  : 'text-gray-600'
+                filterView === 'all' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
               }`}
             >
               All Reviews
@@ -301,14 +312,12 @@ export default function ReviewsManagement() {
             <button
               onClick={() => setFilterView('needs-response')}
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                filterView === 'needs-response'
-                  ? 'bg-white text-[#1E3A5F] shadow'
-                  : 'text-gray-600'
+                filterView === 'needs-response' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
               }`}
             >
               Needs Response
               <Badge className="ml-2 bg-[#FF6B35] text-white">
-                {reviews.filter(r => !r.responded).length}
+                {reviews.filter((r) => !r.responded).length}
               </Badge>
             </button>
           </div>
@@ -390,7 +399,7 @@ export default function ReviewsManagement() {
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-[#1E3A5F]">Recent Reviews</h2>
-                
+
                 {/* Search */}
                 <div className="relative w-64">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -414,11 +423,15 @@ export default function ReviewsManagement() {
                         <div>
                           <div className="flex items-center space-x-3 mb-2">
                             <span className="font-semibold text-[#1E3A5F]">{review.reviewer}</span>
-                            <Badge className={`${
-                              review.platform === 'Google' ? 'bg-blue-100 text-blue-700' :
-                              review.platform === 'Facebook' ? 'bg-indigo-100 text-indigo-700' :
-                              'bg-red-100 text-red-700'
-                            }`}>
+                            <Badge
+                              className={`${
+                                review.platform === 'Google'
+                                  ? 'bg-blue-100 text-blue-700'
+                                  : review.platform === 'Facebook'
+                                    ? 'bg-indigo-100 text-indigo-700'
+                                    : 'bg-red-100 text-red-700'
+                              }`}
+                            >
                               {review.platform}
                             </Badge>
                           </div>
@@ -440,7 +453,9 @@ export default function ReviewsManagement() {
                       <div className="pl-6 border-l-4 border-[#00B4D8] bg-blue-50 p-4 rounded-lg mb-4">
                         <div className="flex items-center space-x-2 mb-2">
                           <MessageSquare className="w-4 h-4 text-[#00B4D8]" />
-                          <span className="text-sm font-semibold text-[#1E3A5F]">Your Response:</span>
+                          <span className="text-sm font-semibold text-[#1E3A5F]">
+                            Your Response:
+                          </span>
                         </div>
                         <p className="text-sm text-gray-700">{review.response}</p>
                       </div>
@@ -482,7 +497,9 @@ export default function ReviewsManagement() {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Response Templates</h2>
-                <p className="text-sm text-gray-600">Save time with pre-written response templates</p>
+                <p className="text-sm text-gray-600">
+                  Save time with pre-written response templates
+                </p>
               </div>
               <Button
                 onClick={() => setShowTemplateModal(true)}
@@ -495,7 +512,10 @@ export default function ReviewsManagement() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {templates.map((template) => (
-                <Card key={template.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                <Card
+                  key={template.id}
+                  className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm"
+                >
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="font-bold text-[#1E3A5F] mb-2">{template.name}</h3>
@@ -515,7 +535,11 @@ export default function ReviewsManagement() {
                     {template.text}
                   </p>
 
-                  <Button variant="outline" size="sm" className="w-full border-[#00B4D8] text-[#00B4D8]">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full border-[#00B4D8] text-[#00B4D8]"
+                  >
                     <Copy className="w-3 h-3 mr-2" />
                     Copy Template
                   </Button>
@@ -530,7 +554,9 @@ export default function ReviewsManagement() {
           <div className="max-w-4xl mx-auto">
             <div className="mb-6 text-center">
               <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">Review Request Tools</h2>
-              <p className="text-gray-600">Generate links and campaigns to request reviews from customers</p>
+              <p className="text-gray-600">
+                Generate links and campaigns to request reviews from customers
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -595,12 +621,16 @@ export default function ReviewsManagement() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Subject Line</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Subject Line
+                  </label>
                   <Input value="We'd love your feedback!" readOnly />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email Body</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email Body
+                  </label>
                   <Textarea
                     value="Hi [Customer Name],\n\nThank you for choosing ThinkMents! We hope you're happy with our service.\n\nWould you mind taking a moment to leave us a review? Your feedback helps us improve and helps other businesses find us.\n\n[Review Link]\n\nThank you!\nThe ThinkMents Team"
                     rows={8}
@@ -694,9 +724,12 @@ export default function ReviewsManagement() {
                     { aspect: 'Results/ROI', mentions: 38 },
                     { aspect: 'Communication', mentions: 32 },
                     { aspect: 'Professionalism', mentions: 28 },
-                    { aspect: 'Expertise', mentions: 24 }
+                    { aspect: 'Expertise', mentions: 24 },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                    <div
+                      key={i}
+                      className="flex items-center justify-between p-3 bg-green-50 rounded-lg"
+                    >
                       <span className="font-medium text-green-700">{item.aspect}</span>
                       <Badge className="bg-green-600 text-white">{item.mentions} mentions</Badge>
                     </div>
@@ -711,9 +744,12 @@ export default function ReviewsManagement() {
                   {[
                     { aspect: 'Onboarding Process', mentions: 5 },
                     { aspect: 'Response Time', mentions: 3 },
-                    { aspect: 'Pricing Clarity', mentions: 2 }
+                    { aspect: 'Pricing Clarity', mentions: 2 },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                    <div
+                      key={i}
+                      className="flex items-center justify-between p-3 bg-red-50 rounded-lg"
+                    >
                       <span className="font-medium text-red-700">{item.aspect}</span>
                       <Badge className="bg-red-600 text-white">{item.mentions} mentions</Badge>
                     </div>

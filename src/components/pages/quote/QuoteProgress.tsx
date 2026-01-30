@@ -11,10 +11,7 @@ export default function QuoteProgress({ currentStep }: QuoteProgressProps) {
     <div className="mb-8">
       <div className="flex justify-between items-center mb-4">
         {[1, 2, 3, 4].map((stepNumber) => (
-          <div
-            key={stepNumber}
-            className={`flex items-center ${stepNumber < 4 ? 'flex-1' : ''}`}
-          >
+          <div key={stepNumber} className={`flex items-center ${stepNumber < 4 ? 'flex-1' : ''}`}>
             <motion.div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                 currentStep >= stepNumber

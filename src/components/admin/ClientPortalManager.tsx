@@ -48,7 +48,7 @@ import {
   RefreshCw,
   LogIn,
   Award,
-  Target
+  Target,
 } from 'lucide-react';
 
 interface Client {
@@ -74,7 +74,7 @@ export default function ClientPortalManager() {
 
   const stats = {
     activePortals: 24,
-    loginsThisMonth: 187
+    loginsThisMonth: 187,
   };
 
   const clients: Client[] = [
@@ -87,7 +87,7 @@ export default function ClientPortalManager() {
       lastLogin: '2024-12-09 10:30 AM',
       loginsThisMonth: 12,
       email: 'ceo@acme.com',
-      services: ['SEO', 'GBP', 'Analytics']
+      services: ['SEO', 'GBP', 'Analytics'],
     },
     {
       id: '2',
@@ -98,7 +98,7 @@ export default function ClientPortalManager() {
       lastLogin: '2024-12-08 3:45 PM',
       loginsThisMonth: 8,
       email: 'john@smithplumbing.com',
-      services: ['SEO', 'GBP', 'Lead Tracking']
+      services: ['SEO', 'GBP', 'Lead Tracking'],
     },
     {
       id: '3',
@@ -108,16 +108,20 @@ export default function ClientPortalManager() {
       status: 'invited',
       loginsThisMonth: 0,
       email: 'admin@techstartup.com',
-      services: ['SEO', 'Social Media']
+      services: ['SEO', 'Social Media'],
     },
   ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'bg-green-100 text-green-700';
-      case 'invited': return 'bg-yellow-100 text-yellow-700';
-      case 'disabled': return 'bg-gray-100 text-gray-700';
-      default: return 'bg-gray-100 text-gray-700';
+      case 'active':
+        return 'bg-green-100 text-green-700';
+      case 'invited':
+        return 'bg-yellow-100 text-yellow-700';
+      case 'disabled':
+        return 'bg-gray-100 text-gray-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
     }
   };
 
@@ -145,10 +149,7 @@ export default function ClientPortalManager() {
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <Button
-              variant="outline"
-              onClick={() => setShowSettingsModal(true)}
-            >
+            <Button variant="outline" onClick={() => setShowSettingsModal(true)}>
               <Settings className="w-4 h-4 mr-2" />
               Portal Settings
             </Button>
@@ -170,13 +171,12 @@ export default function ClientPortalManager() {
                 <Eye className="w-6 h-6 text-blue-600" />
                 <div>
                   <p className="font-semibold text-blue-900">Preview Client Portal</p>
-                  <p className="text-sm text-blue-700">See what your clients see when they log in</p>
+                  <p className="text-sm text-blue-700">
+                    See what your clients see when they log in
+                  </p>
                 </div>
               </div>
-              <Button
-                onClick={() => setViewMode('client')}
-                className="bg-blue-600 text-white"
-              >
+              <Button onClick={() => setViewMode('client')} className="bg-blue-600 text-white">
                 <Eye className="w-4 h-4 mr-2" />
                 View Client Portal Demo
               </Button>
@@ -232,7 +232,9 @@ export default function ClientPortalManager() {
                 <div className="col-span-2">
                   <p className="text-xs text-gray-600 mb-1">Portal URL</p>
                   <div className="flex items-center space-x-2">
-                    <code className="text-xs bg-gray-100 px-2 py-1 rounded">/{client.portalUrl}</code>
+                    <code className="text-xs bg-gray-100 px-2 py-1 rounded">
+                      /{client.portalUrl}
+                    </code>
                     <button className="text-gray-400 hover:text-gray-600">
                       <Copy className="w-3 h-3" />
                     </button>
@@ -241,16 +243,12 @@ export default function ClientPortalManager() {
 
                 <div className="col-span-2">
                   <p className="text-xs text-gray-600 mb-1">Status</p>
-                  <Badge className={getStatusColor(client.status)}>
-                    {client.status}
-                  </Badge>
+                  <Badge className={getStatusColor(client.status)}>{client.status}</Badge>
                 </div>
 
                 <div className="col-span-2">
                   <p className="text-xs text-gray-600 mb-1">Last Login</p>
-                  <p className="text-sm text-gray-900">
-                    {client.lastLogin || 'Never'}
-                  </p>
+                  <p className="text-sm text-gray-900">{client.lastLogin || 'Never'}</p>
                 </div>
 
                 <div className="col-span-1">
@@ -319,27 +317,54 @@ export default function ClientPortalManager() {
                     <h3 className="font-semibold text-gray-900 mb-4">Client Information</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Business Name</label>
-                        <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Business Name
+                        </label>
+                        <input
+                          type="text"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Primary Contact Name</label>
-                        <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Primary Contact Name
+                        </label>
+                        <input
+                          type="text"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
-                        <input type="email" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Phone Number</label>
-                        <input type="tel" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Website URL</label>
-                        <input type="url" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Website URL
+                        </label>
+                        <input
+                          type="url"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Client Logo</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Client Logo
+                        </label>
                         <Button variant="outline" size="sm">
                           <Upload className="w-3 h-3 mr-2" />
                           Upload Logo
@@ -353,21 +378,37 @@ export default function ClientPortalManager() {
                     <h3 className="font-semibold text-gray-900 mb-4">Portal Access</h3>
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Portal URL Slug</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Portal URL Slug
+                        </label>
                         <div className="flex items-center space-x-2">
                           <span className="text-sm text-gray-500">thinkments.com/portal/</span>
-                          <input type="text" placeholder="client-name" className="flex-1 px-3 py-2 border border-gray-300 rounded-lg" />
+                          <input
+                            type="text"
+                            placeholder="client-name"
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                          />
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Username (Email)</label>
-                          <input type="email" className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Username (Email)
+                          </label>
+                          <input
+                            type="email"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">Password</label>
+                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                            Password
+                          </label>
                           <div className="flex space-x-2">
-                            <input type="password" className="flex-1 px-3 py-2 border border-gray-300 rounded-lg" />
+                            <input
+                              type="password"
+                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                            />
                             <Button size="sm" variant="outline">
                               <RefreshCw className="w-3 h-3 mr-2" />
                               Generate
@@ -390,7 +431,7 @@ export default function ClientPortalManager() {
                         'Content Management',
                         'Lead Tracking',
                         'Invoices & Billing',
-                        'Support Tickets'
+                        'Support Tickets',
                       ].map((service) => (
                         <label key={service} className="flex items-center space-x-2">
                           <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
@@ -408,12 +449,17 @@ export default function ClientPortalManager() {
                         { name: 'Google Analytics', icon: BarChart3 },
                         { name: 'Google Search Console', icon: Search },
                         { name: 'Google Business Profile', icon: MapPin },
-                        { name: 'Social Accounts', icon: Share2 }
+                        { name: 'Social Accounts', icon: Share2 },
                       ].map((connection) => (
-                        <div key={connection.name} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                        <div
+                          key={connection.name}
+                          className="flex items-center justify-between p-3 border border-gray-200 rounded-lg"
+                        >
                           <div className="flex items-center space-x-3">
                             <connection.icon className="w-5 h-5 text-gray-600" />
-                            <span className="text-sm font-medium text-gray-900">{connection.name}</span>
+                            <span className="text-sm font-medium text-gray-900">
+                              {connection.name}
+                            </span>
                           </div>
                           <Button size="sm" variant="outline">
                             <LinkIcon className="w-3 h-3 mr-2" />
@@ -430,9 +476,7 @@ export default function ClientPortalManager() {
                   Cancel
                 </Button>
                 <div className="flex space-x-2">
-                  <Button variant="outline">
-                    Save as Draft
-                  </Button>
+                  <Button variant="outline">Save as Draft</Button>
                   <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                     <Send className="w-4 h-4 mr-2" />
                     Create & Send Invite
@@ -537,7 +581,9 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                       </div>
                       <div className="flex items-center space-x-2 mt-2">
                         <TrendingUp className="w-4 h-4 text-green-600" />
-                        <span className="text-sm text-green-600 font-medium">Up 5 points from last month</span>
+                        <span className="text-sm text-green-600 font-medium">
+                          Up 5 points from last month
+                        </span>
                       </div>
                     </div>
                     <div className="w-32 h-32 rounded-full border-8 border-green-500 flex items-center justify-center">
@@ -552,14 +598,34 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
               {/* Quick Stats */}
               <div className="grid grid-cols-4 gap-4">
                 {[
-                  { label: 'Website Visitors', value: '2,345', change: '+23%', icon: Users, color: 'blue' },
-                  { label: 'Google Searches', value: '1,890', change: '+15%', icon: Search, color: 'purple' },
+                  {
+                    label: 'Website Visitors',
+                    value: '2,345',
+                    change: '+23%',
+                    icon: Users,
+                    color: 'blue',
+                  },
+                  {
+                    label: 'Google Searches',
+                    value: '1,890',
+                    change: '+15%',
+                    icon: Search,
+                    color: 'purple',
+                  },
                   { label: 'Phone Calls', value: '47', change: '+8%', icon: Phone, color: 'green' },
-                  { label: 'New Leads', value: '12', change: '+33%', icon: Target, color: 'orange' },
+                  {
+                    label: 'New Leads',
+                    value: '12',
+                    change: '+33%',
+                    icon: Target,
+                    color: 'orange',
+                  },
                 ].map((stat) => (
                   <Card key={stat.label} className="border-0 shadow-md">
                     <CardContent className="pt-6">
-                      <div className={`w-10 h-10 bg-${stat.color}-100 rounded-lg flex items-center justify-center mb-3`}>
+                      <div
+                        className={`w-10 h-10 bg-${stat.color}-100 rounded-lg flex items-center justify-center mb-3`}
+                      >
                         <stat.icon className={`w-5 h-5 text-${stat.color}-600`} />
                       </div>
                       <p className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</p>
@@ -585,11 +651,14 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                   </div>
                   <div className="space-y-2">
                     {[
-                      "Traffic increased 34% this month!",
+                      'Traffic increased 34% this month!',
                       "You're now ranking #1 for 'plumber in Dallas'!",
-                      "You received 8 new 5-star reviews!"
+                      'You received 8 new 5-star reviews!',
                     ].map((win, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-sm text-yellow-900">
+                      <div
+                        key={idx}
+                        className="flex items-center space-x-2 text-sm text-yellow-900"
+                      >
                         <Star className="w-4 h-4 text-yellow-600 fill-current" />
                         <span>{win}</span>
                       </div>
@@ -607,10 +676,26 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                   <CardContent>
                     <div className="space-y-3">
                       {[
-                        { icon: FileText, text: 'Monthly report generated - Jan 2025', time: '2 hours ago' },
-                        { icon: Users, text: 'New lead: John Smith - Contact form', time: '5 hours ago' },
-                        { icon: Star, text: 'New review: 5 stars from Sarah M.', time: '1 day ago' },
-                        { icon: FileText, text: 'Blog post published: 10 Tips for...', time: '2 days ago' },
+                        {
+                          icon: FileText,
+                          text: 'Monthly report generated - Jan 2025',
+                          time: '2 hours ago',
+                        },
+                        {
+                          icon: Users,
+                          text: 'New lead: John Smith - Contact form',
+                          time: '5 hours ago',
+                        },
+                        {
+                          icon: Star,
+                          text: 'New review: 5 stars from Sarah M.',
+                          time: '1 day ago',
+                        },
+                        {
+                          icon: FileText,
+                          text: 'Blog post published: 10 Tips for...',
+                          time: '2 days ago',
+                        },
                       ].map((activity, idx) => (
                         <div key={idx} className="flex items-start space-x-3">
                           <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">

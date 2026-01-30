@@ -9,32 +9,33 @@ import SEO from '../SEO';
 
 export default function DesignTransferAgreementPage() {
   const agreementStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Design Transfer Agreement - ThinkMents",
-    "description": "Comprehensive agreement outlining the terms and conditions for transferring ownership of design work created by ThinkMents to clients",
-    "url": "https://thinkments.com/design-transfer-agreement",
-    "dateModified": "2025-01-01",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "ThinkMents",
-      "url": "https://thinkments.com"
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Design Transfer Agreement - ThinkMents',
+    description:
+      'Comprehensive agreement outlining the terms and conditions for transferring ownership of design work created by ThinkMents to clients',
+    url: 'https://thinkments.com/design-transfer-agreement',
+    dateModified: '2025-01-01',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
     },
-    "mainEntity": {
-      "@type": "Article",
-      "headline": "Design Transfer Agreement",
-      "datePublished": "2025-01-01",
-      "dateModified": "2025-01-01",
-      "author": {
-        "@type": "Organization",
-        "name": "ThinkMents"
+    mainEntity: {
+      '@type': 'Article',
+      headline: 'Design Transfer Agreement',
+      datePublished: '2025-01-01',
+      dateModified: '2025-01-01',
+      author: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "ThinkMents",
-        "url": "https://thinkments.com"
-      }
-    }
+      publisher: {
+        '@type': 'Organization',
+        name: 'ThinkMents',
+        url: 'https://thinkments.com',
+      },
+    },
   };
 
   return (
@@ -47,7 +48,7 @@ export default function DesignTransferAgreementPage() {
         type="website"
         structuredData={agreementStructuredData}
       />
-      
+
       <motion.div
         className=""
         initial={{ opacity: 0 }}
@@ -69,14 +70,17 @@ export default function DesignTransferAgreementPage() {
                   Agreement
                 </span>
               </motion.h1>
-              
+
               <motion.p
                 className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                This comprehensive agreement outlines the terms and conditions for transferring ownership of design work created by ThinkMents to our clients. Review the complete terms to understand your rights and responsibilities regarding design ownership transfer.
+                This comprehensive agreement outlines the terms and conditions for transferring
+                ownership of design work created by ThinkMents to our clients. Review the complete
+                terms to understand your rights and responsibilities regarding design ownership
+                transfer.
               </motion.p>
 
               <motion.div
@@ -157,7 +161,8 @@ export default function DesignTransferAgreementPage() {
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Contact us if you need clarification on any terms or have questions about design ownership transfer.
+                Contact us if you need clarification on any terms or have questions about design
+                ownership transfer.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -180,9 +185,7 @@ export default function DesignTransferAgreementPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact">
-                  <Button className="bg-gradient-to-r from-primary to-accent">
-                    Contact Us
-                  </Button>
+                  <Button className="bg-gradient-to-r from-primary to-accent">Contact Us</Button>
                 </Link>
                 <Link to="/">
                   <Button variant="outline">

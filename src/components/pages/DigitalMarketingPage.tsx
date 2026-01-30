@@ -3,14 +3,14 @@ import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { 
-  TrendingUp, 
-  Target, 
-  Users, 
-  Search, 
-  BarChart3, 
-  Zap, 
-  ArrowRight, 
+import {
+  TrendingUp,
+  Target,
+  Users,
+  Search,
+  BarChart3,
+  Zap,
+  ArrowRight,
   CheckCircle,
   Phone,
   ChevronRight,
@@ -28,7 +28,7 @@ import {
   ShoppingCart,
   Briefcase,
   Clock,
-  Star
+  Star,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -41,7 +41,7 @@ export default function DigitalMarketingPage() {
   const resultsRef = useRef(null);
   const faqRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isExperienceInView = useInView(experienceRef, { once: true });
   const isServicesInView = useInView(servicesRef, { once: true });
@@ -55,141 +55,158 @@ export default function DigitalMarketingPage() {
     {
       icon: Search,
       title: 'Search Engine Optimization (SEO)',
-      description: 'Dominate search results and attract customers actively looking for your services. Our SEO strategies combine technical optimization, content creation, and authority building to improve your rankings on Google. We focus on keywords that drive real business results—not just traffic. From local SEO for service-area businesses to national campaigns for e-commerce, we develop custom strategies based on your market, competition, and goals. Our clients typically see 50-200% increases in organic traffic within 6-12 months.',
-      link: '/marketing-seo'
+      description:
+        'Dominate search results and attract customers actively looking for your services. Our SEO strategies combine technical optimization, content creation, and authority building to improve your rankings on Google. We focus on keywords that drive real business results—not just traffic. From local SEO for service-area businesses to national campaigns for e-commerce, we develop custom strategies based on your market, competition, and goals. Our clients typically see 50-200% increases in organic traffic within 6-12 months.',
+      link: '/marketing-seo',
     },
     {
       icon: Target,
       title: 'Pay-Per-Click Advertising (PPC)',
-      description: 'Get immediate visibility with strategic paid advertising on Google, Bing, Facebook, Instagram, and LinkedIn. We manage your ad spend like it\'s our own money—focusing on ROI, not just clicks. Our PPC management includes keyword research, ad copywriting, landing page optimization, A/B testing, and detailed reporting. We continuously optimize campaigns to reduce cost-per-click and increase conversion rates. Most clients see positive ROI within the first 30 days.',
-      link: '/paid-advertising'
+      description:
+        "Get immediate visibility with strategic paid advertising on Google, Bing, Facebook, Instagram, and LinkedIn. We manage your ad spend like it's our own money—focusing on ROI, not just clicks. Our PPC management includes keyword research, ad copywriting, landing page optimization, A/B testing, and detailed reporting. We continuously optimize campaigns to reduce cost-per-click and increase conversion rates. Most clients see positive ROI within the first 30 days.",
+      link: '/paid-advertising',
     },
     {
       icon: Share2,
       title: 'Social Media Marketing',
-      description: 'Build brand awareness, engage your audience, and drive leads through strategic social media marketing. We create and manage content for Facebook, Instagram, LinkedIn, Twitter, and TikTok—choosing platforms based on where your customers actually spend time. Our services include content creation, community management, paid social advertising, and influencer outreach. We focus on metrics that matter: engagement, leads, and sales—not just followers.',
-      link: '/social-media'
+      description:
+        'Build brand awareness, engage your audience, and drive leads through strategic social media marketing. We create and manage content for Facebook, Instagram, LinkedIn, Twitter, and TikTok—choosing platforms based on where your customers actually spend time. Our services include content creation, community management, paid social advertising, and influencer outreach. We focus on metrics that matter: engagement, leads, and sales—not just followers.',
+      link: '/social-media',
     },
     {
       icon: FileText,
       title: 'Content Marketing',
-      description: 'Attract and convert customers with valuable content that establishes your expertise. We create blog posts, articles, guides, videos, infographics, and downloadable resources that answer your customers\' questions and solve their problems. Great content improves SEO, generates leads, and nurtures prospects through the sales funnel. Our content strategies are built on keyword research and customer insights to ensure every piece serves a purpose.',
-      link: '/content-marketing'
+      description:
+        "Attract and convert customers with valuable content that establishes your expertise. We create blog posts, articles, guides, videos, infographics, and downloadable resources that answer your customers' questions and solve their problems. Great content improves SEO, generates leads, and nurtures prospects through the sales funnel. Our content strategies are built on keyword research and customer insights to ensure every piece serves a purpose.",
+      link: '/content-marketing',
     },
     {
       icon: Mail,
       title: 'Email Marketing',
-      description: 'Nurture leads and retain customers with targeted email campaigns. We design, write, and automate email sequences for welcome series, abandoned carts, promotions, newsletters, and re-engagement campaigns. Our email marketing delivers average open rates of 25-35% and click rates of 3-5%—well above industry benchmarks. We also ensure deliverability and compliance with spam regulations.',
-      link: '/content-marketing'
+      description:
+        'Nurture leads and retain customers with targeted email campaigns. We design, write, and automate email sequences for welcome series, abandoned carts, promotions, newsletters, and re-engagement campaigns. Our email marketing delivers average open rates of 25-35% and click rates of 3-5%—well above industry benchmarks. We also ensure deliverability and compliance with spam regulations.',
+      link: '/content-marketing',
     },
     {
       icon: BarChart3,
       title: 'Analytics & Reporting',
-      description: 'Make data-driven decisions with comprehensive analytics and reporting. We track every campaign, channel, and conversion to show exactly what\'s working and what needs improvement. Monthly reports include traffic analysis, conversion tracking, ROI calculations, and actionable recommendations. We use Google Analytics, Google Search Console, call tracking, and custom dashboards to give you complete visibility into your marketing performance.',
-      link: '/analytics-reporting'
-    }
+      description:
+        "Make data-driven decisions with comprehensive analytics and reporting. We track every campaign, channel, and conversion to show exactly what's working and what needs improvement. Monthly reports include traffic analysis, conversion tracking, ROI calculations, and actionable recommendations. We use Google Analytics, Google Search Console, call tracking, and custom dashboards to give you complete visibility into your marketing performance.",
+      link: '/analytics-reporting',
+    },
   ];
 
   const industries = [
     {
       icon: Stethoscope,
       title: 'Healthcare & Medical Practices',
-      description: 'HIPAA-compliant marketing that attracts patients'
+      description: 'HIPAA-compliant marketing that attracts patients',
     },
     {
       icon: Scale,
       title: 'Legal & Professional Services',
-      description: 'Lead generation for attorneys, accountants, and consultants'
+      description: 'Lead generation for attorneys, accountants, and consultants',
     },
     {
       icon: Home,
       title: 'Home Services',
-      description: 'Local SEO and PPC for plumbers, HVAC, roofers, and contractors'
+      description: 'Local SEO and PPC for plumbers, HVAC, roofers, and contractors',
     },
     {
       icon: Utensils,
       title: 'Restaurants & Hospitality',
-      description: 'Social media, reputation management, and local marketing'
+      description: 'Social media, reputation management, and local marketing',
     },
     {
       icon: Building2,
       title: 'Real Estate',
-      description: 'Agent branding, listing promotion, and lead generation'
+      description: 'Agent branding, listing promotion, and lead generation',
     },
     {
       icon: ShoppingCart,
       title: 'E-commerce',
-      description: 'Product marketing, shopping campaigns, and conversion optimization'
+      description: 'Product marketing, shopping campaigns, and conversion optimization',
     },
     {
       icon: Briefcase,
       title: 'B2B Companies',
-      description: 'LinkedIn marketing, content strategy, and lead nurturing'
-    }
+      description: 'LinkedIn marketing, content strategy, and lead nurturing',
+    },
   ];
 
   const processSteps = [
     {
       title: 'Discovery & Audit',
       timeline: 'Week 1-2',
-      description: 'We analyze your current marketing, website, competitors, and market opportunity. This includes a technical SEO audit, content gap analysis, and competitive research.'
+      description:
+        'We analyze your current marketing, website, competitors, and market opportunity. This includes a technical SEO audit, content gap analysis, and competitive research.',
     },
     {
       title: 'Strategy Development',
       timeline: 'Week 2-3',
-      description: 'Based on our findings, we create a custom digital marketing strategy with clear goals, KPIs, timelines, and budget allocation across channels.'
+      description:
+        'Based on our findings, we create a custom digital marketing strategy with clear goals, KPIs, timelines, and budget allocation across channels.',
     },
     {
       title: 'Implementation',
       timeline: 'Week 3-4',
-      description: 'We launch campaigns, optimize your website, create content, and set up tracking. You\'ll see activity immediately.'
+      description:
+        "We launch campaigns, optimize your website, create content, and set up tracking. You'll see activity immediately.",
     },
     {
       title: 'Optimization',
       timeline: 'Ongoing',
-      description: 'We continuously monitor performance, test new approaches, and refine campaigns to improve results month over month.'
+      description:
+        'We continuously monitor performance, test new approaches, and refine campaigns to improve results month over month.',
     },
     {
       title: 'Reporting & Strategy Reviews',
       timeline: 'Monthly',
-      description: 'You receive detailed reports showing exactly what we did, what happened, and what we\'re doing next. We meet regularly to review results and adjust strategy.'
-    }
+      description:
+        "You receive detailed reports showing exactly what we did, what happened, and what we're doing next. We meet regularly to review results and adjust strategy.",
+    },
   ];
 
   const faqs = [
     {
       question: 'How much should I budget for digital marketing?',
-      answer: 'Most small businesses invest $2,000-$10,000/month depending on goals and competition. We\'ll recommend a budget based on your market opportunity and growth targets.'
+      answer:
+        "Most small businesses invest $2,000-$10,000/month depending on goals and competition. We'll recommend a budget based on your market opportunity and growth targets.",
     },
     {
       question: 'How long until I see results?',
-      answer: 'PPC delivers immediate traffic. SEO typically shows meaningful results in 3-6 months. We set realistic expectations upfront and provide monthly progress reports.'
+      answer:
+        'PPC delivers immediate traffic. SEO typically shows meaningful results in 3-6 months. We set realistic expectations upfront and provide monthly progress reports.',
     },
     {
       question: 'Do you require long-term contracts?',
-      answer: 'We offer month-to-month services after an initial 3-month commitment. We earn your business through results, not contracts.'
+      answer:
+        'We offer month-to-month services after an initial 3-month commitment. We earn your business through results, not contracts.',
     },
     {
       question: 'Can you work with my existing website?',
-      answer: 'Yes. We optimize what you have or can recommend improvements. We also offer web development if you need a new site.'
+      answer:
+        'Yes. We optimize what you have or can recommend improvements. We also offer web development if you need a new site.',
     },
     {
-      question: 'How do you know if it\'s working?',
-      answer: 'We set up comprehensive tracking from day one. You\'ll see exactly how many leads, calls, and sales come from each marketing channel.'
-    }
+      question: "How do you know if it's working?",
+      answer:
+        "We set up comprehensive tracking from day one. You'll see exactly how many leads, calls, and sales come from each marketing channel.",
+    },
   ];
 
   const digitalMarketingStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Digital Marketing Services",
-    "description": "Comprehensive digital marketing strategies that drive growth and maximize ROI. From SEO to social media, help businesses dominate their online presence and attract more customers.",
-    "provider": {
-      "@type": "Organization",
-      "name": "ThinkMents",
-      "url": "https://thinkments.com"
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Digital Marketing Services',
+    description:
+      'Comprehensive digital marketing strategies that drive growth and maximize ROI. From SEO to social media, help businesses dominate their online presence and attract more customers.',
+    provider: {
+      '@type': 'Organization',
+      name: 'ThinkMents',
+      url: 'https://thinkments.com',
     },
-    "serviceType": "Digital Marketing"
+    serviceType: 'Digital Marketing',
   };
 
   return (
@@ -203,17 +220,18 @@ export default function DigitalMarketingPage() {
       />
 
       {/* Hero Section */}
-      <section 
+      <section
         ref={heroRef}
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1080&fit=crop)',
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1080&fit=crop)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 via-[#1E3A5F]/85 to-[#1E3A5F]/75"></div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <motion.div
@@ -230,12 +248,17 @@ export default function DigitalMarketingPage() {
                 <span className="text-white">Digital Marketing</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Digital Marketing Services
               </h1>
 
               <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-                Drive growth and maximize ROI with comprehensive digital marketing strategies. From SEO to social media, we help businesses dominate their online presence and attract more customers.
+                Drive growth and maximize ROI with comprehensive digital marketing strategies. From
+                SEO to social media, we help businesses dominate their online presence and attract
+                more customers.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
@@ -243,7 +266,7 @@ export default function DigitalMarketingPage() {
                   { stat: '156%', label: 'Avg Traffic Increase' },
                   { stat: '3.5x', label: 'Return on Ad Spend' },
                   { stat: '20+ Years', label: 'Experience' },
-                  { stat: '31 States', label: 'Clients Served' }
+                  { stat: '31 States', label: 'Clients Served' },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -255,9 +278,7 @@ export default function DigitalMarketingPage() {
                     <div className="text-2xl md:text-3xl font-bold text-[#00B4D8] mb-2">
                       {item.stat}
                     </div>
-                    <div className="text-white/80 text-sm">
-                      {item.label}
-                    </div>
+                    <div className="text-white/80 text-sm">{item.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -268,15 +289,15 @@ export default function DigitalMarketingPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8"
                 >
                   <Link to="/free-consultation">Get Free Marketing Audit</Link>
                 </Button>
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] font-semibold text-lg px-8"
@@ -290,7 +311,10 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Experience Introduction Section */}
-      <section ref={experienceRef} className="py-16 bg-gradient-to-r from-[#1E3A5F]/5 to-[#00B4D8]/5">
+      <section
+        ref={experienceRef}
+        className="py-16 bg-gradient-to-r from-[#1E3A5F]/5 to-[#00B4D8]/5"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -305,11 +329,19 @@ export default function DigitalMarketingPage() {
                 </div>
               </div>
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h2
+                  className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-4"
+                  style={{ fontFamily: 'Playfair Display, serif' }}
+                >
                   Digital Marketing Experts Since 2002
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  ThinkMents has been delivering results-driven digital marketing since 2002—long before "digital marketing" was even a common term. With over two decades of experience, we've helped hundreds of businesses across 31 states grow their online presence, generate qualified leads, and increase revenue. We've seen trends come and go, algorithms change, and platforms rise and fall. This experience means we know what actually works and what's just hype.
+                  ThinkMents has been delivering results-driven digital marketing since 2002—long
+                  before "digital marketing" was even a common term. With over two decades of
+                  experience, we've helped hundreds of businesses across 31 states grow their online
+                  presence, generate qualified leads, and increase revenue. We've seen trends come
+                  and go, algorithms change, and platforms rise and fall. This experience means we
+                  know what actually works and what's just hype.
                 </p>
               </div>
             </div>
@@ -326,7 +358,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Our Digital Marketing Services
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -354,11 +389,9 @@ export default function DigitalMarketingPage() {
                         </h3>
                       </div>
                     </div>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                      {service.description}
-                    </p>
-                    <Link 
-                      to={service.link} 
+                    <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
+                    <Link
+                      to={service.link}
                       className="inline-flex items-center gap-2 text-[#00B4D8] hover:text-[#1E3A5F] font-semibold transition-colors"
                     >
                       Learn More <ArrowRight className="w-4 h-4" />
@@ -380,7 +413,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Industry Expertise
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -403,12 +439,8 @@ export default function DigitalMarketingPage() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1E3A5F] mb-1">
-                    {industry.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {industry.description}
-                  </p>
+                  <h3 className="font-semibold text-[#1E3A5F] mb-1">{industry.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{industry.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -425,7 +457,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Our Digital Marketing Process
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -451,16 +486,12 @@ export default function DigitalMarketingPage() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <h3 className="font-semibold text-[#1E3A5F] text-xl">
-                            {step.title}
-                          </h3>
+                          <h3 className="font-semibold text-[#1E3A5F] text-xl">{step.title}</h3>
                           <span className="text-sm text-white bg-[#00B4D8] px-3 py-1 rounded-full">
                             {step.timeline}
                           </span>
                         </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          {step.description}
-                        </p>
+                        <p className="text-gray-600 leading-relaxed">{step.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -472,7 +503,10 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Results Section */}
-      <section ref={resultsRef} className="py-16 md:py-20 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]">
+      <section
+        ref={resultsRef}
+        className="py-16 md:py-20 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -480,7 +514,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center text-white max-w-5xl mx-auto"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold mb-6"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               What Our Clients Achieve
             </h2>
             <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed">
@@ -494,7 +531,7 @@ export default function DigitalMarketingPage() {
                 { stat: '40%', label: 'Reduction in cost-per-lead' },
                 { stat: '200%', label: 'Increase in qualified leads' },
                 { stat: 'Top 3', label: 'Rankings for primary keywords' },
-                { stat: '$50M+', label: 'In trackable revenue generated for clients' }
+                { stat: '$50M+', label: 'In trackable revenue generated for clients' },
               ].map((result, idx) => (
                 <motion.div
                   key={idx}
@@ -506,15 +543,14 @@ export default function DigitalMarketingPage() {
                   <div className="text-4xl md:text-5xl font-bold text-[#FF6B35] mb-3">
                     {result.stat}
                   </div>
-                  <p className="text-white/90 leading-relaxed">
-                    {result.label}
-                  </p>
+                  <p className="text-white/90 leading-relaxed">{result.label}</p>
                 </motion.div>
               ))}
             </div>
 
             <p className="text-lg text-white/90 italic">
-              "We've generated over $50 million in trackable revenue for our clients through digital marketing campaigns."
+              "We've generated over $50 million in trackable revenue for our clients through digital
+              marketing campaigns."
             </p>
           </motion.div>
         </div>
@@ -529,7 +565,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-[#1E3A5F] mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Frequently Asked Questions
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -547,12 +586,8 @@ export default function DigitalMarketingPage() {
               >
                 <Card className="hover:shadow-lg transition-shadow duration-300">
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                    <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">{faq.question}</h3>
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -569,11 +604,17 @@ export default function DigitalMarketingPage() {
               Need help with a specific aspect of digital marketing?
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/web-development" className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold underline">
+              <Link
+                to="/web-development"
+                className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold underline"
+              >
                 Web Development
               </Link>
               <span className="text-gray-400">|</span>
-              <Link to="/strategic-consulting" className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold underline">
+              <Link
+                to="/strategic-consulting"
+                className="text-[#00B4D8] hover:text-[#1E3A5F] font-semibold underline"
+              >
                 Strategic Consulting
               </Link>
             </div>
@@ -590,26 +631,37 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center text-white"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-5xl font-bold mb-6"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Ready to Grow Your Business Online?
             </h2>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Schedule a free digital marketing consultation to discuss your goals and discover how we can help you achieve them.
+              Schedule a free digital marketing consultation to discuss your goals and discover how
+              we can help you achieve them.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <Button asChild size="lg" className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8">
+              <Button
+                asChild
+                size="lg"
+                className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-8"
+              >
                 <Link to="/free-consultation">Get Free Marketing Audit</Link>
               </Button>
               <div className="flex items-center gap-3 text-white/90">
                 <span>Or call</span>
-                <a href="tel:9403151023" className="flex items-center gap-2 font-semibold hover:text-[#00B4D8] transition-colors">
+                <a
+                  href="tel:9403151023"
+                  className="flex items-center gap-2 font-semibold hover:text-[#00B4D8] transition-colors"
+                >
                   <Phone className="w-5 h-5" />
                   (940) 315-1023
                 </a>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap items-center justify-center gap-6 text-white/80 text-sm">
               <div className="flex items-center gap-2">
                 <Star className="w-5 h-5 text-[#00B4D8]" />

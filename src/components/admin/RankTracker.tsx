@@ -23,7 +23,7 @@ import {
   Trash2,
   X,
   Tag,
-  BarChart3
+  BarChart3,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -38,14 +38,14 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 // Mock data
 const websites = [
   { id: '1', name: 'ThinkMents Main Site', url: 'thinkments.com' },
   { id: '2', name: 'Acme Corporation', url: 'acmecorp.com' },
-  { id: '3', name: 'TechStart Inc', url: 'techstart.io' }
+  { id: '3', name: 'TechStart Inc', url: 'techstart.io' },
 ];
 
 const locations = [
@@ -53,7 +53,7 @@ const locations = [
   'Los Angeles, CA',
   'Chicago, IL',
   'Houston, TX',
-  'National (USA)'
+  'National (USA)',
 ];
 
 const historicalData = [
@@ -63,7 +63,7 @@ const historicalData = [
   { date: 'Jan 22', position: 8 },
   { date: 'Jan 29', position: 7 },
   { date: 'Feb 5', position: 5 },
-  { date: 'Today', position: 4 }
+  { date: 'Today', position: 4 },
 ];
 
 const keywordsData = [
@@ -77,7 +77,7 @@ const keywordsData = [
     difficulty: 'hard',
     rankingUrl: '/services/digital-marketing',
     lastChecked: '2025-01-05 09:30',
-    trend: [8, 7, 6, 5, 4, 4, 3]
+    trend: [8, 7, 6, 5, 4, 4, 3],
   },
   {
     id: '2',
@@ -89,7 +89,7 @@ const keywordsData = [
     difficulty: 'hard',
     rankingUrl: '/services/seo',
     lastChecked: '2025-01-05 09:30',
-    trend: [9, 8, 8, 7, 7, 7, 7]
+    trend: [9, 8, 8, 7, 7, 7, 7],
   },
   {
     id: '3',
@@ -101,7 +101,7 @@ const keywordsData = [
     difficulty: 'medium',
     rankingUrl: '/services/web-design',
     lastChecked: '2025-01-05 09:30',
-    trend: [8, 9, 10, 10, 11, 11, 12]
+    trend: [8, 9, 10, 10, 11, 11, 12],
   },
   {
     id: '4',
@@ -113,7 +113,7 @@ const keywordsData = [
     difficulty: 'medium',
     rankingUrl: '/services/google-business',
     lastChecked: '2025-01-05 09:30',
-    trend: [5, 4, 4, 3, 3, 2, 2]
+    trend: [5, 4, 4, 3, 3, 2, 2],
   },
   {
     id: '5',
@@ -125,7 +125,7 @@ const keywordsData = [
     difficulty: 'hard',
     rankingUrl: '/services/social-media',
     lastChecked: '2025-01-05 09:30',
-    trend: [12, 13, 14, 15, 16, 17, 18]
+    trend: [12, 13, 14, 15, 16, 17, 18],
   },
   {
     id: '6',
@@ -137,17 +137,17 @@ const keywordsData = [
     difficulty: 'medium',
     rankingUrl: '/services/local-seo',
     lastChecked: '2025-01-05 09:30',
-    trend: [8, 7, 7, 6, 6, 5, 5]
-  }
+    trend: [8, 7, 7, 6, 6, 5, 5],
+  },
 ];
 
 const competitorData = [
   { domain: 'competitor1.com', keywords: 145, avgPosition: 8.3 },
-  { domain: 'competitor2.com', keywords: 98, avgPosition: 12.5 }
+  { domain: 'competitor2.com', keywords: 98, avgPosition: 12.5 },
 ];
 
 interface KeywordRowProps {
-  keyword: typeof keywordsData[0];
+  keyword: (typeof keywordsData)[0];
   expanded: boolean;
   onToggle: () => void;
 }
@@ -170,12 +170,14 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
     const max = Math.max(...data);
     const min = Math.min(...data);
     const range = max - min;
-    
-    const points = data.map((val, i) => {
-      const x = (i / (data.length - 1)) * 60;
-      const y = 20 - ((val - min) / (range || 1)) * 20;
-      return `${x},${y}`;
-    }).join(' ');
+
+    const points = data
+      .map((val, i) => {
+        const x = (i / (data.length - 1)) * 60;
+        const y = 20 - ((val - min) / (range || 1)) * 20;
+        return `${x},${y}`;
+      })
+      .join(' ');
 
     return (
       <svg width="60" height="20" className="inline-block">
@@ -196,7 +198,11 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
       <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer">
         <td className="py-4 px-4" onClick={onToggle}>
           <div className="flex items-center space-x-2">
-            {expanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
+            {expanded ? (
+              <ChevronUp className="w-4 h-4 text-gray-400" />
+            ) : (
+              <ChevronDown className="w-4 h-4 text-gray-400" />
+            )}
             <span className="font-medium text-[#1E3A5F]">{keyword.keyword}</span>
           </div>
         </td>
@@ -257,7 +263,11 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
                     reversed
                     stroke="#6b7280"
                     fontSize={12}
-                    label={{ value: 'Position (Lower is Better)', angle: -90, position: 'insideLeft' }}
+                    label={{
+                      value: 'Position (Lower is Better)',
+                      angle: -90,
+                      position: 'insideLeft',
+                    }}
                   />
                   <Tooltip />
                   <Line
@@ -306,8 +316,8 @@ export default function RankTracker() {
   const [filterPosition, setFilterPosition] = useState('all');
 
   const toggleRow = (id: string) => {
-    setExpandedRows(prev =>
-      prev.includes(id) ? prev.filter(rowId => rowId !== id) : [...prev, id]
+    setExpandedRows((prev) =>
+      prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id],
     );
   };
 
@@ -317,18 +327,22 @@ export default function RankTracker() {
     top10: { count: 52, change: 12.3 },
     avgPosition: { value: 14.2, change: -2.1 },
     improved: 38,
-    declined: 22
+    declined: 22,
   };
 
-  const filteredKeywords = keywordsData.filter(keyword => {
+  const filteredKeywords = keywordsData.filter((keyword) => {
     const matchesSearch = keyword.keyword.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesPosition = 
+    const matchesPosition =
       filterPosition === 'all' ||
       (filterPosition === '1-3' && keyword.currentPosition <= 3) ||
-      (filterPosition === '4-10' && keyword.currentPosition >= 4 && keyword.currentPosition <= 10) ||
-      (filterPosition === '11-20' && keyword.currentPosition >= 11 && keyword.currentPosition <= 20) ||
+      (filterPosition === '4-10' &&
+        keyword.currentPosition >= 4 &&
+        keyword.currentPosition <= 10) ||
+      (filterPosition === '11-20' &&
+        keyword.currentPosition >= 11 &&
+        keyword.currentPosition <= 20) ||
       (filterPosition === '21+' && keyword.currentPosition > 20);
-    
+
     return matchesSearch && matchesPosition;
   });
 
@@ -339,7 +353,9 @@ export default function RankTracker() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Rank Tracker</h1>
-            <p className="text-gray-600">Monitor and track your keyword rankings across search engines</p>
+            <p className="text-gray-600">
+              Monitor and track your keyword rankings across search engines
+            </p>
           </div>
         </div>
 
@@ -348,7 +364,7 @@ export default function RankTracker() {
           {[
             { id: 'overview', label: 'Rankings Overview', icon: BarChart3 },
             { id: 'competitors', label: 'Competitor Comparison', icon: TrendingUp },
-            { id: 'alerts', label: 'Alerts & Notifications', icon: Bell }
+            { id: 'alerts', label: 'Alerts & Notifications', icon: Bell },
           ].map((tab) => {
             const Icon = tab.icon;
             return (
@@ -407,9 +423,7 @@ export default function RankTracker() {
             <button
               onClick={() => setDeviceType('desktop')}
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                deviceType === 'desktop'
-                  ? 'bg-white text-[#1E3A5F] shadow'
-                  : 'text-gray-600'
+                deviceType === 'desktop' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
               }`}
             >
               <Monitor className="w-4 h-4" />
@@ -418,9 +432,7 @@ export default function RankTracker() {
             <button
               onClick={() => setDeviceType('mobile')}
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                deviceType === 'mobile'
-                  ? 'bg-white text-[#1E3A5F] shadow'
-                  : 'text-gray-600'
+                deviceType === 'mobile' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
               }`}
             >
               <Smartphone className="w-4 h-4" />
@@ -503,12 +515,14 @@ export default function RankTracker() {
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Average Position Over Time</h2>
+                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">
+                    Average Position Over Time
+                  </h2>
                   <p className="text-sm text-gray-600">Lower numbers indicate better rankings</p>
                 </div>
                 <Badge className="bg-blue-100 text-blue-700">Last 30 days</Badge>
               </div>
-              
+
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={historicalData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -517,7 +531,11 @@ export default function RankTracker() {
                     reversed
                     stroke="#6b7280"
                     fontSize={12}
-                    label={{ value: 'Position (Lower is Better)', angle: -90, position: 'insideLeft' }}
+                    label={{
+                      value: 'Position (Lower is Better)',
+                      angle: -90,
+                      position: 'insideLeft',
+                    }}
                   />
                   <Tooltip />
                   <Legend />
@@ -557,7 +575,7 @@ export default function RankTracker() {
                     className="pl-10"
                   />
                 </div>
-                
+
                 <div className="flex items-center space-x-2">
                   <Filter className="w-4 h-4 text-gray-400" />
                   <select
@@ -579,16 +597,36 @@ export default function RankTracker() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Keyword</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Current</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Previous</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Change</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Volume</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Difficulty</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">URL</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Last Checked</th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Trend</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">Actions</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Keyword
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Current
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Previous
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Change
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Volume
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Difficulty
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        URL
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Last Checked
+                      </th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        Trend
+                      </th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -628,15 +666,21 @@ export default function RankTracker() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold">{competitor.domain[0].toUpperCase()}</span>
+                          <span className="text-white font-bold">
+                            {competitor.domain[0].toUpperCase()}
+                          </span>
                         </div>
                         <div>
                           <div className="font-semibold text-[#1E3A5F]">{competitor.domain}</div>
-                          <div className="text-sm text-gray-600">{competitor.keywords} tracked keywords</div>
+                          <div className="text-sm text-gray-600">
+                            {competitor.keywords} tracked keywords
+                          </div>
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-[#1E3A5F]">{competitor.avgPosition}</div>
+                        <div className="text-2xl font-bold text-[#1E3A5F]">
+                          {competitor.avgPosition}
+                        </div>
                         <div className="text-sm text-gray-600">Avg Position</div>
                       </div>
                     </div>
@@ -648,10 +692,19 @@ export default function RankTracker() {
             <div className="grid grid-cols-2 gap-6">
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">Your Ranking Opportunities</h3>
-                <p className="text-sm text-gray-600 mb-4">Keywords you rank for that competitors don't</p>
+                <p className="text-sm text-gray-600 mb-4">
+                  Keywords you rank for that competitors don't
+                </p>
                 <div className="space-y-2">
-                  {['local seo services', 'google business profile optimization', 'digital marketing strategy'].map((kw, i) => (
-                    <div key={i} className="p-3 bg-green-50 rounded-lg flex items-center justify-between">
+                  {[
+                    'local seo services',
+                    'google business profile optimization',
+                    'digital marketing strategy',
+                  ].map((kw, i) => (
+                    <div
+                      key={i}
+                      className="p-3 bg-green-50 rounded-lg flex items-center justify-between"
+                    >
                       <span className="text-sm font-medium text-green-700">{kw}</span>
                       <Badge className="bg-green-600 text-white">#5</Badge>
                     </div>
@@ -661,14 +714,21 @@ export default function RankTracker() {
 
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">Content Gaps</h3>
-                <p className="text-sm text-gray-600 mb-4">Keywords competitors rank for that you don't</p>
+                <p className="text-sm text-gray-600 mb-4">
+                  Keywords competitors rank for that you don't
+                </p>
                 <div className="space-y-2">
-                  {['content marketing agency', 'email marketing services', 'ppc management'].map((kw, i) => (
-                    <div key={i} className="p-3 bg-red-50 rounded-lg flex items-center justify-between">
-                      <span className="text-sm font-medium text-red-700">{kw}</span>
-                      <Badge className="bg-gray-400 text-white">Not Ranking</Badge>
-                    </div>
-                  ))}
+                  {['content marketing agency', 'email marketing services', 'ppc management'].map(
+                    (kw, i) => (
+                      <div
+                        key={i}
+                        className="p-3 bg-red-50 rounded-lg flex items-center justify-between"
+                      >
+                        <span className="text-sm font-medium text-red-700">{kw}</span>
+                        <Badge className="bg-gray-400 text-white">Not Ranking</Badge>
+                      </div>
+                    ),
+                  )}
                 </div>
               </Card>
             </div>
@@ -682,7 +742,9 @@ export default function RankTracker() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Ranking Alerts</h2>
-                  <p className="text-sm text-gray-600">Get notified when rankings change significantly</p>
+                  <p className="text-sm text-gray-600">
+                    Get notified when rankings change significantly
+                  </p>
                 </div>
                 <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                   <Plus className="w-4 h-4 mr-2" />
@@ -735,13 +797,33 @@ export default function RankTracker() {
               <h3 className="font-bold text-[#1E3A5F] mb-4">Recent Alerts</h3>
               <div className="space-y-3">
                 {[
-                  { keyword: 'digital marketing agency', change: 2, type: 'positive', time: '2 hours ago' },
-                  { keyword: 'social media marketing', change: -3, type: 'negative', time: '5 hours ago' },
-                  { keyword: 'google business profile optimization', change: 1, type: 'positive', time: '1 day ago' }
+                  {
+                    keyword: 'digital marketing agency',
+                    change: 2,
+                    type: 'positive',
+                    time: '2 hours ago',
+                  },
+                  {
+                    keyword: 'social media marketing',
+                    change: -3,
+                    type: 'negative',
+                    time: '5 hours ago',
+                  },
+                  {
+                    keyword: 'google business profile optimization',
+                    change: 1,
+                    type: 'positive',
+                    time: '1 day ago',
+                  },
                 ].map((alert, index) => (
-                  <div key={index} className={`p-4 rounded-lg border ${
-                    alert.type === 'positive' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'
-                  }`}>
+                  <div
+                    key={index}
+                    className={`p-4 rounded-lg border ${
+                      alert.type === 'positive'
+                        ? 'bg-green-50 border-green-200'
+                        : 'bg-red-50 border-red-200'
+                    }`}
+                  >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         {alert.type === 'positive' ? (
@@ -752,7 +834,8 @@ export default function RankTracker() {
                         <div>
                           <div className="font-medium text-[#1E3A5F]">{alert.keyword}</div>
                           <div className="text-sm text-gray-600">
-                            {alert.type === 'positive' ? 'Improved' : 'Dropped'} by {Math.abs(alert.change)} positions
+                            {alert.type === 'positive' ? 'Improved' : 'Dropped'} by{' '}
+                            {Math.abs(alert.change)} positions
                           </div>
                         </div>
                       </div>
@@ -820,7 +903,9 @@ export default function RankTracker() {
                       </label>
                       <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                         {locations.map((loc) => (
-                          <option key={loc} value={loc}>{loc}</option>
+                          <option key={loc} value={loc}>
+                            {loc}
+                          </option>
                         ))}
                       </select>
                     </div>

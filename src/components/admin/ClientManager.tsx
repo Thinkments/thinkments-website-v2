@@ -28,7 +28,7 @@ import {
   XCircle,
   PauseCircle,
   TrendingUp,
-  Building2
+  Building2,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
@@ -36,13 +36,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Badge } from '../ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { toast } from 'sonner@2.0.3';
 
 interface Client {
@@ -79,7 +73,7 @@ const mockClients: Client[] = [
     renewalDate: '2025-01-15',
     lastContact: '2024-11-28',
     website: 'https://acmecorp.com',
-    address: '123 Main St, New York, NY'
+    address: '123 Main St, New York, NY',
   },
   {
     id: '2',
@@ -95,7 +89,7 @@ const mockClients: Client[] = [
     renewalDate: '2024-09-01',
     lastContact: '2024-12-01',
     website: 'https://techstart.io',
-    address: '456 Tech Ave, San Francisco, CA'
+    address: '456 Tech Ave, San Francisco, CA',
   },
   {
     id: '3',
@@ -110,7 +104,7 @@ const mockClients: Client[] = [
     contractLength: '12 months',
     renewalDate: '2025-06-10',
     lastContact: '2024-11-25',
-    website: 'https://greengardens.com'
+    website: 'https://greengardens.com',
   },
   {
     id: '4',
@@ -125,7 +119,7 @@ const mockClients: Client[] = [
     contractLength: 'Monthly',
     renewalDate: '2024-12-20',
     lastContact: '2024-11-15',
-    website: 'https://downtowncafe.com'
+    website: 'https://downtowncafe.com',
   },
   {
     id: '5',
@@ -140,7 +134,7 @@ const mockClients: Client[] = [
     contractLength: '12 months',
     renewalDate: '2025-04-05',
     lastContact: '2024-12-03',
-    website: 'https://elitefitness.com'
+    website: 'https://elitefitness.com',
   },
   {
     id: '6',
@@ -155,8 +149,8 @@ const mockClients: Client[] = [
     contractLength: '12 months',
     renewalDate: '2024-08-12',
     lastContact: '2024-07-30',
-    website: 'https://lawfirmpartners.com'
-  }
+    website: 'https://lawfirmpartners.com',
+  },
 ];
 
 const serviceIcons = {
@@ -165,7 +159,7 @@ const serviceIcons = {
   GBP: { label: 'GBP', color: 'bg-purple-100 text-purple-700' },
   Video: { label: 'Video', color: 'bg-red-100 text-red-700' },
   Tours: { label: 'Tours', color: 'bg-orange-100 text-orange-700' },
-  Social: { label: 'Social', color: 'bg-pink-100 text-pink-700' }
+  Social: { label: 'Social', color: 'bg-pink-100 text-pink-700' },
 };
 
 export default function ClientManager() {
@@ -191,16 +185,16 @@ export default function ClientManager() {
     contractLength: '12 months',
     address: '',
     website: '',
-    notes: ''
+    notes: '',
   });
 
-  const activeClients = mockClients.filter(c => c.status === 'active');
+  const activeClients = mockClients.filter((c) => c.status === 'active');
   const totalMRR = activeClients.reduce((sum, client) => sum + client.retainer, 0);
-  
+
   // Calculate clients with renewals in next 30 days
   const today = new Date();
   const thirtyDaysFromNow = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
-  const expiringContracts = mockClients.filter(client => {
+  const expiringContracts = mockClients.filter((client) => {
     const renewalDate = new Date(client.renewalDate);
     return renewalDate >= today && renewalDate <= thirtyDaysFromNow && client.status === 'active';
   });
@@ -211,13 +205,14 @@ export default function ClientManager() {
       const start = new Date(client.contractStart);
       const months = (today.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 30);
       return sum + months;
-    }, 0) / activeClients.length
+    }, 0) / activeClients.length,
   );
 
   // Filter clients
-  const filteredClients = mockClients.filter(client => {
-    const matchesSearch = client.businessName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         client.contactName.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredClients = mockClients.filter((client) => {
+    const matchesSearch =
+      client.businessName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      client.contactName.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = statusFilter === 'all' || client.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -235,7 +230,7 @@ export default function ClientManager() {
       contractLength: '12 months',
       address: '',
       website: '',
-      notes: ''
+      notes: '',
     });
     setEditMode(false);
     setShowAddModal(true);
@@ -254,11 +249,11 @@ export default function ClientManager() {
   };
 
   const handleServiceToggle = (service: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       services: prev.services?.includes(service)
-        ? prev.services.filter(s => s !== service)
-        : [...(prev.services || []), service]
+        ? prev.services.filter((s) => s !== service)
+        : [...(prev.services || []), service],
     }));
   };
 
@@ -278,7 +273,7 @@ export default function ClientManager() {
     const configs = {
       active: { icon: CheckCircle, color: 'bg-green-100 text-green-700', label: 'Active' },
       paused: { icon: PauseCircle, color: 'bg-yellow-100 text-yellow-700', label: 'Paused' },
-      churned: { icon: XCircle, color: 'bg-red-100 text-red-700', label: 'Churned' }
+      churned: { icon: XCircle, color: 'bg-red-100 text-red-700', label: 'Churned' },
     };
     const config = configs[status as keyof typeof configs];
     const Icon = config.icon;
@@ -368,21 +363,28 @@ export default function ClientManager() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {expiringContracts.map(client => {
+              {expiringContracts.map((client) => {
                 const daysUntil = getDaysUntilRenewal(client.renewalDate);
                 return (
-                  <div key={client.id} className="flex items-center justify-between bg-white p-4 rounded-lg">
+                  <div
+                    key={client.id}
+                    className="flex items-center justify-between bg-white p-4 rounded-lg"
+                  >
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-lg flex items-center justify-center">
                         <Building2 className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="font-semibold text-[#1E3A5F]">{client.businessName}</p>
-                        <p className="text-sm text-gray-600">Renewal: {new Date(client.renewalDate).toLocaleDateString()}</p>
+                        <p className="text-sm text-gray-600">
+                          Renewal: {new Date(client.renewalDate).toLocaleDateString()}
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
-                      <Badge className={`${daysUntil <= 7 ? 'bg-red-100 text-red-700' : 'bg-orange-100 text-orange-700'} border-0`}>
+                      <Badge
+                        className={`${daysUntil <= 7 ? 'bg-red-100 text-red-700' : 'bg-orange-100 text-orange-700'} border-0`}
+                      >
                         {daysUntil} days
                       </Badge>
                       <Button size="sm" className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
@@ -457,7 +459,7 @@ export default function ClientManager() {
       {/* Client Grid View */}
       {viewMode === 'grid' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredClients.map(client => (
+          {filteredClients.map((client) => (
             <motion.div
               key={client.id}
               initial={{ opacity: 0, y: 20 }}
@@ -482,8 +484,11 @@ export default function ClientManager() {
 
                   {/* Services */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {client.services.map(service => (
-                      <Badge key={service} className={`${serviceIcons[service as keyof typeof serviceIcons].color} border-0 text-xs`}>
+                    {client.services.map((service) => (
+                      <Badge
+                        key={service}
+                        className={`${serviceIcons[service as keyof typeof serviceIcons].color} border-0 text-xs`}
+                      >
                         {serviceIcons[service as keyof typeof serviceIcons].label}
                       </Badge>
                     ))}
@@ -493,15 +498,21 @@ export default function ClientManager() {
                   <div className="space-y-2 mb-4 text-sm">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">Monthly Retainer:</span>
-                      <span className="font-semibold text-[#1E3A5F]">${client.retainer.toLocaleString()}</span>
+                      <span className="font-semibold text-[#1E3A5F]">
+                        ${client.retainer.toLocaleString()}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">Renewal Date:</span>
-                      <span className="font-semibold text-[#1E3A5F]">{new Date(client.renewalDate).toLocaleDateString()}</span>
+                      <span className="font-semibold text-[#1E3A5F]">
+                        {new Date(client.renewalDate).toLocaleDateString()}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">Last Contact:</span>
-                      <span className="font-semibold text-[#1E3A5F]">{new Date(client.lastContact).toLocaleDateString()}</span>
+                      <span className="font-semibold text-[#1E3A5F]">
+                        {new Date(client.lastContact).toLocaleDateString()}
+                      </span>
                     </div>
                   </div>
 
@@ -543,13 +554,17 @@ export default function ClientManager() {
             <table className="w-full">
               <thead className="bg-[#F8F9FA]">
                 <tr>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Client Name</th>
+                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">
+                    Client Name
+                  </th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Status</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Services</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Retainer</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Start Date</th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Renewal</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Last Contact</th>
+                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">
+                    Last Contact
+                  </th>
                   <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Actions</th>
                 </tr>
               </thead>
@@ -576,31 +591,34 @@ export default function ClientManager() {
                     <td className="p-4">{getStatusBadge(client.status)}</td>
                     <td className="p-4">
                       <div className="flex flex-wrap gap-1">
-                        {client.services.map(service => (
-                          <Badge key={service} className={`${serviceIcons[service as keyof typeof serviceIcons].color} border-0 text-xs`}>
+                        {client.services.map((service) => (
+                          <Badge
+                            key={service}
+                            className={`${serviceIcons[service as keyof typeof serviceIcons].color} border-0 text-xs`}
+                          >
                             {service}
                           </Badge>
                         ))}
                       </div>
                     </td>
-                    <td className="p-4 font-semibold text-[#1E3A5F]">${client.retainer.toLocaleString()}</td>
-                    <td className="p-4 text-sm text-gray-600">{new Date(client.contractStart).toLocaleDateString()}</td>
-                    <td className="p-4 text-sm text-gray-600">{new Date(client.renewalDate).toLocaleDateString()}</td>
-                    <td className="p-4 text-sm text-gray-600">{new Date(client.lastContact).toLocaleDateString()}</td>
+                    <td className="p-4 font-semibold text-[#1E3A5F]">
+                      ${client.retainer.toLocaleString()}
+                    </td>
+                    <td className="p-4 text-sm text-gray-600">
+                      {new Date(client.contractStart).toLocaleDateString()}
+                    </td>
+                    <td className="p-4 text-sm text-gray-600">
+                      {new Date(client.renewalDate).toLocaleDateString()}
+                    </td>
+                    <td className="p-4 text-sm text-gray-600">
+                      {new Date(client.lastContact).toLocaleDateString()}
+                    </td>
                     <td className="p-4">
                       <div className="flex items-center space-x-2">
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={() => openDetailModal(client)}
-                        >
+                        <Button size="sm" variant="ghost" onClick={() => openDetailModal(client)}>
                           <Eye className="w-4 h-4" />
                         </Button>
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={() => openEditModal(client)}
-                        >
+                        <Button size="sm" variant="ghost" onClick={() => openEditModal(client)}>
                           <Edit className="w-4 h-4" />
                         </Button>
                         <Button size="sm" variant="ghost">
@@ -730,9 +748,11 @@ export default function ClientManager() {
                             : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
-                        <CheckCircle className={`w-4 h-4 mx-auto mb-1 ${
-                          formData.services?.includes(key) ? 'text-[#00B4D8]' : 'text-gray-400'
-                        }`} />
+                        <CheckCircle
+                          className={`w-4 h-4 mx-auto mb-1 ${
+                            formData.services?.includes(key) ? 'text-[#00B4D8]' : 'text-gray-400'
+                          }`}
+                        />
                         {value.label}
                       </button>
                     ))}
@@ -744,12 +764,16 @@ export default function ClientManager() {
                   <div>
                     <Label htmlFor="retainer">Monthly Retainer *</Label>
                     <div className="relative mt-2">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                        $
+                      </span>
                       <Input
                         id="retainer"
                         type="number"
                         value={formData.retainer}
-                        onChange={(e) => setFormData({ ...formData, retainer: Number(e.target.value) })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, retainer: Number(e.target.value) })
+                        }
                         className="pl-7"
                       />
                     </div>
@@ -788,7 +812,9 @@ export default function ClientManager() {
                   <Label htmlFor="status">Status *</Label>
                   <Select
                     value={formData.status}
-                    onValueChange={(value) => setFormData({ ...formData, status: value as 'active' | 'paused' | 'churned' })}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, status: value as 'active' | 'paused' | 'churned' })
+                    }
                   >
                     <SelectTrigger id="status" className="mt-2">
                       <SelectValue />
@@ -818,7 +844,10 @@ export default function ClientManager() {
                   <Button variant="outline" onClick={() => setShowAddModal(false)}>
                     Cancel
                   </Button>
-                  <Button onClick={handleSaveClient} className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
+                  <Button
+                    onClick={handleSaveClient}
+                    className="bg-[#00B4D8] hover:bg-[#0096b8] text-white"
+                  >
                     <Save className="w-4 h-4 mr-2" />
                     {editMode ? 'Update Client' : 'Add Client'}
                   </Button>
@@ -860,7 +889,12 @@ export default function ClientManager() {
                   </div>
                   <div className="flex items-center space-x-3">
                     {getStatusBadge(selectedClient.status)}
-                    <Button variant="ghost" size="sm" onClick={() => setShowDetailModal(false)} className="text-white hover:bg-white/20">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setShowDetailModal(false)}
+                      className="text-white hover:bg-white/20"
+                    >
                       <X className="w-5 h-5" />
                     </Button>
                   </div>
@@ -870,19 +904,21 @@ export default function ClientManager() {
               {/* Tabs */}
               <div className="border-b border-gray-200 px-6">
                 <div className="flex space-x-6">
-                  {['overview', 'services', 'documents', 'invoices', 'communication', 'notes'].map(tab => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`py-3 px-2 border-b-2 transition-colors capitalize ${
-                        activeTab === tab
-                          ? 'border-[#00B4D8] text-[#00B4D8] font-semibold'
-                          : 'border-transparent text-gray-600 hover:text-[#00B4D8]'
-                      }`}
-                    >
-                      {tab}
-                    </button>
-                  ))}
+                  {['overview', 'services', 'documents', 'invoices', 'communication', 'notes'].map(
+                    (tab) => (
+                      <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`py-3 px-2 border-b-2 transition-colors capitalize ${
+                          activeTab === tab
+                            ? 'border-[#00B4D8] text-[#00B4D8] font-semibold'
+                            : 'border-transparent text-gray-600 hover:text-[#00B4D8]'
+                        }`}
+                      >
+                        {tab}
+                      </button>
+                    ),
+                  )}
                 </div>
               </div>
 
@@ -895,19 +931,25 @@ export default function ClientManager() {
                       <Card className="border-0 bg-[#F8F9FA]">
                         <CardContent className="p-4">
                           <p className="text-sm text-gray-600 mb-1">Monthly Retainer</p>
-                          <p className="text-2xl font-bold text-[#1E3A5F]">${selectedClient.retainer.toLocaleString()}</p>
+                          <p className="text-2xl font-bold text-[#1E3A5F]">
+                            ${selectedClient.retainer.toLocaleString()}
+                          </p>
                         </CardContent>
                       </Card>
                       <Card className="border-0 bg-[#F8F9FA]">
                         <CardContent className="p-4">
                           <p className="text-sm text-gray-600 mb-1">Contract Length</p>
-                          <p className="text-2xl font-bold text-[#1E3A5F]">{selectedClient.contractLength}</p>
+                          <p className="text-2xl font-bold text-[#1E3A5F]">
+                            {selectedClient.contractLength}
+                          </p>
                         </CardContent>
                       </Card>
                       <Card className="border-0 bg-[#F8F9FA]">
                         <CardContent className="p-4">
                           <p className="text-sm text-gray-600 mb-1">Days to Renewal</p>
-                          <p className="text-2xl font-bold text-[#1E3A5F]">{getDaysUntilRenewal(selectedClient.renewalDate)}</p>
+                          <p className="text-2xl font-bold text-[#1E3A5F]">
+                            {getDaysUntilRenewal(selectedClient.renewalDate)}
+                          </p>
                         </CardContent>
                       </Card>
                     </div>
@@ -937,7 +979,12 @@ export default function ClientManager() {
                             <Globe className="w-5 h-5 text-gray-400" />
                             <div>
                               <p className="text-sm text-gray-600">Website</p>
-                              <a href={selectedClient.website} target="_blank" rel="noopener noreferrer" className="font-medium text-[#00B4D8] hover:underline">
+                              <a
+                                href={selectedClient.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-medium text-[#00B4D8] hover:underline"
+                              >
                                 {selectedClient.website}
                               </a>
                             </div>
@@ -962,8 +1009,11 @@ export default function ClientManager() {
                       </CardHeader>
                       <CardContent>
                         <div className="flex flex-wrap gap-3">
-                          {selectedClient.services.map(service => (
-                            <Badge key={service} className={`${serviceIcons[service as keyof typeof serviceIcons].color} border-0 px-4 py-2`}>
+                          {selectedClient.services.map((service) => (
+                            <Badge
+                              key={service}
+                              className={`${serviceIcons[service as keyof typeof serviceIcons].color} border-0 px-4 py-2`}
+                            >
                               {serviceIcons[service as keyof typeof serviceIcons].label}
                             </Badge>
                           ))}
@@ -1003,7 +1053,10 @@ export default function ClientManager() {
                 {activeTab !== 'overview' && (
                   <div className="text-center py-12">
                     <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} content coming soon...</p>
+                    <p className="text-gray-600">
+                      {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} content coming
+                      soon...
+                    </p>
                   </div>
                 )}
               </div>

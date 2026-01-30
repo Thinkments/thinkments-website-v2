@@ -7,14 +7,19 @@ import { Card, CardContent } from '../ui/card';
 import QuoteBenefits from './quote/QuoteBenefits';
 import QuoteProgress from './quote/QuoteProgress';
 import ContactForm from './quote/ContactForm';
-import { Step1BasicInfo, Step2Services, Step3ProjectDetails, Step4AdditionalInfo } from './quote/QuoteFormSteps';
+import {
+  Step1BasicInfo,
+  Step2Services,
+  Step3ProjectDetails,
+  Step4AdditionalInfo,
+} from './quote/QuoteFormSteps';
 import { initialFormData, QuoteFormData } from './quote/QuoteConstants';
 
 export default function QuotePage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<QuoteFormData>(initialFormData);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -23,8 +28,8 @@ export default function QuotePage() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) - 0.5;
-      const y = (e.clientY / window.innerHeight) - 0.5;
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
       mouseX.set(x);
       mouseY.set(y);
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -84,7 +89,7 @@ export default function QuotePage() {
 
   const renderCurrentStep = () => {
     const stepProps = { formData, setFormData };
-    
+
     switch (step) {
       case 1:
         return <Step1BasicInfo {...stepProps} />;
@@ -112,7 +117,8 @@ export default function QuotePage() {
         <motion.div
           className="absolute inset-0 opacity-30"
           style={{
-            background: 'radial-gradient(circle at center, rgba(150, 255, 191, 0.3) 0%, transparent 70%)',
+            background:
+              'radial-gradient(circle at center, rgba(150, 255, 191, 0.3) 0%, transparent 70%)',
           }}
           animate={{
             scale: [1, 1.2, 1],
@@ -287,7 +293,8 @@ export default function QuotePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Tell us about your project and we'll create a custom proposal tailored to your business needs
+                Tell us about your project and we'll create a custom proposal tailored to your
+                business needs
               </motion.p>
 
               <motion.div
@@ -296,14 +303,26 @@ export default function QuotePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
               >
-                <Button asChild size="lg" className="bg-gradient-to-r from-[#96FFBF] to-[#00C98D] text-black hover:from-[#5ADFA0] hover:to-[#0A8460]">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-[#96FFBF] to-[#00C98D] text-black hover:from-[#5ADFA0] hover:to-[#0A8460]"
+                >
                   <a href="#quote-form">
                     Start Quote Request
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
-                <Button asChild size="lg" className="bg-gradient-to-r from-[#0A8460] to-[#00C98D] text-white hover:from-[#5ADFA0] hover:to-[#96FFBF] border-0">
-                  <a href="https://www.google.com/search?q=thinkments&rlz=1C1CHBF_enUS1020US1021&oq=thinkments+&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORiABBiiBDIGCAEQABgeMgYIAhBFGEEyBggDEEUYQTIGCAQQRRg8MgYIBRBFGDwyBggGEEUYQTIGCAcQRRg90gEINTI5NWowajSoAgOwAgHxBaa0px-7-mBM&sourceid=chrome&ie=UTF-8#" target="_blank" rel="noopener noreferrer">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-[#0A8460] to-[#00C98D] text-white hover:from-[#5ADFA0] hover:to-[#96FFBF] border-0"
+                >
+                  <a
+                    href="https://www.google.com/search?q=thinkments&rlz=1C1CHBF_enUS1020US1021&oq=thinkments+&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORiABBiiBDIGCAEQABgeMgYIAhBFGEEyBggDEEUYQTIGCAQQRRg8MgYIBRBFGDwyBggGEEUYQTIGCAcQRRg90gEINTI5NWowajSoAgOwAgHxBaa0px-7-mBM&sourceid=chrome&ie=UTF-8#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Call for Consultation
                   </a>
                 </Button>
@@ -322,7 +341,7 @@ export default function QuotePage() {
               <svg className="w-full h-full opacity-30">
                 <defs>
                   <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#96FFBF" strokeWidth="0.5"/>
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#96FFBF" strokeWidth="0.5" />
                   </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />

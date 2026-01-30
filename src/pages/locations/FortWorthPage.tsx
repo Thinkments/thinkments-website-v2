@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Phone, MapPin, Award, Users, TrendingUp, Clock, CheckCircle, ChevronDown, Star } from 'lucide-react';
+import {
+  Phone,
+  MapPin,
+  Award,
+  Users,
+  TrendingUp,
+  Clock,
+  CheckCircle,
+  ChevronDown,
+  Star,
+} from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Helmet } from 'react-helmet-async';
 
@@ -11,106 +21,119 @@ export default function FortWorthPage() {
   const services = [
     {
       title: 'Local SEO for Fort Worth',
-      description: 'Increase your visibility in Fort Worth local search and attract nearby customers.',
-      link: '/marketing-seo'
+      description:
+        'Increase your visibility in Fort Worth local search and attract nearby customers.',
+      link: '/marketing-seo',
     },
     {
       title: 'Professional Web Design',
-      description: 'Custom websites that reflect Fort Worth\'s blend of Western heritage and modern innovation.',
-      link: '/web-development'
+      description:
+        "Custom websites that reflect Fort Worth's blend of Western heritage and modern innovation.",
+      link: '/web-development',
     },
     {
       title: 'Google Business Optimization',
       description: 'Maximize your local presence and appear prominently in Fort Worth searches.',
-      link: '/google-business-profile'
+      link: '/google-business-profile',
     },
     {
       title: 'Targeted PPC Campaigns',
       description: 'Connect with Fort Worth customers actively searching for your services.',
-      link: '/paid-advertising'
+      link: '/paid-advertising',
     },
     {
       title: 'Social Media Management',
       description: 'Engage the Fort Worth community and build lasting customer relationships.',
-      link: '/social-media'
+      link: '/social-media',
     },
     {
       title: 'Strategic Content Creation',
       description: 'Content that speaks to Fort Worth audiences and drives business growth.',
-      link: '/content-marketing'
-    }
+      link: '/content-marketing',
+    },
   ];
 
   const whyChoose = [
     {
       title: 'Fort Worth Market Knowledge',
-      description: 'We appreciate Fort Worth\'s unique business culture - from Sundance Square\'s vibrant downtown to the Stockyards\' historic charm and growing tech sector.'
+      description:
+        "We appreciate Fort Worth's unique business culture - from Sundance Square's vibrant downtown to the Stockyards' historic charm and growing tech sector.",
     },
     {
       title: 'Texas Roots & Values',
-      description: 'As a fellow Texas company, we share Fort Worth\'s commitment to quality, integrity, and building genuine business relationships that last.'
+      description:
+        "As a fellow Texas company, we share Fort Worth's commitment to quality, integrity, and building genuine business relationships that last.",
     },
     {
       title: 'Accessible Expertise',
-      description: 'Located just an hour away in Decatur, we provide the local attention Fort Worth businesses deserve with the expertise of a seasoned agency.'
+      description:
+        'Located just an hour away in Decatur, we provide the local attention Fort Worth businesses deserve with the expertise of a seasoned agency.',
     },
     {
       title: 'Track Record of Success',
-      description: 'Our 5.0 Google rating reflects our dedication to delivering exceptional results for Fort Worth and DFW-area clients.'
-    }
+      description:
+        'Our 5.0 Google rating reflects our dedication to delivering exceptional results for Fort Worth and DFW-area clients.',
+    },
   ];
 
   const faqs = [
     {
       question: 'What digital marketing services do you offer in Fort Worth?',
-      answer: 'We provide Fort Worth businesses with complete digital marketing solutions including local SEO to rank higher in Fort Worth searches, professional web design and development, Google Business Profile optimization, PPC advertising, social media management, content marketing, video production, and detailed analytics. Each service is customized to meet the specific needs of Fort Worth\'s diverse business community.'
+      answer:
+        "We provide Fort Worth businesses with complete digital marketing solutions including local SEO to rank higher in Fort Worth searches, professional web design and development, Google Business Profile optimization, PPC advertising, social media management, content marketing, video production, and detailed analytics. Each service is customized to meet the specific needs of Fort Worth's diverse business community.",
     },
     {
       question: 'How much does SEO cost for Fort Worth businesses?',
-      answer: 'SEO services for Fort Worth businesses generally range from $1,500 to $5,000 per month, depending on your industry competition, target market size, and specific goals. Fort Worth has a strong business environment, so we create tailored strategies that fit your budget while delivering real results. Contact us for a free consultation and custom quote for your Fort Worth business.'
+      answer:
+        'SEO services for Fort Worth businesses generally range from $1,500 to $5,000 per month, depending on your industry competition, target market size, and specific goals. Fort Worth has a strong business environment, so we create tailored strategies that fit your budget while delivering real results. Contact us for a free consultation and custom quote for your Fort Worth business.',
     },
     {
       question: 'Do you work with small businesses in Fort Worth?',
-      answer: 'Yes! We proudly serve Fort Worth small businesses, from family-owned shops in the Stockyards to startups in the Near Southside. We understand the challenges small businesses face and create affordable, effective digital marketing strategies that help you compete and grow in the Fort Worth market without requiring massive marketing budgets.'
+      answer:
+        'Yes! We proudly serve Fort Worth small businesses, from family-owned shops in the Stockyards to startups in the Near Southside. We understand the challenges small businesses face and create affordable, effective digital marketing strategies that help you compete and grow in the Fort Worth market without requiring massive marketing budgets.',
     },
     {
       question: 'How long does it take to see results?',
-      answer: 'Results timelines vary by strategy. PPC campaigns can start generating Fort Worth leads immediately, often within the first week. SEO results typically become noticeable in 3-6 months as your Fort Worth rankings improve. Social media and content marketing gain traction over 2-4 months. We set realistic expectations and provide transparent monthly reports tracking your progress.'
+      answer:
+        'Results timelines vary by strategy. PPC campaigns can start generating Fort Worth leads immediately, often within the first week. SEO results typically become noticeable in 3-6 months as your Fort Worth rankings improve. Social media and content marketing gain traction over 2-4 months. We set realistic expectations and provide transparent monthly reports tracking your progress.',
     },
     {
       question: 'Do you offer free consultations for Fort Worth businesses?',
-      answer: 'Absolutely! We provide free, no-obligation consultations for all Fort Worth businesses. We\'ll discuss your objectives, evaluate your current online presence, analyze Fort Worth market competition, and recommend strategies tailored to your needs. It\'s a great opportunity to learn how digital marketing can grow your Fort Worth business.'
+      answer:
+        "Absolutely! We provide free, no-obligation consultations for all Fort Worth businesses. We'll discuss your objectives, evaluate your current online presence, analyze Fort Worth market competition, and recommend strategies tailored to your needs. It's a great opportunity to learn how digital marketing can grow your Fort Worth business.",
     },
     {
       question: 'What industries do you serve in Fort Worth?',
-      answer: 'We work with Fort Worth businesses across every industry - healthcare providers, professional services, restaurants and hospitality, retail shops, real estate agencies, home services contractors, manufacturing companies, technology firms, and more. Our experience spans Fort Worth\'s diverse economy, and we develop marketing strategies specific to your industry\'s unique characteristics and customer base.'
-    }
+      answer:
+        "We work with Fort Worth businesses across every industry - healthcare providers, professional services, restaurants and hospitality, retail shops, real estate agencies, home services contractors, manufacturing companies, technology firms, and more. Our experience spans Fort Worth's diverse economy, and we develop marketing strategies specific to your industry's unique characteristics and customer base.",
+    },
   ];
 
   const localStats = [
     { number: '15+', label: 'Years in Fort Worth' },
     { number: '40+', label: 'Fort Worth Clients' },
     { number: '300%', label: 'Avg. Lead Increase' },
-    { number: '103+', label: 'Client Reviews' }
+    { number: '103+', label: 'Client Reviews' },
   ];
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'ThinkMents - Digital Marketing Agency',
-    description: 'Digital marketing agency serving Fort Worth, TX with SEO, web design, and comprehensive marketing solutions.',
+    description:
+      'Digital marketing agency serving Fort Worth, TX with SEO, web design, and comprehensive marketing solutions.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '301 South Washburn St, Suite D',
       addressLocality: 'Decatur',
       addressRegion: 'TX',
       postalCode: '76234',
-      addressCountry: 'US'
+      addressCountry: 'US',
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '33.2283526',
-      longitude: '-97.5883743'
+      longitude: '-97.5883743',
     },
     telephone: '+19403151023',
     email: 'info@thinkments.com',
@@ -118,38 +141,48 @@ export default function FortWorthPage() {
     areaServed: {
       '@type': 'City',
       name: 'Fort Worth',
-      '@id': 'https://en.wikipedia.org/wiki/Fort_Worth,_Texas'
+      '@id': 'https://en.wikipedia.org/wiki/Fort_Worth,_Texas',
     },
     priceRange: '$$',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: '103'
-    }
+      reviewCount: '103',
+    },
   };
 
   return (
     <>
       <Helmet>
         <title>Digital Marketing Agency in Fort Worth, TX | ThinkMents</title>
-        <meta name="description" content="ThinkMents provides SEO, web design & digital marketing services to businesses in Fort Worth, Texas. 20+ years experience. Free consultation." />
-        <meta property="og:title" content="Digital Marketing Agency in Fort Worth, TX | ThinkMents" />
-        <meta property="og:description" content="ThinkMents provides SEO, web design & digital marketing services to businesses in Fort Worth, Texas. 20+ years experience. Free consultation." />
+        <meta
+          name="description"
+          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Fort Worth, Texas. 20+ years experience. Free consultation."
+        />
+        <meta
+          property="og:title"
+          content="Digital Marketing Agency in Fort Worth, TX | ThinkMents"
+        />
+        <meta
+          property="og:description"
+          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Fort Worth, Texas. 20+ years experience. Free consultation."
+        />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations/fort-worth" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#1E3A5F] via-[#234B70] to-[#2C5282] text-white py-20 lg:py-32 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -164,25 +197,24 @@ export default function FortWorthPage() {
                 <span className="text-sm font-semibold">Serving Fort Worth, Texas</span>
               </div>
 
-              <h1 className="mb-6">
-                Digital Marketing Agency in Fort Worth, Texas
-              </h1>
+              <h1 className="mb-6">Digital Marketing Agency in Fort Worth, Texas</h1>
 
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-                ThinkMents delivers SEO, web design, and results-driven marketing to businesses in Fort Worth and surrounding areas.
+                ThinkMents delivers SEO, web design, and results-driven marketing to businesses in
+                Fort Worth and surrounding areas.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -230,10 +262,18 @@ export default function FortWorthPage() {
               >
                 <h2 className="mb-6">Digital Marketing Excellence for Fort Worth</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Fort Worth combines Western heritage with modern innovation, creating a distinctive business environment. From the historic Stockyards to Sundance Square's bustling downtown, the Cultural District's world-class museums, and the Near Southside's entrepreneurial energy, Fort Worth neighborhoods each have their own character and opportunities.
+                  Fort Worth combines Western heritage with modern innovation, creating a
+                  distinctive business environment. From the historic Stockyards to Sundance
+                  Square's bustling downtown, the Cultural District's world-class museums, and the
+                  Near Southside's entrepreneurial energy, Fort Worth neighborhoods each have their
+                  own character and opportunities.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  ThinkMents has worked with Fort Worth businesses across Tarrant County for over 15 years. We understand what makes Fort Worth special and how to connect your business with local customers and beyond. Whether you serve Fort Worth neighborhoods exclusively or market throughout the DFW metroplex, we develop targeted strategies that deliver real, measurable results for your business.
+                  ThinkMents has worked with Fort Worth businesses across Tarrant County for over 15
+                  years. We understand what makes Fort Worth special and how to connect your
+                  business with local customers and beyond. Whether you serve Fort Worth
+                  neighborhoods exclusively or market throughout the DFW metroplex, we develop
+                  targeted strategies that deliver real, measurable results for your business.
                 </p>
               </motion.div>
             </div>
@@ -267,9 +307,7 @@ export default function FortWorthPage() {
                       <h3 className="text-xl font-bold text-[#1E3A5F] mb-3 group-hover:text-[#00B4D8] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed mb-4">
-                        {service.description}
-                      </p>
+                      <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
                       <span className="text-sm font-semibold text-[#00B4D8] group-hover:underline">
                         Learn More →
                       </span>
@@ -393,20 +431,21 @@ export default function FortWorthPage() {
             >
               <h2 className="text-white mb-6">Ready to Grow Your Fort Worth Business?</h2>
               <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Discover how strategic digital marketing can help your Fort Worth business reach more customers and increase revenue.
+                Discover how strategic digital marketing can help your Fort Worth business reach
+                more customers and increase revenue.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   className="bg-[#F7B928] hover:bg-[#D4960F] text-[#1E3A5F] font-bold px-8 py-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <Link to="/free-consultation">Schedule Free Consultation</Link>
                 </Button>
 
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white hover:text-[#1E3A5F] font-semibold px-8 py-6 rounded-full transition-all duration-300"
@@ -424,7 +463,9 @@ export default function FortWorthPage() {
                     <Star key={star} className="w-5 h-5 fill-[#FBBC04] text-[#FBBC04]" />
                   ))}
                 </div>
-                <span className="text-white/90">5.0 Rating | 103+ Reviews | 20+ Years Experience</span>
+                <span className="text-white/90">
+                  5.0 Rating | 103+ Reviews | 20+ Years Experience
+                </span>
               </div>
             </motion.div>
           </div>

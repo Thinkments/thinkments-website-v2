@@ -22,7 +22,7 @@ import {
   BarChart3,
   CheckCircle,
   AlertCircle,
-  X
+  X,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -42,14 +42,14 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 // Mock data
 const profiles = [
   { id: '1', name: 'ThinkMents Main Office', location: 'New York, NY', status: 'verified' },
   { id: '2', name: 'ThinkMents West Coast', location: 'Los Angeles, CA', status: 'verified' },
-  { id: '3', name: 'Client - Acme Corp', location: 'Chicago, IL', status: 'verified' }
+  { id: '3', name: 'Client - Acme Corp', location: 'Chicago, IL', status: 'verified' },
 ];
 
 const performanceData = [
@@ -58,18 +58,18 @@ const performanceData = [
   { date: 'Dec 15', views: 1050, searches: 750, actions: 192 },
   { date: 'Dec 22', views: 1180, searches: 820, actions: 215 },
   { date: 'Dec 29', views: 1320, searches: 910, actions: 248 },
-  { date: 'Jan 5', views: 1450, searches: 1020, actions: 276 }
+  { date: 'Jan 5', views: 1450, searches: 1020, actions: 276 },
 ];
 
 const searchTypeData = [
   { name: 'Direct', value: 45, color: '#10b981' },
   { name: 'Discovery', value: 35, color: '#00B4D8' },
-  { name: 'Branded', value: 20, color: '#8b5cf6' }
+  { name: 'Branded', value: 20, color: '#8b5cf6' },
 ];
 
 const viewSourceData = [
   { name: 'Google Search', value: 60, color: '#1E3A5F' },
-  { name: 'Google Maps', value: 40, color: '#00B4D8' }
+  { name: 'Google Maps', value: 40, color: '#00B4D8' },
 ];
 
 const posts = [
@@ -79,7 +79,7 @@ const posts = [
     text: "We're excited to announce our new digital marketing packages! Get 20% off this month.",
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
     date: '2025-01-03',
-    engagement: { views: 245, clicks: 32 }
+    engagement: { views: 245, clicks: 32 },
   },
   {
     id: '2',
@@ -87,8 +87,8 @@ const posts = [
     text: 'Join us for our free SEO workshop this Saturday!',
     image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop',
     date: '2025-01-01',
-    engagement: { views: 189, clicks: 28 }
-  }
+    engagement: { views: 189, clicks: 28 },
+  },
 ];
 
 const questions = [
@@ -98,14 +98,15 @@ const questions = [
     askedBy: 'Sarah M.',
     date: '2025-01-04',
     answered: true,
-    answer: 'Yes! We offer comprehensive social media management including content creation, scheduling, and analytics. Contact us for a free consultation!'
+    answer:
+      'Yes! We offer comprehensive social media management including content creation, scheduling, and analytics. Contact us for a free consultation!',
   },
   {
     id: '2',
     question: 'What are your business hours?',
     askedBy: 'John D.',
     date: '2025-01-03',
-    answered: false
+    answered: false,
   },
   {
     id: '3',
@@ -113,8 +114,9 @@ const questions = [
     askedBy: 'Emily R.',
     date: '2025-01-02',
     answered: true,
-    answer: 'Absolutely! We specialize in helping small to medium businesses grow their online presence. We have flexible packages to fit various budgets.'
-  }
+    answer:
+      'Absolutely! We specialize in helping small to medium businesses grow their online presence. We have flexible packages to fit various budgets.',
+  },
 ];
 
 export default function GBPDashboard() {
@@ -122,7 +124,7 @@ export default function GBPDashboard() {
   const [selectedProfile, setSelectedProfile] = useState('1');
   const [showPostCreator, setShowPostCreator] = useState(false);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
-  const [selectedQuestion, setSelectedQuestion] = useState<typeof questions[0] | null>(null);
+  const [selectedQuestion, setSelectedQuestion] = useState<(typeof questions)[0] | null>(null);
   const [metricView, setMetricView] = useState<'views' | 'searches' | 'actions'>('views');
 
   const stats = {
@@ -131,7 +133,7 @@ export default function GBPDashboard() {
     mapViews: { value: 3420, change: 22.1 },
     websiteClicks: { value: 456, change: 12.8 },
     directions: { value: 389, change: 8.4 },
-    phoneCalls: { value: 234, change: 16.7 }
+    phoneCalls: { value: 234, change: 16.7 },
   };
 
   const profile = {
@@ -140,7 +142,7 @@ export default function GBPDashboard() {
     phone: '(555) 123-4567',
     website: 'www.thinkments.com',
     hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
-    categories: ['Digital Marketing Agency', 'SEO Service', 'Web Design']
+    categories: ['Digital Marketing Agency', 'SEO Service', 'Web Design'],
   };
 
   return (
@@ -150,7 +152,9 @@ export default function GBPDashboard() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Google Business Profile</h1>
-            <p className="text-gray-600">Manage your Google Business Profile listings and performance</p>
+            <p className="text-gray-600">
+              Manage your Google Business Profile listings and performance
+            </p>
           </div>
         </div>
 
@@ -160,7 +164,7 @@ export default function GBPDashboard() {
             { id: 'overview', label: 'Overview', icon: BarChart3 },
             { id: 'posts', label: 'Posts', icon: ImageIcon },
             { id: 'qa', label: 'Q&A', icon: MessageSquare },
-            { id: 'insights', label: 'Insights', icon: TrendingUp }
+            { id: 'insights', label: 'Insights', icon: TrendingUp },
           ].map((tab) => {
             const Icon = tab.icon;
             return (
@@ -234,7 +238,9 @@ export default function GBPDashboard() {
                   <Eye className="w-4 h-4 text-[#00B4D8]" />
                   <div className="text-sm text-gray-600">Total Views</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.totalViews.value.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#1E3A5F]">
+                  {stats.totalViews.value.toLocaleString()}
+                </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.totalViews.change}%
@@ -246,7 +252,9 @@ export default function GBPDashboard() {
                   <Search className="w-4 h-4 text-[#00B4D8]" />
                   <div className="text-sm text-gray-600">Searches</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.searches.value.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#1E3A5F]">
+                  {stats.searches.value.toLocaleString()}
+                </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.searches.change}%
@@ -258,7 +266,9 @@ export default function GBPDashboard() {
                   <MapPin className="w-4 h-4 text-[#00B4D8]" />
                   <div className="text-sm text-gray-600">Map Views</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.mapViews.value.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#1E3A5F]">
+                  {stats.mapViews.value.toLocaleString()}
+                </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.mapViews.change}%
@@ -270,7 +280,9 @@ export default function GBPDashboard() {
                   <MousePointerClick className="w-4 h-4 text-[#00B4D8]" />
                   <div className="text-sm text-gray-600">Website Clicks</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.websiteClicks.value.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#1E3A5F]">
+                  {stats.websiteClicks.value.toLocaleString()}
+                </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.websiteClicks.change}%
@@ -282,7 +294,9 @@ export default function GBPDashboard() {
                   <Navigation className="w-4 h-4 text-[#00B4D8]" />
                   <div className="text-sm text-gray-600">Directions</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.directions.value.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#1E3A5F]">
+                  {stats.directions.value.toLocaleString()}
+                </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.directions.change}%
@@ -294,7 +308,9 @@ export default function GBPDashboard() {
                   <Phone className="w-4 h-4 text-[#00B4D8]" />
                   <div className="text-sm text-gray-600">Phone Calls</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.phoneCalls.value.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#1E3A5F]">
+                  {stats.phoneCalls.value.toLocaleString()}
+                </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.phoneCalls.change}%
@@ -309,16 +325,14 @@ export default function GBPDashboard() {
                   <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Performance Over Time</h2>
                   <p className="text-sm text-gray-600">Track your GBP metrics</p>
                 </div>
-                
+
                 <div className="flex items-center bg-gray-100 rounded-lg p-1">
                   {(['views', 'searches', 'actions'] as const).map((metric) => (
                     <button
                       key={metric}
                       onClick={() => setMetricView(metric)}
                       className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${
-                        metricView === metric
-                          ? 'bg-white text-[#1E3A5F] shadow'
-                          : 'text-gray-600'
+                        metricView === metric ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
                       }`}
                     >
                       {metric}
@@ -326,7 +340,7 @@ export default function GBPDashboard() {
                   ))}
                 </div>
               </div>
-              
+
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={performanceData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -392,7 +406,7 @@ export default function GBPDashboard() {
               {/* Search Type Distribution */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">How Customers Find You</h3>
-                
+
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
                     <Pie
@@ -431,7 +445,7 @@ export default function GBPDashboard() {
               {/* View Source Distribution */}
               <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
                 <h3 className="font-bold text-[#1E3A5F] mb-4">Where Customers View</h3>
-                
+
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
                     <Pie
@@ -489,18 +503,17 @@ export default function GBPDashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
-                <Card key={post.id} className="overflow-hidden bg-white rounded-lg border border-gray-200 shadow-sm">
-                  <img
-                    src={post.image}
-                    alt="Post"
-                    className="w-full h-48 object-cover"
-                  />
+                <Card
+                  key={post.id}
+                  className="overflow-hidden bg-white rounded-lg border border-gray-200 shadow-sm"
+                >
+                  <img src={post.image} alt="Post" className="w-full h-48 object-cover" />
                   <div className="p-4">
                     <Badge className="bg-blue-100 text-blue-700 text-xs mb-3 capitalize">
                       {post.type}
                     </Badge>
                     <p className="text-sm text-gray-700 mb-4">{post.text}</p>
-                    
+
                     <div className="flex items-center justify-between text-sm text-gray-600">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
@@ -520,7 +533,11 @@ export default function GBPDashboard() {
                         <Edit2 className="w-3 h-3 mr-2" />
                         Edit
                       </Button>
-                      <Button variant="outline" size="sm" className="flex-1 text-xs border-red-200 text-red-600">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 text-xs border-red-200 text-red-600"
+                      >
                         <X className="w-3 h-3 mr-2" />
                         Delete
                       </Button>
@@ -541,13 +558,16 @@ export default function GBPDashboard() {
                 <p className="text-sm text-gray-600">Respond to customer questions</p>
               </div>
               <Badge className="bg-[#FF6B35] text-white">
-                {questions.filter(q => !q.answered).length} Unanswered
+                {questions.filter((q) => !q.answered).length} Unanswered
               </Badge>
             </div>
 
             <div className="space-y-4">
               {questions.map((q) => (
-                <Card key={q.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                <Card
+                  key={q.id}
+                  className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm"
+                >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-2">
@@ -563,13 +583,19 @@ export default function GBPDashboard() {
 
                       {q.answered && q.answer && (
                         <div className="pl-6 border-l-4 border-[#00B4D8] bg-blue-50 p-4 rounded-lg">
-                          <div className="text-sm font-semibold text-[#1E3A5F] mb-2">Your Answer:</div>
+                          <div className="text-sm font-semibold text-[#1E3A5F] mb-2">
+                            Your Answer:
+                          </div>
                           <p className="text-sm text-gray-700">{q.answer}</p>
                         </div>
                       )}
                     </div>
 
-                    <Badge className={q.answered ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}>
+                    <Badge
+                      className={
+                        q.answered ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                      }
+                    >
                       {q.answered ? 'Answered' : 'Unanswered'}
                     </Badge>
                   </div>
@@ -615,7 +641,7 @@ export default function GBPDashboard() {
                   {[
                     { action: 'Website Visits', count: 456, color: '#00B4D8', percentage: 42 },
                     { action: 'Direction Requests', count: 389, color: '#10b981', percentage: 36 },
-                    { action: 'Phone Calls', count: 234, color: '#8b5cf6', percentage: 22 }
+                    { action: 'Phone Calls', count: 234, color: '#8b5cf6', percentage: 22 },
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex items-center justify-between mb-2">
@@ -627,7 +653,7 @@ export default function GBPDashboard() {
                           className="h-2 rounded-full transition-all"
                           style={{
                             width: `${item.percentage}%`,
-                            backgroundColor: item.color
+                            backgroundColor: item.color,
                           }}
                         />
                       </div>
@@ -647,7 +673,7 @@ export default function GBPDashboard() {
                     </div>
                     <p className="text-xs text-gray-600">High-quality photos increase engagement</p>
                   </div>
-                  
+
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-[#1E3A5F]">Customer Photos</span>
@@ -655,7 +681,7 @@ export default function GBPDashboard() {
                     </div>
                     <p className="text-xs text-gray-600">Authentic customer content builds trust</p>
                   </div>
-                  
+
                   <div className="pt-4 border-t border-gray-200">
                     <Badge className="bg-green-100 text-green-700">
                       58% more views on your photos
@@ -669,7 +695,7 @@ export default function GBPDashboard() {
             <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
               <h3 className="font-bold text-[#1E3A5F] mb-4">Popular Times</h3>
               <p className="text-sm text-gray-600 mb-6">When customers typically visit</p>
-              
+
               <div className="grid grid-cols-7 gap-4">
                 {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, i) => (
                   <div key={i} className="text-center">
@@ -685,7 +711,7 @@ export default function GBPDashboard() {
                   </div>
                 ))}
               </div>
-              
+
               <div className="mt-4 text-center text-sm text-gray-600">
                 Peak hours: 2PM - 5PM on weekdays
               </div>
@@ -735,9 +761,7 @@ export default function GBPDashboard() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Image
-                    </label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Image</label>
                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
                       <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
                       <p className="text-sm font-medium text-gray-700">Click to upload image</p>
@@ -848,11 +872,7 @@ export default function GBPDashboard() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Your Answer
                     </label>
-                    <Textarea
-                      placeholder="Write a helpful answer..."
-                      rows={5}
-                      className="w-full"
-                    />
+                    <Textarea placeholder="Write a helpful answer..." rows={5} className="w-full" />
                   </div>
 
                   <div className="flex items-center justify-end space-x-3">

@@ -3,9 +3,9 @@ import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { 
-  Search, 
-  Star, 
+import {
+  Search,
+  Star,
   TrendingUp,
   Target,
   Monitor,
@@ -24,7 +24,7 @@ import {
   Shield,
   Heart,
   Clock,
-  MapPin
+  MapPin,
 } from 'lucide-react';
 import SEO from '../SEO';
 
@@ -40,7 +40,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
   const servicesRef = useRef(null);
   const relatedRef = useRef(null);
   const ctaRef = useRef(null);
-  
+
   const isHeroInView = useInView(heroRef, { once: true });
   const isSummaryInView = useInView(summaryRef, { once: true });
   const isContextInView = useInView(contextRef, { once: true });
@@ -63,17 +63,18 @@ export default function FoursquareHealthcareCaseStudyPage() {
       />
 
       {/* Hero Section */}
-      <section 
+      <section
         ref={heroRef}
         className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1080&fit=crop)',
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1080&fit=crop)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 via-[#1E3A5F]/85 to-[#1E3A5F]/75"></div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -90,12 +91,16 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <span className="text-white">Foursquare Healthcare</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl text-white mb-6"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Foursquare Healthcare: Transforming Patient Acquisition
               </h1>
 
               <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-                How a healthcare organization achieved 150% increase in new patients through HIPAA-compliant digital marketing
+                How a healthcare organization achieved 150% increase in new patients through
+                HIPAA-compliant digital marketing
               </p>
 
               {/* Case Study Header Info */}
@@ -114,7 +119,9 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 </div>
                 <div>
                   <div className="text-white/70 text-sm mb-1">Services</div>
-                  <div className="text-white text-sm">Digital Marketing, SEO, Google Business Profile, Reputation Management</div>
+                  <div className="text-white text-sm">
+                    Digital Marketing, SEO, Google Business Profile, Reputation Management
+                  </div>
                 </div>
               </div>
 
@@ -144,17 +151,28 @@ export default function FoursquareHealthcareCaseStudyPage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <FileText className="w-8 h-8 text-[#00B4D8]" />
-              <h2 className="text-3xl md:text-4xl text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-4xl text-[#1E3A5F]"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Executive Summary
               </h2>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-[#00B4D8]">
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Foursquare Healthcare partnered with ThinkMents to overcome the unique challenges of marketing in the healthcare industry. Facing stiff competition from larger healthcare systems, strict compliance requirements, and difficulty reaching patients searching online, they needed a strategic partner who understood both digital marketing and healthcare.
+                Foursquare Healthcare partnered with ThinkMents to overcome the unique challenges of
+                marketing in the healthcare industry. Facing stiff competition from larger
+                healthcare systems, strict compliance requirements, and difficulty reaching patients
+                searching online, they needed a strategic partner who understood both digital
+                marketing and healthcare.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Within the first year, ThinkMents helped Foursquare Healthcare dramatically increase their online visibility, build a stellar reputation, and generate a consistent flow of new patient appointments—all while maintaining full HIPAA compliance. This case study explores the specific challenges healthcare organizations face, the tailored strategies we implemented, and the measurable impact on patient acquisition.
+                Within the first year, ThinkMents helped Foursquare Healthcare dramatically increase
+                their online visibility, build a stellar reputation, and generate a consistent flow
+                of new patient appointments—all while maintaining full HIPAA compliance. This case
+                study explores the specific challenges healthcare organizations face, the tailored
+                strategies we implemented, and the measurable impact on patient acquisition.
               </p>
             </div>
           </motion.div>
@@ -172,13 +190,17 @@ export default function FoursquareHealthcareCaseStudyPage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Heart className="w-8 h-8 text-[#00B4D8]" />
-              <h2 className="text-3xl md:text-4xl text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-4xl text-[#1E3A5F]"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Marketing in Healthcare: Unique Challenges
               </h2>
             </div>
-            
+
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              Healthcare marketing isn't like marketing any other business. Providers face obstacles that most industries never encounter:
+              Healthcare marketing isn't like marketing any other business. Providers face obstacles
+              that most industries never encounter:
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -189,7 +211,9 @@ export default function FoursquareHealthcareCaseStudyPage() {
                     <div>
                       <h3 className="text-xl text-[#1E3A5F] mb-2">Regulatory Compliance</h3>
                       <p className="text-gray-700">
-                        HIPAA regulations strictly govern how patient information can be used, limiting traditional marketing tactics like testimonials and case studies. One misstep can result in significant fines and reputation damage.
+                        HIPAA regulations strictly govern how patient information can be used,
+                        limiting traditional marketing tactics like testimonials and case studies.
+                        One misstep can result in significant fines and reputation damage.
                       </p>
                     </div>
                   </div>
@@ -203,7 +227,8 @@ export default function FoursquareHealthcareCaseStudyPage() {
                     <div>
                       <h3 className="text-xl text-[#1E3A5F] mb-2">Trust is Everything</h3>
                       <p className="text-gray-700">
-                        Patients aren't buying a product—they're trusting you with their health and wellbeing. Marketing must build credibility and trust before anything else.
+                        Patients aren't buying a product—they're trusting you with their health and
+                        wellbeing. Marketing must build credibility and trust before anything else.
                       </p>
                     </div>
                   </div>
@@ -217,7 +242,9 @@ export default function FoursquareHealthcareCaseStudyPage() {
                     <div>
                       <h3 className="text-xl text-[#1E3A5F] mb-2">Complex Decision Journey</h3>
                       <p className="text-gray-700">
-                        Choosing a healthcare provider involves research, insurance verification, location considerations, and often referrals. The path from awareness to appointment is longer and more complex than typical consumer decisions.
+                        Choosing a healthcare provider involves research, insurance verification,
+                        location considerations, and often referrals. The path from awareness to
+                        appointment is longer and more complex than typical consumer decisions.
                       </p>
                     </div>
                   </div>
@@ -231,7 +258,9 @@ export default function FoursquareHealthcareCaseStudyPage() {
                     <div>
                       <h3 className="text-xl text-[#1E3A5F] mb-2">Competitive Landscape</h3>
                       <p className="text-gray-700">
-                        Large hospital systems with massive marketing budgets dominate online visibility, making it difficult for independent practices and smaller healthcare organizations to compete.
+                        Large hospital systems with massive marketing budgets dominate online
+                        visibility, making it difficult for independent practices and smaller
+                        healthcare organizations to compete.
                       </p>
                     </div>
                   </div>
@@ -245,7 +274,8 @@ export default function FoursquareHealthcareCaseStudyPage() {
                     <div>
                       <h3 className="text-xl text-[#1E3A5F] mb-2">Review Sensitivity</h3>
                       <p className="text-gray-700">
-                        A single negative review carries enormous weight in healthcare. Patients read reviews carefully, and managing online reputation is critical.
+                        A single negative review carries enormous weight in healthcare. Patients
+                        read reviews carefully, and managing online reputation is critical.
                       </p>
                     </div>
                   </div>
@@ -255,7 +285,9 @@ export default function FoursquareHealthcareCaseStudyPage() {
 
             <div className="bg-[#1E3A5F] text-white rounded-lg p-6">
               <p className="text-lg leading-relaxed">
-                <strong>ThinkMents understands these challenges intimately.</strong> We've worked with healthcare organizations across Texas, developing compliant, effective marketing strategies that respect the unique nature of patient relationships.
+                <strong>ThinkMents understands these challenges intimately.</strong> We've worked
+                with healthcare organizations across Texas, developing compliant, effective
+                marketing strategies that respect the unique nature of patient relationships.
               </p>
             </div>
           </motion.div>
@@ -273,62 +305,84 @@ export default function FoursquareHealthcareCaseStudyPage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Target className="w-8 h-8 text-[#00B4D8]" />
-              <h2 className="text-3xl md:text-4xl text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-4xl text-[#1E3A5F]"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 The Challenge
               </h2>
             </div>
-            
+
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              When Foursquare Healthcare approached ThinkMents, they were struggling on multiple fronts:
+              When Foursquare Healthcare approached ThinkMents, they were struggling on multiple
+              fronts:
             </p>
 
             <div className="space-y-6">
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
-                <h3 className="text-xl text-[#1E3A5F] mb-3">Losing Patients to Larger Competitors</h3>
+                <h3 className="text-xl text-[#1E3A5F] mb-3">
+                  Losing Patients to Larger Competitors
+                </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Major healthcare systems in their area dominated Google search results and had extensive advertising budgets. When patients searched for services Foursquare offered, they found competitors first. Despite offering excellent care, Foursquare was invisible to patients actively searching online.
+                  Major healthcare systems in their area dominated Google search results and had
+                  extensive advertising budgets. When patients searched for services Foursquare
+                  offered, they found competitors first. Despite offering excellent care, Foursquare
+                  was invisible to patients actively searching online.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
                 <h3 className="text-xl text-[#1E3A5F] mb-3">Outdated Digital Presence</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Their website was several years old, not mobile-friendly, and didn't reflect the quality of care they provided. Load times exceeded 6 seconds, frustrating visitors. The site lacked clear information about services, providers, and how to schedule appointments.
+                  Their website was several years old, not mobile-friendly, and didn't reflect the
+                  quality of care they provided. Load times exceeded 6 seconds, frustrating
+                  visitors. The site lacked clear information about services, providers, and how to
+                  schedule appointments.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
                 <h3 className="text-xl text-[#1E3A5F] mb-3">Minimal Online Reviews</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  While patients loved their care, very few left online reviews. Their Google Business Profile had only 8 reviews compared to competitors with 100+. This lack of social proof made potential patients hesitant to choose Foursquare over more established-looking alternatives.
+                  While patients loved their care, very few left online reviews. Their Google
+                  Business Profile had only 8 reviews compared to competitors with 100+. This lack
+                  of social proof made potential patients hesitant to choose Foursquare over more
+                  established-looking alternatives.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
                 <h3 className="text-xl text-[#1E3A5F] mb-3">No Patient Acquisition Strategy</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Marketing efforts were sporadic and unmeasured. They had no way to track where new patients came from or calculate return on marketing investment. Budget was being spent without understanding what was actually working.
+                  Marketing efforts were sporadic and unmeasured. They had no way to track where new
+                  patients came from or calculate return on marketing investment. Budget was being
+                  spent without understanding what was actually working.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
                 <h3 className="text-xl text-[#1E3A5F] mb-3">HIPAA Compliance Concerns</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Previous marketing attempts had raised compliance concerns. They needed a partner who understood healthcare regulations and could implement effective marketing without risking violations.
+                  Previous marketing attempts had raised compliance concerns. They needed a partner
+                  who understood healthcare regulations and could implement effective marketing
+                  without risking violations.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
                 <h3 className="text-xl text-[#1E3A5F] mb-3">Staff Capacity Limitations</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  The administrative team was already stretched thin with patient care responsibilities. They needed a marketing solution that didn't add significant burden to existing staff.
+                  The administrative team was already stretched thin with patient care
+                  responsibilities. They needed a marketing solution that didn't add significant
+                  burden to existing staff.
                 </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#FF6B35]">
                 <h3 className="text-xl text-[#1E3A5F] mb-3">Appointment Scheduling Friction</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  The process for new patients to schedule appointments was cumbersome, requiring phone calls during business hours. Many potential patients abandoned the process.
+                  The process for new patients to schedule appointments was cumbersome, requiring
+                  phone calls during business hours. Many potential patients abandoned the process.
                 </p>
               </div>
             </div>
@@ -347,11 +401,14 @@ export default function FoursquareHealthcareCaseStudyPage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-8 h-8 text-[#00B4D8]" />
-              <h2 className="text-3xl md:text-4xl text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-4xl text-[#1E3A5F]"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Our Solution
               </h2>
             </div>
-            
+
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
               ThinkMents developed a comprehensive, HIPAA-compliant digital marketing strategy:
             </p>
@@ -363,9 +420,12 @@ export default function FoursquareHealthcareCaseStudyPage() {
               </div>
               <div className="bg-white border-2 border-[#00B4D8] rounded-b-lg p-6 space-y-6">
                 <div>
-                  <h4 className="text-xl text-[#1E3A5F] mb-3">Healthcare-Focused Website Redesign</h4>
+                  <h4 className="text-xl text-[#1E3A5F] mb-3">
+                    Healthcare-Focused Website Redesign
+                  </h4>
                   <p className="text-gray-700 leading-relaxed mb-3">
-                    We built a new website specifically designed for healthcare patient acquisition. Features included:
+                    We built a new website specifically designed for healthcare patient acquisition.
+                    Features included:
                   </p>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">
@@ -395,9 +455,14 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 </div>
 
                 <div>
-                  <h4 className="text-xl text-[#1E3A5F] mb-3">Google Business Profile Optimization</h4>
+                  <h4 className="text-xl text-[#1E3A5F] mb-3">
+                    Google Business Profile Optimization
+                  </h4>
                   <p className="text-gray-700 leading-relaxed">
-                    We optimized their GBP with accurate service categories, comprehensive business information, professional photos of the facility and providers, and regular posts about health topics. We implemented a compliant review generation system that encourages satisfied patients to share their experiences.
+                    We optimized their GBP with accurate service categories, comprehensive business
+                    information, professional photos of the facility and providers, and regular
+                    posts about health topics. We implemented a compliant review generation system
+                    that encourages satisfied patients to share their experiences.
                   </p>
                 </div>
               </div>
@@ -412,21 +477,31 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Healthcare SEO Strategy</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    Our SEO approach targeted condition-specific and service-specific keywords patients actually search for. We created educational content about health conditions, treatment options, and what to expect—positioning Foursquare as a trusted resource. Local SEO ensured visibility in "near me" searches and Google Maps.
+                    Our SEO approach targeted condition-specific and service-specific keywords
+                    patients actually search for. We created educational content about health
+                    conditions, treatment options, and what to expect—positioning Foursquare as a
+                    trusted resource. Local SEO ensured visibility in "near me" searches and Google
+                    Maps.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Reputation Management System</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    We implemented a systematic, compliant approach to generating patient reviews. This included post-visit follow-up sequences, easy review links, and staff training on asking for reviews appropriately. We also established monitoring and response protocols for all online reviews.
+                    We implemented a systematic, compliant approach to generating patient reviews.
+                    This included post-visit follow-up sequences, easy review links, and staff
+                    training on asking for reviews appropriately. We also established monitoring and
+                    response protocols for all online reviews.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Content Marketing</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    Educational blog content addressed common patient questions and concerns. Topics were selected based on keyword research and patient feedback. All content was medically reviewed and HIPAA-compliant while being accessible to general audiences.
+                    Educational blog content addressed common patient questions and concerns. Topics
+                    were selected based on keyword research and patient feedback. All content was
+                    medically reviewed and HIPAA-compliant while being accessible to general
+                    audiences.
                   </p>
                 </div>
               </div>
@@ -441,28 +516,35 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Conversion Optimization</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    We continuously improved the website's ability to convert visitors into appointment requests. This included A/B testing of calls-to-action, simplifying the appointment request process, and adding live chat for immediate patient questions.
+                    We continuously improved the website's ability to convert visitors into
+                    appointment requests. This included A/B testing of calls-to-action, simplifying
+                    the appointment request process, and adding live chat for immediate patient
+                    questions.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Provider Reputation Building</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    Individual provider profiles were optimized for search, helping patients find specific doctors and building trust before the first appointment.
+                    Individual provider profiles were optimized for search, helping patients find
+                    specific doctors and building trust before the first appointment.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Performance Analytics</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    Comprehensive tracking connected marketing efforts to actual appointments. Monthly reports showed exactly how many new patients came from each channel, allowing strategic budget allocation.
+                    Comprehensive tracking connected marketing efforts to actual appointments.
+                    Monthly reports showed exactly how many new patients came from each channel,
+                    allowing strategic budget allocation.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="text-xl text-[#1E3A5F] mb-3">Ongoing Compliance Review</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    All marketing materials and patient communications were regularly reviewed to ensure continued HIPAA compliance as regulations evolved.
+                    All marketing materials and patient communications were regularly reviewed to
+                    ensure continued HIPAA compliance as regulations evolved.
                   </p>
                 </div>
               </div>
@@ -472,7 +554,10 @@ export default function FoursquareHealthcareCaseStudyPage() {
       </section>
 
       {/* The Results */}
-      <section ref={resultsRef} className="py-16 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white">
+      <section
+        ref={resultsRef}
+        className="py-16 bg-gradient-to-br from-[#1E3A5F] to-[#2A4A6F] text-white"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -481,7 +566,10 @@ export default function FoursquareHealthcareCaseStudyPage() {
             className="max-w-5xl mx-auto"
           >
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-4xl mb-4"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 The Results
               </h2>
               <p className="text-xl text-white/90">
@@ -500,19 +588,28 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <ul className="space-y-3 text-white/90">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span><strong>150% increase</strong> in new patient appointments from online sources</span>
+                      <span>
+                        <strong>150% increase</strong> in new patient appointments from online
+                        sources
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Online appointment requests grew from <strong>15/month to 60+/month</strong></span>
+                      <span>
+                        Online appointment requests grew from <strong>15/month to 60+/month</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Phone inquiries from website increased <strong>120%</strong></span>
+                      <span>
+                        Phone inquiries from website increased <strong>120%</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Patient acquisition cost decreased by <strong>45%</strong></span>
+                      <span>
+                        Patient acquisition cost decreased by <strong>45%</strong>
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -528,19 +625,27 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <ul className="space-y-3 text-white/90">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Page 1 rankings for <strong>25+ healthcare service keywords</strong></span>
+                      <span>
+                        Page 1 rankings for <strong>25+ healthcare service keywords</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span><strong>280% increase</strong> in organic search traffic</span>
+                      <span>
+                        <strong>280% increase</strong> in organic search traffic
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Featured in <strong>Google's Local 3-Pack</strong> for primary services</span>
+                      <span>
+                        Featured in <strong>Google's Local 3-Pack</strong> for primary services
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span><strong>400% increase</strong> in Google Business Profile views and actions</span>
+                      <span>
+                        <strong>400% increase</strong> in Google Business Profile views and actions
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -556,19 +661,27 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <ul className="space-y-3 text-white/90">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Google rating improved from <strong>4.1 to 4.8 stars</strong></span>
+                      <span>
+                        Google rating improved from <strong>4.1 to 4.8 stars</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Review count grew from <strong>8 to 95+ reviews</strong></span>
+                      <span>
+                        Review count grew from <strong>8 to 95+ reviews</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span><strong>100% response rate</strong> to all patient reviews</span>
+                      <span>
+                        <strong>100% response rate</strong> to all patient reviews
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Became <strong>highest-rated provider</strong> in their category locally</span>
+                      <span>
+                        Became <strong>highest-rated provider</strong> in their category locally
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -584,19 +697,27 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <ul className="space-y-3 text-white/90">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Page load time reduced from <strong>6+ seconds to 1.5 seconds</strong></span>
+                      <span>
+                        Page load time reduced from <strong>6+ seconds to 1.5 seconds</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Mobile traffic increased <strong>190%</strong></span>
+                      <span>
+                        Mobile traffic increased <strong>190%</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Appointment request form completions up <strong>340%</strong></span>
+                      <span>
+                        Appointment request form completions up <strong>340%</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Average time on site increased <strong>75%</strong></span>
+                      <span>
+                        Average time on site increased <strong>75%</strong>
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -614,7 +735,9 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <ul className="space-y-3 text-white/90">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>Now outranks <strong>2 of 3 major competitors</strong> for primary keywords</span>
+                      <span>
+                        Now outranks <strong>2 of 3 major competitors</strong> for primary keywords
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
@@ -637,11 +760,16 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <ul className="space-y-3 text-white/90">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span><strong>40% increase in revenue</strong> attributed to digital marketing efforts</span>
+                      <span>
+                        <strong>40% increase in revenue</strong> attributed to digital marketing
+                        efforts
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
-                      <span>ROI of <strong>6:1</strong> on marketing investment</span>
+                      <span>
+                        ROI of <strong>6:1</strong> on marketing investment
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-1" />
@@ -663,7 +791,8 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <h3 className="text-2xl text-white">Compliance Achievement</h3>
               </div>
               <p className="text-xl text-white">
-                <strong>Zero HIPAA violations or concerns</strong> • All marketing materials audit-ready • Established repeatable, compliant processes
+                <strong>Zero HIPAA violations or concerns</strong> • All marketing materials
+                audit-ready • Established repeatable, compliant processes
               </p>
             </div>
           </motion.div>
@@ -687,11 +816,16 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   ))}
                 </div>
               </div>
-              
+
               <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6 text-center italic">
-                "As a healthcare organization, we were nervous about digital marketing and the compliance implications. ThinkMents understood our concerns from day one. They built a strategy that's not only effective but completely HIPAA-compliant. Our online presence has transformed—we're now the first result when patients search for our services, and our reviews speak for themselves. Most importantly, we're helping more patients than ever before. ThinkMents feels like an extension of our team."
+                "As a healthcare organization, we were nervous about digital marketing and the
+                compliance implications. ThinkMents understood our concerns from day one. They built
+                a strategy that's not only effective but completely HIPAA-compliant. Our online
+                presence has transformed—we're now the first result when patients search for our
+                services, and our reviews speak for themselves. Most importantly, we're helping more
+                patients than ever before. ThinkMents feels like an extension of our team."
               </blockquote>
-              
+
               <div className="text-center">
                 <div className="text-[#1E3A5F] mb-1">Healthcare Administrator</div>
                 <div className="text-[#00B4D8]">Foursquare Healthcare</div>
@@ -712,7 +846,10 @@ export default function FoursquareHealthcareCaseStudyPage() {
           >
             <div className="flex items-center gap-3 mb-8">
               <Award className="w-8 h-8 text-[#00B4D8]" />
-              <h2 className="text-3xl md:text-4xl text-[#1E3A5F]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-4xl text-[#1E3A5F]"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Healthcare Marketing Insights
               </h2>
             </div>
@@ -724,9 +861,12 @@ export default function FoursquareHealthcareCaseStudyPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="border-l-4 border-l-[#00B4D8]">
                 <CardContent className="pt-6">
-                  <h3 className="text-xl text-[#1E3A5F] mb-3">Compliance and Results Aren't Mutually Exclusive</h3>
+                  <h3 className="text-xl text-[#1E3A5F] mb-3">
+                    Compliance and Results Aren't Mutually Exclusive
+                  </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    With the right approach, healthcare organizations can implement aggressive digital marketing while maintaining full regulatory compliance.
+                    With the right approach, healthcare organizations can implement aggressive
+                    digital marketing while maintaining full regulatory compliance.
                   </p>
                 </CardContent>
               </Card>
@@ -735,7 +875,8 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <CardContent className="pt-6">
                   <h3 className="text-xl text-[#1E3A5F] mb-3">Reviews Matter More in Healthcare</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Patients research healthcare providers more thoroughly than almost any other purchase. A strong review profile directly impacts patient acquisition.
+                    Patients research healthcare providers more thoroughly than almost any other
+                    purchase. A strong review profile directly impacts patient acquisition.
                   </p>
                 </CardContent>
               </Card>
@@ -744,7 +885,8 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <CardContent className="pt-6">
                   <h3 className="text-xl text-[#1E3A5F] mb-3">Educational Content Builds Trust</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Healthcare content that genuinely helps patients understand their conditions and options builds the trust necessary for them to choose your organization.
+                    Healthcare content that genuinely helps patients understand their conditions and
+                    options builds the trust necessary for them to choose your organization.
                   </p>
                 </CardContent>
               </Card>
@@ -753,16 +895,20 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <CardContent className="pt-6">
                   <h3 className="text-xl text-[#1E3A5F] mb-3">Mobile Experience is Critical</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Patients often search for healthcare on mobile devices, especially in urgent situations. A fast, mobile-friendly website is non-negotiable.
+                    Patients often search for healthcare on mobile devices, especially in urgent
+                    situations. A fast, mobile-friendly website is non-negotiable.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-l-4 border-l-[#00B4D8] md:col-span-2">
                 <CardContent className="pt-6">
-                  <h3 className="text-xl text-[#1E3A5F] mb-3">Local Visibility Drives Appointments</h3>
+                  <h3 className="text-xl text-[#1E3A5F] mb-3">
+                    Local Visibility Drives Appointments
+                  </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    For most healthcare organizations, local SEO and Google Business Profile optimization deliver the fastest path to new patients.
+                    For most healthcare organizations, local SEO and Google Business Profile
+                    optimization deliver the fastest path to new patients.
                   </p>
                 </CardContent>
               </Card>
@@ -780,12 +926,15 @@ export default function FoursquareHealthcareCaseStudyPage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl text-[#1E3A5F] mb-8 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl text-[#1E3A5F] mb-8 text-center"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               Services Used in This Project
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link 
+              <Link
                 to="/web-development"
                 className="group bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
@@ -800,7 +949,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <ArrowRight className="w-5 h-5 text-[#00B4D8] ml-auto" />
               </Link>
 
-              <Link 
+              <Link
                 to="/marketing-seo"
                 className="group bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
@@ -815,7 +964,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <ArrowRight className="w-5 h-5 text-[#00B4D8] ml-auto" />
               </Link>
 
-              <Link 
+              <Link
                 to="/google-business-profile"
                 className="group bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
@@ -830,7 +979,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <ArrowRight className="w-5 h-5 text-[#00B4D8] ml-auto" />
               </Link>
 
-              <Link 
+              <Link
                 to="/reputation-management"
                 className="group bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
@@ -845,7 +994,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <ArrowRight className="w-5 h-5 text-[#00B4D8] ml-auto" />
               </Link>
 
-              <Link 
+              <Link
                 to="/content-marketing"
                 className="group bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
@@ -860,7 +1009,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 <ArrowRight className="w-5 h-5 text-[#00B4D8] ml-auto" />
               </Link>
 
-              <Link 
+              <Link
                 to="/analytics-reporting"
                 className="group bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
@@ -888,12 +1037,15 @@ export default function FoursquareHealthcareCaseStudyPage() {
             transition={{ duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl text-[#1E3A5F] mb-8 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2
+              className="text-3xl md:text-4xl text-[#1E3A5F] mb-8 text-center"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
               See More Success Stories
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <Link 
+              <Link
                 to="/case-studies/chenevert"
                 className="group bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
@@ -904,9 +1056,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <h3 className="text-xl text-[#1E3A5F] mb-2 group-hover:text-[#00B4D8] transition-colors">
                     Chenevert's Home & Hardware
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    200% lead increase for local hardware store
-                  </p>
+                  <p className="text-gray-600 mb-4">200% lead increase for local hardware store</p>
                   <div className="flex items-center text-[#00B4D8] group-hover:gap-2 transition-all">
                     <span>Read Case Study</span>
                     <ArrowRight className="w-4 h-4" />
@@ -914,7 +1064,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 </div>
               </Link>
 
-              <Link 
+              <Link
                 to="/case-studies/decatur-chamber"
                 className="group bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
@@ -935,7 +1085,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 </div>
               </Link>
 
-              <Link 
+              <Link
                 to="/case-studies/casa"
                 className="group bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
@@ -946,9 +1096,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
                   <h3 className="text-xl text-[#1E3A5F] mb-2 group-hover:text-[#00B4D8] transition-colors">
                     CASA of North Texas
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    250% traffic increase for non-profit
-                  </p>
+                  <p className="text-gray-600 mb-4">250% traffic increase for non-profit</p>
                   <div className="flex items-center text-[#00B4D8] group-hover:gap-2 transition-all">
                     <span>Read Case Study</span>
                     <ArrowRight className="w-4 h-4" />
@@ -970,7 +1118,10 @@ export default function FoursquareHealthcareCaseStudyPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white">
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gradient-to-br from-[#1E3A5F] via-[#2A4A6F] to-[#1E3A5F] text-white"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -980,11 +1131,15 @@ export default function FoursquareHealthcareCaseStudyPage() {
           >
             <div className="mb-6">
               <Shield className="w-16 h-16 text-[#00B4D8] mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2
+                className="text-3xl md:text-5xl mb-6"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
                 Ready to Grow Your Healthcare Practice?
               </h2>
               <p className="text-xl md:text-2xl text-white/90 mb-8">
-                We understand the unique challenges of healthcare marketing. Let's discuss how we can help you reach more patients while maintaining full compliance.
+                We understand the unique challenges of healthcare marketing. Let's discuss how we
+                can help you reach more patients while maintaining full compliance.
               </p>
             </div>
 
@@ -996,7 +1151,10 @@ export default function FoursquareHealthcareCaseStudyPage() {
                 </Button>
               </Link>
               <a href="tel:9403151023">
-                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] px-8 py-6 text-lg">
+                <Button
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] px-8 py-6 text-lg"
+                >
                   <Phone className="mr-2 w-5 h-5" />
                   Call (940) 315-1023
                 </Button>

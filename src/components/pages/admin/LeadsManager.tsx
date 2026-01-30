@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Search, 
-  RefreshCw, 
-  Mail, 
-  Phone, 
+import {
+  Search,
+  RefreshCw,
+  Mail,
+  Phone,
   Calendar,
   Filter,
   ChevronDown,
@@ -15,17 +15,11 @@ import {
   Clock,
   DollarSign,
   Briefcase,
-  User
+  User,
 } from 'lucide-react';
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../../ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../ui/select';
 import {
   Dialog,
   DialogContent,
@@ -66,7 +60,7 @@ const SERVICES = [
   'Content Marketing',
   'Branding',
   'E-commerce',
-  'Other'
+  'Other',
 ];
 
 // Status options
@@ -76,7 +70,7 @@ const STATUSES = [
   'Proposal Sent',
   'Active Project',
   'Completed',
-  'Lost/Closed'
+  'Lost/Closed',
 ];
 
 // Status color mapping
@@ -121,14 +115,14 @@ export default function LeadsManager() {
   const fetchLeads = async () => {
     setIsLoading(true);
     setError(null);
-    
+
     try {
       const response = await fetch('/.netlify/functions/get-leads');
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch leads');
       }
-      
+
       const data = await response.json();
       setLeads(data.leads || []);
     } catch (err) {
@@ -155,10 +149,8 @@ export default function LeadsManager() {
       }
 
       // Update local state
-      setLeads(prevLeads =>
-        prevLeads.map(lead =>
-          lead.id === leadId ? { ...lead, status: newStatus } : lead
-        )
+      setLeads((prevLeads) =>
+        prevLeads.map((lead) => (lead.id === leadId ? { ...lead, status: newStatus } : lead)),
       );
 
       // Update selected lead if it's the one being modified
@@ -181,9 +173,9 @@ export default function LeadsManager() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          leadId: selectedLead.id, 
-          note: newNote.trim() 
+        body: JSON.stringify({
+          leadId: selectedLead.id,
+          note: newNote.trim(),
         }),
       });
 
@@ -192,14 +184,12 @@ export default function LeadsManager() {
       }
 
       const updatedNotes = [...(selectedLead.notes || []), newNote.trim()];
-      
+
       // Update local state
-      setLeads(prevLeads =>
-        prevLeads.map(lead =>
-          lead.id === selectedLead.id 
-            ? { ...lead, notes: updatedNotes } 
-            : lead
-        )
+      setLeads((prevLeads) =>
+        prevLeads.map((lead) =>
+          lead.id === selectedLead.id ? { ...lead, notes: updatedNotes } : lead,
+        ),
       );
 
       setSelectedLead({ ...selectedLead, notes: updatedNotes });
@@ -218,21 +208,21 @@ export default function LeadsManager() {
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
-        lead =>
+        (lead) =>
           lead.name.toLowerCase().includes(query) ||
           lead.email.toLowerCase().includes(query) ||
-          lead.businessName?.toLowerCase().includes(query)
+          lead.businessName?.toLowerCase().includes(query),
       );
     }
 
     // Apply status filter
     if (statusFilter !== 'all') {
-      filtered = filtered.filter(lead => lead.status === statusFilter);
+      filtered = filtered.filter((lead) => lead.status === statusFilter);
     }
 
     // Apply service filter
     if (serviceFilter !== 'all') {
-      filtered = filtered.filter(lead => lead.service === serviceFilter);
+      filtered = filtered.filter((lead) => lead.service === serviceFilter);
     }
 
     // Sort leads
@@ -260,15 +250,15 @@ export default function LeadsManager() {
   // Calculate stats
   const stats = useMemo(() => {
     const total = leads.length;
-    const newLeads = leads.filter(lead => lead.status === 'New Lead').length;
-    
+    const newLeads = leads.filter((lead) => lead.status === 'New Lead').length;
+
     return { total, newLeads };
   }, [leads]);
 
   // Handle sort
   const handleSort = (field: 'date' | 'name' | 'status') => {
     if (sortField === field) {
-      setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
+      setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
     } else {
       setSortField(field);
       setSortDirection('desc');
@@ -278,17 +268,21 @@ export default function LeadsManager() {
   // Format date
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
     });
   };
 
   // Render sort icon
   const SortIcon = ({ field }: { field: 'date' | 'name' | 'status' }) => {
     if (sortField !== field) return null;
-    return sortDirection === 'asc' ? <ChevronUp className="w-4 h-4 inline ml-1" /> : <ChevronDown className="w-4 h-4 inline ml-1" />;
+    return sortDirection === 'asc' ? (
+      <ChevronUp className="w-4 h-4 inline ml-1" />
+    ) : (
+      <ChevronDown className="w-4 h-4 inline ml-1" />
+    );
   };
 
   return (
@@ -352,7 +346,7 @@ export default function LeadsManager() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Statuses</SelectItem>
-                    {STATUSES.map(status => (
+                    {STATUSES.map((status) => (
                       <SelectItem key={status} value={status}>
                         {status}
                       </SelectItem>
@@ -367,7 +361,7 @@ export default function LeadsManager() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Services</SelectItem>
-                    {SERVICES.map(service => (
+                    {SERVICES.map((service) => (
                       <SelectItem key={service} value={service}>
                         {service}
                       </SelectItem>
@@ -414,13 +408,13 @@ export default function LeadsManager() {
                     <table className="w-full">
                       <thead className="bg-gray-50 border-b border-gray-200">
                         <tr>
-                          <th 
+                          <th
                             className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                             onClick={() => handleSort('date')}
                           >
                             Date <SortIcon field="date" />
                           </th>
-                          <th 
+                          <th
                             className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                             onClick={() => handleSort('name')}
                           >
@@ -435,7 +429,7 @@ export default function LeadsManager() {
                           <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Budget
                           </th>
-                          <th 
+                          <th
                             className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                             onClick={() => handleSort('status')}
                           >
@@ -471,7 +465,7 @@ export default function LeadsManager() {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm">
                               <div className="space-y-1">
-                                <a 
+                                <a
                                   href={`mailto:${lead.email}`}
                                   className="flex items-center text-[#00C98D] hover:text-[#0A8460] transition-colors"
                                 >
@@ -479,7 +473,7 @@ export default function LeadsManager() {
                                   {lead.email}
                                 </a>
                                 {lead.phone && (
-                                  <a 
+                                  <a
                                     href={`tel:${lead.phone}`}
                                     className="flex items-center text-[#00C98D] hover:text-[#0A8460] transition-colors"
                                   >
@@ -506,7 +500,7 @@ export default function LeadsManager() {
                                   </Badge>
                                 </SelectTrigger>
                                 <SelectContent>
-                                  {STATUSES.map(status => (
+                                  {STATUSES.map((status) => (
                                     <SelectItem key={status} value={status}>
                                       <Badge className={`${getStatusColor(status)} text-white`}>
                                         {status}
@@ -553,13 +547,13 @@ export default function LeadsManager() {
                             {lead.status}
                           </Badge>
                         </div>
-                        
+
                         <div className="space-y-2 text-sm mb-3">
                           <div className="flex items-center text-gray-600">
                             <Calendar className="w-4 h-4 mr-2" />
                             {formatDate(lead.submittedAt)}
                           </div>
-                          <a 
+                          <a
                             href={`mailto:${lead.email}`}
                             className="flex items-center text-[#00C98D] hover:text-[#0A8460]"
                           >
@@ -567,7 +561,7 @@ export default function LeadsManager() {
                             {lead.email}
                           </a>
                           {lead.phone && (
-                            <a 
+                            <a
                               href={`tel:${lead.phone}`}
                               className="flex items-center text-[#00C98D] hover:text-[#0A8460]"
                             >
@@ -641,7 +635,7 @@ export default function LeadsManager() {
                     )}
                     <div>
                       <p className="text-sm text-gray-500 mb-1">Email</p>
-                      <a 
+                      <a
                         href={`mailto:${selectedLead.email}`}
                         className="font-medium text-[#00C98D] hover:text-[#0A8460] flex items-center"
                       >
@@ -652,7 +646,7 @@ export default function LeadsManager() {
                     {selectedLead.phone && (
                       <div>
                         <p className="text-sm text-gray-500 mb-1">Phone</p>
-                        <a 
+                        <a
                           href={`tel:${selectedLead.phone}`}
                           className="font-medium text-[#00C98D] hover:text-[#0A8460] flex items-center"
                         >
@@ -706,7 +700,7 @@ export default function LeadsManager() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {STATUSES.map(status => (
+                      {STATUSES.map((status) => (
                         <SelectItem key={status} value={status}>
                           <div className="flex items-center">
                             <Badge className={`${getStatusColor(status)} text-white mr-2`}>
@@ -725,12 +719,15 @@ export default function LeadsManager() {
                     <MessageSquare className="w-5 h-5 mr-2 text-[#00C98D]" />
                     Internal Notes
                   </h3>
-                  
+
                   {/* Existing Notes */}
                   {selectedLead.notes && selectedLead.notes.length > 0 && (
                     <div className="space-y-2 mb-4">
                       {selectedLead.notes.map((note, index) => (
-                        <div key={index} className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+                        <div
+                          key={index}
+                          className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded"
+                        >
                           <p className="text-sm">{note}</p>
                         </div>
                       ))}
@@ -767,10 +764,7 @@ export default function LeadsManager() {
                     </a>
                   </Button>
                   {selectedLead.phone && (
-                    <Button
-                      asChild
-                      variant="outline"
-                    >
+                    <Button asChild variant="outline">
                       <a href={`tel:${selectedLead.phone}`}>
                         <Phone className="w-4 h-4 mr-2" />
                         Call

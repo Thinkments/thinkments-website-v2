@@ -46,7 +46,7 @@ import {
   Phone,
   Sparkles,
   Bell,
-  Award
+  Award,
 } from 'lucide-react';
 
 interface Client {
@@ -87,7 +87,7 @@ export default function AnalyticsDashboard() {
       conversions: 89,
       bounceRate: 38.5,
       trend: 'up',
-      trendValue: 15.3
+      trendValue: 15.3,
     },
     {
       id: '2',
@@ -98,7 +98,7 @@ export default function AnalyticsDashboard() {
       conversions: 67,
       bounceRate: 42.1,
       trend: 'up',
-      trendValue: 8.7
+      trendValue: 8.7,
     },
     {
       id: '3',
@@ -109,7 +109,7 @@ export default function AnalyticsDashboard() {
       conversions: 45,
       bounceRate: 45.8,
       trend: 'down',
-      trendValue: -12.4
+      trendValue: -12.4,
     },
   ];
 
@@ -119,43 +119,43 @@ export default function AnalyticsDashboard() {
       value: '87,450',
       change: 18.2,
       trend: 'up',
-      sparklineData: [45, 52, 48, 65, 72, 80, 87]
+      sparklineData: [45, 52, 48, 65, 72, 80, 87],
     },
     {
       label: 'Total Organic Traffic',
       value: '52,340',
       change: 12.5,
       trend: 'up',
-      sparklineData: [28, 32, 35, 40, 45, 48, 52]
+      sparklineData: [28, 32, 35, 40, 45, 48, 52],
     },
     {
       label: 'Total Conversions',
       value: '1,247',
       change: 23.8,
       trend: 'up',
-      sparklineData: [180, 195, 210, 225, 240, 260, 280]
+      sparklineData: [180, 195, 210, 225, 240, 260, 280],
     },
     {
       label: 'Average Bounce Rate',
       value: '42.1%',
       change: -3.2,
       trend: 'up',
-      sparklineData: [48, 46, 45, 44, 43, 42, 42]
+      sparklineData: [48, 46, 45, 44, 43, 42, 42],
     },
     {
       label: 'Total Page Views',
       value: '234,890',
       change: 15.7,
       trend: 'up',
-      sparklineData: [120, 140, 160, 180, 200, 220, 234]
+      sparklineData: [120, 140, 160, 180, 200, 220, 234],
     },
     {
       label: 'Avg Session Duration',
       value: '3m 24s',
       change: 8.3,
       trend: 'up',
-      sparklineData: [2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4]
-    }
+      sparklineData: [2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4],
+    },
   ];
 
   const singleClientMetrics: MetricCard[] = [
@@ -163,60 +163,151 @@ export default function AnalyticsDashboard() {
       label: 'Website Visitors',
       value: '12,450',
       change: 15.3,
-      trend: 'up'
+      trend: 'up',
     },
     {
       label: 'Organic Traffic',
       value: '6,780',
       change: 18.7,
-      trend: 'up'
+      trend: 'up',
     },
     {
       label: 'Conversions',
       value: '89',
       change: 23.4,
-      trend: 'up'
+      trend: 'up',
     },
     {
       label: 'Bounce Rate',
       value: '38.5%',
       change: -2.3,
-      trend: 'up'
+      trend: 'up',
     },
     {
       label: 'Pages/Session',
       value: '4.2',
       change: 5.6,
-      trend: 'up'
+      trend: 'up',
     },
     {
       label: 'Avg Duration',
       value: '3m 48s',
       change: 12.1,
-      trend: 'up'
-    }
+      trend: 'up',
+    },
   ];
 
   const trafficSources = [
-    { source: 'Organic Search', sessions: 6780, percentage: 54.5, bounceRate: 32.1, conversions: 48, convRate: 0.71 },
-    { source: 'Direct', sessions: 2340, percentage: 18.8, bounceRate: 28.5, conversions: 21, convRate: 0.90 },
-    { source: 'Referral', sessions: 1890, percentage: 15.2, bounceRate: 42.3, conversions: 12, convRate: 0.63 },
-    { source: 'Social', sessions: 980, percentage: 7.9, bounceRate: 55.2, conversions: 5, convRate: 0.51 },
-    { source: 'Paid', sessions: 460, percentage: 3.7, bounceRate: 38.7, conversions: 3, convRate: 0.65 },
+    {
+      source: 'Organic Search',
+      sessions: 6780,
+      percentage: 54.5,
+      bounceRate: 32.1,
+      conversions: 48,
+      convRate: 0.71,
+    },
+    {
+      source: 'Direct',
+      sessions: 2340,
+      percentage: 18.8,
+      bounceRate: 28.5,
+      conversions: 21,
+      convRate: 0.9,
+    },
+    {
+      source: 'Referral',
+      sessions: 1890,
+      percentage: 15.2,
+      bounceRate: 42.3,
+      conversions: 12,
+      convRate: 0.63,
+    },
+    {
+      source: 'Social',
+      sessions: 980,
+      percentage: 7.9,
+      bounceRate: 55.2,
+      conversions: 5,
+      convRate: 0.51,
+    },
+    {
+      source: 'Paid',
+      sessions: 460,
+      percentage: 3.7,
+      bounceRate: 38.7,
+      conversions: 3,
+      convRate: 0.65,
+    },
   ];
 
   const topKeywords = [
-    { keyword: 'plumbing services dallas', position: 3, sessions: 890, clicks: 567, impressions: 12450, ctr: 4.6 },
-    { keyword: 'emergency plumber near me', position: 5, sessions: 678, clicks: 445, impressions: 8920, ctr: 5.0 },
-    { keyword: 'water heater repair', position: 2, sessions: 534, clicks: 401, impressions: 6780, ctr: 5.9 },
-    { keyword: 'drain cleaning service', position: 7, sessions: 423, clicks: 289, impressions: 5430, ctr: 5.3 },
+    {
+      keyword: 'plumbing services dallas',
+      position: 3,
+      sessions: 890,
+      clicks: 567,
+      impressions: 12450,
+      ctr: 4.6,
+    },
+    {
+      keyword: 'emergency plumber near me',
+      position: 5,
+      sessions: 678,
+      clicks: 445,
+      impressions: 8920,
+      ctr: 5.0,
+    },
+    {
+      keyword: 'water heater repair',
+      position: 2,
+      sessions: 534,
+      clicks: 401,
+      impressions: 6780,
+      ctr: 5.9,
+    },
+    {
+      keyword: 'drain cleaning service',
+      position: 7,
+      sessions: 423,
+      clicks: 289,
+      impressions: 5430,
+      ctr: 5.3,
+    },
   ];
 
   const topPages = [
-    { url: '/services', pageViews: 4567, uniqueViews: 3210, avgTime: '4m 23s', bounceRate: 32.1, exitRate: 24.5 },
-    { url: '/about', pageViews: 3456, uniqueViews: 2890, avgTime: '2m 45s', bounceRate: 45.2, exitRate: 38.7 },
-    { url: '/contact', pageViews: 2890, uniqueViews: 2340, avgTime: '1m 56s', bounceRate: 28.3, exitRate: 15.2 },
-    { url: '/blog/emergency-plumbing-tips', pageViews: 2340, uniqueViews: 1980, avgTime: '5m 12s', bounceRate: 38.5, exitRate: 42.1 },
+    {
+      url: '/services',
+      pageViews: 4567,
+      uniqueViews: 3210,
+      avgTime: '4m 23s',
+      bounceRate: 32.1,
+      exitRate: 24.5,
+    },
+    {
+      url: '/about',
+      pageViews: 3456,
+      uniqueViews: 2890,
+      avgTime: '2m 45s',
+      bounceRate: 45.2,
+      exitRate: 38.7,
+    },
+    {
+      url: '/contact',
+      pageViews: 2890,
+      uniqueViews: 2340,
+      avgTime: '1m 56s',
+      bounceRate: 28.3,
+      exitRate: 15.2,
+    },
+    {
+      url: '/blog/emergency-plumbing-tips',
+      pageViews: 2340,
+      uniqueViews: 1980,
+      avgTime: '5m 12s',
+      bounceRate: 38.5,
+      exitRate: 42.1,
+    },
   ];
 
   const insights = [
@@ -224,20 +315,20 @@ export default function AnalyticsDashboard() {
       type: 'positive',
       title: 'Strong Organic Growth',
       description: 'Organic traffic increased 18% driven by improved rankings for key terms',
-      action: 'View Keywords'
+      action: 'View Keywords',
     },
     {
       type: 'warning',
       title: 'Mobile Bounce Rate High',
       description: 'Mobile users bouncing 15% more than desktop - consider UX improvements',
-      action: 'Investigate'
+      action: 'Investigate',
     },
     {
       type: 'opportunity',
       title: 'Keyword Opportunity',
       description: '"emergency plumber" is ranking position 5 - opportunity to reach page 1',
-      action: 'View Details'
-    }
+      action: 'View Details',
+    },
   ];
 
   const getBounceRateColor = (rate: number) => {
@@ -257,15 +348,17 @@ export default function AnalyticsDashboard() {
     const max = Math.max(...data);
     const min = Math.min(...data);
     const range = max - min;
-    
+
     return (
       <svg width="100" height="30" className="ml-auto">
         <polyline
-          points={data.map((val, i) => {
-            const x = (i / (data.length - 1)) * 100;
-            const y = 30 - ((val - min) / range) * 30;
-            return `${x},${y}`;
-          }).join(' ')}
+          points={data
+            .map((val, i) => {
+              const x = (i / (data.length - 1)) * 100;
+              const y = 30 - ((val - min) / range) * 30;
+              return `${x},${y}`;
+            })
+            .join(' ')}
           fill="none"
           stroke="#00B4D8"
           strokeWidth="2"
@@ -307,8 +400,10 @@ export default function AnalyticsDashboard() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                 >
                   <option value="all">All Clients</option>
-                  {clients.map(client => (
-                    <option key={client.id} value={client.id}>{client.name}</option>
+                  {clients.map((client) => (
+                    <option key={client.id} value={client.id}>
+                      {client.name}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -362,9 +457,11 @@ export default function AnalyticsDashboard() {
                   <p className="text-xs text-gray-600 mb-2">{metric.label}</p>
                   <p className="text-2xl font-bold text-[#1E3A5F] mb-2">{metric.value}</p>
                   <div className="flex items-center justify-between">
-                    <div className={`flex items-center text-xs ${
-                      metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
-                    }`}>
+                    <div
+                      className={`flex items-center text-xs ${
+                        metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                      }`}
+                    >
                       {getTrendIcon(metric.trend)}
                       <span className="ml-1">{Math.abs(metric.change)}%</span>
                     </div>
@@ -387,9 +484,15 @@ export default function AnalyticsDashboard() {
               <div className="space-y-3">
                 {insights.map((insight, idx) => (
                   <div key={idx} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                    {insight.type === 'positive' && <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />}
-                    {insight.type === 'warning' && <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />}
-                    {insight.type === 'opportunity' && <Zap className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />}
+                    {insight.type === 'positive' && (
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    )}
+                    {insight.type === 'warning' && (
+                      <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    )}
+                    {insight.type === 'opportunity' && (
+                      <Zap className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    )}
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900 text-sm">{insight.title}</p>
                       <p className="text-sm text-gray-600">{insight.description}</p>
@@ -436,13 +539,27 @@ export default function AnalyticsDashboard() {
                   <table className="w-full">
                     <thead className="bg-gray-50 border-b border-gray-200">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Client</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Visitors</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Organic</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Conversions</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Bounce Rate</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Trend</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Actions</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Client
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Visitors
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Organic
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Conversions
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Bounce Rate
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Trend
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                          Actions
+                        </th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
@@ -457,7 +574,9 @@ export default function AnalyticsDashboard() {
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="text-gray-900">{client.visitors.toLocaleString()}</span>
+                            <span className="text-gray-900">
+                              {client.visitors.toLocaleString()}
+                            </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span className="text-gray-900">{client.organic.toLocaleString()}</span>
@@ -473,7 +592,11 @@ export default function AnalyticsDashboard() {
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center space-x-1">
                               {getTrendIcon(client.trend)}
-                              <span className={client.trend === 'up' ? 'text-green-600' : 'text-red-600'}>
+                              <span
+                                className={
+                                  client.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                                }
+                              >
                                 {Math.abs(client.trendValue)}%
                               </span>
                             </div>
@@ -513,7 +636,10 @@ export default function AnalyticsDashboard() {
               <CardContent>
                 <div className="space-y-3">
                   {clients.slice(0, 3).map((client, idx) => (
-                    <div key={client.id} className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                    <div
+                      key={client.id}
+                      className="flex items-center justify-between p-3 bg-green-50 rounded-lg"
+                    >
                       <div className="flex items-center space-x-3">
                         <span className="text-lg font-bold text-green-600">#{idx + 1}</span>
                         <div>
@@ -523,7 +649,9 @@ export default function AnalyticsDashboard() {
                       </div>
                       <div className="text-right">
                         <p className="font-bold text-green-600">+{client.trendValue}%</p>
-                        <p className="text-sm text-gray-600">{client.visitors.toLocaleString()} visitors</p>
+                        <p className="text-sm text-gray-600">
+                          {client.visitors.toLocaleString()} visitors
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -553,7 +681,9 @@ export default function AnalyticsDashboard() {
                     <div className="flex items-start justify-between mb-2">
                       <div>
                         <p className="font-semibold text-gray-900">Mobile Performance</p>
-                        <p className="text-sm text-yellow-700">3 clients with high mobile bounce rate</p>
+                        <p className="text-sm text-yellow-700">
+                          3 clients with high mobile bounce rate
+                        </p>
                       </div>
                       <Button size="sm">View</Button>
                     </div>
@@ -575,28 +705,37 @@ export default function AnalyticsDashboard() {
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-2xl">
-                      {clients.find(c => c.id === selectedClient)?.logo}
+                      {clients.find((c) => c.id === selectedClient)?.logo}
                     </span>
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold mb-1">
-                      {clients.find(c => c.id === selectedClient)?.name}
+                      {clients.find((c) => c.id === selectedClient)?.name}
                     </h2>
-                    <a href="#" className="text-blue-100 hover:text-white text-sm flex items-center">
+                    <a
+                      href="#"
+                      className="text-blue-100 hover:text-white text-sm flex items-center"
+                    >
                       www.example.com
                       <ExternalLink className="w-3 h-3 ml-1" />
                     </a>
-                    <p className="text-blue-100 text-sm mt-1">
-                      Last synced: 2 minutes ago
-                    </p>
+                    <p className="text-blue-100 text-sm mt-1">Last synced: 2 minutes ago</p>
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm" className="text-white border-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-white border-white hover:bg-white/10"
+                  >
                     <RefreshCw className="w-4 h-4 mr-2" />
                     Refresh Data
                   </Button>
-                  <Button variant="outline" size="sm" className="text-white border-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-white border-white hover:bg-white/10"
+                  >
                     <Maximize2 className="w-4 h-4 mr-2" />
                     Full Screen
                   </Button>
@@ -640,9 +779,11 @@ export default function AnalyticsDashboard() {
                     <CardContent className="pt-6">
                       <p className="text-xs text-gray-600 mb-2">{metric.label}</p>
                       <p className="text-2xl font-bold text-[#1E3A5F] mb-2">{metric.value}</p>
-                      <div className={`flex items-center text-xs ${
-                        metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
-                      }`}>
+                      <div
+                        className={`flex items-center text-xs ${
+                          metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                        }`}
+                      >
                         {getTrendIcon(metric.trend)}
                         <span className="ml-1">{Math.abs(metric.change)}%</span>
                       </div>
@@ -706,9 +847,14 @@ export default function AnalyticsDashboard() {
                   <CardContent>
                     <div className="space-y-3">
                       {['google.com', 'facebook.com', 'reddit.com'].map((referrer, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                        >
                           <span className="text-sm font-medium text-gray-900">{referrer}</span>
-                          <span className="text-sm text-gray-600">{(1234 - idx * 200).toLocaleString()} sessions</span>
+                          <span className="text-sm text-gray-600">
+                            {(1234 - idx * 200).toLocaleString()} sessions
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -726,12 +872,24 @@ export default function AnalyticsDashboard() {
                     <table className="w-full">
                       <thead className="bg-gray-50 border-b border-gray-200">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Source</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Sessions</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">% of Total</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Bounce Rate</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Conversions</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Conv Rate</th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Source
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Sessions
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            % of Total
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Bounce Rate
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Conversions
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Conv Rate
+                          </th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
@@ -790,24 +948,42 @@ export default function AnalyticsDashboard() {
                     <table className="w-full">
                       <thead className="bg-gray-50 border-b border-gray-200">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Keyword</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Position</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Sessions</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Clicks</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Impressions</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">CTR</th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Keyword
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Position
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Sessions
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Clicks
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Impressions
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            CTR
+                          </th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
                         {topKeywords.map((keyword, idx) => (
                           <tr key={idx} className="hover:bg-gray-50">
-                            <td className="px-6 py-4 font-medium text-gray-900">{keyword.keyword}</td>
+                            <td className="px-6 py-4 font-medium text-gray-900">
+                              {keyword.keyword}
+                            </td>
                             <td className="px-6 py-4">
-                              <Badge className="bg-blue-100 text-blue-700">#{keyword.position}</Badge>
+                              <Badge className="bg-blue-100 text-blue-700">
+                                #{keyword.position}
+                              </Badge>
                             </td>
                             <td className="px-6 py-4 text-gray-900">{keyword.sessions}</td>
                             <td className="px-6 py-4 text-gray-900">{keyword.clicks}</td>
-                            <td className="px-6 py-4 text-gray-900">{keyword.impressions.toLocaleString()}</td>
+                            <td className="px-6 py-4 text-gray-900">
+                              {keyword.impressions.toLocaleString()}
+                            </td>
                             <td className="px-6 py-4 text-gray-900">{keyword.ctr}%</td>
                           </tr>
                         ))}
@@ -832,7 +1008,7 @@ export default function AnalyticsDashboard() {
                       {[
                         { device: 'Desktop', percentage: 58, icon: Monitor },
                         { device: 'Mobile', percentage: 35, icon: Smartphone },
-                        { device: 'Tablet', percentage: 7, icon: Tablet }
+                        { device: 'Tablet', percentage: 7, icon: Tablet },
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
@@ -855,7 +1031,9 @@ export default function AnalyticsDashboard() {
                       {['United States', 'Canada', 'United Kingdom'].map((country, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <span className="text-sm font-medium text-gray-900">{country}</span>
-                          <span className="text-sm text-gray-600">{(5000 - idx * 1000).toLocaleString()}</span>
+                          <span className="text-sm text-gray-600">
+                            {(5000 - idx * 1000).toLocaleString()}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -873,7 +1051,9 @@ export default function AnalyticsDashboard() {
                         <span className="text-sm text-gray-600">62%</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-900">Returning Visitors</span>
+                        <span className="text-sm font-medium text-gray-900">
+                          Returning Visitors
+                        </span>
                         <span className="text-sm text-gray-600">38%</span>
                       </div>
                     </div>
@@ -895,20 +1075,36 @@ export default function AnalyticsDashboard() {
                     <table className="w-full">
                       <thead className="bg-gray-50 border-b border-gray-200">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Page URL</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Page Views</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Unique Views</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Avg Time</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Bounce Rate</th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Exit Rate</th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Page URL
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Page Views
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Unique Views
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Avg Time
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Bounce Rate
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                            Exit Rate
+                          </th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
                         {topPages.map((page, idx) => (
                           <tr key={idx} className="hover:bg-gray-50">
                             <td className="px-6 py-4 font-medium text-gray-900">{page.url}</td>
-                            <td className="px-6 py-4 text-gray-900">{page.pageViews.toLocaleString()}</td>
-                            <td className="px-6 py-4 text-gray-900">{page.uniqueViews.toLocaleString()}</td>
+                            <td className="px-6 py-4 text-gray-900">
+                              {page.pageViews.toLocaleString()}
+                            </td>
+                            <td className="px-6 py-4 text-gray-900">
+                              {page.uniqueViews.toLocaleString()}
+                            </td>
                             <td className="px-6 py-4 text-gray-900">{page.avgTime}</td>
                             <td className="px-6 py-4">
                               <Badge className={getBounceRateColor(page.bounceRate)}>

@@ -9,8 +9,9 @@ const SEOPreloader: React.FC = () => {
     // Ensure meta description is never empty
     const metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription || !metaDescription.getAttribute('content')) {
-      const defaultDescription = 'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.';
-      
+      const defaultDescription =
+        'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.';
+
       if (metaDescription) {
         metaDescription.setAttribute('content', defaultDescription);
       } else {
@@ -52,8 +53,8 @@ const SEOPreloader: React.FC = () => {
     // Ensure proper heading structure
     const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     let hasH1 = false;
-    
-    headings.forEach(heading => {
+
+    headings.forEach((heading) => {
       if (heading.tagName === 'H1') hasH1 = true;
     });
 
@@ -73,30 +74,30 @@ const SEOPreloader: React.FC = () => {
     const existingStructuredData = document.querySelector('script[type="application/ld+json"]');
     if (!existingStructuredData && location.pathname === '/') {
       const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "ThinkMents",
-        "description": "Professional digital marketing and web design agency in Decatur, Texas",
-        "url": "https://thinkments.com",
-        "telephone": "+1-940-627-3538",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "123 Business St",
-          "addressLocality": "Decatur",
-          "addressRegion": "TX",
-          "postalCode": "76234",
-          "addressCountry": "US"
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'ThinkMents',
+        description: 'Professional digital marketing and web design agency in Decatur, Texas',
+        url: 'https://thinkments.com',
+        telephone: '+1-940-627-3538',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '123 Business St',
+          addressLocality: 'Decatur',
+          addressRegion: 'TX',
+          postalCode: '76234',
+          addressCountry: 'US',
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 33.2348,
-          "longitude": -97.5864
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 33.2348,
+          longitude: -97.5864,
         },
-        "sameAs": [
-          "https://facebook.com/thinkments",
-          "https://twitter.com/thinkments",
-          "https://linkedin.com/company/thinkments"
-        ]
+        sameAs: [
+          'https://facebook.com/thinkments',
+          'https://twitter.com/thinkments',
+          'https://linkedin.com/company/thinkments',
+        ],
       };
 
       const script = document.createElement('script');
@@ -109,11 +110,10 @@ const SEOPreloader: React.FC = () => {
     const loadedEvent = new CustomEvent('pageFullyLoaded', {
       detail: {
         path: location.pathname,
-        timestamp: new Date().toISOString()
-      }
+        timestamp: new Date().toISOString(),
+      },
     });
     window.dispatchEvent(loadedEvent);
-
   }, [location.pathname]);
 
   // This component doesn't render anything visible

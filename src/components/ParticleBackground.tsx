@@ -31,7 +31,7 @@ export default function ParticleBackground() {
     const createParticles = () => {
       const particles: Particle[] = [];
       const colors = ['#030213', '#e9ebef', '#ececf0', '#717182'];
-      
+
       for (let i = 0; i < 50; i++) {
         particles.push({
           x: Math.random() * canvas.width,
@@ -40,40 +40,40 @@ export default function ParticleBackground() {
           vy: (Math.random() - 0.5) * 0.5,
           size: Math.random() * 3 + 1,
           opacity: Math.random() * 0.3 + 0.1,
-          color: colors[Math.floor(Math.random() * colors.length)]
+          color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
-      
+
       particlesRef.current = particles;
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particlesRef.current.forEach((particle, index) => {
         // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
-        
+
         // Bounce off edges
         if (particle.x <= 0 || particle.x >= canvas.width) particle.vx *= -1;
         if (particle.y <= 0 || particle.y >= canvas.height) particle.vy *= -1;
-        
+
         // Draw particle
         ctx.globalAlpha = particle.opacity;
         ctx.fillStyle = particle.color;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
-        
+
         // Draw connections
-        particlesRef.current.slice(index + 1).forEach(otherParticle => {
+        particlesRef.current.slice(index + 1).forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < 100) {
-            ctx.globalAlpha = (100 - distance) / 100 * 0.1;
+            ctx.globalAlpha = ((100 - distance) / 100) * 0.1;
             ctx.strokeStyle = particle.color;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
@@ -83,7 +83,7 @@ export default function ParticleBackground() {
           }
         });
       });
-      
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -114,7 +114,8 @@ export default function ParticleBackground() {
       <motion.div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: 'radial-gradient(circle at 20% 50%, rgba(3, 2, 19, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(233, 235, 239, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(236, 236, 240, 0.1) 0%, transparent 50%)'
+          background:
+            'radial-gradient(circle at 20% 50%, rgba(3, 2, 19, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(233, 235, 239, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(236, 236, 240, 0.1) 0%, transparent 50%)',
         }}
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%'],
@@ -123,7 +124,7 @@ export default function ParticleBackground() {
           duration: 20,
           repeat: Infinity,
           repeatType: 'reverse',
-          ease: 'linear'
+          ease: 'linear',
         }}
       />
     </>

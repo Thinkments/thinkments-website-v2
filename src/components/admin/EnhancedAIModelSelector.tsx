@@ -51,7 +51,7 @@ import {
   TrendingDown,
   ChevronRight,
   Maximize2,
-  Share2
+  Share2,
 } from 'lucide-react';
 
 type TabType = 'selector' | 'templates' | 'workflows' | 'quality' | 'clients' | 'briefs';
@@ -115,7 +115,7 @@ export default function EnhancedAIModelSelector() {
       costPer1k: 0.003,
       speed: 'medium',
       quality: 9.2,
-      bestFor: ['Long-form content', 'Analysis', 'Technical writing']
+      bestFor: ['Long-form content', 'Analysis', 'Technical writing'],
     },
     {
       id: 'claude-haiku',
@@ -124,7 +124,7 @@ export default function EnhancedAIModelSelector() {
       costPer1k: 0.00025,
       speed: 'fast',
       quality: 7.8,
-      bestFor: ['Quick tasks', 'SEO optimization', 'Social media']
+      bestFor: ['Quick tasks', 'SEO optimization', 'Social media'],
     },
     {
       id: 'chatgpt',
@@ -133,7 +133,7 @@ export default function EnhancedAIModelSelector() {
       costPer1k: 0.03,
       speed: 'medium',
       quality: 8.8,
-      bestFor: ['Conversational', 'Creative', 'Engaging content']
+      bestFor: ['Conversational', 'Creative', 'Engaging content'],
     },
     {
       id: 'gemini',
@@ -142,8 +142,8 @@ export default function EnhancedAIModelSelector() {
       costPer1k: 0.00025,
       speed: 'fast',
       quality: 8.4,
-      bestFor: ['Research', 'Data analysis', 'Quick responses']
-    }
+      bestFor: ['Research', 'Data analysis', 'Quick responses'],
+    },
   ];
 
   const promptTemplates: PromptTemplate[] = [
@@ -152,44 +152,48 @@ export default function EnhancedAIModelSelector() {
       name: 'Blog Post Full',
       category: 'Blog Content',
       description: 'Comprehensive blog post with SEO optimization',
-      template: 'Write a {word_count}-word blog post about {topic} for {client_name} in the {industry} industry. Use a {tone} tone and target the audience: {audience}. Include keywords: {keywords}.',
+      template:
+        'Write a {word_count}-word blog post about {topic} for {client_name} in the {industry} industry. Use a {tone} tone and target the audience: {audience}. Include keywords: {keywords}.',
       variables: ['word_count', 'topic', 'client_name', 'industry', 'tone', 'audience', 'keywords'],
       bestModel: 'claude-sonnet',
       successRate: 87,
-      timesUsed: 234
+      timesUsed: 234,
     },
     {
       id: '2',
       name: 'Email Campaign',
       category: 'Email Marketing',
       description: 'Professional marketing email',
-      template: 'Create a marketing email for {client_name} promoting {topic}. Keep it under {word_count} words. Tone: {tone}. Include a clear CTA.',
+      template:
+        'Create a marketing email for {client_name} promoting {topic}. Keep it under {word_count} words. Tone: {tone}. Include a clear CTA.',
       variables: ['client_name', 'topic', 'word_count', 'tone'],
       bestModel: 'chatgpt',
       successRate: 92,
-      timesUsed: 456
+      timesUsed: 456,
     },
     {
       id: '3',
       name: 'Social Media Bundle',
       category: 'Social Media',
       description: 'Multiple platform posts at once',
-      template: 'Create 5 social media posts about {topic} for {client_name}. Include versions for: Facebook, Twitter, LinkedIn, Instagram. Tone: {tone}.',
+      template:
+        'Create 5 social media posts about {topic} for {client_name}. Include versions for: Facebook, Twitter, LinkedIn, Instagram. Tone: {tone}.',
       variables: ['topic', 'client_name', 'tone'],
       bestModel: 'claude-haiku',
       successRate: 78,
-      timesUsed: 678
+      timesUsed: 678,
     },
     {
       id: '4',
       name: 'SEO Meta Data',
       category: 'SEO Content',
       description: 'Title tags, meta descriptions, headers',
-      template: 'Create SEO metadata for a page about {topic}: Title tag (60 chars), Meta description (155 chars), H1, 3 H2s. Include keywords: {keywords}.',
+      template:
+        'Create SEO metadata for a page about {topic}: Title tag (60 chars), Meta description (155 chars), H1, 3 H2s. Include keywords: {keywords}.',
       variables: ['topic', 'keywords'],
       bestModel: 'gemini',
       successRate: 85,
-      timesUsed: 345
+      timesUsed: 345,
     },
   ];
 
@@ -204,7 +208,7 @@ export default function EnhancedAIModelSelector() {
           name: 'Research & Outline',
           model: 'gemini',
           prompt: 'Research and create an outline for {topic}',
-          estimatedCost: 0.002
+          estimatedCost: 0.002,
         },
         {
           id: 's2',
@@ -212,7 +216,7 @@ export default function EnhancedAIModelSelector() {
           model: 'claude-sonnet',
           prompt: 'Write detailed blog post from outline',
           inputFrom: 's1',
-          estimatedCost: 0.015
+          estimatedCost: 0.015,
         },
         {
           id: 's3',
@@ -220,7 +224,7 @@ export default function EnhancedAIModelSelector() {
           model: 'claude-haiku',
           prompt: 'Add keywords and improve SEO',
           inputFrom: 's2',
-          estimatedCost: 0.003
+          estimatedCost: 0.003,
         },
         {
           id: 's4',
@@ -228,11 +232,11 @@ export default function EnhancedAIModelSelector() {
           model: 'chatgpt',
           prompt: 'Make engaging with compelling intro',
           inputFrom: 's3',
-          estimatedCost: 0.008
-        }
+          estimatedCost: 0.008,
+        },
       ],
       totalCost: 0.028,
-      timesUsed: 89
+      timesUsed: 89,
     },
     {
       id: '2',
@@ -244,7 +248,7 @@ export default function EnhancedAIModelSelector() {
           name: 'Draft Email',
           model: 'chatgpt',
           prompt: 'Create marketing email for {topic}',
-          estimatedCost: 0.005
+          estimatedCost: 0.005,
         },
         {
           id: 's2',
@@ -252,7 +256,7 @@ export default function EnhancedAIModelSelector() {
           model: 'claude-haiku',
           prompt: 'Generate 3 subject line variations',
           inputFrom: 's1',
-          estimatedCost: 0.002
+          estimatedCost: 0.002,
         },
         {
           id: 's3',
@@ -260,12 +264,12 @@ export default function EnhancedAIModelSelector() {
           model: 'gemini',
           prompt: 'Improve call-to-action buttons',
           inputFrom: 's1',
-          estimatedCost: 0.001
-        }
+          estimatedCost: 0.001,
+        },
       ],
       totalCost: 0.008,
-      timesUsed: 145
-    }
+      timesUsed: 145,
+    },
   ];
 
   const modelPerformance = [
@@ -291,7 +295,7 @@ export default function EnhancedAIModelSelector() {
     const colors = {
       fast: 'bg-green-100 text-green-700',
       medium: 'bg-yellow-100 text-yellow-700',
-      slow: 'bg-red-100 text-red-700'
+      slow: 'bg-red-100 text-red-700',
     };
     return colors[speed as keyof typeof colors] || 'bg-gray-100 text-gray-700';
   };
@@ -303,14 +307,16 @@ export default function EnhancedAIModelSelector() {
         <div className="flex items-start justify-between mb-4">
           <div>
             <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Enhanced AI Model Selector</h1>
-            <p className="text-gray-600">Advanced AI capabilities with smart routing and workflows</p>
+            <p className="text-gray-600">
+              Advanced AI capabilities with smart routing and workflows
+            </p>
           </div>
           <div className="flex items-center space-x-3">
             <Button variant="outline">
               <BarChart3 className="w-4 h-4 mr-2" />
               View Analytics
             </Button>
-            <Button 
+            <Button
               onClick={() => setShowBriefModal(true)}
               className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
             >
@@ -325,7 +331,12 @@ export default function EnhancedAIModelSelector() {
       <div className="mb-6 flex space-x-2 overflow-x-auto pb-2">
         {[
           { id: 'selector', label: 'Model Selector', icon: Brain },
-          { id: 'templates', label: 'Prompt Library', icon: FileText, count: promptTemplates.length },
+          {
+            id: 'templates',
+            label: 'Prompt Library',
+            icon: FileText,
+            count: promptTemplates.length,
+          },
           { id: 'workflows', label: 'AI Workflows', icon: GitBranch, count: workflows.length },
           { id: 'quality', label: 'Quality Insights', icon: TrendingUp },
           { id: 'clients', label: 'Client Settings', icon: Users },
@@ -343,7 +354,9 @@ export default function EnhancedAIModelSelector() {
             <tab.icon className="w-4 h-4" />
             <span>{tab.label}</span>
             {tab.count !== undefined && (
-              <Badge className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <Badge
+                className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+              >
                 {tab.count}
               </Badge>
             )}
@@ -376,9 +389,10 @@ export default function EnhancedAIModelSelector() {
                     </button>
                   </div>
                   <p className="text-sm text-gray-600 mb-3">
-                    Let AI automatically select the best model based on your content type, length, complexity, and historical performance
+                    Let AI automatically select the best model based on your content type, length,
+                    complexity, and historical performance
                   </p>
-                  
+
                   {smartSelectionEnabled && showModelReasoning && (
                     <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
                       <div className="flex items-start space-x-3">
@@ -388,9 +402,9 @@ export default function EnhancedAIModelSelector() {
                             Selected: Claude Sonnet
                           </p>
                           <p className="text-sm text-blue-700">
-                            Recommended because: Long-form content (1000+ words), analytical tone required, 
-                            your team prefers Claude for blogs (82% selection rate), and it has the highest 
-                            approval rating (87%) for this content type.
+                            Recommended because: Long-form content (1000+ words), analytical tone
+                            required, your team prefers Claude for blogs (82% selection rate), and
+                            it has the highest approval rating (87%) for this content type.
                           </p>
                           <Button size="sm" variant="outline" className="mt-3">
                             Override Selection
@@ -425,10 +439,10 @@ export default function EnhancedAIModelSelector() {
                       <CheckCircle className="w-5 h-5 text-[#00B4D8]" />
                     )}
                   </div>
-                  
+
                   <h3 className="font-semibold text-gray-900 mb-1">{model.name}</h3>
                   <p className="text-xs text-gray-500 mb-3">{model.provider}</p>
-                  
+
                   <div className="space-y-2 mb-3">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-gray-600">Cost:</span>
@@ -436,9 +450,7 @@ export default function EnhancedAIModelSelector() {
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-gray-600">Speed:</span>
-                      <Badge className={getSpeedBadge(model.speed)}>
-                        {model.speed}
-                      </Badge>
+                      <Badge className={getSpeedBadge(model.speed)}>{model.speed}</Badge>
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-gray-600">Quality:</span>
@@ -448,7 +460,7 @@ export default function EnhancedAIModelSelector() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="border-t border-gray-200 pt-3">
                     <p className="text-xs text-gray-600 mb-2">Best for:</p>
                     <div className="flex flex-wrap gap-1">
@@ -476,7 +488,7 @@ export default function EnhancedAIModelSelector() {
                 <p className="text-xs text-gray-500">AI generations</p>
               </CardContent>
             </Card>
-            
+
             <Card className="border-0 shadow-md">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between mb-2">
@@ -487,7 +499,7 @@ export default function EnhancedAIModelSelector() {
                 <p className="text-xs text-green-600">$52 under budget</p>
               </CardContent>
             </Card>
-            
+
             <Card className="border-0 shadow-md">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between mb-2">
@@ -498,7 +510,7 @@ export default function EnhancedAIModelSelector() {
                 <p className="text-xs text-green-600">+5% vs last month</p>
               </CardContent>
             </Card>
-            
+
             <Card className="border-0 shadow-md">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between mb-2">
@@ -547,7 +559,10 @@ export default function EnhancedAIModelSelector() {
           {/* Template Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {promptTemplates.map((template) => (
-              <Card key={template.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+              <Card
+                key={template.id}
+                className="border-0 shadow-md hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
@@ -568,7 +583,7 @@ export default function EnhancedAIModelSelector() {
                   <div className="flex items-center space-x-3 mb-3 text-xs text-gray-600">
                     <div className="flex items-center space-x-1">
                       {getModelIcon(template.bestModel)}
-                      <span>Best: {models.find(m => m.id === template.bestModel)?.name}</span>
+                      <span>Best: {models.find((m) => m.id === template.bestModel)?.name}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
@@ -653,7 +668,7 @@ export default function EnhancedAIModelSelector() {
                               <div className="flex items-center space-x-1">
                                 {getModelIcon(step.model)}
                                 <span className="text-xs text-gray-600">
-                                  {models.find(m => m.id === step.model)?.name.split(' ')[0]}
+                                  {models.find((m) => m.id === step.model)?.name.split(' ')[0]}
                                 </span>
                               </div>
                             </div>
@@ -714,7 +729,9 @@ export default function EnhancedAIModelSelector() {
                         </div>
                         <div>
                           <h4 className="font-semibold text-gray-900">{perf.model}</h4>
-                          <p className="text-xs text-gray-600">{perf.totalGenerations.toLocaleString()} generations</p>
+                          <p className="text-xs text-gray-600">
+                            {perf.totalGenerations.toLocaleString()} generations
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center space-x-4">
@@ -725,13 +742,15 @@ export default function EnhancedAIModelSelector() {
                         <div className="text-right">
                           <div className="flex items-center space-x-1">
                             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            <span className="text-sm font-medium text-gray-900">{perf.avgRating}</span>
+                            <span className="text-sm font-medium text-gray-900">
+                              {perf.avgRating}
+                            </span>
                           </div>
                           <p className="text-xs text-gray-600">Avg Rating</p>
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Progress Bar */}
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
@@ -756,7 +775,7 @@ export default function EnhancedAIModelSelector() {
                   {[
                     { type: 'positive', text: 'Perfect tone and length', model: 'Claude Sonnet' },
                     { type: 'negative', text: 'Too technical for audience', model: 'Gemini Pro' },
-                    { type: 'positive', text: 'Great conversational style', model: 'ChatGPT 4' }
+                    { type: 'positive', text: 'Great conversational style', model: 'ChatGPT 4' },
                   ].map((feedback, idx) => (
                     <div key={idx} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                       {feedback.type === 'positive' ? (
@@ -811,7 +830,9 @@ export default function EnhancedAIModelSelector() {
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Select Client</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Select Client
+                  </label>
                   <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                     <option>Acme Corporation</option>
                     <option>Smith & Sons</option>
@@ -820,10 +841,14 @@ export default function EnhancedAIModelSelector() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Default Model</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Default Model
+                  </label>
                   <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                    {models.map(model => (
-                      <option key={model.id} value={model.id}>{model.name}</option>
+                    {models.map((model) => (
+                      <option key={model.id} value={model.id}>
+                        {model.name}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -838,7 +863,9 @@ export default function EnhancedAIModelSelector() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Brand Voice Description</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Brand Voice Description
+                  </label>
                   <textarea
                     rows={4}
                     placeholder="Describe the client's brand voice, tone, and style preferences..."
@@ -847,7 +874,9 @@ export default function EnhancedAIModelSelector() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Keywords They Use</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Keywords They Use
+                  </label>
                   <input
                     type="text"
                     placeholder="innovative, cutting-edge, customer-first"
@@ -856,7 +885,9 @@ export default function EnhancedAIModelSelector() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Words to Avoid</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Words to Avoid
+                  </label>
                   <input
                     type="text"
                     placeholder="cheap, basic, simple"
@@ -865,10 +896,14 @@ export default function EnhancedAIModelSelector() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">Example Content</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Example Content
+                  </label>
                   <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
                     <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
-                    <p className="text-sm text-gray-600 mb-2">Upload or paste 3-5 examples of client content</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Upload or paste 3-5 examples of client content
+                    </p>
                     <Button size="sm" variant="outline">
                       Upload Examples
                     </Button>
@@ -910,11 +945,11 @@ export default function EnhancedAIModelSelector() {
                     <Badge className="bg-blue-100 text-blue-700">Blog Post</Badge>
                     <Badge className="bg-yellow-100 text-yellow-700">In Progress</Badge>
                   </div>
-                  
+
                   <h3 className="font-semibold text-gray-900 mb-2">
                     Ultimate Guide to Plumbing Maintenance
                   </h3>
-                  
+
                   <div className="space-y-2 text-xs text-gray-600 mb-4">
                     <div className="flex items-center justify-between">
                       <span>Client:</span>
@@ -966,11 +1001,13 @@ export default function EnhancedAIModelSelector() {
                   </Button>
                 </div>
               </div>
-              
+
               <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 140px)' }}>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Template Name</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Template Name
+                    </label>
                     <input
                       type="text"
                       placeholder="e.g., Email Campaign Template"
@@ -989,7 +1026,9 @@ export default function EnhancedAIModelSelector() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Description</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Description
+                    </label>
                     <input
                       type="text"
                       placeholder="Brief description of what this template does"
@@ -998,17 +1037,23 @@ export default function EnhancedAIModelSelector() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">Best For Model</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Best For Model
+                    </label>
                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                      {models.map(model => (
-                        <option key={model.id} value={model.id}>{model.name}</option>
+                      {models.map((model) => (
+                        <option key={model.id} value={model.id}>
+                          {model.name}
+                        </option>
                       ))}
                     </select>
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <label className="block text-sm font-medium text-gray-900">Prompt Template</label>
+                      <label className="block text-sm font-medium text-gray-900">
+                        Prompt Template
+                      </label>
                       <select className="px-2 py-1 border border-gray-300 rounded text-xs">
                         <option>Insert Variable</option>
                         <option>{'{topic}'}</option>
@@ -1075,7 +1120,7 @@ export default function EnhancedAIModelSelector() {
                   </Button>
                 </div>
               </div>
-              
+
               <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 140px)' }}>
                 <div className="space-y-6">
                   {/* Basic Info */}
@@ -1083,7 +1128,9 @@ export default function EnhancedAIModelSelector() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Content Type</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Content Type
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>Blog Post</option>
                           <option>Email Campaign</option>
@@ -1093,7 +1140,9 @@ export default function EnhancedAIModelSelector() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Target Word Count</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Target Word Count
+                        </label>
                         <input
                           type="number"
                           placeholder="1500"
@@ -1101,14 +1150,18 @@ export default function EnhancedAIModelSelector() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Deadline</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Deadline
+                        </label>
                         <input
                           type="date"
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Client</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Client
+                        </label>
                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
                           <option>Acme Corporation</option>
                           <option>Smith & Sons</option>
@@ -1123,7 +1176,9 @@ export default function EnhancedAIModelSelector() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Target Audience</h3>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Audience Description</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Audience Description
+                        </label>
                         <textarea
                           rows={3}
                           placeholder="Describe the target audience..."
@@ -1131,7 +1186,9 @@ export default function EnhancedAIModelSelector() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Pain Points</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Pain Points
+                        </label>
                         <textarea
                           rows={3}
                           placeholder="What problems does the audience face?"
@@ -1146,7 +1203,9 @@ export default function EnhancedAIModelSelector() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">SEO & Keywords</h3>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Primary Keyword</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Primary Keyword
+                        </label>
                         <input
                           type="text"
                           placeholder="e.g., emergency plumbing"
@@ -1154,7 +1213,9 @@ export default function EnhancedAIModelSelector() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">Secondary Keywords</label>
+                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                          Secondary Keywords
+                        </label>
                         <input
                           type="text"
                           placeholder="Comma separated keywords"
