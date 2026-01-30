@@ -29,7 +29,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 import SEO from '../SEO';
-import heroImage from '../../assets/55b25b8461b7b19f287a1f5f306d8eab0c585da5.png';
+import heroImage from '../../assets/hero-bg.png';
 
 export default function HomePage() {
   const heroRef = useRef(null);
