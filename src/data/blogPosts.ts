@@ -1632,7 +1632,7 @@ export const blogPosts = {
       </script>
     `,
   },
-  'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
+  'decatur-local-seo-guide':
   {
     id: 307,
     title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
