@@ -202,7 +202,16 @@ const createHTMLTemplate = (
 };
 
 // Page configurations
-const pages = [
+interface PageConfig {
+  path: string;
+  title: string;
+  description: string;
+  keywords: string;
+  structuredData?: Record<string, any>;
+  [key: string]: any;
+}
+
+const pages: PageConfig[] = [
   // Main pages
   {
     path: '',

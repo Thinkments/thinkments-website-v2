@@ -104,8 +104,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="apple-mobile-web-app-title" content="ThinkMents" />
 
       {/* Hreflang for language/region targeting */}
-      <link rel="alternate" hreflang="en-us" href={fullUrl} />
-      <link rel="alternate" hreflang="en" href={fullUrl} />
+      <link rel="alternate" hrefLang="en-us" href={fullUrl} />
+      <link rel="alternate" hrefLang="en" href={fullUrl} />
 
       {/* Structured Data */}
       <script type="application/ld+json">
