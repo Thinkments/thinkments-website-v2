@@ -212,7 +212,7 @@ export default function SEOBulkFixer() {
     setSelectedItems([]);
   };
 
-  const getCurrentIssues = (): any[] => {
+  const getCurrentIssues = (): (PageIssue | ImageIssue)[] => {
     if (!scanResults) return [];
     switch (activeTab) {
       case 'meta':
@@ -371,9 +371,8 @@ export default function SEOBulkFixer() {
                     className="flex items-center space-x-3 text-gray-600"
                   >
                     <CheckCircle
-                      className={`w-5 h-5 ${
-                        scanProgress > idx * 25 ? 'text-green-500' : 'text-gray-300'
-                      }`}
+                      className={`w-5 h-5 ${scanProgress > idx * 25 ? 'text-green-500' : 'text-gray-300'
+                        }`}
                     />
                     <span className="text-sm">{status}</span>
                   </motion.div>
@@ -564,11 +563,10 @@ export default function SEOBulkFixer() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as IssueTab)}
-                  className={`flex items-center space-x-2 px-4 py-3 border-b-2 transition-colors whitespace-nowrap ${
-                    activeTab === tab.id
-                      ? 'border-[#00B4D8] text-[#1E3A5F]'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
-                  }`}
+                  className={`flex items-center space-x-2 px-4 py-3 border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
+                    ? 'border-[#00B4D8] text-[#1E3A5F]'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span className="text-sm font-medium">{tab.label}</span>
@@ -600,21 +598,19 @@ export default function SEOBulkFixer() {
                   <div className="flex space-x-1 bg-white rounded-lg p-1 border border-gray-200">
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`p-2 rounded transition-colors ${
-                        viewMode === 'list'
-                          ? 'bg-[#00B4D8] text-white'
-                          : 'text-gray-500 hover:text-gray-700'
-                      }`}
+                      className={`p-2 rounded transition-colors ${viewMode === 'list'
+                        ? 'bg-[#00B4D8] text-white'
+                        : 'text-gray-500 hover:text-gray-700'
+                        }`}
                     >
                       <List className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => setViewMode('grid')}
-                      className={`p-2 rounded transition-colors ${
-                        viewMode === 'grid'
-                          ? 'bg-[#00B4D8] text-white'
-                          : 'text-gray-500 hover:text-gray-700'
-                      }`}
+                      className={`p-2 rounded transition-colors ${viewMode === 'grid'
+                        ? 'bg-[#00B4D8] text-white'
+                        : 'text-gray-500 hover:text-gray-700'
+                        }`}
                     >
                       <Grid className="w-4 h-4" />
                     </button>
@@ -646,11 +642,10 @@ export default function SEOBulkFixer() {
                 <motion.div
                   key={image.id}
                   whileHover={{ scale: 1.02 }}
-                  className={`border-2 rounded-lg overflow-hidden cursor-pointer transition-all ${
-                    selectedItems.includes(image.id)
-                      ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                      : 'border-gray-200 hover:border-[#00B4D8]/50'
-                  }`}
+                  className={`border-2 rounded-lg overflow-hidden cursor-pointer transition-all ${selectedItems.includes(image.id)
+                    ? 'border-[#00B4D8] bg-[#00B4D8]/5'
+                    : 'border-gray-200 hover:border-[#00B4D8]/50'
+                    }`}
                   onClick={() => toggleSelection(image.id)}
                 >
                   <div className="aspect-video bg-gray-200 flex items-center justify-center">
@@ -691,11 +686,10 @@ export default function SEOBulkFixer() {
                     key={issue.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`border-2 rounded-lg p-4 transition-all ${
-                      selectedItems.includes(issue.id)
-                        ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                        : 'border-gray-200'
-                    }`}
+                    className={`border-2 rounded-lg p-4 transition-all ${selectedItems.includes(issue.id)
+                      ? 'border-[#00B4D8] bg-[#00B4D8]/5'
+                      : 'border-gray-200'
+                      }`}
                   >
                     <div className="flex items-start space-x-4">
                       <input
@@ -708,10 +702,10 @@ export default function SEOBulkFixer() {
                         {/* Page Info */}
                         <div className="mb-3">
                           <h4 className="font-semibold text-[#1E3A5F] mb-1">
-                            {issue.pageTitle || issue.fileName}
+                            {'pageTitle' in issue ? issue.pageTitle : issue.fileName}
                           </h4>
                           <div className="flex items-center space-x-2 text-sm text-gray-500">
-                            <span className="truncate">{issue.url || issue.page}</span>
+                            <span className="truncate">{'page' in issue ? issue.page : issue.url}</span>
                             <ExternalLink className="w-3 h-3 flex-shrink-0" />
                           </div>
                         </div>
@@ -722,7 +716,7 @@ export default function SEOBulkFixer() {
                             Current:
                           </label>
                           <div className="p-2 bg-red-50 rounded border border-red-200">
-                            <p className="text-sm text-red-800">{issue.current}</p>
+                            <p className="text-sm text-red-800">{'current' in issue ? issue.current : 'N/A'}</p>
                           </div>
                         </div>
 

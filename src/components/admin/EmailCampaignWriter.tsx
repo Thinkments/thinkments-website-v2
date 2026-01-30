@@ -88,6 +88,14 @@ interface Campaign {
   clickRate?: number;
 }
 
+interface SequenceEmail {
+  id: string;
+  title: string;
+  delay: string;
+  subject: string;
+  status: 'active' | 'draft';
+}
+
 const emailTypes = [
   { id: 'newsletter', label: 'Newsletter', icon: MessageSquare, desc: 'Monthly updates, news' },
   { id: 'sales', label: 'Sales/Promotional', icon: Gift, desc: 'Special offers, discounts' },
@@ -161,7 +169,7 @@ export default function EmailCampaignWriter() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [showABTest, setShowABTest] = useState(false);
 
-  const [sequenceEmails, setSequenceEmails] = useState<any[]>([]);
+  const [sequenceEmails, setSequenceEmails] = useState<SequenceEmail[]>([]);
 
   const generateSubjectLines = () => {
     setIsGenerating(true);
@@ -515,16 +523,14 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                     {/* Timeline Dot */}
                     <div className="relative z-10">
                       <div
-                        className={`w-16 h-16 rounded-full flex items-center justify-center ${
-                          email.status === 'active'
+                        className={`w-16 h-16 rounded-full flex items-center justify-center ${email.status === 'active'
                             ? 'bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F]'
                             : 'bg-gray-200'
-                        }`}
+                          }`}
                       >
                         <Mail
-                          className={`w-7 h-7 ${
-                            email.status === 'active' ? 'text-white' : 'text-gray-400'
-                          }`}
+                          className={`w-7 h-7 ${email.status === 'active' ? 'text-white' : 'text-gray-400'
+                            }`}
                         />
                       </div>
                       <div className="absolute -right-2 top-0">
@@ -938,29 +944,26 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
               <React.Fragment key={stepNum}>
                 <div className="flex items-center space-x-2">
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      step >= stepNum
+                    className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= stepNum
                         ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
                         : 'bg-gray-200 text-gray-500'
-                    }`}
+                      }`}
                   >
                     {step > stepNum ? <Check className="w-5 h-5" /> : stepNum}
                   </div>
                   <span
-                    className={`text-sm font-medium ${
-                      step >= stepNum ? 'text-[#1E3A5F]' : 'text-gray-500'
-                    }`}
+                    className={`text-sm font-medium ${step >= stepNum ? 'text-[#1E3A5F]' : 'text-gray-500'
+                      }`}
                   >
                     {stepNum === 1 ? 'Campaign Details' : 'Audience'}
                   </span>
                 </div>
                 {stepNum < 2 && (
                   <div
-                    className={`flex-1 h-1 rounded ${
-                      step > stepNum
+                    className={`flex-1 h-1 rounded ${step > stepNum
                         ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F]'
                         : 'bg-gray-200'
-                    }`}
+                      }`}
                   />
                 )}
               </React.Fragment>
@@ -998,16 +1001,14 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setEmailType(type.id as EmailType)}
-                      className={`p-4 rounded-lg border-2 text-left transition-all ${
-                        emailType === type.id
+                      className={`p-4 rounded-lg border-2 text-left transition-all ${emailType === type.id
                           ? 'border-[#00B4D8] bg-[#00B4D8]/5'
                           : 'border-gray-200 hover:border-[#00B4D8]/50'
-                      }`}
+                        }`}
                     >
                       <Icon
-                        className={`w-6 h-6 mb-2 ${
-                          emailType === type.id ? 'text-[#00B4D8]' : 'text-gray-400'
-                        }`}
+                        className={`w-6 h-6 mb-2 ${emailType === type.id ? 'text-[#00B4D8]' : 'text-gray-400'
+                          }`}
                       />
                       <p className="font-medium text-sm text-gray-900 mb-1">{type.label}</p>
                       <p className="text-xs text-gray-500">{type.desc}</p>
@@ -1157,11 +1158,10 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                     {generatedSubjects.map((subject) => (
                       <div
                         key={subject.id}
-                        className={`p-3 border-2 rounded-lg cursor-pointer transition-all ${
-                          selectedSubject === subject.text
+                        className={`p-3 border-2 rounded-lg cursor-pointer transition-all ${selectedSubject === subject.text
                             ? 'border-[#00B4D8] bg-[#00B4D8]/5'
                             : 'border-gray-200 hover:border-[#00B4D8]/50'
-                        }`}
+                          }`}
                         onClick={() => setSelectedSubject(subject.text)}
                       >
                         <div className="flex items-start justify-between mb-1">
@@ -1276,11 +1276,10 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                       <button
                         key={len}
                         onClick={() => setEmailLength(len)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors capitalize ${
-                          emailLength === len
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors capitalize ${emailLength === len
                             ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
+                          }`}
                       >
                         {len}
                       </button>
@@ -1417,21 +1416,19 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
                     <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
                       <button
                         onClick={() => setDevice('desktop')}
-                        className={`p-2 rounded transition-colors ${
-                          device === 'desktop'
+                        className={`p-2 rounded transition-colors ${device === 'desktop'
                             ? 'bg-white text-[#00B4D8] shadow-sm'
                             : 'text-gray-500'
-                        }`}
+                          }`}
                       >
                         <Monitor className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => setDevice('mobile')}
-                        className={`p-2 rounded transition-colors ${
-                          device === 'mobile'
+                        className={`p-2 rounded transition-colors ${device === 'mobile'
                             ? 'bg-white text-[#00B4D8] shadow-sm'
                             : 'text-gray-500'
-                        }`}
+                          }`}
                       >
                         <Smartphone className="w-4 h-4" />
                       </button>
@@ -1463,9 +1460,8 @@ P.S. This month only, we're offering a complimentary website audit. Click the li
 
                 {/* Email Preview Window */}
                 <div
-                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden ${
-                    device === 'mobile' ? 'max-w-sm mx-auto' : ''
-                  }`}
+                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden ${device === 'mobile' ? 'max-w-sm mx-auto' : ''
+                    }`}
                 >
                   {/* Email Header */}
                   <div className="bg-gray-50 p-4 border-b border-gray-200">

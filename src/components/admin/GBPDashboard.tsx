@@ -170,12 +170,11 @@ export default function GBPDashboard() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === tab.id
+                onClick={() => setActiveTab(tab.id as 'overview' | 'posts' | 'qa' | 'insights')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
                     ? 'bg-[#00B4D8] text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>
@@ -331,9 +330,8 @@ export default function GBPDashboard() {
                     <button
                       key={metric}
                       onClick={() => setMetricView(metric)}
-                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${
-                        metricView === metric ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
-                      }`}
+                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${metricView === metric ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                        }`}
                     >
                       {metric}
                     </button>

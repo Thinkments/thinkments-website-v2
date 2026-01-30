@@ -48,7 +48,7 @@ export default function PerformantImage({
       width={width}
       height={height}
       loading={loadingStrategy}
-      fetchPriority={fetchPriority as any}
+      fetchPriority={fetchPriority as 'high' | 'low' | 'auto'}
       decoding="async"
       className={className}
       {...props}
@@ -102,7 +102,7 @@ export function PictureImage({
         width={width}
         height={height}
         loading={loadingStrategy}
-        fetchPriority={fetchPriority as any}
+        fetchPriority={fetchPriority as 'high' | 'low' | 'auto'}
         decoding="async"
         className={className}
       />
@@ -158,7 +158,7 @@ export function ResponsiveImage({
       width={width}
       height={height}
       loading={loadingStrategy}
-      fetchPriority={fetchPriority as any}
+      fetchPriority={fetchPriority as 'high' | 'low' | 'auto'}
       decoding="async"
       className={className}
     />

@@ -220,12 +220,11 @@ export default function PodcastManager() {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveView(tab.id as any)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                    activeView === tab.id
+                  onClick={() => setActiveView(tab.id as 'episodes' | 'upload' | 'analytics' | 'settings')}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeView === tab.id
                       ? 'bg-[#00B4D8] text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{tab.label}</span>
@@ -333,17 +332,15 @@ export default function PodcastManager() {
                   <div className="flex items-center bg-gray-100 rounded-lg p-1">
                     <button
                       onClick={() => setViewMode('grid')}
-                      className={`p-2 rounded transition-all ${
-                        viewMode === 'grid' ? 'bg-white shadow' : ''
-                      }`}
+                      className={`p-2 rounded transition-all ${viewMode === 'grid' ? 'bg-white shadow' : ''
+                        }`}
                     >
                       <Grid className="w-4 h-4 text-gray-600" />
                     </button>
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`p-2 rounded transition-all ${
-                        viewMode === 'list' ? 'bg-white shadow' : ''
-                      }`}
+                      className={`p-2 rounded transition-all ${viewMode === 'list' ? 'bg-white shadow' : ''
+                        }`}
                     >
                       <List className="w-4 h-4 text-gray-600" />
                     </button>
@@ -1270,13 +1267,12 @@ export default function PodcastManager() {
                           <span className="font-semibold text-[#1E3A5F]">{platform.name}</span>
                         </div>
                         <Badge
-                          className={`${
-                            platform.status === 'connected'
+                          className={`${platform.status === 'connected'
                               ? 'bg-green-100 text-green-700'
                               : platform.status === 'pending'
                                 ? 'bg-yellow-100 text-yellow-700'
                                 : 'bg-gray-100 text-gray-700'
-                          } capitalize`}
+                            } capitalize`}
                         >
                           {platform.status}
                         </Badge>

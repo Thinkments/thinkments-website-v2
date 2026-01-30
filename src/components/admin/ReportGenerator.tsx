@@ -250,12 +250,11 @@ export default function ReportGenerator() {
             return (
               <button
                 key={view.id}
-                onClick={() => setActiveView(view.id as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeView === view.id
+                onClick={() => setActiveView(view.id as 'builder' | 'scheduled' | 'history' | 'templates')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeView === view.id
                     ? 'bg-[#00B4D8] text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{view.label}</span>
@@ -282,13 +281,12 @@ export default function ReportGenerator() {
                     <React.Fragment key={step.number}>
                       <div className="flex items-center space-x-3">
                         <div
-                          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${
-                            isCompleted
+                          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${isCompleted
                               ? 'bg-green-500 text-white'
                               : isActive
                                 ? 'bg-[#00B4D8] text-white'
                                 : 'bg-gray-200 text-gray-500'
-                          }`}
+                            }`}
                         >
                           {isCompleted ? (
                             <Check className="w-6 h-6" />
@@ -299,9 +297,8 @@ export default function ReportGenerator() {
                         <div>
                           <div className="text-xs text-gray-500">Step {step.number}</div>
                           <div
-                            className={`font-semibold ${
-                              isActive ? 'text-[#1E3A5F]' : 'text-gray-600'
-                            }`}
+                            className={`font-semibold ${isActive ? 'text-[#1E3A5F]' : 'text-gray-600'
+                              }`}
                           >
                             {step.title}
                           </div>
@@ -309,9 +306,8 @@ export default function ReportGenerator() {
                       </div>
                       {index < steps.length - 1 && (
                         <div
-                          className={`flex-1 h-1 mx-4 rounded ${
-                            isCompleted ? 'bg-green-500' : 'bg-gray-200'
-                          }`}
+                          className={`flex-1 h-1 mx-4 rounded ${isCompleted ? 'bg-green-500' : 'bg-gray-200'
+                            }`}
                         />
                       )}
                     </React.Fragment>
@@ -404,11 +400,10 @@ export default function ReportGenerator() {
                             <button
                               key={type.id}
                               onClick={() => setReportType(type.id)}
-                              className={`p-4 rounded-lg border-2 text-left transition-all ${
-                                reportType === type.id
+                              className={`p-4 rounded-lg border-2 text-left transition-all ${reportType === type.id
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-center justify-between mb-2">
                                 <span className="font-semibold text-[#1E3A5F]">{type.name}</span>
@@ -466,11 +461,10 @@ export default function ReportGenerator() {
                             <div
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
-                              className={`p-3 rounded-lg border cursor-pointer transition-all ${
-                                selectedMetrics.includes(metric.id)
+                              className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-start space-x-3">
                                 <div className="mt-0.5">
@@ -515,11 +509,10 @@ export default function ReportGenerator() {
                             <div
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
-                              className={`p-3 rounded-lg border cursor-pointer transition-all ${
-                                selectedMetrics.includes(metric.id)
+                              className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-start space-x-3">
                                 <div className="mt-0.5">
@@ -564,11 +557,10 @@ export default function ReportGenerator() {
                             <div
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
-                              className={`p-3 rounded-lg border cursor-pointer transition-all ${
-                                selectedMetrics.includes(metric.id)
+                              className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-start space-x-3">
                                 <div className="mt-0.5">
@@ -613,11 +605,10 @@ export default function ReportGenerator() {
                             <div
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
-                              className={`p-3 rounded-lg border cursor-pointer transition-all ${
-                                selectedMetrics.includes(metric.id)
+                              className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-start space-x-3">
                                 <div className="mt-0.5">
@@ -662,11 +653,10 @@ export default function ReportGenerator() {
                             <div
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
-                              className={`p-3 rounded-lg border cursor-pointer transition-all ${
-                                selectedMetrics.includes(metric.id)
+                              className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-start space-x-3">
                                 <div className="mt-0.5">
@@ -728,11 +718,10 @@ export default function ReportGenerator() {
                             <button
                               key={scheme.id}
                               onClick={() => setColorScheme(scheme.id)}
-                              className={`p-4 rounded-lg border-2 text-left transition-all ${
-                                colorScheme === scheme.id
+                              className={`p-4 rounded-lg border-2 text-left transition-all ${colorScheme === scheme.id
                                   ? 'border-[#00B4D8] bg-blue-50'
                                   : 'border-gray-200 hover:border-gray-300'
-                              }`}
+                                }`}
                             >
                               <div className="flex items-center justify-between mb-2">
                                 <span className="font-semibold text-[#1E3A5F]">{scheme.name}</span>
@@ -790,14 +779,12 @@ export default function ReportGenerator() {
                           </div>
                           <button
                             onClick={() => setIncludeCover(!includeCover)}
-                            className={`relative w-12 h-6 rounded-full transition-colors ${
-                              includeCover ? 'bg-[#00B4D8]' : 'bg-gray-300'
-                            }`}
+                            className={`relative w-12 h-6 rounded-full transition-colors ${includeCover ? 'bg-[#00B4D8]' : 'bg-gray-300'
+                              }`}
                           >
                             <div
-                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                                includeCover ? 'translate-x-7' : 'translate-x-1'
-                              }`}
+                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${includeCover ? 'translate-x-7' : 'translate-x-1'
+                                }`}
                             />
                           </button>
                         </div>
@@ -813,14 +800,12 @@ export default function ReportGenerator() {
                           </div>
                           <button
                             onClick={() => setIncludeExecutive(!includeExecutive)}
-                            className={`relative w-12 h-6 rounded-full transition-colors ${
-                              includeExecutive ? 'bg-[#00B4D8]' : 'bg-gray-300'
-                            }`}
+                            className={`relative w-12 h-6 rounded-full transition-colors ${includeExecutive ? 'bg-[#00B4D8]' : 'bg-gray-300'
+                              }`}
                           >
                             <div
-                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                                includeExecutive ? 'translate-x-7' : 'translate-x-1'
-                              }`}
+                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${includeExecutive ? 'translate-x-7' : 'translate-x-1'
+                                }`}
                             />
                           </button>
                         </div>

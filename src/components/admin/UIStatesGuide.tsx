@@ -86,12 +86,11 @@ export default function UIStatesGuide() {
           ].map((section) => (
             <button
               key={section.id}
-              onClick={() => setActiveSection(section.id as any)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-                activeSection === section.id
+              onClick={() => setActiveSection(section.id as 'buttons' | 'forms' | 'notifications' | 'workflows' | 'sync' | 'errors' | 'confirmations' | 'collaboration')}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${activeSection === section.id
                   ? 'bg-[#00B4D8] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               {section.label}
             </button>
@@ -1468,15 +1467,14 @@ export default function UIStatesGuide() {
             className="fixed top-4 left-1/2 z-50"
           >
             <div
-              className={`${
-                toastType === 'success'
+              className={`${toastType === 'success'
                   ? 'bg-green-50 border-green-200'
                   : toastType === 'error'
                     ? 'bg-red-50 border-red-200'
                     : toastType === 'warning'
                       ? 'bg-yellow-50 border-yellow-200'
                       : 'bg-blue-50 border-blue-200'
-              } border rounded-lg p-4 shadow-2xl min-w-[320px]`}
+                } border rounded-lg p-4 shadow-2xl min-w-[320px]`}
             >
               <div className="flex items-start space-x-3">
                 {toastType === 'success' && (
@@ -1491,15 +1489,14 @@ export default function UIStatesGuide() {
                 {toastType === 'info' && <Info className="w-5 h-5 text-blue-600 flex-shrink-0" />}
                 <div className="flex-1">
                   <div
-                    className={`font-semibold ${
-                      toastType === 'success'
+                    className={`font-semibold ${toastType === 'success'
                         ? 'text-green-900'
                         : toastType === 'error'
                           ? 'text-red-900'
                           : toastType === 'warning'
                             ? 'text-yellow-900'
                             : 'text-blue-900'
-                    }`}
+                      }`}
                   >
                     {toastType === 'success' && 'Success!'}
                     {toastType === 'error' && 'Error'}
@@ -1507,15 +1504,14 @@ export default function UIStatesGuide() {
                     {toastType === 'info' && 'Info'}
                   </div>
                   <div
-                    className={`text-sm mt-1 ${
-                      toastType === 'success'
+                    className={`text-sm mt-1 ${toastType === 'success'
                         ? 'text-green-700'
                         : toastType === 'error'
                           ? 'text-red-700'
                           : toastType === 'warning'
                             ? 'text-yellow-700'
                             : 'text-blue-700'
-                    }`}
+                      }`}
                   >
                     {toastType === 'success' && 'Blog post published successfully!'}
                     {toastType === 'error' && 'Failed to save. Please try again.'}
@@ -1525,15 +1521,14 @@ export default function UIStatesGuide() {
                 </div>
                 <button
                   onClick={() => setShowToast(false)}
-                  className={`${
-                    toastType === 'success'
+                  className={`${toastType === 'success'
                       ? 'text-green-600 hover:text-green-800'
                       : toastType === 'error'
                         ? 'text-red-600 hover:text-red-800'
                         : toastType === 'warning'
                           ? 'text-yellow-600 hover:text-yellow-800'
                           : 'text-blue-600 hover:text-blue-800'
-                  }`}
+                    }`}
                 >
                   <X className="w-4 h-4" />
                 </button>

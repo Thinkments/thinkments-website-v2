@@ -51,12 +51,11 @@ export default function SystemArchitecture() {
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveFlow(tab.id as any)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                activeFlow === tab.id
+              onClick={() => setActiveFlow(tab.id as 'overview' | 'blog-publish' | 'data-flow')}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeFlow === tab.id
                   ? 'bg-[#00B4D8] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               {tab.label}
             </button>
@@ -680,11 +679,10 @@ export default function SystemArchitecture() {
                       <div key={i} className="bg-white rounded-lg p-3 border border-gray-200">
                         <div className="flex items-center space-x-2 mb-1">
                           <Badge
-                            className={`${
-                              api.method === 'POST'
+                            className={`${api.method === 'POST'
                                 ? 'bg-green-100 text-green-700'
                                 : 'bg-blue-100 text-blue-700'
-                            } text-xs`}
+                              } text-xs`}
                           >
                             {api.method}
                           </Badge>

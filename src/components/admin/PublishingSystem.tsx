@@ -102,12 +102,11 @@ export default function PublishingSystem() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveDemo(tab.id as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeDemo === tab.id
+                onClick={() => setActiveDemo(tab.id as 'button-states' | 'blog-publish' | 'site-status' | 'architecture')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeDemo === tab.id
                     ? 'bg-[#00B4D8] text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>

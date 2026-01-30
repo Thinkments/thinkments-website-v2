@@ -370,12 +370,11 @@ export default function RankTracker() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === tab.id
+                onClick={() => setActiveTab(tab.id as 'overview' | 'competitors' | 'alerts')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
                     ? 'bg-[#00B4D8] text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>
@@ -422,18 +421,16 @@ export default function RankTracker() {
           <div className="flex items-center bg-gray-100 rounded-lg p-1">
             <button
               onClick={() => setDeviceType('desktop')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                deviceType === 'desktop' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
-              }`}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'desktop' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                }`}
             >
               <Monitor className="w-4 h-4" />
               <span>Desktop</span>
             </button>
             <button
               onClick={() => setDeviceType('mobile')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                deviceType === 'mobile' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
-              }`}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'mobile' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                }`}
             >
               <Smartphone className="w-4 h-4" />
               <span>Mobile</span>
@@ -818,11 +815,10 @@ export default function RankTracker() {
                 ].map((alert, index) => (
                   <div
                     key={index}
-                    className={`p-4 rounded-lg border ${
-                      alert.type === 'positive'
+                    className={`p-4 rounded-lg border ${alert.type === 'positive'
                         ? 'bg-green-50 border-green-200'
                         : 'bg-red-50 border-red-200'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">

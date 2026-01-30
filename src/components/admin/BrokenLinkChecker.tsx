@@ -727,11 +727,10 @@ export default function BrokenLinkChecker() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as TabType)}
-                className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                  activeTab === tab.id
-                    ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${activeTab === tab.id
+                  ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  }`}
               >
                 {tab.label}
                 {tab.count !== undefined && (
@@ -826,16 +825,20 @@ export default function BrokenLinkChecker() {
                     className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
                   />
                 </div>
-                <select
+                <Select
                   value={filterSource}
-                  onChange={(e) => setFilterSource(e.target.value as any)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg"
+                  onValueChange={(value) => setFilterSource(value as SourceType | 'all')}
                 >
-                  <option value="all">All Sources</option>
-                  <option value="scan">Scan Only</option>
-                  <option value="ahrefs">Ahrefs Only</option>
-                  <option value="gsc">GSC Only</option>
-                </select>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="All Sources" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Sources</SelectItem>
+                    <SelectItem value="scan">Scan Only</SelectItem>
+                    <SelectItem value="ahrefs">Ahrefs Only</SelectItem>
+                    <SelectItem value="gsc">GSC Only</SelectItem>
+                  </SelectContent>
+                </Select>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
@@ -850,7 +853,8 @@ export default function BrokenLinkChecker() {
             </div>
           </CardContent>
         </Card>
-      )}
+      )
+      }
 
       {/* Tab Content */}
       <div>
@@ -1312,19 +1316,19 @@ export default function BrokenLinkChecker() {
           'history',
           'reports',
         ].includes(activeTab) && (
-          <Card className="border-0 shadow-md">
-            <CardContent className="p-12 text-center">
-              <Info className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-              <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
-                {activeTab
-                  .split('-')
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(' ')}
-              </h3>
-              <p className="text-gray-600">This tab content is being loaded...</p>
-            </CardContent>
-          </Card>
-        )}
+            <Card className="border-0 shadow-md">
+              <CardContent className="p-12 text-center">
+                <Info className="w-16 h-16 mx-auto mb-4 text-gray-400" />
+                <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
+                  {activeTab
+                    .split('-')
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ')}
+                </h3>
+                <p className="text-gray-600">This tab content is being loaded...</p>
+              </CardContent>
+            </Card>
+          )}
       </div>
 
       {/* Ahrefs Import Modal */}
@@ -1551,9 +1555,8 @@ export default function BrokenLinkChecker() {
                     {[1, 2, 3, 4].map((step) => (
                       <div
                         key={step}
-                        className={`flex-1 h-2 rounded-full ${
-                          aiWizardStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
-                        }`}
+                        className={`flex-1 h-2 rounded-full ${aiWizardStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
+                          }`}
                       />
                     ))}
                   </div>
@@ -2090,6 +2093,6 @@ export default function BrokenLinkChecker() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </div >
   );
 }

@@ -226,7 +226,7 @@ export default function NotFoundPageEditor() {
     pageLoadAnimation: 'fade',
   });
 
-  const updateSetting = (key: keyof PageSettings, value: any) => {
+  const updateSetting = (key: keyof PageSettings, value: PageSettings[keyof PageSettings]) => {
     setSettings((prev) => ({ ...prev, [key]: value }));
     setHasUnsavedChanges(true);
   };
@@ -336,11 +336,10 @@ export default function NotFoundPageEditor() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as TabType)}
-                className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${
-                  activeTab === tab.id
-                    ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${activeTab === tab.id
+                  ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  }`}
               >
                 <tab.icon className="w-4 h-4" />
                 <span>{tab.label}</span>
@@ -490,11 +489,10 @@ export default function NotFoundPageEditor() {
                           <button
                             key={align.value}
                             onClick={() => updateSetting('headlineAlign', align.value)}
-                            className={`flex-1 p-3 border-2 rounded-lg flex items-center justify-center ${
-                              settings.headlineAlign === align.value
-                                ? 'border-[#00B4D8] bg-blue-50'
-                                : 'border-gray-300 hover:border-gray-400'
-                            }`}
+                            className={`flex-1 p-3 border-2 rounded-lg flex items-center justify-center ${settings.headlineAlign === align.value
+                              ? 'border-[#00B4D8] bg-blue-50'
+                              : 'border-gray-300 hover:border-gray-400'
+                              }`}
                           >
                             <align.icon className="w-5 h-5" />
                           </button>
@@ -684,7 +682,7 @@ export default function NotFoundPageEditor() {
                         <select
                           value={settings.pongWinningScore}
                           onChange={(e) =>
-                            updateSetting('pongWinningScore', parseInt(e.target.value) as any)
+                            updateSetting('pongWinningScore', parseInt(e.target.value) as 3 | 5 | 10)
                           }
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                         >
@@ -853,7 +851,7 @@ export default function NotFoundPageEditor() {
                         <select
                           value={settings.numberOfLinks}
                           onChange={(e) =>
-                            updateSetting('numberOfLinks', parseInt(e.target.value) as any)
+                            updateSetting('numberOfLinks', parseInt(e.target.value))
                           }
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                         >
@@ -1183,11 +1181,10 @@ export default function NotFoundPageEditor() {
                           <button
                             key={type.value}
                             onClick={() => updateSetting('backgroundType', type.value)}
-                            className={`p-3 border-2 rounded-lg flex flex-col items-center justify-center space-y-1 ${
-                              settings.backgroundType === type.value
-                                ? 'border-[#00B4D8] bg-blue-50'
-                                : 'border-gray-300 hover:border-gray-400'
-                            }`}
+                            className={`p-3 border-2 rounded-lg flex flex-col items-center justify-center space-y-1 ${settings.backgroundType === type.value
+                              ? 'border-[#00B4D8] bg-blue-50'
+                              : 'border-gray-300 hover:border-gray-400'
+                              }`}
                           >
                             <type.icon className="w-5 h-5" />
                             <span className="text-xs">{type.label}</span>
@@ -1401,11 +1398,10 @@ export default function NotFoundPageEditor() {
                           <button
                             key={align.value}
                             onClick={() => updateSetting('contentAlignment', align.value)}
-                            className={`flex-1 p-3 border-2 rounded-lg flex items-center justify-center ${
-                              settings.contentAlignment === align.value
-                                ? 'border-[#00B4D8] bg-blue-50'
-                                : 'border-gray-300 hover:border-gray-400'
-                            }`}
+                            className={`flex-1 p-3 border-2 rounded-lg flex items-center justify-center ${settings.contentAlignment === align.value
+                              ? 'border-[#00B4D8] bg-blue-50'
+                              : 'border-gray-300 hover:border-gray-400'
+                              }`}
                           >
                             <align.icon className="w-5 h-5" />
                           </button>
@@ -1506,11 +1502,10 @@ export default function NotFoundPageEditor() {
                   <button
                     key={device.type}
                     onClick={() => setDeviceType(device.type as DeviceType)}
-                    className={`flex-1 p-2 border-2 rounded-lg flex items-center justify-center ${
-                      deviceType === device.type
-                        ? 'border-[#00B4D8] bg-blue-50'
-                        : 'border-gray-300 hover:border-gray-400'
-                    }`}
+                    className={`flex-1 p-2 border-2 rounded-lg flex items-center justify-center ${deviceType === device.type
+                      ? 'border-[#00B4D8] bg-blue-50'
+                      : 'border-gray-300 hover:border-gray-400'
+                      }`}
                   >
                     <device.icon className="w-4 h-4" />
                   </button>

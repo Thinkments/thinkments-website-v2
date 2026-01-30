@@ -38,6 +38,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from 'recharts';
 
 // Mock data
@@ -163,9 +164,8 @@ const StarRating: React.FC<{ rating: number; size?: 'sm' | 'md' | 'lg' }> = ({
       {[1, 2, 3, 4, 5].map((star) => (
         <Star
           key={star}
-          className={`${sizeClasses[size]} ${
-            star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
-          }`}
+          className={`${sizeClasses[size]} ${star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+            }`}
         />
       ))}
     </div>
@@ -244,12 +244,11 @@ export default function ReviewsManagement() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === tab.id
-                    ? 'bg-[#00B4D8] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                onClick={() => setActiveTab(tab.id as 'reviews' | 'templates' | 'requests' | 'sentiment')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
+                  ? 'bg-[#00B4D8] text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>
@@ -279,9 +278,8 @@ export default function ReviewsManagement() {
               <button
                 key={platform}
                 onClick={() => setSelectedPlatform(platform)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  selectedPlatform === platform ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
-                }`}
+                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedPlatform === platform ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                  }`}
               >
                 {platform}
               </button>
@@ -303,17 +301,15 @@ export default function ReviewsManagement() {
           <div className="flex items-center bg-gray-100 rounded-lg p-1 ml-auto">
             <button
               onClick={() => setFilterView('all')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                filterView === 'all' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
-              }`}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filterView === 'all' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                }`}
             >
               All Reviews
             </button>
             <button
               onClick={() => setFilterView('needs-response')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                filterView === 'needs-response' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
-              }`}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filterView === 'needs-response' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                }`}
             >
               Needs Response
               <Badge className="ml-2 bg-[#FF6B35] text-white">
@@ -424,13 +420,12 @@ export default function ReviewsManagement() {
                           <div className="flex items-center space-x-3 mb-2">
                             <span className="font-semibold text-[#1E3A5F]">{review.reviewer}</span>
                             <Badge
-                              className={`${
-                                review.platform === 'Google'
-                                  ? 'bg-blue-100 text-blue-700'
-                                  : review.platform === 'Facebook'
-                                    ? 'bg-indigo-100 text-indigo-700'
-                                    : 'bg-red-100 text-red-700'
-                              }`}
+                              className={`${review.platform === 'Google'
+                                ? 'bg-blue-100 text-blue-700'
+                                : review.platform === 'Facebook'
+                                  ? 'bg-indigo-100 text-indigo-700'
+                                  : 'bg-red-100 text-red-700'
+                                }`}
                             >
                               {review.platform}
                             </Badge>

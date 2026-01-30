@@ -261,12 +261,11 @@ export default function InvoicesExpenses() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === tab.id
+                onClick={() => setActiveTab(tab.id as 'invoices' | 'expenses' | 'reports')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
                     ? 'bg-[#00B4D8] text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>
@@ -402,11 +401,10 @@ export default function InvoicesExpenses() {
                     <button
                       key={status}
                       onClick={() => setFilterStatus(status)}
-                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${
-                        filterStatus === status
+                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${filterStatus === status
                           ? 'bg-[#00B4D8] text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
+                        }`}
                     >
                       {status}
                     </button>

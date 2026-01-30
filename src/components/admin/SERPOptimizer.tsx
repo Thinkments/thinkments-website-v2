@@ -66,7 +66,7 @@ interface PageSEO {
   ogDescription?: string;
   ogImage?: string;
   twitterCard?: string;
-  schema?: any;
+  schema?: Record<string, unknown>;
   issues: string[];
   score: number;
   pageType: 'main' | 'service' | 'location' | 'blog';
@@ -573,29 +573,26 @@ export default function SERPOptimizer() {
                     <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
                       <button
                         onClick={() => setActiveTab('seo')}
-                        className={`px-3 py-1 rounded text-sm font-medium ${
-                          activeTab === 'seo' ? 'bg-white shadow text-[#1E3A5F]' : 'text-gray-600'
-                        }`}
+                        className={`px-3 py-1 rounded text-sm font-medium ${activeTab === 'seo' ? 'bg-white shadow text-[#1E3A5F]' : 'text-gray-600'
+                          }`}
                       >
                         SEO
                       </button>
                       <button
                         onClick={() => setActiveTab('social')}
-                        className={`px-3 py-1 rounded text-sm font-medium ${
-                          activeTab === 'social'
-                            ? 'bg-white shadow text-[#1E3A5F]'
-                            : 'text-gray-600'
-                        }`}
+                        className={`px-3 py-1 rounded text-sm font-medium ${activeTab === 'social'
+                          ? 'bg-white shadow text-[#1E3A5F]'
+                          : 'text-gray-600'
+                          }`}
                       >
                         Social
                       </button>
                       <button
                         onClick={() => setActiveTab('schema')}
-                        className={`px-3 py-1 rounded text-sm font-medium ${
-                          activeTab === 'schema'
-                            ? 'bg-white shadow text-[#1E3A5F]'
-                            : 'text-gray-600'
-                        }`}
+                        className={`px-3 py-1 rounded text-sm font-medium ${activeTab === 'schema'
+                          ? 'bg-white shadow text-[#1E3A5F]'
+                          : 'text-gray-600'
+                          }`}
                       >
                         Schema
                       </button>
@@ -628,13 +625,12 @@ export default function SERPOptimizer() {
                           </span>
                           <div className="flex-1 mx-3 h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
-                              className={`h-full transition-all ${
-                                editedTitle.length > 60
-                                  ? 'bg-red-500'
-                                  : editedTitle.length > 48
-                                    ? 'bg-yellow-500'
-                                    : 'bg-green-500'
-                              }`}
+                              className={`h-full transition-all ${editedTitle.length > 60
+                                ? 'bg-red-500'
+                                : editedTitle.length > 48
+                                  ? 'bg-yellow-500'
+                                  : 'bg-green-500'
+                                }`}
                               style={{
                                 width: `${Math.min((editedTitle.length / 60) * 100, 100)}%`,
                               }}
@@ -707,13 +703,12 @@ export default function SERPOptimizer() {
                           </span>
                           <div className="flex-1 mx-3 h-2 bg-gray-200 rounded-full overflow-hidden">
                             <div
-                              className={`h-full transition-all ${
-                                editedDescription.length > 160
-                                  ? 'bg-red-500'
-                                  : editedDescription.length > 140
-                                    ? 'bg-yellow-500'
-                                    : 'bg-green-500'
-                              }`}
+                              className={`h-full transition-all ${editedDescription.length > 160
+                                ? 'bg-red-500'
+                                : editedDescription.length > 140
+                                  ? 'bg-yellow-500'
+                                  : 'bg-green-500'
+                                }`}
                               style={{
                                 width: `${Math.min((editedDescription.length / 160) * 100, 100)}%`,
                               }}
@@ -925,7 +920,7 @@ export default function SERPOptimizer() {
                           <div className="flex items-center space-x-2 mb-2">
                             <CheckCircle className="w-4 h-4 text-green-600" />
                             <p className="text-sm font-medium text-green-900">
-                              Active Schema: {selectedPage.schema.type}
+                              Active Schema: {(selectedPage.schema as { type?: string })?.type || 'Unknown'}
                             </p>
                           </div>
                           <pre className="text-xs bg-white p-2 rounded border border-green-200 overflow-x-auto">
@@ -1057,17 +1052,15 @@ export default function SERPOptimizer() {
                       <div className="flex bg-gray-100 rounded-lg p-1">
                         <button
                           onClick={() => setDeviceType('desktop')}
-                          className={`px-3 py-1 rounded flex items-center ${
-                            deviceType === 'desktop' ? 'bg-white shadow' : ''
-                          }`}
+                          className={`px-3 py-1 rounded flex items-center ${deviceType === 'desktop' ? 'bg-white shadow' : ''
+                            }`}
                         >
                           <Monitor className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => setDeviceType('mobile')}
-                          className={`px-3 py-1 rounded flex items-center ${
-                            deviceType === 'mobile' ? 'bg-white shadow' : ''
-                          }`}
+                          className={`px-3 py-1 rounded flex items-center ${deviceType === 'mobile' ? 'bg-white shadow' : ''
+                            }`}
                         >
                           <Smartphone className="w-4 h-4" />
                         </button>
@@ -1245,9 +1238,8 @@ export default function SERPOptimizer() {
                     {[1, 2, 3, 4, 5].map((step) => (
                       <div
                         key={step}
-                        className={`flex-1 h-2 rounded-full ${
-                          wizardStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
-                        }`}
+                        className={`flex-1 h-2 rounded-full ${wizardStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
+                          }`}
                       />
                     ))}
                   </div>
