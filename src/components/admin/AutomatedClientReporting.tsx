@@ -56,6 +56,7 @@ import {
   GripVertical,
   Link as LinkIcon,
   Sliders,
+  Save,
 } from 'lucide-react';
 
 type TabType = 'clients' | 'builder' | 'templates' | 'scheduled' | 'history' | 'wins';
@@ -456,11 +457,10 @@ export default function AutomatedClientReporting() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id as TabType)}
-            className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${
-              activeTab === tab.id
+            className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
                 : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-            }`}
+              }`}
           >
             {tab.icon && <tab.icon className="w-4 h-4" />}
             <span>{tab.label}</span>
@@ -618,9 +618,8 @@ export default function AutomatedClientReporting() {
                   {[1, 2, 3, 4, 5, 6].map((step) => (
                     <React.Fragment key={step}>
                       <div
-                        className={`flex-1 h-2 rounded-full ${
-                          builderStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
-                        }`}
+                        className={`flex-1 h-2 rounded-full ${builderStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
+                          }`}
                       />
                     </React.Fragment>
                   ))}

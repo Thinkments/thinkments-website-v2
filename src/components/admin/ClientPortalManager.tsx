@@ -49,6 +49,8 @@ import {
   LogIn,
   Award,
   Target,
+  Share2,
+  LayoutDashboard,
 } from 'lucide-react';
 
 interface Client {
@@ -544,11 +546,10 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
               <button
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
-                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${
-                  activeSection === item.id
+                className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${activeSection === item.id
                     ? 'bg-gradient-to-r from-[#00B4D8]/10 to-[#1E3A5F]/10 text-[#1E3A5F]'
                     : 'text-gray-600 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 <item.icon className="w-5 h-5" />
                 <span className="text-sm font-medium">{item.label}</span>

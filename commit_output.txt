@@ -1,0 +1,75 @@
+git : 14:10:17.725128 
+trace.c:314            
+ setup: git_dir: .git
+At line:1 char:19
++ ... IT_TRACE=0; git 
+commit -m "refactor: 
+enforce strict type 
+safety in ad ...
++                 ~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (14:10:17.7251   
+ 28...: git_dir: .g    
+it:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+14:10:17.726128 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:10:17.726128 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:10:17.726128 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:10:17.726128 
+trace.c:318            
+ setup: prefix: (null)
+14:10:17.726128 
+chdir-notify.c:68      
+ setup: chdir from 'D:/
+thinkments-website-v2' 
+to 'D:/thinkments-websi
+te-v2'
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ai_reports/task.md
+	modified:   ai_reports/walkthrough.md
+	modified:   src/components/PerformantImage.tsx
+	modified:   src/components/admin/BrokenLinkChecker.tsx
+	modified:   src/components/admin/EmailCampaignWriter.tsx
+	modified:   src/components/admin/GBPDashboard.tsx
+	modified:   src/components/admin/InvoicesExpenses.tsx
+	modified:   src/components/admin/NotFoundPageEditor.tsx
+	modified:   src/components/admin/PodcastManager.tsx
+	modified:   src/components/admin/PublishingSystem.tsx
+	modified:   src/components/admin/RankTracker.tsx
+	modified:   src/components/admin/ReportGenerator.tsx
+	modified:   src/components/admin/ReviewsManagement.tsx
+	modified:   src/components/admin/SEOBulkFixer.tsx
+	modified:   src/components/admin/SERPOptimizer.tsx
+	modified:   src/components/admin/SystemArchitecture.tsx
+	modified:   src/components/admin/UIStatesGuide.tsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	commit_output.txt
+	commit_result.txt
+	debug_status_now.txt
+	git_trace_ascii.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")

@@ -1,0 +1,39 @@
+
+> thinkments-website@0.1.0 type-check
+> tsc -b
+
+src/components/admin/AdminLayout.tsx(193,19): error TS2322: Type 'string | undefined' is not assignable to type 'To'.
+  Type 'undefined' is not assignable to type 'To'.
+src/components/admin/AdminLayout.tsx(194,114): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/admin/AutomatedClientReporting.tsx(1042,28): error TS2304: Cannot find name 'Save'.
+src/components/admin/BrokenLinkChecker.tsx(828,18): error TS2552: Cannot find name 'Select'. Did you mean 'onselect'?
+src/components/admin/BrokenLinkChecker.tsx(830,35): error TS7006: Parameter 'value' implicitly has an 'any' type.
+src/components/admin/BrokenLinkChecker.tsx(832,20): error TS2304: Cannot find name 'SelectTrigger'.
+src/components/admin/BrokenLinkChecker.tsx(833,22): error TS2552: Cannot find name 'SelectValue'. Did you mean 'selectAll'?
+src/components/admin/BrokenLinkChecker.tsx(834,21): error TS2304: Cannot find name 'SelectTrigger'.
+src/components/admin/BrokenLinkChecker.tsx(835,20): error TS2304: Cannot find name 'SelectContent'.
+src/components/admin/BrokenLinkChecker.tsx(836,22): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(836,58): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(837,22): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(837,57): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(838,22): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(838,61): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(839,22): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(839,55): error TS2304: Cannot find name 'SelectItem'.
+src/components/admin/BrokenLinkChecker.tsx(840,21): error TS2304: Cannot find name 'SelectContent'.
+src/components/admin/BrokenLinkChecker.tsx(841,19): error TS2552: Cannot find name 'Select'. Did you mean 'onselect'?
+src/components/admin/ClientPortalManager.tsx(452,58): error TS2304: Cannot find name 'Share2'.
+src/components/admin/ClientPortalManager.tsx(533,60): error TS2304: Cannot find name 'LayoutDashboard'.
+src/components/admin/InvoicesExpenses.tsx(813,50): error TS2304: Cannot find name 'Settings'.
+src/components/admin/MediaLibrary.tsx(471,20): error TS2304: Cannot find name 'Textarea'.
+src/components/pages/ImmersiveExperiencesPage.tsx(879,16): error TS2304: Cannot find name 'HelpCircle'.
+src/components/pages/NotFoundPage.tsx(15,29): error TS2554: Expected 1 arguments, but got 0.
+src/components/pages/RobotsPage.tsx(204,20): error TS2304: Cannot find name 'Badge'.
+src/components/pages/RobotsPage.tsx(211,21): error TS2304: Cannot find name 'Badge'.
+src/components/useSEO.tsx(4,24): error TS2440: Import declaration conflicts with local declaration of 'PageSEOConfig'.
+src/components/useSEO.tsx(51,28): error TS2339: Property 'noindex' does not exist on type 'UseSEOOptions'.
+src/components/useSEO.tsx(52,5): error TS2353: Object literal may only specify known properties, and 'canonical' does not exist in type 'PageSEOConfig'.
+src/components/useSEO.tsx(52,58): error TS2339: Property 'canonical' does not exist on type 'PageSEOConfig'.
+src/components/useSEO.tsx(78,30): error TS2339: Property 'canonical' does not exist on type 'PageSEOConfig'.
+src/data/blogPosts.ts(1635,3): error TS1117: An object literal cannot have multiple properties with the same name.

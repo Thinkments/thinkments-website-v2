@@ -1,0 +1,168 @@
+git : 14:10:37.168300 
+trace.c:314            
+ setup: git_dir: .git
+At line:1 char:1
++ git commit -a -m 
+"refactor: enforce 
+strict type safety in 
+admin suite ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (14:10:37.1683   
+ 00...: git_dir: .g    
+it:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+14:10:37.168300 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:10:37.168300 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:10:37.168300 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:10:37.168300 
+trace.c:318            
+ setup: prefix: (null)
+14:10:37.169296 
+chdir-notify.c:68      
+ setup: chdir from 'D:/
+thinkments-website-v2' 
+to 'D:/thinkments-websi
+te-v2'
+warning: in the 
+working copy of 'src/co
+mponents/PerformantImag
+e.tsx', LF will be 
+replaced by CRLF the 
+next time Git touches 
+it
+warning: in the 
+working copy of 'src/co
+mponents/admin/BrokenLi
+nkChecker.tsx', LF 
+will be replaced by 
+CRLF the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/EmailCam
+paignWriter.tsx', LF 
+will be replaced by 
+CRLF the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/GBPDashb
+oard.tsx', LF will be 
+replaced by CRLF the 
+next time Git touches 
+it
+warning: in the 
+working copy of 'src/co
+mponents/admin/Invoices
+Expenses.tsx', LF will 
+be replaced by CRLF 
+the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/NotFound
+PageEditor.tsx', LF 
+will be replaced by 
+CRLF the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/PodcastM
+anager.tsx', LF will 
+be replaced by CRLF 
+the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/Publishi
+ngSystem.tsx', LF will 
+be replaced by CRLF 
+the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/RankTrac
+ker.tsx', LF will be 
+replaced by CRLF the 
+next time Git touches 
+it
+warning: in the 
+working copy of 'src/co
+mponents/admin/ReportGe
+nerator.tsx', LF will 
+be replaced by CRLF 
+the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/ReviewsM
+anagement.tsx', LF 
+will be replaced by 
+CRLF the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/SEOBulkF
+ixer.tsx', LF will be 
+replaced by CRLF the 
+next time Git touches 
+it
+warning: in the 
+working copy of 'src/co
+mponents/admin/SERPOpti
+mizer.tsx', LF will be 
+replaced by CRLF the 
+next time Git touches 
+it
+warning: in the 
+working copy of 'src/co
+mponents/admin/SystemAr
+chitecture.tsx', LF 
+will be replaced by 
+CRLF the next time Git 
+touches it
+warning: in the 
+working copy of 'src/co
+mponents/admin/UIStates
+Guide.tsx', LF will be 
+replaced by CRLF the 
+next time Git touches 
+it
+14:10:38.086646 
+trace.c:314            
+ setup: git_dir: .git
+14:10:38.087154 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:10:38.087154 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:10:38.087154 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:10:38.087154 
+trace.c:318            
+ setup: prefix: (null)
+[main 7ab37ca] refactor: enforce strict type safety in admin suite
+ 17 files changed, 258 insertions(+), 315 deletions(-)

@@ -26,6 +26,7 @@ import {
   GraduationCap,
   Briefcase,
   DollarSign,
+  HelpCircle,
 } from 'lucide-react';
 import SEO from '../SEO';
 

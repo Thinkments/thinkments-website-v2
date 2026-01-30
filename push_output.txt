@@ -1,0 +1,76 @@
+git : 14:11:28.946652 
+trace.c:314            
+ setup: git_dir: .git
+At line:1 char:1
++ git push origin main 
+2>&1 | Out-File 
+-Encoding ASCII 
+push_output.txt; ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (14:11:28.9466   
+ 52...: git_dir: .g    
+it:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+14:11:28.947060 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:11:28.947065 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:11:28.947065 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:11:28.947065 
+trace.c:318            
+ setup: prefix: (null)
+14:11:29.966911 
+trace.c:314            
+ setup: git_dir: .git
+14:11:29.967910 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:11:29.967910 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:11:29.967910 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:11:29.967910 
+trace.c:318            
+ setup: prefix: (null)
+14:11:29.985978 
+trace.c:314            
+ setup: git_dir: .git
+14:11:29.985978 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:11:29.985978 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:11:29.985978 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:11:29.985978 
+trace.c:318            
+ setup: prefix: (null)
+To https://github.com/T
+hinkments/thinkments-we
+bsite-v2.git
+   e0d3a3f..7ab37ca  
+main -> main

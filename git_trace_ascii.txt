@@ -1,0 +1,85 @@
+git : 14:07:44.195937 
+exec-cmd.c:243         
+ trace: resolved 
+executable dir: 
+C:/Program 
+Files/Git/mingw64/bin
+At line:1 char:43
++ ... CE_SETUP=1; git 
+commit -m "refactor: 
+enforce strict type 
+safety in ad ...
++                 ~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (14:07:44.1959   
+ 37...Git/mingw64/b    
+in:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+14:07:44.208903 
+trace.c:314            
+ setup: git_dir: .git
+14:07:44.208903 
+trace.c:315            
+ setup: 
+git_common_dir: .git
+14:07:44.208903 
+trace.c:316            
+ setup: worktree: D:/th
+inkments-website-v2
+14:07:44.208903 
+trace.c:317            
+ setup: cwd: D:/thinkme
+nts-website-v2
+14:07:44.208903 
+trace.c:318            
+ setup: prefix: (null)
+14:07:44.208903 
+chdir-notify.c:68      
+ setup: chdir from 'D:/
+thinkments-website-v2' 
+to 'D:/thinkments-websi
+te-v2'
+14:07:44.208903 
+git.c:465              
+ trace: built-in: git 
+commit -m 'refactor: 
+enforce strict type 
+safety in admin suite'
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ai_reports/task.md
+	modified:   ai_reports/walkthrough.md
+	modified:   src/components/PerformantImage.tsx
+	modified:   src/components/admin/BrokenLinkChecker.tsx
+	modified:   src/components/admin/EmailCampaignWriter.tsx
+	modified:   src/components/admin/GBPDashboard.tsx
+	modified:   src/components/admin/InvoicesExpenses.tsx
+	modified:   src/components/admin/NotFoundPageEditor.tsx
+	modified:   src/components/admin/PodcastManager.tsx
+	modified:   src/components/admin/PublishingSystem.tsx
+	modified:   src/components/admin/RankTracker.tsx
+	modified:   src/components/admin/ReportGenerator.tsx
+	modified:   src/components/admin/ReviewsManagement.tsx
+	modified:   src/components/admin/SEOBulkFixer.tsx
+	modified:   src/components/admin/SERPOptimizer.tsx
+	modified:   src/components/admin/SystemArchitecture.tsx
+	modified:   src/components/admin/UIStatesGuide.tsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	commit_result.txt
+	debug_status_now.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")

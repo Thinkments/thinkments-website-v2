@@ -7,6 +7,7 @@ export interface PageSEOConfig {
   image?: string;
   structuredData?: object;
   noindex?: boolean;
+  canonical?: string;
 }
 
 export const seoConfigs: Record<string, PageSEOConfig> = {
