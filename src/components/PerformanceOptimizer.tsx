@@ -10,6 +10,26 @@ import { useEffect } from 'react';
  * - Reports performance metrics
  */
 
+// Define types for requestIdleCallback which might not be in all environments
+interface Window {
+  requestIdleCallback: (
+    callback: (deadline: IdleDeadline) => void,
+    options?: { timeout: number },
+  ) => number;
+}
+
+interface IdleDeadline {
+  timeRemaining: () => number;
+  didTimeout: boolean;
+}
+
+// Minimal interface for PerformanceObserverEntry to satisfy TS
+interface PerformanceEntryWithProcessing extends PerformanceEntry {
+  processingStart?: number;
+  hadRecentInput?: boolean;
+  value?: number;
+}
+
 export default function PerformanceOptimizer() {
   useEffect(() => {
     // Defer loading of non-critical scripts
@@ -19,7 +39,7 @@ export default function PerformanceOptimizer() {
 
       // Example: Load Google Analytics after page load
       if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => {
+        (window as unknown as Window).requestIdleCallback(() => {
           // Load analytics here
           console.log('Analytics loaded after idle');
         });
@@ -52,9 +72,11 @@ export default function PerformanceOptimizer() {
       // First Input Delay (FID)
       try {
         const fidObserver = new PerformanceObserver((list) => {
-          const entries = list.getEntries();
-          entries.forEach((entry: any) => {
-            console.log('FID:', entry.processingStart - entry.startTime);
+          const entries = list.getEntries() as PerformanceEntryWithProcessing[];
+          entries.forEach((entry) => {
+            if (entry.processingStart) {
+              console.log('FID:', entry.processingStart - entry.startTime);
+            }
           });
         });
         fidObserver.observe({ type: 'first-input', buffered: true });
@@ -66,9 +88,9 @@ export default function PerformanceOptimizer() {
       try {
         let clsValue = 0;
         const clsObserver = new PerformanceObserver((list) => {
-          const entries = list.getEntries();
-          entries.forEach((entry: any) => {
-            if (!entry.hadRecentInput) {
+          const entries = list.getEntries() as PerformanceEntryWithProcessing[];
+          entries.forEach((entry) => {
+            if (!entry.hadRecentInput && entry.value) {
               clsValue += entry.value;
               console.log('CLS:', clsValue);
             }
@@ -83,7 +105,7 @@ export default function PerformanceOptimizer() {
     // Preload critical images for next page
     const preloadNextPageImages = () => {
       // This can be customized based on likely next pages
-      const criticalImages = [
+      const criticalImages: string[] = [
         // Add URLs of images that are likely to be needed next
       ];
 

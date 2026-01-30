@@ -76,7 +76,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
   const [expandedSections, setExpandedSections] = useState<string[]>(['content', 'create']);
 
-  const toggleSection = (section: string) => {
+  const toggleSection = (section: string | undefined) => {
+    if (!section) return; // Guard clause
     setExpandedSections((prev) =>
       prev.includes(section) ? prev.filter((s) => s !== section) : [...prev, section],
     );
@@ -95,9 +96,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       <div className="admin-layout flex h-screen overflow-hidden">
         {/* Sidebar */}
         <motion.aside
-          className={`admin-sidebar fixed left-0 top-0 h-full z-40 flex flex-col ${
-            sidebarCollapsed ? 'w-20' : 'w-64'
-          } transition-all duration-300 hidden lg:flex`}
+          className={`admin-sidebar fixed left-0 top-0 h-full z-40 flex flex-col ${sidebarCollapsed ? 'w-20' : 'w-64'
+            } transition-all duration-300 hidden lg:flex`}
           initial={false}
         >
           {/* Logo */}
@@ -133,10 +133,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                   {item.children ? (
                     <div>
                       <button
-                        onClick={() => toggleSection(item.section || '')}
-                        className={`w-full flex items-center justify-between px-3 py-2 text-white/80 hover:bg-white/10 rounded-lg transition-colors ${
-                          sidebarCollapsed ? 'justify-center' : ''
-                        }`}
+                        onClick={() => toggleSection(item.section)}
+                        className={`w-full flex items-center justify-between px-3 py-2 text-white/80 hover:bg-white/10 rounded-lg transition-colors ${sidebarCollapsed ? 'justify-center' : ''
+                          }`}
                       >
                         <div className="flex items-center space-x-3">
                           <item.icon className="w-5 h-5" />
@@ -144,9 +143,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                         </div>
                         {!sidebarCollapsed && (
                           <ChevronRight
-                            className={`w-4 h-4 transition-transform ${
-                              expandedSections.includes(item.section || '') ? 'rotate-90' : ''
-                            }`}
+                            className={`w-4 h-4 transition-transform ${expandedSections.includes(item.section || '') ? 'rotate-90' : ''
+                              }`}
                           />
                         )}
                       </button>
@@ -156,11 +154,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                             <Link
                               key={child.name}
                               to={child.href}
-                              className={`flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors ${
-                                isActive(child.href)
-                                  ? 'bg-[#00B4D8] text-white'
-                                  : 'text-white/70 hover:bg-white/10 hover:text-white'
-                              }`}
+                              className={`flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors ${isActive(child.href)
+                                ? 'bg-[#00B4D8] text-white'
+                                : 'text-white/70 hover:bg-white/10 hover:text-white'
+                                }`}
                             >
                               <child.icon className="w-4 h-4" />
                               <span>{child.name}</span>
@@ -172,11 +169,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                   ) : (
                     <Link
                       to={item.href}
-                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${
-                        isActive(item.href)
-                          ? 'bg-[#00B4D8] text-white'
-                          : 'text-white/80 hover:bg-white/10 hover:text-white'
-                      } ${sidebarCollapsed ? 'justify-center' : ''}`}
+                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href)
+                        ? 'bg-[#00B4D8] text-white'
+                        : 'text-white/80 hover:bg-white/10 hover:text-white'
+                        } ${sidebarCollapsed ? 'justify-center' : ''}`}
                       title={sidebarCollapsed ? item.name : undefined}
                     >
                       <item.icon className="w-5 h-5" />
@@ -195,11 +191,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${
-                    isActive(item.href)
-                      ? 'bg-[#00B4D8] text-white'
-                      : 'text-white/80 hover:bg-white/10 hover:text-white'
-                  } ${sidebarCollapsed ? 'justify-center' : ''}`}
+                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href)
+                    ? 'bg-[#00B4D8] text-white'
+                    : 'text-white/80 hover:bg-white/10 hover:text-white'
+                    } ${sidebarCollapsed ? 'justify-center' : ''}`}
                   title={sidebarCollapsed ? item.name : undefined}
                 >
                   <item.icon className="w-5 h-5" />
@@ -249,7 +244,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                       {item.children ? (
                         <div>
                           <button
-                            onClick={() => toggleSection(item.section || '')}
+                            onClick={() => toggleSection(item.section)}
                             className="w-full flex items-center justify-between px-3 py-2 text-white/80 hover:bg-white/10 rounded-lg transition-colors"
                           >
                             <div className="flex items-center space-x-3">
@@ -257,9 +252,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                               <span className="text-sm">{item.name}</span>
                             </div>
                             <ChevronRight
-                              className={`w-4 h-4 transition-transform ${
-                                expandedSections.includes(item.section || '') ? 'rotate-90' : ''
-                              }`}
+                              className={`w-4 h-4 transition-transform ${expandedSections.includes(item.section || '') ? 'rotate-90' : ''
+                                }`}
                             />
                           </button>
                           {expandedSections.includes(item.section || '') && (
@@ -269,11 +263,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                                   key={child.name}
                                   to={child.href}
                                   onClick={() => setMobileMenuOpen(false)}
-                                  className={`flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors ${
-                                    isActive(child.href)
-                                      ? 'bg-[#00B4D8] text-white'
-                                      : 'text-white/70 hover:bg-white/10 hover:text-white'
-                                  }`}
+                                  className={`flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors ${isActive(child.href)
+                                    ? 'bg-[#00B4D8] text-white'
+                                    : 'text-white/70 hover:bg-white/10 hover:text-white'
+                                    }`}
                                 >
                                   <child.icon className="w-4 h-4" />
                                   <span>{child.name}</span>
@@ -286,11 +279,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                         <Link
                           to={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${
-                            isActive(item.href)
-                              ? 'bg-[#00B4D8] text-white'
-                              : 'text-white/80 hover:bg-white/10 hover:text-white'
-                          }`}
+                          className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href)
+                            ? 'bg-[#00B4D8] text-white'
+                            : 'text-white/80 hover:bg-white/10 hover:text-white'
+                            }`}
                         >
                           <item.icon className="w-5 h-5" />
                           <span className="text-sm">{item.name}</span>
