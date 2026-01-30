@@ -10,6 +10,18 @@ interface UseSEOOptions {
   image?: string;
   type?: 'website' | 'article' | 'product' | 'service';
   structuredData?: object;
+  customScripts?: string[];
+  canonical?: string;
+}
+
+export interface PageSEOConfig {
+  title: string;
+  description: string;
+  keywords: string;
+  url: string;
+  type: 'website' | 'article' | 'product' | 'service';
+  image?: string;
+  structuredData?: object;
   noindex?: boolean;
   canonical?: string;
 }

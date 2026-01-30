@@ -24,23 +24,49 @@ interface ServicesMegaMenuProps {
   onClose: () => void;
 }
 
-const ServiceItem = ({ item, onClose }: { item: any; onClose: () => void }) => (
-  <Link
-    to={item.path}
-    onClick={onClose}
-    className="group flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-200"
-  >
-    <div className={`p-2 rounded-lg bg-gradient-to-br ${item.gradient} flex-shrink-0`}>
-      <item.icon className="w-4 h-4 text-white" />
-    </div>
-    <div className="flex-1 min-w-0">
-      <div className="text-sm font-semibold text-white group-hover:text-[#00B4D8] transition-colors">
-        {item.name}
+const ServiceItem = ({ item, onClose }: { item: any; onClose: () => void }) => {
+  const isExternal = item.path.startsWith('http');
+
+  if (isExternal) {
+    return (
+      <a
+        href={item.path}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClose}
+        className="group flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-200"
+      >
+        <div className={`p-2 rounded-lg bg-gradient-to-br ${item.gradient} flex-shrink-0`}>
+          <item.icon className="w-4 h-4 text-white" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="text-sm font-semibold text-white group-hover:text-[#00B4D8] transition-colors">
+            {item.name}
+          </div>
+          <p className="text-xs text-gray-400 truncate">{item.desc}</p>
+        </div>
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      to={item.path}
+      onClick={onClose}
+      className="group flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-200"
+    >
+      <div className={`p-2 rounded-lg bg-gradient-to-br ${item.gradient} flex-shrink-0`}>
+        <item.icon className="w-4 h-4 text-white" />
       </div>
-      <p className="text-xs text-gray-400 truncate">{item.desc}</p>
-    </div>
-  </Link>
-);
+      <div className="flex-1 min-w-0">
+        <div className="text-sm font-semibold text-white group-hover:text-[#00B4D8] transition-colors">
+          {item.name}
+        </div>
+        <p className="text-xs text-gray-400 truncate">{item.desc}</p>
+      </div>
+    </Link>
+  );
+};
 
 export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
   if (!isOpen) return null;
@@ -49,7 +75,7 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
     development: [
       {
         name: 'Web Development',
-        path: '/services/web',
+        path: 'https://websitedesign.thinkments.com/',
         icon: Code,
         gradient: 'from-blue-500 to-cyan-500',
         desc: 'Custom websites & web apps',
@@ -197,7 +223,7 @@ export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
     {
       title: 'Development',
       items: [
-        { name: 'Web Development', path: '/services/web' },
+        { name: 'Web Development', path: 'https://websitedesign.thinkments.com/' },
         { name: 'E-Commerce', path: '/services/web/ecommerce' },
         { name: 'Custom Apps', path: '/services/web/apps' },
       ],
@@ -228,13 +254,25 @@ export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
           </h4>
           <div className="space-y-2">
             {category.items.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="block text-lg text-white/70 hover:text-white transition-colors"
-              >
-                {item.name}
-              </Link>
+              item.path.startsWith('http') ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg text-white/70 hover:text-white transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="block text-lg text-white/70 hover:text-white transition-colors"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
         </div>

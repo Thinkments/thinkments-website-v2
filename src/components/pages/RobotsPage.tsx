@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../ui/card';
 import { Separator } from '../ui/separator';
 import { Copy, Download, Shield, Search, Globe, Clock } from 'lucide-react';
 import { Button } from '../ui/button';

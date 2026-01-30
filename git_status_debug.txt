@@ -1,0 +1,87 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   package-lock.json
+	modified:   package.json
+	modified:   src/components/BlogContent.tsx
+	modified:   src/components/Breadcrumbs.tsx
+	modified:   src/components/ContactForm.tsx
+	modified:   src/components/ShareButton.tsx
+	modified:   src/components/TableOfContents.tsx
+	modified:   src/components/admin/BlogCreationToolNew.tsx
+	modified:   src/components/admin/BlogGenerator.tsx
+	modified:   src/components/admin/BulkPageGenerator.tsx
+	modified:   src/components/admin/ClientManager.tsx
+	modified:   src/components/admin/LeadDashboard.tsx
+	modified:   src/components/admin/MediaLibrary.tsx
+	modified:   src/components/admin/PageBuilder.tsx
+	modified:   src/components/admin/SeoAdminDashboard.tsx
+	modified:   src/components/pages/AIPodcastProductionPage.tsx
+	modified:   src/components/pages/BlogPostPage.tsx
+	modified:   src/components/pages/CASACaseStudyPage.tsx
+	modified:   src/components/pages/DecaturChamberCaseStudyPage.tsx
+	modified:   src/components/pages/DesignTransferAgreementPage.tsx
+	modified:   src/components/pages/GoogleBusinessProfileEinsteinium.tsx
+	modified:   src/components/pages/GoogleBusinessProfileFoundationPage.tsx
+	modified:   src/components/pages/GoogleBusinessProfileGrowthEnhancedPage.tsx
+	modified:   src/components/pages/GoogleBusinessProfileGrowthPage.tsx
+	modified:   src/components/pages/GoogleBusinessProfileProfessionalPage.tsx
+	modified:   src/components/pages/LlmPage.tsx
+	modified:   src/components/pages/LocationMarketingPage.tsx
+	modified:   src/components/pages/PrivacyPolicyPage.tsx
+	modified:   src/components/pages/ProductPage.tsx
+	modified:   src/components/pages/SitemapPage.tsx
+	modified:   src/components/pages/SitemapXmlPage.tsx
+	modified:   src/components/pages/quote/ContactForm.tsx
+	modified:   src/components/pages/quote/QuoteBenefits.tsx
+	modified:   src/components/pages/quote/QuoteFormSteps.tsx
+	modified:   src/components/pages/quote/QuoteProgress.tsx
+	modified:   src/components/ui/accordion.tsx
+	modified:   src/components/ui/alert-dialog.tsx
+	modified:   src/components/ui/alert.tsx
+	modified:   src/components/ui/aspect-ratio.tsx
+	modified:   src/components/ui/avatar.tsx
+	modified:   src/components/ui/badge.tsx
+	modified:   src/components/ui/breadcrumb.tsx
+	modified:   src/components/ui/button.tsx
+	modified:   src/components/ui/calendar.tsx
+	modified:   src/components/ui/carousel.tsx
+	modified:   src/components/ui/chart.tsx
+	modified:   src/components/ui/checkbox.tsx
+	modified:   src/components/ui/collapsible.tsx
+	modified:   src/components/ui/command.tsx
+	modified:   src/components/ui/context-menu.tsx
+	modified:   src/components/ui/dialog.tsx
+	modified:   src/components/ui/drawer.tsx
+	modified:   src/components/ui/dropdown-menu.tsx
+	modified:   src/components/ui/form.tsx
+	modified:   src/components/ui/hover-card.tsx
+	modified:   src/components/ui/input-otp.tsx
+	modified:   src/components/ui/menubar.tsx
+	modified:   src/components/ui/navigation-menu.tsx
+	modified:   src/components/ui/pagination.tsx
+	modified:   src/components/ui/popover.tsx
+	modified:   src/components/ui/progress.tsx
+	modified:   src/components/ui/radio-group.tsx
+	modified:   src/components/ui/resizable.tsx
+	modified:   src/components/ui/scroll-area.tsx
+	modified:   src/components/ui/select.tsx
+	modified:   src/components/ui/separator.tsx
+	modified:   src/components/ui/sheet.tsx
+	modified:   src/components/ui/sidebar.tsx
+	modified:   src/components/ui/slider.tsx
+	modified:   src/components/ui/sonner.tsx
+	modified:   src/components/ui/switch.tsx
+	modified:   src/components/ui/toggle-group.tsx
+	modified:   src/components/ui/toggle.tsx
+	modified:   src/components/ui/tooltip.tsx
+	deleted:    src/fix-lucide-imports.js
+	deleted:    src/pages/api/business-schema.ts
+	modified:   tsconfig.app.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_status_debug.txt
+

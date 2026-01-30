@@ -1,0 +1,5 @@
+commit 6ef09a27f7e11957a2350f1469ad51f9ea619040
+Author: Corey Spicer <Spicer@thinkments.com>
+Date:   Fri Jan 30 12:24:01 2026 -0600
+
+    FixBuildErrors
