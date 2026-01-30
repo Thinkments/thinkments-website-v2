@@ -12,7 +12,7 @@ export default function NotFoundPage() {
   const [playerScore, setPlayerScore] = useState(0);
   const [aiScore, setAiScore] = useState(0);
   const [winner, setWinner] = useState<'player' | 'ai' | null>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number>(0);
   const gameRef = useRef<any>(null);
 
   useEffect(() => {

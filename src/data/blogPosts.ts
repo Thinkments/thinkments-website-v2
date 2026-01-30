@@ -101,37 +101,37 @@ export const blogPosts = {
     `,
   },
   'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
-    {
-      id: 301,
-      title:
-        'How Decatur Businesses Can Level Up Local SEO with ThinkMents, Gemini Quizzes, and OpenStax Tools',
-      excerpt:
-        "Discover how Decatur TX businesses can dominate local SEO using ThinkMents' AI-powered Gemini quizzes and OpenStax educational content to boost visibility, engagement, and community authority in Wise County.",
-      author: 'Corey Spicer',
-      date: '2025-01-23',
-      category: 'seo',
-      readTime: '12 min read',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-      images: [
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop',
-        'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop',
-      ],
-      tags: [
-        'Decatur TX SEO',
-        'Wise County SEO',
-        'Gemini AI Quizzes',
-        'OpenStax Resources',
-        'Local SEO',
-        'Small Business Marketing',
-        'AI Automation',
-        'Educational SEO',
-      ],
-      metaTitle: 'Decatur Local SEO with Gemini Quizzes & OpenStax | ThinkMents',
-      metaDescription:
-        "Learn how Decatur businesses can level up local SEO with ThinkMents' AI-powered Gemini quizzes and OpenStax educational content. Boost visibility now.",
-      content: `
+  {
+    id: 301,
+    title:
+      'How Decatur Businesses Can Level Up Local SEO with ThinkMents, Gemini Quizzes, and OpenStax Tools',
+    excerpt:
+      "Discover how Decatur TX businesses can dominate local SEO using ThinkMents' AI-powered Gemini quizzes and OpenStax educational content to boost visibility, engagement, and community authority in Wise County.",
+    author: 'Corey Spicer',
+    date: '2025-01-23',
+    category: 'seo',
+    readTime: '12 min read',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop',
+    ],
+    tags: [
+      'Decatur TX SEO',
+      'Wise County SEO',
+      'Gemini AI Quizzes',
+      'OpenStax Resources',
+      'Local SEO',
+      'Small Business Marketing',
+      'AI Automation',
+      'Educational SEO',
+    ],
+    metaTitle: 'Decatur Local SEO with Gemini Quizzes & OpenStax | ThinkMents',
+    metaDescription:
+      "Learn how Decatur businesses can level up local SEO with ThinkMents' AI-powered Gemini quizzes and OpenStax educational content. Boost visibility now.",
+    content: `
       <h1>How Decatur Businesses Can Level Up Local SEO with ThinkMents, Gemini Quizzes, and OpenStax Tools</h1>
 
       <p>Decatur, Texas is experiencing a business renaissance. As Wise County's retail and service hub continues to grow, local businesses face an increasingly competitive digital marketplace. The question isn't whether you need local SEO—it's how you can stand out from dozens of competitors vying for the same local customers' attention. Traditional SEO tactics still matter, but today's winners are those who embrace innovative, engagement-driven strategies that combine cutting-edge AI technology with educational value.</p>
@@ -313,7 +313,7 @@ export const blogPosts = {
       }
       </script>
     `,
-    },
+  },
   '5-seo-mistakes-small-businesses-make-how-thinkments-helps-fix-them': {
     id: 302,
     title: '5 SEO Mistakes Small Businesses Make — And How ThinkMents Helps You Fix Them',
@@ -1633,34 +1633,33 @@ export const blogPosts = {
     `,
   },
   'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
-    {
-      id: 307,
-      title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
-      excerpt:
-        'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
-      author: 'Corey Spicer',
-      date: '2025-01-24',
-      category: 'seo',
-      readTime: '15 min read',
-      image:
-        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      images: [
-        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-        'https://images.unsplash.com/photo-1672777368741-80312486d515?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-        'https://images.unsplash.com/photo-1598987829536-7d90c3746f5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      ],
-      tags: [
-        'Local SEO',
-        'Decatur Business',
-        'Google Business Profile',
-        'Wise County',
-        'Small Business Marketing',
-      ],
-      metaTitle: 'Decatur Local SEO Services | ThinkMents Wise County Marketing',
-      metaDescription:
-        'Dominate local search in Decatur and Wise County with expert local SEO from ThinkMents. Google Business Profile optimization, local citations, and strategies that drive foot traffic.',
-      content: `
+  {
+    id: 307,
+    title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
+    excerpt:
+      'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
+    author: 'Corey Spicer',
+    date: '2025-01-24',
+    category: 'seo',
+    readTime: '15 min read',
+    image:
+      'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    images: [
+      'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+      'https://images.unsplash.com/photo-1672777368741-80312486d515?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+      'https://images.unsplash.com/photo-1598987829536-7d90c3746f5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    ],
+    tags: [
+      'Local SEO',
+      'Decatur Business',
+      'Google Business Profile',
+      'Wise County',
+      'Small Business Marketing',
+    ],
+    metaTitle: 'Decatur Local SEO Services | ThinkMents Wise County Marketing',
+    metaDescription:
+      'Dominate local search in Decatur and Wise County with expert local SEO from ThinkMents. Google Business Profile optimization, local citations, and strategies that drive foot traffic.',
+    content: `
       <h1>Decatur Businesses: Level Up Your Local SEO with ThinkMents</h1>
 
       <p>If you own a business in <strong>Decatur, Texas</strong>, you face unique marketing challenges and extraordinary opportunities. As the county seat of <strong>Wise County</strong>, Decatur combines small-town community values with growing economic vitality. The businesses that thrive here understand one critical truth: local customers searching Google for products and services you offer represent your highest-value prospects—and <strong>local SEO</strong> determines whether they find your business or your competitors.</p>
@@ -2001,7 +2000,7 @@ export const blogPosts = {
       }
       </script>
     `,
-    },
+  },
   'the-fundamentals-of-digital-marketing-grow-your-business-with-thinkments': {
     id: 308,
     title: 'The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents',

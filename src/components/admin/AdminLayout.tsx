@@ -186,12 +186,12 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           {/* Bottom Navigation */}
           <div className="border-t border-white/10 py-4 px-2">
             {navigation
-              .filter((item) => item.section === 'bottom')
+              .filter((item) => item.section === 'bottom' && item.href)
               .map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}
-                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href)
+                  to={item.href!}
+                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href!)
                     ? 'bg-[#00B4D8] text-white'
                     : 'text-white/80 hover:bg-white/10 hover:text-white'
                     } ${sidebarCollapsed ? 'justify-center' : ''}`}
