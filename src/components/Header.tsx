@@ -40,17 +40,15 @@ export default function Header() {
 
   const aboutPages = [
     { name: 'About Us', href: '/about-us', desc: 'Our mission & values' },
-    { name: 'Our Story', href: '/our-story', desc: 'How we started' }
+    { name: 'Our Story', href: '/our-story', desc: 'How we started' },
   ];
 
-  const resourcePages = [
-    { name: 'Blog', href: '/blog', desc: 'Latest insights', icon: Zap }
-  ];
+  const resourcePages = [{ name: 'Blog', href: '/blog', desc: 'Latest insights', icon: Zap }];
 
   const isActiveLink = (path: string) => location.pathname === path;
 
   const isActiveDropdown = (paths: string[]) => {
-    return paths.some(path => location.pathname === path || location.pathname.startsWith(path));
+    return paths.some((path) => location.pathname === path || location.pathname.startsWith(path));
   };
 
   return (
@@ -69,7 +67,8 @@ export default function Header() {
             transition-all duration-500
             ${isScrolled
               ? 'bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]'
-              : 'bg-black/70 backdrop-blur-md border border-white/10 shadow-none'}
+              : 'bg-black/70 backdrop-blur-md border border-white/10 shadow-none'
+            }
           `}
         >
           {/* Logo - Left Section */}
@@ -87,20 +86,22 @@ export default function Header() {
 
           {/* Desktop Navigation - Center Section */}
           <nav className="hidden lg:flex items-center gap-2">
-
             {/* Nav Item: Services (Mega Menu) */}
             <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('services')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button
+              <a
+                href="https://website.thinkments.com"
                 className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group-hover:bg-white/10 ${isActiveDropdown(['/services']) ? 'text-[#00B4D8] bg-white/10' : 'text-white'
                   }`}
               >
                 <span className="relative z-10">Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`} />
-              </button>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`}
+                />
+              </a>
 
               <AnimatePresence>
                 {activeDropdown === 'services' && (
@@ -111,7 +112,10 @@ export default function Header() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} // Spring-like ease
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-4 pt-4 w-auto"
                   >
-                    <div className="rounded-2xl border border-gray-600 shadow-2xl bg-[#1a1f2e] backdrop-blur-xl" style={{ backgroundColor: 'rgb(26, 31, 46)' }}>
+                    <div
+                      className="rounded-2xl border border-gray-600 shadow-2xl bg-[#1a1f2e] backdrop-blur-xl"
+                      style={{ backgroundColor: 'rgb(26, 31, 46)' }}
+                    >
                       <ServicesMegaMenu isOpen={true} onClose={() => setActiveDropdown(null)} />
                     </div>
                   </motion.div>
@@ -126,11 +130,15 @@ export default function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 group-hover:bg-white/10 ${isActiveDropdown(['/about-us', '/our-story']) ? 'text-[#00B4D8] bg-white/10' : 'text-white'
+                className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 group-hover:bg-white/10 ${isActiveDropdown(['/about-us', '/our-story'])
+                    ? 'text-[#00B4D8] bg-white/10'
+                    : 'text-white'
                   }`}
               >
                 <span>About</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'about' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`} />
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'about' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`}
+                />
               </button>
 
               <AnimatePresence>
@@ -142,7 +150,10 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 pt-2"
                   >
-                    <div className="rounded-xl border border-gray-600 shadow-2xl p-3 overflow-hidden" style={{ backgroundColor: 'rgb(26, 31, 46)' }}>
+                    <div
+                      className="rounded-xl border border-gray-600 shadow-2xl p-3 overflow-hidden"
+                      style={{ backgroundColor: 'rgb(26, 31, 46)' }}
+                    >
                       {aboutPages.map((page) => (
                         <Link
                           key={page.href}
@@ -150,8 +161,12 @@ export default function Header() {
                           className="group/item flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
                         >
                           <div>
-                            <div className="text-sm font-semibold text-white group-hover/item:text-[#00B4D8] transition-colors">{page.name}</div>
-                            <div className="text-xs text-gray-400 group-hover/item:text-gray-300 transition-colors mt-0.5">{page.desc}</div>
+                            <div className="text-sm font-semibold text-white group-hover/item:text-[#00B4D8] transition-colors">
+                              {page.name}
+                            </div>
+                            <div className="text-xs text-gray-400 group-hover/item:text-gray-300 transition-colors mt-0.5">
+                              {page.desc}
+                            </div>
                           </div>
                           <ArrowRight className="w-4 h-4 text-white/20 group-hover/item:text-[#00B4D8] -translate-x-2 group-hover/item:translate-x-0 opacity-0 group-hover/item:opacity-100 transition-all duration-300" />
                         </Link>
@@ -173,7 +188,9 @@ export default function Header() {
                   }`}
               >
                 <span>Resources</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'resources' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`} />
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'resources' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`}
+                />
               </button>
 
               <AnimatePresence>
@@ -185,7 +202,10 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 pt-2"
                   >
-                    <div className="rounded-xl border border-gray-600 shadow-2xl p-3 overflow-hidden" style={{ backgroundColor: 'rgb(26, 31, 46)' }}>
+                    <div
+                      className="rounded-xl border border-gray-600 shadow-2xl p-3 overflow-hidden"
+                      style={{ backgroundColor: 'rgb(26, 31, 46)' }}
+                    >
                       {resourcePages.map((page) => (
                         <Link
                           key={page.href}
@@ -196,8 +216,12 @@ export default function Header() {
                             <page.icon className="w-4 h-4" />
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-white group-hover/item:text-[#00B4D8] transition-colors">{page.name}</div>
-                            <div className="text-xs text-gray-400 group-hover/item:text-gray-300 transition-colors mt-0.5">{page.desc}</div>
+                            <div className="text-sm font-semibold text-white group-hover/item:text-[#00B4D8] transition-colors">
+                              {page.name}
+                            </div>
+                            <div className="text-xs text-gray-400 group-hover/item:text-gray-300 transition-colors mt-0.5">
+                              {page.desc}
+                            </div>
                           </div>
                         </Link>
                       ))}
@@ -287,9 +311,9 @@ export default function Header() {
         {isMobileMenuOpen && (
           <motion.div
             className="lg:hidden fixed inset-0 z-40 bg-[#020617]"
-            initial={{ opacity: 0, clipPath: "circle(0% at 90% 40px)" }}
-            animate={{ opacity: 1, clipPath: "circle(150% at 90% 40px)" }}
-            exit={{ opacity: 0, clipPath: "circle(0% at 90% 40px)" }}
+            initial={{ opacity: 0, clipPath: 'circle(0% at 90% 40px)' }}
+            animate={{ opacity: 1, clipPath: 'circle(150% at 90% 40px)' }}
+            exit={{ opacity: 0, clipPath: 'circle(0% at 90% 40px)' }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Background Gradients */}
@@ -299,7 +323,6 @@ export default function Header() {
             </div>
 
             <div className="container mx-auto px-6 h-full flex flex-col pt-28 pb-10 overflow-y-auto relative z-10">
-
               <div className="flex-1 space-y-6">
                 {/* Mobile Services */}
                 <div className="border-b border-white/10">
@@ -307,8 +330,12 @@ export default function Header() {
                     className="w-full flex items-center justify-between py-5 text-2xl font-light text-white"
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                   >
-                    <span className={mobileServicesOpen ? "text-[#00B4D8] font-medium" : ""}>Services</span>
-                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`} />
+                    <span className={mobileServicesOpen ? 'text-[#00B4D8] font-medium' : ''}>
+                      Services
+                    </span>
+                    <ChevronDown
+                      className={`w-6 h-6 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`}
+                    />
                   </button>
                   <AnimatePresence>
                     {mobileServicesOpen && (
@@ -316,7 +343,7 @@ export default function Header() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "circOut" }}
+                        transition={{ duration: 0.3, ease: 'circOut' }}
                         className="overflow-hidden"
                       >
                         <ServicesMegaMenuMobile isOpen={true} />
@@ -331,8 +358,12 @@ export default function Header() {
                     className="w-full flex items-center justify-between py-5 text-2xl font-light text-white"
                     onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                   >
-                    <span className={mobileAboutOpen ? "text-[#00B4D8] font-medium" : ""}>About</span>
-                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`} />
+                    <span className={mobileAboutOpen ? 'text-[#00B4D8] font-medium' : ''}>
+                      About
+                    </span>
+                    <ChevronDown
+                      className={`w-6 h-6 transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`}
+                    />
                   </button>
                   <AnimatePresence>
                     {mobileAboutOpen && (
@@ -365,8 +396,12 @@ export default function Header() {
                     className="w-full flex items-center justify-between py-5 text-2xl font-light text-white"
                     onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
                   >
-                    <span className={mobileResourcesOpen ? "text-[#00B4D8] font-medium" : ""}>Resources</span>
-                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${mobileResourcesOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`} />
+                    <span className={mobileResourcesOpen ? 'text-[#00B4D8] font-medium' : ''}>
+                      Resources
+                    </span>
+                    <ChevronDown
+                      className={`w-6 h-6 transition-transform duration-300 ${mobileResourcesOpen ? 'rotate-180 text-[#00B4D8]' : 'text-white/50'}`}
+                    />
                   </button>
                   <AnimatePresence>
                     {mobileResourcesOpen && (
@@ -405,7 +440,6 @@ export default function Header() {
                     <ExternalLink className="w-5 h-5 opacity-50" />
                   </a>
                 </div>
-
               </div>
 
               {/* Mobile Footer */}
@@ -418,8 +452,12 @@ export default function Header() {
                 </Button>
 
                 <div className="flex justify-center gap-6 pt-4 text-white/40">
-                  <a href="#" className="hover:text-white transition-colors">Privacy</a>
-                  <a href="#" className="hover:text-white transition-colors">Terms</a>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Privacy
+                  </a>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Terms
+                  </a>
                 </div>
               </div>
             </div>
