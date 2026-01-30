@@ -30,7 +30,7 @@ import {
   HeartHandshake,
   Scale,
   ChevronRight,
-} from 'lucide-react@0.487.0';
+} from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 

@@ -20,7 +20,7 @@ import {
   Shield,
   Sparkles,
   Radio,
-} from 'lucide-react@0.487.0';
+} from 'lucide-react';
 import SEO from '../SEO';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 

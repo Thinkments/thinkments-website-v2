@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { FileText, Mail, Phone, ArrowLeft } from 'lucide-react@0.487.0';
+import { FileText, Mail, Phone, ArrowLeft } from 'lucide-react';
 import { AGREEMENT_SECTIONS, CONTACT_INFO } from './agreement/AgreementConstants';
 import SEO from '../SEO';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '../ui/card';
-import { ExternalLink, MapPin, FileText, Globe } from 'lucide-react@0.487.0';
+import { ExternalLink, MapPin, FileText, Globe } from 'lucide-react';
 import { LOCATION_ROUTES } from '../../config/routes';
 import SEO from '../SEO';
 

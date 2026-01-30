@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { Share2, Copy, Facebook, Twitter, Linkedin, Check } from 'lucide-react@0.487.0';
+import { Share2, Copy, Facebook, Twitter, Linkedin, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface ShareButtonProps {

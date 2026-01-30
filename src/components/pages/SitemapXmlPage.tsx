@@ -13,9 +13,9 @@ import {
   Calendar,
   BarChart3,
   ExternalLink,
-} from 'lucide-react@0.487.0';
+} from 'lucide-react';
 import { Button } from '../ui/button';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { LOCATION_ROUTES } from '../../config/routes';
 
 export default function SitemapXmlPage() {

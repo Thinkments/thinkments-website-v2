@@ -10,7 +10,7 @@ import {
   Users,
   Shield,
   Zap,
-} from 'lucide-react@0.487.0';
+} from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface BlogContentProps {

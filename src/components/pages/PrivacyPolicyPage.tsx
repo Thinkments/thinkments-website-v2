@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Shield, Mail, Phone, ArrowLeft } from 'lucide-react@0.487.0';
+import { Shield, Mail, Phone, ArrowLeft } from 'lucide-react';
 import SEO from '../SEO';
 
 export default function PrivacyPolicyPage() {

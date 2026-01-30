@@ -8,7 +8,7 @@ import {
   Star,
   Award,
   Briefcase,
-} from 'lucide-react@0.487.0';
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';

@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Separator } from '../ui/separator';
-import { Copy, Download, Brain, Sparkles, Cpu, BookOpen } from 'lucide-react@0.487.0';
+import { Copy, Download, Brain, Sparkles, Cpu, BookOpen } from 'lucide-react';
 import { Button } from '../ui/button';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 const llmContent = `# ThinkMents - Digital Marketing & Web Design Agency
 > LLM-readable documentation for AI assistants and language models

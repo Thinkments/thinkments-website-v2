@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { Calendar, User, Clock, ArrowLeft, ArrowRight, Tag } from 'lucide-react@0.487.0';
+import { Calendar, User, Clock, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ShareButton } from '../ShareButton';
 import {

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Clock, DollarSign, Users, Zap } from 'lucide-react@0.487.0';
+import { Clock, DollarSign, Users, Zap } from 'lucide-react';
 import { Card, CardContent } from '../../ui/card';
 import { benefits } from './QuoteConstants';
 

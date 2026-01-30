@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { CheckCircle } from 'lucide-react@0.487.0';
+import { CheckCircle } from 'lucide-react';
 import { Input } from '../../ui/input';
 import { Textarea } from '../../ui/textarea';
 import { services, budgetRanges, timelineOptions, QuoteFormData } from './QuoteConstants';

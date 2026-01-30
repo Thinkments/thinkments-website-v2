@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { List, ChevronRight } from 'lucide-react@0.487.0';
+import { List, ChevronRight } from 'lucide-react';
 
 interface TOCItem {
   id: string;

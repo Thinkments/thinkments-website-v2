@@ -18,7 +18,7 @@ import {
   Target,
   BarChart3,
   Sparkles,
-} from 'lucide-react@0.487.0';
+} from 'lucide-react';
 import SEO from '../SEO';
 
 export default function GoogleBusinessProfileEinsteinium() {
