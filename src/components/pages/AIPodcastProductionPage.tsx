@@ -215,7 +215,7 @@ export default function AIPodcastProductionPage() {
         keywords="AI podcast production, AI-powered podcast creation, podcast production service, automated podcast creation, repurpose content into podcast, professional podcast service, podcast from blog posts"
         canonical="https://thinkments.com/ai-podcast-production"
         structuredData={structuredData}
-        ogImage="https://images.unsplash.com/photo-1709846487437-7445553bb6ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2RjYXN0JTIwbWljcm9waG9uZSUyMHN0dWRpb3xlbnwxfHx8fDE3NjMzMTUzNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+        image="https://images.unsplash.com/photo-1709846487437-7445553bb6ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2RjYXN0JTIwbWljcm9waG9uZSUyMHN0dWRpb3xlbnwxfHx8fDE3NjMzMTUzNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
       />
 
       <main className="min-h-screen">
