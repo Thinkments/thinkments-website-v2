@@ -83,44 +83,44 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
     development: [
       {
         name: 'Web Development',
-        path: 'https://websitedesign.thinkments.com/',
+        path: '/web-development',
         icon: Code,
         gradient: 'from-blue-500 to-cyan-500',
         desc: 'Custom websites & web apps',
       },
       {
         name: 'E-Commerce',
-        path: '/services/web/ecommerce',
+        path: '/store',
         icon: ShoppingCart,
         gradient: 'from-purple-500 to-pink-500',
         desc: 'Online stores that sell',
       },
       {
-        name: 'Mobile Apps',
-        path: '/services/web/apps',
+        name: 'Web Design',
+        path: '/web-design',
         icon: Smartphone,
         gradient: 'from-orange-500 to-red-500',
-        desc: 'iOS & Android solutions',
+        desc: 'Beautiful, modern designs',
       },
     ],
     marketing: [
       {
         name: 'SEO Services',
-        path: '/services/marketing/seo',
+        path: '/marketing-seo',
         icon: Search,
         gradient: 'from-green-500 to-emerald-500',
         desc: 'Rank #1 on Google',
       },
       {
         name: 'PPC Advertising',
-        path: '/services/marketing/paid',
+        path: '/paid-advertising',
         icon: MousePointer,
         gradient: 'from-blue-600 to-indigo-600',
         desc: 'Google & Facebook Ads',
       },
       {
         name: 'Social Media',
-        path: '/services/marketing/social',
+        path: '/social-media',
         icon: Share2,
         gradient: 'from-pink-500 to-rose-500',
         desc: 'Build your community',
@@ -128,22 +128,22 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
     ],
     creative: [
       {
-        name: 'Brand Strategy',
-        path: '/services/marketing/brand',
+        name: 'Strategic Consulting',
+        path: '/strategic-consulting',
         icon: Target,
         gradient: 'from-amber-500 to-yellow-500',
-        desc: 'Logos & brand identity',
+        desc: 'Strategy & brand growth',
       },
       {
         name: 'Content Marketing',
-        path: '/services/marketing/content',
+        path: '/content-marketing',
         icon: FileText,
         gradient: 'from-teal-500 to-cyan-500',
         desc: 'Engaging blogs & copy',
       },
       {
         name: 'Video Production',
-        path: '/services/media/video',
+        path: '/video-photography',
         icon: Video,
         gradient: 'from-red-600 to-orange-600',
         desc: 'Professional videography',
@@ -151,22 +151,22 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
     ],
     innovation: [
       {
-        name: 'AI Solutions',
-        path: '/services/tech/ai',
+        name: 'AI Automation',
+        path: '/artificial-intelligence-automation',
         icon: Cpu,
         gradient: 'from-violet-600 to-purple-600',
         desc: 'Automation & chatbots',
       },
       {
         name: 'Virtual Tours',
-        path: '/services/media/virtual-tours',
+        path: '/virtual-tours',
         icon: Box,
         gradient: 'from-blue-400 to-indigo-400',
         desc: 'Immersive 3D experiences',
       },
       {
         name: 'Analytics',
-        path: '/services/marketing/analytics',
+        path: '/analytics-reporting',
         icon: TrendingUp,
         gradient: 'from-emerald-400 to-green-400',
         desc: 'Data-driven insights',
@@ -210,14 +210,14 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
             <Users className="w-4 h-4" /> 500+ Clients
           </span>
         </div>
-        <a
-          href="https://website.thinkments.com"
+        <Link
+          to="/services"
           className="text-sm font-semibold text-[#00B4D8] hover:text-white transition-colors flex items-center gap-1 group"
           onClick={onClose}
         >
           View All Services
           <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -231,24 +231,25 @@ export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
     {
       title: 'Development',
       items: [
-        { name: 'Web Development', path: 'https://websitedesign.thinkments.com/' },
-        { name: 'E-Commerce', path: '/services/web/ecommerce' },
-        { name: 'Custom Apps', path: '/services/web/apps' },
+        { name: 'Web Development', path: '/web-development' },
+        { name: 'E-Commerce', path: '/store' },
+        { name: 'Web Design', path: '/web-design' },
       ],
     },
     {
       title: 'Marketing',
       items: [
-        { name: 'SEO Optimization', path: '/services/marketing/seo' },
-        { name: 'PPC Advertising', path: '/services/marketing/paid' },
-        { name: 'Social Media', path: '/services/marketing/social' },
+        { name: 'SEO Optimization', path: '/marketing-seo' },
+        { name: 'PPC Advertising', path: '/paid-advertising' },
+        { name: 'Social Media', path: '/social-media' },
       ],
     },
     {
       title: 'Innovation',
       items: [
-        { name: 'AI Solutions', path: '/services/tech/ai' },
-        { name: 'Virtual Tours', path: '/services/media/virtual-tours' },
+        { name: 'AI Automation', path: '/artificial-intelligence-automation' },
+        { name: 'Virtual Tours', path: '/virtual-tours' },
+        { name: 'Analytics', path: '/analytics-reporting' },
       ],
     },
   ];
@@ -285,9 +286,9 @@ export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
           </div>
         </div>
       ))}
-      <a href="https://website.thinkments.com" className="block mt-4 text-[#00B4D8] font-medium">
+      <Link to="/services" className="block mt-4 text-[#00B4D8] font-medium">
         View All Services →
-      </a>
+      </Link>
     </div>
   );
 };
