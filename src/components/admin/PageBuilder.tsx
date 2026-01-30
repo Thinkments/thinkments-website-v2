@@ -37,7 +37,7 @@ import { toast } from 'sonner';
 interface ContentBlock {
   id: string;
   type: string;
-  content: any;
+  content: Record<string, unknown>;
 }
 
 export default function PageBuilder() {
@@ -176,9 +176,8 @@ export default function PageBuilder() {
               <motion.div
                 key={template.id}
                 whileHover={{ scale: 1.05 }}
-                className={`relative cursor-pointer rounded-lg border-2 overflow-hidden ${
-                  selectedTemplate === template.id ? 'border-[#00B4D8]' : 'border-gray-200'
-                }`}
+                className={`relative cursor-pointer rounded-lg border-2 overflow-hidden ${selectedTemplate === template.id ? 'border-[#00B4D8]' : 'border-gray-200'
+                  }`}
                 onClick={() => setSelectedTemplate(template.id)}
               >
                 {template.preview ? (
@@ -279,13 +278,12 @@ export default function PageBuilder() {
             </CardHeader>
             <CardContent>
               <div
-                className={`mx-auto bg-white border-2 border-dashed border-gray-300 rounded-lg min-h-[600px] ${
-                  deviceView === 'desktop'
+                className={`mx-auto bg-white border-2 border-dashed border-gray-300 rounded-lg min-h-[600px] ${deviceView === 'desktop'
                     ? 'w-full'
                     : deviceView === 'tablet'
                       ? 'w-[768px]'
                       : 'w-[375px]'
-                }`}
+                  }`}
               >
                 {blocks.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-[600px] text-center p-8">
@@ -304,11 +302,10 @@ export default function PageBuilder() {
                         key={block.id}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`group relative p-6 border-2 rounded-lg cursor-pointer transition-colors ${
-                          selectedBlock === block.id
+                        className={`group relative p-6 border-2 rounded-lg cursor-pointer transition-colors ${selectedBlock === block.id
                             ? 'border-[#00B4D8] bg-[#00B4D8]/5'
                             : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                          }`}
                         onClick={() => setSelectedBlock(block.id)}
                       >
                         <div className="flex items-center justify-between mb-3">

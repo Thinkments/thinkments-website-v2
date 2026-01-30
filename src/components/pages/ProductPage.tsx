@@ -21,8 +21,22 @@ export default function ProductPage() {
   const [selectedColor, setSelectedColor] = useState('Black');
   const [quantity, setQuantity] = useState(1);
 
+  interface Product {
+    id: number;
+    name: string;
+    price: number;
+    originalPrice?: number;
+    rating: number;
+    reviews: number;
+    description: string;
+    images: string[];
+    sizes: string[];
+    colors: string[];
+    features: string[];
+  }
+
   // Mock product data - in real app this would come from an API
-  const products: { [key: string]: any } = {
+  const products: Record<string, Product> = {
     'if-you-want-it-done-right-call-berry-white-t-shirt': {
       id: 1,
       name: 'If You Want It Done Right, Call Berry White! T-Shirt',
@@ -164,9 +178,8 @@ export default function ProductPage() {
                     <button
                       key={index}
                       onClick={() => setSelectedImage(index)}
-                      className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                        selectedImage === index ? 'border-primary' : 'border-transparent'
-                      }`}
+                      className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${selectedImage === index ? 'border-primary' : 'border-transparent'
+                        }`}
                     >
                       <ImageWithFallback
                         src={image}
@@ -189,9 +202,8 @@ export default function ProductPage() {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-5 h-5 ${
-                      i < product.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
-                    }`}
+                    className={`w-5 h-5 ${i < product.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+                      }`}
                   />
                 ))}
                 <span className="text-muted-foreground">({product.reviews} reviews)</span>
@@ -226,11 +238,10 @@ export default function ProductPage() {
                         <button
                           key={size}
                           onClick={() => setSelectedSize(size)}
-                          className={`px-4 py-2 border rounded-lg transition-all ${
-                            selectedSize === size
+                          className={`px-4 py-2 border rounded-lg transition-all ${selectedSize === size
                               ? 'border-primary bg-primary text-white'
                               : 'border-gray-300 hover:border-primary'
-                          }`}
+                            }`}
                         >
                           {size}
                         </button>
@@ -248,11 +259,10 @@ export default function ProductPage() {
                         <button
                           key={color}
                           onClick={() => setSelectedColor(color)}
-                          className={`px-4 py-2 border rounded-lg transition-all ${
-                            selectedColor === color
+                          className={`px-4 py-2 border rounded-lg transition-all ${selectedColor === color
                               ? 'border-primary bg-primary text-white'
                               : 'border-gray-300 hover:border-primary'
-                          }`}
+                            }`}
                         >
                           {color}
                         </button>

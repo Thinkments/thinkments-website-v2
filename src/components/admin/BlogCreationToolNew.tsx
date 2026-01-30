@@ -45,7 +45,18 @@ import {
 import { toast } from 'sonner';
 
 // Mock blog posts data
-const mockBlogPosts = [
+interface BlogPost {
+  id: number;
+  title: string;
+  slug: string;
+  category: string;
+  status: 'published' | 'draft' | 'scheduled';
+  views: number;
+  date: string;
+  author: string;
+}
+
+const mockBlogPosts: BlogPost[] = [
   {
     id: 1,
     title: 'Complete Guide to Local SEO in 2025',
@@ -131,13 +142,13 @@ const mockBlogPosts = [
 export default function BlogCreationToolNew() {
   const [view, setView] = useState<'list' | 'create'>('list');
   const [editingPost, setEditingPost] = useState<number | null>(null);
-  const [blogPosts, setBlogPosts] = useState(mockBlogPosts);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>(mockBlogPosts);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'published' | 'draft' | 'scheduled'>(
     'all',
   );
   const [publishModalOpen, setPublishModalOpen] = useState(false);
-  const [postToPublish, setPostToPublish] = useState<any>(null);
+  const [postToPublish, setPostToPublish] = useState<BlogPost | null>(null);
 
   // Filter blog posts
   const filteredBlogPosts = blogPosts.filter((post) => {
@@ -163,7 +174,7 @@ export default function BlogCreationToolNew() {
   };
 
   // Handle publish/unpublish
-  const handlePublishClick = (post: any) => {
+  const handlePublishClick = (post: BlogPost) => {
     setPostToPublish(post);
     setPublishModalOpen(true);
   };
@@ -318,7 +329,9 @@ export default function BlogCreationToolNew() {
                     <Filter className="w-4 h-4 text-gray-400" />
                     <Select
                       value={statusFilter}
-                      onValueChange={(value: any) => setStatusFilter(value)}
+                      onValueChange={(value) =>
+                        setStatusFilter(value as 'all' | 'published' | 'draft' | 'scheduled')
+                      }
                     >
                       <SelectTrigger className="w-[180px]">
                         <SelectValue />
@@ -424,11 +437,10 @@ export default function BlogCreationToolNew() {
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className={`${
-                                  post.status === 'published'
-                                    ? 'hover:bg-orange-50 hover:text-orange-600'
-                                    : 'hover:bg-[#00B4D8]/10 hover:text-[#00B4D8] text-[#00B4D8]'
-                                }`}
+                                className={`${post.status === 'published'
+                                  ? 'hover:bg-orange-50 hover:text-orange-600'
+                                  : 'hover:bg-[#00B4D8]/10 hover:text-[#00B4D8] text-[#00B4D8]'
+                                  }`}
                                 title={post.status === 'published' ? 'Unpublish' : 'Publish'}
                                 onClick={() => handlePublishClick(post)}
                               >
