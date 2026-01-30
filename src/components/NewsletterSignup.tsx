@@ -279,7 +279,7 @@ export default function NewsletterSignup({
       </div>
 
       {/* Hidden form for Netlify Forms */}
-      <form name="newsletter" netlify="true" hidden>
+      <form name="newsletter" data-netlify="true" hidden>
         <input type="email" name="email" />
       </form>
     </div>
