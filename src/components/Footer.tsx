@@ -18,7 +18,7 @@ import {
 import { Button } from './ui/button';
 import NewsletterSignup from './NewsletterSignup';
 // FIX: Corrected import path for logo
-import thinkMentsLogo from '../assets/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
+import thinkMentsLogo from '../assets/logo.png';
 
 export default function Footer() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -346,9 +346,8 @@ export default function Footer() {
             >
               <span className="font-semibold">Services</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileServicesOpen ? 'rotate-180' : ''
-                }`}
+                className={`w-5 h-5 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -385,9 +384,8 @@ export default function Footer() {
             >
               <span className="font-semibold">Company</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileCompanyOpen ? 'rotate-180' : ''
-                }`}
+                className={`w-5 h-5 transition-transform duration-200 ${mobileCompanyOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -424,9 +422,8 @@ export default function Footer() {
             >
               <span className="font-semibold">Service Areas</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileServiceAreasOpen ? 'rotate-180' : ''
-                }`}
+                className={`w-5 h-5 transition-transform duration-200 ${mobileServiceAreasOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>
@@ -468,9 +465,8 @@ export default function Footer() {
             >
               <span className="font-semibold">Resources</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform duration-200 ${
-                  mobileResourcesOpen ? 'rotate-180' : ''
-                }`}
+                className={`w-5 h-5 transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''
+                  }`}
               />
             </button>
             <AnimatePresence>

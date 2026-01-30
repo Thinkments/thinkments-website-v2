@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Star, Phone, ExternalLink, ArrowRight, Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import ServicesMegaMenu, { ServicesMegaMenuMobile } from './ServicesMegaMenu';
-import thinkMentsLogo from '../assets/23dd1a5ded9cf69ce18288f1632f0a531713cb93.png';
+import thinkMentsLogo from '../assets/logo.png';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -131,8 +131,8 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 group-hover:bg-white/10 ${isActiveDropdown(['/about-us', '/our-story'])
-                    ? 'text-[#00B4D8] bg-white/10'
-                    : 'text-white'
+                  ? 'text-[#00B4D8] bg-white/10'
+                  : 'text-white'
                   }`}
               >
                 <span>About</span>
