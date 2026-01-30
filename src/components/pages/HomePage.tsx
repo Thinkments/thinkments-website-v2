@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'motion/react';
+import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
@@ -49,6 +49,10 @@ export default function HomePage() {
   const isTrustInView = useInView(trustRef, { once: true });
   const isResourcesInView = useInView(resourcesRef, { once: true });
   const isCtaInView = useInView(ctaRef, { once: true });
+
+  // Parallax effect for hero background
+  const { scrollY } = useScroll();
+  const heroBackgroundY = useTransform(scrollY, [0, 800], [0, 300]);
 
   // LocalBusiness Structured Data
   const localBusinessSchema = {
@@ -124,16 +128,17 @@ export default function HomePage() {
         ref={heroRef}
         className="relative min-h-[85dvh] flex flex-col justify-center overflow-hidden"
       >
-        {/* Hero Background Image */}
-        <div
+        {/* Hero Background Image with Parallax */}
+        <motion.div
           className="absolute inset-0"
           style={{
             backgroundImage: `url(${heroImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
+            y: heroBackgroundY,
           }}
-        ></div>
+        ></motion.div>
 
         {/* Overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/95 via-[#1E3A5F]/85 to-[#1E3A5F]/70"></div>
