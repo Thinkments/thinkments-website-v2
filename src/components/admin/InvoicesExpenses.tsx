@@ -29,6 +29,7 @@ import {
   BarChart3,
   PieChart as PieChartIcon,
   Repeat,
+  Settings,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -263,8 +264,8 @@ export default function InvoicesExpenses() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'invoices' | 'expenses' | 'reports')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
-                    ? 'bg-[#00B4D8] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-[#00B4D8] text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
               >
                 <Icon className="w-4 h-4" />
@@ -402,8 +403,8 @@ export default function InvoicesExpenses() {
                       key={status}
                       onClick={() => setFilterStatus(status)}
                       className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${filterStatus === status
-                          ? 'bg-[#00B4D8] text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-[#00B4D8] text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                     >
                       {status}
