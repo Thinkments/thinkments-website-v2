@@ -18,14 +18,21 @@ import {
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 import { vancouverLocationData } from '../../data/vancouverLocationData';
+import { texasLocationData } from '../../data/texasLocationData';
 
 interface LocationMarketingPageProps {
   location: string;
 }
 
 export default function LocationMarketingPage({ location }: LocationMarketingPageProps) {
+  // Combine both data sources
+  const allLocationData = { ...texasLocationData, ...vancouverLocationData };
+
+  // Check if this location has custom data
+  const locationData = allLocationData[location];
+
   // Convert location slug to display name
-  const locationName = location
+  const locationName = locationData?.name || location
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
@@ -84,28 +91,36 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
     { number: '90%', label: 'Client Retention Rate' },
   ];
 
-  const testimonials = [
-    {
-      name: 'John Smith',
-      business: `Local Restaurant in ${locationName}`,
+  // Use location-specific testimonials if available, otherwise use generic ones
+  const testimonials = locationData?.successStories.length > 0
+    ? locationData.successStories.map(story => ({
+      name: story.name,
+      business: story.business,
       rating: 5,
-      text: `ThinkMents helped us dominate local search results. We're now the #1 restaurant when people search for dining in ${locationName}!`,
-    },
-    {
-      name: 'Sarah Johnson',
-      business: `Law Firm in ${locationName}`,
-      rating: 5,
-      text: `Our website traffic has tripled since working with ThinkMents. They understand the ${locationName} market perfectly.`,
-    },
-    {
-      name: 'Mike Rodriguez',
-      business: `Auto Shop in ${locationName}`,
-      rating: 5,
-      text: `Professional, results-driven team. They've helped us become the go-to auto shop in ${locationName}.`,
-    },
-  ];
+      text: story.quote,
+    }))
+    : [
+      {
+        name: 'John Smith',
+        business: `Local Restaurant in ${locationName}`,
+        rating: 5,
+        text: `ThinkMents helped us dominate local search results. We're now the #1 restaurant when people search for dining in ${locationName}!`,
+      },
+      {
+        name: 'Sarah Johnson',
+        business: `Law Firm in ${locationName}`,
+        rating: 5,
+        text: `Our website traffic has tripled since working with ThinkMents. They understand the ${locationName} market perfectly.`,
+      },
+      {
+        name: 'Mike Rodriguez',
+        business: `Auto Shop in ${locationName}`,
+        rating: 5,
+        text: `Professional, results-driven team. They've helped us become the go-to auto shop in ${locationName}.`,
+      },
+    ];
 
-  const localAreas = [
+  const localAreas = locationData?.topDistricts || [
     'Downtown Area',
     'Business District',
     'Shopping Centers',
