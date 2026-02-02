@@ -264,7 +264,7 @@ export default function LlmPage() {
           name="description"
           content="ThinkMents llm.txt file - structured information for AI assistants and language models."
         />
-        <meta name="robots" content="index,follow" />
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://thinkments.com/llm.txt" />
       </Helmet>
 

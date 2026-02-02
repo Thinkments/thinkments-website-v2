@@ -1,34 +1,41 @@
+import { Helmet } from 'react-helmet-async';
+
 // Simple diagnostic page to test if React Router is working
 export default function RobotsTestPage() {
   return (
-    <div
-      style={{
-        padding: '20px',
-        fontFamily: 'monospace',
-        backgroundColor: '#f0f0f0',
-        minHeight: '100vh',
-      }}
-    >
-      <h1>🔍 Robots.txt Diagnostic Page</h1>
-      <p>
-        <strong>Status:</strong> ✅ React Router is working!
-      </p>
-      <p>If you can see this page, React Router successfully matched the /robots.txt route.</p>
-
-      <hr style={{ margin: '20px 0' }} />
-
-      <h2>Robots.txt Content:</h2>
-      <pre
+    <>
+      <Helmet>
+        <title>Robots.txt Test Page - ThinkMents</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div
         style={{
-          backgroundColor: 'white',
-          padding: '15px',
-          border: '1px solid #ccc',
-          overflow: 'auto',
-          fontSize: '12px',
-          lineHeight: '1.5',
+          padding: '20px',
+          fontFamily: 'monospace',
+          backgroundColor: '#f0f0f0',
+          minHeight: '100vh',
         }}
       >
-        {`# Robots.txt for ThinkMents - Digital Marketing & Web Design Agency
+        <h1>🔍 Robots.txt Diagnostic Page</h1>
+        <p>
+          <strong>Status:</strong> ✅ React Router is working!
+        </p>
+        <p>If you can see this page, React Router successfully matched the /robots.txt route.</p>
+
+        <hr style={{ margin: '20px 0' }} />
+
+        <h2>Robots.txt Content:</h2>
+        <pre
+          style={{
+            backgroundColor: 'white',
+            padding: '15px',
+            border: '1px solid #ccc',
+            overflow: 'auto',
+            fontSize: '12px',
+            lineHeight: '1.5',
+          }}
+        >
+          {`# Robots.txt for ThinkMents - Digital Marketing & Web Design Agency
 # Website: https://thinkments.com
 
 # Allow all web crawlers to access the site
@@ -131,37 +138,38 @@ Allow: /
 # Allow video indexing for videography services
 User-agent: Googlebot-Video
 Allow: /`}
-      </pre>
+        </pre>
 
-      <hr style={{ margin: '20px 0' }} />
+        <hr style={{ margin: '20px 0' }} />
 
-      <h2>Diagnostic Information:</h2>
-      <ul>
-        <li>
-          <strong>Current URL:</strong> {window.location.href}
-        </li>
-        <li>
-          <strong>Pathname:</strong> {window.location.pathname}
-        </li>
-        <li>
-          <strong>Component:</strong> RobotsTestPage
-        </li>
-        <li>
-          <strong>Time:</strong> {new Date().toLocaleString()}
-        </li>
-      </ul>
+        <h2>Diagnostic Information:</h2>
+        <ul>
+          <li>
+            <strong>Current URL:</strong> {window.location.href}
+          </li>
+          <li>
+            <strong>Pathname:</strong> {window.location.pathname}
+          </li>
+          <li>
+            <strong>Component:</strong> RobotsTestPage
+          </li>
+          <li>
+            <strong>Time:</strong> {new Date().toLocaleString()}
+          </li>
+        </ul>
 
-      <hr style={{ margin: '20px 0' }} />
+        <hr style={{ margin: '20px 0' }} />
 
-      <h2>Next Steps:</h2>
-      <ol>
-        <li>If you see this page, the issue is with the RobotsTxtPlain component rendering</li>
-        <li>If you see a 404, the issue is with React Router or the app not loading</li>
-        <li>Check browser console for any JavaScript errors</li>
-        <li>
-          Try accessing <a href="/robots">/robots</a> (the fancy UI version)
-        </li>
-      </ol>
-    </div>
+        <h2>Next Steps:</h2>
+        <ol>
+          <li>If you see this page, the issue is with the RobotsTxtPlain component rendering</li>
+          <li>If you see a 404, the issue is with React Router or the app not loading</li>
+          <li>Check browser console for any JavaScript errors</li>
+          <li>
+            Try accessing <a href="/robots">/robots</a> (the fancy UI version)
+          </li>
+        </ol>
+      </div>
+    </>
   );
 }
