@@ -80,6 +80,22 @@ export const LOCATION_ROUTES = [
   'parker',
   'princeton',
   'weston',
+  // Vancouver Metro Area cities
+  'vancouver',
+  'burnaby',
+  'richmond',
+  'surrey',
+  'coquitlam',
+  'langley',
+  'delta',
+  'north-vancouver',
+  'west-vancouver',
+  'new-westminster',
+  'port-moody',
+  'port-coquitlam',
+  'white-rock',
+  'maple-ridge',
+  'pitt-meadows',
 ];
 
 // Service route configurations

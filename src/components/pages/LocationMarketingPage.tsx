@@ -13,9 +13,11 @@ import {
   Users,
   TrendingUp,
   Award,
+  ExternalLink,
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
+import { vancouverLocationData } from '../../data/vancouverLocationData';
 
 interface LocationMarketingPageProps {
   location: string;
