@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -936,19 +936,19 @@ const basicBlogPosts = {
     `,
   },
   'decatur-businesses-level-up-your-local-seo-with-thinkments-gemini-quizzes-and-openstax-textbooks':
-    {
-      id: 307,
-      title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
-      excerpt:
-        'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
-      author: 'Corey Spicer',
-      date: '2025-01-24',
-      category: 'seo',
-      readTime: '15 min read',
-      image:
-        'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
-      tags: ['Local SEO', 'Decatur Business', 'Google Business Profile', 'Wise County'],
-      content: `
+  {
+    id: 307,
+    title: 'Decatur Businesses: Level Up Your Local SEO with ThinkMents',
+    excerpt:
+      'Discover how Decatur businesses can dominate local search results with expert local SEO strategies from ThinkMents. Learn Google Business Profile optimization, local content, and citation building.',
+    author: 'Corey Spicer',
+    date: '2025-01-24',
+    category: 'seo',
+    readTime: '15 min read',
+    image:
+      'https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400',
+    tags: ['Local SEO', 'Decatur Business', 'Google Business Profile', 'Wise County'],
+    content: `
 <h1>Decatur Businesses: Level Up Your Local SEO with ThinkMents</h1>
 
 <p>If you own a business in <strong>Decatur, Texas</strong>, you face unique marketing challenges and extraordinary opportunities. As the county seat of <strong>Wise County</strong>, Decatur combines small-town community values with growing economic vitality. The businesses that thrive here understand one critical truth: local customers searching Google for products and services represent your highest-value prospects—and <strong>local SEO</strong> determines whether they find your business or your competitors.</p>
@@ -1059,7 +1059,7 @@ const basicBlogPosts = {
 
 <p>Learn more about our comprehensive <a href="https://thinkments.com/digital-marketing" target="_blank">digital marketing services</a> and discover how we help Decatur businesses build complete marketing systems that drive sustainable growth.</p>
     `,
-    },
+  },
   'the-fundamentals-of-digital-marketing-grow-your-business-with-thinkments': {
     id: 308,
     title: 'The Fundamentals of Digital Marketing: Grow Your Business with ThinkMents',
@@ -3561,19 +3561,7 @@ export default function BlogPostPage() {
   const post = getBlogPostBySlug(slug);
 
   if (!post) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl mb-4">Blog Post Not Found</h1>
-          <p className="text-muted-foreground mb-6">
-            The blog post you're looking for doesn't exist or may have been moved.
-          </p>
-          <Link to="/blog">
-            <Button>Back to Blog</Button>
-          </Link>
-        </div>
-      </div>
-    );
+    return <Navigate to="/404" replace />;
   }
 
   const relatedPosts = getRelatedPosts(post.id, post.category);
