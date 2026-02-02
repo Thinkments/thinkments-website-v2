@@ -60,6 +60,7 @@ import ClientPortalManager from '../admin/ClientPortalManager';
 import GBPManager from '../admin/GBPManager';
 import AnalyticsDashboard from '../admin/AnalyticsDashboard';
 import EnhancedAIModelSelector from '../admin/EnhancedAIModelSelector';
+import AIBlogGenerator from '../admin/AIBlogGenerator';
 
 interface NavItem {
   id: string;
@@ -97,6 +98,7 @@ const navigationItems: NavItem[] = [
     icon: Sparkles,
     children: [
       { id: 'ai-model-selector', label: 'AI Model Selector', icon: Brain },
+      { id: 'ai-blog-generator', label: 'AI Blog Generator', icon: Sparkles, badge: 'NEW' },
       { id: 'ai-writer', label: 'AI Writer', icon: PenTool },
       { id: 'seo-fixer', label: 'SEO Bulk Fixer', icon: Zap, badge: '47' },
       { id: 'email-campaigns', label: 'Email Campaigns', icon: Mail },
@@ -163,6 +165,8 @@ export default function NewAdminDashboard() {
         return <SiteStructureMap />;
       case 'ai-model-selector':
         return <EnhancedAIModelSelector />;
+      case 'ai-blog-generator':
+        return <AIBlogGenerator />;
       case 'ai-writer':
         return <AIWriterTool />;
       case 'email-campaigns':
@@ -293,11 +297,10 @@ export default function NewAdminDashboard() {
                   <div key={item.id}>
                     <button
                       onClick={() => handleNavClick(item.id, !!item.children)}
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors ${
-                        activePage === item.id
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors ${activePage === item.id
                           ? 'bg-gradient-to-r from-[#00B4D8]/10 to-[#1E3A5F]/10 text-[#1E3A5F]'
                           : 'text-gray-600 hover:bg-gray-100'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center space-x-3">
                         <item.icon className="w-5 h-5" />
@@ -311,9 +314,8 @@ export default function NewAdminDashboard() {
                         )}
                         {item.children && (
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform ${
-                              expandedMenus.includes(item.id) ? 'rotate-180' : ''
-                            }`}
+                            className={`w-4 h-4 transition-transform ${expandedMenus.includes(item.id) ? 'rotate-180' : ''
+                              }`}
                           />
                         )}
                       </div>
@@ -331,11 +333,10 @@ export default function NewAdminDashboard() {
                           <button
                             key={child.id}
                             onClick={() => setActivePage(child.id)}
-                            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
-                              activePage === child.id
+                            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${activePage === child.id
                                 ? 'bg-[#00B4D8]/10 text-[#1E3A5F]'
                                 : 'text-gray-600 hover:bg-gray-50'
-                            }`}
+                              }`}
                           >
                             <div className="flex items-center space-x-2">
                               <child.icon className="w-4 h-4" />
