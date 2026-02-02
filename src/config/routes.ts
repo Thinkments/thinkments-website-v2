@@ -110,8 +110,17 @@ export const SERVICE_ROUTES = [
 
 // Redirect configurations
 export const REDIRECT_ROUTES = [
+  // Homepage variants
   { from: '/home', to: '/' },
   { from: '/preview_page.html', to: '/' },
-  { from: '/contact', to: '/contact-us' },
   { from: '/generative-ai-image-testing', to: '/' },
+
+  // Old /services/* URLs → new service pages  
+  { from: '/services/seo', to: '/strategic-seo' },
+  { from: '/services/seo/', to: '/strategic-seo' },
+  { from: '/services/videography', to: '/videography' },
+  { from: '/services/social-media-marketing', to: '/social-media' },
+
+  // Contact page variants (note: /contact redirects TO /contact-us)
+  { from: '/contact', to: '/contact-us' },
 ];
