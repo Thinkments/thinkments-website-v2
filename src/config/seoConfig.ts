@@ -154,7 +154,6 @@ export const seoConfigs: Record<string, PageSEOConfig> = {
     keywords: 'privacy policy, data protection, information security, user privacy',
     url: '/privacy-policy',
     type: 'website',
-    noindex: true,
   },
   'terms-of-service': {
     title: 'Terms of Service - ThinkMents Digital Marketing Agency',
@@ -163,7 +162,6 @@ export const seoConfigs: Record<string, PageSEOConfig> = {
     keywords: 'terms of service, service agreement, terms and conditions, legal terms',
     url: '/terms-of-service',
     type: 'website',
-    noindex: true,
   },
   'design-transfer-agreement': {
     title: 'Design Transfer Agreement - ThinkMents',
@@ -172,7 +170,6 @@ export const seoConfigs: Record<string, PageSEOConfig> = {
     keywords: 'design transfer agreement, design rights, intellectual property, design terms',
     url: '/design-transfer-agreement',
     type: 'website',
-    noindex: true,
   },
   sitemap: {
     title: 'Sitemap - ThinkMents Digital Marketing Website Navigation',

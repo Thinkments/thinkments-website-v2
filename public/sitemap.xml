@@ -2,219 +2,322 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thinkments.com/</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/about</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/about-us</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thinkments.com/our-story</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thinkments.com/services</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thinkments.com/web-design</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thinkments.com/digital-marketing</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thinkments.com/strategic-seo</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/marketing-seo</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thinkments.com/virtual-tours</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://thinkments.com/videography</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/social-media</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/paid-advertising</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thinkments.com/artificial-intelligence-optimization</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-areas</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/case-studies</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/portfolio</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/testimonials</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/case-studies</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://thinkments.com/team</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thinkments.com/blog</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/store</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/industries</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/contact</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/contact-us</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/get-a-quote</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/free-consultation</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-vancouver</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/get-a-quote</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/locations</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-burnaby</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/local-seo</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- NEW INDUSTRY PAGES - HIGH PRIORITY -->
+  <url>
+    <loc>https://thinkments.com/industries/hvac-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/industries/dental-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/industries/law-firm-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/industries/real-estate-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/industries/restaurant-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/industries/healthcare-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/industries/home-services-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!--TEXAS LOCATION PAGES - PRIMARY SERVICE AREA -->
+  <url>
+    <loc>https://thinkments.com/locations/decatur</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/locations/fort-worth</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-richmond</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/locations/dallas</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-surrey</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/locations/denton</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-coquitlam</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <loc>https://thinkments.com/locations/north-texas</loc>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- SERVICE DETAIL PAGES -->
+  <url>
+    <loc>https://thinkments.com/web-development</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-langley</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/google-business-profile</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-delta</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/immersive-experiences</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-north-vancouver</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/video-photography</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-west-vancouver</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/recruitment-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-new-westminster</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/business-solutions</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-port-moody</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/reputation-management</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-port-coquitlam</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/analytics-reporting</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-white-rock</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/content-marketing</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-maple-ridge</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/technical-services</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/digital-marketing-pitt-meadows</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://thinkments.com/widgets-integrations</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://thinkments.com/strategic-consulting</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- LEGAL PAGES -->
   <url>
     <loc>https://thinkments.com/privacy-policy</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://thinkments.com/terms-of-service</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://thinkments.com/design-transfer-agreement</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://thinkments.com/sitemap</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://thinkments.com/robots.txt</loc>
-    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://thinkments.com/terms-of-service</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/design-transfer-agreement</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://thinkments.com/accessibility</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>

@@ -54,8 +54,8 @@ Allow: /terms-of-service
 Allow: /design-transfer-agreement
 
 # Sitemap locations
-Sitemap: https://thinkments.com/sitemap-xml
-Sitemap: https://thinkments.com/sitemap
+Sitemap: https://thinkments.com/sitemap.xml
+Sitemap: https://www.thinkments.com/sitemap.xml
 
 # Crawl delay (set to 1 second to be respectful)
 Crawl-delay: 1

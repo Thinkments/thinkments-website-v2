@@ -42,7 +42,7 @@ export const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
       },
     },
     priceRange: '$$',
-    telephone: '+1-XXX-XXX-XXXX', // Replace with actual phone
+    telephone: '+1-940-315-1023',
     url: `https://thinkments.com/digital-marketing-${city.toLowerCase().replace(/\s+/g, '-')}`,
     serviceArea: {
       '@type': 'GeoCircle',

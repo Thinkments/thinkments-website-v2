@@ -29,6 +29,9 @@ import {
   BarChart3,
 } from 'lucide-react';
 import SEO from '../SEO';
+import { OrganizationSchema } from '../seo/OrganizationSchema';
+import { LocalBusinessSchema } from '../seo/LocalBusinessSchema';
+import { Badge3DCarousel } from '../Badge3DCarousel';
 import LazyText from '../ui/LazyText';
 import heroImage from '../../assets/hero-bg.png';
 
@@ -115,13 +118,23 @@ export default function HomePage() {
 
   return (
     <>
+      {/* SEO Component */}
       <SEO
-        title="ThinkMents | Digital Marketing Agency in Texas | SEO, Web Design & More"
-        description="Texas digital marketing agency since 2002. Local SEO, web design, PPC & AI solutions for SMBs and enterprise. Decatur HQ, serving 31 states. Free consultation."
-        keywords="digital marketing agency texas, texas seo company, web design dallas fort worth, local seo decatur, digital marketing decatur tx, ppc management texas, ai marketing automation"
-        url="/"
+        title="ThinkMents - Digital Marketing Agency | Decatur, Texas"
+        description="Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results."
+        keywords="digital marketing Decatur TX, web design Texas, SEO services, local business marketing, Decatur advertising agency"
         type="website"
-        structuredData={localBusinessSchema}
+      />
+
+      {/* Structured Data for SEO */}
+      <OrganizationSchema />
+      <LocalBusinessSchema
+        city="Decatur"
+        state="TX"
+        coordinates={{
+          lat: "33.2348",
+          lng: "-97.5862"
+        }}
       />
 
       {/* SECTION 1: Hero Section (Enhanced) */}
@@ -632,6 +645,27 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+
+            {/* Google Partner Badges 3D Carousel */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isTrustInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-16"
+            >
+              <div className="text-center mb-8">
+                <h3
+                  className="text-3xl md:text-4xl text-[#1E3A5F] mb-3"
+                  style={{ fontFamily: 'Playfair Display, serif' }}
+                >
+                  Certified Google Partner
+                </h3>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Trusted by Google for over 10 years with certifications across multiple platforms
+                </p>
+              </div>
+              <Badge3DCarousel />
+            </motion.div>
           </motion.div>
         </div>
       </section>

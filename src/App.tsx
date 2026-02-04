@@ -61,6 +61,7 @@ const CASACaseStudyPage = lazy(() => import('./components/pages/CASACaseStudyPag
 const TestimonialsPage = lazy(() => import('./components/pages/TestimonialsPage'));
 const PortfolioPage = lazy(() => import('./components/pages/PortfolioPage'));
 const TeamPage = lazy(() => import('./components/pages/TeamPage'));
+const CoreySpicerPage = lazy(() => import('./components/pages/team/CoreySpicerPage'));
 const CareersPage = lazy(() => import('./components/pages/CareersPage'));
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'));
 const BlogPage = lazy(() => import('./components/pages/BlogPage'));
@@ -92,6 +93,15 @@ const FortWorthPage = lazy(() => import('./pages/locations/FortWorthPage'));
 const DentonPage = lazy(() => import('./pages/locations/DentonPage'));
 const DecaturPage = lazy(() => import('./pages/locations/DecaturPage'));
 const NorthTexasPage = lazy(() => import('./pages/locations/NorthTexasPage'));
+
+// Industry Pages
+const HVACMarketingPage = lazy(() => import('./components/pages/industries/HVACMarketingPage'));
+const DentalMarketingPage = lazy(() => import('./components/pages/industries/DentalMarketingPage'));
+const LawFirmMarketingPage = lazy(() => import('./components/pages/industries/LawFirmMarketingPage'));
+const RealEstateMarketingPage = lazy(() => import('./components/pages/industries/RealEstateMarketingPage'));
+const RestaurantMarketingPage = lazy(() => import('./components/pages/industries/RestaurantMarketingPage'));
+const HealthcareMarketingPage = lazy(() => import('./components/pages/industries/HealthcareMarketingPage'));
+const HomeServicesMarketingPage = lazy(() => import('./components/pages/industries/HomeServicesMarketingPage'));
 
 // Route Configurations
 import { LOCATION_ROUTES, SERVICE_ROUTES, REDIRECT_ROUTES } from './config/routes';
@@ -204,10 +214,21 @@ function AppRoutes() {
         <Route path="/case-studies/casa" element={<CASACaseStudyPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/team" element={<TeamPage />} />
+        <Route path="/team/corey-spicer" element={<CoreySpicerPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/industries" element={<IndustriesPage />} />
+
+        {/* Industry Vertical Pages */}
+        <Route path="/industries/hvac-marketing" element={<HVACMarketingPage />} />
+        <Route path="/industries/dental-marketing" element={<DentalMarketingPage />} />
+        <Route path="/industries/law-firm-marketing" element={<LawFirmMarketingPage />} />
+        <Route path="/industries/real-estate-marketing" element={<RealEstateMarketingPage />} />
+        <Route path="/industries/restaurant-marketing" element={<RestaurantMarketingPage />} />
+        <Route path="/industries/healthcare-marketing" element={<HealthcareMarketingPage />} />
+        <Route path="/industries/home-services-marketing" element={<HomeServicesMarketingPage />} />
+
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/knowledge-base" element={<KnowledgeBasePage />} />
         <Route path="/faqs" element={<FAQPage />} />

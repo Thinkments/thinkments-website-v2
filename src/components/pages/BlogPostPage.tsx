@@ -18,6 +18,7 @@ import { BlogContent } from '../BlogContent';
 import { TableOfContents } from '../TableOfContents';
 import { ReadingProgress } from '../ReadingProgress';
 import SEO from '../SEO';
+import { AuthorBox } from '../seo/AuthorBox';
 
 // Basic blog post data for immediate loading (minimal content to prevent timeouts)
 const basicBlogPosts = {
@@ -3727,6 +3728,24 @@ export default function BlogPostPage() {
                       ))}
                     </div>
                   </div>
+
+                  {/* E-E-A-T Author Box - Trust Signal */}
+                  <AuthorBox
+                    name="Corey Spicer"
+                    title="Founder & CEO, ThinkMents"
+                    bio="20+ years pioneering digital marketing innovation. Helped generate $500M+ in client value. Google Partner building solutions that don't exist yet."
+                    avatar="/team/corey-spicer.jpg"
+                    credentials={[
+                      'Google Partner - 10+ Years',
+                      '20+ Years Experience',
+                      '$500M+ Value Generated',
+                      'Industry Pioneer'
+                    ]}
+                    articleCount={45}
+                    linkedinUrl="https://www.linkedin.com/in/coreyspicer"
+                    email="corey@thinkments.com"
+                    showFull={true}
+                  />
 
                   {/* Share Section */}
                   <div className="mt-8 p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/10">

@@ -25,8 +25,21 @@ import {
   Link2,
   Award,
   Megaphone,
+  Sparkles,
+  Bot,
+  Brain,
+  Cpu,
+  Zap,
+  Mic,
+  MessageSquare,
+  Search,
+  Database,
+  RefreshCw,
+  MousePointer,
+  Eye,
 } from 'lucide-react';
 import SEO from '../SEO';
+import AiSeoSection from '../sections/AiSeoSection';
 
 export default function MarketingSEOPage() {
   const heroRef = useRef(null);
@@ -34,6 +47,7 @@ export default function MarketingSEOPage() {
   const connectionRef = useRef(null);
   const marketingServicesRef = useRef(null);
   const seoServicesRef = useRef(null);
+  const aiSeo2026Ref = useRef(null);
   const processRef = useRef(null);
   const resultsRef = useRef(null);
   const whyChooseRef = useRef(null);
@@ -45,6 +59,7 @@ export default function MarketingSEOPage() {
   const isConnectionInView = useInView(connectionRef, { once: true });
   const isMarketingServicesInView = useInView(marketingServicesRef, { once: true });
   const isSeoServicesInView = useInView(seoServicesRef, { once: true });
+  const isAiSeo2026InView = useInView(aiSeo2026Ref, { once: true });
   const isProcessInView = useInView(processRef, { once: true });
   const isResultsInView = useInView(resultsRef, { once: true });
   const isWhyChooseInView = useInView(whyChooseRef, { once: true });
@@ -513,6 +528,9 @@ export default function MarketingSEOPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* AI & Modern SEO 2026 Section */}
+      <AiSeoSection sectionRef={aiSeo2026Ref} />
 
       {/* Our Process */}
       <section

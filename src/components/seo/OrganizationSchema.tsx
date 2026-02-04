@@ -25,26 +25,26 @@ export const OrganizationSchema: React.FC = () => {
     foundingDate: '2010',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '', // Add actual address
+      streetAddress: '301 South Washburn St',
       addressLocality: 'Decatur',
       addressRegion: 'TX',
-      postalCode: '', // Add actual ZIP
+      postalCode: '76234',
       addressCountry: 'US',
     },
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+1-XXX-XXX-XXXX', // Replace with actual phone
+        telephone: '+1-940-315-1023',
         contactType: 'Sales',
-        email: 'info@thinkments.com',
+        email: 'Info@thinkments.com',
         areaServed: 'US',
         availableLanguage: 'English',
       },
       {
         '@type': 'ContactPoint',
-        telephone: '+1-XXX-XXX-XXXX',
+        telephone: '+1-940-315-1023',
         contactType: 'Customer Service',
-        email: 'support@thinkments.com',
+        email: 'Info@thinkments.com',
         areaServed: 'US',
         availableLanguage: 'English',
       },
