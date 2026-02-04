@@ -12,7 +12,11 @@ import {
     Phone,
     ArrowRight,
     X,
-    Check
+    Check,
+    Play,
+    Map as MapIcon,
+    Camera,
+    Glasses
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
@@ -74,6 +78,41 @@ const PERSONAS = [
         description: 'Build the future',
         image: 'https://images.unsplash.com/photo-1581093458891-2f308909bee5?auto=format&fit=crop&q=80&w=600'
     },
+];
+
+const CREATIVE_HUBS = [
+    {
+        id: 'videographers',
+        label: 'Videographers',
+        icon: Play,
+        hex: '#EA4335',
+        description: 'Filmmaking & AI Video',
+        image: 'https://images.unsplash.com/photo-1579632652768-6cb9dcf85912?auto=format&fit=crop&q=80&w=600'
+    },
+    {
+        id: 'map-makers',
+        label: 'Map Makers',
+        icon: MapIcon,
+        hex: '#34A853',
+        description: 'Geospatial & 3D',
+        image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=600'
+    },
+    {
+        id: 'photographers',
+        label: 'Photographers',
+        icon: Camera,
+        hex: '#4285F4',
+        description: 'Editing & Vision AI',
+        image: 'https://images.unsplash.com/photo-1554048612-387768052bf7?auto=format&fit=crop&q=80&w=600'
+    },
+    {
+        id: 'vr-enthusiasts',
+        label: 'VR Enthusiasts',
+        icon: Glasses,
+        hex: '#FBBC05',
+        description: 'XR, AR & 3D Worlds',
+        image: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=600'
+    }
 ];
 
 export default function GoogleToolboxPage() {
@@ -262,8 +301,9 @@ export default function GoogleToolboxPage() {
                 </section>
 
                 {/* Persona Filters (Gravity Wells) */}
-                <section className="pb-20 px-4">
+                <section className="pb-12 px-4">
                     <div className="container mx-auto max-w-7xl">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8 pl-2 border-l-4 border-[#4285F4]">Browse by Need</h2>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                             {PERSONAS.map((persona, index) => {
                                 const Icon = persona.icon;
@@ -340,9 +380,55 @@ export default function GoogleToolboxPage() {
                     </div>
                 </section>
 
+                {/* Creative Studios (Sub-Hub Triggers) */}
+                <section className="pb-20 px-4">
+                    <div className="container mx-auto max-w-7xl">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8 pl-2 border-l-4 border-[#FBBC05]">Creative Studios</h2>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {CREATIVE_HUBS.map((hub, index) => {
+                                const Icon = hub.icon;
+                                return (
+                                    <Link key={hub.id} to={`/google-toolbox/${hub.id}`}>
+                                        <motion.div
+                                            initial={{ scale: 0.9, opacity: 0 }}
+                                            animate={{ scale: 1, opacity: 1 }}
+                                            transition={{ delay: 0.6 + (index * 0.1) }}
+                                            className="relative overflow-hidden rounded-2xl p-6 text-left transition-all duration-500 group bg-white hover:-translate-y-1 hover:shadow-xl"
+                                        >
+                                            {/* Background Image with Overlay */}
+                                            <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                                                <img src={hub.image} alt="" className="w-full h-full object-cover" />
+                                                <div className="absolute inset-0 bg-black/40 group-hover:backdrop-blur-[2px] transition-all" />
+                                            </div>
+
+                                            {/* Card Content */}
+                                            <div className="relative z-10 flex flex-col h-full items-center text-center">
+                                                <div
+                                                    className="w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110 shadow-sm group-hover:bg-white/20 group-hover:text-white"
+                                                    style={{ backgroundColor: `${hub.hex}15`, color: hub.hex }}
+                                                >
+                                                    <Icon className="w-7 h-7" />
+                                                </div>
+
+                                                <h3 className="font-bold text-gray-900 mb-1 group-hover:text-white transition-colors">{hub.label}</h3>
+                                                <p className="text-xs text-gray-500 font-medium group-hover:text-white/80 transition-colors">{hub.description}</p>
+                                            </div>
+
+                                            {/* Border & Shadow */}
+                                            <div className="absolute inset-0 border-2 border-gray-100 rounded-2xl transition-colors duration-300 pointer-events-none group-hover:border-transparent" />
+                                            <div className="absolute inset-0 shadow-sm group-hover:shadow-lg rounded-2xl pointer-events-none transition-shadow duration-300" />
+                                        </motion.div>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+
                 {/* Tools Grid */}
                 <section className="pb-32 px-4">
                     <div className="container mx-auto max-w-7xl">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8 pl-2 border-l-4 border-[#34A853]">All Tools</h2>
                         <AnimatePresence mode='wait'>
                             {filteredTools.length === 0 ? (
                                 <motion.div
@@ -443,6 +529,31 @@ export default function GoogleToolboxPage() {
                                 </div>
                             )}
                         </AnimatePresence>
+                    </div>
+                </section>
+
+                {/* CTA Section */}
+                <section className="py-20 px-4 bg-[#F8FAFF]">
+                    <div className="container mx-auto max-w-4xl text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                            Overwhelmed by the options?
+                        </h2>
+                        <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+                            We help businesses implement these Google tools to streamline operations and drive growth.
+                            Let's find the right stack for you.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button asChild className="rounded-full bg-[#4285F4] hover:bg-[#3367D6] text-white text-lg px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all">
+                                <Link to="/contact-us">
+                                    Schedule a Free Strategy Call
+                                </Link>
+                            </Button>
+                            <Button asChild variant="outline" className="rounded-full border-gray-300 text-gray-700 hover:bg-gray-50 text-lg px-8 py-6 h-auto">
+                                <Link to="/services">
+                                    View Our Services
+                                </Link>
+                            </Button>
+                        </div>
                     </div>
                 </section>
 
