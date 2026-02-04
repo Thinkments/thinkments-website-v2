@@ -92,7 +92,8 @@ export default function Header() {
               onMouseEnter={() => setActiveDropdown('services')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button
+              <a
+                href="https://videography.thinkments.com"
                 className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group-hover:bg-white/10 ${isActiveDropdown(['/services']) ? 'text-[#00B4D8] bg-white/10' : 'text-white'
                   }`}
               >
@@ -100,7 +101,7 @@ export default function Header() {
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180 text-[#00B4D8]' : 'text-white/60'}`}
                 />
-              </button>
+              </a>
 
               <AnimatePresence>
                 {activeDropdown === 'services' && (
