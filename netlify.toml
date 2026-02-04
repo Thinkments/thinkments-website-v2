@@ -3,6 +3,19 @@
   publish = "build"
   functions = "src/netlify/functions"
 
+# Force HTTPS - redirect all HTTP to HTTPS (consolidate canonical URLs)
+[[redirects]]
+  from = "http://thinkments.com/*"
+  to = "https://thinkments.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.thinkments.com/*"
+  to = "https://thinkments.com/:splat"
+  status = 301
+  force = true
+
 # Redirect www to non-www (canonical domain)
 [[redirects]]
   from = "https://www.thinkments.com/*"
