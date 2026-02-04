@@ -152,15 +152,15 @@ export default function DallasPage() {
   return (
     <>
       <Helmet>
-        <title>Digital Marketing Agency in Dallas, TX | ThinkMents</title>
+        <title>Top-Rated Digital Marketing Agency in Dallas, TX | 5.0★ | ThinkMents</title>
         <meta
           name="description"
-          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Dallas, Texas. 20+ years experience. Free consultation."
+          content="Award-winning digital marketing for Dallas businesses. Get more leads, higher rankings & proven ROI. 20+ years expertise, 5.0★ rated. Free strategy session!"
         />
-        <meta property="og:title" content="Digital Marketing Agency in Dallas, TX | ThinkMents" />
+        <meta property="og:title" content="Top-Rated Digital Marketing Agency in Dallas, TX | 5.0★ | ThinkMents" />
         <meta
           property="og:description"
-          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Dallas, Texas. 20+ years experience. Free consultation."
+          content="Award-winning digital marketing for Dallas businesses. Get more leads, higher rankings & proven ROI. 20+ years expertise, 5.0★ rated. Free strategy session!"
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations/dallas" />
@@ -398,9 +398,8 @@ export default function DallasPage() {
                     >
                       <h3 className="font-bold text-[#1E3A5F] pr-8">{faq.question}</h3>
                       <ChevronDown
-                        className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform duration-200 ${
-                          openFaqIndex === index ? 'rotate-180' : ''
-                        }`}
+                        className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform duration-200 ${openFaqIndex === index ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
                     {openFaqIndex === index && (

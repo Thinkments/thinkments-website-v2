@@ -105,18 +105,18 @@ export default function LocationsPage() {
   return (
     <>
       <Helmet>
-        <title>Service Areas | Digital Marketing Agency in Texas | ThinkMents</title>
+        <title>Service Areas: Texas & 31 States | Expert Digital Marketing | ThinkMents</title>
         <meta
           name="description"
-          content="ThinkMents provides digital marketing services across Texas and 31 states. Headquartered in Decatur, TX, serving Dallas, Fort Worth, Denton & beyond."
+          content="Full-service digital marketing across Texas & nationwide. Serving Dallas, Fort Worth, Denton, Decatur & 31 states. Free consultation! Call (940) 315-1023"
         />
         <meta
           property="og:title"
-          content="Service Areas | Digital Marketing Agency in Texas | ThinkMents"
+          content="Service Areas: Texas & 31 States | Expert Digital Marketing | ThinkMents"
         />
         <meta
           property="og:description"
-          content="ThinkMents provides digital marketing services across Texas and 31 states. Headquartered in Decatur, TX, serving Dallas, Fort Worth, Denton & beyond."
+          content="Full-service digital marketing across Texas & nationwide. Serving Dallas, Fort Worth, Denton, Decatur & 31 states. Free consultation! Call (940) 315-1023"
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations" />

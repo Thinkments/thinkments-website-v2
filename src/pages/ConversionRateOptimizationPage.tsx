@@ -305,18 +305,18 @@ export default function ConversionRateOptimizationPage() {
   return (
     <>
       <Helmet>
-        <title>Conversion Rate Optimization Services | Increase Conversions | ThinkMents</title>
+        <title>Boost Conversions by 200%+ | Expert CRO Services | ThinkMents</title>
         <meta
           name="description"
-          content="CRO services that turn visitors into customers. A/B testing, landing page optimization, UX analysis & more. Data-driven strategies for measurable results."
+          content="Maximize revenue from your traffic! Data-driven CRO services, A/B testing & landing page optimization that deliver proven results. Free audit available. (940) 315-1023"
         />
         <meta
           property="og:title"
-          content="Conversion Rate Optimization Services | Increase Conversions | ThinkMents"
+          content="Boost Conversions by 200%+ | Expert CRO Services | ThinkMents"
         />
         <meta
           property="og:description"
-          content="CRO services that turn visitors into customers. A/B testing, landing page optimization, UX analysis & more. Data-driven strategies for measurable results."
+          content="Maximize revenue from your traffic! Data-driven CRO services, A/B testing & landing page optimization that deliver proven results. Free audit available. (940) 315-1023"
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/conversion-rate-optimization" />

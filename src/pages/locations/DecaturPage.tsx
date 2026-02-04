@@ -153,15 +153,15 @@ export default function DecaturPage() {
   return (
     <>
       <Helmet>
-        <title>Digital Marketing Agency in Decatur, TX | ThinkMents</title>
+        <title>Your Hometown Digital Marketing Agency in Decatur, TX | 5.0★</title>
         <meta
           name="description"
-          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Decatur, Texas. 20+ years experience. Free consultation."
+          content="Decatur-based digital marketing agency. Get expert SEO, web design & marketing with hometown service. 20+ years local expertise. Free consultation! (940) 315-1023"
         />
-        <meta property="og:title" content="Digital Marketing Agency in Decatur, TX | ThinkMents" />
+        <meta property="og:title" content="Your Hometown Digital Marketing Agency in Decatur, TX | 5.0★" />
         <meta
           property="og:description"
-          content="ThinkMents provides SEO, web design & digital marketing services to businesses in Decatur, Texas. 20+ years experience. Free consultation."
+          content="Decatur-based digital marketing agency. Get expert SEO, web design & marketing with hometown service. 20+ years local expertise. Free consultation! (940) 315-1023"
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/locations/decatur" />
@@ -399,9 +399,8 @@ export default function DecaturPage() {
                     >
                       <h3 className="font-bold text-[#1E3A5F] pr-8">{faq.question}</h3>
                       <ChevronDown
-                        className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform duration-200 ${
-                          openFaqIndex === index ? 'rotate-180' : ''
-                        }`}
+                        className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform duration-200 ${openFaqIndex === index ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
                     {openFaqIndex === index && (

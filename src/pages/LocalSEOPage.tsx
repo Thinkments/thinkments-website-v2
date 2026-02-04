@@ -227,15 +227,15 @@ export default function LocalSEOPage() {
   return (
     <>
       <Helmet>
-        <title>Local SEO Services for Texas Businesses | ThinkMents</title>
+        <title>Expert Local SEO Services in Texas | Get Found by More Customers</title>
         <meta
           name="description"
-          content="Get found by local customers. ThinkMents provides expert Local SEO services for Decatur and North Texas businesses. Google Maps optimization, citations, reviews & more."
+          content="Dominate local search results! Our proven Local SEO strategies help Texas businesses rank higher, attract more customers & increase revenue. Free audit. Call (940) 315-1023!"
         />
-        <meta property="og:title" content="Local SEO Services for Texas Businesses | ThinkMents" />
+        <meta property="og:title" content="Expert Local SEO Services in Texas | Get Found by More Customers" />
         <meta
           property="og:description"
-          content="Get found by local customers. ThinkMents provides expert Local SEO services for Decatur and North Texas businesses. Google Maps optimization, citations, reviews & more."
+          content="Dominate local search results! Our proven Local SEO strategies help Texas businesses rank higher, attract more customers & increase revenue. Free audit. Call (940) 315-1023!"
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://thinkments.com/local-seo" />

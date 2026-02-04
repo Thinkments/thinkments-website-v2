@@ -14,8 +14,8 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'ThinkMents - Digital Marketing & Web Design Agency in Decatur, Texas',
-  description = 'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.',
+  title = 'Expert Digital Marketing Agency in Decatur, TX | Proven Results Since 2002',
+  description = 'Award-winning digital marketing, web design & SEO services for Decatur businesses. Get more leads, higher rankings, and measurable ROI. 5.0★ rated. Free consultation available!',
   keywords = 'digital marketing, web design, SEO, Decatur Texas, local business marketing, website development, social media marketing',
   image = 'https://images.unsplash.com/photo-1701393433321-b04ccf615df6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwYWdlbmN5JTIwYmx1ZSUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzY1NTYyODE0fDA&ixlib=rb-4.1.0&q=80&w=1200&h=630&fit=crop',
   url,
