@@ -144,7 +144,7 @@ export default function FreeConsultationPage() {
               <Button
                 asChild
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                className="border-2 border-white/30 text-white bg-transparent hover:bg-white/10 backdrop-blur-sm"
               >
                 <Link to="/services" className="flex items-center gap-2">
                   View Our Services
@@ -154,7 +154,7 @@ export default function FreeConsultationPage() {
               <Button
                 asChild
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                className="border-2 border-white/30 text-white bg-transparent hover:bg-white/10 backdrop-blur-sm"
               >
                 <Link to="/portfolio" className="flex items-center gap-2">
                   See Our Work
@@ -437,7 +437,7 @@ export default function FreeConsultationPage() {
               <Button
                 asChild
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F]"
+                className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[#1E3A5F]"
               >
                 <Link to="/case-studies" className="flex items-center gap-2">
                   See Our Results
@@ -691,16 +691,14 @@ export default function FreeConsultationPage() {
                         {faq.question}
                       </span>
                       <ChevronDown
-                        className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform duration-300 ${
-                          openFaq === index ? 'transform rotate-180' : ''
-                        }`}
+                        className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'transform rotate-180' : ''
+                          }`}
                       />
                     </button>
 
                     <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        openFaq === index ? 'max-h-96' : 'max-h-0'
-                      }`}
+                      className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96' : 'max-h-0'
+                        }`}
                     >
                       <div className="px-6 pb-5 text-gray-600 leading-relaxed">{faq.answer}</div>
                     </div>
