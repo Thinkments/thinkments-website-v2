@@ -90,6 +90,7 @@ const LocalSEOPage = lazy(() => import('./pages/LocalSEOPage'));
 const ConversionRateOptimizationPage = lazy(() => import('./pages/ConversionRateOptimizationPage'));
 const GoogleToolboxPage = lazy(() => import('./pages/GoogleToolboxPage'));
 const CreativeToolboxHub = lazy(() => import('./pages/toolbox/CreativeToolboxHub'));
+const AGAgentsPage = lazy(() => import('./pages/AGAgents/AGAgentsPage'));
 const DallasPage = lazy(() => import('./pages/locations/DallasPage'));
 const FortWorthPage = lazy(() => import('./pages/locations/FortWorthPage'));
 const DentonPage = lazy(() => import('./pages/locations/DentonPage'));
@@ -241,6 +242,9 @@ function AppRoutes() {
         <Route path="/conversion-rate-optimization" element={<ConversionRateOptimizationPage />} />
         <Route path="/google-toolbox" element={<GoogleToolboxPage />} />
         <Route path="/google-toolbox/:persona" element={<CreativeToolboxHub />} />
+
+        {/* AG Agents */}
+        <Route path="/ag-agents" element={<AGAgentsPage />} />
         <Route path="/locations/dallas" element={<DallasPage />} />
         <Route path="/locations/fort-worth" element={<FortWorthPage />} />
         <Route path="/locations/denton" element={<DentonPage />} />
