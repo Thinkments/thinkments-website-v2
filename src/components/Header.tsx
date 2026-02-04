@@ -230,6 +230,14 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+            {/* Nav Item: Google Toolbox */}
+            <Link
+              to="/google-toolbox"
+              className={`flex items-center gap-1.5 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ${isActiveLink('/google-toolbox') ? 'text-[#00B4D8] bg-white/10' : 'text-white hover:text-[#00B4D8] hover:bg-white/10'}`}
+            >
+              <span>Google Toolbox</span>
+            </Link>
+
             {/* Nav Item: Virtual Tours */}
             <a
               href="https://virtualtours.thinkments.com/"
@@ -425,6 +433,17 @@ export default function Header() {
                       </motion.div>
                     )}
                   </AnimatePresence>
+                </div>
+
+                {/* Mobile Google Toolbox */}
+                <div className="border-b border-white/10">
+                  <Link
+                    to="/google-toolbox"
+                    className={`w-full flex items-center justify-between py-5 text-2xl font-light transition-colors ${isActiveLink('/google-toolbox') ? 'text-[#00B4D8] font-medium' : 'text-white hover:text-[#00B4D8]'
+                      }`}
+                  >
+                    <span>Google Toolbox</span>
+                  </Link>
                 </div>
 
                 {/* Mobile Virtual Tours */}
