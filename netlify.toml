@@ -37,16 +37,6 @@
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-# Enable prerendering for search engines (CRITICAL for SEO)
+# Enable Lighthouse performance testing
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
-
-# Prerender SPAs for bots and crawlers
-[[plugins]]
-  package = "netlify-plugin-prerender-spa"
-
-  [plugins.inputs]
-    # Prerender for search engine bots
-    # This makes Google see the full rendered content, not empty React shell
-    source = "build"
-
