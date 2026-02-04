@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
-import { vancouverLocationData } from '../../data/vancouverLocationData';
 import { texasLocationData } from '../../data/texasLocationData';
 
 interface LocationMarketingPageProps {
@@ -25,8 +24,8 @@ interface LocationMarketingPageProps {
 }
 
 export default function LocationMarketingPage({ location }: LocationMarketingPageProps) {
-  // Combine both data sources
-  const allLocationData = { ...texasLocationData, ...vancouverLocationData };
+  // Use Texas location data
+  const allLocationData = texasLocationData;
 
   // Check if this location has custom data
   const locationData = allLocationData[location];
@@ -93,7 +92,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
 
   // Use location-specific testimonials if available, otherwise use generic ones
   const testimonials = locationData?.successStories.length > 0
-    ? locationData.successStories.map(story => ({
+    ? locationData.successStories.map((story: any) => ({
       name: story.name,
       business: story.business,
       rating: 5,
@@ -352,7 +351,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
+              {testimonials.map((testimonial: any, index: number) => (
                 <motion.div
                   key={testimonial.name}
                   initial={{ opacity: 0, y: 50 }}
@@ -403,7 +402,7 @@ export default function LocationMarketingPage({ location }: LocationMarketingPag
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
-              {localAreas.map((area, index) => (
+              {localAreas.map((area: string, index: number) => (
                 <motion.div
                   key={area}
                   initial={{ opacity: 0, scale: 0.9 }}
