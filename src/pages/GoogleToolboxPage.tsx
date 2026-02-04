@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
     Search,
     Sparkles,
@@ -120,44 +120,6 @@ export default function GoogleToolboxPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-    // Animation Refs & State
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            // Calculate normalized mouse position (-1 to 1)
-            const x = (e.clientX / window.innerWidth) * 2 - 1;
-            const y = (e.clientY / window.innerHeight) * 2 - 1;
-            mouseX.set(x);
-            mouseY.set(y);
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, [mouseX, mouseY]);
-
-    // Parallax Springs
-    const springConfig = { damping: 25, stiffness: 150 };
-
-    // Background Blob 1 (Blue)
-    const blob1X = useSpring(useTransform(mouseX, [-1, 1], [-50, 50]), springConfig);
-    const blob1Y = useSpring(useTransform(mouseY, [-1, 1], [-50, 50]), springConfig);
-
-    // Background Blob 2 (Yellow)
-    const blob2X = useSpring(useTransform(mouseX, [-1, 1], [50, -50]), springConfig);
-    const blob2Y = useSpring(useTransform(mouseY, [-1, 1], [50, -50]), springConfig);
-
-    // Background Blob 3 (Red)
-    const blob3X = useSpring(useTransform(mouseX, [-1, 1], [-30, 30]), springConfig);
-    const blob3Y = useSpring(useTransform(mouseY, [-1, 1], [30, -30]), springConfig);
-
-    // Content Parallax (Subtle)
-    const contentX = useSpring(useTransform(mouseX, [-1, 1], [-10, 10]), springConfig);
-    const contentY = useSpring(useTransform(mouseY, [-1, 1], [-10, 10]), springConfig);
-
     // Filter tools based on selected persona and search query
     const filteredTools = useMemo(() => {
         let tools: ToolCategory[] = googleToolsData;
@@ -197,13 +159,12 @@ export default function GoogleToolboxPage() {
 
             <div className="min-h-screen bg-[#FFFFFF] font-sans selection:bg-blue-100 selection:text-blue-900">
 
-                {/* Google-Style Hero with Interactive Animation */}
+                {/* Google-Style Hero - Static */}
                 <section className="relative pt-32 pb-20 px-4 overflow-hidden">
                     <div className="container mx-auto max-w-6xl relative z-10 text-center">
 
                         {/* Logo/Badge */}
                         <motion.div
-                            style={{ x: contentX, y: contentY }}
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm px-4 py-1.5 rounded-full mb-8 relative z-20"
@@ -221,7 +182,6 @@ export default function GoogleToolboxPage() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.1 }}
-                            style={{ x: contentX, y: contentY }}
                             className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6 relative z-20"
                         >
                             Everything you need.<br />
@@ -234,7 +194,6 @@ export default function GoogleToolboxPage() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
-                            style={{ x: contentX, y: contentY }}
                             className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed relative z-20"
                         >
                             Access {totalToolsCount}+ free tools from Google's ecosystem.
@@ -270,33 +229,6 @@ export default function GoogleToolboxPage() {
                             </div>
                         </motion.div>
 
-                    </div>
-
-                    {/* Animated Background Shapes */}
-                    <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-                        {/* Blue Blob - Top Left */}
-                        <motion.div
-                            style={{ x: blob1X, y: blob1Y }}
-                            className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-blue-50/60 blur-3xl opacity-60 mix-blend-multiply"
-                        />
-
-                        {/* Yellow Blob - Bottom Right */}
-                        <motion.div
-                            style={{ x: blob2X, y: blob2Y }}
-                            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-yellow-50/60 blur-3xl opacity-60 mix-blend-multiply"
-                        />
-
-                        {/* Red Blob - Top Right */}
-                        <motion.div
-                            style={{ x: blob3X, y: blob3Y }}
-                            className="absolute top-[10%] right-[10%] w-[30vw] h-[30vw] max-w-[400px] max-h-[400px] rounded-full bg-red-50/60 blur-3xl opacity-40 mix-blend-multiply"
-                        />
-
-                        {/* Green Blob - Bottom Left (Subtle) */}
-                        <motion.div
-                            style={{ x: blob2X, y: blob1Y }}
-                            className="absolute bottom-[20%] left-[10%] w-[25vw] h-[25vw] max-w-[300px] max-h-[300px] rounded-full bg-green-50/40 blur-3xl opacity-30 mix-blend-multiply"
-                        />
                     </div>
                 </section>
 
@@ -467,61 +399,76 @@ export default function GoogleToolboxPage() {
                                                 </motion.div>
 
                                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                                    {category.tools.map((tool, index) => (
-                                                        <motion.a
-                                                            key={tool.name}
-                                                            href={tool.url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            initial={{ opacity: 0, y: 20 }}
-                                                            whileInView={{ opacity: 1, y: 0 }}
-                                                            viewport={{ once: true }}
-                                                            transition={{ delay: index * 0.05 }}
-                                                            className="group relative bg-white rounded-2xl overflow-hidden hover:z-10 transition-all duration-300 flex flex-col h-full border border-gray-100 hover:border-transparent hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
-                                                        >
-                                                            {/* Card Header (Photo Placeholder) */}
-                                                            <div className="h-32 bg-gray-50 relative overflow-hidden">
-                                                                {personaConfig?.image && (
-                                                                    <>
-                                                                        <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent z-10" />
-                                                                        <img
-                                                                            src={personaConfig.image}
-                                                                            alt=""
-                                                                            className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
-                                                                        />
-                                                                    </>
-                                                                )}
-                                                                {/* Badge */}
-                                                                {tool.isLab && (
-                                                                    <div className="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-purple-100 flex items-center gap-1">
-                                                                        <Sparkles className="w-3 h-3 text-purple-600" />
-                                                                        <span className="text-[10px] uppercase font-bold tracking-wider text-purple-700">Lab</span>
+                                                    {category.tools.map((tool, index) => {
+                                                        // TODO: Uncomment and import these images when they are available in src/assets/lab/
+                                                        // import aiStudioImg from '../assets/lab/thinkments_lab_ai_studio.png';
+                                                        // ...
+
+                                                        // Placeholder for tool-specific images
+                                                        const toolImages: Record<string, string | undefined> = {
+                                                            // "Google AI Studio": aiStudioImg,
+                                                            // "My Maps": myMapsImg,
+                                                        };
+
+                                                        const specificImage = toolImages[tool.name];
+                                                        const displayImage = specificImage || personaConfig?.image;
+
+                                                        return (
+                                                            <motion.a
+                                                                key={tool.name}
+                                                                href={tool.url}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                whileInView={{ opacity: 1, y: 0 }}
+                                                                viewport={{ once: true }}
+                                                                transition={{ delay: index * 0.05 }}
+                                                                className="group relative bg-white rounded-2xl overflow-hidden hover:z-10 transition-all duration-300 flex flex-col h-full border border-gray-100 hover:border-transparent hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+                                                            >
+                                                                {/* Card Header (Photo Placeholder) */}
+                                                                <div className="h-32 bg-gray-50 relative overflow-hidden">
+                                                                    {displayImage && (
+                                                                        <>
+                                                                            <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent z-10" />
+                                                                            <img
+                                                                                src={displayImage}
+                                                                                alt={`${tool.name} - ThinkMents Google Toolbox`}
+                                                                                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                                                                            />
+                                                                        </>
+                                                                    )}
+                                                                    {/* Badge */}
+                                                                    {tool.isLab && (
+                                                                        <div className="absolute top-3 right-3 z-20 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-purple-100 flex items-center gap-1">
+                                                                            <Sparkles className="w-3 h-3 text-purple-600" />
+                                                                            <span className="text-[10px] uppercase font-bold tracking-wider text-purple-700">Lab</span>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+
+                                                                <div className="p-6 pt-2 flex flex-col flex-grow relative">
+                                                                    {/* Icon Overlap */}
+                                                                    <div className="w-12 h-12 -mt-8 mb-4 relative z-20 bg-white rounded-xl shadow-sm border border-gray-50 flex items-center justify-center text-gray-700 group-hover:text-white group-hover:bg-gray-900 transition-colors duration-300">
+                                                                        {/* Simple letter icon if no specific icon */}
+                                                                        <span className="text-xl font-bold">{tool.name.charAt(0)}</span>
                                                                     </div>
-                                                                )}
-                                                            </div>
 
-                                                            <div className="p-6 pt-2 flex flex-col flex-grow relative">
-                                                                {/* Icon Overlap */}
-                                                                <div className="w-12 h-12 -mt-8 mb-4 relative z-20 bg-white rounded-xl shadow-sm border border-gray-50 flex items-center justify-center text-gray-700 group-hover:text-white group-hover:bg-gray-900 transition-colors duration-300">
-                                                                    {/* Simple letter icon if no specific icon */}
-                                                                    <span className="text-xl font-bold">{tool.name.charAt(0)}</span>
+                                                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#4285F4] transition-colors flex items-center gap-2">
+                                                                        {tool.name}
+                                                                    </h3>
+
+                                                                    <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
+                                                                        {tool.description}
+                                                                    </p>
+
+                                                                    <div className="flex items-center text-sm font-medium text-gray-400 group-hover:text-[#4285F4] transition-colors mt-auto">
+                                                                        <span>Open Tool</span>
+                                                                        <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                                                                    </div>
                                                                 </div>
-
-                                                                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#4285F4] transition-colors flex items-center gap-2">
-                                                                    {tool.name}
-                                                                </h3>
-
-                                                                <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
-                                                                    {tool.description}
-                                                                </p>
-
-                                                                <div className="flex items-center text-sm font-medium text-gray-400 group-hover:text-[#4285F4] transition-colors mt-auto">
-                                                                    <span>Open Tool</span>
-                                                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                                                                </div>
-                                                            </div>
-                                                        </motion.a>
-                                                    ))}
+                                                            </motion.a>
+                                                        );
+                                                    })}
                                                 </div>
                                             </div>
                                         );
