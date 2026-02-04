@@ -143,7 +143,7 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
       },
       {
         name: 'Video Production',
-        path: '/video-photography',
+        path: 'https://videography.thinkments.com',
         icon: Video,
         gradient: 'from-red-600 to-orange-600',
         desc: 'Professional videography',

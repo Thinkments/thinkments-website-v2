@@ -354,10 +354,10 @@ export default function AboutPage() {
                 animate={isDifferenceInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-[#00B4D8]">
+                <Card className="h-full hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-lg flex items-center justify-center mb-6">
-                      <card.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-sm" style={{ backgroundColor: '#4285F420', color: '#4285F4' }}>
+                      <card.icon className="w-8 h-8" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">{card.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{card.description}</p>
@@ -546,7 +546,7 @@ export default function AboutPage() {
                 animate={isTestimonialsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow duration-300">
+                <Card className="h-full hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-1 mb-4">
                       {[1, 2, 3, 4, 5].map((star) => (
@@ -603,7 +603,7 @@ export default function AboutPage() {
                 animate={isApproachInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-[#00B4D8]">
+                <Card className="h-full hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                   <CardContent className="p-8 text-center">
                     <div className="text-6xl font-bold text-[#00B4D8]/20 mb-4">{step.number}</div>
                     <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">{step.title}</h3>
@@ -654,10 +654,10 @@ export default function AboutPage() {
                 animate={isServicesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow duration-300">
+                <Card className="h-full hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                   <CardContent className="p-8">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-lg flex items-center justify-center mb-6">
-                      <service.icon className="w-7 h-7 text-white" />
+                    <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 shadow-sm" style={{ backgroundColor: '#4285F420', color: '#4285F4' }}>
+                      <service.icon className="w-7 h-7" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">{service.title}</h3>
                     <ul className="space-y-2">
@@ -710,7 +710,7 @@ export default function AboutPage() {
               animate={isWhoInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="h-full border-t-4 border-t-[#00B4D8]">
+              <Card className="h-full bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-[#1E3A5F] mb-6">
                     We&apos;re a Great Fit If You:
@@ -772,7 +772,7 @@ export default function AboutPage() {
             animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Card className="hover:shadow-xl transition-shadow duration-300">
+            <Card className="hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
               <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center text-white text-4xl font-bold mb-6">

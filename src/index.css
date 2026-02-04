@@ -16,6 +16,14 @@
   --color-white: #ffffff;
   --color-soft-gray: #f5f5f5;
 
+  /* Google Brand Colors */
+  --google-blue: #4285F4;
+  --google-red: #EA4335;
+  --google-yellow: #FBBC05;
+  --google-green: #34A853;
+  --google-grey: #F1F3F4;
+  --google-text: #202124;
+
   /* System Color Mapping */
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -162,6 +170,17 @@
     @apply bg-background text-foreground;
     margin: 0;
     padding: 0;
+  }
+
+  /* Google-style selection */
+  ::selection {
+    background-color: #4285F4;
+    color: #ffffff;
+  }
+
+  ::-moz-selection {
+    background-color: #4285F4;
+    color: #ffffff;
   }
 
   h1 {

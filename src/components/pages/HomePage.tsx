@@ -285,10 +285,10 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Link to="/local-seo">
-                <Card className="h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#00B4D8] group cursor-pointer">
+                <Card className="h-full hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-[#4285F4] group cursor-pointer bg-white rounded-2xl">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Store className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm" style={{ backgroundColor: '#4285F420', color: '#4285F4' }}>
+                      <Store className="w-8 h-8" />
                     </div>
                     <h3
                       className="text-2xl text-[#1E3A5F] mb-4"
@@ -300,7 +300,7 @@ export default function HomePage() {
                       Get found by local customers, dominate Google Maps, and grow your Decatur or
                       North Texas business with proven local SEO strategies.
                     </p>
-                    <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-[#4285F4] font-semibold group-hover:gap-3 transition-all">
                       Explore Local Solutions
                       <ArrowRight className="w-5 h-5" />
                     </div>
@@ -316,10 +316,10 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Link to="/strategic-consulting">
-                <Card className="h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#F7B928] group cursor-pointer">
+                <Card className="h-full hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-[#F7B928] group cursor-pointer bg-white rounded-2xl">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#F7B928] to-[#1E3A5F] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Building2 className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm" style={{ backgroundColor: '#F7B92820', color: '#F7B928' }}>
+                      <Building2 className="w-8 h-8" />
                     </div>
                     <h3
                       className="text-2xl text-[#1E3A5F] mb-4"
@@ -400,13 +400,13 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: item.delay }}
               >
                 <Link to={item.link}>
-                  <Card className="h-full bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 hover:border-[#00B4D8] transition-all duration-300 group cursor-pointer">
+                  <Card className="h-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-[#4285F4] transition-all duration-300 group cursor-pointer rounded-2xl">
                     <CardContent className="p-6 text-center">
-                      <div className="w-14 h-14 rounded-lg bg-[#00B4D8] flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-sm" style={{ backgroundColor: '#4285F4', color: 'white' }}>
                         <item.icon className="w-7 h-7 text-white" />
                       </div>
                       <p className="text-white text-lg mb-3">{item.problem}</p>
-                      <div className="flex items-center justify-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
+                      <div className="flex items-center justify-center gap-2 text-[#4285F4] font-semibold group-hover:gap-3 transition-all">
                         Find Solution
                         <ArrowRight className="w-4 h-4" />
                       </div>
@@ -498,14 +498,14 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: service.delay }}
               >
                 <Link to={service.link}>
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-[#00B4D8] group cursor-pointer">
+                  <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-transparent group cursor-pointer bg-white rounded-2xl">
                     <CardContent className="p-6">
-                      <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <service.icon className="w-7 h-7 text-white" />
+                      <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shadow-sm" style={{ backgroundColor: '#4285F420', color: '#4285F4' }}>
+                        <service.icon className="w-7 h-7" />
                       </div>
                       <h3 className="font-semibold text-[#1E3A5F] text-lg mb-3">{service.title}</h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">{service.benefit}</p>
-                      <div className="flex items-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 text-[#4285F4] font-semibold group-hover:gap-3 transition-all">
                         Learn More
                         <ArrowRight className="w-4 h-4" />
                       </div>
@@ -591,10 +591,10 @@ export default function HomePage() {
                 animate={isWhyChooseInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: item.delay }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow duration-300">
+                <Card className="h-full hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                   <CardContent className="p-6 text-center">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 mx-auto">
-                      <item.icon className="w-7 h-7 text-white" />
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto shadow-sm" style={{ backgroundColor: '#4285F420', color: '#4285F4' }}>
+                      <item.icon className="w-7 h-7" />
                     </div>
                     <h3 className="text-xl text-[#1E3A5F] mb-3">{item.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{item.description}</p>
@@ -728,14 +728,14 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: resource.delay }}
               >
                 <Link to={resource.link}>
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-[#00B4D8] group cursor-pointer">
+                  <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-[#4285F4] group cursor-pointer bg-white rounded-2xl">
                     <CardContent className="p-6 text-center">
-                      <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                        <resource.icon className="w-7 h-7 text-white" />
+                      <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-sm" style={{ backgroundColor: '#4285F420', color: '#4285F4' }}>
+                        <resource.icon className="w-7 h-7" />
                       </div>
                       <h3 className="text-xl text-[#1E3A5F] mb-3">{resource.title}</h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">{resource.description}</p>
-                      <div className="flex items-center justify-center gap-2 text-[#00B4D8] font-semibold group-hover:gap-3 transition-all">
+                      <div className="flex items-center justify-center gap-2 text-[#4285F4] font-semibold group-hover:gap-3 transition-all">
                         {resource.cta}
                         <ArrowRight className="w-4 h-4" />
                       </div>

@@ -191,7 +191,7 @@ export default function ContactPage() {
             className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto"
           >
             {/* Phone */}
-            <Card className="hover:shadow-lg transition-shadow duration-300">
+            <Card className="hover:shadow-lg transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
               <CardContent className="p-6 text-center">
                 <div className="w-14 h-14 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-7 h-7 text-white" />
@@ -247,7 +247,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-3"
             >
-              <Card className="shadow-xl">
+              <Card className="shadow-xl bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-6 md:p-10">
                   <h2
                     className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-3"
@@ -488,7 +488,7 @@ export default function ContactPage() {
               className="lg:col-span-2 space-y-6"
             >
               {/* Card 1 - Office Location */}
-              <Card className="shadow-lg">
+              <Card className="shadow-lg bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#1E3A5F] mb-4 flex items-center gap-2">
                     <MapPin className="w-5 h-5 text-[#00B4D8]" />
@@ -529,7 +529,7 @@ export default function ContactPage() {
               </Card>
 
               {/* Card 2 - Direct Contact */}
-              <Card className="shadow-lg">
+              <Card className="shadow-lg bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Direct Contact</h3>
                   <div className="space-y-3">
@@ -611,7 +611,7 @@ export default function ContactPage() {
               </Card>
 
               {/* Card 4 - Connect Online */}
-              <Card className="shadow-lg">
+              <Card className="shadow-lg bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Connect Online</h3>
                   <div className="flex gap-4">
@@ -683,7 +683,7 @@ export default function ContactPage() {
               animate={isAlternativeInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="h-full text-center hover:shadow-xl transition-shadow duration-300">
+              <Card className="h-full text-center hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Calendar className="w-8 h-8 text-white" />
@@ -709,7 +709,7 @@ export default function ContactPage() {
               animate={isAlternativeInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="h-full text-center hover:shadow-xl transition-shadow duration-300">
+              <Card className="h-full text-center hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
                     <MessageCircle className="w-8 h-8 text-white" />
@@ -735,7 +735,7 @@ export default function ContactPage() {
               animate={isAlternativeInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Card className="h-full text-center hover:shadow-xl transition-shadow duration-300">
+              <Card className="h-full text-center hover:shadow-xl transition-shadow duration-300 bg-white rounded-2xl border border-gray-100">
                 <CardContent className="p-8">
                   <div className="w-16 h-16 bg-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Building className="w-8 h-8 text-white" />

@@ -251,20 +251,21 @@ export default function ServicesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full group hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                  <Card className="h-full group hover:shadow-xl transition-all duration-300 relative overflow-hidden bg-white rounded-2xl border-2 border-gray-100 hover:border-transparent">
                     <motion.div
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
                     />
                     <CardContent className="p-6 relative z-10">
                       <motion.div
-                        className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl mb-6 flex items-center justify-center`}
-                        whileHover={{ scale: 1.1, rotate: 360 }}
-                        transition={{ duration: 0.6 }}
+                        className="w-16 h-16 rounded-xl mb-6 flex items-center justify-center shadow-sm"
+                        style={{ backgroundColor: '#4285F420', color: '#4285F4' }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
                       >
-                        <service.icon className="w-8 h-8 text-white" />
+                        <service.icon className="w-8 h-8" />
                       </motion.div>
 
-                      <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl mb-4 text-[#1E3A5F] transition-colors font-semibold">
                         {service.title}
                       </h3>
 
@@ -284,9 +285,7 @@ export default function ServicesPage() {
                               transition={{ duration: 0.3, delay: featureIndex * 0.05 }}
                               viewport={{ once: true }}
                             >
-                              <div
-                                className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.color}`}
-                              />
+                              <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#4285F4' }} />
                               <span>{feature}</span>
                             </motion.li>
                           ))}
