@@ -48,5 +48,5 @@
   [plugins.inputs]
     # Prerender for search engine bots
     # This makes Google see the full rendered content, not empty React shell
-    publicPath = "/build"
+    source = "build"
 
