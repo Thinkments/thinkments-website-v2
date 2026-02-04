@@ -1,0 +1,10 @@
+﻿
+> thinkments-website@0.1.0 type-check
+> tsc -b
+
+src/components/pages/LocationMarketingPage.tsx(20,39): error TS2307: Cannot find module '../../data/vancouverLocationData' or its corresponding type declarations.
+src/components/pages/LocationMarketingPage.tsx(96,39): error TS7006: Parameter 'story' implicitly has an 'any' type.
+src/components/pages/LocationMarketingPage.tsx(355,34): error TS7006: Parameter 'testimonial' implicitly has an 'any' type.
+src/components/pages/LocationMarketingPage.tsx(355,47): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/pages/LocationMarketingPage.tsx(406,32): error TS7006: Parameter 'area' implicitly has an 'any' type.
+src/components/pages/LocationMarketingPage.tsx(406,38): error TS7006: Parameter 'index' implicitly has an 'any' type.
