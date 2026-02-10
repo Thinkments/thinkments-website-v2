@@ -83,7 +83,7 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
     development: [
       {
         name: 'Web Development',
-        path: 'https://websitedesign.thinkments.com/',
+        path: 'https://websitedesigns.thinkments.com/',
         icon: Code,
         gradient: 'from-blue-500 to-cyan-500',
         desc: 'Custom websites & web apps',
@@ -231,7 +231,7 @@ export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
     {
       title: 'Development',
       items: [
-        { name: 'Web Development', path: 'https://websitedesign.thinkments.com/' },
+        { name: 'Web Development', path: 'https://websitedesigns.thinkments.com/' },
         { name: 'E-Commerce', path: '/store' },
         { name: 'Web Design', path: '/web-design' },
       ],
