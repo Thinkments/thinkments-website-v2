@@ -1,0 +1,14 @@
+Reading files...
+Read blogPosts.ts: 295728 bytes
+Read BlogPostPage.tsx: 391713 bytes
+Extracted keys from blogPosts.ts: 19
+Extracted keys from BlogPostPage.tsx: 59
+MISSING in blogPosts.ts: [
+  'facebook-ads-advanced-campaign-strategies',
+  'ux-ui-design-principles-conversions',
+  'cross-platform-marketing-integration-strategies',
+  'customer-retention-loyalty-programs-guide',
+  'tiktok-marketing-gen-z-millennials',
+  'linkedin-marketing-b2b-businesses',
+  'local-seo-strategies-small-businesses',
+  'technical-seo-foundation-search-success',
