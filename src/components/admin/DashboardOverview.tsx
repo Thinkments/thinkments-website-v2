@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import LiveAgentFeeds from './LiveAgentFeeds';
 
 interface DashboardOverviewProps {
   onNavigate?: (page: string) => void;
@@ -238,6 +239,9 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
           </CardContent>
         </Card>
       </motion.div>
+
+      {/* Live Agent API Feeds Data Hub */}
+      <LiveAgentFeeds />
 
       {/* Performance Chart and Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
