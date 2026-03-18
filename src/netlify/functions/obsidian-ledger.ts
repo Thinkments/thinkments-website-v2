@@ -1,6 +1,6 @@
 import { Handler } from '@netlify/functions';
 
-export const handler: Handler = async (event, context) => {
+export const handler: Handler = async (_event, _context) => {
   try {
     // Expected to use Whale Alert or Etherscan API
     const apiKey = process.env.OBSIDIAN_API_KEY;

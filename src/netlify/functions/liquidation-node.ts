@@ -1,6 +1,6 @@
 import { Handler } from '@netlify/functions';
 
-export const handler: Handler = async (event, context) => {
+export const handler: Handler = async (_event, _context) => {
   try {
     // Expected to use Coinglass or Binance API depending on USER configuration
     const apiKey = process.env.LIQUIDATION_API_KEY;
