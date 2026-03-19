@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -170,31 +171,93 @@ export default function SEOBulkFixer() {
   const [editingItem, setEditingItem] = useState<string | null>(null);
   const [editValue, setEditValue] = useState('');
 
-  const runScan = () => {
+  const [isApplying, setIsApplying] = useState(false);
+
+  const runScan = async () => {
     setScanStatus('scanning');
-    setScanProgress(0);
+    setScanProgress(25);
     setCurrentPage(0);
 
-    // Simulate scanning
-    const interval = setInterval(() => {
-      setScanProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setScanStatus('complete');
-          setScanResults(mockScanResults);
-          setLastScan(new Date().toLocaleString());
-          return 100;
-        }
-        setCurrentPage(Math.floor((prev / 100) * totalPages));
-        return prev + 5;
-      });
-    }, 200);
+    try {
+      // Simulate progress bar moving while fetching
+      const interval = setInterval(() => {
+        setScanProgress((prev) => Math.min(prev + 5, 85));
+      }, 500);
+
+      const response = await fetch('/api/seo-scanner');
+      clearInterval(interval);
+      
+      if (!response.ok) throw new Error('Scan failed');
+      const data = await response.json();
+      
+      setScanProgress(100);
+      setTimeout(() => {
+        setScanStatus('complete');
+        setTotalPages(data.overview.pagesScanned);
+        setScanResults({
+          pagesScanned: data.overview.pagesScanned,
+          issuesFound: data.overview.issuesFound,
+          seoScore: data.overview.seoScore,
+          quickFixCount: data.overview.quickFixCount,
+          ...data.bulkFixerData
+        });
+        setLastScan(new Date().toLocaleString());
+      }, 500);
+
+    } catch (error) {
+      console.error(error);
+      setScanStatus('idle');
+      toast.error('Failed to analyze the website. Please check the console.');
+    }
   };
 
   const cancelScan = () => {
     setScanStatus('idle');
     setScanProgress(0);
     setCurrentPage(0);
+  };
+
+  const handleApplyUpdates = async (itemsToApply: string[]) => {
+    if (itemsToApply.length === 0) return;
+    setIsApplying(true);
+
+    try {
+      const response = await fetch('/api/seo-editor', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          action: 'apply_ai_suggestions',
+          updates: itemsToApply
+        })
+      });
+
+      if (!response.ok) throw new Error('Update failed');
+      
+      toast.success(`Successfully applied ${itemsToApply.length} SEO updates!`);
+      
+      // Remove applied items from the current state
+      setScanResults((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          issuesFound: prev.issuesFound - itemsToApply.length,
+          quickFixCount: prev.quickFixCount - itemsToApply.length,
+          metaIssues: prev.metaIssues.filter(i => !itemsToApply.includes(i.id)),
+          titleIssues: prev.titleIssues.filter(i => !itemsToApply.includes(i.id)),
+          imageIssues: prev.imageIssues.filter(i => !itemsToApply.includes(i.id)),
+          h1Issues: prev.h1Issues.filter(i => !itemsToApply.includes(i.id)),
+        };
+      });
+      setSelectedItems([]);
+      
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to apply updates.');
+    } finally {
+      setIsApplying(false);
+    }
   };
 
   const toggleSelection = (id: string) => {
@@ -523,10 +586,19 @@ export default function SEOBulkFixer() {
               </div>
               <Button
                 size="sm"
+                onClick={() => {
+                  const allQuickFixIds = scanResults ? [
+                    ...scanResults.metaIssues.map(i => i.id),
+                    ...scanResults.titleIssues.map(i => i.id),
+                    ...scanResults.imageIssues.map(i => i.id),
+                  ] : [];
+                  handleApplyUpdates(allQuickFixIds);
+                }}
+                disabled={isApplying || scanResults?.quickFixCount === 0}
                 className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
-                Fix All
+                {isApplying ? 'Applying...' : 'Fix All'}
               </Button>
             </CardContent>
           </Card>
@@ -620,9 +692,11 @@ export default function SEOBulkFixer() {
                   <>
                     <Button
                       size="sm"
+                      onClick={() => handleApplyUpdates(selectedItems)}
+                      disabled={isApplying}
                       className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
                     >
-                      <Sparkles className="w-4 h-4 mr-2" />
+                      {isApplying ? <RefreshCw className="w-4 h-4 mr-2 animate-spin" /> : <Sparkles className="w-4 h-4 mr-2" />}
                       Apply {selectedItems.length} Suggestions
                     </Button>
                     <Button size="sm" variant="outline" onClick={clearSelection}>
@@ -658,7 +732,7 @@ export default function SEOBulkFixer() {
                       <p className="text-xs text-green-800 line-clamp-2">{image.aiSuggestion}</p>
                     </div>
                     <div className="flex space-x-1">
-                      <Button size="sm" className="flex-1 text-xs bg-[#00B4D8] text-white">
+                      <Button onClick={() => handleApplyUpdates([image.id])} disabled={isApplying} size="sm" className="flex-1 text-xs bg-[#00B4D8] text-white">
                         Apply
                       </Button>
                       <Button size="sm" variant="outline" className="text-xs">
@@ -782,6 +856,8 @@ export default function SEOBulkFixer() {
                         <div className="flex space-x-2">
                           <Button
                             size="sm"
+                            onClick={() => handleApplyUpdates([issue.id])}
+                            disabled={isApplying}
                             className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
                           >
                             <Check className="w-4 h-4 mr-1" />
