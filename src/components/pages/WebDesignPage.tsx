@@ -8,7 +8,6 @@ import {
   Smartphone,
   Zap,
   Search,
-  ShoppingCart,
   Users,
   ArrowRight,
   CheckCircle,
@@ -17,7 +16,6 @@ import {
   ChevronRight,
   Award,
   Target,
-  Eye,
   Palette,
   Gauge,
   Accessibility,
@@ -34,6 +32,12 @@ import {
   Headphones,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 
 export default function WebDesignPage() {
   const heroRef = useRef(null);
@@ -239,6 +243,16 @@ export default function WebDesignPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Professional Web Design Services',
+      description: 'Expert web design in Texas since 2002. Custom, responsive websites that convert visitors into customers.',
+      url: `${BASE_URL}/web-design`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -246,6 +260,7 @@ export default function WebDesignPage() {
         description="Expert web design in Texas since 2002. Custom, responsive websites that convert visitors into customers. 4-8 week delivery. Mobile-first, SEO-optimized design."
         url="/web-design"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}

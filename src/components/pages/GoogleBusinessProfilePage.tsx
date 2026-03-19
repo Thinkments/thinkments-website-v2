@@ -16,34 +16,32 @@ import {
   Map,
   AlertTriangle,
   GraduationCap,
-  TrendingUp,
   Award,
   Shield,
   Search,
   Globe,
-  MapPin,
   Camera,
-  MessageSquare,
   Users,
   Target,
-  Zap,
-  Clock,
   FileText,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  BASE_URL
+} from '../../utils/seo';
 import RelatedServices from '../RelatedServices';
 
 export default function GoogleBusinessProfilePage() {
   const heroRef = useRef(null);
   const experienceRef = useRef(null);
   const whyGBPRef = useRef(null);
-  const servicesRef = useRef(null);
   const ctaRef = useRef(null);
 
   const isHeroInView = useInView(heroRef, { once: true });
   const isExperienceInView = useInView(experienceRef, { once: true });
   const isWhyGBPInView = useInView(whyGBPRef, { once: true });
-  const isServicesInView = useInView(servicesRef, { once: true });
   const isCtaInView = useInView(ctaRef, { once: true });
 
   const services = [
@@ -148,6 +146,15 @@ export default function GoogleBusinessProfilePage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Google Business Profile Services',
+      description: 'Expert Google Business Profile management in Texas. Setup, verification, optimization, review management, and suspension recovery.',
+      url: `${BASE_URL}/services/google-business-profile`,
+    }),
+    generateLocalBusinessSchema(),
+  ];
+
   return (
     <>
       <SEO
@@ -155,6 +162,7 @@ export default function GoogleBusinessProfilePage() {
         description="Expert Google Business Profile management in Texas. Setup, verification, optimization, review management, and suspension recovery. 500+ profiles managed with 95% recovery rate."
         url="/services/google-business-profile"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}

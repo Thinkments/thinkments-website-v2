@@ -18,7 +18,8 @@ import {
     Target,
     Users,
     Activity,
-    ArrowRight
+    ArrowRight,
+    LayoutTemplate
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../../components/ui/button';
@@ -64,6 +65,15 @@ const STRATEGY_AGENTS = [
 
 // LAYER 2: Content & Creative
 const CREATIVE_AGENTS = [
+    {
+        id: 'web-architect',
+        name: 'Web Architect',
+        subtitle: 'E-commerce Designer',
+        icon: LayoutTemplate,
+        description: 'Designs and builds modern, high-converting e-commerce websites and landing pages from scratch.',
+        benefits: ['E-commerce store generation', 'Conversion-optimized layouts', 'Rapid prototyping'],
+        color: AGENT_COLORS.creative
+    },
     {
         id: 'content-architect',
         name: 'Content Architect',

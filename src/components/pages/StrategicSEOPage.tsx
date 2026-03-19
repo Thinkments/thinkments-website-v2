@@ -6,8 +6,6 @@ import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
 import {
   ArrowRight,
-  Search,
-  TrendingUp,
   Target,
   Globe,
   BarChart3,
@@ -20,12 +18,15 @@ import {
   Link2,
   ShoppingCart,
   Building2,
-  Zap,
-  Award,
   Clock,
-  DollarSign,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 
 export default function StrategicSEOPage() {
   const heroRef = useRef(null);
@@ -139,6 +140,16 @@ export default function StrategicSEOPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Strategic SEO Services',
+      description: 'Dominate search results with comprehensive SEO strategies. 20+ years experience delivering sustainable rankings, qualified traffic, and measurable ROI through proven optimization.',
+      url: `${BASE_URL}/strategic-seo`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -146,6 +157,7 @@ export default function StrategicSEOPage() {
         description="Dominate search results with comprehensive SEO strategies. 20+ years experience delivering sustainable rankings, qualified traffic, and measurable ROI through proven optimization."
         url="/strategic-seo"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}
