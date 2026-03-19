@@ -22,7 +22,7 @@ export default function PomodoroTimer() {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
     } else if (timeLeft === 0 && isRunning) {
-      setIsRunning(false);
+      requestAnimationFrame(() => setIsRunning(false));
       // Optional: Play a sound or notification here when time is up
     }
 

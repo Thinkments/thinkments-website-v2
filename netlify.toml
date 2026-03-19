@@ -41,6 +41,19 @@
   [headers.values]
     Basic-Auth = "admin:ThinkMents2025"
 
+# Global Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Cross-Origin-Opener-Policy = "same-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Basic CSP - Note: Vite requires 'unsafe-inline' for styles sometimes, and eval for some dev tools or certain packages.
+    # Trusted Types mitigate DOM XSS.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; require-trusted-types-for 'script';"
+
 [functions]
   node_bundler = "esbuild"
   external_node_modules = ["@netlify/functions"]
