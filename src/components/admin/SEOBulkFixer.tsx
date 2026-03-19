@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -21,19 +19,14 @@ import {
   Check,
   X,
   Clock,
-  BarChart3,
   Eye,
   Sparkles,
   Zap,
-  Filter,
-  ChevronDown,
   ExternalLink,
   Calendar,
-  Target,
   Grid,
   List,
   Lightbulb,
-  XCircle,
 } from 'lucide-react';
 
 type ScanStatus = 'idle' | 'scanning' | 'complete';
@@ -67,94 +60,7 @@ interface ScanResult {
   imageIssues: ImageIssue[];
   h1Issues: PageIssue[];
   thinContent: PageIssue[];
-  duplicates: PageIssue[];
 }
-
-const mockScanResults: ScanResult = {
-  pagesScanned: 124,
-  issuesFound: 47,
-  seoScore: 73,
-  quickFixCount: 38,
-  metaIssues: [
-    {
-      id: '1',
-      pageTitle: 'Web Design Services in Fort Worth',
-      url: '/services/web-design/fort-worth',
-      current: 'Missing',
-      aiSuggestion:
-        'Professional web design services in Fort Worth, TX. Custom websites built by ThinkMents to help your business grow online. Get a free consultation today.',
-    },
-    {
-      id: '2',
-      pageTitle: 'Digital Marketing Agency Decatur',
-      url: '/location/decatur',
-      current: 'Missing',
-      aiSuggestion:
-        'Top-rated digital marketing agency in Decatur, TX. ThinkMents offers SEO, web design, and social media marketing to boost your local business presence.',
-    },
-    {
-      id: '3',
-      pageTitle: 'SEO Services Dallas',
-      url: '/services/seo/dallas',
-      current: 'Too short (45 chars)',
-      aiSuggestion:
-        'Expert SEO services in Dallas, TX by ThinkMents. Increase your search rankings and drive more traffic to your website with our proven strategies.',
-    },
-  ],
-  titleIssues: [
-    {
-      id: '4',
-      pageTitle: 'Untitled Page',
-      url: '/about/team',
-      current: 'Missing',
-      aiSuggestion: 'Meet Our Team - Expert Digital Marketers | ThinkMents',
-    },
-  ],
-  imageIssues: [
-    {
-      id: '5',
-      fileName: 'hero-image-1.jpg',
-      url: '/assets/images/hero-image-1.jpg',
-      page: '/services/web-design',
-      aiSuggestion: 'Modern website design on laptop showing responsive layout for small business',
-    },
-    {
-      id: '6',
-      fileName: 'team-photo.jpg',
-      url: '/assets/images/team-photo.jpg',
-      page: '/about',
-      aiSuggestion:
-        'ThinkMents digital marketing team collaborating on client project in Decatur office',
-    },
-  ],
-  h1Issues: [
-    {
-      id: '7',
-      pageTitle: 'Contact Us',
-      url: '/contact',
-      current: 'Missing H1',
-      aiSuggestion: 'Get In Touch With ThinkMents',
-    },
-  ],
-  thinContent: [
-    {
-      id: '8',
-      pageTitle: 'Privacy Policy',
-      url: '/privacy',
-      current: '127 words',
-      aiSuggestion: 'Expand content to meet minimum 300 words for better SEO',
-    },
-  ],
-  duplicates: [
-    {
-      id: '9',
-      pageTitle: 'Web Design Fort Worth',
-      url: '/services/web-design/fort-worth',
-      current: '89% similar to /services/web-design',
-      aiSuggestion: 'Add location-specific content and client testimonials',
-    },
-  ],
-};
 
 export default function SEOBulkFixer() {
   const [scanStatus, setScanStatus] = useState<ScanStatus>('idle');

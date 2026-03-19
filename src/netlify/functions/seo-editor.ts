@@ -39,7 +39,7 @@ export const handler: Handler = async (event) => {
       })
     };
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('SEO Editor Error:', error);
     return {
       statusCode: 500,

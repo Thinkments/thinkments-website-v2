@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -158,9 +159,67 @@ export default function SERPOptimizer() {
     },
   ];
 
-  const handleScan = () => {
+  const [pages, setPages] = useState<PageSEO[]>(mockPages);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleScan = async () => {
     setIsScanning(true);
-    setTimeout(() => setIsScanning(false), 3000);
+    try {
+      const response = await fetch('/api/seo-scanner');
+      if (!response.ok) throw new Error('Scan failed');
+      const data = await response.json();
+      setPages(data.serpData.pages);
+      toast.success(`Successfully scanned ${data.serpData.pages.length} pages!`);
+    } catch(err) {
+      console.error(err);
+      toast.error('Failed to run scan');
+    } finally {
+      setIsScanning(false);
+    }
+  };
+
+  const handleSave = async () => {
+    if (!selectedPage) return;
+    setIsSaving(true);
+    
+    try {
+      const response = await fetch('/api/seo-editor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'update_meta',
+          updates: [{
+            pageId: selectedPage.id,
+            metaTitle: editedTitle,
+            metaDescription: editedDescription,
+          }]
+        })
+      });
+
+      if (!response.ok) throw new Error('Failed to save');
+      
+      toast.success('SEO metadata saved successfully!');
+      
+      // Update local state to reflect changes
+      setPages(prev => prev.map(p => {
+        if (p.id === selectedPage.id) {
+          return {
+            ...p,
+            metaTitle: editedTitle,
+            metaDescription: editedDescription,
+            score: p.score + (editedTitle !== p.metaTitle ? 5 : 0) // Reward generic bump for saving
+          };
+        }
+        return p;
+      }));
+      
+      setViewType('list');
+    } catch(err) {
+      console.error(err);
+      toast.error('Failed to save changes');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleEditPage = (page: PageSEO) => {
@@ -425,7 +484,7 @@ export default function SERPOptimizer() {
       {/* Main Content Area */}
       {viewType === 'list' && (
         <div className="space-y-4">
-          {mockPages.map((page) => (
+          {pages.map((page) => (
             <Card key={page.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="grid grid-cols-12 gap-4 items-start">
@@ -792,8 +851,8 @@ export default function SERPOptimizer() {
                       </div>
 
                       {/* Save Button */}
-                      <Button className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
-                        <Save className="w-4 h-4 mr-2" />
+                      <Button onClick={handleSave} disabled={isSaving} className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                        {isSaving ? <RefreshCw className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
                         Save Changes
                       </Button>
                     </div>

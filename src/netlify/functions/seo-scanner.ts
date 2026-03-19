@@ -1,5 +1,4 @@
-import { Handler } from '@netlify/functions';
-
+// Handler interface omitted to avoid type mismatches
 const sitemapUrl = 'https://thinkments.com/sitemap-xml';
 
 /**
@@ -52,7 +51,7 @@ function extractSeoData(html: string, url: string) {
   };
 }
 
-export const handler: Handler = async (event) => {
+export const handler = async (event: { httpMethod: string; body: string | null }) => {
   // Only allow GET requests
   if (event.httpMethod !== 'GET') {
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -109,13 +108,13 @@ export const handler: Handler = async (event) => {
     let issuesFound = 0;
     
     // Arrays for SEOBulkFixer
-    const metaIssues: any[] = [];
-    const titleIssues: any[] = [];
-    const h1Issues: any[] = [];
-    const imageIssues: any[] = [];
+    const metaIssues: Record<string, unknown>[] = [];
+    const titleIssues: Record<string, unknown>[] = [];
+    const h1Issues: Record<string, unknown>[] = [];
+    const imageIssues: Record<string, unknown>[] = [];
     
     // Array for SERPOptimizer
-    const serpPages: any[] = [];
+    const serpPages: Record<string, unknown>[] = [];
 
     results.forEach((data, index) => {
       aggregateScore += data.score;
@@ -125,38 +124,38 @@ export const handler: Handler = async (event) => {
 
       if (data.issues.includes('missing-description') || data.issues.includes('description-too-long')) {
         metaIssues.push({
-          id: \`meta-\${index}\`,
+          id: `meta-${index}`,
           pageTitle: data.title || path,
           url: path,
-          current: data.description ? \`\${data.description.length} chars\` : 'Missing',
-          aiSuggestion: \`AI suggests a ~150 char optimized description for \${path}\`
+          current: data.description ? `${data.description.length} chars` : 'Missing',
+          aiSuggestion: `AI suggests a ~150 char optimized description for ${path}`
         });
       }
 
       if (data.issues.includes('missing-title') || data.issues.includes('title-too-long') || data.issues.includes('title-too-short')) {
         titleIssues.push({
-           id: \`title-\${index}\`,
+           id: `title-${index}`,
            pageTitle: data.title || 'Missing Title',
            url: path,
-           current: data.title ? \`\${data.title.length} chars\` : 'Missing',
-           aiSuggestion: \`AI suggests a ~55 char optimized title for \${path}\`
+           current: data.title ? `${data.title.length} chars` : 'Missing',
+           aiSuggestion: `AI suggests a ~55 char optimized title for ${path}`
         });
       }
 
       data.images.forEach((img, i) => {
          if (!img.alt) {
             imageIssues.push({
-              id: \`img-\${index}-\${i}\`,
+              id: `img-${index}-${i}`,
               fileName: img.src.split('/').pop() || 'image',
               url: img.src,
               page: path,
-              aiSuggestion: \`Descriptive alt text for image \${img.src.split('/').pop()}\`
+              aiSuggestion: `Descriptive alt text for image ${img.src.split('/').pop()}`
             });
          }
       });
 
       serpPages.push({
-        id: \`serp-\${index}\`,
+        id: `serp-${index}`,
         title: data.title || path,
         url: data.url,
         path: path,
@@ -204,7 +203,7 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify(finalPayload)
     };
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Scanner Error:', error);
     return {
       statusCode: 500,
