@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -28,119 +29,95 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import LiveAgentFeeds from './LiveAgentFeeds';
 
+interface StatData {
+  title: string;
+  value: string | number;
+  change: string;
+  trend: 'up' | 'down';
+  iconName: string;
+  color: string;
+}
+
+interface ActivityData {
+  type: string;
+  title: string;
+  author: string;
+  action: string;
+  time: string;
+  status: string;
+}
+
+interface UpcomingPostData {
+  title: string;
+  date: string;
+  time: string;
+  author: string;
+}
+
+interface PerformanceData {
+  date: string;
+  views: number;
+  engagement: number;
+}
+
+interface DashboardData {
+  stats: StatData[];
+  recentActivity: ActivityData[];
+  upcomingPosts: UpcomingPostData[];
+  performanceData: PerformanceData[];
+}
+
 interface DashboardOverviewProps {
   onNavigate?: (page: string) => void;
 }
 
 export default function DashboardOverview({ onNavigate }: DashboardOverviewProps) {
-  const stats = [
-    {
-      title: 'Total Blogs Published',
-      value: '247',
-      change: '+12%',
-      trend: 'up',
-      icon: FileText,
-      color: 'bg-[#1E3A5F]',
-    },
-    {
-      title: 'Pages Created This Month',
-      value: '34',
-      change: '+8%',
-      trend: 'up',
-      icon: Layers,
-      color: 'bg-[#00B4D8]',
-    },
-    {
-      title: 'Pending Reviews',
-      value: '8',
-      change: '-3',
-      trend: 'down',
-      icon: Clock,
-      color: 'bg-[#FF6B35]',
-    },
-    {
-      title: 'SEO Score Average',
-      value: '87/100',
-      change: '+5%',
-      trend: 'up',
-      icon: TrendingUp,
-      color: 'bg-[#00B4D8]',
-    },
-  ];
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const recentActivity = [
-    {
-      type: 'blog',
-      title: 'How to Improve Local SEO in 2025',
-      author: 'John Doe',
-      action: 'Published',
-      time: '2 hours ago',
-      status: 'success',
-    },
-    {
-      type: 'page',
-      title: 'Digital Marketing Denton - Service Page',
-      author: 'Jane Smith',
-      action: 'Created',
-      time: '4 hours ago',
-      status: 'success',
-    },
-    {
-      type: 'blog',
-      title: 'Social Media Marketing Guide',
-      author: 'Mike Johnson',
-      action: 'Pending Review',
-      time: '6 hours ago',
-      status: 'pending',
-    },
-    {
-      type: 'page',
-      title: 'About Us - Company Overview',
-      author: 'Sarah Wilson',
-      action: 'Updated',
-      time: '1 day ago',
-      status: 'success',
-    },
-    {
-      type: 'blog',
-      title: 'Email Marketing Best Practices',
-      author: 'Tom Brown',
-      action: 'Draft Saved',
-      time: '2 days ago',
-      status: 'draft',
-    },
-  ];
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const response = await fetch('/api/admin-dashboard');
+        if (!response.ok) throw new Error('Failed to fetch dashboard data');
+        const json = await response.json();
+        if (json.success) {
+          setData(json.data);
+        } else {
+          throw new Error(json.error || 'Unknown error');
+        }
+      } catch (err: unknown) {
+        const errMsg = err instanceof Error ? err.message : String(err);
+        console.error('Error fetching dashboard items:', errMsg);
+        setError(errMsg);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDashboardData();
+  }, []);
 
-  const upcomingPosts = [
-    {
-      title: 'Video Marketing Trends 2025',
-      date: 'Dec 8, 2025',
-      time: '10:00 AM',
-      author: 'John Doe',
-    },
-    {
-      title: 'Google Ads Optimization Tips',
-      date: 'Dec 10, 2025',
-      time: '2:00 PM',
-      author: 'Jane Smith',
-    },
-    {
-      title: 'Content Marketing Strategy',
-      date: 'Dec 12, 2025',
-      time: '9:00 AM',
-      author: 'Mike Johnson',
-    },
-  ];
+  const iconMap = { FileText, Layers, Clock, TrendingUp };
 
-  const performanceData = [
-    { date: 'Nov 5', views: 4200, engagement: 3400 },
-    { date: 'Nov 10', views: 4800, engagement: 3900 },
-    { date: 'Nov 15', views: 5200, engagement: 4200 },
-    { date: 'Nov 20', views: 4600, engagement: 3800 },
-    { date: 'Nov 25', views: 5500, engagement: 4500 },
-    { date: 'Nov 30', views: 6200, engagement: 5100 },
-    { date: 'Dec 5', views: 6800, engagement: 5600 },
-  ];
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[50vh]">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00B4D8]"></div>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="p-4 bg-red-50 text-red-600 rounded-lg">
+        <p>Error loading dashboard data: {error}</p>
+        <Button onClick={() => window.location.reload()} className="mt-4" variant="outline">Retry</Button>
+      </div>
+    );
+  }
+
+  const { stats, recentActivity, upcomingPosts, performanceData } = data;
 
   return (
     <div className="space-y-6">
@@ -156,7 +133,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, index) => (
+        {stats.map((stat: StatData, index: number) => (
           <motion.div
             key={stat.title}
             initial={{ opacity: 0, y: 20 }}
@@ -186,7 +163,10 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                   <div
                     className={`w-12 h-12 ${stat.color} rounded-lg flex items-center justify-center`}
                   >
-                    <stat.icon className="w-6 h-6 text-white" />
+                    {(() => {
+                      const Icon = iconMap[stat.iconName as keyof typeof iconMap] || FileText;
+                      return <Icon className="w-6 h-6 text-white" />;
+                    })()}
                   </div>
                 </div>
               </CardContent>
@@ -206,34 +186,28 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
             <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Button
-                asChild
-                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4"
-                onClick={() => onNavigate?.('/admin/blog/new')}
+                variant="ghost"
+                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4 flex flex-col items-center space-y-2 border shadow-sm"
+                onClick={() => onNavigate?.('new-blog')}
               >
-                <Link to="/admin/blog/new" className="flex flex-col items-center space-y-2">
-                  <PenTool className="w-6 h-6" />
-                  <span className="font-medium">New Blog Post</span>
-                </Link>
+                <PenTool className="w-6 h-6" />
+                <span className="font-medium">New Blog Post</span>
               </Button>
               <Button
-                asChild
-                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4"
-                onClick={() => onNavigate?.('/admin/page/new')}
+                variant="ghost"
+                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4 flex flex-col items-center space-y-2 border shadow-sm"
+                onClick={() => onNavigate?.('new-page')}
               >
-                <Link to="/admin/page/new" className="flex flex-col items-center space-y-2">
-                  <Layers className="w-6 h-6" />
-                  <span className="font-medium">New Page</span>
-                </Link>
+                <Layers className="w-6 h-6" />
+                <span className="font-medium">New Page</span>
               </Button>
               <Button
-                asChild
-                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4"
-                onClick={() => onNavigate?.('/admin/calendar')}
+                variant="ghost"
+                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4 flex flex-col items-center space-y-2 border shadow-sm"
+                onClick={() => onNavigate?.('calendar')}
               >
-                <Link to="/admin/calendar" className="flex flex-col items-center space-y-2">
-                  <Calendar className="w-6 h-6" />
-                  <span className="font-medium">View Content Calendar</span>
-                </Link>
+                <Calendar className="w-6 h-6" />
+                <span className="font-medium">View Content Calendar</span>
               </Button>
             </div>
           </CardContent>
@@ -324,7 +298,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {recentActivity.map((activity, index) => (
+                {recentActivity.map((activity: ActivityData, index: number) => (
                   <div
                     key={index}
                     className="flex items-start space-x-3 pb-4 border-b border-gray-100 last:border-0 last:pb-0"
@@ -382,14 +356,14 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                 <Calendar className="w-5 h-5" />
                 <span>Upcoming Scheduled Posts</span>
               </span>
-              <Button variant="ghost" size="sm" className="text-[#00B4D8]" asChild>
-                <Link to="/admin/calendar">View Calendar</Link>
+              <Button variant="ghost" size="sm" className="text-[#00B4D8]" onClick={() => onNavigate?.('calendar')}>
+                View Calendar
               </Button>
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {upcomingPosts.map((post, index) => (
+              {upcomingPosts.map((post: UpcomingPostData, index: number) => (
                 <div
                   key={index}
                   className="p-4 border border-gray-200 rounded-lg hover:border-[#00B4D8] transition-colors"

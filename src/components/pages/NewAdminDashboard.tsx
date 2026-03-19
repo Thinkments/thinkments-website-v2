@@ -62,6 +62,10 @@ import AnalyticsDashboard from '../admin/AnalyticsDashboard';
 import EnhancedAIModelSelector from '../admin/EnhancedAIModelSelector';
 import AIBlogGenerator from '../admin/AIBlogGenerator';
 
+import NewBlogPost from './admin/NewBlogPost';
+import NewPage from './admin/NewPage';
+import ContentCalendar from './admin/ContentCalendar';
+
 interface NavItem {
   id: string;
   label: string;
@@ -152,11 +156,13 @@ export default function NewAdminDashboard() {
       case 'dashboard':
         return <DashboardOverview onNavigate={setActivePage} />;
       case 'new-blog':
+        return <NewBlogPost />;
       case 'blog-posts':
         return <BlogCreationToolNew />;
       case 'media':
         return <MediaLibrary />;
       case 'new-page':
+        return <NewPage />;
       case 'pages':
         return <PageBuilder />;
       case 'bulk-generator':
@@ -192,7 +198,7 @@ export default function NewAdminDashboard() {
       case 'analytics':
         return <AnalyticsDashboard />;
       case 'calendar':
-        return <ContentCalendarPlaceholder />;
+        return <ContentCalendar />;
       case 'seo-center':
         return <SeoAdminDashboard />;
       case 'seo-fixer':
@@ -434,19 +440,7 @@ export default function NewAdminDashboard() {
   );
 }
 
-// Placeholder components for Calendar and Settings
-function ContentCalendarPlaceholder() {
-  return (
-    <Card className="p-8">
-      <div className="text-center">
-        <Calendar className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-        <h3 className="text-xl font-semibold mb-2">Content Calendar</h3>
-        <p className="text-gray-600">Editorial calendar view coming soon...</p>
-      </div>
-    </Card>
-  );
-}
-
+// Placeholder components for Settings
 function SettingsPlaceholder() {
   return (
     <Card className="p-8">
