@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Badge } from '../ui/badge';
+import { Card, CardContent } from '../ui/card';
 import { ArrowRight, Globe, TrendingUp, Target, Users, Video, Camera } from 'lucide-react';
-import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
 
 export default function ServicesPage() {
@@ -182,6 +180,7 @@ export default function ServicesPage() {
         description="16 service categories, 100+ individual services. Web development, SEO, Google Business Profile, virtual tours, AI automation, and more."
         url="/services"
         type="website"
+        structuredData={servicesStructuredData}
       />
       <motion.div
         className=""
