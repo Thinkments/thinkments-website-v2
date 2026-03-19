@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -562,7 +564,7 @@ export default function SEOBulkFixer() {
                   <input
                     type="checkbox"
                     checked={selectedItems.length === getCurrentIssues().length}
-                    onChange={(e) => (e.target.checked ? selectAll() : clearSelection())}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => (e.target.checked ? selectAll() : clearSelection())}
                     className="w-4 h-4 text-[#00B4D8] rounded"
                   />
                   <span className="text-sm text-gray-700">Select All</span>
@@ -716,7 +718,7 @@ export default function SEOBulkFixer() {
                             <div>
                               <textarea
                                 value={editValue}
-                                onChange={(e) => setEditValue(e.target.value)}
+                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setEditValue(e.target.value)}
                                 rows={3}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
                               />
