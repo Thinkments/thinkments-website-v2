@@ -38,73 +38,58 @@ export default function ProjectLoneStar() {
   const [activeView, setActiveView] = useState<'overview' | 'prospector' | 'cartographer' | 'recon'>('overview');
 
   return (
-    <div className="space-y-6">
+    <div className="relative space-y-6">
+      {/* Ambient orbs */}
+      <div className="absolute -top-10 left-1/3 w-96 h-64 bg-rose-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-40 right-1/4 w-64 h-64 bg-red-600/4 rounded-full blur-[100px] pointer-events-none" />
+
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="relative z-10 flex items-start justify-between">
         <div>
-          <div className="flex items-center space-x-3 mb-2">
-            <div className="p-2 bg-rose-500/10 rounded-lg">
-              <Crosshair className="w-6 h-6 text-rose-400" />
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 bg-rose-500/15 border border-rose-500/20 rounded-lg">
+              <Crosshair className="w-5 h-5 text-rose-400" />
             </div>
-            <h1 className="text-2xl font-bold text-white">Project Lone Star</h1>
-            <Badge className="bg-red-600 text-white animate-pulse">CLASSIFIED: TOP PRIORITY</Badge>
+            <h1 className="text-3xl font-bold text-white">Project Lone Star</h1>
+            <span className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full bg-red-600/20 border border-red-500/30 text-red-400 animate-pulse">
+              CLASSIFIED: TOP PRIORITY
+            </span>
           </div>
           <p className="text-slate-400">Master Objective: Establish Thinkments as the #1 Digital Agency in Texas</p>
         </div>
-        <div className="flex items-center space-x-3">
-          <Button variant="outline" className="border-red-200 text-rose-300 hover:bg-rose-900/20">
-            <Zap className="w-4 h-4 mr-2" />
+        <div className="flex items-center gap-3">
+          <button className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-rose-500/20 text-rose-300 hover:bg-rose-500/10 text-sm font-semibold transition-colors">
+            <Zap className="w-4 h-4" />
             Initiate State-Wide Scan
-          </Button>
-          <Button className="bg-[#1E3A5F] text-white">
-            <Target className="w-4 h-4 mr-2" />
+          </button>
+          <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-700 to-red-700 hover:from-rose-600 hover:to-red-600 text-white text-sm font-semibold shadow-[0_0_20px_rgba(220,38,38,0.3)] transition-all">
+            <Target className="w-4 h-4" />
             Deploy Automated Outreach
-          </Button>
+          </motion.button>
         </div>
       </div>
 
-      {/* Navigation */}
-      <div className="flex space-x-4 border-b border-white/10">
-        <button
-          onClick={() => setActiveView('overview')}
-          className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
-            activeView === 'overview'
-              ? 'border-[#00B4D8] text-white'
-              : 'border-transparent text-slate-500 hover:text-slate-300'
-          }`}
-        >
-          War Room Overview
-        </button>
-        <button
-          onClick={() => setActiveView('prospector')}
-          className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
-            activeView === 'prospector'
-              ? 'border-[#00B4D8] text-white'
-              : 'border-transparent text-slate-500 hover:text-slate-300'
-          }`}
-        >
-          The Prospector
-        </button>
-        <button
-          onClick={() => setActiveView('cartographer')}
-          className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
-            activeView === 'cartographer'
-              ? 'border-[#00B4D8] text-white'
-              : 'border-transparent text-slate-500 hover:text-slate-300'
-          }`}
-        >
-          The Texas Cartographer
-        </button>
-        <button
-          onClick={() => setActiveView('recon')}
-          className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
-            activeView === 'recon'
-              ? 'border-[#00B4D8] text-white'
-              : 'border-transparent text-slate-500 hover:text-slate-300'
-          }`}
-        >
-          The Recon Engine
-        </button>
+      {/* Navigation Tabs */}
+      <div className="relative z-10 flex gap-1 bg-black/30 border border-white/8 rounded-xl p-1 w-fit">
+        {[
+          { id: 'overview', label: 'War Room Overview' },
+          { id: 'prospector', label: 'The Prospector' },
+          { id: 'cartographer', label: 'Texas Cartographer' },
+          { id: 'recon', label: 'Recon Engine' },
+        ].map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveView(tab.id as typeof activeView)}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              activeView === tab.id
+                ? 'bg-rose-600/25 border border-rose-500/30 text-rose-300 shadow-[0_0_10px_rgba(220,38,38,0.2)]'
+                : 'text-slate-500 hover:text-slate-300'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
       {activeView === 'overview' && (

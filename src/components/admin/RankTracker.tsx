@@ -347,37 +347,43 @@ export default function RankTracker() {
   });
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA]">
+    <div className="min-h-screen bg-[#030712] text-slate-300">
+      {/* Ambient */}
+      <div className="absolute -top-10 left-1/3 w-96 h-48 bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
+
       {/* Page Header */}
-      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-black/30 backdrop-blur-xl border-b border-white/8 px-8 py-6">
+        <div className="flex items-center justify-between mb-5">
           <div>
-            <h1 className="text-2xl font-bold text-white mb-2">Rank Tracker</h1>
-            <p className="text-slate-400">
-              Monitor and track your keyword rankings across search engines
-            </p>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+              <span className="text-xs font-mono uppercase tracking-widest text-indigo-400">SERP Position Intelligence</span>
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-1">Rank Tracker</h1>
+            <p className="text-slate-400">Monitor and track your keyword rankings across search engines</p>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex items-center space-x-2 mb-6">
+        <div className="flex gap-1 mb-5 bg-black/30 border border-white/8 rounded-xl p-1 w-fit">
           {[
             { id: 'overview', label: 'Rankings Overview', icon: BarChart3 },
-            { id: 'competitors', label: 'Competitor Comparison', icon: TrendingUp },
-            { id: 'alerts', label: 'Alerts & Notifications', icon: Bell },
+            { id: 'competitors', label: 'Competitor Map', icon: TrendingUp },
+            { id: 'alerts', label: 'Alert Matrix', icon: Bell },
           ].map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'overview' | 'competitors' | 'alerts')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
-                    ? 'bg-[#00B4D8] text-white'
-                    : 'bg-white/10 text-slate-300 hover:bg-white/20'
-                  }`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  activeTab === tab.id
+                    ? 'bg-indigo-600/25 border border-indigo-500/30 text-indigo-300 shadow-[0_0_10px_rgba(99,102,241,0.2)]'
+                    : 'text-slate-500 hover:text-slate-300'
+                }`}
               >
                 <Icon className="w-4 h-4" />
-                <span>{tab.label}</span>
+                {tab.label}
               </button>
             );
           })}
@@ -391,46 +397,44 @@ export default function RankTracker() {
             <select
               value={selectedWebsite}
               onChange={(e) => setSelectedWebsite(e.target.value)}
-              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
             >
               {websites.map((site) => (
-                <option key={site.id} value={site.id}>
-                  {site.name}
-                </option>
+                <option key={site.id} value={site.id}>{site.name}</option>
               ))}
             </select>
           </div>
 
           {/* Location Selector */}
           <div className="flex items-center space-x-2">
-            <MapPin className="w-4 h-4 text-gray-400" />
+            <MapPin className="w-4 h-4 text-slate-500" />
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer"
             >
               {locations.map((location) => (
-                <option key={location} value={location}>
-                  {location}
-                </option>
+                <option key={location} value={location}>{location}</option>
               ))}
             </select>
           </div>
 
           {/* Device Toggle */}
-          <div className="flex items-center bg-white/10 rounded-lg p-1">
+          <div className="flex items-center bg-white/5 border border-white/10 rounded-xl p-1">
             <button
               onClick={() => setDeviceType('desktop')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'desktop' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
-                }`}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
+                deviceType === 'desktop' ? 'bg-indigo-600/25 border border-indigo-500/30 text-indigo-300' : 'text-slate-500'
+              }`}
             >
               <Monitor className="w-4 h-4" />
               <span>Desktop</span>
             </button>
             <button
               onClick={() => setDeviceType('mobile')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'mobile' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
-                }`}
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
+                deviceType === 'mobile' ? 'bg-indigo-600/25 border border-indigo-500/30 text-indigo-300' : 'text-slate-500'
+              }`}
             >
               <Smartphone className="w-4 h-4" />
               <span>Mobile</span>
@@ -439,8 +443,8 @@ export default function RankTracker() {
 
           {/* Date Range */}
           <div className="flex items-center space-x-2">
-            <Calendar className="w-4 h-4 text-gray-400" />
-            <select className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
+            <Calendar className="w-4 h-4 text-slate-500" />
+            <select className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer">
               <option>Last 7 days</option>
               <option>Last 30 days</option>
               <option>Last 90 days</option>
@@ -449,10 +453,10 @@ export default function RankTracker() {
           </div>
 
           {/* Check Rankings Button */}
-          <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white ml-auto">
-            <RefreshCw className="w-4 h-4 mr-2" />
+          <button className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all ml-auto">
+            <RefreshCw className="w-4 h-4" />
             Check Rankings Now
-          </Button>
+          </button>
         </div>
       </div>
 
