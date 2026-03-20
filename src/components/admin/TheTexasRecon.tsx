@@ -16,7 +16,7 @@ interface ReconResult {
     type: string;
     description: string;
     severity: 'High' | 'Medium' | 'Low';
-    iconType: string;
+    icon: React.ElementType;
   }[];
   attackVectors: {
     action: string;
@@ -24,19 +24,6 @@ interface ReconResult {
     difficulty: string;
   }[];
 }
-
-const IconMap: Record<string, React.ElementType> = {
-  AlertTriangle,
-  ShieldAlert,
-  Layout,
-  TrendingDown,
-  TrendingUp,
-  Target,
-  Search,
-  Crosshair,
-  Zap,
-  Code
-};
 
 export default function TheTexasRecon() {
   const [targetUrl, setTargetUrl] = useState('');
@@ -76,31 +63,42 @@ export default function TheTexasRecon() {
     try {
       const response = await fetch('/.netlify/functions/texas-recon', {
         method: 'POST',
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({ targetUrl }),
+        headers: { 'Content-Type': 'application/json' }
       });
 
-      if (!res.ok) {
-        throw new Error('OSINT scan failed to process');
-      }
+      if (!response.ok) throw new Error('API failed');
 
-      const data = await res.json();
+      const data = await response.json();
       
+      // Clear interval and ensure we hit 100%
       clearInterval(interval);
       setScanProgress(100);
       setScanStatus("Reconnaissance complete. Generating attack vectors.");
-      
+
       setTimeout(() => {
         setIsScanning(false);
-        setResult(data);
+        // Map string icons to actual Lucide components
+        const iconMap: Record<string, React.ElementType> = {
+          AlertTriangle: AlertTriangle,
+          Layout: Layout,
+          ShieldAlert: ShieldAlert,
+          TrendingDown: TrendingDown
+        };
+
+        setResult({
+          ...data,
+          vulnerabilities: data.vulnerabilities.map((v: any) => ({
+            ...v,
+            icon: iconMap[v.iconName] || AlertTriangle
+          }))
+        });
       }, 500);
 
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
       clearInterval(interval);
       setIsScanning(false);
-      setScanStatus("OSINT scan failed unexpectedly.");
+      console.error(err);
     }
   };
 
@@ -235,9 +233,7 @@ export default function TheTexasRecon() {
                   </h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                    {result.vulnerabilities.map((vuln, i) => {
-                      const VulnIcon = IconMap[vuln.iconType] || AlertTriangle;
-                      return (
+                    {result.vulnerabilities.map((vuln, i) => (
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -247,7 +243,7 @@ export default function TheTexasRecon() {
                       >
                         <div className="flex justify-between items-start mb-2">
                           <div className="flex items-center">
-                            <VulnIcon className={`w-4 h-4 mr-2 ${vuln.severity === 'High' ? 'text-red-500' : vuln.severity === 'Medium' ? 'text-orange-500' : 'text-slate-400'}`} />
+                            <vuln.icon className={`w-4 h-4 mr-2 ${vuln.severity === 'High' ? 'text-red-500' : vuln.severity === 'Medium' ? 'text-orange-500' : 'text-slate-400'}`} />
                             <span className="text-sm font-bold text-white">{vuln.type}</span>
                           </div>
                           <Badge variant={vuln.severity === 'High' ? "destructive" : "secondary"} className={vuln.severity === 'High' ? "bg-red-500/10 text-red-400 border-red-500/20" : "bg-slate-800 text-slate-300"}>
@@ -258,7 +254,7 @@ export default function TheTexasRecon() {
                           {vuln.description}
                         </p>
                       </motion.div>
-                    )})}
+                    ))}
                   </div>
 
                   <h3 className="text-lg font-bold text-white mb-4 border-b border-slate-800 pb-2 flex items-center">
