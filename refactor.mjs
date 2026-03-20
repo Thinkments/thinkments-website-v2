@@ -1,12 +1,12 @@
 import fs from 'fs';
+import path from 'path';
 
-const filePath = 'C:/Users/dad/thinkments-website-v2/src/components/admin/BrokenLinkChecker.tsx';
-let content = fs.readFileSync(filePath, 'utf8');
+const adminDir = 'C:/Users/dad/thinkments-website-v2/src/components/admin';
 
 // Global Color Palette Replacement
 const replacements = [
   // Backgrounds
-  { regex: /bg-white/g, replace: 'bg-[#0f172a]/50 backdrop-blur-md' },
+  { regex: /bg-white/g, replace: 'bg-[#0f172a]/40 backdrop-blur-xl' },
   { regex: /bg-gray-50/g, replace: 'bg-white/5' },
   { regex: /bg-gray-100/g, replace: 'bg-white/10' },
   { regex: /bg-gray-200/g, replace: 'bg-white/20' },
@@ -22,13 +22,14 @@ const replacements = [
   { regex: /bg-orange-100/g, replace: 'bg-orange-500/10' },
   
   // Text Colors
-  { regex: /text-\[#1E3A5F\]/g, replace: 'text-white' },
+  { regex: /text-\[#1E3A5F\]|text-[#1e3a5f]/gi, replace: 'text-white' },
   { regex: /text-gray-900/g, replace: 'text-gray-100' },
   { regex: /text-gray-800/g, replace: 'text-gray-200' },
   { regex: /text-gray-700/g, replace: 'text-slate-300' },
   { regex: /text-gray-600/g, replace: 'text-slate-400' },
   { regex: /text-gray-500/g, replace: 'text-slate-500' },
   { regex: /text-blue-900/g, replace: 'text-indigo-200' },
+  { regex: /text-blue-800/g, replace: 'text-indigo-300' },
   { regex: /text-blue-700/g, replace: 'text-indigo-300' },
   { regex: /text-blue-600/g, replace: 'text-indigo-400' },
   { regex: /text-red-900/g, replace: 'text-rose-200' },
@@ -42,12 +43,38 @@ const replacements = [
   
   // Specific styling tweaks to match 10x
   { regex: /shadow-md/g, replace: 'shadow-2xl border border-white/5' },
-  { regex: /shadow-lg/g, replace: 'shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10' },
+  { regex: /shadow-sm/g, replace: 'shadow-lg border border-white/5' },
 ];
 
-for (const { regex, replace } of replacements) {
-  content = content.replace(regex, replace);
+function processFile(filePath) {
+  let content = fs.readFileSync(filePath, 'utf8');
+  let originalContent = content;
+  
+  for (const { regex, replace } of replacements) {
+    content = content.replace(regex, replace);
+  }
+
+  if (content !== originalContent) {
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log('Migrated:', path.basename(filePath));
+  }
 }
 
-fs.writeFileSync(filePath, content, 'utf8');
-console.log('Successfully mass-migrated Tailwind classes to Dark Mode.');
+function walkDir(dir) {
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    const fullPath = path.join(dir, file);
+    if (fs.statSync(fullPath).isDirectory()) {
+      walkDir(fullPath);
+    } else if (fullPath.endsWith('.tsx')) {
+      // Exclude files we already manually 10x'd
+      const skipFiles = ['AdminPanel.tsx', 'TheTexasCartographer.tsx', 'TheProspector.tsx', 'AdminCenterManager.tsx', 'DashboardOverview.tsx'];
+      if (!skipFiles.includes(path.basename(fullPath))) {
+          processFile(fullPath);
+      }
+    }
+  }
+}
+
+walkDir(adminDir);
+console.log('Successfully mass-migrated all remaining Admin components to Dark Mode.');

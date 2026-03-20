@@ -338,39 +338,78 @@ Return a generated JSON array of highly realistic broken links. The array must c
           </div>
         </div>
 
-        {/* Scan Progress */}
-        {isScanning && (
-          <Card className="border-0 shadow-2xl border border-white/5 mb-4 bg-indigo-900/20">
-            <CardContent className="pt-4">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-indigo-200">
-                    Checking link {Math.floor((scanProgress / 100) * stats.totalLinks)} of{' '}
-                    {stats.totalLinks}...
-                  </span>
-                  <span className="text-indigo-300">{scanProgress}%</span>
+        {/* Radar Sweep Scan Progress */}
+        <AnimatePresence>
+          {isScanning && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, scale: 0.95 }}
+              animate={{ opacity: 1, height: 'auto', scale: 1 }}
+              exit={{ opacity: 0, height: 0, scale: 0.9 }}
+              className="mb-8"
+            >
+              <Card className="border border-green-500/30 shadow-[0_0_40px_rgba(16,185,129,0.15)] bg-slate-950/80 backdrop-blur-xl relative overflow-hidden group">
+                {/* Radar beam sweep */}
+                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-30">
+                  <div className="absolute top-1/2 left-1/2 w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,rgba(16,185,129,0.8)_360deg)] animate-[spin_3s_linear_infinite] origin-center -translate-x-1/2 -translate-y-1/2" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_70%)]" />
+                  {/* Grid lines */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
                 </div>
-                <div className="w-full h-2 bg-blue-200 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F]"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${scanProgress}%` }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-400">
-                    {Math.floor(stats.totalLinks / 5)} links/second
-                  </span>
-                  <Button size="sm" variant="ghost" onClick={() => setIsScanning(false)}>
-                    <StopCircle className="w-4 h-4 mr-2" />
-                    Cancel
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
+                
+                <CardContent className="p-8 relative z-10 flex flex-col md:flex-row items-center gap-8">
+                  {/* Radar Core Display */}
+                  <div className="relative w-32 h-32 shrink-0 flex items-center justify-center">
+                    <div className="absolute inset-0 border-2 border-green-500/20 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                    <div className="absolute inset-2 border border-green-400/30 rounded-full animate-[spin_10s_linear_infinite_reverse] border-dashed" />
+                    <div className="absolute inset-4 border border-green-500/50 rounded-full" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Network className="w-8 h-8 text-green-400 animate-pulse drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
+                    </div>
+                  </div>
+
+                  <div className="flex-1 space-y-4 w-full">
+                    <div className="flex items-center justify-between font-mono">
+                      <div className="flex flex-col">
+                        <span className="text-green-400 font-bold text-lg flex items-center gap-2">
+                          <Zap className="w-5 h-5 animate-pulse" />
+                          Deep Node Crawl Engaged
+                        </span>
+                        <span className="text-slate-400 text-xs tracking-widest uppercase mt-1">
+                          Analyzing Vector: {Math.floor((scanProgress / 100) * stats.totalLinks)} / {stats.totalLinks}
+                        </span>
+                      </div>
+                      <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-emerald-600 drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
+                        {scanProgress}%
+                      </span>
+                    </div>
+
+                    <div className="h-3 w-full bg-slate-900 rounded-full overflow-hidden border border-green-500/20 p-[1px] relative shadow-inner">
+                      <motion.div
+                        className="h-full bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] relative"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${scanProgress}%` }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <div className="absolute top-0 right-0 bottom-0 w-8 bg-white/40 blur-[2px]" />
+                      </motion.div>
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs font-mono">
+                      <div className="flex items-center gap-4 text-green-500/70">
+                        <span className="flex items-center gap-1.5"><Activity className="w-3 h-3" /> {Math.floor(stats.totalLinks / 5)} ops/sec</span>
+                        <span className="flex items-center gap-1.5"><ShieldAlert className="w-3 h-3" /> Integrity Check Active</span>
+                      </div>
+                      <Button size="sm" variant="ghost" onClick={() => setIsScanning(false)} className="text-rose-400 hover:bg-rose-500/10 hover:text-rose-300">
+                        <StopCircle className="w-4 h-4 mr-2" />
+                        ABORT SCAN
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* GSC Connection Banner */}
         {gscConnected && (
@@ -823,205 +862,154 @@ Return a generated JSON array of highly realistic broken links. The array must c
       <div>
         {/* Broken Internal Links Tab */}
         {activeTab === 'broken-internal' && (
-          <div className="space-y-4">
-            {brokenLinks
-              .filter((link) => link.type === 'internal')
-              .map((link) => (
-                <Card
-                  key={link.id}
-                  className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <input
-                        type="checkbox"
-                        checked={selectedLinks.includes(link.id)}
-                        onChange={() => toggleLinkSelection(link.id)}
-                        className="w-5 h-5 mt-1 text-[#00B4D8] rounded"
-                      />
-
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex-1">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <Badge className={`${getPriorityColor(link.priority)} text-white`}>
-                                {link.priority}
-                              </Badge>
-                              {getSourceBadge(link.source)}
-                              <Badge className="bg-rose-500/10 text-rose-300">{link.statusCode}</Badge>
-                              {link.referringDomains && link.referringDomains > 10 && (
-                                <Badge className="bg-purple-100 text-purple-700">
-                                  High Impact · {link.referringDomains} domains
+          <div className="space-y-4">              <AnimatePresence mode="popLayout">
+                {brokenLinks
+                  .filter((link) => link.type === 'internal')
+                  .map((link, index) => (
+                    <motion.div
+                      key={link.id}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <Card className="border-0 bg-slate-900/40 backdrop-blur-xl border border-rose-500/20 hover:border-rose-400/50 hover:shadow-[0_0_30px_rgba(244,63,94,0.15)] transition-all overflow-hidden group">
+                        {/* Red Node Wire Connector effect */}
+                        <div className="w-1 h-full absolute left-0 top-0 bg-gradient-to-b from-rose-500 to-rose-900 group-hover:from-rose-400 group-hover:to-rose-600 transition-colors" />
+                        <CardContent className="p-0 pl-1">
+                          <div className="p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:items-center">
+                            
+                            {/* Checkbox & Status Block */}
+                            <div className="flex items-start lg:items-center gap-4 border-b lg:border-b-0 lg:border-r border-slate-700/50 pb-4 lg:pb-0 lg:pr-8">
+                              <input
+                                type="checkbox"
+                                checked={selectedLinks.includes(link.id)}
+                                onChange={() => toggleLinkSelection(link.id)}
+                                className="w-5 h-5 mt-1 lg:mt-0 accent-rose-500 bg-slate-800 border-slate-600 cursor-pointer"
+                              />
+                              <div className="flex flex-col items-center">
+                                <div className="w-12 h-12 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(244,63,94,0.2)]">
+                                  <AlertCircle className="w-6 h-6 text-rose-400 animate-pulse" />
+                                </div>
+                                <Badge className="bg-rose-500 text-white font-mono shadow-[0_0_10px_rgba(244,63,94,0.5)]">
+                                  {link.statusCode}
                                 </Badge>
-                              )}
-                              {link.queueStatus && (
-                                <Badge className={getQueueStatusColor(link.queueStatus)}>
-                                  {link.queueStatus.replace('-', ' ')}
-                                </Badge>
-                              )}
+                              </div>
                             </div>
-                            <div className="space-y-2">
-                              <div>
-                                <p className="text-xs text-slate-400 mb-1">Broken URL:</p>
-                                <p className="font-mono text-sm text-rose-400 break-all">
-                                  {link.brokenUrl}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="text-xs text-slate-400 mb-1">Found on:</p>
-                                <a
-                                  href={link.sourceUrl}
-                                  className="text-sm text-[#00B4D8] hover:underline flex items-center"
-                                >
-                                  <ExternalLink className="w-3 h-3 mr-1" />
-                                  {link.sourceUrl}
-                                </a>
-                              </div>
-                              <div>
-                                <p className="text-xs text-slate-400 mb-1">Link Text:</p>
-                                <p className="text-sm text-gray-100">&quot;{link.linkText}&quot;</p>
-                              </div>
-                              <div className="flex items-center space-x-4 text-xs text-slate-500">
-                                <span className="flex items-center">
-                                  <Clock className="w-3 h-3 mr-1" />
-                                  First found: {link.firstFound}
-                                </span>
-                                <span className="flex items-center">
-                                  <RefreshCw className="w-3 h-3 mr-1" />
-                                  Last checked: {link.lastChecked}
-                                </span>
-                                {link.referringDomains && (
-                                  <span className="flex items-center">
-                                    <TrendingUp className="w-3 h-3 mr-1" />
-                                    {link.referringDomains} referring domains
-                                  </span>
+
+                            {/* Center Data Graph */}
+                            <div className="flex-1 space-y-4">
+                              <div className="flex items-center gap-3 mb-2 flex-wrap">
+                                <Badge className={`uppercase text-[10px] tracking-widest font-bold ${getPriorityColor(link.priority)} text-white border-white/10`}>
+                                  {link.priority} RISK
+                                </Badge>
+                                {getSourceBadge(link.source)}
+                                {link.referringDomains && link.referringDomains > 10 && (
+                                  <Badge className="bg-purple-500/20 border border-purple-500/40 text-purple-300">
+                                    <Globe className="w-3 h-3 mr-1" /> Core Hub ({link.referringDomains} refs)
+                                  </Badge>
                                 )}
                               </div>
-                              {link.assignedTo && (
-                                <div className="flex items-center space-x-4 text-xs">
-                                  <Badge className="bg-indigo-500/10 text-indigo-300">
-                                    <Users className="w-3 h-3 mr-1" />
-                                    {link.assignedTo}
-                                  </Badge>
-                                  {link.dueDate && (
-                                    <Badge className="bg-orange-500/10 text-orange-700">
-                                      <Calendar className="w-3 h-3 mr-1" />
-                                      Due: {link.dueDate}
-                                    </Badge>
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </div>
 
-                        {link.suggestedFix && (
-                          <div className="bg-emerald-900/20 border border-green-200 rounded-lg p-3 mb-3">
-                            <div className="flex items-start space-x-2">
-                              <Sparkles className="w-4 h-4 text-green-600 mt-0.5" />
-                              <div className="flex-1">
-                                <p className="text-xs font-medium text-green-800 mb-1">
-                                  AI Suggested Fix:
-                                </p>
-                                <p className="text-sm text-gray-100 mb-2">
-                                  Did you mean:{' '}
-                                  <span className="font-mono">{link.suggestedFix}</span>?
-                                </p>
-                                <Button
-                                  size="sm"
-                                  className="bg-green-600 text-white hover:bg-green-700"
-                                >
-                                  <Check className="w-3 h-3 mr-1" />
-                                  Apply Suggestion
-                                </Button>
+                              <div className="grid lg:grid-cols-2 gap-4">
+                                {/* Flow from Source to Broken */}
+                                <div className="space-y-3 bg-slate-950/50 p-4 rounded-xl border border-slate-800 relative">
+                                  {/* Node connection line */}
+                                  <div className="absolute left-6 top-[28px] bottom-[28px] w-px bg-slate-700 border-dashed border-l border-slate-600" />
+                                  
+                                  <div className="flex items-start gap-3 relative z-10">
+                                    <div className="mt-1 w-4 h-4 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center shrink-0">
+                                      <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Source Node</p>
+                                      <a href={link.sourceUrl} className="font-mono text-sm text-emerald-400 hover:text-emerald-300 truncate block">
+                                        {link.sourceUrl}
+                                      </a>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="flex items-start gap-3 relative z-10">
+                                    <div className="mt-1 w-4 h-4 rounded-full bg-rose-500/20 border border-rose-500/50 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(244,63,94,0.3)]">
+                                      <div className="w-1.5 h-1.5 bg-rose-400 rounded-full animate-ping" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Severed Connection</p>
+                                      <p className="font-mono text-sm text-rose-300 truncate block">
+                                        {link.brokenUrl}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Context & Telemetry */}
+                                <div className="space-y-3">
+                                  <div className="bg-slate-800/30 px-4 py-3 rounded-xl border border-slate-700/50">
+                                    <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Anchor Text Detected</p>
+                                    <p className="font-medium text-slate-200">"{link.linkText}"</p>
+                                  </div>
+                                  
+                                  <div className="flex flex-wrap gap-4 text-xs font-mono text-slate-400 p-2">
+                                    <span className="flex items-center gap-1.5">
+                                      <Clock className="w-3.5 h-3.5 text-indigo-400" /> Discovered: {link.firstFound}
+                                    </span>
+                                    <span className="flex items-center gap-1.5">
+                                      <RefreshCw className="w-3.5 h-3.5 text-cyan-400" /> Pinged: {link.lastChecked}
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        )}
 
-                        <div className="flex flex-wrap gap-2">
-                          <div className="relative group">
-                            <Button size="sm" variant="outline">
-                              <MoreVertical className="w-4 h-4" />
-                            </Button>
-                            <div className="absolute left-0 top-full mt-1 bg-[#0f172a]/50 backdrop-blur-md border border-white/10 rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 py-1 hidden group-hover:block z-10 whitespace-nowrap">
-                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
-                                <Edit3 className="w-3 h-3 mr-2" />
-                                Fix Link
-                              </button>
-                              <button
-                                className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center"
+                            {/* Actions Column */}
+                            <div className="flex lg:flex-col lg:justify-center gap-2 min-w-[200px] border-t lg:border-t-0 lg:border-l border-slate-700/50 pt-4 lg:pt-0 lg:pl-6">
+                              {link.suggestedFix ? (
+                                <motion.div 
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  className="w-full bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3 mb-2"
+                                >
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <Sparkles className="w-3 h-3 text-emerald-400" />
+                                    <span className="text-[10px] tracking-widest uppercase font-bold text-emerald-400">AI Fix Match</span>
+                                  </div>
+                                  <p className="font-mono text-xs text-emerald-200 truncate mb-3" title={link.suggestedFix}>
+                                    {link.suggestedFix}
+                                  </p>
+                                  <Button size="sm" className="w-full h-8 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                    <Check className="w-3 h-3 mr-1" /> Auto-Patch
+                                  </Button>
+                                </motion.div>
+                              ) : null}
+
+                              <Button
+                                size="sm"
+                                className="w-full bg-indigo-500/20 border border-indigo-500/50 hover:bg-indigo-500/40 text-indigo-300 font-bold tracking-wide"
                                 onClick={() => setShowRedirectModal(true)}
                               >
-                                <ArrowRight className="w-3 h-3 mr-2" />
-                                Create Redirect
-                              </button>
-                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
-                                <Trash2 className="w-3 h-3 mr-2" />
-                                Remove Link
-                              </button>
-                              <button
-                                className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center"
+                                <ArrowRight className="w-4 h-4 mr-2" />
+                                Route 301
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="w-full border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 font-bold tracking-wide"
                                 onClick={() => {
                                   setSelectedBrokenLink(link);
                                   setShowAIGenerateModal(true);
                                 }}
                               >
-                                <Sparkles className="w-3 h-3 mr-2" />
-                                AI Generate Page
-                              </button>
-                              <button
-                                className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center"
-                                onClick={() => {
-                                  setSelectedBrokenLink(link);
-                                  setShowRecoveryModal(true);
-                                }}
-                              >
-                                <Archive className="w-3 h-3 mr-2" />
-                                Recover from Archive
-                              </button>
-                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
-                                <X className="w-3 h-3 mr-2" />
-                                Ignore
-                              </button>
+                                <Sparkles className="w-4 h-4 mr-2" />
+                                AI Regenerate
+                              </Button>
                             </div>
+
                           </div>
-                          <Button
-                            size="sm"
-                            className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
-                            onClick={() => setShowRedirectModal(true)}
-                          >
-                            <ArrowRight className="w-4 h-4 mr-2" />
-                            Create Redirect
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setSelectedBrokenLink(link);
-                              setShowAIGenerateModal(true);
-                            }}
-                          >
-                            <Sparkles className="w-4 h-4 mr-2" />
-                            AI Generate Page
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => {
-                              setSelectedBrokenLink(link);
-                              setShowRecoveryModal(true);
-                            }}
-                          >
-                            <Archive className="w-4 h-4 mr-2" />
-                            Recover from Archive
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+              </AnimatePresence>
           </div>
         )}
 
