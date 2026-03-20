@@ -46,30 +46,44 @@ export default function PublishingSystem() {
   const [publishProgress, setPublishProgress] = useState(0);
   const [publishStep, setPublishStep] = useState('');
 
-  // Simulate publishing flow
   const handlePublish = async () => {
     setShowConfirmation(false);
     setIsPublishing(true);
-    setPublishProgress(0);
+    setPublishProgress(10);
+    setPublishStep('Initiating build process...');
 
-    const steps = [
-      { step: 'Validating content...', duration: 800, progress: 15 },
-      { step: 'Optimizing images...', duration: 1000, progress: 30 },
-      { step: 'Generating SEO metadata...', duration: 700, progress: 50 },
-      { step: 'Pushing to live site...', duration: 1200, progress: 70 },
-      { step: 'Updating sitemap...', duration: 600, progress: 85 },
-      { step: 'Clearing cache...', duration: 500, progress: 100 },
-    ];
+    try {
+      setPublishProgress(45);
+      setPublishStep('Deploying assets to CDN...');
+      
+      const response = await fetch('/api/publish-site', {
+        method: 'POST'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Publish network issue');
+      }
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setPublishProgress(100);
+        setPublishStep('Live!');
+        setIsPublishing(false);
+        setPublishSuccess(true);
+        setShowPostPublish(true);
+      } else {
+        throw new Error('Publish failed');
+      }
 
-    for (const { step, duration, progress } of steps) {
-      setPublishStep(step);
-      setPublishProgress(progress);
-      await new Promise((resolve) => setTimeout(resolve, duration));
+    } catch (error) {
+       console.error(error);
+       setPublishProgress(0);
+       setPublishStep('Failed');
+       setIsPublishing(false);
+       setPublishSuccess(false);
+       // We'd typically throw a toast here
     }
-
-    setIsPublishing(false);
-    setPublishSuccess(true);
-    setShowPostPublish(true);
 
     // Reset after showing success
     setTimeout(() => {
