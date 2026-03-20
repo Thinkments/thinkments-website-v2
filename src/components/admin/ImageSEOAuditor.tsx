@@ -46,7 +46,9 @@ import {
   Link as LinkIcon,
   Layers,
   Globe,
+  Send,
 } from 'lucide-react';
+import { toast } from 'sonner';
 
 type ViewMode = 'gallery' | 'list';
 type TabType =
@@ -154,6 +156,28 @@ export default function ImageSEOAuditor() {
 
   const deselectAll = () => {
     setSelectedImages([]);
+  };
+
+  const handleAssignToSEO = () => {
+    if (selectedImages.length === 0) return;
+    
+    let issueContext = 'Missing Alt Text';
+    if (activeTab === 'poor-names') issueContext = 'Poor File Names';
+    if (activeTab === 'oversized') issueContext = 'Oversized Images';
+    if (activeTab === 'missing-dimensions') issueContext = 'Missing Dimensions';
+    if (activeTab === 'not-in-sitemap') issueContext = 'Not in Sitemap';
+    if (activeTab === 'duplicates') issueContext = 'Duplicate Images';
+
+    const event = new CustomEvent('task-logged', {
+      detail: {
+        title: `Fix Image SEO: ${selectedImages.length} Issues`,
+        description: `Review and bulk apply AI suggestions for ${selectedImages.length} images.\n\nIssue Category: ${issueContext}.`,
+        priority: 'high',
+        sourceAgent: 'SEO Auditor'
+      }
+    });
+    window.dispatchEvent(event);
+    toast.success('Assigned fixes to the SEO Team Task Board!');
   };
 
   const getScoreColor = (score: number) => {
@@ -560,6 +584,15 @@ export default function ImageSEOAuditor() {
                   </Button>
                 </div>
                 <div className="flex items-center space-x-2">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    onClick={handleAssignToSEO} 
+                    className="text-[#00B4D8] border-[#00B4D8] hover:bg-[#00B4D8]/10"
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    Assign to SEO Team
+                  </Button>
                   <Button size="sm" variant="outline">
                     <Sparkles className="w-4 h-4 mr-2" />
                     Apply AI Suggestions
