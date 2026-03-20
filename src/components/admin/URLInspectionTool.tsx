@@ -1,50 +1,48 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Badge } from '../ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import { Badge } from '../ui/badge';
 import { Alert, AlertDescription } from '../ui/alert';
 import {
   Search,
+  Globe,
+  Zap,
+  Target,
+  AlertTriangle,
   CheckCircle,
   XCircle,
-  AlertTriangle,
-  ExternalLink,
-  Globe,
-  Target,
-  Zap,
   Eye,
-  FileText,
+  Loader2,
+  ExternalLink,
 } from 'lucide-react';
-
-interface SEOData {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  robots?: string;
-  canonical?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-  ogType?: string;
-  twitterCard?: string;
-  lang?: string;
-  viewport?: string;
-  charset?: string;
-}
 
 interface PageAnalysis {
   url: string;
-  status: 'success' | 'error' | 'warning';
-  seo: SEOData;
+  status: 'success' | 'warning' | 'error';
+  seo: {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    robots?: string;
+    canonical?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    ogType?: string;
+    twitterCard?: string;
+    lang?: string;
+    viewport?: string;
+    charset?: string;
+  };
   performance: {
-    loadTime?: number;
-    size?: number;
-    images?: number;
-    scripts?: number;
-    stylesheets?: number;
+    loadTime: number;
+    size: number;
+    images: number;
+    scripts: number;
+    stylesheets: number;
   };
   accessibility: {
     hasAltTags: boolean;
@@ -58,15 +56,10 @@ interface PageAnalysis {
 }
 
 const PREDEFINED_URLS = [
-  { path: '/', name: 'Homepage' },
-  { path: '/about', name: 'About Page' },
-  { path: '/services', name: 'Services Page' },
-  { path: '/contact', name: 'Contact Page' },
-  { path: '/web-design', name: 'Web Design Service' },
-  { path: '/digital-marketing', name: 'Digital Marketing' },
-  { path: '/digital-marketing-decatur', name: 'Decatur Marketing' },
-  { path: '/blog', name: 'Blog Page' },
-  { path: '/case-studies', name: 'Case Studies' },
+  { name: 'Homepage', path: '/' },
+  { name: 'SEO Services', path: '/services/seo' },
+  { name: 'Web Design', path: '/services/web-design' },
+  { name: 'Local: Decatur', path: '/digital-marketing-decatur-tx' },
 ];
 
 export default function URLInspectionTool() {
@@ -75,7 +68,7 @@ export default function URLInspectionTool() {
   const [loading, setLoading] = useState(false);
 
   const fetchLiveAnalysis = async (targetUrl: string): Promise<PageAnalysis> => {
-    const response = await fetch(\`/api/url-inspection?url=\${encodeURIComponent(targetUrl)}\`);
+    const response = await fetch(`/api/url-inspection?url=${encodeURIComponent(targetUrl)}`);
     if (!response.ok) {
       throw new Error('Failed to fetch inspection data');
     }
@@ -112,13 +105,13 @@ export default function URLInspectionTool() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'success':
-        return <CheckCircle className="w-4 h-4 text-green-500" />;
+        return <CheckCircle className="w-5 h-5 text-green-500" />;
       case 'warning':
-        return <AlertTriangle className="w-4 h-4 text-yellow-500" />;
+        return <AlertTriangle className="w-5 h-5 text-yellow-500" />;
       case 'error':
-        return <XCircle className="w-4 h-4 text-red-500" />;
+        return <XCircle className="w-5 h-5 text-red-500" />;
       default:
-        return <Globe className="w-4 h-4 text-muted-foreground" />;
+        return <Globe className="w-5 h-5 text-gray-500" />;
     }
   };
 
@@ -136,56 +129,99 @@ export default function URLInspectionTool() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div>
-        <h2 className="text-2xl mb-2">URL Inspection Tool</h2>
-        <p className="text-muted-foreground">
-          Analyze URLs for SEO metadata, performance, and technical issues
-        </p>
+    <div className="p-6 max-w-7xl mx-auto space-y-6">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
+            URL Inspection Tool
+          </h1>
+          <p className="text-muted-foreground mt-2">
+            Analyze any URL for SEO metadata, performance, and accessibility issues.
+          </p>
+        </div>
       </div>
 
-      <Tabs defaultValue="single">
+      <Tabs defaultValue="inspect" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="single">Single URL</TabsTrigger>
-          <TabsTrigger value="quick">Quick Links</TabsTrigger>
+          <TabsTrigger value="inspect" className="flex items-center space-x-2">
+            <Search className="w-4 h-4" />
+            <span>Inspect URL</span>
+          </TabsTrigger>
+          <TabsTrigger value="quick" className="flex items-center space-x-2">
+            <Zap className="w-4 h-4" />
+            <span>Quick Links</span>
+          </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="single" className="space-y-6">
-          {/* URL Input */}
+        <TabsContent value="inspect" className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Search className="w-5 h-5" />
-                <span>URL Analysis</span>
-              </CardTitle>
+              <CardTitle>Enter URL to Inspect</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex space-x-2">
-                <Input
-                  placeholder="Enter URL path (e.g., /about, /services/seo)"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && analyzeUrl()}
-                />
-                <Button onClick={analyzeUrl} disabled={loading || !url.trim()}>
-                  {loading ? 'Analyzing...' : 'Analyze'}
+            <CardContent>
+              <div className="flex space-x-4">
+                <div className="relative flex-1">
+                  <Globe className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                  <Input
+                    placeholder="https://thinkments.com/..."
+                    className="pl-10 text-lg"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && analyzeUrl()}
+                  />
+                </div>
+                <Button size="lg" onClick={analyzeUrl} disabled={loading || !url.trim()}>
+                  {loading ? (
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  ) : (
+                    <Search className="w-5 h-5 mr-2" />
+                  )}
+                  {loading ? 'Analyzing...' : 'Inspect'}
                 </Button>
               </div>
             </CardContent>
           </Card>
 
-          {/* Analysis Results */}
           {analysis && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
+              className="space-y-6"
             >
-              <Tabs defaultValue="overview">
-                <TabsList className="grid w-full grid-cols-4">
+              {/* Status Banner */}
+              <div
+                className={`p-4 rounded-xl border flex items-center justify-between ${getStatusColor(analysis.status)}`}
+              >
+                <div className="flex items-center space-x-4">
+                  {getStatusIcon(analysis.status)}
+                  <div>
+                    <h3 className="font-semibold text-lg flex items-center space-x-2">
+                      <span>Inspection Results</span>
+                      <a
+                        href={`https://thinkments.com${analysis.url}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1 text-sm font-normal text-blue-600 hover:underline"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span>View Page</span>
+                      </a>
+                    </h3>
+                    <p className="opacity-90">{analysis.url}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-sm opacity-90">Issues Found</div>
+                  <div className="font-bold text-2xl">
+                    {analysis.errors.length + analysis.warnings.length}
+                  </div>
+                </div>
+              </div>
+
+              <Tabs defaultValue="overview" className="space-y-6">
+                <TabsList>
                   <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="seo">SEO Data</TabsTrigger>
+                  <TabsTrigger value="seo">SEO Meta</TabsTrigger>
                   <TabsTrigger value="performance">Performance</TabsTrigger>
                   <TabsTrigger value="issues">Issues</TabsTrigger>
                 </TabsList>
@@ -193,58 +229,36 @@ export default function URLInspectionTool() {
                 <TabsContent value="overview">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="flex items-center space-x-2">
-                        {getStatusIcon(analysis.status)}
-                        <span>Page Overview</span>
-                        <Badge className={getStatusColor(analysis.status)}>
-                          {analysis.status.toUpperCase()}
-                        </Badge>
-                      </CardTitle>
+                      <CardTitle>Page Summary</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <CardContent className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <h4 className="font-medium mb-2">SEO Status</h4>
-                          <div className="space-y-1 text-sm">
-                            <div className="flex justify-between">
-                              <span>Title Length:</span>
-                              <span
-                                className={
-                                  analysis.seo.title &&
-                                  analysis.seo.title.length >= 50 &&
-                                  analysis.seo.title.length <= 60
-                                    ? 'text-green-600'
-                                    : 'text-yellow-600'
-                                }
-                              >
-                                {analysis.seo.title?.length || 0} chars
-                              </span>
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-sm">Title Tag</span>
+                              <Badge variant={analysis.seo.title ? 'default' : 'destructive'}>
+                                {analysis.seo.title ? 'Present' : 'Missing'}
+                              </Badge>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Description Length:</span>
-                              <span
-                                className={
-                                  analysis.seo.description &&
-                                  analysis.seo.description.length >= 150 &&
-                                  analysis.seo.description.length <= 160
-                                    ? 'text-green-600'
-                                    : 'text-yellow-600'
-                                }
-                              >
-                                {analysis.seo.description?.length || 0} chars
-                              </span>
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-sm">Meta Description</span>
+                              <Badge variant={analysis.seo.description ? 'default' : 'destructive'}>
+                                {analysis.seo.description ? 'Present' : 'Missing'}
+                              </Badge>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Robots Directive:</span>
-                              <span
-                                className={
-                                  analysis.seo.robots === 'index, follow'
-                                    ? 'text-green-600'
-                                    : 'text-yellow-600'
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-sm">Indexability</span>
+                              <Badge
+                                variant={
+                                  analysis.seo.robots?.includes('noindex')
+                                    ? 'secondary'
+                                    : 'default'
                                 }
                               >
-                                {analysis.seo.robots}
-                              </span>
+                                {analysis.seo.robots || 'index, follow'}
+                              </Badge>
                             </div>
                           </div>
                         </div>
@@ -263,7 +277,7 @@ export default function URLInspectionTool() {
                                 }
                               >
                                 {analysis.performance.loadTime
-                                  ? `${Math.round(analysis.performance.loadTime)}ms\``
+                                  ? `${Math.round(analysis.performance.loadTime)}ms`
                                   : 'N/A'}
                               </span>
                             </div>
@@ -271,7 +285,7 @@ export default function URLInspectionTool() {
                               <span>Page Size:</span>
                               <span>
                                 {analysis.performance.size
-                                  ? `${Math.round(analysis.performance.size)}KB\``
+                                  ? `${Math.round(analysis.performance.size)}KB`
                                   : 'N/A'}
                               </span>
                             </div>
@@ -389,7 +403,7 @@ export default function URLInspectionTool() {
                         <div className="text-center">
                           <div className="text-2xl font-bold text-primary">
                             {analysis.performance.loadTime
-                              ? `${Math.round(analysis.performance.loadTime)}ms\``
+                              ? `${Math.round(analysis.performance.loadTime)}ms`
                               : 'N/A'}
                           </div>
                           <div className="text-sm text-muted-foreground">Load Time</div>
@@ -397,7 +411,7 @@ export default function URLInspectionTool() {
                         <div className="text-center">
                           <div className="text-2xl font-bold text-primary">
                             {analysis.performance.size
-                              ? `${Math.round(analysis.performance.size)}KB\``
+                              ? `${Math.round(analysis.performance.size)}KB`
                               : 'N/A'}
                           </div>
                           <div className="text-sm text-muted-foreground">Page Size</div>
