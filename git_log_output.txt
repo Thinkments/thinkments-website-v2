@@ -1,0 +1,5 @@
+commit 81443ab205df7e8778f0a62ffde32a136fb54b55
+Author: Corey Spicer <Spicer@thinkments.com>
+Date:   Fri Mar 20 12:40:05 2026 -0500
+
+    feat: implement AutomatedClientReporting component with client management, report builder, templates, scheduling, and wins overview.
