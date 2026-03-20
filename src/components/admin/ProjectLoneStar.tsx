@@ -10,7 +10,6 @@ import {
   TrendingUp,
   AlertCircle,
   Zap,
-  Globe,
   Database,
   Building2,
   Briefcase,
@@ -19,6 +18,7 @@ import {
 } from 'lucide-react';
 import TheProspector from './TheProspector';
 import TheTexasCartographer from './TheTexasCartographer';
+import TheTexasRecon from './TheTexasRecon';
 
 const TEXAS_HUBS = [
   { name: 'Dallas-Fort Worth', penetration: 12, leadsFound: 1450, status: 'Active Campaign' },
@@ -35,7 +35,7 @@ const RECENT_TARGETS = [
 ];
 
 export default function ProjectLoneStar() {
-  const [activeView, setActiveView] = useState<'overview' | 'prospector' | 'cartographer'>('overview');
+  const [activeView, setActiveView] = useState<'overview' | 'prospector' | 'cartographer' | 'recon'>('overview');
 
   return (
     <div className="space-y-6">
@@ -94,6 +94,16 @@ export default function ProjectLoneStar() {
           }`}
         >
           The Texas Cartographer
+        </button>
+        <button
+          onClick={() => setActiveView('recon')}
+          className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
+            activeView === 'recon'
+              ? 'border-[#00B4D8] text-[#1E3A5F]'
+              : 'border-transparent text-gray-500 hover:text-gray-700'
+          }`}
+        >
+          The Recon Engine
         </button>
       </div>
 
@@ -260,6 +270,12 @@ export default function ProjectLoneStar() {
       {activeView === 'cartographer' && (
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <TheTexasCartographer />
+        </motion.div>
+      )}
+
+      {activeView === 'recon' && (
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <TheTexasRecon />
         </motion.div>
       )}
     </div>
