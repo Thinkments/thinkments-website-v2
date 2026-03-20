@@ -436,7 +436,7 @@ export default function SEOBulkFixer() {
       {scanResults && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {/* Pages Scanned */}
-          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+          <Card className="border-0 border border-white/8 bg-[#090f1a] hover:border-indigo-500/30 shadow-[0_0_30px_rgba(79,70,229,0.08)] hover:shadow-[0_0_40px_rgba(79,70,229,0.18)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
@@ -452,7 +452,7 @@ export default function SEOBulkFixer() {
           </Card>
 
           {/* Issues Found */}
-          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+          <Card className="border-0 border border-white/8 bg-[#090f1a] hover:border-indigo-500/30 shadow-[0_0_30px_rgba(79,70,229,0.08)] hover:shadow-[0_0_40px_rgba(79,70,229,0.18)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
@@ -468,7 +468,7 @@ export default function SEOBulkFixer() {
           </Card>
 
           {/* SEO Score */}
-          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+          <Card className="border-0 border border-white/8 bg-[#090f1a] hover:border-indigo-500/30 shadow-[0_0_30px_rgba(79,70,229,0.08)] hover:shadow-[0_0_40px_rgba(79,70,229,0.18)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
@@ -507,7 +507,7 @@ export default function SEOBulkFixer() {
           </Card>
 
           {/* Quick Fix Available */}
-          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+          <Card className="border-0 border border-white/8 bg-[#090f1a] hover:border-indigo-500/30 shadow-[0_0_30px_rgba(79,70,229,0.08)] hover:shadow-[0_0_40px_rgba(79,70,229,0.18)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
@@ -541,7 +541,7 @@ export default function SEOBulkFixer() {
       )}
 
       {/* Issue Breakdown Tabs */}
-      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+      <Card className="border-0 border border-white/8 bg-[#090f1a] hover:border-indigo-500/30 shadow-[0_0_30px_rgba(79,70,229,0.08)] hover:shadow-[0_0_40px_rgba(79,70,229,0.18)] transition-all duration-300">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">SEO Issues</CardTitle>
@@ -1114,3 +1114,4 @@ export default function SEOBulkFixer() {
     </div>
   );
 }
+
