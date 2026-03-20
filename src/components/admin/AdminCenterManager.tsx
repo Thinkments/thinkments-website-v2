@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '../ui/card';
+import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { 
@@ -28,69 +28,57 @@ interface AuditInsight {
     status: 'Pending' | 'Approved' | 'Implemented';
 }
 
-const mockInsights: AuditInsight[] = [
-    {
-        id: 'opt-1',
-        category: 'UX',
-        severity: 'High',
-        title: 'Fragmented AI Tooling Navigation',
-        description: 'AI tools like AIBlogGenerator, PageBuilder, and Web Designer are scattered across different navigation categories (Content, Create New, etc.).',
-        recommendation: 'Consolidate all generative AI agents into a dedicated "AI Command Center" or "Generative Suite" submenu to improve discoverability.',
-        status: 'Pending'
-    },
-    {
-        id: 'opt-2',
-        category: 'Workflow',
-        severity: 'Medium',
-        title: 'Disconnected Lead and Client Flows',
-        description: 'The Lead Dashboard and Client Manager operate independently without an automated progression pipeline.',
-        recommendation: 'Implement a "Convert to Client" automation hook that transfers lead data, generates an initial dashboard invoice, and triggers an onboarding email automatically.',
-        status: 'Pending'
-    },
-    {
-        id: 'opt-3',
-        category: 'Architecture',
-        severity: 'High',
-        title: 'Redundant Reporting Modules',
-        description: 'Performance Dashboard and Report Generator share 80% of the same analytical data endpoints, leading to duplicate API calls.',
-        recommendation: 'Merge the data visualization engine into a single unified Data Layer state, feeding both components to reduce load times by 40%.',
-        status: 'Pending'
-    },
-    {
-        id: 'opt-4',
-        category: 'Performance',
-        severity: 'Low',
-        title: 'Unused Global State Trackers',
-        description: 'Several podcast management states remain active in memory even when the user is navigating SEO tools.',
-        recommendation: 'Implement lazy loading and targeted state unmounting for the Podcast Manager to free up local resources.',
-        status: 'Approved'
-    }
-];
-
 export default function AdminCenterManager() {
     const [isScanning, setIsScanning] = useState(false);
     const [hasScanned, setHasScanned] = useState(false);
     const [scanProgress, setScanProgress] = useState(0);
-    const [insights, setInsights] = useState<AuditInsight[]>(mockInsights);
+    const [insights, setInsights] = useState<AuditInsight[]>([]);
     const [activeCategory, setActiveCategory] = useState<string>('All');
 
-    const startAudit = () => {
+    const startAudit = async () => {
         setIsScanning(true);
         setHasScanned(false);
         setScanProgress(0);
+        setInsights([]);
 
         const interval = setInterval(() => {
-            setScanProgress(prev => {
-                if (prev >= 100) {
-                    clearInterval(interval);
-                    setIsScanning(false);
-                    setHasScanned(true);
-                    toast.success('Admin Center audit complete');
-                    return 100;
-                }
-                return prev + Math.floor(Math.random() * 15) + 5;
-            });
+            setScanProgress(prev => Math.min(prev + Math.floor(Math.random() * 15) + 5, 95));
         }, 400);
+
+        try {
+            const res = await fetch('/api/openai-inference', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    systemPrompt: `You are the System Architect AI for MACE.
+Return a generated JSON array of 4 AuditInsight objects matching this interface exactly:
+[{ "id": "unique-id-string", "category": "UX" | "Architecture" | "Workflow" | "Performance", "severity": "High" | "Medium" | "Low", "title": "string", "description": "string", "recommendation": "string", "status": "Pending" }]
+Your insights MUST be highly realistic analysis regarding a React/Node dashboard scaling to 50+ generative AI marketing tools.`,
+                    userMessage: "Execute architecture diagnostic and return insights vector.",
+                    jsonMode: true
+                })
+            });
+            
+            clearInterval(interval);
+            setScanProgress(100);
+
+            if (!res.ok) throw new Error('Architecture audit computation failed');
+
+            const payloadText = await res.json();
+            const data = JSON.parse(payloadText.content);
+            const parsedArray: AuditInsight[] = Array.isArray(data) ? data : data.insights || [];
+            
+            setInsights(parsedArray);
+            setHasScanned(true);
+            setIsScanning(false);
+            toast.success('Admin Center audit complete');
+        } catch (err) {
+            console.error(err);
+            clearInterval(interval);
+            setIsScanning(false);
+            setScanProgress(0);
+            toast.error('The System Architect failed to compute diagnostics.');
+        }
     };
 
     const handleApprove = (id: string) => {
