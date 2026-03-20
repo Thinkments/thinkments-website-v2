@@ -14,16 +14,30 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const srcDir = path.join(process.cwd(), 'src');
-    
-    // Check if directory exists
-    try {
-      await fs.access(srcDir);
-    } catch (e) {
+    // Try multiple paths since Netlify local dev vs AWS Lambda have different root contexts
+    const tryPaths = [
+      path.join(process.cwd(), 'src'),
+      process.env.LAMBDA_TASK_ROOT ? path.join(process.env.LAMBDA_TASK_ROOT, 'src') : null,
+      path.resolve(__dirname, '..', '..', '..', 'src')
+    ].filter(Boolean) as string[];
+
+    let srcDir = '';
+    for (const p of tryPaths) {
+      try {
+        await fs.access(p);
+        srcDir = p;
+        break;
+      } catch (e) {
+        // Ignore and try next path
+      }
+    }
+
+    if (!srcDir) {
       return {
         statusCode: 500,
         body: JSON.stringify({ 
-          error: `Could not access src directory at ${srcDir}.`
+          error: `Could not access src directory.`,
+          details: `Searched in: ${tryPaths.join(', ')}`
         }),
       };
     }
