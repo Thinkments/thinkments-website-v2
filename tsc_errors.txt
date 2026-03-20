@@ -1,4 +1,2 @@
-
-> thinkments-website@0.1.0 type-check
-> tsc -b
-
+Need to install the following packages:
+tsc@2.0.4
