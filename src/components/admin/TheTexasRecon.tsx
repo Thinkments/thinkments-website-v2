@@ -54,29 +54,28 @@ export default function TheTexasRecon() {
     setResult(null);
 
     const stages = [
-      { progress: 15, msg: "Initializing OSINT scrapers..." },
+      { progress: 15, msg: "Initializing OSINT scrapers via Edge Network..." },
       { progress: 35, msg: "Extracting historical SEMrush ad spend..." },
-      { progress: 55, msg: "Analyzing backlink footprint via Ahrefs API structure..." },
-      { progress: 75, msg: "Compiling Google Business Profile local parity..." },
-      { progress: 90, msg: "Processing Vulnerability Matrix algorithms..." },
+      { progress: 55, msg: "Analyzing backlink footprint via API..." },
+      { progress: 75, msg: "Compiling Google Business Profile parity..." },
+      { progress: 95, msg: "Processing Vulnerability Matrix algorithms..." },
+      { progress: 100, msg: "Reconnaissance complete. Generating attack vectors." }
     ];
 
     let currentStage = 0;
     
-    // Simulate real-time scanning steps cosmetically while we await the backend
+    // Animate scanning steps
     const interval = setInterval(() => {
-      const stage = stages[currentStage];
-      if (stage) {
-        setScanProgress(stage.progress);
-        setScanStatus(stage.msg);
+      if (currentStage < stages.length) {
+        setScanProgress(stages[currentStage].progress);
+        setScanStatus(stages[currentStage].msg);
         currentStage++;
       }
-    }, 1200);
+    }, 800);
 
     try {
-      const res = await fetch('/api/texas-recon', {
+      const response = await fetch('/.netlify/functions/texas-recon', {
         method: 'POST',
-        headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ targetUrl }),
