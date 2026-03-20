@@ -18,6 +18,9 @@ import {
   Award,
   Globe,
   Users,
+  Clock,
+  ExternalLink,
+  BarChart,
 } from 'lucide-react';
 import SEO from '../SEO';
 import { generateArticleSchema, BASE_URL, DEFAULT_OG_IMAGE } from '../../utils/seo';

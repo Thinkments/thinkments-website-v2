@@ -19,6 +19,9 @@ import {
   ShoppingCart,
   Building2,
   Clock,
+  Settings,
+  Search,
+  Award,
 } from 'lucide-react';
 import SEO from '../SEO';
 import {

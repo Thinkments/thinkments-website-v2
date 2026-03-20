@@ -31,7 +31,6 @@ import {
 } from 'lucide-react';
 import SEO from '../SEO';
 import Breadcrumb from '../Breadcrumb';
-import { generateOrganizationSchema } from '../utils/seo';
 
 export default function AboutPage() {
   const differenceRef = useRef(null);
@@ -205,7 +204,6 @@ export default function AboutPage() {
         description="Learn about ThinkMents Digital Marketing Agency. 5.0 Google rating, 103 reviews, serving clients across 31 states and 3 countries."
         url="/about-us"
         type="website"
-        structuredData={generateOrganizationSchema()}
       />
 
       {/* Breadcrumb Navigation */}

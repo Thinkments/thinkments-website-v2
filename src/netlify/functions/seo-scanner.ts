@@ -108,13 +108,13 @@ export const handler = async (event: { httpMethod: string; body: string | null }
     let issuesFound = 0;
     
     // Arrays for SEOBulkFixer
-    const metaIssues: Record<string, unknown>[] = [];
-    const titleIssues: Record<string, unknown>[] = [];
-    const h1Issues: Record<string, unknown>[] = [];
-    const imageIssues: Record<string, unknown>[] = [];
+    const metaIssues: Record<string, any>[] = [];
+    const titleIssues: Record<string, any>[] = [];
+    const h1Issues: Record<string, any>[] = [];
+    const imageIssues: Record<string, any>[] = [];
     
     // Array for SERPOptimizer
-    const serpPages: Record<string, unknown>[] = [];
+    const serpPages: Record<string, any>[] = [];
 
     results.forEach((data, index) => {
       aggregateScore += data.score;

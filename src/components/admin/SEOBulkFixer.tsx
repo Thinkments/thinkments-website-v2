@@ -62,6 +62,7 @@ interface ScanResult {
   imageIssues: ImageIssue[];
   h1Issues: PageIssue[];
   thinContent: PageIssue[];
+  duplicates: PageIssue[];
 }
 
 export default function SEOBulkFixer() {
