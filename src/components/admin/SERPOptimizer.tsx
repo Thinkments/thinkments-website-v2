@@ -268,7 +268,7 @@ export default function SERPOptimizer() {
       {/* Issue Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-6">
         {/* Missing Titles */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-3">
               <AlertCircle className="w-5 h-5 text-rose-400" />
@@ -280,7 +280,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Missing Descriptions */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-3">
               <FileText className="w-5 h-5 text-rose-400" />
@@ -294,7 +294,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Titles Too Long */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
               <ArrowUpDown className="w-5 h-5 text-yellow-600" />
@@ -306,7 +306,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Titles Too Short */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
               <ArrowUpDown className="w-5 h-5 text-yellow-600" />
@@ -318,7 +318,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Descriptions Too Long */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
               <AlertTriangle className="w-5 h-5 text-yellow-600" />
@@ -332,7 +332,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Duplicate Titles */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
               <Copy className="w-5 h-5 text-orange-600" />
@@ -344,7 +344,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Missing Schema */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
               <Code className="w-5 h-5 text-orange-600" />
@@ -356,7 +356,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Missing OG */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mb-3">
               <Share2 className="w-5 h-5 text-slate-400" />
@@ -369,7 +369,7 @@ export default function SERPOptimizer() {
       </div>
 
       {/* Filters & Actions */}
-      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
+      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
         <CardContent className="pt-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
             <div className="flex items-center space-x-3 flex-1">
@@ -430,7 +430,7 @@ export default function SERPOptimizer() {
       {viewType === 'list' && (
         <div className="space-y-4">
           {pages.map((page) => (
-            <Card key={page.id} className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow">
+            <Card key={page.id} className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="grid grid-cols-12 gap-4 items-start">
                   {/* Page Info */}
@@ -542,7 +542,7 @@ export default function SERPOptimizer() {
       {/* Edit/Preview View */}
       {(viewType === 'edit' || viewType === 'preview') && selectedPage && (
         <div>
-          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
+          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
@@ -570,7 +570,7 @@ export default function SERPOptimizer() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Left: Edit Panel */}
             <div>
-              <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
+              <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle>Edit SEO Data</CardTitle>
@@ -1014,7 +1014,7 @@ export default function SERPOptimizer() {
 
               {/* AI Suggestions Panel */}
               {activeTab === 'seo' && (
-                <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+                <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
                       <Sparkles className="w-5 h-5 mr-2 text-indigo-400" />
@@ -1048,7 +1048,7 @@ export default function SERPOptimizer() {
 
             {/* Right: SERP Preview */}
             <div>
-              <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 sticky top-6">
+              <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 sticky top-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle>SERP Preview</CardTitle>
@@ -1427,7 +1427,7 @@ export default function SERPOptimizer() {
                   <div>
                     <h3 className="font-semibold text-white mb-4">Review proposed changes:</h3>
                     <div className="mb-6">
-                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-4">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-4">
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-3 gap-4 text-center">
                             <div>
@@ -1514,19 +1514,19 @@ export default function SERPOptimizer() {
                     </p>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
-                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                         <CardContent className="pt-6">
                           <p className="text-2xl font-bold text-green-600 mb-1">23</p>
                           <p className="text-sm text-slate-400">Pages Updated</p>
                         </CardContent>
                       </Card>
-                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                         <CardContent className="pt-6">
                           <p className="text-2xl font-bold text-green-600 mb-1">+47</p>
                           <p className="text-sm text-slate-400">Avg Score Increase</p>
                         </CardContent>
                       </Card>
-                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                         <CardContent className="pt-6">
                           <p className="text-2xl font-bold text-green-600 mb-1">68</p>
                           <p className="text-sm text-slate-400">Changes Applied</p>
@@ -1649,7 +1649,7 @@ export default function SERPOptimizer() {
                 </div>
 
                 {/* AI Analysis */}
-                <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mt-6">
+                <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mt-6">
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <Sparkles className="w-5 h-5 mr-2 text-indigo-400" />
