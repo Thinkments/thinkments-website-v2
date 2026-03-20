@@ -84,34 +84,27 @@ export default function SEOBulkFixer() {
 
   const runScan = async () => {
     setScanStatus('scanning');
-    setScanProgress(25);
+    setScanProgress(25); // Initial network request sent
     setCurrentPage(0);
 
     try {
-      // Simulate progress bar moving while fetching
-      const interval = setInterval(() => {
-        setScanProgress((prev) => Math.min(prev + 5, 85));
-      }, 500);
-
       const response = await fetch('/api/seo-scanner');
-      clearInterval(interval);
       
       if (!response.ok) throw new Error('Scan failed');
       const data = await response.json();
       
-      setScanProgress(100);
-      setTimeout(() => {
-        setScanStatus('complete');
-        setTotalPages(data.overview.pagesScanned);
-        setScanResults({
-          pagesScanned: data.overview.pagesScanned,
-          issuesFound: data.overview.issuesFound,
-          seoScore: data.overview.seoScore,
-          quickFixCount: data.overview.quickFixCount,
-          ...data.bulkFixerData
-        });
-        setLastScan(new Date().toLocaleString());
-      }, 500);
+      setScanProgress(100); // Request completed
+      
+      setScanStatus('complete');
+      setTotalPages(data.overview.pagesScanned);
+      setScanResults({
+        pagesScanned: data.overview.pagesScanned,
+        issuesFound: data.overview.issuesFound,
+        seoScore: data.overview.seoScore,
+        quickFixCount: data.overview.quickFixCount,
+        ...data.bulkFixerData
+      });
+      setLastScan(new Date().toLocaleString());
 
     } catch (error) {
       console.error(error);

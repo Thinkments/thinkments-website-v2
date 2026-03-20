@@ -22,11 +22,7 @@ export default function EcommerceWebDesigner() {
     const [description, setDescription] = useState('');
     const [isGenerating, setIsGenerating] = useState(false);
     const [generatedDesign, setGeneratedDesign] = useState<{
-        primaryColor: string;
-        secondaryColor: string;
-        font: string;
-        heroTitle: string;
-        heroSubtitle: string;
+        htmlCode: string;
     } | null>(null);
     const [activeTab, setActiveTab] = useState<'preview' | 'code'>('preview');
 
@@ -40,13 +36,9 @@ export default function EcommerceWebDesigner() {
 
         try {
             const systemPrompt = `You are a world-class Web Architect AI Agent. You design conversion-optimized landing pages.
-Respond in strict JSON format with exactly these fields based on the user's brief:
+Respond in strict JSON format with exactly this field based on the user's brief:
 {
-  "primaryColor": "A beautiful hex code for the primary brand color",
-  "secondaryColor": "A supporting hex code for backgrounds/hero layers",
-  "font": "A modern Google Font family string (e.g., 'Inter, sans-serif')",
-  "heroTitle": "An engaging, short hero headline (e.g., 'Elevate Your Space')",
-  "heroSubtitle": "1-2 sentences of conversion-focused subtext"
+  "htmlCode": "A complete, beautiful, responsive HTML document string containing Tailwind CSS via CDN. Include a stunning hero section, a featured product grid, and an engaging header/footer."
 }`;
             const userMessage = `Business Name: ${businessName}\nIndustry: ${industry}\nAesthetic: ${aesthetic}\nAdditional Context: ${description || 'None'}`;
 
@@ -88,66 +80,13 @@ Respond in strict JSON format with exactly these fields based on the user's brie
         const event = new CustomEvent('task-logged', {
             detail: {
                 title: `Build e-commerce site for ${businessName}`,
-                description: `Design approved by Web Architect Agent.\n\nAesthetic: ${aesthetic}\nPrimary: ${generatedDesign.primaryColor}, Secondary: ${generatedDesign.secondaryColor}\nFont: ${generatedDesign.font}\n\nHero: "${generatedDesign.heroTitle}"`,
+                description: `Design approved by Web Architect Agent.\n\nAesthetic: ${aesthetic}\n\n[Raw HTML Generative Blueprint Attached from Agent]`,
                 priority: 'medium',
                 sourceAgent: 'Web Architect'
             }
         });
         window.dispatchEvent(event);
         toast.success('Design logged to the Web Team Task Board!');
-    };
-
-    const getHtmlCode = () => {
-        if (!generatedDesign) return '';
-        return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${businessName} | Official Store</title>
-    <style>
-        body { margin: 0; font-family: ${generatedDesign.font}; }
-        .hero { 
-            background-color: ${generatedDesign.secondaryColor}; 
-            color: ${generatedDesign.primaryColor};
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-whitelign: center;
-            padding: 2rem;
-        }
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.5rem; opacity: 0.8; max-width: 600px; margin-bottom: 2rem; }
-        .cta-btn {
-            background-color: ${generatedDesign.primaryColor};
-            color: #fff;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <header style="padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee;">
-        <div style="font-size: 1.5rem; font-weight: bold; color: ${generatedDesign.primaryColor};">${businessName}</div>
-        <nav style="display: flex; gap: 1.5rem;">
-            <a href="#" style="text-decoration: none; color: #333;">Shop</a>
-            <a href="#" style="text-decoration: none; color: #333;">About</a>
-            <a href="#" style="text-decoration: none; color: #333;">Contact</a>
-            <a href="#" style="text-decoration: none; color: #333; font-weight: bold;">Cart (0)</a>
-        </nav>
-    </header>
-    <main class="hero">
-        <h1>${generatedDesign.heroTitle}</h1>
-        <p>${generatedDesign.heroSubtitle}</p>
-        <a href="#" class="cta-btn">Shop Collection</a>
-    </main>
-</body>
-</html>`;
     };
 
     return (
@@ -274,68 +213,21 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                             </CardHeader>
                             <CardContent className="p-0 flex-1 bg-white/5">
                                 {activeTab === 'preview' ? (
-                                    <div className="w-full h-full min-h-[500px] border-4 border-white/10 rounded-b-xl overflow-hidden flex flex-col relative" style={{ fontFamily: generatedDesign.font, backgroundColor: generatedDesign.secondaryColor }}>
+                                    <div className="w-full h-full min-h-[500px] border-4 border-white/10 rounded-b-xl overflow-hidden flex flex-col relative bg-white">
                                         {/* Browser Toolbar Mock */}
-                                        <div className="h-8 bg-white/20 flex items-center px-4 gap-2 border-b border-white/20">
+                                        <div className="h-8 bg-slate-800 flex items-center px-4 gap-2 border-b border-black/20 shrink-0">
                                             <div className="w-3 h-3 rounded-full bg-red-400"></div>
                                             <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                                             <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                                            <div className="flex-1 bg-[#0f172a]/40 backdrop-blur-xl/50 h-5 rounded mx-2 text-[10px] flex items-center px-2 text-slate-500">
-                                                https://{businessName.toLowerCase().replace(/\s+/g, '')}.com
+                                            <div className="flex-1 bg-slate-900 h-5 rounded mx-2 text-[10px] flex items-center px-2 text-slate-400 font-mono">
+                                                https://{businessName.toLowerCase().replace(/\s+/g, '') || 'preview'}.com
                                             </div>
                                         </div>
-                                        
-                                        {/* E-commerce Mock Header */}
-                                        <div className="h-16 flex items-center justify-between px-8 border-b border-black/10 transition-colors" style={{ backgroundColor: '#ffffff' }}>
-                                            <div className="font-bold text-xl tracking-tight flex items-center gap-2" style={{ color: generatedDesign.primaryColor }}>
-                                                {businessName || 'Brand'}
-                                            </div>
-                                            <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-                                                <span>New Arrivals</span>
-                                                <span>Best Sellers</span>
-                                                <span>Collections</span>
-                                                <span>About Us</span>
-                                            </div>
-                                            <div className="flex gap-4">
-                                                <ShoppingCart className="w-5 h-5 text-slate-400" />
-                                            </div>
-                                        </div>
-
-                                        {/* E-commerce Mock Hero */}
-                                        <div className="flex-1 flex flex-col items-center justify-center text-center p-8 relative overflow-hidden h-full min-h-[400px]">
-                                             {/* Abstract decorative shapes based on primary color */}
-                                            <div className="absolute top-0 right-0 w-64 h-64 opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" style={{ backgroundColor: generatedDesign.primaryColor }}></div>
-                                            <div className="absolute bottom-0 left-0 w-96 h-96 opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" style={{ backgroundColor: generatedDesign.primaryColor }}></div>
-
-                                            <motion.h1 
-                                                initial={{ y: 20, opacity: 0 }}
-                                                animate={{ y: 0, opacity: 1 }}
-                                                className="text-4xl md:text-6xl font-extrabold mb-6 max-w-3xl leading-tight z-10"
-                                                style={{ color: generatedDesign.primaryColor }}
-                                            >
-                                                {generatedDesign.heroTitle}
-                                            </motion.h1>
-                                            
-                                            <motion.p
-                                                 initial={{ y: 20, opacity: 0 }}
-                                                 animate={{ y: 0, opacity: 1 }}
-                                                 transition={{ delay: 0.1 }}
-                                                 className="text-lg md:text-xl mb-10 max-w-2xl opacity-80 z-10"
-                                                 style={{ color: generatedDesign.primaryColor }}
-                                            >
-                                                {generatedDesign.heroSubtitle}
-                                            </motion.p>
-                                            
-                                            <motion.button 
-                                                 initial={{ scale: 0.9, opacity: 0 }}
-                                                 animate={{ scale: 1, opacity: 1 }}
-                                                 transition={{ delay: 0.2 }}
-                                                 className="px-8 py-4 rounded-full font-bold text-white uppercase tracking-wider text-sm hover:scale-105 transition-transform shadow-xl z-10"
-                                                 style={{ backgroundColor: generatedDesign.primaryColor }}
-                                            >
-                                                Explore Collection
-                                            </motion.button>
-                                        </div>
+                                        <iframe 
+                                            srcDoc={generatedDesign.htmlCode} 
+                                            className="w-full flex-1 border-0" 
+                                            title="Generative Preview"
+                                        />
                                     </div>
                                 ) : (
                                     <div className="p-4 h-full bg-[#1E1E1E]">
@@ -345,7 +237,7 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                                 Assign to Web Team
                                             </Button>
                                             <Button size="sm" variant="secondary" className="bg-[#0f172a]/40 backdrop-blur-xl/10 text-white hover:bg-[#0f172a]/40 backdrop-blur-xl/20 border-0" onClick={() => {
-                                                navigator.clipboard.writeText(getHtmlCode());
+                                                navigator.clipboard.writeText(generatedDesign.htmlCode);
                                                 toast.success('Code copied to clipboard!');
                                             }}>
                                                 Copy HTML
@@ -353,7 +245,7 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                         </div>
                                         <textarea 
                                             readOnly 
-                                            value={getHtmlCode()} 
+                                            value={generatedDesign.htmlCode} 
                                             className="w-full h-[450px] bg-transparent text-gray-300 font-mono text-sm border-0 focus:ring-0 resize-none outline-none"
                                         />
                                     </div>

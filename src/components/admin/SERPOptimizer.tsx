@@ -101,65 +101,10 @@ export default function SERPOptimizer() {
     missingOG: 18,
   };
 
-  const totalPages = 110;
-  const pagesWithIssues = 68;
-
-  const mockPages: PageSEO[] = [
-    {
-      id: '1',
-      title: 'Home',
-      url: 'https://thinkments.com',
-      path: '/',
-      metaTitle: 'ThinkMents - Digital Marketing Agency in Decatur, Texas',
-      metaDescription:
-        'Award-winning digital marketing services in Decatur, TX. SEO, PPC, social media, and web design solutions to grow your business.',
-      canonicalUrl: 'https://thinkments.com',
-      ogImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop',
-      schema: { type: 'LocalBusiness' },
-      issues: [],
-      score: 98,
-      pageType: 'main',
-    },
-    {
-      id: '2',
-      title: 'SEO Services',
-      url: 'https://thinkments.com/services/seo',
-      path: '/services/seo',
-      metaTitle: 'SEO Services That Drive Real Results - ThinkMents Digital Marketing Agency',
-      metaDescription:
-        'Professional SEO services in Decatur, Texas. Increase your website visibility, drive organic traffic, and dominate search engine rankings with our proven SEO strategies.',
-      canonicalUrl: 'https://thinkments.com/services/seo',
-      issues: ['title-too-long'],
-      score: 82,
-      pageType: 'service',
-    },
-    {
-      id: '3',
-      title: 'About Us',
-      url: 'https://thinkments.com/about',
-      path: '/about',
-      metaTitle: 'About ThinkMents',
-      metaDescription: '',
-      canonicalUrl: 'https://thinkments.com/about',
-      issues: ['title-too-short', 'missing-description', 'missing-schema'],
-      score: 45,
-      pageType: 'main',
-    },
-    {
-      id: '4',
-      title: 'Contact',
-      url: 'https://thinkments.com/contact',
-      path: '/contact',
-      metaTitle: '',
-      metaDescription: 'Get in touch with ThinkMents Digital Marketing Agency today.',
-      canonicalUrl: 'https://thinkments.com/contact',
-      issues: ['missing-title', 'missing-schema', 'missing-og'],
-      score: 38,
-      pageType: 'main',
-    },
-  ];
-
-  const [pages, setPages] = useState<PageSEO[]>(mockPages);
+  // Dynamic stats
+  const [pages, setPages] = useState<PageSEO[]>([]);
+  const totalPages = pages.length;
+  const pagesWithIssues = pages.filter(p => p.issues.length > 0).length;
   const [isSaving, setIsSaving] = useState(false);
 
   const handleScan = async () => {
