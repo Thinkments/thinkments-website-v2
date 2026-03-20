@@ -43,7 +43,7 @@ export default function PageAuditorAgent() {
     setIssues([]);
     
     try {
-      const response = await fetch('/.netlify/functions/scan-pages');
+      const response = await fetch('/api/scan-pages');
       
       if (!response.ok) {
         const err = await response.json();
