@@ -27,7 +27,7 @@ export default function AIBlogGenerator() {
 
     const selectedTemplate = Object.values(blogTemplates).find((t) => t.id === templateId);
 
-    const generateBlogPost = () => {
+    const generateBlogPost = async () => {
         if (!keyword.trim()) {
             toast.error('Please enter a target keyword');
             return;
@@ -35,26 +35,61 @@ export default function AIBlogGenerator() {
 
         setIsGenerating(true);
 
-        // Simulate AI generation (replace with actual AI API call)
-        setTimeout(() => {
+        try {
             const template = selectedTemplate;
             if (!template) return;
 
-            // Generate title
-            const title = generateTitle(keyword, template);
-            setMetaTitle(title);
+            const systemPrompt = `You are an elite SEO content writer and marketing expert. Your job is to generate highly engaging, search-optimized blog posts.
+Produce the final output in strict JSON format with exactly three fields:
+{
+  "metaTitle": "SEO optimized title (50-60 chars)",
+  "metaDescription": "Engaging meta description (140-160 chars)",
+  "rawMarkdown": "The complete blog post formatted in beautiful markdown based on the requested template structure."
+}
 
-            // Generate meta description
-            const description = generateMetaDescription(keyword, template);
-            setMetaDescription(description);
+Ensure the rawMarkdown content strictly follows the structure provided, expands comprehensively on key points, naturally integrates the target keyword, and uses an expert, confident tone. Write at least ${template.seoGuidelines.minWordCount} words.`;
 
-            // Generate full blog post content
-            const content = generateContent(keyword, template, targetAudience);
-            setGeneratedContent(content);
+            const structureDetails = template.structure.map((s, i) => 
+               `${i+1}. ${s.heading}\n   - Purpose: ${s.purpose}\n   - Key points to cover: ${s.keyPoints.join(', ')}`
+            ).join('\n');
 
+            const userMessage = `Target Keyword: ${keyword}\nTarget Audience: ${targetAudience || 'General Industry Professionals'}\nTemplate: ${template.name}\n\nRequired Article Structure:\n${structureDetails}\n\nSEO target density: ${template.seoGuidelines.keywordDensity.max}% maximum.`;
+
+            const res = await fetch('/api/openai-inference', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    systemPrompt,
+                    userMessage,
+                    jsonMode: true,
+                    isGpt4: true
+                })
+            });
+
+            const data = await res.json();
+
+            if (!data.success) {
+                if (data.isFallback) {
+                    setMetaTitle(generateTitle(keyword, template));
+                    setMetaDescription(generateMetaDescription(keyword, template));
+                    setGeneratedContent(generateContent(keyword, template, targetAudience));
+                    toast.warning('OpenAI API not configured: Showing fallback data.');
+                } else {
+                    toast.error('API Error: ' + (data.error || 'Unknown error'));
+                }
+            } else {
+                const parsed = JSON.parse(data.content);
+                setMetaTitle(parsed.metaTitle || 'Generated Title');
+                setMetaDescription(parsed.metaDescription || 'Generated Description');
+                setGeneratedContent(parsed.rawMarkdown || 'Content generation failed.');
+                toast.success('Live AI Blog post generated successfully!');
+            }
+        } catch (error) {
+            console.error('Blog Generation Error:', error);
+            toast.error('Failed to communicate with intelligence layer.');
+        } finally {
             setIsGenerating(false);
-            toast.success('Blog post generated successfully!');
-        }, 2000);
+        }
     };
 
     const generateTitle = (kw: string, template: BlogTemplate): string => {

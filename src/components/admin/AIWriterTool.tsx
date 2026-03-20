@@ -117,37 +117,94 @@ export default function AIWriterTool() {
   // Social-specific
   const [socialPlatform, setSocialPlatform] = useState('facebook');
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     setIsGenerating(true);
 
-    // Simulate AI generation
-    setTimeout(() => {
-      const sampleContent = `Unlock Your Business Potential with ThinkMents Digital Marketing
+    try {
+      const systemPrompt = `You are an elite, versatile AI Copywriter. Your goal is to write highly engaging, perfectly formatted copy based on the user's constraints.
+Tone: ${tone}
+Length Target: ${length} (short=100-200 words, medium=200-500 words, long=500+ words)
+Keywords to naturally include: ${keywords || 'None'}
+Include Call-to-Action: ${includeCTA ? 'Yes' : 'No'}
+Include Data/Stats (fabricate plausible industry stats if necessary): ${includeStats ? 'Yes' : 'No'}
+Localize for: ${location || 'Global'}
+Reading Level: ${readingLevel}
 
-At ThinkMents, we don't just create websites—we build digital experiences that convert. Our team of expert designers and developers in Decatur, Texas specializes in crafting custom web solutions that help small businesses stand out in the competitive online landscape.
+Output only the raw generated text. Do not include introductory conversational filler.`;
 
-From responsive design to seamless user experiences, we combine cutting-edge technology with strategic marketing insights to deliver results that matter. Whether you're looking to refresh your existing site or build something entirely new, we're here to make your vision a reality.
+      const userMessage = `Content Type: ${contentType}
+Target Client Brand: ${selectedClient}
+Specific Brief / What to write: ${brief}
 
-Ready to take your online presence to the next level? Let's talk about how we can help your business grow.`;
+Please write the copy now.`;
 
-      setGeneratedContent(sampleContent);
-      setVersions([...versions, sampleContent]);
-      setCurrentVersion(versions.length);
-      setWordCount(sampleContent.split(' ').length);
-      setCharCount(sampleContent.length);
+      const res = await fetch('/api/openai-inference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, userMessage, jsonMode: false, isGpt4: true }),
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        if (data.isFallback) {
+          // Fallback static sample if no API key
+          const sampleContent = `Unlock Your Business Potential with ${selectedClient}\n\n[FALLBACK DATA: Please configure OPENAI_API_KEY in .env for live generation]\n\nAt ThinkMents, we build digital experiences that convert. Whether you're looking to refresh your existing site or build something entirely new, we're here to make your vision a reality based on: ${brief}`;
+          setGeneratedContent(sampleContent);
+          setVersions([...versions, sampleContent]);
+          setCurrentVersion(versions.length);
+          setWordCount(sampleContent.split(' ').length);
+          setCharCount(sampleContent.length);
+        } else {
+          console.error(data.error);
+        }
+      } else {
+        const text = data.content;
+        setGeneratedContent(text);
+        setVersions([...versions, text]);
+        setCurrentVersion(versions.length);
+        setWordCount(text.split(/\s+/).filter((w: string) => w.length > 0).length);
+        setCharCount(text.length);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
       setIsGenerating(false);
-    }, 2000);
+    }
   };
 
-  const handleRefine = (instruction: string) => {
+  const handleRefine = async (instruction: string) => {
+    if (!generatedContent) return;
     setIsGenerating(true);
-    setTimeout(() => {
-      const refined = `${generatedContent}\n\n[Refined based on: ${instruction}]`;
-      setGeneratedContent(refined);
-      setVersions([...versions, refined]);
-      setCurrentVersion(versions.length);
+
+    try {
+      const systemPrompt = `You are refining existing copy. Apply the following strict refactoring instruction to the provided text. Return ONLY the refined text.`;
+      const userMessage = `Instruction: ${instruction}\n\nOriginal Text:\n${generatedContent}`;
+
+      const res = await fetch('/api/openai-inference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, userMessage, jsonMode: false, isGpt4: true }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setGeneratedContent(data.content);
+        setVersions([...versions, data.content]);
+        setCurrentVersion(versions.length);
+        setWordCount(data.content.split(/\s+/).filter((w: string) => w.length > 0).length);
+        setCharCount(data.content.length);
+      } else if (data.isFallback) {
+        const refined = `${generatedContent}\n\n[Refined based on: ${instruction} - FALLBACK ONLY]`;
+        setGeneratedContent(refined);
+        setVersions([...versions, refined]);
+        setCurrentVersion(versions.length);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
       setIsGenerating(false);
-    }, 1500);
+    }
   };
 
   const copyToClipboard = () => {

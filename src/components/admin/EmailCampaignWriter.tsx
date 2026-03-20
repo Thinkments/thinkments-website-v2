@@ -171,41 +171,86 @@ export default function EmailCampaignWriter() {
 
   const [sequenceEmails, setSequenceEmails] = useState<SequenceEmail[]>([]);
 
-  const generateSubjectLines = () => {
+  const generateSubjectLines = async () => {
     setIsGenerating(true);
-    setTimeout(() => {
+    try {
+      const systemPrompt = `You are an expert email marketer. Generate 5 highly clickable subject lines based on the user's campaign details.
+Return strict JSON exactly matching this schema:
+{
+  "subjects": [
+    { "text": "Subject line text", "withEmoji": true }
+  ]
+}`;
+      const userMessage = `Campaign: ${campaignName}
+Type: ${emailType}
+Target Audience: ${audience}
+Key Topic: ${mainTopic}`;
+
+      const res = await fetch('/api/openai-inference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, userMessage, jsonMode: true, isGpt4: false }),
+      });
+      
+      const data = await res.json();
+      
+      if (data.success) {
+        const parsed = JSON.parse(data.content);
+        const mapped = parsed.subjects.map((s: any, i: number) => ({
+          id: i.toString(),
+          text: s.text,
+          charCount: s.text.length,
+          withEmoji: s.withEmoji || false
+        }));
+        setGeneratedSubjects(mapped);
+      } else {
+        setGeneratedSubjects(mockSubjectLines); // Fallback
+      }
+    } catch (e) {
       setGeneratedSubjects(mockSubjectLines);
+    } finally {
       setIsGenerating(false);
-    }, 1500);
+    }
   };
 
-  const generateEmailBody = () => {
+  const generateEmailBody = async () => {
     setIsGenerating(true);
-    setTimeout(() => {
-      const sampleBody = `Hi {FirstName},
+    try {
+      const systemPrompt = `You are a professional B2B/B2C email copywriter. Write a highly converting email body based on the provided brief.
+Type: ${emailType}
+Length Target: ${emailLength}
+Use markdown to format bolding, links, and lists appropriately. Do not include a subject line in the body, just start right into the greeting (e.g. Hi {FirstName}). Follow the brand voice of the given client natively.`;
 
-We hope this message finds you well! We're excited to share some valuable insights that can help take your business to the next level.
+      const userMessage = `Brand: ${selectedClient}
+Audience: ${audience}
+Main Topic: ${mainTopic}
+Description: ${emailDescription}
+Key Points to Cover: 
+${keyPoints.map(kp => `- ${kp}`).join('\n')}
+Call to Action Goal: ${ctaGoal}
 
-At ThinkMents, we've been helping businesses like yours grow their online presence and connect with more customers. Here are three quick tips to boost your digital marketing:
+Please write the email.`;
 
-1. **Optimize Your Website Speed** - Fast-loading pages keep visitors engaged and improve your search rankings
-2. **Leverage Local SEO** - Make sure your business shows up when people search for services in ${audience || 'your area'}
-3. **Engage on Social Media** - Regular posts and interactions build trust and keep your brand top-of-mind
-
-We'd love to help you implement these strategies and more. Our team specializes in creating custom solutions that deliver real results.
-
-Ready to see what we can do for your business?
-
-[Get Your Free Consultation]
-
-Best regards,
-The ThinkMents Team
-
-P.S. This month only, we're offering a complimentary website audit. Click the link above to claim yours!`;
-
+      const res = await fetch('/api/openai-inference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, userMessage, jsonMode: false, isGpt4: true }),
+      });
+      
+      const data = await res.json();
+      
+      if (data.success) {
+        setGeneratedBody(data.content);
+      } else {
+        const sampleBody = `Hi {FirstName},\n\n[FALLBACK DATA: API Key not configured. Using placeholder content.]\n\nAt ${selectedClient}, we hope this message finds you well! We're excited to share some valuable insights regarding ${mainTopic || 'business growth'}.\n\nReady to see what we can do for your business?\n\n[${ctaGoal ? ctaGoal.replace('-', ' ').toUpperCase() : 'VISIT WEBSITE'}]\n\nBest regards,\nThe Team`;
+        setGeneratedBody(sampleBody);
+      }
+    } catch (e) {
+      const sampleBody = `Hi {FirstName},\n\nFailed to reach the inference API. Please check your network connection.\n\nBest regards,\nThe ThinkMents Team`;
       setGeneratedBody(sampleBody);
+    } finally {
       setIsGenerating(false);
-    }, 2000);
+    }
   };
 
   const addKeyPoint = () => {

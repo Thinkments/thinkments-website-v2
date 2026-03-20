@@ -183,21 +183,29 @@ Return your analysis in strict JSON format matching exactly this schema:
                                     </div>
 
                                     {/* Trademarks */}
-                                    <div className="p-4 rounded-lg border bg-blue-50 border-blue-200">
+                                    <div className={`p-4 rounded-lg border ${analysisResult.trademark.recommended ? 'bg-blue-50 border-blue-200' : 'bg-gray-50 border-gray-200'}`}>
                                         <div className="flex items-center gap-2 mb-2">
-                                            <Bookmark className="h-5 w-5 text-blue-600" />
+                                            <Bookmark className={`h-5 w-5 ${analysisResult.trademark.recommended ? 'text-blue-600' : 'text-gray-400'}`} />
                                             <h3 className="font-bold text-lg">Trademarks</h3>
-                                            <span className="ml-auto text-xs font-bold px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Recommended</span>
+                                            {analysisResult.trademark.recommended ? (
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Recommended</span>
+                                            ) : (
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-gray-200 text-gray-600 rounded-full">Not Advised</span>
+                                            )}
                                         </div>
                                         <p className="text-gray-700 text-sm">{analysisResult.trademark.reasoning}</p>
                                     </div>
 
                                     {/* Copyright */}
-                                    <div className="p-4 rounded-lg border bg-emerald-50 border-emerald-200">
+                                    <div className={`p-4 rounded-lg border ${analysisResult.copyright.recommended ? 'bg-emerald-50 border-emerald-200' : 'bg-gray-50 border-gray-200'}`}>
                                         <div className="flex items-center gap-2 mb-2">
-                                            <FileText className="h-5 w-5 text-emerald-600" />
+                                            <FileText className={`h-5 w-5 ${analysisResult.copyright.recommended ? 'text-emerald-600' : 'text-gray-400'}`} />
                                             <h3 className="font-bold text-lg">Copyright</h3>
-                                            <span className="ml-auto text-xs font-bold px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full">Implicitly Protected</span>
+                                            {analysisResult.copyright.recommended ? (
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full">Implicitly Protected</span>
+                                            ) : (
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-gray-200 text-gray-600 rounded-full">Standard Protection Only</span>
+                                            )}
                                         </div>
                                         <p className="text-gray-700 text-sm">{analysisResult.copyright.reasoning}</p>
                                     </div>
