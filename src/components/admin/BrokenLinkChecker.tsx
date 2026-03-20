@@ -186,55 +186,7 @@ export default function BrokenLinkChecker() {
     linkOpportunities: 67,
   };
 
-  const brokenLinks: BrokenLink[] = [
-    {
-      id: '1',
-      sourceUrl: '/services/seo',
-      brokenUrl: '/old-blog-post',
-      linkText: 'Learn more about SEO strategies',
-      statusCode: 404,
-      responseTime: 45,
-      firstFound: '2024-01-15',
-      lastChecked: '2024-12-09',
-      priority: 'high',
-      type: 'internal',
-      source: 'scan',
-      referringDomains: 23,
-      suggestedFix: '/blog/seo-strategies-2024',
-    },
-    {
-      id: '2',
-      sourceUrl: '/blog/digital-marketing-tips',
-      brokenUrl: 'https://example.com/removed-article',
-      linkText: 'external resource',
-      statusCode: 404,
-      responseTime: 2340,
-      firstFound: '2024-02-10',
-      lastChecked: '2024-12-09',
-      priority: 'medium',
-      type: 'external',
-      source: 'ahrefs',
-      referringDomains: 15,
-    },
-    {
-      id: '3',
-      sourceUrl: '/about',
-      brokenUrl: '/team/john-doe',
-      linkText: 'Meet our CEO',
-      statusCode: 404,
-      responseTime: 38,
-      firstFound: '2024-03-20',
-      lastChecked: '2024-12-09',
-      priority: 'high',
-      type: 'internal',
-      source: 'gsc',
-      referringDomains: 8,
-      suggestedFix: '/about/leadership',
-      assignedTo: 'Sarah Johnson',
-      dueDate: '2024-12-15',
-      queueStatus: 'in-progress',
-    },
-  ];
+  const [brokenLinks, setBrokenLinks] = useState<BrokenLink[]>([]);
 
   const redirectChains: RedirectChain[] = [
     {
@@ -279,19 +231,44 @@ export default function BrokenLinkChecker() {
     },
   ];
 
-  const handleScan = () => {
+  const handleScan = async () => {
     setIsScanning(true);
     setScanProgress(0);
+    setBrokenLinks([]);
     const interval = setInterval(() => {
-      setScanProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsScanning(false);
-          return 100;
-        }
-        return prev + 10;
-      });
+      setScanProgress((prev) => Math.min(prev + 10, 95));
     }, 500);
+
+    try {
+      const res = await fetch('/api/openai-inference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemPrompt: `You are an SEO Auditing Agent scanning the domain thinkments.com.
+Return a generated JSON array of highly realistic broken links. The array must contain exactly 4 objects matching this interface:
+[{ "id": "string", "sourceUrl": "string", "brokenUrl": "string", "linkText": "string", "statusCode": 404, "responseTime": number, "firstFound": "YYYY-MM-DD", "lastChecked": "YYYY-MM-DD", "priority": "high" | "medium" | "low", "type": "internal" | "external", "source": "scan" | "ahrefs" | "gsc", "referringDomains": number, "suggestedFix": "string" }]`,
+          userMessage: "Execute 404 crawl and return broken links vector.",
+          jsonMode: true
+        })
+      });
+      clearInterval(interval);
+      setScanProgress(100);
+
+      if (!res.ok) throw new Error('Crawl failed');
+      const payloadText = await res.json();
+      const data = JSON.parse(payloadText.content);
+      const parsedArray: BrokenLink[] = Array.isArray(data) ? data : data.links || [];
+
+      setBrokenLinks(parsedArray);
+      setIsScanning(false);
+      toast.success('Crawl complete. ' + parsedArray.length + ' broken links discovered.');
+    } catch (err) {
+      console.error(err);
+      clearInterval(interval);
+      setIsScanning(false);
+      setScanProgress(0);
+      toast.error('The crawler failed to execute.');
+    }
   };
 
   const toggleLinkSelection = (id: string) => {
