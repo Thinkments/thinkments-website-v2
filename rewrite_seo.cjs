@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const files = ['src/components/admin/SERPOptimizer.tsx', 'src/components/admin/SEOBulkFixer.tsx'];
+const files = ['src/components/admin/SERPOptimizer.tsx', 'src/components/admin/SEOBulkFixer.tsx', 'src/components/admin/EcommerceWebDesigner.tsx'];
 
 const replacements = [
   // Old cyan legacy overrides missing from prior passes
