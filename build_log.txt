@@ -1,0 +1,4 @@
+
+> thinkments-website@0.1.0 build
+> tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build
+
