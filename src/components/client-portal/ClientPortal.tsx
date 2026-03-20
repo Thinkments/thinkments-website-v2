@@ -5,12 +5,18 @@ import DashboardView from './views/DashboardView';
 import ReportingView from './views/ReportingView';
 import BillingView from './views/BillingView';
 import SupportTicketView from './views/SupportTicketView';
+import ClientLogin from './ClientLogin';
 
 export type PortalTab = 'dashboard' | 'reports' | 'billing' | 'support';
 
 export default function ClientPortal() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<PortalTab>('dashboard');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  if (!isAuthenticated) {
+    return <ClientLogin onLogin={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <div className="flex h-screen bg-[#F5F7FA] overflow-hidden text-gray-900">
