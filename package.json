@@ -82,7 +82,8 @@
     "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "type-check": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "pretype-check": "node -e \"const fs=require('fs');fs.rmSync('node_modules/.tmp',{recursive:true,force:true});\"",
+    "type-check": "tsc -b",
     "format": "prettier --write .",
     "test": "vitest",
     "test:run": "vitest run"

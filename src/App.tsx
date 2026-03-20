@@ -83,6 +83,7 @@ const DesignTransferAgreementPage = lazy(
 const AccessibilityPage = lazy(() => import('./components/pages/AccessibilityPage'));
 const LlmPage = lazy(() => import('./components/pages/LlmPage'));
 const NewAdminDashboard = lazy(() => import('./components/pages/NewAdminDashboard'));
+const ClientPortal = lazy(() => import('./components/client-portal/ClientPortal'));
 
 // Location Pages
 const LocationsPage = lazy(() => import('./pages/LocationsPage'));
@@ -115,8 +116,8 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   // Routes that should not have Header/Footer (raw XML/text routes and admin pages)
   const noLayoutRoutes = ['/llm-txt'];
-  const isAdmin = location.pathname.startsWith('/admin');
-  const shouldHideLayout = noLayoutRoutes.includes(location.pathname) || isAdmin;
+  const isExcluded = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal');
+  const shouldHideLayout = noLayoutRoutes.includes(location.pathname) || isExcluded;
 
   if (shouldHideLayout) {
     return <>{children}</>;
@@ -268,6 +269,9 @@ function AppRoutes() {
 
         {/* Admin - Single unified dashboard */}
         <Route path="/admin/*" element={<NewAdminDashboard />} />
+
+        {/* Client Portal */}
+        <Route path="/portal/*" element={<ClientPortal />} />
 
         {/* 404 - Catch-all route */}
         <Route path="*" element={<NotFoundPage />} />
