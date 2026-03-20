@@ -233,17 +233,17 @@ export default function SEOBulkFixer() {
     // Never scanned state
     return (
       <div>
-        <div className="mb-6">
+        <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />\n      <div className="mb-6 relative z-10">
           <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
           <p className="text-slate-400 mt-1">
             Scan and fix missing SEO data across your entire site
           </p>
         </div>
 
-        <Card className="border-0 shadow-2xl border border-white/5">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
           <CardContent className="py-20">
             <div className="text-center max-w-2xl mx-auto">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-900 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-2xl font-bold text-white mb-3">Start Your First SEO Scan</h2>
@@ -260,14 +260,14 @@ export default function SEOBulkFixer() {
                   { icon: AlignLeft, label: 'H1 Tags' },
                 ].map((item, idx) => (
                   <div key={idx} className="p-4 bg-white/5 rounded-lg">
-                    <item.icon className="w-8 h-8 mx-auto mb-2 text-[#00B4D8]" />
+                    <item.icon className="w-8 h-8 mx-auto mb-2 text-indigo-400" />
                     <p className="text-sm text-slate-300">{item.label}</p>
                   </div>
                 ))}
               </div>
               <Button
                 onClick={runScan}
-                className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white px-8 py-6 text-lg"
+                className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white px-8 py-6 text-lg"
               >
                 <Search className="w-5 h-5 mr-2" />
                 Start SEO Scan
@@ -288,14 +288,14 @@ export default function SEOBulkFixer() {
           <p className="text-slate-400 mt-1">Scanning your website for SEO issues...</p>
         </div>
 
-        <Card className="border-0 shadow-2xl border border-white/5">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
           <CardContent className="py-16">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                  className="w-20 h-20 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center mx-auto mb-6"
+                  className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-900 rounded-full flex items-center justify-center mx-auto mb-6"
                 >
                   <Search className="w-10 h-10 text-white" />
                 </motion.div>
@@ -315,7 +315,7 @@ export default function SEOBulkFixer() {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${scanProgress}%` }}
-                    className="h-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F]"
+                    className="h-full bg-gradient-to-r from-indigo-600 to-purple-900"
                   />
                 </div>
               </div>
@@ -390,7 +390,7 @@ export default function SEOBulkFixer() {
             </Button>
             <Button
               onClick={runScan}
-              className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+              className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
             >
               <RefreshCw className="w-4 h-4 mr-2" />
               Run New Scan
@@ -403,7 +403,7 @@ export default function SEOBulkFixer() {
       {scanResults && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {/* Pages Scanned */}
-          <Card className="border-0 shadow-2xl border border-white/5">
+          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
@@ -419,12 +419,12 @@ export default function SEOBulkFixer() {
           </Card>
 
           {/* Issues Found */}
-          <Card className="border-0 shadow-2xl border border-white/5">
+          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Issues Found</p>
-                  <p className="text-2xl font-bold text-[#FF6B35]">{scanResults.issuesFound}</p>
+                  <p className="text-2xl font-bold text-amber-400">{scanResults.issuesFound}</p>
                   <p className="text-xs text-slate-500 mt-1">Items need attention</p>
                 </div>
                 <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
@@ -435,7 +435,7 @@ export default function SEOBulkFixer() {
           </Card>
 
           {/* SEO Score */}
-          <Card className="border-0 shadow-2xl border border-white/5">
+          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
@@ -474,7 +474,7 @@ export default function SEOBulkFixer() {
           </Card>
 
           {/* Quick Fix Available */}
-          <Card className="border-0 shadow-2xl border border-white/5">
+          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
@@ -508,12 +508,12 @@ export default function SEOBulkFixer() {
       )}
 
       {/* Issue Breakdown Tabs */}
-      <Card className="border-0 shadow-2xl border border-white/5">
+      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">SEO Issues</CardTitle>
             <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
+              <Button variant="outline" size="sm" className="border-indigo-500 text-indigo-400">
                 <Download className="w-4 h-4 mr-2" />
                 Export
               </Button>
@@ -538,7 +538,7 @@ export default function SEOBulkFixer() {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as IssueTab)}
                   className={`flex items-center space-x-2 px-4 py-3 border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
-                    ? 'border-[#00B4D8] text-white'
+                    ? 'border-indigo-500 text-white'
                     : 'border-transparent text-slate-500 hover:text-slate-300'
                     }`}
                 >
@@ -559,7 +559,7 @@ export default function SEOBulkFixer() {
                     type="checkbox"
                     checked={selectedItems.length === getCurrentIssues().length}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => (e.target.checked ? selectAll() : clearSelection())}
-                    className="w-4 h-4 text-[#00B4D8] rounded"
+                    className="w-4 h-4 text-indigo-400 rounded"
                   />
                   <span className="text-sm text-slate-300">Select All</span>
                 </label>
@@ -573,7 +573,7 @@ export default function SEOBulkFixer() {
                     <button
                       onClick={() => setViewMode('list')}
                       className={`p-2 rounded transition-colors ${viewMode === 'list'
-                        ? 'bg-[#00B4D8] text-white'
+                        ? 'bg-indigo-600 text-white'
                         : 'text-slate-500 hover:text-slate-300'
                         }`}
                     >
@@ -582,7 +582,7 @@ export default function SEOBulkFixer() {
                     <button
                       onClick={() => setViewMode('grid')}
                       className={`p-2 rounded transition-colors ${viewMode === 'grid'
-                        ? 'bg-[#00B4D8] text-white'
+                        ? 'bg-indigo-600 text-white'
                         : 'text-slate-500 hover:text-slate-300'
                         }`}
                     >
@@ -596,7 +596,7 @@ export default function SEOBulkFixer() {
                       size="sm"
                       onClick={() => handleApplyUpdates(selectedItems)}
                       disabled={isApplying}
-                      className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                     >
                       {isApplying ? <RefreshCw className="w-4 h-4 mr-2 animate-spin" /> : <Sparkles className="w-4 h-4 mr-2" />}
                       Apply {selectedItems.length} Suggestions
@@ -619,8 +619,8 @@ export default function SEOBulkFixer() {
                   key={image.id}
                   whileHover={{ scale: 1.02 }}
                   className={`border-2 rounded-lg overflow-hidden cursor-pointer transition-all ${selectedItems.includes(image.id)
-                    ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                    : 'border-white/10 hover:border-[#00B4D8]/50'
+                    ? 'border-indigo-500 bg-indigo-500/10'
+                    : 'border-white/10 hover:border-indigo-500/100'
                     }`}
                   onClick={() => toggleSelection(image.id)}
                 >
@@ -629,12 +629,12 @@ export default function SEOBulkFixer() {
                   </div>
                   <div className="p-3">
                     <p className="text-xs text-slate-500 mb-1 truncate">{image.fileName}</p>
-                    <p className="text-xs text-[#00B4D8] mb-2 truncate">{image.page}</p>
-                    <div className="p-2 bg-emerald-900/20 rounded border border-green-200 mb-2">
-                      <p className="text-xs text-green-800 line-clamp-2">{image.aiSuggestion}</p>
+                    <p className="text-xs text-indigo-400 mb-2 truncate">{image.page}</p>
+                    <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/30 backdrop-blur-md mb-2">
+                      <p className="text-xs text-emerald-300 line-clamp-2">{image.aiSuggestion}</p>
                     </div>
                     <div className="flex space-x-1">
-                      <Button onClick={() => handleApplyUpdates([image.id])} disabled={isApplying} size="sm" className="flex-1 text-xs bg-[#00B4D8] text-white">
+                      <Button onClick={() => handleApplyUpdates([image.id])} disabled={isApplying} size="sm" className="flex-1 text-xs bg-indigo-600 text-white">
                         Apply
                       </Button>
                       <Button size="sm" variant="outline" className="text-xs">
@@ -663,7 +663,7 @@ export default function SEOBulkFixer() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className={`border-2 rounded-lg p-4 transition-all ${selectedItems.includes(issue.id)
-                      ? 'border-[#00B4D8] bg-[#00B4D8]/5'
+                      ? 'border-indigo-500 bg-indigo-500/10'
                       : 'border-white/10'
                       }`}
                   >
@@ -672,7 +672,7 @@ export default function SEOBulkFixer() {
                         type="checkbox"
                         checked={selectedItems.includes(issue.id)}
                         onChange={() => toggleSelection(issue.id)}
-                        className="w-5 h-5 text-[#00B4D8] rounded mt-1"
+                        className="w-5 h-5 text-indigo-400 rounded mt-1"
                       />
                       <div className="flex-1 min-w-0">
                         {/* Page Info */}
@@ -691,8 +691,8 @@ export default function SEOBulkFixer() {
                           <label className="text-xs font-medium text-slate-400 mb-1 block">
                             Current:
                           </label>
-                          <div className="p-2 bg-rose-900/20 rounded border border-red-200">
-                            <p className="text-sm text-red-800">{'current' in issue ? issue.current : 'N/A'}</p>
+                          <div className="p-2 bg-rose-500/10 rounded-lg border border-rose-500/30 backdrop-blur-md">
+                            <p className="text-sm text-rose-300">{'current' in issue ? issue.current : 'N/A'}</p>
                           </div>
                         </div>
 
@@ -700,10 +700,10 @@ export default function SEOBulkFixer() {
                         <div className="mb-3">
                           <div className="flex items-center justify-between mb-1">
                             <label className="text-xs font-medium text-slate-400 flex items-center">
-                              <Sparkles className="w-3 h-3 mr-1 text-[#00B4D8]" />
+                              <Sparkles className="w-3 h-3 mr-1 text-indigo-400" />
                               AI Suggestion:
                             </label>
-                            <button className="text-xs text-[#00B4D8] hover:underline flex items-center">
+                            <button className="text-xs text-indigo-400 hover:underline flex items-center">
                               <Lightbulb className="w-3 h-3 mr-1" />
                               Why this?
                             </button>
@@ -730,7 +730,7 @@ export default function SEOBulkFixer() {
                                   </Button>
                                   <Button
                                     size="sm"
-                                    className="bg-[#00B4D8] text-white"
+                                    className="bg-indigo-600 text-white"
                                     onClick={() => setEditingItem(null)}
                                   >
                                     <Check className="w-4 h-4 mr-1" />
@@ -740,9 +740,9 @@ export default function SEOBulkFixer() {
                               </div>
                             </div>
                           ) : (
-                            <div className="p-3 bg-emerald-900/20 rounded border border-green-200">
-                              <p className="text-sm text-green-800">{issue.aiSuggestion}</p>
-                              <div className="flex items-center justify-between mt-2 pt-2 border-t border-green-200">
+                            <div className="p-3 bg-emerald-500/10 rounded-lg border border-emerald-500/30 backdrop-blur-md">
+                              <p className="text-sm text-emerald-300">{issue.aiSuggestion}</p>
+                              <div className="flex items-center justify-between mt-2 pt-2 border-t border-emerald-500/30">
                                 <span className="text-xs text-green-700">
                                   {issue.aiSuggestion.length} characters
                                 </span>
@@ -760,7 +760,7 @@ export default function SEOBulkFixer() {
                             size="sm"
                             onClick={() => handleApplyUpdates([issue.id])}
                             disabled={isApplying}
-                            className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                            className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                           >
                             <Check className="w-4 h-4 mr-1" />
                             Apply
@@ -768,7 +768,7 @@ export default function SEOBulkFixer() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="border-[#00B4D8] text-[#00B4D8]"
+                            className="border-indigo-500 text-indigo-400"
                             onClick={() => {
                               setEditingItem(issue.id);
                               setEditValue(issue.aiSuggestion);
@@ -780,7 +780,7 @@ export default function SEOBulkFixer() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="border-[#00B4D8] text-[#00B4D8]"
+                            className="border-indigo-500 text-indigo-400"
                           >
                             <RefreshCw className="w-4 h-4 mr-1" />
                             Regenerate
@@ -806,12 +806,12 @@ export default function SEOBulkFixer() {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
-            className="fixed bottom-0 left-0 right-0 bg-[#0f172a]/40 backdrop-blur-xl border-t-2 border-[#00B4D8] shadow-2xl z-40"
+            className="fixed bottom-0 left-0 right-0 bg-[#0f172a]/40 backdrop-blur-xl border-t-2 border-indigo-500 shadow-2xl z-40"
           >
             <div className="max-w-7xl mx-auto px-6 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-900 rounded-full flex items-center justify-center">
                     <Check className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -825,11 +825,11 @@ export default function SEOBulkFixer() {
                   <Button variant="outline" onClick={clearSelection}>
                     Clear Selection
                   </Button>
-                  <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8]">
+                  <Button variant="outline" className="border-indigo-500 text-indigo-400">
                     <Download className="w-4 h-4 mr-2" />
                     Export to CSV
                   </Button>
-                  <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white px-8">
+                  <Button className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white px-8">
                     <Sparkles className="w-5 h-5 mr-2" />
                     Apply All AI Suggestions
                   </Button>
@@ -879,7 +879,7 @@ export default function SEOBulkFixer() {
                         <input
                           type="checkbox"
                           defaultChecked
-                          className="w-4 h-4 text-[#00B4D8] rounded"
+                          className="w-4 h-4 text-indigo-400 rounded"
                         />
                         <span className="text-sm text-slate-300">{option}</span>
                       </label>
@@ -968,7 +968,7 @@ export default function SEOBulkFixer() {
                 </Button>
                 <Button
                   onClick={() => setShowSettings(false)}
-                  className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                  className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                 >
                   <Check className="w-4 h-4 mr-2" />
                   Save Settings
@@ -1003,13 +1003,13 @@ export default function SEOBulkFixer() {
 
               <div className="p-6">
                 {/* Trend Chart Placeholder */}
-                <div className="mb-6 p-6 bg-gradient-to-r from-[#00B4D8]/10 to-[#1E3A5F]/10 rounded-lg">
+                <div className="mb-6 p-6 bg-gradient-to-r from-indigo-600/10 to-purple-900/10 rounded-lg">
                   <h3 className="font-semibold text-white mb-3">SEO Score Trend</h3>
                   <div className="h-48 flex items-end justify-between space-x-2">
                     {[65, 68, 71, 70, 73].map((score, idx) => (
                       <div key={idx} className="flex-1 flex flex-col items-center">
                         <div
-                          className="w-full bg-gradient-to-t from-[#00B4D8] to-[#1E3A5F] rounded-t"
+                          className="w-full bg-gradient-to-t from-indigo-600 to-purple-900 rounded-t"
                           style={{ height: `${score}%` }}
                         />
                         <span className="text-xs text-slate-400 mt-2">
@@ -1029,7 +1029,7 @@ export default function SEOBulkFixer() {
                   ].map((scan, idx) => (
                     <div
                       key={idx}
-                      className="p-4 border border-white/10 rounded-lg hover:border-[#00B4D8] transition-colors"
+                      className="p-4 border border-white/10 rounded-lg hover:border-indigo-500 transition-colors"
                     >
                       <div className="flex items-center justify-between">
                         <div>

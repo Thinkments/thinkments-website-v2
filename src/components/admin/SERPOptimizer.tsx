@@ -225,7 +225,7 @@ export default function SERPOptimizer() {
   return (
     <div>
       {/* Header */}
-      <div className="mb-6">
+      <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />\n      <div className="mb-6 relative z-10">
         <div className="flex items-start justify-between mb-4">
           <div>
             <h1 className="text-2xl font-bold text-white mb-2">SERP Preview & Optimizer</h1>
@@ -235,7 +235,7 @@ export default function SERPOptimizer() {
             <Button
               onClick={handleScan}
               disabled={isScanning}
-              className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+              className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
             >
               {isScanning ? (
                 <>
@@ -258,7 +258,7 @@ export default function SERPOptimizer() {
             <FileText className="w-4 h-4 mr-1" />
             {totalPages} Total Pages
           </Badge>
-          <Badge className="bg-rose-500/10 text-red-800 px-3 py-1">
+          <Badge className="bg-rose-500/10 text-rose-300 px-3 py-1">
             <AlertCircle className="w-4 h-4 mr-1" />
             {pagesWithIssues} Pages with Issues
           </Badge>
@@ -268,7 +268,7 @@ export default function SERPOptimizer() {
       {/* Issue Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-6">
         {/* Missing Titles */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-3">
               <AlertCircle className="w-5 h-5 text-rose-400" />
@@ -280,7 +280,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Missing Descriptions */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-3">
               <FileText className="w-5 h-5 text-rose-400" />
@@ -294,7 +294,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Titles Too Long */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
               <ArrowUpDown className="w-5 h-5 text-yellow-600" />
@@ -306,7 +306,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Titles Too Short */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
               <ArrowUpDown className="w-5 h-5 text-yellow-600" />
@@ -318,7 +318,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Descriptions Too Long */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
               <AlertTriangle className="w-5 h-5 text-yellow-600" />
@@ -332,7 +332,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Duplicate Titles */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
               <Copy className="w-5 h-5 text-orange-600" />
@@ -344,7 +344,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Missing Schema */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
               <Code className="w-5 h-5 text-orange-600" />
@@ -356,7 +356,7 @@ export default function SERPOptimizer() {
         </Card>
 
         {/* Missing OG */}
-        <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
+        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
           <CardContent className="pt-6">
             <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mb-3">
               <Share2 className="w-5 h-5 text-slate-400" />
@@ -369,7 +369,7 @@ export default function SERPOptimizer() {
       </div>
 
       {/* Filters & Actions */}
-      <Card className="border-0 shadow-2xl border border-white/5 mb-6">
+      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
         <CardContent className="pt-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
             <div className="flex items-center space-x-3 flex-1">
@@ -416,7 +416,7 @@ export default function SERPOptimizer() {
               </Button>
               <Button
                 onClick={() => setShowWizard(true)}
-                className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
               >
                 <Zap className="w-4 h-4 mr-2" />
                 Bulk AI Fix
@@ -430,7 +430,7 @@ export default function SERPOptimizer() {
       {viewType === 'list' && (
         <div className="space-y-4">
           {pages.map((page) => (
-            <Card key={page.id} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
+            <Card key={page.id} className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="grid grid-cols-12 gap-4 items-start">
                   {/* Page Info */}
@@ -438,7 +438,7 @@ export default function SERPOptimizer() {
                     <h3 className="font-semibold text-white mb-1">{page.title}</h3>
                     <a
                       href={page.url}
-                      className="text-xs text-[#00B4D8] hover:underline flex items-center"
+                      className="text-xs text-indigo-400 hover:underline flex items-center"
                     >
                       <ExternalLink className="w-3 h-3 mr-1" />
                       {page.path}
@@ -520,7 +520,7 @@ export default function SERPOptimizer() {
                     </Button>
                     <Button
                       size="sm"
-                      className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                      className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                       onClick={() => {
                         setSelectedPage(page);
                         setEditedTitle(page.metaTitle);
@@ -542,7 +542,7 @@ export default function SERPOptimizer() {
       {/* Edit/Preview View */}
       {(viewType === 'edit' || viewType === 'preview') && selectedPage && (
         <div>
-          <Card className="border-0 shadow-2xl border border-white/5 mb-6">
+          <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
@@ -570,7 +570,7 @@ export default function SERPOptimizer() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Left: Edit Panel */}
             <div>
-              <Card className="border-0 shadow-2xl border border-white/5 mb-6">
+              <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle>Edit SEO Data</CardTitle>
@@ -649,7 +649,7 @@ export default function SERPOptimizer() {
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                                 defaultChecked
                               />
                               Contains primary keyword
@@ -657,7 +657,7 @@ export default function SERPOptimizer() {
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                                 defaultChecked
                               />
                               Brand name at end
@@ -665,7 +665,7 @@ export default function SERPOptimizer() {
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                                 defaultChecked={editedTitle.length <= 60}
                               />
                               Under 60 characters
@@ -673,7 +673,7 @@ export default function SERPOptimizer() {
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                               />
                               Unique across site
                             </label>
@@ -727,21 +727,21 @@ export default function SERPOptimizer() {
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                               />
                               Contains primary keyword
                             </label>
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                               />
                               Includes call-to-action
                             </label>
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                                 defaultChecked={editedDescription.length <= 160}
                               />
                               Under 160 characters
@@ -749,7 +749,7 @@ export default function SERPOptimizer() {
                             <label className="flex items-center text-xs text-slate-400">
                               <input
                                 type="checkbox"
-                                className="w-3 h-3 mr-2 text-[#00B4D8] rounded"
+                                className="w-3 h-3 mr-2 text-indigo-400 rounded"
                                 defaultChecked
                               />
                               Compelling and unique
@@ -773,7 +773,7 @@ export default function SERPOptimizer() {
                             Edit
                           </Button>
                         </div>
-                        <p className="text-xs text-whitember-600 mt-2 flex items-center">
+                        <p className="text-xs text-amber-600 mt-2 flex items-center">
                           <AlertTriangle className="w-3 h-3 mr-1" />
                           Editing URL will require a 301 redirect from the old URL
                         </p>
@@ -796,7 +796,7 @@ export default function SERPOptimizer() {
                       </div>
 
                       {/* Save Button */}
-                      <Button onClick={handleSave} disabled={isSaving} className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button onClick={handleSave} disabled={isSaving} className="w-full bg-gradient-to-r from-indigo-600 to-purple-900 text-white">
                         {isSaving ? <RefreshCw className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
                         Save Changes
                       </Button>
@@ -900,7 +900,7 @@ export default function SERPOptimizer() {
                         </select>
                       </div>
 
-                      <Button className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                      <Button className="w-full bg-gradient-to-r from-indigo-600 to-purple-900 text-white">
                         <Save className="w-4 h-4 mr-2" />
                         Save Social Tags
                       </Button>
@@ -920,22 +920,22 @@ export default function SERPOptimizer() {
 
                       {/* Current Schema */}
                       {selectedPage.schema ? (
-                        <div className="p-3 bg-emerald-900/20 border border-green-200 rounded-lg">
+                        <div className="p-3 bg-emerald-900/20 border border-emerald-500/30 rounded-lg">
                           <div className="flex items-center space-x-2 mb-2">
                             <CheckCircle className="w-4 h-4 text-green-600" />
                             <p className="text-sm font-medium text-green-900">
                               Active Schema: {(selectedPage.schema as { type?: string })?.type || 'Unknown'}
                             </p>
                           </div>
-                          <pre className="text-xs bg-[#0f172a]/40 backdrop-blur-xl p-2 rounded border border-green-200 overflow-x-auto">
+                          <pre className="text-xs bg-[#0f172a]/40 backdrop-blur-xl p-2 rounded border border-emerald-500/30 overflow-x-auto">
                             {JSON.stringify(selectedPage.schema, null, 2)}
                           </pre>
                         </div>
                       ) : (
                         <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg">
                           <div className="flex items-center space-x-2">
-                            <AlertTriangle className="w-4 h-4 text-whitember-600" />
-                            <p className="text-sm text-whitember-900">
+                            <AlertTriangle className="w-4 h-4 text-amber-600" />
+                            <p className="text-sm text-amber-900">
                               No schema markup found on this page
                             </p>
                           </div>
@@ -998,7 +998,7 @@ export default function SERPOptimizer() {
                       </div>
 
                       <div className="flex space-x-2">
-                        <Button className="flex-1 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                        <Button className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-900 text-white">
                           <Code className="w-4 h-4 mr-2" />
                           Generate Schema
                         </Button>
@@ -1014,10 +1014,10 @@ export default function SERPOptimizer() {
 
               {/* AI Suggestions Panel */}
               {activeTab === 'seo' && (
-                <Card className="border-0 shadow-2xl border border-white/5">
+                <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
-                      <Sparkles className="w-5 h-5 mr-2 text-[#00B4D8]" />
+                      <Sparkles className="w-5 h-5 mr-2 text-indigo-400" />
                       AI Suggestions
                     </CardTitle>
                   </CardHeader>
@@ -1030,11 +1030,11 @@ export default function SERPOptimizer() {
                         <button
                           key={idx}
                           onClick={() => setEditedTitle(suggestion)}
-                          className="w-full text-left p-3 border border-white/10 rounded-lg hover:border-[#00B4D8] hover:bg-indigo-900/20 transition-colors group"
+                          className="w-full text-left p-3 border border-white/10 rounded-lg hover:border-indigo-500 hover:bg-indigo-900/20 transition-colors group"
                         >
                           <div className="flex items-start justify-between">
                             <p className="text-sm text-gray-100 pr-2">{suggestion}</p>
-                            <Badge className="bg-white/10 text-slate-300 text-xs group-hover:bg-[#00B4D8] group-hover:text-white">
+                            <Badge className="bg-white/10 text-slate-300 text-xs group-hover:bg-indigo-600 group-hover:text-white">
                               {suggestion.length} chars
                             </Badge>
                           </div>
@@ -1048,7 +1048,7 @@ export default function SERPOptimizer() {
 
             {/* Right: SERP Preview */}
             <div>
-              <Card className="border-0 shadow-2xl border border-white/5 sticky top-6">
+              <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 sticky top-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle>SERP Preview</CardTitle>
@@ -1077,7 +1077,7 @@ export default function SERPOptimizer() {
                   <div className="border-2 border-white/20 rounded-lg p-4 bg-[#0f172a]/40 backdrop-blur-xl">
                     {/* Favicon + Site Name */}
                     <div className="flex items-center space-x-2 mb-1">
-                      <div className="w-6 h-6 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 bg-gradient-to-br from-purple-900 to-[#00B4D8] rounded-full flex items-center justify-center">
                         <span className="text-white text-xs font-bold">T</span>
                       </div>
                       <span className="text-sm text-slate-400">thinkments.com</span>
@@ -1242,7 +1242,7 @@ export default function SERPOptimizer() {
                     {[1, 2, 3, 4, 5].map((step) => (
                       <div
                         key={step}
-                        className={`flex-1 h-2 rounded-full ${wizardStep >= step ? 'bg-[#00B4D8]' : 'bg-white/20'
+                        className={`flex-1 h-2 rounded-full ${wizardStep >= step ? 'bg-indigo-600' : 'bg-white/20'
                           }`}
                       />
                     ))}
@@ -1261,10 +1261,10 @@ export default function SERPOptimizer() {
                   <div>
                     <h3 className="font-semibold text-white mb-4">Select pages to optimize:</h3>
                     <div className="space-y-2 mb-6 max-h-96 overflow-y-auto">
-                      <label className="flex items-center p-3 border-2 border-[#00B4D8] rounded-lg bg-indigo-900/20 cursor-pointer">
+                      <label className="flex items-center p-3 border-2 border-indigo-500 rounded-lg bg-indigo-900/20 cursor-pointer">
                         <input
                           type="checkbox"
-                          className="w-5 h-5 mr-3 text-[#00B4D8] rounded"
+                          className="w-5 h-5 mr-3 text-indigo-400 rounded"
                           defaultChecked
                         />
                         <div className="flex-1">
@@ -1277,11 +1277,11 @@ export default function SERPOptimizer() {
                         .map((page) => (
                           <label
                             key={page.id}
-                            className="flex items-center p-3 border-2 border-white/10 rounded-lg hover:border-[#00B4D8] cursor-pointer"
+                            className="flex items-center p-3 border-2 border-white/10 rounded-lg hover:border-indigo-500 cursor-pointer"
                           >
                             <input
                               type="checkbox"
-                              className="w-5 h-5 mr-3 text-[#00B4D8] rounded"
+                              className="w-5 h-5 mr-3 text-indigo-400 rounded"
                               defaultChecked
                             />
                             <div className="flex-1">
@@ -1301,7 +1301,7 @@ export default function SERPOptimizer() {
                     <div className="flex justify-end">
                       <Button
                         onClick={() => setWizardStep(2)}
-                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                       >
                         Next: Select Actions
                         <ChevronRight className="w-4 h-4 ml-2" />
@@ -1331,14 +1331,14 @@ export default function SERPOptimizer() {
                         return (
                           <label
                             key={idx}
-                            className="flex items-center space-x-3 p-4 border-2 border-white/10 rounded-lg hover:border-[#00B4D8] cursor-pointer transition-colors"
+                            className="flex items-center space-x-3 p-4 border-2 border-white/10 rounded-lg hover:border-indigo-500 cursor-pointer transition-colors"
                           >
                             <input
                               type="checkbox"
-                              className="w-5 h-5 text-[#00B4D8] rounded"
+                              className="w-5 h-5 text-indigo-400 rounded"
                               defaultChecked={idx < 3}
                             />
-                            <Icon className="w-5 h-5 text-[#00B4D8]" />
+                            <Icon className="w-5 h-5 text-indigo-400" />
                             <span className="flex-1 font-medium text-gray-100">{action.label}</span>
                             <Badge className="bg-white/10 text-slate-300">{action.count}</Badge>
                           </label>
@@ -1352,7 +1352,7 @@ export default function SERPOptimizer() {
                       </Button>
                       <Button
                         onClick={() => setWizardStep(3)}
-                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                       >
                         Next: Configure
                         <ChevronRight className="w-4 h-4 ml-2" />
@@ -1413,7 +1413,7 @@ export default function SERPOptimizer() {
                       </Button>
                       <Button
                         onClick={() => setWizardStep(4)}
-                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                       >
                         Next: Review
                         <ChevronRight className="w-4 h-4 ml-2" />
@@ -1427,11 +1427,11 @@ export default function SERPOptimizer() {
                   <div>
                     <h3 className="font-semibold text-white mb-4">Review proposed changes:</h3>
                     <div className="mb-6">
-                      <Card className="border-0 shadow-2xl border border-white/5 mb-4">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-4">
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-3 gap-4 text-center">
                             <div>
-                              <p className="text-2xl font-bold text-[#00B4D8]">23</p>
+                              <p className="text-2xl font-bold text-indigo-400">23</p>
                               <p className="text-sm text-slate-400">Pages to Update</p>
                             </div>
                             <div>
@@ -1491,7 +1491,7 @@ export default function SERPOptimizer() {
                       </Button>
                       <Button
                         onClick={() => setWizardStep(5)}
-                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                       >
                         Apply All Changes
                         <ChevronRight className="w-4 h-4 ml-2" />
@@ -1514,19 +1514,19 @@ export default function SERPOptimizer() {
                     </p>
 
                     <div className="grid grid-cols-3 gap-4 mb-6">
-                      <Card className="border-0 shadow-2xl border border-white/5">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                         <CardContent className="pt-6">
                           <p className="text-2xl font-bold text-green-600 mb-1">23</p>
                           <p className="text-sm text-slate-400">Pages Updated</p>
                         </CardContent>
                       </Card>
-                      <Card className="border-0 shadow-2xl border border-white/5">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                         <CardContent className="pt-6">
                           <p className="text-2xl font-bold text-green-600 mb-1">+47</p>
                           <p className="text-sm text-slate-400">Avg Score Increase</p>
                         </CardContent>
                       </Card>
-                      <Card className="border-0 shadow-2xl border border-white/5">
+                      <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
                         <CardContent className="pt-6">
                           <p className="text-2xl font-bold text-green-600 mb-1">68</p>
                           <p className="text-sm text-slate-400">Changes Applied</p>
@@ -1544,7 +1544,7 @@ export default function SERPOptimizer() {
                           setShowWizard(false);
                           setWizardStep(1);
                         }}
-                        className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+                        className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
                       >
                         Done
                       </Button>
@@ -1594,7 +1594,7 @@ export default function SERPOptimizer() {
                       onChange={(e) => setCompetitorUrl(e.target.value)}
                       className="flex-1 px-3 py-2 border border-white/20 rounded-lg"
                     />
-                    <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                    <Button className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white">
                       <Search className="w-4 h-4 mr-2" />
                       Analyze
                     </Button>
@@ -1605,9 +1605,9 @@ export default function SERPOptimizer() {
                   {/* Your Site */}
                   <div>
                     <h3 className="font-semibold text-white mb-3">Your Site</h3>
-                    <div className="border-2 border-[#00B4D8] rounded-lg p-4 bg-indigo-900/20">
+                    <div className="border-2 border-indigo-500 rounded-lg p-4 bg-indigo-900/20">
                       <div className="flex items-center space-x-2 mb-1">
-                        <div className="w-6 h-6 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-full" />
+                        <div className="w-6 h-6 bg-gradient-to-br from-purple-900 to-[#00B4D8] rounded-full" />
                         <span className="text-sm text-slate-400">thinkments.com</span>
                       </div>
                       <h3 className="text-xl text-[#1A0DAB] mb-1">
@@ -1649,10 +1649,10 @@ export default function SERPOptimizer() {
                 </div>
 
                 {/* AI Analysis */}
-                <Card className="border-0 shadow-2xl border border-white/5 mt-6">
+                <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mt-6">
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Sparkles className="w-5 h-5 mr-2 text-[#00B4D8]" />
+                      <Sparkles className="w-5 h-5 mr-2 text-indigo-400" />
                       AI Analysis
                     </CardTitle>
                   </CardHeader>
