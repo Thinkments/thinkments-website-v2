@@ -263,7 +263,7 @@ export default function URLInspectionTool() {
                                 }
                               >
                                 {analysis.performance.loadTime
-                                  ? `${Math.round(analysis.performance.loadTime)}ms`
+                                  ? `${Math.round(analysis.performance.loadTime)}ms\``
                                   : 'N/A'}
                               </span>
                             </div>
@@ -271,7 +271,7 @@ export default function URLInspectionTool() {
                               <span>Page Size:</span>
                               <span>
                                 {analysis.performance.size
-                                  ? `${Math.round(analysis.performance.size)}KB`
+                                  ? `${Math.round(analysis.performance.size)}KB\``
                                   : 'N/A'}
                               </span>
                             </div>
@@ -389,7 +389,7 @@ export default function URLInspectionTool() {
                         <div className="text-center">
                           <div className="text-2xl font-bold text-primary">
                             {analysis.performance.loadTime
-                              ? `${Math.round(analysis.performance.loadTime)}ms`
+                              ? `${Math.round(analysis.performance.loadTime)}ms\``
                               : 'N/A'}
                           </div>
                           <div className="text-sm text-muted-foreground">Load Time</div>
@@ -397,7 +397,7 @@ export default function URLInspectionTool() {
                         <div className="text-center">
                           <div className="text-2xl font-bold text-primary">
                             {analysis.performance.size
-                              ? `${Math.round(analysis.performance.size)}KB`
+                              ? `${Math.round(analysis.performance.size)}KB\``
                               : 'N/A'}
                           </div>
                           <div className="text-sm text-muted-foreground">Page Size</div>
