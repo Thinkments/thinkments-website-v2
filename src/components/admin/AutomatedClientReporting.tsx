@@ -57,7 +57,6 @@ import {
   GripVertical,
   Link as LinkIcon,
   Sliders,
-  Save,
 } from 'lucide-react';
 
 type TabType = 'clients' | 'builder' | 'templates' | 'scheduled' | 'history' | 'wins';
