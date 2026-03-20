@@ -19,7 +19,8 @@ import {
     Users,
     Activity,
     ArrowRight,
-    LayoutTemplate
+    LayoutTemplate,
+    Scale
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../../components/ui/button';
@@ -59,6 +60,15 @@ const STRATEGY_AGENTS = [
         icon: DollarSign,
         description: 'Autonomously shifts budget between campaigns (Meta, Google, etc.) based on performance.',
         benefits: ['Auto-budget allocation', 'ROAS optimization', 'Platform balancing'],
+        color: AGENT_COLORS.strategy
+    },
+    {
+        id: 'ip-board-member',
+        name: 'IP Board Member',
+        subtitle: 'Legal & Compliance',
+        icon: Scale,
+        description: 'Advises on intellectual property protection filings including patents, trademarks, and copyright law.',
+        benefits: ['Patent Strategy', 'Trademark Advice', 'Copyright Guidance'],
         color: AGENT_COLORS.strategy
     },
 ];

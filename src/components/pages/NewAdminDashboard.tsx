@@ -16,9 +16,7 @@ import {
   ChevronDown,
   HelpCircle,
   Layers,
-  Wand2,
   Upload,
-  Network,
   Palette,
   Sparkles,
   Zap,
@@ -31,6 +29,8 @@ import {
   MapPin,
   Activity,
   Brain,
+  Terminal,
+  Scale,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -61,6 +61,9 @@ import GBPManager from '../admin/GBPManager';
 import AnalyticsDashboard from '../admin/AnalyticsDashboard';
 import EnhancedAIModelSelector from '../admin/EnhancedAIModelSelector';
 import AIBlogGenerator from '../admin/AIBlogGenerator';
+import AdminCommandCenter from '../admin/AdminCommandCenter';
+import EcommerceWebDesigner from '../admin/EcommerceWebDesigner';
+import IPBoardMember from '../admin/IPBoardMember';
 
 import BlogEditor from '../admin/content/BlogEditor';
 import PageBuilderComponent from '../admin/content/PageBuilder';
@@ -102,6 +105,8 @@ const navigationItems: NavItem[] = [
     icon: Sparkles,
     children: [
       { id: 'ai-model-selector', label: 'AI Model Selector', icon: Brain },
+      { id: 'web-designer', label: 'Graphic Design Agent', icon: Palette, badge: 'NEW' },
+      { id: 'ip-board-member', label: 'IP Board Member', icon: Scale, badge: 'NEW' },
       { id: 'ai-blog-generator', label: 'AI Blog Generator', icon: Sparkles, badge: 'NEW' },
       { id: 'ai-writer', label: 'AI Writer', icon: PenTool },
       { id: 'seo-fixer', label: 'SEO Bulk Fixer', icon: Zap, badge: '47' },
@@ -110,6 +115,7 @@ const navigationItems: NavItem[] = [
       { id: 'serp-optimizer', label: 'SERP Optimizer', icon: SearchIcon },
       { id: 'broken-links', label: 'Broken Link Finder', icon: LinkIcon },
       { id: 'link-health', label: 'Link Health Checker', icon: LinkIcon, badge: '247' },
+      { id: 'command-center', label: 'Command Center', icon: Terminal },
     ],
   },
   { id: 'site-structure', label: 'Site Structure', icon: Route },
@@ -169,6 +175,10 @@ export default function NewAdminDashboard() {
         return <BulkPageGenerator />;
       case 'site-structure':
         return <SiteStructureMap />;
+      case 'web-designer':
+        return <EcommerceWebDesigner />;
+      case 'ip-board-member':
+        return <IPBoardMember />;
       case 'ai-model-selector':
         return <EnhancedAIModelSelector />;
       case 'ai-blog-generator':
@@ -185,6 +195,8 @@ export default function NewAdminDashboard() {
         return <BrokenLinkFinder />;
       case 'link-health':
         return <BrokenLinkChecker />;
+      case 'command-center':
+        return <AdminCommandCenter />;
       case 'themes':
         return <LayoutAndThemeManager />;
       case '404-editor':
