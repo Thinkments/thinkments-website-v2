@@ -58,6 +58,8 @@ import PageAuditorAgent from './PageAuditorAgent';
 import DashboardOverview from './DashboardOverview';
 import ProjectLoneStar from './ProjectLoneStar';
 import StreetSalesDMX from './StreetSalesDMX';
+import SERPOptimizer from './SERPOptimizer';
+import SEOBulkFixer from './SEOBulkFixer';
 
 interface NavigationItem {
   id: string;
@@ -118,7 +120,8 @@ const navigationItems: NavigationItem[] = [
     label: 'SEO Center',
     icon: TrendingUp,
     children: [
-      { id: 'seo-dashboard', label: 'SEO Dashboard' },
+      { id: 'seo-dashboard', label: 'SERP Optimizer' },
+      { id: 'bulk-fixer', label: 'Bulk Fixer', badge: 12 },
       { id: 'rank-tracker', label: 'Rank Tracker' },
       { id: 'broken-links', label: 'Broken Links', badge: 2 },
       { id: 'redirects', label: 'Redirects' },
@@ -496,7 +499,7 @@ export default function AdminPanel() {
               [
                 'client-manager', 'lead-dashboard', 'performance-dashboard', 
                 'report-generator', 'rank-tracker', 'gbp-dashboard', 
-                'reviews', 'uptime-monitor', 'invoices'
+                'reviews', 'uptime-monitor', 'invoices', 'seo-dashboard', 'bulk-fixer'
               ].includes(activeItem) || activeItem.startsWith('podcast-')
                 ? 'min-h-full'
                 : 'p-6 md:p-8 min-h-full'
@@ -513,7 +516,7 @@ export default function AdminPanel() {
                   [
                     'client-manager', 'lead-dashboard', 'performance-dashboard', 
                     'report-generator', 'rank-tracker', 'gbp-dashboard', 
-                    'reviews', 'uptime-monitor', 'invoices'
+                    'reviews', 'uptime-monitor', 'invoices', 'seo-dashboard', 'bulk-fixer'
                   ].includes(activeItem) || activeItem.startsWith('podcast-')
                     ? 'w-full h-full'
                     : 'max-w-screen-2xl mx-auto'
@@ -538,10 +541,12 @@ export default function AdminPanel() {
                 {activeItem === 'page-auditor' && <PageAuditorAgent />}
                 {activeItem === 'project-lone-star' && <ProjectLoneStar />}
                 {activeItem === 'street-sales-dmx' && <StreetSalesDMX />}
+                {activeItem === 'seo-dashboard' && <SERPOptimizer />}
+                {activeItem === 'bulk-fixer' && <SEOBulkFixer />}
 
                 {/* Placeholder Content */}
                 {(!activeItem || 
-                  (!['dashboard', 'client-manager', 'lead-dashboard', 'performance-dashboard', 'report-generator', 'rank-tracker', 'gbp-dashboard', 'reviews', 'uptime-monitor', 'invoices', 'web-designer', 'admin-manager', 'system-architecture', 'task-board', 'page-auditor', 'project-lone-star', 'street-sales-dmx'].includes(activeItem) && !activeItem.startsWith('podcast-'))) && (
+                  (!['dashboard', 'client-manager', 'lead-dashboard', 'performance-dashboard', 'report-generator', 'rank-tracker', 'gbp-dashboard', 'reviews', 'uptime-monitor', 'invoices', 'web-designer', 'admin-manager', 'system-architecture', 'task-board', 'page-auditor', 'project-lone-star', 'street-sales-dmx', 'seo-dashboard', 'bulk-fixer'].includes(activeItem) && !activeItem.startsWith('podcast-'))) && (
                   <div className="flex items-center justify-center h-[calc(100vh-120px)]">
                     <div className="text-center max-w-md w-full relative">
                       <div className="absolute inset-0 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none" />
