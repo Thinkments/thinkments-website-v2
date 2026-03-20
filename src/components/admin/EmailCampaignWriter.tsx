@@ -56,6 +56,7 @@ import {
   Link as LinkIcon,
   Maximize2,
 } from 'lucide-react';
+import { toast } from 'sonner';
 
 type EmailType =
   | 'newsletter'
@@ -251,6 +252,21 @@ Please write the email.`;
     } finally {
       setIsGenerating(false);
     }
+  };
+
+  const handleAssignToMarketing = () => {
+    if (!generatedBody) return;
+
+    const event = new CustomEvent('task-logged', {
+      detail: {
+        title: `Setup Email: ${campaignName || 'New Campaign'}`,
+        description: `Review and schedule the AI generated email campaign in ESP.\n\nBrand: ${selectedClient}\nAudience: ${audience}\nSubject: ${selectedSubject || '[No subject selected]'}\n\nKey Topic: ${mainTopic}`,
+        priority: 'medium',
+        sourceAgent: 'Content Agent'
+      }
+    });
+    window.dispatchEvent(event);
+    toast.success('Campaign logged to the Marketing Team Task Board!');
   };
 
   const addKeyPoint = () => {
@@ -1577,6 +1593,12 @@ Please write the email.`;
                 {/* Export Options */}
                 {generatedBody && (
                   <div className="mt-4 space-y-2">
+                    <div className="mb-2">
+                      <Button onClick={handleAssignToMarketing} className="w-full bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
+                        <Send className="w-4 h-4 mr-2" />
+                        Assign to Marketing Team
+                      </Button>
+                    </div>
                     <div className="grid grid-cols-3 gap-2">
                       <Button size="sm" variant="outline">
                         <Code className="w-4 h-4 mr-1" />

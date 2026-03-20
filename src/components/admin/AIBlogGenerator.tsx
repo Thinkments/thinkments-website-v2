@@ -12,7 +12,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '../ui/select';
-import { Sparkles, Wand2, FileText, Copy, Download, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Wand2, FileText, Copy, Download, CheckCircle2, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { blogTemplates, type BlogTemplate } from '../../data/blogTemplates';
 
@@ -204,6 +204,21 @@ Ensure the rawMarkdown content strictly follows the structure provided, expands 
         toast.success('Blog post downloaded!');
     };
 
+    const handleAssignToSEO = () => {
+        if (!generatedContent) return;
+
+        const event = new CustomEvent('task-logged', {
+            detail: {
+                title: `Publish Blog: ${metaTitle || keyword}`,
+                description: `Review and publish the AI generated blog post.\n\nTarget Keyword: ${keyword}\nAudience: ${targetAudience || 'General'}\nTemplate: ${selectedTemplate?.name}\n\nMeta Description: ${metaDescription}`,
+                priority: 'medium',
+                sourceAgent: 'Content Agent'
+            }
+        });
+        window.dispatchEvent(event);
+        toast.success('Blog logged to the SEO Team Task Board!');
+    };
+
     return (
         <div className="space-y-6">
             <div>
@@ -337,6 +352,10 @@ Ensure the rawMarkdown content strictly follows the structure provided, expands 
                                             <CardDescription>Review and edit as needed</CardDescription>
                                         </div>
                                         <div className="flex gap-2">
+                                            <Button variant="secondary" size="sm" className="bg-[#1E3A5F]/10 text-[#1E3A5F] hover:bg-[#1E3A5F]/20 border-0" onClick={handleAssignToSEO}>
+                                                <Send className="h-4 w-4 mr-1" />
+                                                Assign to SEO Team
+                                            </Button>
                                             <Button variant="outline" size="sm" onClick={copyToClipboard}>
                                                 <Copy className="h-4 w-4 mr-1" />
                                                 Copy

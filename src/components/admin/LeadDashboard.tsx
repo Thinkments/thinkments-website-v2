@@ -63,128 +63,6 @@ interface Lead {
   }[];
 }
 
-const mockLeads: Lead[] = [
-  {
-    id: '1',
-    name: 'Sarah Johnson',
-    email: 'sarah.j@techcorp.com',
-    phone: '(555) 123-4567',
-    company: 'TechCorp Industries',
-    sourcePage: '/services/web-design',
-    leadScore: 'hot',
-    status: 'proposal',
-    estimatedValue: 15000,
-    date: '2024-12-01',
-    assignedTo: 'John Doe',
-    followUpDate: '2024-12-10',
-    utmSource: 'google',
-    utmMedium: 'cpc',
-    utmCampaign: 'web-design-2024',
-    interactions: [
-      { type: 'email', date: '2024-12-01', description: 'Initial inquiry received' },
-      {
-        type: 'call',
-        date: '2024-12-02',
-        description: 'Discovery call - needs full website redesign',
-      },
-      { type: 'note', date: '2024-12-03', description: 'Sent proposal for $15k website project' },
-    ],
-  },
-  {
-    id: '2',
-    name: 'Mike Chen',
-    email: 'mike@localshop.com',
-    phone: '(555) 234-5678',
-    company: 'Local Coffee Shop',
-    sourcePage: '/services/google-business-profile',
-    leadScore: 'warm',
-    status: 'qualified',
-    estimatedValue: 2500,
-    date: '2024-12-02',
-    assignedTo: 'Jane Smith',
-    utmSource: 'facebook',
-    utmMedium: 'social',
-    interactions: [
-      { type: 'email', date: '2024-12-02', description: 'Inquiry about GBP management' },
-      { type: 'call', date: '2024-12-03', description: 'Discussed monthly GBP package' },
-    ],
-  },
-  {
-    id: '3',
-    name: 'Emily Rodriguez',
-    email: 'emily@fitnessstudio.com',
-    phone: '(555) 345-6789',
-    company: 'Elite Fitness Studio',
-    sourcePage: '/services/videography',
-    leadScore: 'hot',
-    status: 'contacted',
-    estimatedValue: 8000,
-    date: '2024-12-03',
-    followUpDate: '2024-12-08',
-    utmSource: 'instagram',
-    utmMedium: 'social',
-    interactions: [
-      { type: 'email', date: '2024-12-03', description: 'Wants promotional video package' },
-      {
-        type: 'meeting',
-        date: '2024-12-04',
-        description: 'In-person meeting scheduled for next week',
-      },
-    ],
-  },
-  {
-    id: '4',
-    name: 'Robert Williams',
-    email: 'robert@lawfirm.com',
-    phone: '(555) 456-7890',
-    company: 'Williams & Associates',
-    sourcePage: '/services/strategic-seo',
-    leadScore: 'warm',
-    status: 'new',
-    estimatedValue: 5000,
-    date: '2024-12-04',
-    utmSource: 'organic',
-    interactions: [
-      { type: 'email', date: '2024-12-04', description: 'Form submission - SEO services inquiry' },
-    ],
-  },
-  {
-    id: '5',
-    name: 'Jennifer Martinez',
-    email: 'jen@restaurant.com',
-    phone: '(555) 567-8901',
-    company: 'Downtown Bistro',
-    sourcePage: '/services/social-media',
-    leadScore: 'cold',
-    status: 'contacted',
-    estimatedValue: 1500,
-    date: '2024-11-28',
-    assignedTo: 'John Doe',
-    interactions: [
-      { type: 'email', date: '2024-11-28', description: 'Interested in social media management' },
-      { type: 'call', date: '2024-11-30', description: 'Left voicemail - no response yet' },
-    ],
-  },
-  {
-    id: '6',
-    name: 'David Lee',
-    email: 'david@realestate.com',
-    phone: '(555) 678-9012',
-    company: 'Luxury Realty Group',
-    sourcePage: '/services/virtual-tours',
-    leadScore: 'hot',
-    status: 'won',
-    estimatedValue: 12000,
-    date: '2024-11-20',
-    assignedTo: 'Jane Smith',
-    interactions: [
-      { type: 'email', date: '2024-11-20', description: 'Inquiry about virtual tour services' },
-      { type: 'call', date: '2024-11-22', description: 'Discussed package options' },
-      { type: 'note', date: '2024-11-25', description: 'Proposal sent' },
-      { type: 'email', date: '2024-11-27', description: 'Contract signed!' },
-    ],
-  },
-];
 
 const pipelineStages = [
   { id: 'new', label: 'New', color: 'bg-blue-500', count: 0 },
@@ -196,6 +74,9 @@ const pipelineStages = [
 ];
 
 export default function LeadDashboard() {
+  const [leads, setLeads] = useState<Lead[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
   const [showDetailPanel, setShowDetailPanel] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -204,26 +85,83 @@ export default function LeadDashboard() {
   const [selectedLeads, setSelectedLeads] = useState<string[]>([]);
   const [newNote, setNewNote] = useState('');
 
+  // Fetch leads on mount
+  React.useEffect(() => {
+    fetch('/api/ops-data?type=leads')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) setLeads(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const handleAddNewDummyLead = async () => {
+    const dummy: Partial<Lead> = {
+      name: 'New Lead ' + Math.floor(Math.random() * 1000),
+      email: 'new@example.com',
+      phone: '(555) 000-0000',
+      company: 'Random LLC',
+      sourcePage: '/services/seo',
+      leadScore: 'cold',
+      status: 'new',
+      estimatedValue: 1000,
+      date: new Date().toISOString().split('T')[0],
+      interactions: []
+    };
+    try {
+      const res = await fetch('/api/ops-data?type=leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dummy)
+      });
+      const data = await res.json();
+      setLeads((prev) => [...prev, data]);
+      toast.success('Lead added to database');
+    } catch (e) {
+      toast.error('Failed to add lead');
+    }
+  };
+
+  const handleDeleteLead = async (id: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    try {
+      await fetch('/api/ops-data?type=leads', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id })
+      });
+      setLeads((prev) => prev.filter(l => l.id !== id));
+      toast.success('Lead deleted');
+      if (selectedLead?.id === id) setShowDetailPanel(false);
+    } catch (err) {
+      toast.error('Failed to delete lead');
+    }
+  };
+
   // Calculate stats
-  const totalLeads = mockLeads.length;
-  const hotLeads = mockLeads.filter((l) => l.leadScore === 'hot').length;
-  const leadsThisWeek = mockLeads.filter((l) => {
+  const totalLeads = leads.length;
+  const hotLeads = leads.filter((l) => l.leadScore === 'hot').length;
+  const leadsThisWeek = leads.filter((l) => {
     const leadDate = new Date(l.date);
     const weekAgo = new Date();
     weekAgo.setDate(weekAgo.getDate() - 7);
     return leadDate >= weekAgo;
   }).length;
-  const wonLeads = mockLeads.filter((l) => l.status === 'won').length;
+  const wonLeads = leads.filter((l) => l.status === 'won').length;
   const conversionRate = totalLeads > 0 ? Math.round((wonLeads / totalLeads) * 100) : 0;
 
   // Calculate pipeline stage counts
   const stagesWithCounts = pipelineStages.map((stage) => ({
     ...stage,
-    count: mockLeads.filter((l) => l.status === stage.id).length,
+    count: leads.filter((l) => l.status === stage.id).length,
   }));
 
   // Filter leads
-  const filteredLeads = mockLeads.filter((lead) => {
+  const filteredLeads = leads.filter((lead) => {
     const matchesSearch =
       lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       lead.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -311,7 +249,7 @@ export default function LeadDashboard() {
             <Mail className="w-4 h-4 mr-2" />
             Bulk Email
           </Button>
-          <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
+          <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white" onClick={handleAddNewDummyLead}>
             <Plus className="w-4 h-4 mr-2" />
             Add Lead
           </Button>
@@ -417,7 +355,7 @@ export default function LeadDashboard() {
                   <Badge className="bg-white/20 text-white border-0">{stage.count}</Badge>
                 </div>
                 <div className="bg-gray-50 rounded-b-lg p-3 space-y-3 min-h-[300px] border-2 border-t-0 border-gray-200">
-                  {mockLeads
+                  {leads
                     .filter((lead) => lead.status === stage.id)
                     .map((lead) => (
                       <motion.div
@@ -448,7 +386,7 @@ export default function LeadDashboard() {
                         </div>
                       </motion.div>
                     ))}
-                  {mockLeads.filter((lead) => lead.status === stage.id).length === 0 && (
+                  {leads.filter((lead) => lead.status === stage.id).length === 0 && (
                     <div className="text-center text-gray-400 text-sm py-8">
                       No leads in this stage
                     </div>
@@ -586,6 +524,7 @@ export default function LeadDashboard() {
                           size="sm"
                           variant="ghost"
                           className="text-red-600 hover:text-red-700"
+                          onClick={(e) => handleDeleteLead(lead.id, e)}
                         >
                           <Trash2 className="w-4 h-4" />
                         </Button>

@@ -163,6 +163,9 @@ const serviceIcons = {
 };
 
 export default function ClientManager() {
+  const [clients, setClients] = useState<Client[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
@@ -188,28 +191,44 @@ export default function ClientManager() {
     notes: '',
   });
 
-  const activeClients = mockClients.filter((c) => c.status === 'active');
+  // Fetch from API
+  React.useEffect(() => {
+    fetch('/api/ops-data?type=clients')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) setClients(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const activeClients = clients.filter((c) => c.status === 'active');
   const totalMRR = activeClients.reduce((sum, client) => sum + client.retainer, 0);
 
   // Calculate clients with renewals in next 30 days
   const today = new Date();
   const thirtyDaysFromNow = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
-  const expiringContracts = mockClients.filter((client) => {
+  const expiringContracts = clients.filter((client) => {
+    if (!client.renewalDate) return false;
     const renewalDate = new Date(client.renewalDate);
     return renewalDate >= today && renewalDate <= thirtyDaysFromNow && client.status === 'active';
   });
 
   // Calculate average tenure
-  const avgTenure = Math.round(
+  const avgTenure = activeClients.length > 0 ? Math.round(
     activeClients.reduce((sum, client) => {
+      if (!client.contractStart) return sum;
       const start = new Date(client.contractStart);
       const months = (today.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 30);
       return sum + months;
     }, 0) / activeClients.length,
-  );
+  ) : 0;
 
   // Filter clients
-  const filteredClients = mockClients.filter((client) => {
+  const filteredClients = clients.filter((client) => {
     const matchesSearch =
       client.businessName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       client.contactName.toLowerCase().includes(searchQuery.toLowerCase());
@@ -257,9 +276,31 @@ export default function ClientManager() {
     }));
   };
 
-  const handleSaveClient = () => {
-    toast.success(editMode ? 'Client updated successfully!' : 'Client added successfully!');
-    setShowAddModal(false);
+  const handleSaveClient = async () => {
+    try {
+      const isNew = !editMode;
+      const method = isNew ? 'POST' : 'PUT';
+      const bodyPayload = { ...formData };
+      if (isNew) delete bodyPayload.id;
+
+      const res = await fetch('/api/ops-data?type=clients', {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyPayload)
+      });
+      const data = await res.json();
+      
+      if (isNew) {
+        setClients(prev => [...prev, data]);
+      } else {
+        setClients(prev => prev.map(c => c.id === data.id ? data : c));
+      }
+      
+      toast.success(editMode ? 'Client updated successfully!' : 'Client added successfully!');
+      setShowAddModal(false);
+    } catch (e) {
+      toast.error('Failed to save client');
+    }
   };
 
   const getDaysUntilRenewal = (renewalDate: string) => {
