@@ -225,7 +225,7 @@ export default function ReviewsManagement() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Reviews Management</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Reviews Management</h1>
             <p className="text-slate-400">
               Monitor and respond to customer reviews across all platforms
             </p>
@@ -330,19 +330,19 @@ export default function ReviewsManagement() {
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Overall Rating</div>
                 <div className="flex items-center space-x-2">
-                  <div className="text-whitexl font-bold text-white">{stats.overallRating}</div>
+                  <div className="text-2xl font-bold text-white">{stats.overallRating}</div>
                   <StarRating rating={Math.round(stats.overallRating)} size="sm" />
                 </div>
               </Card>
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Total Reviews</div>
-                <div className="text-whitexl font-bold text-white">{stats.totalReviews}</div>
+                <div className="text-2xl font-bold text-white">{stats.totalReviews}</div>
               </Card>
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">This Month</div>
-                <div className="text-whitexl font-bold text-[#00B4D8]">{stats.thisMonth.count}</div>
+                <div className="text-2xl font-bold text-[#00B4D8]">{stats.thisMonth.count}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.thisMonth.change}%
@@ -351,17 +351,17 @@ export default function ReviewsManagement() {
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Avg Response Time</div>
-                <div className="text-whitexl font-bold text-white">{stats.avgResponseTime}</div>
+                <div className="text-2xl font-bold text-white">{stats.avgResponseTime}</div>
               </Card>
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Response Rate</div>
-                <div className="text-whitexl font-bold text-green-600">{stats.responseRate}%</div>
+                <div className="text-2xl font-bold text-green-600">{stats.responseRate}%</div>
               </Card>
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Positive</div>
-                <div className="text-whitexl font-bold text-green-600">{stats.sentiment.positive}%</div>
+                <div className="text-2xl font-bold text-green-600">{stats.sentiment.positive}%</div>
               </Card>
             </div>
 

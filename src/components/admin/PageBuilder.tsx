@@ -113,7 +113,7 @@ export default function PageBuilder() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-whitexl font-bold text-white">Page Builder</h1>
+          <h1 className="text-2xl font-bold text-white">Page Builder</h1>
           <p className="text-slate-400 mt-1">Create custom pages with drag-and-drop blocks</p>
         </div>
         <div className="flex items-center space-x-3">

@@ -67,7 +67,7 @@ export default function UIStatesGuide() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">UI States & User Flows</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">UI States & User Flows</h1>
             <p className="text-slate-400">Complete component library with interactive states</p>
           </div>
         </div>

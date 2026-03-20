@@ -373,7 +373,7 @@ export default function AnalyticsDashboard() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Analytics Dashboard</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Analytics Dashboard</h1>
             <p className="text-slate-400">Track performance across all clients</p>
           </div>
           <div className="flex items-center space-x-3">
@@ -1133,7 +1133,7 @@ export default function AnalyticsDashboard() {
                       <TrendingUp className="w-5 h-5 text-green-600" />
                     </div>
                     <p className="text-xs text-slate-400 mb-1">Total Conversions</p>
-                    <p className="text-whitexl font-bold text-white">89</p>
+                    <p className="text-2xl font-bold text-white">89</p>
                     <p className="text-xs text-green-600 mt-1">+23.4% from last period</p>
                   </CardContent>
                 </Card>
@@ -1145,7 +1145,7 @@ export default function AnalyticsDashboard() {
                       <TrendingUp className="w-5 h-5 text-green-600" />
                     </div>
                     <p className="text-xs text-slate-400 mb-1">Phone Calls</p>
-                    <p className="text-whitexl font-bold text-white">34</p>
+                    <p className="text-2xl font-bold text-white">34</p>
                     <p className="text-xs text-green-600 mt-1">+12.1% from last period</p>
                   </CardContent>
                 </Card>
@@ -1157,7 +1157,7 @@ export default function AnalyticsDashboard() {
                       <TrendingUp className="w-5 h-5 text-green-600" />
                     </div>
                     <p className="text-xs text-slate-400 mb-1">Form Submissions</p>
-                    <p className="text-whitexl font-bold text-white">55</p>
+                    <p className="text-2xl font-bold text-white">55</p>
                     <p className="text-xs text-green-600 mt-1">+31.8% from last period</p>
                   </CardContent>
                 </Card>

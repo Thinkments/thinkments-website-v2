@@ -330,7 +330,7 @@ export default function AutomatedClientReporting() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Client Reports</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Client Reports</h1>
             <p className="text-slate-400">Automated reporting that demonstrates your value</p>
             <div className="flex items-center space-x-4 mt-2 text-sm text-slate-500">
               <span className="flex items-center">

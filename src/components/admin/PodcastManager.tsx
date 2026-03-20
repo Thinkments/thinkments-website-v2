@@ -202,7 +202,7 @@ export default function PodcastManager() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Podcast Manager</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Podcast Manager</h1>
             <p className="text-slate-400">Create, manage, and analyze your podcast episodes</p>
           </div>
         </div>

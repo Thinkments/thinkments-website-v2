@@ -352,7 +352,7 @@ export default function RankTracker() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Rank Tracker</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Rank Tracker</h1>
             <p className="text-slate-400">
               Monitor and track your keyword rankings across search engines
             </p>
@@ -465,12 +465,12 @@ export default function RankTracker() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Total Keywords</div>
-                <div className="text-whitexl font-bold text-white">{stats.totalKeywords}</div>
+                <div className="text-2xl font-bold text-white">{stats.totalKeywords}</div>
               </Card>
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Top 3</div>
-                <div className="text-whitexl font-bold text-green-600">{stats.top3.count}</div>
+                <div className="text-2xl font-bold text-green-600">{stats.top3.count}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <ArrowUp className="w-3 h-3 mr-1" />
                   {stats.top3.change}%
@@ -479,7 +479,7 @@ export default function RankTracker() {
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Top 10</div>
-                <div className="text-whitexl font-bold text-[#00B4D8]">{stats.top10.count}</div>
+                <div className="text-2xl font-bold text-[#00B4D8]">{stats.top10.count}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <ArrowUp className="w-3 h-3 mr-1" />
                   {stats.top10.change}%
@@ -488,7 +488,7 @@ export default function RankTracker() {
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Avg Position</div>
-                <div className="text-whitexl font-bold text-white">{stats.avgPosition.value}</div>
+                <div className="text-2xl font-bold text-white">{stats.avgPosition.value}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <ArrowUp className="w-3 h-3 mr-1" />
                   {Math.abs(stats.avgPosition.change)}
@@ -497,13 +497,13 @@ export default function RankTracker() {
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Improved</div>
-                <div className="text-whitexl font-bold text-green-600">{stats.improved}</div>
+                <div className="text-2xl font-bold text-green-600">{stats.improved}</div>
                 <div className="text-xs text-slate-500 mt-1">keywords</div>
               </Card>
 
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-2">Declined</div>
-                <div className="text-whitexl font-bold text-rose-400">{stats.declined}</div>
+                <div className="text-2xl font-bold text-rose-400">{stats.declined}</div>
                 <div className="text-xs text-slate-500 mt-1">keywords</div>
               </Card>
             </div>

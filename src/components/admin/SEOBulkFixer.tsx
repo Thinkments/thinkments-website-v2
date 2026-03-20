@@ -234,7 +234,7 @@ export default function SEOBulkFixer() {
     return (
       <div>
         <div className="mb-6">
-          <h1 className="text-whitexl font-bold text-white">SEO Bulk Fixer</h1>
+          <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
           <p className="text-slate-400 mt-1">
             Scan and fix missing SEO data across your entire site
           </p>
@@ -284,7 +284,7 @@ export default function SEOBulkFixer() {
     return (
       <div>
         <div className="mb-6">
-          <h1 className="text-whitexl font-bold text-white">SEO Bulk Fixer</h1>
+          <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
           <p className="text-slate-400 mt-1">Scanning your website for SEO issues...</p>
         </div>
 
@@ -362,7 +362,7 @@ export default function SEOBulkFixer() {
       <div className="mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-whitexl font-bold text-white">SEO Bulk Fixer</h1>
+            <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
             <p className="text-slate-400 mt-1">
               Scan and fix missing SEO data across your entire site
             </p>
@@ -408,7 +408,7 @@ export default function SEOBulkFixer() {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Pages Scanned</p>
-                  <p className="text-whitexl font-bold text-white">{scanResults.pagesScanned}</p>
+                  <p className="text-2xl font-bold text-white">{scanResults.pagesScanned}</p>
                   <p className="text-xs text-slate-500 mt-1">Total pages analyzed</p>
                 </div>
                 <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
@@ -424,7 +424,7 @@ export default function SEOBulkFixer() {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Issues Found</p>
-                  <p className="text-whitexl font-bold text-[#FF6B35]">{scanResults.issuesFound}</p>
+                  <p className="text-2xl font-bold text-[#FF6B35]">{scanResults.issuesFound}</p>
                   <p className="text-xs text-slate-500 mt-1">Items need attention</p>
                 </div>
                 <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
@@ -441,7 +441,7 @@ export default function SEOBulkFixer() {
                 <div>
                   <p className="text-sm text-slate-400 mb-1">SEO Score</p>
                   <div className="flex items-baseline space-x-1">
-                    <p className={`text-whitexl font-bold ${getSEOScoreColor(scanResults.seoScore)}`}>
+                    <p className={`text-2xl font-bold ${getSEOScoreColor(scanResults.seoScore)}`}>
                       {scanResults.seoScore}
                     </p>
                     <span className="text-gray-400">/100</span>
@@ -479,7 +479,7 @@ export default function SEOBulkFixer() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Quick Fix Available</p>
-                  <p className="text-whitexl font-bold text-green-600">{scanResults.quickFixCount}</p>
+                  <p className="text-2xl font-bold text-green-600">{scanResults.quickFixCount}</p>
                   <p className="text-xs text-slate-500 mt-1">Can be auto-fixed</p>
                 </div>
                 <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">

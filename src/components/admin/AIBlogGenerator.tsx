@@ -233,7 +233,7 @@ Ensure the rawMarkdown content strictly follows the structure provided, expands 
                     <Terminal className="w-8 h-8 text-whiteuchsia-400 drop-shadow-[0_0_15px_rgba(232,121,249,0.5)]" />
                 </div>
                 <div>
-                    <h2 className="text-whitexl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">
+                    <h2 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">
                         Content Engine Override
                     </h2>
                     <p className="text-sm text-whiteuchsia-300/70 font-medium tracking-wide flex items-center gap-2">

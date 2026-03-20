@@ -100,7 +100,7 @@ export default function TaskBoard() {
             <div className="w-10 h-10 bg-[#1E3A5F]/10 rounded-lg flex items-center justify-center">
               <CheckSquare className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-whitexl font-bold text-white">Task Board</h1>
+            <h1 className="text-2xl font-bold text-white">Task Board</h1>
           </div>
           <p className="text-slate-400">
             Manage projects and agent-reported tasks in a centralized team board.

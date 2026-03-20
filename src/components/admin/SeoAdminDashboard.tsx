@@ -181,7 +181,7 @@ Sitemap: https://thinkments.com/sitemap.xml`;
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-whitexl mb-2">SEO Configuration Manager</h1>
+            <h1 className="text-2xl mb-2">SEO Configuration Manager</h1>
             <p className="text-muted-foreground">
               Manage your robots.txt and business schema configurations. Edit, export, and deploy
               your SEO files.

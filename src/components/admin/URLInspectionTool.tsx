@@ -132,7 +132,7 @@ export default function URLInspectionTool() {
     <div className="p-6 max-w-7xl mx-auto space-y-6">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-whitexl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
+          <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
             URL Inspection Tool
           </h1>
           <p className="text-muted-foreground mt-2">

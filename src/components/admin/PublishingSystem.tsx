@@ -97,7 +97,7 @@ export default function PublishingSystem() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">
+            <h1 className="text-2xl font-bold text-white mb-2">
               Publishing System Documentation
             </h1>
             <p className="text-slate-400">Complete publishing workflows and system architecture</p>
@@ -488,19 +488,19 @@ export default function PublishingSystem() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-1">Total Content</div>
-                <div className="text-whitexl font-bold text-white">247</div>
+                <div className="text-2xl font-bold text-white">247</div>
               </Card>
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-1">Published</div>
-                <div className="text-whitexl font-bold text-green-600">198</div>
+                <div className="text-2xl font-bold text-green-600">198</div>
               </Card>
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-1">Pending</div>
-                <div className="text-whitexl font-bold text-yellow-600">32</div>
+                <div className="text-2xl font-bold text-yellow-600">32</div>
               </Card>
               <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="text-sm text-slate-400 mb-1">Drafts</div>
-                <div className="text-whitexl font-bold text-slate-400">17</div>
+                <div className="text-2xl font-bold text-slate-400">17</div>
               </Card>
             </div>
 

@@ -41,7 +41,7 @@ export default function ContentCalendar() {
               <ArrowLeft className="w-4 h-4 mr-2" /> Back
             </Button>
           </Link>
-          <h1 className="text-whitexl font-bold text-white flex items-center gap-3">
+          <h1 className="text-2xl font-bold text-white flex items-center gap-3">
             <CalendarIcon className="w-8 h-8 text-[#00B4D8]" /> 
             Content Calendar
           </h1>

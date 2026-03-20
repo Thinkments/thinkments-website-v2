@@ -228,7 +228,7 @@ export default function SERPOptimizer() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">SERP Preview & Optimizer</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">SERP Preview & Optimizer</h1>
             <p className="text-slate-400">Control how your pages appear in Google search results</p>
           </div>
           <div className="flex items-center space-x-3">
@@ -1431,15 +1431,15 @@ export default function SERPOptimizer() {
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-3 gap-4 text-center">
                             <div>
-                              <p className="text-whitexl font-bold text-[#00B4D8]">23</p>
+                              <p className="text-2xl font-bold text-[#00B4D8]">23</p>
                               <p className="text-sm text-slate-400">Pages to Update</p>
                             </div>
                             <div>
-                              <p className="text-whitexl font-bold text-green-600">+47</p>
+                              <p className="text-2xl font-bold text-green-600">+47</p>
                               <p className="text-sm text-slate-400">Score Improvement</p>
                             </div>
                             <div>
-                              <p className="text-whitexl font-bold text-purple-600">68</p>
+                              <p className="text-2xl font-bold text-purple-600">68</p>
                               <p className="text-sm text-slate-400">Total Changes</p>
                             </div>
                           </div>

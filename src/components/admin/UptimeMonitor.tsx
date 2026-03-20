@@ -112,7 +112,7 @@ export default function UptimeMonitor() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Website Health Monitor</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Website Health Monitor</h1>
             <p className="text-slate-400">Monitor uptime, speed, and performance of your websites</p>
           </div>
         </div>
@@ -509,19 +509,19 @@ export default function UptimeMonitor() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-4 bg-emerald-900/20 rounded-lg border border-green-200">
                   <div className="text-sm text-slate-400 mb-2">Largest Contentful Paint (LCP)</div>
-                  <div className="text-whitexl font-bold text-green-700 mb-1">1.2s</div>
+                  <div className="text-2xl font-bold text-green-700 mb-1">1.2s</div>
                   <Badge className="bg-green-600 text-white">Good</Badge>
                 </div>
 
                 <div className="p-4 bg-emerald-900/20 rounded-lg border border-green-200">
                   <div className="text-sm text-slate-400 mb-2">First Input Delay (FID)</div>
-                  <div className="text-whitexl font-bold text-green-700 mb-1">45ms</div>
+                  <div className="text-2xl font-bold text-green-700 mb-1">45ms</div>
                   <Badge className="bg-green-600 text-white">Good</Badge>
                 </div>
 
                 <div className="p-4 bg-amber-900/20 rounded-lg border border-yellow-200">
                   <div className="text-sm text-slate-400 mb-2">Cumulative Layout Shift (CLS)</div>
-                  <div className="text-whitexl font-bold text-yellow-700 mb-1">0.08</div>
+                  <div className="text-2xl font-bold text-yellow-700 mb-1">0.08</div>
                   <Badge className="bg-yellow-600 text-white">Needs Improvement</Badge>
                 </div>
               </div>

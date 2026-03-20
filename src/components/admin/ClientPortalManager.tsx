@@ -137,7 +137,7 @@ export default function ClientPortalManager() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Client Portals</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Client Portals</h1>
             <p className="text-slate-400">Give clients 24/7 access to their marketing data</p>
             <div className="flex items-center space-x-4 mt-2 text-sm text-slate-500">
               <span className="flex items-center">
@@ -577,7 +577,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                     <div>
                       <p className="text-sm text-slate-400 mb-2">Your Marketing Score</p>
                       <div className="flex items-baseline space-x-2">
-                        <span className="text-whitexl font-bold text-green-600">85</span>
+                        <span className="text-2xl font-bold text-green-600">85</span>
                         <span className="text-2xl text-gray-400">/100</span>
                       </div>
                       <div className="flex items-center space-x-2 mt-2">

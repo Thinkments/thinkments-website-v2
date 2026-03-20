@@ -233,7 +233,7 @@ export default function LayoutAndThemeManager() {
       <div className="mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-whitexl font-bold text-white">Layout & Themes</h1>
+            <h1 className="text-2xl font-bold text-white">Layout & Themes</h1>
             <p className="text-slate-400 mt-1">Customize your website&apos;s look with one click</p>
           </div>
           <div className="flex items-center space-x-3">

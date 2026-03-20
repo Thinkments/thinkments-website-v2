@@ -306,7 +306,7 @@ export default function EnhancedAIModelSelector() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Enhanced AI Model Selector</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Enhanced AI Model Selector</h1>
             <p className="text-slate-400">
               Advanced AI capabilities with smart routing and workflows
             </p>

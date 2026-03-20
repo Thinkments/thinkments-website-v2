@@ -73,7 +73,7 @@ Return your analysis in strict JSON format matching exactly this schema:
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-whitexl font-bold mb-2 flex items-center gap-2">
+                <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
                     <Scale className="text-blue-500 w-8 h-8" />
                     IP Board Member
                 </h2>

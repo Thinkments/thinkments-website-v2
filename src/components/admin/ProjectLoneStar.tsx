@@ -46,7 +46,7 @@ export default function ProjectLoneStar() {
             <div className="p-2 bg-rose-500/10 rounded-lg">
               <Crosshair className="w-6 h-6 text-rose-400" />
             </div>
-            <h1 className="text-whitexl font-bold text-white">Project Lone Star</h1>
+            <h1 className="text-2xl font-bold text-white">Project Lone Star</h1>
             <Badge className="bg-red-600 text-white animate-pulse">CLASSIFIED: TOP PRIORITY</Badge>
           </div>
           <p className="text-slate-400">Master Objective: Establish Thinkments as the #1 Digital Agency in Texas</p>
@@ -116,7 +116,7 @@ export default function ProjectLoneStar() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="text-sm font-medium text-slate-400 mb-1">Statewide Penetration</p>
-                    <h3 className="text-whitexl font-bold text-white">12.4%</h3>
+                    <h3 className="text-2xl font-bold text-white">12.4%</h3>
                   </div>
                   <div className="p-3 bg-indigo-900/20 rounded-lg">
                     <Map className="w-6 h-6 text-[#00B4D8]" />
@@ -133,7 +133,7 @@ export default function ProjectLoneStar() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="text-sm font-medium text-slate-400 mb-1">Total Leads Identified</p>
-                    <h3 className="text-whitexl font-bold text-white">5,540</h3>
+                    <h3 className="text-2xl font-bold text-white">5,540</h3>
                   </div>
                   <div className="p-3 bg-emerald-900/20 rounded-lg">
                     <Database className="w-6 h-6 text-green-500" />
@@ -151,7 +151,7 @@ export default function ProjectLoneStar() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="text-sm font-medium text-slate-400 mb-1">Active Poach Ops</p>
-                    <h3 className="text-whitexl font-bold text-white">84</h3>
+                    <h3 className="text-2xl font-bold text-white">84</h3>
                   </div>
                   <div className="p-3 bg-amber-900/20 rounded-lg">
                     <Briefcase className="w-6 h-6 text-yellow-500" />
@@ -169,7 +169,7 @@ export default function ProjectLoneStar() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="text-sm font-medium text-slate-400 mb-1">Local Pages Generated</p>
-                    <h3 className="text-whitexl font-bold text-white">1,250</h3>
+                    <h3 className="text-2xl font-bold text-white">1,250</h3>
                   </div>
                   <div className="p-3 bg-purple-50 rounded-lg">
                     <Layers className="w-6 h-6 text-purple-500" />

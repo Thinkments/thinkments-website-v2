@@ -268,7 +268,7 @@ export default function GBPManager() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">
+            <h1 className="text-2xl font-bold text-white mb-2">
               Google Business Profile Manager
             </h1>
             <p className="text-slate-400">Manage all client GBP listings from one dashboard</p>
@@ -767,7 +767,7 @@ export default function GBPManager() {
                 <div className="grid grid-cols-3 gap-6">
                   <div>
                     <p className="text-sm text-slate-400 mb-2">Total Views</p>
-                    <p className="text-whitexl font-bold text-white">
+                    <p className="text-2xl font-bold text-white">
                       {selectedProfile.views.toLocaleString()}
                     </p>
                     <div className="flex items-center text-sm text-green-600 mt-1">
@@ -777,7 +777,7 @@ export default function GBPManager() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400 mb-2">Phone Calls</p>
-                    <p className="text-whitexl font-bold text-white">{selectedProfile.calls}</p>
+                    <p className="text-2xl font-bold text-white">{selectedProfile.calls}</p>
                     <div className="flex items-center text-sm text-green-600 mt-1">
                       <TrendingUp className="w-4 h-4 mr-1" />
                       +12% vs previous period
@@ -785,7 +785,7 @@ export default function GBPManager() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400 mb-2">Direction Requests</p>
-                    <p className="text-whitexl font-bold text-white">
+                    <p className="text-2xl font-bold text-white">
                       {selectedProfile.directions}
                     </p>
                     <div className="flex items-center text-sm text-green-600 mt-1">

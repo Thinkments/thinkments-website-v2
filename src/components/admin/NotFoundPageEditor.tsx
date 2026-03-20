@@ -280,7 +280,7 @@ export default function NotFoundPageEditor() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">404 Page Editor</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">404 Page Editor</h1>
             <p className="text-slate-400">Customize your error page to keep visitors engaged</p>
             {lastSaved && (
               <p className="text-sm text-slate-500 mt-1 flex items-center">

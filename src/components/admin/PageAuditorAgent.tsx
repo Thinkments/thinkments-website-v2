@@ -98,7 +98,7 @@ export default function PageAuditorAgent() {
             <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
               <ShieldCheck className="w-6 h-6 text-purple-600" />
             </div>
-            <h1 className="text-whitexl font-bold text-white">Page Auditor Agent</h1>
+            <h1 className="text-2xl font-bold text-white">Page Auditor Agent</h1>
           </div>
           <p className="text-slate-400">
             Automatically scan your site for incomplete pages, missing content, and lingering placeholders.

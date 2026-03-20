@@ -236,7 +236,7 @@ export default function BlogCreationToolNew() {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h1 className="text-whitexl font-bold text-white">Blog Posts</h1>
+                <h1 className="text-2xl font-bold text-white">Blog Posts</h1>
                 <p className="text-slate-400 mt-1">Manage all your blog content</p>
               </div>
               <Button onClick={handleCreateNew} className="bg-[#00B4D8] hover:bg-[#0096b8]">
@@ -252,7 +252,7 @@ export default function BlogCreationToolNew() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-slate-400">Total Posts</p>
-                      <p className="text-whitexl font-bold text-white">{blogPosts.length}</p>
+                      <p className="text-2xl font-bold text-white">{blogPosts.length}</p>
                     </div>
                     <div className="w-12 h-12 bg-[#1E3A5F]/10 rounded-lg flex items-center justify-center">
                       <FileText className="w-6 h-6 text-white" />
@@ -266,7 +266,7 @@ export default function BlogCreationToolNew() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-slate-400">Published</p>
-                      <p className="text-whitexl font-bold text-green-600">
+                      <p className="text-2xl font-bold text-green-600">
                         {blogPosts.filter((p) => p.status === 'published').length}
                       </p>
                     </div>
@@ -282,7 +282,7 @@ export default function BlogCreationToolNew() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-slate-400">Drafts</p>
-                      <p className="text-whitexl font-bold text-slate-400">
+                      <p className="text-2xl font-bold text-slate-400">
                         {blogPosts.filter((p) => p.status === 'draft').length}
                       </p>
                     </div>
@@ -298,7 +298,7 @@ export default function BlogCreationToolNew() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-slate-400">Scheduled</p>
-                      <p className="text-whitexl font-bold text-indigo-400">
+                      <p className="text-2xl font-bold text-indigo-400">
                         {blogPosts.filter((p) => p.status === 'scheduled').length}
                       </p>
                     </div>
@@ -525,7 +525,7 @@ export default function BlogCreationToolNew() {
                   Back to List
                 </Button>
                 <div>
-                  <h1 className="text-whitexl font-bold text-white">
+                  <h1 className="text-2xl font-bold text-white">
                     {editingPost ? 'Edit Blog Post' : 'Create New Blog Post'}
                   </h1>
                   <p className="text-slate-400 mt-1">Write and publish your content</p>

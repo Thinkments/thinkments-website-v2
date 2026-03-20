@@ -778,7 +778,7 @@ Please write the email.`;
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Total Sent</p>
-                  <p className="text-whitexl font-bold text-white">12,458</p>
+                  <p className="text-2xl font-bold text-white">12,458</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingUp className="w-3 h-3 text-green-600" />
                     <span className="text-xs text-green-600">+12.5% vs last month</span>
@@ -796,7 +796,7 @@ Please write the email.`;
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Avg Open Rate</p>
-                  <p className="text-whitexl font-bold text-[#00B4D8]">31.2%</p>
+                  <p className="text-2xl font-bold text-[#00B4D8]">31.2%</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingUp className="w-3 h-3 text-green-600" />
                     <span className="text-xs text-green-600">+2.3%</span>
@@ -814,7 +814,7 @@ Please write the email.`;
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Avg Click Rate</p>
-                  <p className="text-whitexl font-bold text-[#FF6B35]">9.7%</p>
+                  <p className="text-2xl font-bold text-[#FF6B35]">9.7%</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingDown className="w-3 h-3 text-rose-400" />
                     <span className="text-xs text-rose-400">-0.8%</span>
@@ -832,7 +832,7 @@ Please write the email.`;
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-slate-400 mb-1">Conversion Rate</p>
-                  <p className="text-whitexl font-bold text-green-600">4.2%</p>
+                  <p className="text-2xl font-bold text-green-600">4.2%</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingUp className="w-3 h-3 text-green-600" />
                     <span className="text-xs text-green-600">+1.1%</span>

@@ -237,7 +237,7 @@ export default function BrokenLinkFinder() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Broken Link Finder & Fixer</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Broken Link Finder & Fixer</h1>
             <p className="text-slate-400">Find, fix, and prevent broken links across your website</p>
           </div>
           <div className="flex items-center space-x-3">

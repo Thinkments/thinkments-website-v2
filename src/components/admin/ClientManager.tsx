@@ -237,7 +237,7 @@ export default function ClientManager() {
     <div className="p-8">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-whitexl font-bold text-white">Client Manager</h1>
+        <h1 className="text-2xl font-bold text-white">Client Manager</h1>
         <p className="text-slate-400 mt-1">Manage your active clients and contracts</p>
       </div>
 
@@ -248,7 +248,7 @@ export default function ClientManager() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Total Active Clients</p>
-                <p className="text-whitexl font-bold text-white">{activeClients.length}</p>
+                <p className="text-2xl font-bold text-white">{activeClients.length}</p>
               </div>
               <div className="w-12 h-12 bg-[#00B4D8]/10 rounded-lg flex items-center justify-center">
                 <Users className="w-6 h-6 text-[#00B4D8]" />
@@ -262,7 +262,7 @@ export default function ClientManager() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Monthly Recurring Revenue</p>
-                <p className="text-whitexl font-bold text-white">${totalMRR.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-white">${totalMRR.toLocaleString()}</p>
               </div>
               <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                 <DollarSign className="w-6 h-6 text-green-600" />
@@ -276,7 +276,7 @@ export default function ClientManager() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Contracts Expiring Soon</p>
-                <p className="text-whitexl font-bold text-[#FF6B35]">{expiringContracts.length}</p>
+                <p className="text-2xl font-bold text-[#FF6B35]">{expiringContracts.length}</p>
               </div>
               <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center">
                 <AlertTriangle className="w-6 h-6 text-[#FF6B35]" />
@@ -290,7 +290,7 @@ export default function ClientManager() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Average Client Tenure</p>
-                <p className="text-whitexl font-bold text-white">{avgTenure}m</p>
+                <p className="text-2xl font-bold text-white">{avgTenure}m</p>
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-purple-600" />

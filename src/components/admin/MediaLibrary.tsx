@@ -138,7 +138,7 @@ export default function MediaLibrary() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-whitexl font-bold text-white">Media Library</h1>
+          <h1 className="text-2xl font-bold text-white">Media Library</h1>
           <p className="text-slate-400 mt-1">Manage your images and media files</p>
         </div>
         <Button className="bg-[#00B4D8] hover:bg-[#0096b8]" onClick={handleUploadMockMedia}>

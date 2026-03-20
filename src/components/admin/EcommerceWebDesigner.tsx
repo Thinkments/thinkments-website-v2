@@ -92,7 +92,7 @@ Respond in strict JSON format with exactly this field based on the user's brief:
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-whitexl font-bold mb-2">Web Architect Agent</h2>
+                <h2 className="text-2xl font-bold mb-2">Web Architect Agent</h2>
                 <p className="text-muted-foreground">
                     An AI graphic designer that autonomously generates modern, conversion-optimized e-commerce layouts.
                 </p>

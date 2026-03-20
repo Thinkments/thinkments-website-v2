@@ -435,7 +435,7 @@ Please write the copy now.`;
       <div className="mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-whitexl font-bold text-white">AI Writer</h1>
+            <h1 className="text-2xl font-bold text-white">AI Writer</h1>
             <p className="text-slate-400 mt-1">Generate on-brand copy for any purpose</p>
             <div className="mt-3 flex items-center space-x-2">
               <Badge className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">

@@ -313,7 +313,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
               <Network className="w-8 h-8 text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)]" />
             </div>
             <div>
-              <h1 className="text-whitexl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">Pathfinder Matrix</h1>
+              <h1 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">Pathfinder Matrix</h1>
               <p className="text-sm text-indigo-300/70 font-medium tracking-wide flex items-center gap-2">
                 Link Integrity & Orphan Operations <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 uppercase tracking-widest">Deep Scan</span>
               </p>
@@ -391,7 +391,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                           Analyzing Vector: {Math.floor((scanProgress / 100) * stats.totalLinks)} / {stats.totalLinks}
                         </span>
                       </div>
-                      <span className="text-whitexl font-black text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-emerald-600 drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
+                      <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-emerald-600 drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
                         {scanProgress}%
                       </span>
                     </div>
@@ -671,7 +671,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 <h3 className="font-semibold text-white mb-3">Link Health Score</h3>
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-green-100 to-green-200 mb-3">
-                    <span className="text-whitexl font-bold text-green-700">85</span>
+                    <span className="text-2xl font-bold text-green-700">85</span>
                   </div>
                   <p className="text-sm text-slate-400">Good health</p>
                   <div className="flex items-center justify-center space-x-1 mt-2">

@@ -174,7 +174,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <p className="text-sm text-slate-400 mb-2">{title}</p>
-          <h3 className="text-whitexl font-bold text-white mb-3">{value}</h3>
+          <h3 className="text-2xl font-bold text-white mb-3">{value}</h3>
           <div className="flex items-center space-x-1">
             {isNeutral ? (
               <Minus className="w-4 h-4 text-gray-400" />
@@ -253,7 +253,7 @@ export default function PerformanceDashboard() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Performance Dashboard</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Performance Dashboard</h1>
             <p className="text-slate-400">
               Real-time analytics and insights for your digital properties
             </p>

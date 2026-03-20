@@ -246,7 +246,7 @@ export default function InvoicesExpenses() {
       <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-whitexl font-bold text-white mb-2">Billing & Finances</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Billing & Finances</h1>
             <p className="text-slate-400">Manage invoices, expenses, and financial reporting</p>
           </div>
         </div>
@@ -1174,7 +1174,7 @@ export default function InvoicesExpenses() {
                 <div className="border border-white/10 rounded-lg p-8 mb-6 bg-[#0f172a]/40 backdrop-blur-xl">
                   <div className="flex items-start justify-between mb-8">
                     <div>
-                      <h3 className="text-whitexl font-bold text-white mb-2">INVOICE</h3>
+                      <h3 className="text-2xl font-bold text-white mb-2">INVOICE</h3>
                       <p className="text-slate-400">{selectedInvoice.id}</p>
                     </div>
                     <Badge

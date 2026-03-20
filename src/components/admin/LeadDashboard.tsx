@@ -231,7 +231,7 @@ export default function LeadDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-whitexl font-bold text-white">Lead Dashboard</h1>
+          <h1 className="text-2xl font-bold text-white">Lead Dashboard</h1>
           <p className="text-slate-400 mt-1">Track and manage your sales pipeline</p>
         </div>
 
@@ -263,7 +263,7 @@ export default function LeadDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Total Leads</p>
-                <p className="text-whitexl font-bold text-white">{totalLeads}</p>
+                <p className="text-2xl font-bold text-white">{totalLeads}</p>
                 <div className="flex items-center mt-2 text-sm">
                   <ArrowUpRight className="w-4 h-4 text-green-600 mr-1" />
                   <span className="text-green-600 font-medium">+12%</span>
@@ -282,7 +282,7 @@ export default function LeadDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Hot Leads</p>
-                <p className="text-whitexl font-bold text-[#FF6B35]">{hotLeads}</p>
+                <p className="text-2xl font-bold text-[#FF6B35]">{hotLeads}</p>
                 <div className="flex items-center mt-2">
                   <Flame className="w-4 h-4 text-[#FF6B35] mr-1" />
                   <span className="text-sm text-slate-400">Needs attention</span>
@@ -300,7 +300,7 @@ export default function LeadDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Leads This Week</p>
-                <p className="text-whitexl font-bold text-white">{leadsThisWeek}</p>
+                <p className="text-2xl font-bold text-white">{leadsThisWeek}</p>
                 <div className="flex items-center mt-2 text-sm">
                   <ArrowUpRight className="w-4 h-4 text-green-600 mr-1" />
                   <span className="text-green-600 font-medium">+8%</span>
@@ -319,7 +319,7 @@ export default function LeadDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400 mb-1">Conversion Rate</p>
-                <p className="text-whitexl font-bold text-white">{conversionRate}%</p>
+                <p className="text-2xl font-bold text-white">{conversionRate}%</p>
                 <div className="flex items-center mt-2">
                   <div className="flex-1 max-w-[100px]">
                     <div className="h-2 bg-white/20 rounded-full overflow-hidden">

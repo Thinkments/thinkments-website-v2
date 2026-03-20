@@ -34,7 +34,7 @@ export default function BulkPageGenerator() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-whitexl font-bold text-white">Bulk Page Generator</h1>
+        <h1 className="text-2xl font-bold text-white">Bulk Page Generator</h1>
         <p className="text-slate-400 mt-1">Create multiple pages at once from a template</p>
       </div>
 

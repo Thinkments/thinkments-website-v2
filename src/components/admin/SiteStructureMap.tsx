@@ -325,7 +325,7 @@ export default function SiteStructureMap() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-whitexl font-bold text-white">Site Structure Map</h1>
+        <h1 className="text-2xl font-bold text-white">Site Structure Map</h1>
         <p className="text-slate-400 mt-1">
           Visual hierarchy of all pages and content on thinkments.com
         </p>
@@ -426,7 +426,7 @@ export default function SiteStructureMap() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400">Total Pages</p>
-                <p className="text-whitexl font-bold text-white">110</p>
+                <p className="text-2xl font-bold text-white">110</p>
               </div>
               <FileText className="w-10 h-10 text-blue-500 opacity-20" />
             </div>
@@ -438,7 +438,7 @@ export default function SiteStructureMap() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400">Blog Posts</p>
-                <p className="text-whitexl font-bold text-purple-600">50</p>
+                <p className="text-2xl font-bold text-purple-600">50</p>
               </div>
               <MessageSquare className="w-10 h-10 text-purple-500 opacity-20" />
             </div>
@@ -450,7 +450,7 @@ export default function SiteStructureMap() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400">Services</p>
-                <p className="text-whitexl font-bold text-teal-600">12</p>
+                <p className="text-2xl font-bold text-teal-600">12</p>
               </div>
               <Search className="w-10 h-10 text-teal-500 opacity-20" />
             </div>
@@ -462,7 +462,7 @@ export default function SiteStructureMap() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-400">Case Studies</p>
-                <p className="text-whitexl font-bold text-green-600">4</p>
+                <p className="text-2xl font-bold text-green-600">4</p>
               </div>
               <Users className="w-10 h-10 text-green-500 opacity-20" />
             </div>
