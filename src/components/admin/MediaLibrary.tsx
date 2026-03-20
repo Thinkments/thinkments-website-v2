@@ -47,76 +47,62 @@ export default function MediaLibrary() {
   const [activeMedia, setActiveMedia] = useState<MediaItem | null>(null);
   const [copiedUrl, setCopiedUrl] = useState('');
 
-  // Mock data
-  const mediaItems: MediaItem[] = [
-    {
-      id: '1',
-      name: 'hero-banner.jpg',
-      url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400',
-      altText: 'Marketing dashboard showing analytics',
-      size: '2.4 MB',
-      dimensions: '1920x1080',
-      uploadDate: 'Dec 1, 2025',
-      usedIn: ['Homepage', 'About Page'],
-      fileType: 'image/jpeg',
-    },
-    {
-      id: '2',
-      name: 'team-photo.jpg',
-      url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400',
-      altText: 'ThinkMents team working together',
-      size: '1.8 MB',
-      dimensions: '1600x900',
-      uploadDate: 'Nov 28, 2025',
-      usedIn: ['About Page', 'Team Page'],
-      fileType: 'image/jpeg',
-    },
-    {
-      id: '3',
-      name: 'seo-illustration.png',
-      url: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400',
-      altText: 'SEO optimization concept',
-      size: '850 KB',
-      dimensions: '1200x800',
-      uploadDate: 'Nov 25, 2025',
-      usedIn: ['SEO Services Page', 'Blog: SEO Tips'],
-      fileType: 'image/png',
-    },
-    {
-      id: '4',
-      name: 'social-media-marketing.jpg',
-      url: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400',
-      altText: 'Social media marketing icons',
-      size: '1.2 MB',
-      dimensions: '1400x900',
-      uploadDate: 'Nov 20, 2025',
-      usedIn: ['Social Media Page'],
-      fileType: 'image/jpeg',
-    },
-    {
-      id: '5',
-      name: 'web-design-mockup.jpg',
-      url: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400',
-      altText: 'Modern website design mockup',
-      size: '2.1 MB',
-      dimensions: '1800x1200',
-      uploadDate: 'Nov 15, 2025',
-      usedIn: ['Web Design Page', 'Portfolio'],
-      fileType: 'image/jpeg',
-    },
-    {
-      id: '6',
-      name: 'analytics-chart.png',
-      url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400',
-      altText: 'Digital marketing analytics chart',
-      size: '950 KB',
-      dimensions: '1600x900',
-      uploadDate: 'Nov 10, 2025',
-      usedIn: [],
-      fileType: 'image/png',
-    },
-  ];
+  const [mediaItems, setMediaItems] = useState<MediaItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  React.useEffect(() => {
+    fetch('/api/ops-data?type=media')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) setMediaItems(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const handleUploadMockMedia = async () => {
+    const dummy: Partial<MediaItem> = {
+      name: 'newly-uploaded-file.jpg',
+      url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400',
+      altText: 'A newly uploaded mock image',
+      size: '1.5 MB',
+      dimensions: '1920x1080',
+      uploadDate: new Date().toLocaleDateString(),
+      usedIn: [],
+      fileType: 'image/jpeg'
+    };
+    try {
+      const res = await fetch('/api/ops-data?type=media', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dummy)
+      });
+      const data = await res.json();
+      setMediaItems((prev) => [...prev, data]);
+      toast.success('Media uploaded to local database!');
+    } catch (e) {
+      toast.error('Upload failed');
+    }
+  };
+
+  const handleDeleteMedia = async () => {
+    if (!activeMedia) return;
+    try {
+      await fetch('/api/ops-data?type=media', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: activeMedia.id })
+      });
+      setMediaItems((prev) => prev.filter(m => m.id !== activeMedia.id));
+      setSidebarOpen(false);
+      toast.success('Media deleted permanently');
+    } catch (err) {
+      toast.error('Deletion failed');
+    }
+  };
   const handleSelectMedia = (id: string) => {
     setSelectedMedia((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
@@ -155,7 +141,7 @@ export default function MediaLibrary() {
           <h1 className="text-3xl font-bold text-[#1E3A5F]">Media Library</h1>
           <p className="text-gray-600 mt-1">Manage your images and media files</p>
         </div>
-        <Button className="bg-[#00B4D8] hover:bg-[#0096b8]">
+        <Button className="bg-[#00B4D8] hover:bg-[#0096b8]" onClick={handleUploadMockMedia}>
           <Upload className="w-4 h-4 mr-2" />
           Upload Media
         </Button>
@@ -535,7 +521,7 @@ export default function MediaLibrary() {
                     <Download className="w-4 h-4 mr-2" />
                     Download
                   </Button>
-                  <Button variant="outline" className="flex-1 text-red-600 hover:text-red-700">
+                  <Button variant="outline" className="flex-1 text-red-600 hover:text-red-700" onClick={handleDeleteMedia}>
                     <Trash2 className="w-4 h-4 mr-2" />
                     Delete
                   </Button>
