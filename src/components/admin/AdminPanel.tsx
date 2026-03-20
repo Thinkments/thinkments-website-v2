@@ -57,6 +57,7 @@ import TaskBoard from './TaskBoard';
 import PageAuditorAgent from './PageAuditorAgent';
 import DashboardOverview from './DashboardOverview';
 import ProjectLoneStar from './ProjectLoneStar';
+import StreetSalesDMX from './StreetSalesDMX';
 
 interface NavigationItem {
   id: string;
@@ -221,6 +222,14 @@ const navigationItems: NavigationItem[] = [
     id: 'project-lone-star',
     label: 'Lone Star Directive',
     icon: Zap,
+  },
+  {
+    id: 'field-operations',
+    label: 'Field Ops',
+    icon: MapPin,
+    children: [
+      { id: 'street-sales-dmx', label: 'Street Sales: DMX' },
+    ],
   },
   {
     id: 'system-intelligence',
@@ -528,10 +537,11 @@ export default function AdminPanel() {
                 {activeItem === 'task-board' && <TaskBoard />}
                 {activeItem === 'page-auditor' && <PageAuditorAgent />}
                 {activeItem === 'project-lone-star' && <ProjectLoneStar />}
+                {activeItem === 'street-sales-dmx' && <StreetSalesDMX />}
 
                 {/* Placeholder Content */}
                 {(!activeItem || 
-                  (!['dashboard', 'client-manager', 'lead-dashboard', 'performance-dashboard', 'report-generator', 'rank-tracker', 'gbp-dashboard', 'reviews', 'uptime-monitor', 'invoices', 'web-designer', 'admin-manager', 'system-architecture', 'task-board', 'page-auditor', 'project-lone-star'].includes(activeItem) && !activeItem.startsWith('podcast-'))) && (
+                  (!['dashboard', 'client-manager', 'lead-dashboard', 'performance-dashboard', 'report-generator', 'rank-tracker', 'gbp-dashboard', 'reviews', 'uptime-monitor', 'invoices', 'web-designer', 'admin-manager', 'system-architecture', 'task-board', 'page-auditor', 'project-lone-star', 'street-sales-dmx'].includes(activeItem) && !activeItem.startsWith('podcast-'))) && (
                   <div className="flex items-center justify-center h-[calc(100vh-120px)]">
                     <div className="text-center max-w-md w-full relative">
                       <div className="absolute inset-0 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none" />
