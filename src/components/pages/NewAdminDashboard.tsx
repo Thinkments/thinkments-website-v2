@@ -62,9 +62,9 @@ import AnalyticsDashboard from '../admin/AnalyticsDashboard';
 import EnhancedAIModelSelector from '../admin/EnhancedAIModelSelector';
 import AIBlogGenerator from '../admin/AIBlogGenerator';
 
-import NewBlogPost from './admin/NewBlogPost';
-import NewPage from './admin/NewPage';
-import ContentCalendar from './admin/ContentCalendar';
+import BlogEditor from '../admin/content/BlogEditor';
+import PageBuilderComponent from '../admin/content/PageBuilder';
+import ContentCalendar from '../admin/content/ContentCalendar';
 
 interface NavItem {
   id: string;
@@ -156,13 +156,13 @@ export default function NewAdminDashboard() {
       case 'dashboard':
         return <DashboardOverview onNavigate={setActivePage} />;
       case 'new-blog':
-        return <NewBlogPost />;
+        return <BlogEditor />;
       case 'blog-posts':
         return <BlogCreationToolNew />;
       case 'media':
         return <MediaLibrary />;
       case 'new-page':
-        return <NewPage />;
+        return <PageBuilderComponent />;
       case 'pages':
         return <PageBuilder />;
       case 'bulk-generator':

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { Save, ArrowLeft, Loader2, Type, FileText, Tag, Image as ImageIcon } from 'lucide-react';
+import { Save, ArrowLeft, Loader2, Type, FileText, Tag } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '../../../ui/button';
-import { Input } from '../../../ui/input';
-import { Label } from '../../../ui/label';
+import { Button } from '../../ui/button';
+import { Input } from '../../ui/input';
+import { Label } from '../../ui/label';
 
 export default function BlogEditor() {
   const navigate = useNavigate();
