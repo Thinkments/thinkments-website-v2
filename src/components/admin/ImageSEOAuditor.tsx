@@ -149,7 +149,7 @@ export default function ImageSEOAuditor() {
   };
 
   const selectAll = () => {
-    setSelectedImages(mockImages.map((img) => img.id));
+    setSelectedImages(images.map((img) => img.id));
   };
 
   const deselectAll = () => {
@@ -641,7 +641,7 @@ export default function ImageSEOAuditor() {
                   : 'space-y-4'
               }
             >
-              {mockImages
+              {images
                 .filter((img) => img.issues.includes('missing-alt'))
                 .map((image) => (
                   <Card
@@ -741,7 +741,7 @@ export default function ImageSEOAuditor() {
         {/* Poor File Names Tab */}
         {activeTab === 'poor-names' && (
           <div className="space-y-4">
-            {mockImages
+            {images
               .filter((img) => img.issues.includes('poor-name'))
               .map((image) => (
                 <Card key={image.id} className="border-0 shadow-md">
@@ -826,7 +826,7 @@ export default function ImageSEOAuditor() {
             </Card>
 
             <div className="space-y-4">
-              {mockImages
+              {images
                 .filter((img) => img.issues.includes('oversized'))
                 .map((image) => {
                   const savings = image.size - image.size * 0.15;
@@ -929,7 +929,7 @@ export default function ImageSEOAuditor() {
               </CardContent>
             </Card>
 
-            {mockImages
+            {images
               .filter((img) => img.issues.includes('missing-dimensions'))
               .map((image) => (
                 <Card key={image.id} className="border-0 shadow-md">
@@ -1008,7 +1008,7 @@ export default function ImageSEOAuditor() {
             </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {mockImages.slice(0, 3).map((image) => (
+              {images.slice(0, 3).map((image) => (
                 <Card key={image.id} className="border-0 shadow-md">
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-3">
@@ -1078,7 +1078,7 @@ export default function ImageSEOAuditor() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {mockImages.slice(0, 3).map((image, idx) => (
+                  {images.slice(0, 3).map((image, idx) => (
                     <div
                       key={image.id}
                       className="border-2 border-gray-200 rounded-lg p-3 hover:border-[#00B4D8] transition-colors"
