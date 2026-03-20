@@ -26,18 +26,30 @@ export const handler: Handler = async (event, _context) => {
     const issues: PageIssue[] = [];
     
     // Resolve path to the pages directory
-    // In Netlify dev, process.cwd() is usually the project root
-    const pagesDir = path.join(process.cwd(), 'src', 'components', 'pages');
-    
-    // Check if directory exists
-    try {
-      await fs.access(pagesDir);
-    } catch (e) {
+    // We try multiple paths since Netlify local dev vs AWS Lambda have different root contexts
+    const tryPaths = [
+      path.join(process.cwd(), 'src', 'components', 'pages'),
+      process.env.LAMBDA_TASK_ROOT ? path.join(process.env.LAMBDA_TASK_ROOT, 'src', 'components', 'pages') : null,
+      path.resolve(__dirname, '..', '..', '..', 'src', 'components', 'pages')
+    ].filter(Boolean) as string[];
+
+    let pagesDir = '';
+    for (const p of tryPaths) {
+      try {
+        await fs.access(p);
+        pagesDir = p;
+        break;
+      } catch (e) {
+        // Ignore and try next path
+      }
+    }
+
+    if (!pagesDir) {
       return {
         statusCode: 500,
         body: JSON.stringify({ 
-          error: `Could not access pages directory at ${pagesDir}`,
-          details: e instanceof Error ? e.message : String(e)
+          error: `Could not access pages directory.`,
+          details: `Searched in: ${tryPaths.join(', ')}`
         }),
       };
     }

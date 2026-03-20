@@ -57,6 +57,7 @@
 [functions]
   node_bundler = "esbuild"
   external_node_modules = ["@netlify/functions"]
+  included_files = ["src/components/pages/**/*.tsx", "src/components/pages/**/*.jsx"]
 
 
 # Skip Next.js plugin - this is a React/Vite project
