@@ -12,7 +12,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '../ui/select';
-import { Sparkles, LayoutTemplate, Palette, MonitorSmartphone, Code, Download, CheckCircle2, ShoppingCart, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { Sparkles, LayoutTemplate, Palette, MonitorSmartphone, Code, CheckCircle2, ShoppingCart, Image as ImageIcon, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function EcommerceWebDesigner() {
@@ -30,7 +30,7 @@ export default function EcommerceWebDesigner() {
     } | null>(null);
     const [activeTab, setActiveTab] = useState<'preview' | 'code'>('preview');
 
-    const handleGenerate = () => {
+    const handleGenerate = async () => {
         if (!businessName.trim() || !industry.trim()) {
             toast.error('Please enter a business name and industry');
             return;
@@ -38,27 +38,48 @@ export default function EcommerceWebDesigner() {
 
         setIsGenerating(true);
 
-        // Simulate AI graphic design generation
-        setTimeout(() => {
-            const themes: Record<string, { primary: string; secondary: string; font: string }> = {
-                minimal: { primary: '#000000', secondary: '#F3F4F6', font: 'Inter, sans-serif' },
-                luxury: { primary: '#B8860B', secondary: '#1A1A1A', font: 'Playfair Display, serif' },
-                bold: { primary: '#FF3366', secondary: '#111827', font: 'Montserrat, sans-serif' },
-                nature: { primary: '#2E8B57', secondary: '#F0FFF0', font: 'Lora, serif' },
-            };
+        try {
+            const systemPrompt = `You are a world-class Web Architect AI Agent. You design conversion-optimized landing pages.
+Respond in strict JSON format with exactly these fields based on the user's brief:
+{
+  "primaryColor": "A beautiful hex code for the primary brand color",
+  "secondaryColor": "A supporting hex code for backgrounds/hero layers",
+  "font": "A modern Google Font family string (e.g., 'Inter, sans-serif')",
+  "heroTitle": "An engaging, short hero headline (e.g., 'Elevate Your Space')",
+  "heroSubtitle": "1-2 sentences of conversion-focused subtext"
+}`;
+            const userMessage = `Business Name: ${businessName}\nIndustry: ${industry}\nAesthetic: ${aesthetic}\nAdditional Context: ${description || 'None'}`;
 
-            const theme = themes[aesthetic] || themes.minimal;
-
-            setGeneratedDesign({
-                primaryColor: theme.primary,
-                secondaryColor: theme.secondary,
-                font: theme.font,
-                heroTitle: `Elevate Your ${industry} Experience`,
-                heroSubtitle: description ? `Discover our curated collection of ${description}` : `Shop the best products for your lifestyle.`,
+            const res = await fetch('/api/openai-inference', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    systemPrompt,
+                    userMessage,
+                    jsonMode: true,
+                    isGpt4: true
+                })
             });
+
+            const data = await res.json();
+
+            if (!data.success) {
+                if (data.isFallback) {
+                    setGeneratedDesign(JSON.parse(data.content));
+                    toast.warning('OpenAI API not configured: Showing fallback data.');
+                } else {
+                    toast.error('API Error: ' + (data.error || 'Unknown error'));
+                }
+            } else {
+                setGeneratedDesign(JSON.parse(data.content));
+                toast.success('E-commerce design payload generated successfully!');
+            }
+        } catch (error) {
+            console.error('Web Designer API Error:', error);
+            toast.error('Failed to communicate with intelligence layer.');
+        } finally {
             setIsGenerating(false);
-            toast.success('E-commerce design generated successfully!');
-        }, 3000);
+        }
     };
 
     const getHtmlCode = () => {

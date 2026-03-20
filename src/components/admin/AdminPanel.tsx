@@ -34,6 +34,7 @@ import {
   HelpCircle,
   Mic,
   Brain,
+  Zap,
 } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
@@ -52,6 +53,9 @@ import PublishingSystem from './PublishingSystem';
 import SystemArchitecture from './SystemArchitecture';
 import EcommerceWebDesigner from './EcommerceWebDesigner';
 import AdminCenterManager from './AdminCenterManager';
+import TaskBoard from './TaskBoard';
+import PageAuditorAgent from './PageAuditorAgent';
+import DashboardOverview from './DashboardOverview';
 
 interface NavigationItem {
   id: string;
@@ -219,6 +223,7 @@ const navigationItems: NavigationItem[] = [
     children: [
       { id: 'admin-manager', label: 'Admin Manager' },
       { id: 'system-architecture', label: 'Arch. Mapper' },
+      { id: 'page-auditor', label: 'Page Auditor' },
     ],
   },
   {
@@ -230,8 +235,8 @@ const navigationItems: NavigationItem[] = [
 
 export default function AdminPanel() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [expandedSections, setExpandedSections] = useState<string[]>(['analytics-reports']);
-  const [activeItem, setActiveItem] = useState<string>('performance-dashboard');
+  const [expandedSections, setExpandedSections] = useState<string[]>([]);
+  const [activeItem, setActiveItem] = useState<string>('dashboard');
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
@@ -580,6 +585,9 @@ export default function AdminPanel() {
                   : 'max-w-7xl mx-auto'
               }
             >
+              {/* Render Dashboard Overview */}
+              {activeItem === 'dashboard' && <DashboardOverview onNavigate={(id) => setActiveItem(id)} />}
+
               {/* Render Client Manager */}
               {activeItem === 'client-manager' && <ClientManager />}
 
@@ -617,6 +625,10 @@ export default function AdminPanel() {
               {activeItem === 'admin-manager' && <AdminCenterManager />}
               {activeItem === 'system-architecture' && <SystemArchitecture />}
 
+              {/* Render Task Board & Page Auditor */}
+              {activeItem === 'task-board' && <TaskBoard />}
+              {activeItem === 'page-auditor' && <PageAuditorAgent />}
+
               {/* Placeholder Content */}
               {!activeItem && (
                 <div className="flex items-center justify-center h-full min-h-[500px]">
@@ -650,6 +662,7 @@ export default function AdminPanel() {
 
               {/* Placeholder for other sections */}
               {activeItem &&
+                activeItem !== 'dashboard' &&
                 activeItem !== 'client-manager' &&
                 activeItem !== 'lead-dashboard' &&
                 activeItem !== 'performance-dashboard' &&
@@ -662,6 +675,8 @@ export default function AdminPanel() {
                 activeItem !== 'web-designer' &&
                 activeItem !== 'admin-manager' &&
                 activeItem !== 'system-architecture' &&
+                activeItem !== 'task-board' &&
+                activeItem !== 'page-auditor' &&
                 !activeItem.startsWith('podcast-') && (
                   <div className="flex items-center justify-center h-full min-h-[500px]">
                     <div className="text-center">

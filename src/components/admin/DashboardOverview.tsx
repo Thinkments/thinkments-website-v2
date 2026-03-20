@@ -3,8 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import {
-  LineChart,
-  Line,
   AreaChart,
   Area,
   XAxis,
@@ -18,12 +16,12 @@ import {
   Layers,
   Clock,
   TrendingUp,
-  ArrowRight,
   ArrowUp,
   ArrowDown,
   Calendar,
-  Image as ImageIcon,
   PenTool,
+  ShieldCheck,
+  CheckSquare,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -184,14 +182,14 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
         <Card className="border-0 shadow-md bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8]">
           <CardContent className="p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               <Button
                 variant="ghost"
                 className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4 flex flex-col items-center space-y-2 border shadow-sm"
                 onClick={() => onNavigate?.('new-blog')}
               >
                 <PenTool className="w-6 h-6" />
-                <span className="font-medium">New Blog Post</span>
+                <span className="font-medium text-center">New Blog</span>
               </Button>
               <Button
                 variant="ghost"
@@ -199,7 +197,7 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                 onClick={() => onNavigate?.('new-page')}
               >
                 <Layers className="w-6 h-6" />
-                <span className="font-medium">New Page</span>
+                <span className="font-medium text-center">New Page</span>
               </Button>
               <Button
                 variant="ghost"
@@ -207,7 +205,23 @@ export default function DashboardOverview({ onNavigate }: DashboardOverviewProps
                 onClick={() => onNavigate?.('calendar')}
               >
                 <Calendar className="w-6 h-6" />
-                <span className="font-medium">View Content Calendar</span>
+                <span className="font-medium text-center">Calendar</span>
+              </Button>
+              <Button
+                variant="ghost"
+                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4 flex flex-col items-center space-y-2 border shadow-sm"
+                onClick={() => onNavigate?.('task-board')}
+              >
+                <CheckSquare className="w-6 h-6" />
+                <span className="font-medium text-center">Task Board</span>
+              </Button>
+              <Button
+                variant="ghost"
+                className="bg-white text-[#1E3A5F] hover:bg-gray-100 h-auto py-4 flex flex-col items-center space-y-2 border shadow-sm"
+                onClick={() => onNavigate?.('page-auditor')}
+              >
+                <ShieldCheck className="w-6 h-6" />
+                <span className="font-medium text-center">Page Auditor</span>
               </Button>
             </div>
           </CardContent>

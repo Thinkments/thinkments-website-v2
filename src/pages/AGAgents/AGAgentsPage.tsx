@@ -103,6 +103,15 @@ const CREATIVE_AGENTS = [
         color: AGENT_COLORS.creative
     },
     {
+        id: 'page-auditor',
+        name: 'Page Auditor',
+        subtitle: 'Content & SEO QA',
+        icon: ShieldCheck,
+        description: 'Scans pages for missing content, unreplaced placeholders, and incomplete SEO metadata.',
+        benefits: ['Automated audits', 'Task logging', 'Site health monitoring'],
+        color: AGENT_COLORS.creative
+    },
+    {
         id: 'media-scheduler',
         name: 'Media Scheduler',
         subtitle: 'Perfect Timing',

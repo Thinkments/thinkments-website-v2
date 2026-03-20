@@ -74,89 +74,12 @@ export default function URLInspectionTool() {
   const [analysis, setAnalysis] = useState<PageAnalysis | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const simulatePageAnalysis = async (targetUrl: string): Promise<PageAnalysis> => {
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
-
-    // Mock analysis based on URL patterns
-    const isHomepage = targetUrl === '/' || targetUrl === '';
-    const isServicePage =
-      targetUrl.includes('/services/') ||
-      ['web-design', 'digital-marketing', 'videography'].some((s) => targetUrl.includes(s));
-    const isLocationPage = targetUrl.includes('/digital-marketing-');
-    const isLegalPage =
-      targetUrl.includes('/privacy-policy') || targetUrl.includes('/terms-of-service');
-
-    const analysis: PageAnalysis = {
-      url: targetUrl,
-      status: 'success',
-      seo: {
-        title: isHomepage
-          ? 'ThinkMents - Digital Marketing & Web Design Agency in Decatur, Texas'
-          : isServicePage
-            ? `${targetUrl.split('/').pop()?.replace(/-/g, ' ')} - ThinkMents Professional Services`
-            : isLocationPage
-              ? `Digital Marketing in ${targetUrl.split('-').pop()} - ThinkMents Local Services`
-              : `${targetUrl.split('/').pop()?.replace(/-/g, ' ')} - ThinkMents`,
-        description: isHomepage
-          ? 'Professional digital marketing, web design, and SEO services in Decatur, Texas. Helping local businesses grow with custom websites, strategic marketing, and proven results.'
-          : `Professional services for ${targetUrl.split('/').pop()?.replace(/-/g, ' ')}`,
-        keywords: 'digital marketing, web design, SEO, Decatur Texas, ThinkMents',
-        robots: isLegalPage ? 'noindex, follow' : 'index, follow',
-        canonical: `https://thinkments.com${targetUrl}`,
-        ogTitle: 'ThinkMents - Digital Marketing Experts',
-        ogDescription: 'Professional digital marketing and web design services',
-        ogImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=630&fit=crop',
-        ogType: 'website',
-        twitterCard: 'summary_large_image',
-        lang: 'en',
-        viewport: 'width=device-width, initial-scale=1',
-        charset: 'utf-8',
-      },
-      performance: {
-        loadTime: Math.random() * 2000 + 500,
-        size: Math.random() * 500 + 200,
-        images: Math.floor(Math.random() * 10) + 1,
-        scripts: Math.floor(Math.random() * 5) + 2,
-        stylesheets: Math.floor(Math.random() * 3) + 1,
-      },
-      accessibility: {
-        hasAltTags: true,
-        hasHeadings: true,
-        hasLang: true,
-        colorContrast: true,
-      },
-      errors: [],
-      warnings: [],
-      suggestions: [],
-    };
-
-    // Add some conditional issues
-    if (!analysis.seo.title || analysis.seo.title.length < 30) {
-      analysis.warnings.push('Title tag is too short (recommended: 50-60 characters)');
+  const fetchLiveAnalysis = async (targetUrl: string): Promise<PageAnalysis> => {
+    const response = await fetch(\`/api/url-inspection?url=\${encodeURIComponent(targetUrl)}\`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch inspection data');
     }
-    if (analysis.seo.title && analysis.seo.title.length > 60) {
-      analysis.warnings.push('Title tag is too long (recommended: 50-60 characters)');
-    }
-    if (!analysis.seo.description || analysis.seo.description.length < 120) {
-      analysis.warnings.push('Meta description is too short (recommended: 150-160 characters)');
-    }
-    if (analysis.seo.description && analysis.seo.description.length > 160) {
-      analysis.warnings.push('Meta description is too long (recommended: 150-160 characters)');
-    }
-
-    if (isLegalPage && analysis.seo.robots === 'index, follow') {
-      analysis.suggestions.push('Consider using "noindex, follow" for legal/policy pages');
-    }
-
-    // Determine overall status
-    if (analysis.errors.length > 0) {
-      analysis.status = 'error';
-    } else if (analysis.warnings.length > 0) {
-      analysis.status = 'warning';
-    }
-
-    return analysis;
+    return response.json();
   };
 
   const analyzeUrl = async () => {
@@ -164,7 +87,7 @@ export default function URLInspectionTool() {
 
     setLoading(true);
     try {
-      const result = await simulatePageAnalysis(url);
+      const result = await fetchLiveAnalysis(url);
       setAnalysis(result);
     } catch (error) {
       console.error('Analysis failed:', error);
@@ -177,7 +100,7 @@ export default function URLInspectionTool() {
     setUrl(path);
     setLoading(true);
     try {
-      const result = await simulatePageAnalysis(path);
+      const result = await fetchLiveAnalysis(path);
       setAnalysis(result);
     } catch (error) {
       console.error('Analysis failed:', error);

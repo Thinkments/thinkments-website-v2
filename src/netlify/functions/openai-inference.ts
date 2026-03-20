@@ -24,7 +24,7 @@ const handler: Handler = async (event) => {
     // Safety fallback if API key is not configured
     if (!apiKey) {
       console.warn('OPENAI_API_KEY missing. Returning fallback data.');
-      return handleFallback(systemPrompt, userMessage);
+      return handleFallback(systemPrompt);
     }
 
     const messages = [];
@@ -74,7 +74,7 @@ const handler: Handler = async (event) => {
 };
 
 // Fallback utility handling missing API keys gracefully so frontend never breaks
-function handleFallback(system: string, user: string) {
+function handleFallback(system: string) {
   let fallbackContent = '';
 
   // E-commerce Web Architect simulation format

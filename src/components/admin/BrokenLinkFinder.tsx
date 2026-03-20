@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -118,44 +119,7 @@ export default function BrokenLinkFinder() {
   const [gscConnected, setGscConnected] = useState(false);
   const [monitoringEnabled, setMonitoringEnabled] = useState(false);
 
-  // Mock data
-  const brokenLinks: BrokenLink[] = [
-    {
-      id: '1',
-      sourceUrl: '/services/seo',
-      brokenUrl: '/old-blog-post',
-      linkText: 'Learn more about SEO strategies',
-      statusCode: 404,
-      firstFound: '2024-01-15',
-      lastChecked: '2024-12-09',
-      priority: 'high',
-      type: 'internal',
-      suggestedFix: '/blog/seo-strategies-2024',
-    },
-    {
-      id: '2',
-      sourceUrl: '/blog/digital-marketing-tips',
-      brokenUrl: 'https://example.com/removed-article',
-      linkText: 'external resource',
-      statusCode: 404,
-      firstFound: '2024-02-10',
-      lastChecked: '2024-12-09',
-      priority: 'medium',
-      type: 'external',
-    },
-    {
-      id: '3',
-      sourceUrl: '/about',
-      brokenUrl: '/team/john-doe',
-      linkText: 'Meet our CEO',
-      statusCode: 404,
-      firstFound: '2024-03-20',
-      lastChecked: '2024-12-09',
-      priority: 'high',
-      type: 'internal',
-      suggestedFix: '/about/leadership',
-    },
-  ];
+  const [brokenLinks, setBrokenLinks] = useState<BrokenLink[]>([]);
 
   const archivedVersions: ArchivedVersion[] = [
     {
@@ -217,9 +181,20 @@ export default function BrokenLinkFinder() {
     { text: 'read more', count: 29, issue: 'Generic', priority: 'high' },
   ];
 
-  const handleScan = () => {
+  const handleScan = async () => {
     setIsScanning(true);
-    setTimeout(() => setIsScanning(false), 3000);
+    try {
+      const res = await fetch('/api/broken-link-scanner');
+      if (!res.ok) throw new Error('Scanning failed');
+      const data = await res.json();
+      setBrokenLinks(data.brokenLinks || []);
+      toast.success(\`Scanned \${data.scannedCount} links, found \${data.brokenLinks?.length || 0} broken.\`);
+    } catch (err) {
+      console.error(err);
+      toast.error('Failed to run broken link scan');
+    } finally {
+      setIsScanning(false);
+    }
   };
 
   const toggleLinkSelection = (id: string) => {
@@ -378,7 +353,7 @@ export default function BrokenLinkFinder() {
       {/* Tabs */}
       <div className="mb-6 flex space-x-2 overflow-x-auto pb-2">
         {[
-          { id: 'broken-links', label: 'Broken Links', count: 247 },
+          { id: 'broken-links', label: 'Broken Links', count: brokenLinks.length },
           { id: 'gsc-data', label: 'GSC Crawl Errors', count: 34, badge: 'Google' },
           { id: 'internal-links', label: 'Link Opportunities', count: 42 },
           { id: 'competitor', label: 'Competitor Links', count: 23 },
