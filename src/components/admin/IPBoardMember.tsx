@@ -19,7 +19,7 @@ export default function IPBoardMember() {
         copyright: { recommended: boolean; reasoning: string };
     } | null>(null);
 
-    const handleAnalyze = () => {
+    const handleAnalyze = async () => {
         if (!productName.trim() || !description.trim()) {
             toast.error('Please enter a product name and description.');
             return;
@@ -27,28 +27,47 @@ export default function IPBoardMember() {
 
         setIsAnalyzing(true);
 
-        // Simulate AI IP analysis
-        setTimeout(() => {
-            const hasTech = innovations.toLowerCase().includes('algorithm') || innovations.toLowerCase().includes('hardware') || innovations.toLowerCase().includes('process');
-            
-            setAnalysisResult({
-                summary: `Based on the provided details for "${productName}", here is the preliminary Intellectual Property protection strategy.`,
-                patent: {
-                    recommended: hasTech,
-                    reasoning: hasTech ? 'The described core innovations include technical processes or hardware modifications that may qualify for a utility patent.' : 'No novel technical processes or hardware inventions were clearly identified in the brief. A utility patent is likely unnecessary at this stage.',
-                },
-                trademark: {
-                    recommended: true,
-                    reasoning: `The name "${productName}" and associated branding should be protected via trademark to prevent marketplace confusion and secure brand identity.`,
-                },
-                copyright: {
-                    recommended: true,
-                    reasoning: 'Any original source code, marketing copy, visual designs, or written content produced for this project are automatically protected by copyright, but formal registration affords additional statutory damages.',
-                }
+        try {
+            const systemPrompt = `You are a world-class Intellectual Property legal advisor agent. You analyze product briefs and advise on protections. 
+Return your analysis in strict JSON format matching exactly this schema:
+{
+  "summary": "1-2 sentences summarizing the high-level IP protections needed based on the brief.",
+  "patent": { "recommended": boolean, "reasoning": "Detailed rationale focusing on technological/utility merit." },
+  "trademark": { "recommended": boolean, "reasoning": "Detailed rationale concerning brand/name protection." },
+  "copyright": { "recommended": boolean, "reasoning": "Detailed rationale concerning creative/source protection." }
+}`;
+            const userMessage = `Product/Brand Name: ${productName}\nDescription: ${description}\nCore Innovations/Tech: ${innovations}`;
+
+            const res = await fetch('/api/openai-inference', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    systemPrompt,
+                    userMessage,
+                    jsonMode: true,
+                    isGpt4: true
+                })
             });
+
+            const data = await res.json();
+            
+            if (!data.success) {
+                if (data.isFallback) {
+                    setAnalysisResult(JSON.parse(data.content));
+                    toast.warning('OpenAI API not configured: Showing fallback data.');
+                } else {
+                    toast.error('API Error: ' + (data.error || 'Unknown error'));
+                }
+            } else {
+                setAnalysisResult(JSON.parse(data.content));
+                toast.success('Live IP analysis complete!');
+            }
+        } catch (error) {
+            console.error('IP Analysis Error:', error);
+            toast.error('Failed to communicate with the intelligence layer.');
+        } finally {
             setIsAnalyzing(false);
-            toast.success('IP analysis complete!');
-        }, 2500);
+        }
     };
 
     return (
