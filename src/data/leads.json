@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "name": "Sarah Johnson",
+    "email": "sarah.j@techcorp.com",
+    "phone": "(555) 123-4567",
+    "company": "TechCorp Industries",
+    "sourcePage": "/services/web-design",
+    "leadScore": "hot",
+    "status": "proposal",
+    "estimatedValue": 15000,
+    "date": "2024-12-01",
+    "assignedTo": "John Doe",
+    "followUpDate": "2024-12-10",
+    "utmSource": "google",
+    "utmMedium": "cpc",
+    "utmCampaign": "web-design-2024",
+    "interactions": [
+      { "type": "email", "date": "2024-12-01", "description": "Initial inquiry received" },
+      { "type": "call", "date": "2024-12-02", "description": "Discovery call - needs full website redesign" },
+      { "type": "note", "date": "2024-12-03", "description": "Sent proposal for $15k website project" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Mike Chen",
+    "email": "mike@localshop.com",
+    "phone": "(555) 234-5678",
+    "company": "Local Coffee Shop",
+    "sourcePage": "/services/google-business-profile",
+    "leadScore": "warm",
+    "status": "qualified",
+    "estimatedValue": 2500,
+    "date": "2024-12-02",
+    "assignedTo": "Jane Smith",
+    "utmSource": "facebook",
+    "utmMedium": "social",
+    "interactions": [
+      { "type": "email", "date": "2024-12-02", "description": "Inquiry about GBP management" },
+      { "type": "call", "date": "2024-12-03", "description": "Discussed monthly GBP package" }
+    ]
+  }
+]

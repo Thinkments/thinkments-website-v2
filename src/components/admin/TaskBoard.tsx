@@ -58,17 +58,23 @@ export default function TaskBoard() {
   useEffect(() => {
     const handleTaskLogged = (e: Event) => {
       const customEvent = e as CustomEvent;
-      if (customEvent.detail && customEvent.detail.id) {
-        // If it was the missing images issue
+      if (customEvent.detail) {
+        const { id, title, description, priority, sourceAgent } = customEvent.detail;
+        
+        // Backwards compatibility with Page Auditor legacy payload
+        const taskTitle = title || (id ? `Fix flagged content on ${id.includes('portfolio') ? 'Portfolio Page' : 'flagged page'}` : 'New Task');
+        const taskDesc = description || (id ? 'This issue was automatically logged by the Page Auditor Agent.' : '');
+        const taskAgent = sourceAgent || (id ? 'Page Auditor Agent' : 'System');
+        
         const newTask: Task = {
           id: `t-${Date.now()}`,
-          title: `Fix flagged content on ${customEvent.detail.id === 'issue-1' ? 'Portfolio Page' : 'flagged page'}`,
-          description: 'This issue was automatically logged by the Page Auditor Agent.',
+          title: taskTitle,
+          description: taskDesc,
           status: 'todo',
-          priority: 'high',
+          priority: priority || 'high',
           assignee: 'Web Team',
           dueDate: new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0], // +2 days
-          sourceAgent: 'Page Auditor Agent'
+          sourceAgent: taskAgent
         };
         setTasks(prev => [newTask, ...prev]);
       }

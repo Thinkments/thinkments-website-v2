@@ -12,7 +12,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '../ui/select';
-import { Sparkles, LayoutTemplate, Palette, MonitorSmartphone, Code, CheckCircle2, ShoppingCart, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { Sparkles, LayoutTemplate, Palette, MonitorSmartphone, Code, CheckCircle2, ShoppingCart, Image as ImageIcon, Loader2, Send } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function EcommerceWebDesigner() {
@@ -80,6 +80,21 @@ Respond in strict JSON format with exactly these fields based on the user's brie
         } finally {
             setIsGenerating(false);
         }
+    };
+
+    const handleAssignToTeam = () => {
+        if (!generatedDesign) return;
+
+        const event = new CustomEvent('task-logged', {
+            detail: {
+                title: `Build e-commerce site for ${businessName}`,
+                description: `Design approved by Web Architect Agent.\n\nAesthetic: ${aesthetic}\nPrimary: ${generatedDesign.primaryColor}, Secondary: ${generatedDesign.secondaryColor}\nFont: ${generatedDesign.font}\n\nHero: "${generatedDesign.heroTitle}"`,
+                priority: 'medium',
+                sourceAgent: 'Web Architect'
+            }
+        });
+        window.dispatchEvent(event);
+        toast.success('Design logged to the Web Team Task Board!');
     };
 
     const getHtmlCode = () => {
@@ -324,7 +339,11 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                     </div>
                                 ) : (
                                     <div className="p-4 h-full bg-[#1E1E1E]">
-                                        <div className="flex justify-end mb-2">
+                                        <div className="flex justify-end mb-2 space-x-2">
+                                            <Button size="sm" variant="secondary" className="bg-purple-600/20 text-purple-300 hover:bg-purple-600/40 border-0" onClick={handleAssignToTeam}>
+                                                <Send className="w-4 h-4 mr-2" />
+                                                Assign to Web Team
+                                            </Button>
                                             <Button size="sm" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 border-0" onClick={() => {
                                                 navigator.clipboard.writeText(getHtmlCode());
                                                 toast.success('Code copied to clipboard!');

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "businessName": "Acme Corporation",
+    "contactName": "John Smith",
+    "email": "john@acmecorp.com",
+    "phone": "(555) 123-4567",
+    "status": "active",
+    "services": ["Web", "SEO", "GBP"],
+    "retainer": 2500,
+    "contractStart": "2024-01-15",
+    "contractLength": "12 months",
+    "renewalDate": "2025-01-15",
+    "lastContact": "2024-11-28",
+    "website": "https://acmecorp.com",
+    "address": "123 Main St, New York, NY"
+  },
+  {
+    "id": "2",
+    "businessName": "TechStart Inc",
+    "contactName": "Sarah Johnson",
+    "email": "sarah@techstart.io",
+    "phone": "(555) 234-5678",
+    "status": "active",
+    "services": ["Web", "SEO", "Social"],
+    "retainer": 3500,
+    "contractStart": "2024-03-01",
+    "contractLength": "6 months",
+    "renewalDate": "2024-09-01",
+    "lastContact": "2024-12-01",
+    "website": "https://techstart.io",
+    "address": "456 Tech Ave, San Francisco, CA"
+  }
+]
