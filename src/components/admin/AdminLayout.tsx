@@ -190,8 +190,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               .map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href!}
-                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href!)
+                  to={item.href as string}
+                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors mb-1 ${isActive(item.href as string)
                     ? 'bg-[#00B4D8] text-white'
                     : 'text-white/80 hover:bg-white/10 hover:text-white'
                     } ${sidebarCollapsed ? 'justify-center' : ''}`}

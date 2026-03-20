@@ -1,0 +1,34 @@
+
+> thinkments-website@0.1.0 type-check
+> tsc -b
+
+src/components/admin/BrokenLinkFinder.tsx(191,21): error TS1127: Invalid character.
+src/components/admin/BrokenLinkFinder.tsx(368,25): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,30): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,35): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,46): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,58): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,76): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,94): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(368,95): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(369,25): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(372,13): error TS1005: ',' expected.
+src/components/admin/BrokenLinkFinder.tsx(372,14): error TS1472: 'catch' or 'finally' expected.
+src/components/admin/BrokenLinkFinder.tsx(377,29): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(377,34): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(384,29): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(384,34): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(510,48): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1492,35): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1492,42): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1492,46): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1492,59): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1495,35): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1495,42): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1495,46): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1495,59): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1498,35): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1498,42): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1498,46): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1498,59): error TS1005: ';' expected.
+src/components/admin/BrokenLinkFinder.tsx(1654,1): error TS1160: Unterminated template literal.

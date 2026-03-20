@@ -188,7 +188,7 @@ export default function BrokenLinkFinder() {
       if (!res.ok) throw new Error('Scanning failed');
       const data = await res.json();
       setBrokenLinks(data.brokenLinks || []);
-      toast.success(\`Scanned \${data.scannedCount} links, found \${data.brokenLinks?.length || 0} broken.\`);
+      toast.success(`Scanned ${data.scannedCount} links, found ${data.brokenLinks?.length || 0} broken.`);
     } catch (err) {
       console.error(err);
       toast.error('Failed to run broken link scan');
