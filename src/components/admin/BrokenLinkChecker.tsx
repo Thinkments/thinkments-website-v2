@@ -251,77 +251,87 @@ Return a generated JSON array of highly realistic broken links. The array must c
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high':
-        return 'bg-red-500';
+        return 'bg-rose-900/200';
       case 'medium':
-        return 'bg-yellow-500';
+        return 'bg-amber-900/200';
       case 'low':
-        return 'bg-green-500';
+        return 'bg-emerald-900/200';
       default:
-        return 'bg-gray-500';
+        return 'bg-white/50';
     }
   };
 
   const getSourceBadge = (source: SourceType) => {
     switch (source) {
       case 'ahrefs':
-        return <Badge className="bg-orange-100 text-orange-700">Ahrefs</Badge>;
+        return <Badge className="bg-orange-500/10 text-orange-700">Ahrefs</Badge>;
       case 'gsc':
-        return <Badge className="bg-blue-100 text-blue-700">Google</Badge>;
+        return <Badge className="bg-indigo-500/10 text-indigo-300">Google</Badge>;
       case 'scan':
-        return <Badge className="bg-gray-100 text-gray-700">Scan</Badge>;
+        return <Badge className="bg-white/10 text-slate-300">Scan</Badge>;
     }
   };
 
   const getQueueStatusColor = (status?: string) => {
     switch (status) {
       case 'done':
-        return 'bg-green-100 text-green-700';
+        return 'bg-emerald-500/10 text-green-700';
       case 'in-progress':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-indigo-500/10 text-indigo-300';
       case 'todo':
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-slate-300';
       default:
         return '';
     }
   };
 
   return (
-    <div>
+    <div className="relative z-10">
+      {/* Global Ambient Glows */}
+      <div className="absolute top-[-10%] left-[20%] w-[30%] h-[30%] bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[20%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full pointer-events-none" />
+
       {/* Header */}
-      <div className="mb-6">
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Link Health Checker</h1>
-            <p className="text-gray-600">Find broken links, redirects, and orphan pages</p>
-            <p className="text-sm text-gray-500 mt-1">
-              Last scan: {isScanning ? 'Scanning now...' : 'December 9, 2024 at 10:30 AM'}
-            </p>
+      <div className="mb-8 relative z-10 border-b border-white/5 pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-indigo-500/10 rounded-xl border border-indigo-500/20 relative group">
+              <div className="absolute inset-0 bg-indigo-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Network className="w-8 h-8 text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)]" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">Pathfinder Matrix</h1>
+              <p className="text-sm text-indigo-300/70 font-medium tracking-wide flex items-center gap-2">
+                Link Integrity & Orphan Operations <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 uppercase tracking-widest">Deep Scan</span>
+              </p>
+            </div>
           </div>
-          <div className="flex items-center space-x-3">
+          
+          <div className="flex items-center space-x-3 bg-black/40 p-2 rounded-2xl border border-white/5 shadow-inner">
             {!gscConnected && (
-              <Button variant="outline" onClick={() => setShowGSCModal(true)}>
+              <Button variant="outline" onClick={() => setShowGSCModal(true)} className="bg-white/5 border-white/10 hover:bg-white/10 text-slate-300 font-bold text-xs h-10 rounded-xl">
                 <Globe className="w-4 h-4 mr-2" />
-                Connect Google Search Console
+                Auth GSC
               </Button>
             )}
-            <Button variant="outline" onClick={() => setShowAhrefsModal(true)}>
-              <Upload className="w-4 h-4 mr-2" />
-              Import from Ahrefs
+            <Button variant="outline" onClick={() => setShowAhrefsModal(true)} className="bg-white/5 border-white/10 hover:bg-white/10 text-slate-300 font-bold text-xs h-10 rounded-xl">
+              <FileDown className="w-4 h-4 mr-2" />
+              Ahrefs Import
             </Button>
             <Button
               onClick={handleScan}
               disabled={isScanning}
-              className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 border border-indigo-400/30 shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] text-white font-bold text-xs h-10 px-5 rounded-xl transition-all"
             >
               {isScanning ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Scanning...
+                  ANALYZING MATRIX...
                 </>
               ) : (
                 <>
-                  <Search className="w-4 h-4 mr-2" />
-                  Run Full Scan
+                  <Zap className="w-4 h-4 mr-2" />
+                  EXECUTE DEEP SCAN
                 </>
               )}
             </Button>
@@ -330,15 +340,15 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
         {/* Scan Progress */}
         {isScanning && (
-          <Card className="border-0 shadow-md mb-4 bg-blue-50">
+          <Card className="border-0 shadow-2xl border border-white/5 mb-4 bg-indigo-900/20">
             <CardContent className="pt-4">
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-blue-900">
+                  <span className="text-indigo-200">
                     Checking link {Math.floor((scanProgress / 100) * stats.totalLinks)} of{' '}
                     {stats.totalLinks}...
                   </span>
-                  <span className="text-blue-700">{scanProgress}%</span>
+                  <span className="text-indigo-300">{scanProgress}%</span>
                 </div>
                 <div className="w-full h-2 bg-blue-200 rounded-full overflow-hidden">
                   <motion.div
@@ -349,7 +359,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-600">
+                  <span className="text-xs text-slate-400">
                     {Math.floor(stats.totalLinks / 5)} links/second
                   </span>
                   <Button size="sm" variant="ghost" onClick={() => setIsScanning(false)}>
@@ -364,7 +374,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
         {/* GSC Connection Banner */}
         {gscConnected && (
-          <Card className="border-0 shadow-md mb-4 bg-green-50 border-l-4 border-green-500">
+          <Card className="border-0 shadow-2xl border border-white/5 mb-4 bg-emerald-900/20 border-l-4 border-green-500">
             <CardContent className="pt-4 pb-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -392,7 +402,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
         {/* Ahrefs Connection Banner */}
         {ahrefsConnected && (
-          <Card className="border-0 shadow-md mb-4 bg-orange-50 border-l-4 border-orange-500">
+          <Card className="border-0 shadow-2xl border border-white/5 mb-4 bg-orange-900/20 border-l-4 border-orange-500">
             <CardContent className="pt-4 pb-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -417,20 +427,20 @@ Return a generated JSON array of highly realistic broken links. The array must c
       {/* Overview Dashboard */}
       {activeTab === 'overview' && (
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-[#1E3A5F] mb-4">Overview</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">Overview</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {/* Total Links */}
-            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer">
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <LinkIcon className="w-5 h-5 text-blue-600" />
+                  <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                    <LinkIcon className="w-5 h-5 text-indigo-400" />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.totalLinks}</p>
-                <p className="text-sm text-gray-600 mb-2">Total Links</p>
-                <div className="flex items-center space-x-2 text-xs text-gray-500">
-                  <Badge className="bg-blue-100 text-blue-700 text-xs">2,341 Internal</Badge>
+                <p className="text-2xl font-bold text-white mb-1">{stats.totalLinks}</p>
+                <p className="text-sm text-slate-400 mb-2">Total Links</p>
+                <div className="flex items-center space-x-2 text-xs text-slate-500">
+                  <Badge className="bg-indigo-500/10 text-indigo-300 text-xs">2,341 Internal</Badge>
                   <Badge className="bg-purple-100 text-purple-700 text-xs">506 External</Badge>
                 </div>
               </CardContent>
@@ -438,101 +448,101 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
             {/* Broken Links */}
             <Card
-              className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
               onClick={() => setActiveTab('broken-internal')}
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                    <AlertCircle className="w-5 h-5 text-red-600" />
+                  <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center">
+                    <AlertCircle className="w-5 h-5 text-rose-400" />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-red-600 mb-1">{stats.brokenLinks}</p>
-                <p className="text-sm text-gray-600 mb-2">Broken Links (404)</p>
-                <p className="text-xs text-red-700">Hurts SEO & user experience</p>
+                <p className="text-2xl font-bold text-rose-400 mb-1">{stats.brokenLinks}</p>
+                <p className="text-sm text-slate-400 mb-2">Broken Links (404)</p>
+                <p className="text-xs text-rose-300">Hurts SEO & user experience</p>
               </CardContent>
             </Card>
 
             {/* Redirect Chains */}
             <Card
-              className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
               onClick={() => setActiveTab('redirect-chains')}
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
                     <Repeat className="w-5 h-5 text-orange-600" />
                   </div>
                 </div>
                 <p className="text-2xl font-bold text-orange-600 mb-1">{stats.redirectChains}</p>
-                <p className="text-sm text-gray-600 mb-2">Redirect Chains</p>
+                <p className="text-sm text-slate-400 mb-2">Redirect Chains</p>
                 <p className="text-xs text-orange-700">Slows page speed</p>
               </CardContent>
             </Card>
 
             {/* External Broken */}
             <Card
-              className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
               onClick={() => setActiveTab('external-broken')}
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center">
                     <ExternalLink className="w-5 h-5 text-yellow-600" />
                   </div>
                 </div>
                 <p className="text-2xl font-bold text-yellow-600 mb-1">{stats.externalBroken}</p>
-                <p className="text-sm text-gray-600 mb-2">External Broken</p>
+                <p className="text-sm text-slate-400 mb-2">External Broken</p>
                 <p className="text-xs text-yellow-700">Links to dead sites</p>
               </CardContent>
             </Card>
 
             {/* Orphan Pages */}
             <Card
-              className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
               onClick={() => setActiveTab('orphans')}
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-orange-600" />
                   </div>
                 </div>
                 <p className="text-2xl font-bold text-orange-600 mb-1">{stats.orphanPages}</p>
-                <p className="text-sm text-gray-600 mb-2">Orphan Pages</p>
+                <p className="text-sm text-slate-400 mb-2">Orphan Pages</p>
                 <p className="text-xs text-orange-700">No internal links</p>
               </CardContent>
             </Card>
 
             {/* Redirect Loops */}
-            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer">
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                    <ShieldAlert className="w-5 h-5 text-red-600" />
+                  <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center">
+                    <ShieldAlert className="w-5 h-5 text-rose-400" />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-red-600 mb-1">{stats.redirectLoops}</p>
-                <p className="text-sm text-gray-600 mb-2">Redirect Loops</p>
-                <Badge className="bg-red-500 text-white text-xs">Critical</Badge>
+                <p className="text-2xl font-bold text-rose-400 mb-1">{stats.redirectLoops}</p>
+                <p className="text-sm text-slate-400 mb-2">Redirect Loops</p>
+                <Badge className="bg-rose-900/200 text-white text-xs">Critical</Badge>
               </CardContent>
             </Card>
 
             {/* Ahrefs Imported */}
             {ahrefsConnected && (
               <Card
-                className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
                 onClick={() => setActiveTab('ahrefs-imports')}
               >
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
                       <Upload className="w-5 h-5 text-orange-600" />
                     </div>
                   </div>
                   <p className="text-2xl font-bold text-orange-600 mb-1">{stats.ahrefsImported}</p>
-                  <p className="text-sm text-gray-600 mb-2">Imported Issues</p>
-                  <Badge className="bg-orange-100 text-orange-700 text-xs">Ahrefs</Badge>
+                  <p className="text-sm text-slate-400 mb-2">Imported Issues</p>
+                  <Badge className="bg-orange-500/10 text-orange-700 text-xs">Ahrefs</Badge>
                 </CardContent>
               </Card>
             )}
@@ -540,35 +550,35 @@ Return a generated JSON array of highly realistic broken links. The array must c
             {/* Google Flagged */}
             {gscConnected && (
               <Card
-                className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
                 onClick={() => setActiveTab('gsc-issues')}
               >
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Globe className="w-5 h-5 text-blue-600" />
+                    <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                      <Globe className="w-5 h-5 text-indigo-400" />
                     </div>
                   </div>
-                  <p className="text-2xl font-bold text-blue-600 mb-1">{stats.googleFlagged}</p>
-                  <p className="text-sm text-gray-600 mb-2">Google Flagged</p>
-                  <Badge className="bg-blue-100 text-blue-700 text-xs">GSC</Badge>
+                  <p className="text-2xl font-bold text-indigo-400 mb-1">{stats.googleFlagged}</p>
+                  <p className="text-sm text-slate-400 mb-2">Google Flagged</p>
+                  <Badge className="bg-indigo-500/10 text-indigo-300 text-xs">GSC</Badge>
                 </CardContent>
               </Card>
             )}
 
             {/* Link Opportunities */}
             <Card
-              className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow cursor-pointer"
               onClick={() => setActiveTab('link-opportunities')}
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                     <Target className="w-5 h-5 text-green-600" />
                   </div>
                 </div>
                 <p className="text-2xl font-bold text-green-600 mb-1">{stats.linkOpportunities}</p>
-                <p className="text-sm text-gray-600 mb-2">Link Opportunities</p>
+                <p className="text-sm text-slate-400 mb-2">Link Opportunities</p>
                 <p className="text-xs text-green-700">Improve site structure</p>
               </CardContent>
             </Card>
@@ -576,9 +586,9 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
           {/* Quick Actions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="pt-6">
-                <h3 className="font-semibold text-[#1E3A5F] mb-3">Quick Actions</h3>
+                <h3 className="font-semibold text-white mb-3">Quick Actions</h3>
                 <div className="space-y-2">
                   <Button
                     className="w-full justify-start"
@@ -604,14 +614,14 @@ Return a generated JSON array of highly realistic broken links. The array must c
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="pt-6">
-                <h3 className="font-semibold text-[#1E3A5F] mb-3">Link Health Score</h3>
+                <h3 className="font-semibold text-white mb-3">Link Health Score</h3>
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-green-100 to-green-200 mb-3">
                     <span className="text-3xl font-bold text-green-700">85</span>
                   </div>
-                  <p className="text-sm text-gray-600">Good health</p>
+                  <p className="text-sm text-slate-400">Good health</p>
                   <div className="flex items-center justify-center space-x-1 mt-2">
                     <TrendingUp className="w-4 h-4 text-green-600" />
                     <span className="text-xs text-green-600">+5 from last month</span>
@@ -620,21 +630,21 @@ Return a generated JSON array of highly realistic broken links. The array must c
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="pt-6">
-                <h3 className="font-semibold text-[#1E3A5F] mb-3">Recent Activity</h3>
+                <h3 className="font-semibold text-white mb-3">Recent Activity</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full" />
-                    <span className="text-gray-700">Fixed 3 broken links</span>
+                    <div className="w-2 h-2 bg-emerald-900/200 rounded-full" />
+                    <span className="text-slate-300">Fixed 3 broken links</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-gray-700">Created 2 redirects</span>
+                    <div className="w-2 h-2 bg-indigo-900/200 rounded-full" />
+                    <span className="text-slate-300">Created 2 redirects</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-purple-500 rounded-full" />
-                    <span className="text-gray-700">Generated 1 page</span>
+                    <span className="text-slate-300">Generated 1 page</span>
                   </div>
                 </div>
               </CardContent>
@@ -682,20 +692,20 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 onClick={() => setActiveTab(tab.id as TabType)}
                 className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${activeTab === tab.id
                   ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-[#0f172a]/50 backdrop-blur-md text-slate-400 hover:bg-white/5 border border-white/10'
                   }`}
               >
                 {tab.label}
                 {tab.count !== undefined && (
                   <Badge
-                    className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+                    className={`ml-2 ${activeTab === tab.id ? 'bg-[#0f172a]/50 backdrop-blur-md/20 text-white' : 'bg-white/20 text-slate-300'}`}
                   >
                     {tab.count}
                   </Badge>
                 )}
                 {tab.badge && (
                   <Badge
-                    className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-700'}`}
+                    className={`ml-2 ${activeTab === tab.id ? 'bg-[#0f172a]/50 backdrop-blur-md/20 text-white' : 'bg-indigo-500/10 text-indigo-300'}`}
                   >
                     {tab.badge}
                   </Badge>
@@ -713,7 +723,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
           animate={{ y: 0, opacity: 1 }}
           className="mb-6"
         >
-          <Card className="border-2 border-[#00B4D8] shadow-lg">
+          <Card className="border-2 border-[#00B4D8] shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10">
             <CardContent className="pt-4">
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div className="flex items-center space-x-4">
@@ -764,7 +774,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
       {/* Filters */}
       {activeTab !== 'overview' && (
-        <Card className="border-0 shadow-md mb-6">
+        <Card className="border-0 shadow-2xl border border-white/5 mb-6">
           <CardContent className="pt-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
               <div className="flex items-center space-x-3 flex-1">
@@ -775,7 +785,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                     placeholder="Search links..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                    className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
                   />
                 </div>
                 <Select
@@ -795,7 +805,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg"
+                  className="px-3 py-2 border border-white/20 rounded-lg"
                 >
                   <option value="referring-domains">Sort by: Referring Domains</option>
                   <option value="date-found">Sort by: Date Found</option>
@@ -819,7 +829,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
               .map((link) => (
                 <Card
                   key={link.id}
-                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                  className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
@@ -838,7 +848,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                 {link.priority}
                               </Badge>
                               {getSourceBadge(link.source)}
-                              <Badge className="bg-red-100 text-red-700">{link.statusCode}</Badge>
+                              <Badge className="bg-rose-500/10 text-rose-300">{link.statusCode}</Badge>
                               {link.referringDomains && link.referringDomains > 10 && (
                                 <Badge className="bg-purple-100 text-purple-700">
                                   High Impact · {link.referringDomains} domains
@@ -852,13 +862,13 @@ Return a generated JSON array of highly realistic broken links. The array must c
                             </div>
                             <div className="space-y-2">
                               <div>
-                                <p className="text-xs text-gray-600 mb-1">Broken URL:</p>
-                                <p className="font-mono text-sm text-red-600 break-all">
+                                <p className="text-xs text-slate-400 mb-1">Broken URL:</p>
+                                <p className="font-mono text-sm text-rose-400 break-all">
                                   {link.brokenUrl}
                                 </p>
                               </div>
                               <div>
-                                <p className="text-xs text-gray-600 mb-1">Found on:</p>
+                                <p className="text-xs text-slate-400 mb-1">Found on:</p>
                                 <a
                                   href={link.sourceUrl}
                                   className="text-sm text-[#00B4D8] hover:underline flex items-center"
@@ -868,10 +878,10 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                 </a>
                               </div>
                               <div>
-                                <p className="text-xs text-gray-600 mb-1">Link Text:</p>
-                                <p className="text-sm text-gray-900">&quot;{link.linkText}&quot;</p>
+                                <p className="text-xs text-slate-400 mb-1">Link Text:</p>
+                                <p className="text-sm text-gray-100">&quot;{link.linkText}&quot;</p>
                               </div>
-                              <div className="flex items-center space-x-4 text-xs text-gray-500">
+                              <div className="flex items-center space-x-4 text-xs text-slate-500">
                                 <span className="flex items-center">
                                   <Clock className="w-3 h-3 mr-1" />
                                   First found: {link.firstFound}
@@ -889,12 +899,12 @@ Return a generated JSON array of highly realistic broken links. The array must c
                               </div>
                               {link.assignedTo && (
                                 <div className="flex items-center space-x-4 text-xs">
-                                  <Badge className="bg-blue-100 text-blue-700">
+                                  <Badge className="bg-indigo-500/10 text-indigo-300">
                                     <Users className="w-3 h-3 mr-1" />
                                     {link.assignedTo}
                                   </Badge>
                                   {link.dueDate && (
-                                    <Badge className="bg-orange-100 text-orange-700">
+                                    <Badge className="bg-orange-500/10 text-orange-700">
                                       <Calendar className="w-3 h-3 mr-1" />
                                       Due: {link.dueDate}
                                     </Badge>
@@ -906,14 +916,14 @@ Return a generated JSON array of highly realistic broken links. The array must c
                         </div>
 
                         {link.suggestedFix && (
-                          <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
+                          <div className="bg-emerald-900/20 border border-green-200 rounded-lg p-3 mb-3">
                             <div className="flex items-start space-x-2">
                               <Sparkles className="w-4 h-4 text-green-600 mt-0.5" />
                               <div className="flex-1">
                                 <p className="text-xs font-medium text-green-800 mb-1">
                                   AI Suggested Fix:
                                 </p>
-                                <p className="text-sm text-gray-900 mb-2">
+                                <p className="text-sm text-gray-100 mb-2">
                                   Did you mean:{' '}
                                   <span className="font-mono">{link.suggestedFix}</span>?
                                 </p>
@@ -934,24 +944,24 @@ Return a generated JSON array of highly realistic broken links. The array must c
                             <Button size="sm" variant="outline">
                               <MoreVertical className="w-4 h-4" />
                             </Button>
-                            <div className="absolute left-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg py-1 hidden group-hover:block z-10 whitespace-nowrap">
-                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
+                            <div className="absolute left-0 top-full mt-1 bg-[#0f172a]/50 backdrop-blur-md border border-white/10 rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 py-1 hidden group-hover:block z-10 whitespace-nowrap">
+                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
                                 <Edit3 className="w-3 h-3 mr-2" />
                                 Fix Link
                               </button>
                               <button
-                                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center"
+                                className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center"
                                 onClick={() => setShowRedirectModal(true)}
                               >
                                 <ArrowRight className="w-3 h-3 mr-2" />
                                 Create Redirect
                               </button>
-                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
+                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
                                 <Trash2 className="w-3 h-3 mr-2" />
                                 Remove Link
                               </button>
                               <button
-                                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center"
+                                className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center"
                                 onClick={() => {
                                   setSelectedBrokenLink(link);
                                   setShowAIGenerateModal(true);
@@ -961,7 +971,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                 AI Generate Page
                               </button>
                               <button
-                                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center"
+                                className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center"
                                 onClick={() => {
                                   setSelectedBrokenLink(link);
                                   setShowRecoveryModal(true);
@@ -970,7 +980,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                 <Archive className="w-3 h-3 mr-2" />
                                 Recover from Archive
                               </button>
-                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
+                              <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
                                 <X className="w-3 h-3 mr-2" />
                                 Ignore
                               </button>
@@ -1019,20 +1029,20 @@ Return a generated JSON array of highly realistic broken links. The array must c
         {activeTab === 'redirect-chains' && (
           <div className="space-y-4">
             {redirectChains.map((chain) => (
-              <Card key={chain.id} className="border-0 shadow-md">
+              <Card key={chain.id} className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-3">
-                        <Badge className="bg-orange-500 text-white">{chain.hops} hops</Badge>
-                        <Badge className="bg-yellow-100 text-yellow-700">Should be 1 hop</Badge>
+                        <Badge className="bg-orange-900/200 text-white">{chain.hops} hops</Badge>
+                        <Badge className="bg-amber-500/10 text-yellow-700">Should be 1 hop</Badge>
                       </div>
-                      <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-4">
-                        <p className="text-sm font-medium text-gray-700 mb-3">Redirect Path:</p>
+                      <div className="bg-white/5 border-2 border-white/10 rounded-lg p-4">
+                        <p className="text-sm font-medium text-slate-300 mb-3">Redirect Path:</p>
                         <div className="flex flex-wrap items-center gap-2">
                           {chain.redirectPath.map((url, idx) => (
                             <React.Fragment key={idx}>
-                              <span className="font-mono text-sm bg-white px-3 py-2 rounded border border-gray-300">
+                              <span className="font-mono text-sm bg-[#0f172a]/50 backdrop-blur-md px-3 py-2 rounded border border-white/20">
                                 {url}
                               </span>
                               {idx < chain.redirectPath.length - 1 && (
@@ -1067,33 +1077,33 @@ Return a generated JSON array of highly realistic broken links. The array must c
         {activeTab === 'orphans' && (
           <div className="space-y-4">
             {orphanPages.map((page) => (
-              <Card key={page.id} className="border-0 shadow-md">
+              <Card key={page.id} className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-3">
-                        <Badge className="bg-orange-500 text-white">Orphan</Badge>
+                        <Badge className="bg-orange-900/200 text-white">Orphan</Badge>
                         <Badge
                           className={
-                            page.indexed ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                            page.indexed ? 'bg-emerald-500/10 text-green-700' : 'bg-rose-500/10 text-rose-300'
                           }
                         >
                           {page.indexed ? 'Indexed' : 'Not Indexed'}
                         </Badge>
                       </div>
-                      <p className="font-mono text-sm text-gray-900 mb-2">{page.url}</p>
-                      <p className="text-xs text-gray-600">Created: {page.createdDate}</p>
+                      <p className="font-mono text-sm text-gray-100 mb-2">{page.url}</p>
+                      <p className="text-xs text-slate-400">Created: {page.createdDate}</p>
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                    <p className="text-sm font-medium text-blue-900 mb-2">AI Suggestions:</p>
-                    <p className="text-sm text-gray-700 mb-3">
+                  <div className="bg-indigo-900/20 border border-blue-200 rounded-lg p-4 mb-4">
+                    <p className="text-sm font-medium text-indigo-200 mb-2">AI Suggestions:</p>
+                    <p className="text-sm text-slate-300 mb-3">
                       Add links from these pages to improve discoverability:
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {page.suggestedLinksFrom.map((url, idx) => (
-                        <Badge key={idx} className="bg-blue-100 text-blue-700">
+                        <Badge key={idx} className="bg-indigo-500/10 text-indigo-300">
                           {url}
                         </Badge>
                       ))}
@@ -1112,7 +1122,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                       <Network className="w-4 h-4 mr-2" />
                       Add to Navigation
                     </Button>
-                    <Button size="sm" variant="outline" className="text-red-600">
+                    <Button size="sm" variant="outline" className="text-rose-400">
                       <Trash2 className="w-4 h-4 mr-2" />
                       Delete Page
                     </Button>
@@ -1127,7 +1137,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
         {activeTab === 'all-redirects' && (
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-[#1E3A5F]">All Redirects ({redirects.length})</h3>
+              <h3 className="font-semibold text-white">All Redirects ({redirects.length})</h3>
               <Button
                 className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
                 onClick={() => setShowRedirectModal(true)}
@@ -1139,38 +1149,38 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
             <div className="space-y-3">
               {redirects.map((redirect) => (
-                <Card key={redirect.id} className="border-0 shadow-md">
+                <Card key={redirect.id} className="border-0 shadow-2xl border border-white/5">
                   <CardContent className="p-4">
                     <div className="grid grid-cols-12 gap-4 items-center">
                       <div className="col-span-4">
-                        <p className="text-xs text-gray-600 mb-1">From:</p>
-                        <p className="font-mono text-sm text-gray-900">{redirect.fromUrl}</p>
+                        <p className="text-xs text-slate-400 mb-1">From:</p>
+                        <p className="font-mono text-sm text-gray-100">{redirect.fromUrl}</p>
                       </div>
                       <div className="col-span-1 flex justify-center">
                         <ArrowRight className="w-4 h-4 text-gray-400" />
                       </div>
                       <div className="col-span-4">
-                        <p className="text-xs text-gray-600 mb-1">To:</p>
-                        <p className="font-mono text-sm text-gray-900">{redirect.toUrl}</p>
+                        <p className="text-xs text-slate-400 mb-1">To:</p>
+                        <p className="font-mono text-sm text-gray-100">{redirect.toUrl}</p>
                       </div>
                       <div className="col-span-1">
-                        <Badge className="bg-blue-100 text-blue-700">{redirect.type}</Badge>
+                        <Badge className="bg-indigo-500/10 text-indigo-300">{redirect.type}</Badge>
                       </div>
                       <div className="col-span-1">
-                        <p className="text-xs text-gray-600">Hits:</p>
-                        <p className="font-semibold text-gray-900">{redirect.hits}</p>
+                        <p className="text-xs text-slate-400">Hits:</p>
+                        <p className="font-semibold text-gray-100">{redirect.hits}</p>
                       </div>
                       <div className="col-span-1 flex justify-end space-x-1">
                         <Button size="sm" variant="ghost">
                           <Edit3 className="w-3 h-3" />
                         </Button>
-                        <Button size="sm" variant="ghost" className="text-red-600">
+                        <Button size="sm" variant="ghost" className="text-rose-400">
                           <Trash2 className="w-3 h-3" />
                         </Button>
                       </div>
                     </div>
                     {redirect.notes && (
-                      <p className="text-xs text-gray-600 mt-2">Note: {redirect.notes}</p>
+                      <p className="text-xs text-slate-400 mt-2">Note: {redirect.notes}</p>
                     )}
                   </CardContent>
                 </Card>
@@ -1182,14 +1192,14 @@ Return a generated JSON array of highly realistic broken links. The array must c
         {/* Link Opportunities Tab */}
         {activeTab === 'link-opportunities' && (
           <div>
-            <Card className="border-0 shadow-md mb-6 bg-blue-50 border-l-4 border-blue-500">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6 bg-indigo-900/20 border-l-4 border-blue-500">
               <CardContent className="pt-4 pb-4">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <Sparkles className="w-5 h-5 text-blue-600" />
+                    <Sparkles className="w-5 h-5 text-indigo-400" />
                     <div>
-                      <p className="font-semibold text-blue-900">AI-Powered Link Suggestions</p>
-                      <p className="text-sm text-blue-700">
+                      <p className="font-semibold text-indigo-200">AI-Powered Link Suggestions</p>
+                      <p className="text-sm text-indigo-300">
                         Found {linkOpportunities.length} opportunities to improve internal linking
                       </p>
                     </div>
@@ -1207,32 +1217,32 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
             <div className="space-y-4">
               {linkOpportunities.map((opp) => (
-                <Card key={opp.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card key={opp.id} className="border-0 shadow-2xl border border-white/5 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-3">
-                          <Badge className="bg-green-100 text-green-700">
+                          <Badge className="bg-emerald-500/10 text-green-700">
                             {opp.relevanceScore}% Relevant
                           </Badge>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">From Page:</p>
-                            <p className="text-sm font-medium text-gray-900">{opp.sourcePage}</p>
+                            <p className="text-xs text-slate-400 mb-1">From Page:</p>
+                            <p className="text-sm font-medium text-gray-100">{opp.sourcePage}</p>
                           </div>
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">To Page:</p>
-                            <p className="text-sm font-medium text-gray-900">{opp.targetPage}</p>
+                            <p className="text-xs text-slate-400 mb-1">To Page:</p>
+                            <p className="text-sm font-medium text-gray-100">{opp.targetPage}</p>
                           </div>
                         </div>
                         <div className="mb-3">
-                          <p className="text-xs text-gray-600 mb-1">Suggested Anchor Text:</p>
-                          <Badge className="bg-blue-100 text-blue-700">{opp.anchorText}</Badge>
+                          <p className="text-xs text-slate-400 mb-1">Suggested Anchor Text:</p>
+                          <Badge className="bg-indigo-500/10 text-indigo-300">{opp.anchorText}</Badge>
                         </div>
-                        <div className="p-3 bg-gray-50 rounded-lg">
-                          <p className="text-xs text-gray-600 mb-1">Why this link makes sense:</p>
-                          <p className="text-sm text-gray-700">{opp.context}</p>
+                        <div className="p-3 bg-white/5 rounded-lg">
+                          <p className="text-xs text-slate-400 mb-1">Why this link makes sense:</p>
+                          <p className="text-sm text-slate-300">{opp.context}</p>
                         </div>
                       </div>
                     </div>
@@ -1269,16 +1279,16 @@ Return a generated JSON array of highly realistic broken links. The array must c
           'history',
           'reports',
         ].includes(activeTab) && (
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="p-12 text-center">
                 <Info className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   {activeTab
                     .split('-')
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(' ')}
                 </h3>
-                <p className="text-gray-600">This tab content is being loaded...</p>
+                <p className="text-slate-400">This tab content is being loaded...</p>
               </CardContent>
             </Card>
           )}
@@ -1299,13 +1309,13 @@ Return a generated JSON array of highly realistic broken links. The array must c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/50 backdrop-blur-md rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">Import from Ahrefs</h2>
-                    <p className="text-gray-600">
+                    <h2 className="text-2xl font-bold text-white mb-2">Import from Ahrefs</h2>
+                    <p className="text-slate-400">
                       Upload your Ahrefs broken links export (CSV or TSV)
                     </p>
                   </div>
@@ -1316,16 +1326,16 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
                 {/* Upload Section */}
                 <div className="mb-6">
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
+                  <div className="border-2 border-dashed border-white/20 rounded-lg p-12 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
                     <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                    <p className="text-lg font-medium text-gray-900 mb-2">
+                    <p className="text-lg font-medium text-gray-100 mb-2">
                       Drop your Ahrefs file here
                     </p>
-                    <p className="text-sm text-gray-600 mb-4">or click to browse</p>
+                    <p className="text-sm text-slate-400 mb-4">or click to browse</p>
                     <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                       Browse Files
                     </Button>
-                    <p className="text-xs text-gray-500 mt-4">
+                    <p className="text-xs text-slate-500 mt-4">
                       Supported formats: CSV, TSV · Max size: 10MB
                     </p>
                   </div>
@@ -1333,7 +1343,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
                 {/* Column Mapping */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-[#1E3A5F] mb-4">Column Mapping</h3>
+                  <h3 className="font-semibold text-white mb-4">Column Mapping</h3>
                   <div className="space-y-3">
                     {[
                       { label: 'Source URL', field: 'source_url' },
@@ -1344,10 +1354,10 @@ Return a generated JSON array of highly realistic broken links. The array must c
                       { label: 'First Seen', field: 'first_seen' },
                     ].map((col) => (
                       <div key={col.field} className="grid grid-cols-2 gap-4">
-                        <label className="flex items-center text-sm font-medium text-gray-700">
+                        <label className="flex items-center text-sm font-medium text-slate-300">
                           {col.label}
                         </label>
-                        <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        <select className="px-3 py-2 border border-white/20 rounded-lg text-sm">
                           <option>Auto-detected: {col.field}</option>
                           <option>Column A</option>
                           <option>Column B</option>
@@ -1360,15 +1370,15 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
                 {/* Preview */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-[#1E3A5F] mb-4">Import Preview</h3>
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                    <p className="text-sm text-gray-700 mb-2">First 10 rows preview:</p>
-                    <div className="text-xs font-mono text-gray-600">
+                  <h3 className="font-semibold text-white mb-4">Import Preview</h3>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                    <p className="text-sm text-slate-300 mb-2">First 10 rows preview:</p>
+                    <div className="text-xs font-mono text-slate-400">
                       <p>/services/seo → /old-page → 404 → 23 domains</p>
                       <p>/blog/article → /missing → 404 → 15 domains</p>
                       <p>...</p>
                     </div>
-                    <p className="text-sm font-semibold text-[#1E3A5F] mt-3">
+                    <p className="text-sm font-semibold text-white mt-3">
                       Total: 142 broken links to import
                     </p>
                   </div>
@@ -1414,15 +1424,15 @@ Return a generated JSON array of highly realistic broken links. The array must c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-md w-full"
+              className="bg-[#0f172a]/50 backdrop-blur-md rounded-xl max-w-md w-full"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                    <h2 className="text-2xl font-bold text-white mb-2">
                       Connect Google Search Console
                     </h2>
-                    <p className="text-gray-600">
+                    <p className="text-slate-400">
                       Get crawl errors and indexing issues directly from Google
                     </p>
                   </div>
@@ -1432,8 +1442,8 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 </div>
 
                 <div className="mb-6">
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                    <h3 className="font-medium text-blue-900 mb-2">What you&apos;ll get:</h3>
+                  <div className="bg-indigo-900/20 border border-blue-200 rounded-lg p-4 mb-4">
+                    <h3 className="font-medium text-indigo-200 mb-2">What you&apos;ll get:</h3>
                     <ul className="space-y-1 text-sm text-blue-800">
                       <li className="flex items-start">
                         <Check className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
@@ -1486,16 +1496,16 @@ Return a generated JSON array of highly realistic broken links. The array must c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/50 backdrop-blur-md rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">AI Generate Page</h2>
-                    <p className="text-gray-600 font-mono text-sm">
+                    <h2 className="text-2xl font-bold text-white mb-2">AI Generate Page</h2>
+                    <p className="text-slate-400 font-mono text-sm">
                       {selectedBrokenLink.brokenUrl}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">Step {aiWizardStep} of 4</p>
+                    <p className="text-sm text-slate-500 mt-1">Step {aiWizardStep} of 4</p>
                   </div>
                   <Button variant="ghost" size="sm" onClick={() => setShowAIGenerateModal(false)}>
                     <X className="w-5 h-5" />
@@ -1508,12 +1518,12 @@ Return a generated JSON array of highly realistic broken links. The array must c
                     {[1, 2, 3, 4].map((step) => (
                       <div
                         key={step}
-                        className={`flex-1 h-2 rounded-full ${aiWizardStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
+                        className={`flex-1 h-2 rounded-full ${aiWizardStep >= step ? 'bg-[#00B4D8]' : 'bg-white/20'
                           }`}
                       />
                     ))}
                   </div>
-                  <div className="flex justify-between text-xs text-gray-600">
+                  <div className="flex justify-between text-xs text-slate-400">
                     <span>Analyze</span>
                     <span>Configure</span>
                     <span>Generate</span>
@@ -1524,12 +1534,12 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 {/* Step 1: Analyze */}
                 {aiWizardStep === 1 && (
                   <div>
-                    <Card className="border-0 shadow-md bg-blue-50 mb-6">
+                    <Card className="border-0 shadow-2xl border border-white/5 bg-indigo-900/20 mb-6">
                       <CardContent className="pt-6">
                         <div className="flex items-start space-x-3">
-                          <Loader2 className="w-5 h-5 text-blue-600 animate-spin mt-0.5" />
+                          <Loader2 className="w-5 h-5 text-indigo-400 animate-spin mt-0.5" />
                           <div>
-                            <p className="font-semibold text-blue-900 mb-2">
+                            <p className="font-semibold text-indigo-200 mb-2">
                               Analyzing URL structure and context...
                             </p>
                             <div className="space-y-2 text-sm text-blue-800">
@@ -1551,37 +1561,37 @@ Return a generated JSON array of highly realistic broken links. The array must c
                       </CardContent>
                     </Card>
 
-                    <Card className="border-0 shadow-md mb-6">
+                    <Card className="border-0 shadow-2xl border border-white/5 mb-6">
                       <CardHeader>
                         <CardTitle className="text-lg">Analysis Results</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">Page Topic:</p>
-                            <p className="text-lg text-[#1E3A5F]">
+                            <p className="text-sm font-medium text-slate-300 mb-1">Page Topic:</p>
+                            <p className="text-lg text-white">
                               Social Media Marketing Services
                             </p>
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">Confidence:</p>
-                            <Badge className="bg-green-100 text-green-700">High (92%)</Badge>
+                            <p className="text-sm font-medium text-slate-300 mb-1">Confidence:</p>
+                            <Badge className="bg-emerald-500/10 text-green-700">High (92%)</Badge>
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">
+                            <p className="text-sm font-medium text-slate-300 mb-1">
                               Suggested Page Type:
                             </p>
-                            <Badge className="bg-blue-100 text-blue-700">Service Page</Badge>
+                            <Badge className="bg-indigo-500/10 text-indigo-300">Service Page</Badge>
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">
+                            <p className="text-sm font-medium text-slate-300 mb-1">
                               Related Existing Pages:
                             </p>
                             <div className="flex flex-wrap gap-2">
-                              <Badge className="bg-gray-100 text-gray-700">
+                              <Badge className="bg-white/10 text-slate-300">
                                 /services/digital-marketing
                               </Badge>
-                              <Badge className="bg-gray-100 text-gray-700">
+                              <Badge className="bg-white/10 text-slate-300">
                                 /blog/social-media-tips
                               </Badge>
                             </div>
@@ -1607,30 +1617,30 @@ Return a generated JSON array of highly realistic broken links. The array must c
                   <div>
                     <div className="space-y-4 mb-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Page Title
                         </label>
                         <input
                           type="text"
                           defaultValue="Social Media Marketing Services | ThinkMents"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           URL Slug
                         </label>
                         <input
                           type="text"
                           defaultValue="/services/social-media-marketing"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Page Type
                         </label>
-                        <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                        <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                           <option>Service Page</option>
                           <option>Blog Post</option>
                           <option>Location Page</option>
@@ -1638,27 +1648,27 @@ Return a generated JSON array of highly realistic broken links. The array must c
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Target Keyword
                         </label>
                         <input
                           type="text"
                           defaultValue="social media marketing"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Content Length
                         </label>
-                        <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                        <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                           <option>Short (300 words)</option>
                           <option>Medium (600 words)</option>
                           <option>Long (1000+ words)</option>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Include Sections
                         </label>
                         <div className="space-y-2">
@@ -1676,7 +1686,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                 className="w-4 h-4 text-[#00B4D8] rounded"
                                 defaultChecked
                               />
-                              <span className="text-sm text-gray-700">{section}</span>
+                              <span className="text-sm text-slate-300">{section}</span>
                             </label>
                           ))}
                         </div>
@@ -1702,7 +1712,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 {/* Step 3: Generate & Preview */}
                 {aiWizardStep === 3 && (
                   <div>
-                    <Card className="border-0 shadow-md mb-6">
+                    <Card className="border-0 shadow-2xl border border-white/5 mb-6">
                       <CardContent className="pt-6">
                         <div className="prose max-w-none">
                           <h1>Social Media Marketing Services</h1>
@@ -1745,11 +1755,11 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 {/* Step 4: Publish */}
                 {aiWizardStep === 4 && (
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Ready to Publish!</h3>
-                    <p className="text-gray-600 mb-6">Your page is ready. Choose how to proceed:</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">Ready to Publish!</h3>
+                    <p className="text-slate-400 mb-6">Your page is ready. Choose how to proceed:</p>
                     <div className="flex justify-center space-x-3">
                       <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                         <PlayCircle className="w-4 h-4 mr-2" />
@@ -1787,15 +1797,15 @@ Return a generated JSON array of highly realistic broken links. The array must c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/50 backdrop-blur-md rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                    <h2 className="text-2xl font-bold text-white mb-2">
                       Recover from Internet Archive
                     </h2>
-                    <p className="text-gray-600 font-mono text-sm">
+                    <p className="text-slate-400 font-mono text-sm">
                       {selectedBrokenLink.brokenUrl}
                     </p>
                   </div>
@@ -1804,7 +1814,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                   </Button>
                 </div>
 
-                <Card className="border-0 shadow-md bg-green-50 mb-6">
+                <Card className="border-0 shadow-2xl border border-white/5 bg-emerald-900/20 mb-6">
                   <CardContent className="pt-4 pb-4">
                     <div className="flex items-center space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-600" />
@@ -1830,13 +1840,13 @@ Return a generated JSON array of highly realistic broken links. The array must c
                       preview: 'How to create effective social media campaigns...',
                     },
                   ].map((version, idx) => (
-                    <Card key={idx} className="border-2 border-gray-200 hover:border-[#00B4D8]">
+                    <Card key={idx} className="border-2 border-white/10 hover:border-[#00B4D8]">
                       <CardContent className="p-4">
                         <div className="flex items-center space-x-2 mb-2">
-                          <Calendar className="w-4 h-4 text-gray-600" />
-                          <p className="font-semibold text-gray-900">{version.date}</p>
+                          <Calendar className="w-4 h-4 text-slate-400" />
+                          <p className="font-semibold text-gray-100">{version.date}</p>
                         </div>
-                        <p className="text-sm text-gray-700 mb-3">{version.preview}</p>
+                        <p className="text-sm text-slate-300 mb-3">{version.preview}</p>
                         <div className="flex space-x-2">
                           <Button size="sm" variant="outline">
                             <Eye className="w-4 h-4 mr-2" />
@@ -1886,11 +1896,11 @@ Return a generated JSON array of highly realistic broken links. The array must c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-2xl w-full"
+              className="bg-[#0f172a]/50 backdrop-blur-md rounded-xl max-w-2xl w-full"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Create Redirect</h2>
+                  <h2 className="text-2xl font-bold text-white">Create Redirect</h2>
                   <Button variant="ghost" size="sm" onClick={() => setShowRedirectModal(false)}>
                     <X className="w-5 h-5" />
                   </Button>
@@ -1898,29 +1908,29 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">From URL</label>
+                    <label className="block text-sm font-medium text-gray-100 mb-2">From URL</label>
                     <input
                       type="text"
                       defaultValue={selectedBrokenLink?.brokenUrl}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">To URL</label>
+                    <label className="block text-sm font-medium text-gray-100 mb-2">To URL</label>
                     <input
                       type="text"
                       placeholder="/new-page"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                     />
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       Select from existing pages or enter a new URL
                     </p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                    <label className="block text-sm font-medium text-gray-100 mb-2">
                       Redirect Type
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                    <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                       <option value="301">301 - Permanent Redirect</option>
                       <option value="302">302 - Temporary Redirect</option>
                       <option value="307">307 - Temporary Redirect (Preserve Method)</option>
@@ -1928,13 +1938,13 @@ Return a generated JSON array of highly realistic broken links. The array must c
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                    <label className="block text-sm font-medium text-gray-100 mb-2">
                       Notes (Optional)
                     </label>
                     <textarea
                       rows={2}
                       placeholder="Why this redirect exists..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                     />
                   </div>
                 </div>
@@ -1970,19 +1980,19 @@ Return a generated JSON array of highly realistic broken links. The array must c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/50 backdrop-blur-md rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Bulk AI Page Generation</h2>
+                  <h2 className="text-2xl font-bold text-white">Bulk AI Page Generation</h2>
                   <Button variant="ghost" size="sm" onClick={() => setShowBulkGenerateModal(false)}>
                     <X className="w-5 h-5" />
                   </Button>
                 </div>
 
-                <Card className="border-0 shadow-md bg-blue-50 mb-6">
+                <Card className="border-0 shadow-2xl border border-white/5 bg-indigo-900/20 mb-6">
                   <CardContent className="pt-4 pb-4">
-                    <p className="text-sm text-blue-900">
+                    <p className="text-sm text-indigo-200">
                       {selectedLinks.length > 0
                         ? `${selectedLinks.length} broken URLs selected`
                         : '12 broken URLs selected'}{' '}
@@ -1993,10 +2003,10 @@ Return a generated JSON array of highly realistic broken links. The array must c
 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                    <label className="block text-sm font-medium text-gray-100 mb-2">
                       Content Depth
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                    <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                       <option>Quick (300 words)</option>
                       <option>Standard (600 words)</option>
                       <option>Comprehensive (1000+ words)</option>
@@ -2009,7 +2019,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                         className="w-4 h-4 text-[#00B4D8] rounded"
                         defaultChecked
                       />
-                      <span className="text-sm text-gray-700">Auto-generate SEO metadata</span>
+                      <span className="text-sm text-slate-300">Auto-generate SEO metadata</span>
                     </label>
                   </div>
                   <div>
@@ -2019,7 +2029,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                         className="w-4 h-4 text-[#00B4D8] rounded"
                         defaultChecked
                       />
-                      <span className="text-sm text-gray-700">Match existing page styles</span>
+                      <span className="text-sm text-slate-300">Match existing page styles</span>
                     </label>
                   </div>
                   <div>
@@ -2029,7 +2039,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                         className="w-4 h-4 text-[#00B4D8] rounded"
                         defaultChecked
                       />
-                      <span className="text-sm text-gray-700">Review before publishing</span>
+                      <span className="text-sm text-slate-300">Review before publishing</span>
                     </label>
                   </div>
                 </div>
