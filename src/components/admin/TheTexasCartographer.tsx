@@ -29,7 +29,7 @@ export default function TheTexasCartographer() {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedNiche, setSelectedNiche] = useState('');
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     if (!selectedCity || !selectedNiche) {
       toast.error('Please select both a Texas city and a target niche.');
       return;
@@ -38,34 +38,47 @@ export default function TheTexasCartographer() {
     setIsGenerating(true);
     toast.info(`The Cartographer is mapping content for ${selectedCity}...`);
 
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/texas-cartographer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ city: selectedCity, niche: selectedNiche })
+      });
+
+      if (!res.ok) throw new Error('Failed to generate mapped territory');
+
+      const data = await res.json();
+
       const newPage: CityPage = {
         id: Date.now().toString(),
-        city: selectedCity,
-        niche: selectedNiche,
-        url: `/${selectedCity.toLowerCase().replace(/\s+/g, '-')}-${selectedNiche.toLowerCase().replace(/\s+/g, '-')}`,
+        city: data.city,
+        niche: data.niche,
+        url: data.url,
         status: 'published',
-        healthScore: Math.floor(Math.random() * 10) + 90
+        healthScore: data.healthScore
       };
       
       setPages([newPage, ...pages]);
       setIsGenerating(false);
       setSelectedCity('');
       setSelectedNiche('');
-      toast.success(`Successfully mapped and deployed programmatic SEO page for ${selectedCity}!`);
+      toast.success(`Successfully mapped and deployed programmatic SEO page for ${newPage.city}!`);
       
-      // Notify the task board so the team can review the AI generated content
       const event = new CustomEvent('task-logged', {
         detail: {
           title: `Review New Local Page: ${newPage.city}`,
-          description: `The Cartographer generated a highly localized programmatic SEO page for ${newPage.niche} in ${newPage.city}.\n\nURL: ${newPage.url}\nPlease review the AI content and ensure the local schema markup is flawless before indexation.`,
+          description: `The Cartographer generated a highly localized programmatic SEO page for ${newPage.niche} in ${newPage.city}.\n\nURL: ${newPage.url}\nSuggested Title: ${data.metadata?.suggestedTitle}\nPrimary Keyword: ${data.metadata?.primaryKeyword}\nDifficulty: ${data.metadata?.difficulty}\nPlease review the AI content and ensure the local schema markup is flawless before indexation.`,
           priority: 'medium',
           sourceAgent: 'The Texas Cartographer'
         }
       });
       window.dispatchEvent(event);
       
-    }, 3000);
+    } catch (error) {
+      console.error(error);
+      setIsGenerating(false);
+      toast.error('The Cartographer failed to map the territory. Please check logs.');
+    }
   };
 
   const getStatusBadge = (status: string) => {

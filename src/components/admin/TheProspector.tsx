@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { MapPin, Database, Target, Zap, AlertCircle, Globe, RefreshCw } from 'lucide-react';
+import { MapPin, Database, Target, Zap, Globe, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface Lead {
@@ -29,7 +29,7 @@ export default function TheProspector() {
   const [isScanning, setIsScanning] = useState(false);
   const [targetCity, setTargetCity] = useState('');
 
-  const initiateGeographicScan = () => {
+  const initiateGeographicScan = async () => {
     if (!targetCity) {
       toast.error('Please enter a target city in Texas to scan.');
       return;
@@ -37,22 +37,43 @@ export default function TheProspector() {
     setIsScanning(true);
     toast.info(`The Prospector is scraping registries in ${targetCity}...`);
     
-    setTimeout(() => {
+    // We grab the currently selected industry from the DOM to avoid re-writing the raw select as a controlled state if we don't have to, 
+    // but the original code didn't bind it, so we'll grab it directly or default it.
+    const industrySelect = document.querySelector('select') as HTMLSelectElement;
+    const targetIndustry = industrySelect ? industrySelect.value : 'Any Industry';
+
+    try {
+      const res = await fetch('/api/prospector', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ targetCity, industry: targetIndustry })
+      });
+
+      if (!res.ok) throw new Error('Failed to scrape local registries');
+
+      const data = await res.json();
+
       const newLead: Lead = {
         id: Date.now().toString(),
-        name: `${targetCity} Elite Contractors`,
-        city: targetCity,
-        industry: 'Construction',
-        score: Math.floor(Math.random() * 40) + 10,
-        revenueEst: '$1M-3M',
-        issues: ['Missing Meta Tags', 'Outdated Design', 'Poor Local Rankings'],
+        name: data.name,
+        city: data.city,
+        industry: data.industry,
+        score: data.score,
+        revenueEst: data.revenueEst,
+        issues: data.issues || [],
         status: 'ready'
       };
+      
       setLeads([newLead, ...leads]);
       setIsScanning(false);
       toast.success('Found a highly vulnerable target!');
       setTargetCity('');
-    }, 2500);
+
+    } catch (error) {
+      console.error(error);
+      setIsScanning(false);
+      toast.error('Prospector scan failed aggressively. Manual override required.');
+    }
   };
 
   const dispatchToTaskBoard = (lead: Lead) => {
