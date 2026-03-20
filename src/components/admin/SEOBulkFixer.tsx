@@ -230,145 +230,178 @@ export default function SEOBulkFixer() {
   };
 
   if (scanStatus === 'idle' && !scanResults) {
-    // Never scanned state
     return (
-      <div>
-        <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />\n      <div className="mb-6 relative z-10">
-          <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
-          <p className="text-slate-400 mt-1">
-            Scan and fix missing SEO data across your entire site
-          </p>
+      <div className="relative">
+        {/* Ambient orbs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1.5s' }} />
         </div>
 
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
-          <CardContent className="py-20">
-            <div className="text-center max-w-2xl mx-auto">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Search className="w-10 h-10 text-white" />
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-3">Start Your First SEO Scan</h2>
-              <p className="text-slate-400 mb-6 text-lg">
-                Our AI-powered scanner will analyze your entire website to find missing meta
-                descriptions, image alt text, page titles, H1 tags, and more. Get instant
-                AI-generated suggestions to fix all issues with one click.
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                {[
-                  { icon: FileText, label: 'Meta Descriptions' },
-                  { icon: Hash, label: 'Page Titles' },
-                  { icon: ImageIcon, label: 'Image Alt Text' },
-                  { icon: AlignLeft, label: 'H1 Tags' },
-                ].map((item, idx) => (
-                  <div key={idx} className="p-4 bg-white/5 rounded-lg">
-                    <item.icon className="w-8 h-8 mx-auto mb-2 text-indigo-400" />
-                    <p className="text-sm text-slate-300">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-              <Button
-                onClick={runScan}
-                className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white px-8 py-6 text-lg"
-              >
-                <Search className="w-5 h-5 mr-2" />
-                Start SEO Scan
-              </Button>
+        <div className="relative z-10">
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+              <span className="text-indigo-400 text-xs font-mono uppercase tracking-widest">SEO Intelligence Engine</span>
             </div>
-          </CardContent>
-        </Card>
+            <h1 className="text-3xl font-bold text-white mb-1">SEO Bulk Fixer</h1>
+            <p className="text-slate-400">AI-powered scanner — crawls every page, detects deficiencies, generates live fixes.</p>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#090f1a] shadow-[0_0_80px_rgba(79,70,229,0.12)]">
+            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70'%3E%3Cpolygon points='30,5 55,20 55,50 30,65 5,50 5,20' fill='none' stroke='%236366f1' strokeWidth='1'/%3E%3C/svg%3E")`, backgroundSize: '60px 70px' }} />
+
+            <div className="relative py-20 px-8">
+              <div className="text-center max-w-3xl mx-auto">
+                {/* Animated orbit icon */}
+                <div className="relative inline-block mb-8">
+                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} className="absolute inset-0 rounded-full border border-indigo-500/30 border-dashed" />
+                  <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: 'linear' }} className="absolute -inset-4 rounded-full border border-purple-500/20 border-dashed" />
+                  <div className="relative w-24 h-24 bg-gradient-to-br from-indigo-600 via-purple-700 to-indigo-900 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(79,70,229,0.5)]">
+                    <Search className="w-12 h-12 text-white" />
+                  </div>
+                </div>
+
+                <h2 className="text-3xl font-bold text-white mb-3">Ready to Dominate Search</h2>
+                <p className="text-slate-400 mb-10 text-lg max-w-2xl mx-auto leading-relaxed">
+                  One scan. Full coverage. AI-generated fixes delivered instantly.
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 text-left">
+                  {[
+                    { icon: FileText, label: 'Meta Descriptions', desc: 'Missing & too short', color: 'indigo' },
+                    { icon: Hash, label: 'Page Titles', desc: 'Duplicates & length', color: 'violet' },
+                    { icon: ImageIcon, label: 'Image Alt Text', desc: 'Untagged assets', color: 'purple' },
+                    { icon: AlignLeft, label: 'H1 Structure', desc: 'Hierarchy issues', color: 'fuchsia' },
+                  ].map((item, idx) => (
+                    <motion.div key={idx} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.1 }}
+                      className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/40 transition-all duration-300">
+                      <item.icon className="w-6 h-6 mb-3 text-indigo-400" />
+                      <p className="text-sm font-medium text-white mb-1">{item.label}</p>
+                      <p className="text-xs text-slate-500">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Button onClick={runScan}
+                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-12 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_50px_rgba(79,70,229,0.6)] transition-all duration-300 border-0"
+                    size="lg">
+                    <Search className="w-5 h-5 mr-3" />
+                    Launch Full Site Scan
+                    <Zap className="w-4 h-4 ml-3 text-yellow-300" />
+                  </Button>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (scanStatus === 'scanning') {
-    // Scanning state
     return (
-      <div>
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
-          <p className="text-slate-400 mt-1">Scanning your website for SEO issues...</p>
+      <div className="relative">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/3 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] animate-pulse" />
         </div>
 
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300">
-          <CardContent className="py-16">
-            <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-8">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                  className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-900 rounded-full flex items-center justify-center mx-auto mb-6"
-                >
-                  <Search className="w-10 h-10 text-white" />
-                </motion.div>
-                <h2 className="text-2xl font-bold text-white mb-2">Scanning Your Website</h2>
-                <p className="text-slate-400 mb-6">
-                  Scanning page {currentPage} of {totalPages}...
-                </p>
+        <div className="relative z-10">
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-2">
+              <motion.div animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }} className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-green-400 text-xs font-mono uppercase tracking-widest">Scan Active</span>
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-1">SEO Bulk Fixer</h1>
+            <p className="text-slate-400">Crawling your domain — analyzing every page for SEO deficiencies.</p>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden border border-indigo-500/30 bg-[#090f1a] shadow-[0_0_60px_rgba(79,70,229,0.2)]">
+            {/* Scanning bar */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent">
+              <motion.div animate={{ x: ['-100%', '200%'] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent" />
+            </div>
+
+            <div className="p-8">
+              <div className="flex items-center gap-6 mb-8">
+                <div className="relative shrink-0">
+                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                    className="w-16 h-16 rounded-full border-2 border-indigo-500/40 border-t-indigo-400 flex items-center justify-center" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Search className="w-6 h-6 text-indigo-400" />
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white mb-1">Scanning Your Website</h2>
+                  <p className="text-slate-400 font-mono text-sm">Connecting to crawler engine...</p>
+                </div>
               </div>
 
-              {/* Progress Bar */}
+              {/* Progress bar */}
               <div className="mb-6">
-                <div className="flex justify-between text-sm text-slate-400 mb-2">
-                  <span>Progress</span>
-                  <span>{scanProgress}%</span>
+                <div className="flex justify-between text-xs font-mono text-slate-500 mb-2">
+                  <span>PROGRESS</span>
+                  <span className="text-indigo-400">{scanProgress}%</span>
                 </div>
-                <div className="w-full h-4 bg-white/20 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${scanProgress}%` }}
-                    className="h-full bg-gradient-to-r from-indigo-600 to-purple-900"
-                  />
+                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                  <motion.div initial={{ width: 0 }} animate={{ width: `${scanProgress}%` }}
+                    className="h-full bg-gradient-to-r from-indigo-600 to-purple-500 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
                 </div>
               </div>
 
-              {/* Scanning Status */}
-              <div className="space-y-2 mb-6">
+              {/* Live log */}
+              <div className="bg-black/30 rounded-xl border border-white/5 p-4 space-y-2 mb-6 font-mono text-xs">
                 {[
-                  'Analyzing page content...',
-                  'Checking meta descriptions...',
-                  'Scanning image alt text...',
-                  'Validating page titles...',
-                ].map((status, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: scanProgress > idx * 25 ? 1 : 0.3, x: 0 }}
-                    transition={{ delay: idx * 0.2 }}
-                    className="flex items-center space-x-3 text-slate-400"
-                  >
-                    <CheckCircle
-                      className={`w-5 h-5 ${scanProgress > idx * 25 ? 'text-green-500' : 'text-gray-300'
-                        }`}
-                    />
-                    <span className="text-sm">{status}</span>
+                  { msg: 'Initializing crawler engine...', done: scanProgress >= 10 },
+                  { msg: 'Fetching sitemap and page tree...', done: scanProgress >= 30 },
+                  { msg: 'Analyzing meta descriptions across all pages...', done: scanProgress >= 55 },
+                  { msg: 'Scanning image alt text attributes...', done: scanProgress >= 75 },
+                  { msg: 'Generating AI fix suggestions...', done: scanProgress >= 90 },
+                  { msg: 'Compiling report...', done: scanProgress >= 100 },
+                ].map((line, idx) => (
+                  <motion.div key={idx} initial={{ opacity: 0 }} animate={{ opacity: scanProgress >= idx * 15 ? 1 : 0.2 }}
+                    className="flex items-center gap-3">
+                    {line.done
+                      ? <CheckCircle className="w-3 h-3 text-green-400 shrink-0" />
+                      : <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1, repeat: Infinity }} className="w-3 h-3 rounded-full bg-indigo-400/50 shrink-0" />}
+                    <span className={line.done ? 'text-green-300' : 'text-slate-500'}>{line.msg}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <Button variant="outline" onClick={cancelScan} className="w-full">
+              <Button variant="outline" onClick={cancelScan}
+                className="w-full border-white/10 text-slate-400 hover:border-red-500/40 hover:text-red-400 transition-colors">
                 <X className="w-4 h-4 mr-2" />
-                Cancel Scan
+                Abort Scan
               </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     );
   }
 
   // Results view
   return (
-    <div>
+    <div className="relative">
+      {/* Ambient bg */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/5 rounded-full blur-[100px]" />
+      </div>
+
       {/* Header */}
-      <div className="mb-6">
+      <div className="relative z-10 mb-6">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-2 h-2 rounded-full bg-green-400" />
+          <span className="text-green-400 text-xs font-mono uppercase tracking-widest">Scan Complete</span>
+        </div>
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-white">SEO Bulk Fixer</h1>
-            <p className="text-slate-400 mt-1">
-              Scan and fix missing SEO data across your entire site
-            </p>
-            <div className="flex items-center space-x-2 mt-2">
-              <Clock className="w-4 h-4 text-gray-400" />
-              <span className="text-sm text-slate-500">Last scan: {lastScan}</span>
+            <h1 className="text-3xl font-bold text-white">SEO Bulk Fixer</h1>
+            <div className="flex items-center gap-2 mt-1">
+              <Clock className="w-4 h-4 text-slate-500" />
+              <span className="text-sm text-slate-500 font-mono">Last scan: {lastScan}</span>
             </div>
           </div>
           <div className="flex space-x-3">
