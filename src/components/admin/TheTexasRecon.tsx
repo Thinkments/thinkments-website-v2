@@ -16,7 +16,7 @@ interface ReconResult {
     type: string;
     description: string;
     severity: 'High' | 'Medium' | 'Low';
-    icon: React.ElementType;
+    iconType: string;
   }[];
   attackVectors: {
     action: string;
@@ -25,6 +25,19 @@ interface ReconResult {
   }[];
 }
 
+const IconMap: Record<string, React.ElementType> = {
+  AlertTriangle,
+  ShieldAlert,
+  Layout,
+  TrendingDown,
+  TrendingUp,
+  Target,
+  Search,
+  Crosshair,
+  Zap,
+  Code
+};
+
 export default function TheTexasRecon() {
   const [targetUrl, setTargetUrl] = useState('');
   const [isScanning, setIsScanning] = useState(false);
@@ -32,7 +45,7 @@ export default function TheTexasRecon() {
   const [scanStatus, setScanStatus] = useState('');
   const [result, setResult] = useState<ReconResult | null>(null);
 
-  const performReconScan = (e: React.FormEvent) => {
+  const performReconScan = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!targetUrl) return;
 
@@ -45,45 +58,51 @@ export default function TheTexasRecon() {
       { progress: 35, msg: "Extracting historical SEMrush ad spend..." },
       { progress: 55, msg: "Analyzing backlink footprint via Ahrefs API structure..." },
       { progress: 75, msg: "Compiling Google Business Profile local parity..." },
-      { progress: 95, msg: "Processing Vulnerability Matrix algorithms..." },
-      { progress: 100, msg: "Reconnaissance complete. Generating attack vectors." }
+      { progress: 90, msg: "Processing Vulnerability Matrix algorithms..." },
     ];
 
     let currentStage = 0;
     
-    // Simulate real-time scanning steps
+    // Simulate real-time scanning steps cosmetically while we await the backend
     const interval = setInterval(() => {
       const stage = stages[currentStage];
-      setScanProgress(stage.progress);
-      setScanStatus(stage.msg);
-      
-      currentStage++;
-      if (currentStage >= stages.length) {
-        clearInterval(interval);
-        setTimeout(() => {
-          setIsScanning(false);
-          // Mock extracted data
-          setResult({
-            domain: targetUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''),
-            domainAuthority: 42,
-            organicTraffic: "14,500/mo",
-            paidSpend: "$8,200/mo",
-            topKeyword: "Dallas HVAC Repair",
-            vulnerabilities: [
-              { type: "Technical SEO", description: "Mobile page load time exceeds 4.2s. Core Web Vitals failing on CLS.", severity: "High", icon: AlertTriangle },
-              { type: "Content Gap", description: "Zero dedicated location pages for Fort Worth or Denton suburbs.", severity: "Medium", icon: Layout },
-              { type: "Backlink Profile", description: "Heavy reliance on low-quality directory links. Lack of editorial mentions.", severity: "High", icon: ShieldAlert },
-              { type: "Paid Over-Reliance", description: "Organic traffic represents only 15% of total lead volume.", severity: "Low", icon: TrendingDown },
-            ],
-            attackVectors: [
-              { action: "Deploy automated Programmatic SEO structure for Fort Worth suburbs (The Cartographer).", impact: "High", difficulty: "Medium" },
-              { action: "Launch aggressive high-velocity Paid Ads targeted at their exact ad copy gaps.", impact: "High", difficulty: "Low" },
-              { action: "Optimize technical core vitals to outrank them on mobile indices within 30 days.", impact: "Medium", difficulty: "High" }
-            ]
-          });
-        }, 1000);
+      if (stage) {
+        setScanProgress(stage.progress);
+        setScanStatus(stage.msg);
+        currentStage++;
       }
     }, 1200);
+
+    try {
+      const res = await fetch('/api/texas-recon', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ targetUrl }),
+      });
+
+      if (!res.ok) {
+        throw new Error('OSINT scan failed to process');
+      }
+
+      const data = await res.json();
+      
+      clearInterval(interval);
+      setScanProgress(100);
+      setScanStatus("Reconnaissance complete. Generating attack vectors.");
+      
+      setTimeout(() => {
+        setIsScanning(false);
+        setResult(data);
+      }, 500);
+
+    } catch (error) {
+      console.error(error);
+      clearInterval(interval);
+      setIsScanning(false);
+      setScanStatus("OSINT scan failed unexpectedly.");
+    }
   };
 
   return (
@@ -217,7 +236,9 @@ export default function TheTexasRecon() {
                   </h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                    {result.vulnerabilities.map((vuln, i) => (
+                    {result.vulnerabilities.map((vuln, i) => {
+                      const VulnIcon = IconMap[vuln.iconType] || AlertTriangle;
+                      return (
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -227,7 +248,7 @@ export default function TheTexasRecon() {
                       >
                         <div className="flex justify-between items-start mb-2">
                           <div className="flex items-center">
-                            <vuln.icon className={`w-4 h-4 mr-2 ${vuln.severity === 'High' ? 'text-red-500' : vuln.severity === 'Medium' ? 'text-orange-500' : 'text-slate-400'}`} />
+                            <VulnIcon className={`w-4 h-4 mr-2 ${vuln.severity === 'High' ? 'text-red-500' : vuln.severity === 'Medium' ? 'text-orange-500' : 'text-slate-400'}`} />
                             <span className="text-sm font-bold text-white">{vuln.type}</span>
                           </div>
                           <Badge variant={vuln.severity === 'High' ? "destructive" : "secondary"} className={vuln.severity === 'High' ? "bg-red-500/10 text-red-400 border-red-500/20" : "bg-slate-800 text-slate-300"}>
@@ -238,7 +259,7 @@ export default function TheTexasRecon() {
                           {vuln.description}
                         </p>
                       </motion.div>
-                    ))}
+                    )})}
                   </div>
 
                   <h3 className="text-lg font-bold text-white mb-4 border-b border-slate-800 pb-2 flex items-center">
