@@ -1,0 +1,18 @@
+{
+  "id": 321,
+  "slug": "structure-video-transcripts-answer-engines",
+  "title": "How to Structure Video Transcripts for Answer Engines",
+  "excerpt": "Learn how to format and structure your video transcripts so that AI systems like Google Gemini and Perplexity can easily extract and cite your answers.",
+  "author": "Corey Spicer",
+  "date": "2026-03-21",
+  "category": "seo",
+  "readTime": "10 min read",
+  "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+  "tags": [
+    "Video Transcripts",
+    "AEO",
+    "AI Search",
+    "Content Strategy"
+  ],
+  "content": "<p>Transcripts are no longer just for accessibility; they are the raw data that Answer Engines consume. To optimize for AEO, your transcripts must be meticulously structured.</p><h2>Use Q&A Formats Within Your Videos</h2><p>Explicitly state the question you are answering in the video audio, and then immediately follow it with a concise, declarative answer. This pattern (Question -> Direct Answer -> Elaboration) makes it easy for AI to parse and recommend your video snippet.</p>"
+}

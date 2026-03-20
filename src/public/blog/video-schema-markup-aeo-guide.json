@@ -1,0 +1,18 @@
+{
+  "id": 323,
+  "slug": "video-schema-markup-aeo-guide",
+  "title": "The Ultimate Guide to Video Schema Markup for AEO",
+  "excerpt": "Unlock the technical secrets of VideoObject schema markup to ensure your video content is perfectly structured for Google's AI Overviews and traditional carousels.",
+  "author": "Corey Spicer",
+  "date": "2026-03-23",
+  "category": "seo",
+  "readTime": "10 min read",
+  "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+  "tags": [
+    "Schema Markup",
+    "Technical SEO",
+    "VideoObject",
+    "AEO"
+  ],
+  "content": "<p>If search engines can't understand the context of your video, it won't rank. Enter <strong>VideoObject</strong> schema markup.</p><h2>Essential Properties for AEO</h2><p>Beyond the standard name, description, and thumbnail, you must use <code>hasPart</code> (Clip schema) to break your video into timestamped segments. This allows Answer Engines to point users directly to the 15-second clip that exactly answers their query, dramatically increasing your chances of being featured.</p>"
+}

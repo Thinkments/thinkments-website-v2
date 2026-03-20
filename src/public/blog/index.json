@@ -1,5 +1,243 @@
 [
   {
+    "id": 320,
+    "slug": "video-seo-vs-aeo-future-of-search",
+    "title": "Video SEO vs. AEO: Understanding the Future of Search",
+    "excerpt": "Discover the critical differences between Video SEO and Answer Engine Optimization (AEO), and why both are essential for digital dominance in 2026.",
+    "author": "Corey Spicer",
+    "date": "2026-03-20",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Video SEO",
+      "AEO",
+      "Search Trends",
+      "Digital Marketing"
+    ]
+  },
+  {
+    "id": 321,
+    "slug": "structure-video-transcripts-answer-engines",
+    "title": "How to Structure Video Transcripts for Answer Engines",
+    "excerpt": "Learn how to format and structure your video transcripts so that AI systems like Google Gemini and Perplexity can easily extract and cite your answers.",
+    "author": "Corey Spicer",
+    "date": "2026-03-21",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Video Transcripts",
+      "AEO",
+      "AI Search",
+      "Content Strategy"
+    ]
+  },
+  {
+    "id": 322,
+    "slug": "youtube-shorts-seo-micro-answers",
+    "title": "YouTube Shorts SEO: Capturing the Micro-Answer Market",
+    "excerpt": "YouTube Shorts are powerful tools for answering specific user queries. Discover how to optimize short-form video for both human viewers and search algorithms.",
+    "author": "Corey Spicer",
+    "date": "2026-03-22",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "YouTube Shorts",
+      "Video SEO",
+      "Micro-Content",
+      "Audience Engagement"
+    ]
+  },
+  {
+    "id": 323,
+    "slug": "video-schema-markup-aeo-guide",
+    "title": "The Ultimate Guide to Video Schema Markup for AEO",
+    "excerpt": "Unlock the technical secrets of VideoObject schema markup to ensure your video content is perfectly structured for Google's AI Overviews and traditional carousels.",
+    "author": "Corey Spicer",
+    "date": "2026-03-23",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Schema Markup",
+      "Technical SEO",
+      "VideoObject",
+      "AEO"
+    ]
+  },
+  {
+    "id": 324,
+    "slug": "keyword-research-for-answer-engine-optimization",
+    "title": "Conducting Keyword Research for Answer Engine Optimization",
+    "excerpt": "Traditional keyword research tools are falling behind. Learn how to identify the conversational queries and direct questions that fuel AEO and Voice Search.",
+    "author": "Corey Spicer",
+    "date": "2026-03-24",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Keyword Research",
+      "AEO",
+      "Conversational Search",
+      "Voice Search"
+    ]
+  },
+  {
+    "id": 325,
+    "slug": "video-engagement-metrics-ai-overviews",
+    "title": "Video Engagement Metrics: The Hidden Signal for AI Overviews",
+    "excerpt": "AI overviews rely heavily on user satisfaction signals. Learn why metrics like audience retention and watch time are critical for your AEO success.",
+    "author": "Corey Spicer",
+    "date": "2026-03-25",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Video Analytics",
+      "Engagement Metrics",
+      "AI Overviews",
+      "Retention"
+    ]
+  },
+  {
+    "id": 326,
+    "slug": "creating-video-hub-long-tail-queries",
+    "title": "Creating a Video Hub That Dominates Long-Tail Queries",
+    "excerpt": "Stop relying solely on YouTube. Discover how hosting an optimized video hub on your own domain can supercharge your site's overall AEO and SEO performance.",
+    "author": "Corey Spicer",
+    "date": "2026-03-26",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Video Hub",
+      "On-site SEO",
+      "Content Architecture",
+      "Domain Authority"
+    ]
+  },
+  {
+    "id": 327,
+    "slug": "repurposing-long-form-video-answer-engines",
+    "title": "Repurposing Long-Form Video Content for Answer Engines",
+    "excerpt": "Don't let your webinars and podcasts go to waste. Learn how to slice long-form video into bite-sized AEO assets that dominate specific query segments.",
+    "author": "Corey Spicer",
+    "date": "2026-03-27",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Content Repurposing",
+      "Video Editing",
+      "Content Strategy",
+      "AEO"
+    ]
+  },
+  {
+    "id": 328,
+    "slug": "local-aeo-video-near-me-queries",
+    "title": "Local AEO: Using Video to Dominate \"Near Me\" AI Queries",
+    "excerpt": "AI search relies heavily on local context. Learn how to integrate geographical keywords and local landmarks into your video strategy to dominate local AEO.",
+    "author": "Corey Spicer",
+    "date": "2026-03-28",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Local SEO",
+      "Local Video",
+      "AEO",
+      "Near Me Queries"
+    ]
+  },
+  {
+    "id": 329,
+    "slug": "impact-voice-search-video-seo",
+    "title": "The Impact of Voice Search on Video SEO Strategies",
+    "excerpt": "Voice search queries are inherently conversational and action-oriented. Discover how to adapt your video titles and descriptions to capture this growing demographic.",
+    "author": "Corey Spicer",
+    "date": "2026-03-29",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Voice Search",
+      "Video SEO",
+      "Mobile Marketing",
+      "Conversational Queries"
+    ]
+  },
+  {
+    "id": 330,
+    "slug": "leveraging-ai-tools-enhance-video-seo",
+    "title": "Leveraging AI Tools to Enhance Your Video SEO Workflow",
+    "excerpt": "From automated transcription to AI-generated timestamps, learn which artificial intelligence tools can dramatically speed up and improve your Video SEO processes.",
+    "author": "Corey Spicer",
+    "date": "2026-03-30",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "AI Tools",
+      "Workflow Automation",
+      "Video SEO",
+      "Productivity"
+    ]
+  },
+  {
+    "id": 331,
+    "slug": "ab-testing-video-thumbnails-maximum-aeo",
+    "title": "A/B Testing Video Thumbnails for Maximum AEO Click-Through",
+    "excerpt": "A great answer is useless if no one clicks. Learn how to systematically test video thumbnails to increase your CTR and signal authority to Answer Engines.",
+    "author": "Corey Spicer",
+    "date": "2026-03-31",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Thumbnails",
+      "A/B Testing",
+      "CTR",
+      "Conversion Optimization"
+    ]
+  },
+  {
+    "id": 332,
+    "slug": "building-authority-expert-video-influences-ai",
+    "title": "Building Authority: How Expert Video Content Influences AI Models",
+    "excerpt": "Answer Engines prioritize trust and expertise (E-E-A-T). Learn how producing high-quality, authoritative video content trains AI to view you as the industry standard.",
+    "author": "Corey Spicer",
+    "date": "2026-04-01",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "E-E-A-T",
+      "Brand Authority",
+      "Trust Metrics",
+      "AEO"
+    ]
+  },
+  {
+    "id": 333,
+    "slug": "future-proofing-strategy-video-seo-aeo-2027",
+    "title": "Future-Proofing Your Strategy: Video SEO and AEO in 2027",
+    "excerpt": "As the 14-day sprint concludes, we look ahead. What are the next major shifts in search technology, and how can your video strategy stay ahead of the curve?",
+    "author": "Corey Spicer",
+    "date": "2026-04-02",
+    "category": "seo",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+    "tags": [
+      "Future Trends",
+      "Search Evolution",
+      "Video Marketing",
+      "Strategic Planning"
+    ]
+  },
+  {
     "id": 1,
     "slug": "seo-mistakes-killing-website-traffic",
     "title": "10 SEO Mistakes That Are Killing Your Website Traffic",
@@ -9,7 +247,12 @@
     "category": "seo",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["SEO", "Website Traffic", "Search Rankings", "Google Analytics"]
+    "tags": [
+      "SEO",
+      "Website Traffic",
+      "Search Rankings",
+      "Google Analytics"
+    ]
   },
   {
     "id": 2,
@@ -21,7 +264,12 @@
     "category": "social-media",
     "readTime": "12 min read",
     "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
-    "tags": ["Social Media", "Marketing Strategy", "Content Creation", "Platform Analytics"]
+    "tags": [
+      "Social Media",
+      "Marketing Strategy",
+      "Content Creation",
+      "Platform Analytics"
+    ]
   },
   {
     "id": 27,
@@ -33,7 +281,12 @@
     "category": "seo",
     "readTime": "6 min read",
     "image": "https://images.unsplash.com/photo-1659355751133-763bd796eeb2?w=800&h=400&fit=crop",
-    "tags": ["Voice Search", "SEO Strategy", "Featured Snippets", "Conversational AI"]
+    "tags": [
+      "Voice Search",
+      "SEO Strategy",
+      "Featured Snippets",
+      "Conversational AI"
+    ]
   },
   {
     "id": 28,
@@ -45,7 +298,12 @@
     "category": "social-media",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1615494937386-5532d6f5cb25?w=800&h=400&fit=crop",
-    "tags": ["Facebook Ads", "Paid Social", "Campaign Optimization", "ROI Marketing"]
+    "tags": [
+      "Facebook Ads",
+      "Paid Social",
+      "Campaign Optimization",
+      "ROI Marketing"
+    ]
   },
   {
     "id": 29,
@@ -57,7 +315,12 @@
     "category": "web-design",
     "readTime": "7 min read",
     "image": "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=800&h=400&fit=crop",
-    "tags": ["UX Design", "UI Design", "Conversion Optimization", "User Experience"]
+    "tags": [
+      "UX Design",
+      "UI Design",
+      "Conversion Optimization",
+      "User Experience"
+    ]
   },
   {
     "id": 303,
@@ -69,7 +332,13 @@
     "category": "digital-marketing",
     "readTime": "15 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Google Ads", "PPC", "Digital Marketing", "ROI Optimization", "Ad Campaigns"]
+    "tags": [
+      "Google Ads",
+      "PPC",
+      "Digital Marketing",
+      "ROI Optimization",
+      "Ad Campaigns"
+    ]
   },
   {
     "id": 304,
@@ -100,7 +369,13 @@
     "category": "social-media",
     "readTime": "14 min read",
     "image": "https://images.unsplash.com/photo-1621184078903-6bfe9482d935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
-    "tags": ["Instagram Marketing", "Social Media", "Content Strategy", "Business Growth", "Reels"]
+    "tags": [
+      "Instagram Marketing",
+      "Social Media",
+      "Content Strategy",
+      "Business Growth",
+      "Reels"
+    ]
   },
   {
     "id": 49,
@@ -112,7 +387,12 @@
     "category": "marketing",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
-    "tags": ["Marketing Integration", "Multi-Channel", "Campaign Coordination", "Digital Marketing"]
+    "tags": [
+      "Marketing Integration",
+      "Multi-Channel",
+      "Campaign Coordination",
+      "Digital Marketing"
+    ]
   },
   {
     "id": 50,
@@ -124,7 +404,12 @@
     "category": "crm",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-    "tags": ["Customer Retention", "Loyalty Programs", "Customer Experience", "CRM"]
+    "tags": [
+      "Customer Retention",
+      "Loyalty Programs",
+      "Customer Experience",
+      "CRM"
+    ]
   },
   {
     "id": 306,
@@ -136,7 +421,13 @@
     "category": "web-design",
     "readTime": "13 min read",
     "image": "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
-    "tags": ["Graphic Design", "Branding", "Logo Design", "Visual Identity", "Marketing Materials"]
+    "tags": [
+      "Graphic Design",
+      "Branding",
+      "Logo Design",
+      "Visual Identity",
+      "Marketing Materials"
+    ]
   },
   {
     "id": 307,
@@ -148,7 +439,12 @@
     "category": "seo",
     "readTime": "15 min read",
     "image": "https://images.unsplash.com/photo-1548345680-f5475ea5df84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
-    "tags": ["Local SEO", "Decatur Business", "Google Business Profile", "Wise County"]
+    "tags": [
+      "Local SEO",
+      "Decatur Business",
+      "Google Business Profile",
+      "Wise County"
+    ]
   },
   {
     "id": 308,
@@ -160,7 +456,13 @@
     "category": "digital-marketing",
     "readTime": "16 min read",
     "image": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
-    "tags": ["Digital Marketing", "SEO", "Social Media", "Content Marketing", "Business Growth"]
+    "tags": [
+      "Digital Marketing",
+      "SEO",
+      "Social Media",
+      "Content Marketing",
+      "Business Growth"
+    ]
   },
   {
     "id": 309,
@@ -172,7 +474,13 @@
     "category": "digital-marketing",
     "readTime": "14 min read",
     "image": "https://images.unsplash.com/photo-1762340275232-6cb605dfd5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&h=400",
-    "tags": ["Digital Presence", "Website Design", "SEO", "Social Media", "Online Marketing"]
+    "tags": [
+      "Digital Presence",
+      "Website Design",
+      "SEO",
+      "Social Media",
+      "Online Marketing"
+    ]
   },
   {
     "id": 310,
@@ -201,7 +509,12 @@
     "category": "social-media",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&h=400&fit=crop",
-    "tags": ["TikTok", "Gen Z Marketing", "Social Media", "Video Marketing"]
+    "tags": [
+      "TikTok",
+      "Gen Z Marketing",
+      "Social Media",
+      "Video Marketing"
+    ]
   },
   {
     "id": 15,
@@ -213,7 +526,12 @@
     "category": "social-media",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
-    "tags": ["LinkedIn", "B2B Marketing", "Lead Generation", "Professional Networking"]
+    "tags": [
+      "LinkedIn",
+      "B2B Marketing",
+      "Lead Generation",
+      "Professional Networking"
+    ]
   },
   {
     "id": 5,
@@ -225,7 +543,12 @@
     "category": "seo",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&h=400&fit=crop",
-    "tags": ["Local SEO", "Small Business", "Google My Business", "Local Search"]
+    "tags": [
+      "Local SEO",
+      "Small Business",
+      "Google My Business",
+      "Local Search"
+    ]
   },
   {
     "id": 14,
@@ -237,7 +560,12 @@
     "category": "seo",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop",
-    "tags": ["Technical SEO", "Site Speed", "Crawlability", "Website Optimization"]
+    "tags": [
+      "Technical SEO",
+      "Site Speed",
+      "Crawlability",
+      "Website Optimization"
+    ]
   },
   {
     "id": 16,
@@ -249,7 +577,12 @@
     "category": "seo",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
-    "tags": ["Content SEO", "On-Page SEO", "Keyword Research", "Content Strategy"]
+    "tags": [
+      "Content SEO",
+      "On-Page SEO",
+      "Keyword Research",
+      "Content Strategy"
+    ]
   },
   {
     "id": 30,
@@ -261,7 +594,12 @@
     "category": "seo",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&h=400&fit=crop",
-    "tags": ["Video SEO", "YouTube", "Video Marketing", "Content Optimization"]
+    "tags": [
+      "Video SEO",
+      "YouTube",
+      "Video Marketing",
+      "Content Optimization"
+    ]
   },
   {
     "id": 32,
@@ -273,7 +611,12 @@
     "category": "seo",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
-    "tags": ["E-commerce SEO", "Online Store", "Product Optimization", "Organic Traffic"]
+    "tags": [
+      "E-commerce SEO",
+      "Online Store",
+      "Product Optimization",
+      "Organic Traffic"
+    ]
   },
   {
     "id": 33,
@@ -285,7 +628,12 @@
     "category": "seo",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=400&fit=crop",
-    "tags": ["E-commerce", "SEO", "Conversion Optimization", "Sales"]
+    "tags": [
+      "E-commerce",
+      "SEO",
+      "Conversion Optimization",
+      "Sales"
+    ]
   },
   {
     "id": 3,
@@ -297,7 +645,12 @@
     "category": "web-design",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=400&fit=crop",
-    "tags": ["Web Design", "Design Trends", "UX", "Innovation"]
+    "tags": [
+      "Web Design",
+      "Design Trends",
+      "UX",
+      "Innovation"
+    ]
   },
   {
     "id": 22,
@@ -309,7 +662,12 @@
     "category": "web-design",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop",
-    "tags": ["Color Psychology", "Web Design", "UX", "Conversion Optimization"]
+    "tags": [
+      "Color Psychology",
+      "Web Design",
+      "UX",
+      "Conversion Optimization"
+    ]
   },
   {
     "id": 23,
@@ -321,7 +679,12 @@
     "category": "web-design",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
-    "tags": ["Mobile Design", "Responsive Design", "UX", "Performance"]
+    "tags": [
+      "Mobile Design",
+      "Responsive Design",
+      "UX",
+      "Performance"
+    ]
   },
   {
     "id": 24,
@@ -333,7 +696,12 @@
     "category": "web-design",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Landing Pages", "Conversion Optimization", "CRO", "Web Design"]
+    "tags": [
+      "Landing Pages",
+      "Conversion Optimization",
+      "CRO",
+      "Web Design"
+    ]
   },
   {
     "id": 6,
@@ -345,7 +713,12 @@
     "category": "marketing-strategy",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["ROI", "Marketing Analytics", "Campaign Measurement", "Attribution"]
+    "tags": [
+      "ROI",
+      "Marketing Analytics",
+      "Campaign Measurement",
+      "Attribution"
+    ]
   },
   {
     "id": 8,
@@ -357,7 +730,12 @@
     "category": "marketing-strategy",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=800&h=400&fit=crop",
-    "tags": ["Brand Identity", "Branding", "Brand Strategy", "Digital Marketing"]
+    "tags": [
+      "Brand Identity",
+      "Branding",
+      "Brand Strategy",
+      "Digital Marketing"
+    ]
   },
   {
     "id": 13,
@@ -369,7 +747,12 @@
     "category": "marketing-strategy",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-    "tags": ["Marketing Automation", "Workflow Automation", "Lead Nurturing", "Efficiency"]
+    "tags": [
+      "Marketing Automation",
+      "Workflow Automation",
+      "Lead Nurturing",
+      "Efficiency"
+    ]
   },
   {
     "id": 17,
@@ -381,7 +764,12 @@
     "category": "marketing-strategy",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop",
-    "tags": ["Marketing Automation", "Conversion Optimization", "Workflows", "Lead Nurturing"]
+    "tags": [
+      "Marketing Automation",
+      "Conversion Optimization",
+      "Workflows",
+      "Lead Nurturing"
+    ]
   },
   {
     "id": 34,
@@ -393,7 +781,12 @@
     "category": "marketing-strategy",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
-    "tags": ["Artificial Intelligence", "AI Marketing", "Marketing Tools", "Automation"]
+    "tags": [
+      "Artificial Intelligence",
+      "AI Marketing",
+      "Marketing Tools",
+      "Automation"
+    ]
   },
   {
     "id": 9,
@@ -405,7 +798,12 @@
     "category": "content-marketing",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=400&fit=crop",
-    "tags": ["Content Marketing", "Content Strategy", "Conversions", "Lead Generation"]
+    "tags": [
+      "Content Marketing",
+      "Content Strategy",
+      "Conversions",
+      "Lead Generation"
+    ]
   },
   {
     "id": 19,
@@ -417,7 +815,12 @@
     "category": "content-marketing",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=400&fit=crop",
-    "tags": ["Video Marketing", "Content Creation", "YouTube", "Video Strategy"]
+    "tags": [
+      "Video Marketing",
+      "Content Creation",
+      "YouTube",
+      "Video Strategy"
+    ]
   },
   {
     "id": 25,
@@ -429,7 +832,12 @@
     "category": "content-marketing",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop",
-    "tags": ["Blogging", "Content Marketing", "Traffic Generation", "Lead Generation"]
+    "tags": [
+      "Blogging",
+      "Content Marketing",
+      "Traffic Generation",
+      "Lead Generation"
+    ]
   },
   {
     "id": 29,
@@ -441,7 +849,12 @@
     "category": "content-marketing",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=400&fit=crop",
-    "tags": ["Podcast Marketing", "Audio Content", "Audience Building", "Brand Growth"]
+    "tags": [
+      "Podcast Marketing",
+      "Audio Content",
+      "Audience Building",
+      "Brand Growth"
+    ]
   },
   {
     "id": 10,
@@ -453,7 +866,12 @@
     "category": "email-marketing",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop",
-    "tags": ["Email Marketing", "Marketing Automation", "Personalization", "Engagement"]
+    "tags": [
+      "Email Marketing",
+      "Marketing Automation",
+      "Personalization",
+      "Engagement"
+    ]
   },
   {
     "id": 18,
@@ -465,7 +883,12 @@
     "category": "email-marketing",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=800&h=400&fit=crop",
-    "tags": ["Email List Building", "Lead Generation", "Subscribers", "Growth"]
+    "tags": [
+      "Email List Building",
+      "Lead Generation",
+      "Subscribers",
+      "Growth"
+    ]
   },
   {
     "id": 26,
@@ -477,7 +900,12 @@
     "category": "email-marketing",
     "readTime": "8 min read",
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
-    "tags": ["SMS Marketing", "Text Message Marketing", "Mobile Marketing", "Customer Engagement"]
+    "tags": [
+      "SMS Marketing",
+      "Text Message Marketing",
+      "Mobile Marketing",
+      "Customer Engagement"
+    ]
   },
   {
     "id": 31,
@@ -489,7 +917,12 @@
     "category": "email-marketing",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=800&h=400&fit=crop",
-    "tags": ["Email Deliverability", "Email Marketing", "Technical SEO", "Sender Reputation"]
+    "tags": [
+      "Email Deliverability",
+      "Email Marketing",
+      "Technical SEO",
+      "Sender Reputation"
+    ]
   },
   {
     "id": 7,
@@ -501,7 +934,12 @@
     "category": "analytics",
     "readTime": "12 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-    "tags": ["Google Analytics 4", "Analytics", "Data Analysis", "Reporting"]
+    "tags": [
+      "Google Analytics 4",
+      "Analytics",
+      "Data Analysis",
+      "Reporting"
+    ]
   },
   {
     "id": 11,
@@ -513,7 +951,12 @@
     "category": "analytics",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-    "tags": ["Data-Driven Marketing", "Analytics", "Marketing Metrics", "Optimization"]
+    "tags": [
+      "Data-Driven Marketing",
+      "Analytics",
+      "Marketing Metrics",
+      "Optimization"
+    ]
   },
   {
     "id": 21,
@@ -525,7 +968,12 @@
     "category": "analytics",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Marketing Attribution", "Customer Journey", "Analytics", "ROI Measurement"]
+    "tags": [
+      "Marketing Attribution",
+      "Customer Journey",
+      "Analytics",
+      "ROI Measurement"
+    ]
   },
   {
     "id": 35,
@@ -537,7 +985,12 @@
     "category": "analytics",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-    "tags": ["Content Marketing ROI", "Analytics", "Measurement", "Content Strategy"]
+    "tags": [
+      "Content Marketing ROI",
+      "Analytics",
+      "Measurement",
+      "Content Strategy"
+    ]
   },
   {
     "id": 36,
@@ -549,7 +1002,12 @@
     "category": "analytics",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-    "tags": ["Google Analytics 4", "Setup", "Configuration", "Tracking"]
+    "tags": [
+      "Google Analytics 4",
+      "Setup",
+      "Configuration",
+      "Tracking"
+    ]
   },
   {
     "id": 12,
@@ -561,7 +1019,12 @@
     "category": "conversion-optimization",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Conversion Optimization", "CRO", "Testing", "User Experience"]
+    "tags": [
+      "Conversion Optimization",
+      "CRO",
+      "Testing",
+      "User Experience"
+    ]
   },
   {
     "id": 27,
@@ -573,7 +1036,12 @@
     "category": "conversion-optimization",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Website Performance", "Page Speed", "Technical Optimization", "User Experience"]
+    "tags": [
+      "Website Performance",
+      "Page Speed",
+      "Technical Optimization",
+      "User Experience"
+    ]
   },
   {
     "id": 28,
@@ -585,7 +1053,12 @@
     "category": "conversion-optimization",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-    "tags": ["A/B Testing", "CRO", "Optimization", "Experimentation"]
+    "tags": [
+      "A/B Testing",
+      "CRO",
+      "Optimization",
+      "Experimentation"
+    ]
   },
   {
     "id": 37,
@@ -597,7 +1070,12 @@
     "category": "paid-advertising",
     "readTime": "12 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Google Ads", "PPC", "Paid Advertising", "Search Ads"]
+    "tags": [
+      "Google Ads",
+      "PPC",
+      "Paid Advertising",
+      "Search Ads"
+    ]
   },
   {
     "id": 38,
@@ -609,7 +1087,12 @@
     "category": "paid-advertising",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-    "tags": ["Retargeting", "Remarketing", "Paid Advertising", "Conversion Optimization"]
+    "tags": [
+      "Retargeting",
+      "Remarketing",
+      "Paid Advertising",
+      "Conversion Optimization"
+    ]
   },
   {
     "id": 39,
@@ -621,7 +1104,12 @@
     "category": "partnerships",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
-    "tags": ["Influencer Marketing", "Partnerships", "Social Media", "Brand Awareness"]
+    "tags": [
+      "Influencer Marketing",
+      "Partnerships",
+      "Social Media",
+      "Brand Awareness"
+    ]
   },
   {
     "id": 40,
@@ -633,7 +1121,12 @@
     "category": "partnerships",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
-    "tags": ["Affiliate Marketing", "Partnerships", "Revenue Growth", "Performance Marketing"]
+    "tags": [
+      "Affiliate Marketing",
+      "Partnerships",
+      "Revenue Growth",
+      "Performance Marketing"
+    ]
   },
   {
     "id": 41,
@@ -645,7 +1138,12 @@
     "category": "partnerships",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&h=400&fit=crop",
-    "tags": ["Influencer Marketing", "Campaign Management", "Social Media", "Partnerships"]
+    "tags": [
+      "Influencer Marketing",
+      "Campaign Management",
+      "Social Media",
+      "Partnerships"
+    ]
   },
   {
     "id": 42,
@@ -657,7 +1155,12 @@
     "category": "partnerships",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop",
-    "tags": ["B2B Marketing", "Lead Generation", "Demand Generation", "Sales"]
+    "tags": [
+      "B2B Marketing",
+      "Lead Generation",
+      "Demand Generation",
+      "Sales"
+    ]
   },
   {
     "id": 43,
@@ -669,7 +1172,12 @@
     "category": "partnerships",
     "readTime": "10 min read",
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
-    "tags": ["Mobile App Marketing", "User Acquisition", "App Store Optimization", "Retention"]
+    "tags": [
+      "Mobile App Marketing",
+      "User Acquisition",
+      "App Store Optimization",
+      "Retention"
+    ]
   },
   {
     "id": 44,
@@ -681,7 +1189,12 @@
     "category": "partnerships",
     "readTime": "9 min read",
     "image": "https://images.unsplash.com/photo-1553484771-047a44eee27e?w=800&h=400&fit=crop",
-    "tags": ["Reputation Management", "Reviews", "Local Business", "Customer Trust"]
+    "tags": [
+      "Reputation Management",
+      "Reviews",
+      "Local Business",
+      "Customer Trust"
+    ]
   },
   {
     "id": 45,
