@@ -90,105 +90,68 @@ export default function PageAuditorAgent() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="relative space-y-6">
+      {/* Ambient */}
+      <div className="absolute -top-6 left-1/3 w-96 h-64 bg-violet-600/5 rounded-full blur-[120px] pointer-events-none" />
+
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="relative z-10 flex items-start justify-between">
         <div>
-          <div className="flex items-center space-x-3 mb-2">
-            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6 text-purple-600" />
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 bg-violet-500/15 border border-violet-500/20 rounded-lg">
+              <ShieldCheck className="w-5 h-5 text-violet-400" />
             </div>
-            <h1 className="text-2xl font-bold text-white">Page Auditor Agent</h1>
+            <div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                <span className="text-xs font-mono uppercase tracking-widest text-violet-400">Site Health Monitor</span>
+              </div>
+            </div>
           </div>
-          <p className="text-slate-400">
-            Automatically scan your site for incomplete pages, missing content, and lingering placeholders.
-          </p>
+          <h1 className="text-3xl font-bold text-white mb-1">Page Auditor Agent</h1>
+          <p className="text-slate-400">Automatically scan your site for incomplete pages, missing content, and lingering placeholders.</p>
         </div>
-        <div className="flex space-x-3">
-          <Button variant="outline">
-            <Settings className="w-4 h-4 mr-2" />
+        <div className="flex gap-3">
+          <button className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-slate-200 hover:bg-white/8 text-sm font-semibold transition-colors">
+            <Settings className="w-4 h-4" />
             Scan Settings
-          </Button>
-          <Button 
-            onClick={mockScan} 
+          </button>
+          <motion.button
+            whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+            onClick={mockScan}
             disabled={isScanning}
-            className="bg-gradient-to-r from-purple-600 to-[#1E3A5F] text-white"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-60 text-white text-sm font-semibold shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all"
           >
             {isScanning ? (
-              <>
-                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                Scanning Pages...
-              </>
+              <><RefreshCw className="w-4 h-4 animate-spin" />Scanning Pages...</>
             ) : (
-              <>
-                <Play className="w-4 h-4 mr-2" />
-                Run Full Audit
-              </>
+              <><Play className="w-4 h-4" />Run Full Audit</>
             )}
-          </Button>
+          </motion.button>
         </div>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="border-0 shadow-2xl border border-white/5">
-          <CardContent className="pt-6">
-            <div className="flex justify-between items-start">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4">
+        {[
+          { label: 'Pages Scanned', value: lastScan ? '142' : '0', icon: FileText, color: 'text-indigo-400', bg: 'bg-indigo-500/10 border-indigo-500/20' },
+          { label: 'Issues Found', value: String(issues.length), icon: AlertCircle, color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' },
+          { label: 'High Severity', value: String(issues.filter(i => i.severity === 'high').length), icon: AlertTriangle, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
+          { label: 'Tasks Logged', value: String(issues.filter(i => i.status === 'logged').length), icon: CheckCircle2, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
+        ].map((stat, i) => {
+          const Icon = stat.icon;
+          return (
+            <motion.div key={i} whileHover={{ y: -2 }} className={`rounded-2xl bg-[#090f1a] border border-white/8 p-5 flex justify-between items-start`}>
               <div>
-                <p className="text-sm font-medium text-slate-500 mb-1">Total Pages Scanned</p>
-                <h3 className="text-2xl font-bold text-white">{lastScan ? '142' : '0'}</h3>
+                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">{stat.label}</p>
+                <p className={`text-3xl font-black ${stat.color}`}>{stat.value}</p>
               </div>
-              <div className="w-10 h-10 bg-indigo-900/20 rounded-lg flex items-center justify-center">
-                <FileText className="w-5 h-5 text-indigo-400" />
+              <div className={`p-2.5 rounded-xl border ${stat.bg}`}>
+                <Icon className={`w-5 h-5 ${stat.color}`} />
               </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border-0 shadow-2xl border border-white/5">
-          <CardContent className="pt-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-sm font-medium text-slate-500 mb-1">Issues Found</p>
-                <h3 className="text-2xl font-bold text-rose-400">
-                  {issues.length > 0 ? issues.length : '0'}
-                </h3>
-              </div>
-              <div className="w-10 h-10 bg-rose-900/20 rounded-lg flex items-center justify-center">
-                <AlertCircle className="w-5 h-5 text-rose-400" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border-0 shadow-2xl border border-white/5">
-          <CardContent className="pt-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-sm font-medium text-slate-500 mb-1">High Severity</p>
-                <h3 className="text-2xl font-bold text-orange-600">
-                  {issues.filter(i => i.severity === 'high').length}
-                </h3>
-              </div>
-              <div className="w-10 h-10 bg-orange-900/20 rounded-lg flex items-center justify-center">
-                <AlertTriangle className="w-5 h-5 text-orange-600" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border-0 shadow-2xl border border-white/5">
-          <CardContent className="pt-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-sm font-medium text-slate-500 mb-1">Tasks Logged</p>
-                <h3 className="text-2xl font-bold text-green-600">
-                  {issues.filter(i => i.status === 'logged').length}
-                </h3>
-              </div>
-              <div className="w-10 h-10 bg-emerald-900/20 rounded-lg flex items-center justify-center">
-                <CheckCircle2 className="w-5 h-5 text-green-600" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Main Content */}

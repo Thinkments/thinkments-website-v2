@@ -32,18 +32,25 @@ export default function SystemArchitecture() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA]">
+    <div className="min-h-screen bg-[#030712] text-slate-300">
+      {/* Ambient */}
+      <div className="absolute -top-8 right-1/4 w-96 h-56 bg-violet-600/5 rounded-full blur-[120px] pointer-events-none" />
+
       {/* Header */}
-      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-black/30 backdrop-blur-xl border-b border-white/8 px-8 py-6">
+        <div className="flex items-center justify-between mb-5">
           <div>
-            <h1 className="text-2xl font-bold text-white mb-2">System Architecture</h1>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+              <span className="text-xs font-mono uppercase tracking-widest text-violet-400">Infrastructure Blueprint</span>
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-1">System Architecture</h1>
             <p className="text-slate-400">ThinkMents admin panel to live website data flow</p>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex items-center space-x-2">
+        <div className="flex gap-1 bg-black/30 border border-white/8 rounded-xl p-1 w-fit">
           {[
             { id: 'overview', label: 'System Overview' },
             { id: 'blog-publish', label: 'Blog Publish Flow' },
@@ -52,10 +59,11 @@ export default function SystemArchitecture() {
             <button
               key={tab.id}
               onClick={() => setActiveFlow(tab.id as 'overview' | 'blog-publish' | 'data-flow')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeFlow === tab.id
-                  ? 'bg-[#00B4D8] text-white'
-                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
-                }`}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                activeFlow === tab.id
+                  ? 'bg-violet-600/25 border border-violet-500/30 text-violet-300 shadow-[0_0_10px_rgba(139,92,246,0.2)]'
+                  : 'text-slate-500 hover:text-slate-300'
+              }`}
             >
               {tab.label}
             </button>
@@ -700,7 +708,7 @@ export default function SystemArchitecture() {
                 <h3 className="text-lg font-semibold text-white mb-4">
                   Build & Deployment Pipeline
                 </h3>
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-white/10">
+                <div className="bg-black/30 border border-white/8 rounded-xl p-6">
                   <div className="flex items-center justify-between">
                     {[
                       { label: 'Git Push', icon: GitBranch },

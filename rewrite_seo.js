@@ -1,53 +1,62 @@
-import fs from 'fs';
+const fs = require('fs');
 
-const files = ['src/components/admin/SERPOptimizer.tsx', 'src/components/admin/SEOBulkFixer.tsx', 'src/components/admin/EcommerceWebDesigner.tsx'];
-
-const replacements = [
-  // Old cyan legacy overrides missing from prior passes
-  {from: '\\[#00B4D8\\]/5', to: 'indigo-500/10'},
-  {from: '\\[#00B4D8\\]/50', to: 'indigo-500/30'},
-  {from: 'bg-\\[#00B4D8\\]', to: 'bg-indigo-600'},
-  {from: 'text-\\[#00B4D8\\]', to: 'text-indigo-400'},
-  {from: 'border-\\[#00B4D8\\]', to: 'border-indigo-500'},
-  {from: 'from-\\[#00B4D8\\]', to: 'from-indigo-600'},
-  {from: 'to-\\[#1E3A5F\\]', to: 'to-purple-900'},
-  {from: '\\[#1E3A5F\\]', to: 'purple-900'},
-  {from: 'from-\\[#1E3A5F\\]', to: 'from-purple-900'},
-
-  // Fix custom colors in text
-  {from: 'text-\\[#FF6B35\\]', to: 'text-amber-400'},
-  {from: 'text-whitember-', to: 'text-amber-'},
-  
-  // Premium glassmorphic alerts & statuses instead of old green/red badging
-  {from: 'bg-emerald-900/20 rounded border border-green-200', to: 'bg-emerald-500/10 rounded-lg border border-emerald-500/30 backdrop-blur-md'},
-  {from: 'text-green-800', to: 'text-emerald-300'},
-  {from: 'border-green-200', to: 'border-emerald-500/30'},
-  {from: 'bg-rose-900/20 rounded border border-red-200', to: 'bg-rose-500/10 rounded-lg border border-rose-500/30 backdrop-blur-md'},
-  {from: 'text-red-800', to: 'text-rose-300'},
-  
-  // Extra 10x Glows
-  {from: 'shadow-2xl border border-white/5', to: 'shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300'}
+const files = [
+  'src/components/admin/SERPOptimizer.tsx',
+  'src/components/admin/SEOBulkFixer.tsx',
 ];
 
+// The de-duped clean card class
+const CARD_CLASS = 'border-0 border border-white/8 bg-[#090f1a] hover:border-indigo-500/30 shadow-[0_0_30px_rgba(79,70,229,0.08)] hover:shadow-[0_0_40px_rgba(79,70,229,0.18)] transition-all duration-300';
+
 files.forEach(file => {
-  if (!fs.existsSync(file)) return;
-  
+  if (!fs.existsSync(file)) { console.log('NOT FOUND:', file); return; }
   let content = fs.readFileSync(file, 'utf8');
+  let original = content;
+
+  // ── 1. Kill ALL duplicated card class patterns ──
+  // The triple-dup pattern we know is in this file:
+  content = content.replace(
+    /border-0 shadow-\[0_0_30px_rgba\(79,70,229,0\.1\)\] border border-white\/5 bg-\[#0f172a\]\/80 backdrop-blur-xl relative z-10(?: bg-\[#0f172a\]\/80 backdrop-blur-xl relative z-10)*(?: hover:border-indigo-500\/30 hover:shadow-\[0_0_40px_rgba\(79,70,229,0\.2\)\] transition-all duration-300)?(?:(?: hover:shadow-lg transition-shadow)?)/g,
+    CARD_CLASS
+  );
   
-  replacements.forEach(r => {
-    content = content.replace(new RegExp(r.from, 'g'), r.to);
-  });
+  // Also simpler single-dup:
+  content = content.replace(
+    /shadow-\[0_0_30px_rgba\(79,70,229,0\.1\)\] border border-white\/5 bg-\[#0f172a\]\/80 backdrop-blur-xl relative z-10 hover:border-indigo-500\/30 hover:shadow-\[0_0_40px_rgba\(79,70,229,0\.2\)\] transition-all duration-300/g,
+    CARD_CLASS
+  );
+
+  // ── 2. Fix remaining legacy cyan ──
+  content = content.replace(/focus:ring-\[#00B4D8\]/g, 'focus:ring-indigo-500');
+  content = content.replace(/\[#00B4D8\]/g, 'indigo-500');
+  content = content.replace(/from-\[#00B4D8\]/g, 'from-indigo-600');
+  content = content.replace(/to-\[#1E3A5F\]/g, 'to-purple-900');
+  content = content.replace(/text-\[#00B4D8\]/g, 'text-indigo-400');
+  content = content.replace(/bg-\[#00B4D8\]/g, 'bg-indigo-600');
+  content = content.replace(/border-\[#00B4D8\]/g, 'border-indigo-500');
   
-  // Also inject a background glowing orb for maximum 10x presentation
-  if (!content.includes('blur-[120px]') && content.includes('<div className="mb-6">')) {
-    content = content.replace('<div className="mb-6">', 
-      '<div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />\\n      <div className="mb-6 relative z-10">'
-    );
+  // ── 3. Fix bad text-rose color utility for "No Issues" badge ──
+  content = content.replace(/text-green-700(?=["'])/g, 'text-emerald-400');
+  
+  // ── 4. Fix bad bg-*-900/200 patterns (invalid Tailwind) ──
+  content = content.replace(/bg-rose-900\/200/g, 'bg-rose-500/15');
+  content = content.replace(/bg-amber-900\/200/g, 'bg-amber-500/15');
+  content = content.replace(/bg-orange-900\/200/g, 'bg-orange-500/15');
+  
+  // ── 5. Input / select dark styling ──
+  content = content.replace(
+    /className="w-full pl-10 pr-4 py-2 border border-white\/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"/g,
+    'className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-colors"'
+  );
+  content = content.replace(
+    /className="(?:px-3 py-2 border border-white\/20 rounded-lg|w-full px-3 py-2 border border-white\/20 rounded-lg)(?: mb-4)?"/g,
+    (m) => m.replace('border border-white/20', 'bg-white/5 border border-white/10').replace('rounded-lg"', 'rounded-lg text-slate-200"')
+  );
+
+  if (content !== original) {
+    fs.writeFileSync(file, content);
+    console.log('✅ Fixed:', file);
+  } else {
+    console.log('⏭️  No changes needed:', file);
   }
-
-  // Ensure main cards actually use the glassmorphic background layer
-  content = content.replace(/className="border-0 shadow-\[0_0_30px_rgba\(79,70,229,0\.1\)\] border border-white\/5/g, 'className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10');
-
-  fs.writeFileSync(file, content);
-  console.log('10x Upgrade Applied To:', file);
 });
