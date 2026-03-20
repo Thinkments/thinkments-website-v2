@@ -27,6 +27,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import SEO from '../SEO';
+import { generateArticleSchema, BASE_URL } from '../../utils/seo';
 
 export default function FoursquareHealthcareCaseStudyPage() {
   const heroRef = useRef(null);
@@ -53,6 +54,18 @@ export default function FoursquareHealthcareCaseStudyPage() {
   const isRelatedInView = useInView(relatedRef, { once: true });
   const isCtaInView = useInView(ctaRef, { once: true });
 
+  const schemas = [
+    generateArticleSchema({
+      headline: 'Foursquare Healthcare Case Study | 150% Patient Increase | ThinkMents',
+      description: 'See how ThinkMents helped Foursquare Healthcare achieve 150% increase in new patients, 280% traffic growth, and 4.8 star rating. HIPAA-compliant healthcare marketing success.',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1080&fit=crop',
+      datePublished: '2023-01-01',
+      dateModified: new Date().toISOString().split('T')[0],
+      author: 'ThinkMents',
+      url: `${BASE_URL}/case-studies/foursquare-healthcare`,
+    }),
+  ];
+
   return (
     <>
       <SEO
@@ -60,6 +73,7 @@ export default function FoursquareHealthcareCaseStudyPage() {
         description="See how ThinkMents helped Foursquare Healthcare achieve 150% increase in new patients, 280% traffic growth, and 4.8 star rating. HIPAA-compliant healthcare marketing success."
         url="/case-studies/foursquare-healthcare"
         type="article"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}

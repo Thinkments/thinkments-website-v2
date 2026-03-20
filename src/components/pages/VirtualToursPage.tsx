@@ -24,6 +24,12 @@ import {
   Image as ImageIcon,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 
 export default function VirtualToursPage() {
   const heroRef = useRef(null);
@@ -105,6 +111,16 @@ export default function VirtualToursPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Virtual Tours & 360° Photography',
+      description: 'Professional virtual tours since 2002. Pioneers of North Texas virtual tours. 360°, Matterport, Google Street View.',
+      url: `${BASE_URL}/virtual-tours`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -112,6 +128,7 @@ export default function VirtualToursPage() {
         description="Professional virtual tours since 2002. Pioneers of North Texas virtual tours. 360°, Matterport, Google Street View. 87% more views, 31% faster sales."
         url="/virtual-tours"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero */}

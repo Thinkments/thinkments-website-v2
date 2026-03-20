@@ -18,9 +18,9 @@ import {
   Award,
   Globe,
   Users,
-  BarChart,
 } from 'lucide-react';
 import SEO from '../SEO';
+import { generateArticleSchema, BASE_URL, DEFAULT_OG_IMAGE } from '../../utils/seo';
 
 interface QuickStat {
   number: string;
@@ -143,6 +143,18 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
   const isRelatedInView = useInView(relatedRef, { once: true });
   const isCtaInView = useInView(ctaRef, { once: true });
 
+  const schemas = [
+    generateArticleSchema({
+      headline: `${data.clientName} Case Study - ${data.headline}`,
+      description: data.metaDescription,
+      image: data.heroImage || DEFAULT_OG_IMAGE,
+      datePublished: '2024-01-01',
+      dateModified: new Date().toISOString().split('T')[0],
+      author: 'ThinkMents',
+      url: `${BASE_URL}/case-studies/${data.slug}`,
+    }),
+  ];
+
   return (
     <>
       <SEO
@@ -150,6 +162,7 @@ export default function CaseStudyDetailTemplate({ data }: CaseStudyDetailTemplat
         description={data.metaDescription}
         url={`/case-studies/${data.slug}`}
         type="article"
+        structuredData={schemas}
       />
 
       {/* Breadcrumb Navigation */}

@@ -26,7 +26,6 @@ import {
   Video,
   Search,
 } from 'lucide-react';
-} from 'lucide-react';
 import SEO from '../SEO';
 import {
   generateServiceSchema,
@@ -133,28 +132,26 @@ export default function SocialMediaPage() {
     },
   ];
 
-  ];
-
   const faqs = [
     {
-      q: 'How often should my business post on social media?',
-      a: 'It depends on the platform and your audience. Generally, we recommend 3-5 posts per week on Facebook/LinkedIn, 1-2 posts daily on Instagram, and 3-5 tweets daily on Twitter. Quality always beats quantity.',
+      question: 'How often should my business post on social media?',
+      answer: 'It depends on the platform and your audience. Generally, we recommend 3-5 posts per week on Facebook/LinkedIn, 1-2 posts daily on Instagram, and 3-5 tweets daily on Twitter. Quality always beats quantity.',
     },
     {
-      q: 'Which social media platforms should my business be on?',
-      a: "We help you choose platforms based on where your customers spend time. B2B companies often do best on LinkedIn, while B2C businesses thrive on Instagram and Facebook. We'll audit your industry and competitors to recommend the right mix.",
+      question: 'Which social media platforms should my business be on?',
+      answer: "We help you choose platforms based on where your customers spend time. B2B companies often do best on LinkedIn, while B2C businesses thrive on Instagram and Facebook. We'll audit your industry and competitors to recommend the right mix.",
     },
     {
-      q: 'How long before we see results from social media?',
-      a: "Organic social media is a long-term strategy. You'll typically see engagement improvements within 30-60 days, but meaningful business results usually take 3-6 months of consistent effort.",
+      question: 'How long before we see results from social media?',
+      answer: "Organic social media is a long-term strategy. You'll typically see engagement improvements within 30-60 days, but meaningful business results usually take 3-6 months of consistent effort.",
     },
     {
-      q: 'Do you handle negative comments and reviews?',
-      a: 'Yes! Our daily monitoring includes responding to all comments and messages. For negative feedback, we follow a proven response protocol that protects your reputation while addressing concerns professionally.',
+      question: 'Do you handle negative comments and reviews?',
+      answer: 'Yes! Our daily monitoring includes responding to all comments and messages. For negative feedback, we follow a proven response protocol that protects your reputation while addressing concerns professionally.',
     },
     {
-      q: "What's included in your social media management?",
-      a: 'Our management packages include strategy development, content creation, posting and scheduling, community management (responding to comments/messages), monthly analytics reporting, and ongoing optimization.',
+      question: "What's included in your social media management?",
+      answer: 'Our management packages include strategy development, content creation, posting and scheduling, community management (responding to comments/messages), monthly analytics reporting, and ongoing optimization.',
     },
   ];
 
@@ -578,8 +575,8 @@ export default function SocialMediaPage() {
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, idx) => (
               <div key={idx} className="border border-gray-200 rounded-lg p-6">
-                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.q}</h3>
-                <p className="text-gray-600">{faq.a}</p>
+                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
           </div>

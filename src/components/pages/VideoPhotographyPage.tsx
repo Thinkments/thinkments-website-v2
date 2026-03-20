@@ -38,6 +38,12 @@ import {
   Activity,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 import RelatedServices from '../RelatedServices';
 
 export default function VideoPhotographyPage() {
@@ -233,6 +239,16 @@ export default function VideoPhotographyPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Professional Video Production & Photography',
+      description: 'Professional video production and photography since 2002. Commercial videos, drone footage, testimonials, events, social media content.',
+      url: `${BASE_URL}/services/video-photography`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -240,6 +256,7 @@ export default function VideoPhotographyPage() {
         description="Professional video production and photography since 2002. Commercial videos, drone footage, testimonials, events, social media content. 500+ projects with 4K quality in Texas."
         url="/services/video-photography"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}

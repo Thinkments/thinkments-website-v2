@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'motion/react';
 import { Button } from '../ui/button';
@@ -29,9 +29,26 @@ import {
   Users,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 import RelatedServices from '../RelatedServices';
 
 export default function AIAutomationPage() {
+  const [particles, setParticles] = useState<{x: number, y: number, targetY: number, duration: number}[]>([]);
+
+  useEffect(() => {
+    setParticles([...Array(20)].map(() => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      targetY: Math.random() * window.innerHeight,
+      duration: Math.random() * 10 + 10,
+    })));
+  }, []);
+
   const heroRef = useRef(null);
   const servicesRef = useRef(null);
   const whyAIRef = useRef(null);
@@ -120,6 +137,39 @@ export default function AIAutomationPage() {
     },
   ];
 
+  const faqs = [
+    {
+      question: 'What types of tasks can AI automate for my business?',
+      answer: "AI can automate content creation, customer service responses, data entry, report generation, social media posting, email marketing, appointment scheduling, and much more. We'll identify the highest-impact opportunities for your specific business.",
+    },
+    {
+      question: 'Is AI automation expensive to implement?',
+      answer: 'Costs vary based on complexity, but most AI automations pay for themselves within 2-3 months through time savings. We offer solutions for businesses of all sizes, starting with simple automations that deliver quick wins.',
+    },
+    {
+      question: 'How long does AI implementation take?',
+      answer: 'Simple automations can be live within 1-2 weeks. More complex integrations typically take 4-8 weeks. We always start with a quick-win project so you see value fast.',
+    },
+    {
+      question: 'Will AI replace my employees?',
+      answer: 'AI is designed to augment your team, not replace them. It handles repetitive tasks so your people can focus on high-value work that requires human creativity and judgment.',
+    },
+    {
+      question: 'How do you ensure AI quality and accuracy?',
+      answer: 'We implement quality checks, human review processes, and continuous monitoring. AI systems are trained on your specific data and refined over time to improve accuracy.',
+    },
+  ];
+
+  const schemas = [
+    generateServiceSchema({
+      name: 'AI & Automation Services',
+      description: 'Transform your marketing with AI and automation. AI content generation, ChatGPT integration, custom chatbots, workflow automation, and AI search optimization.',
+      url: `${BASE_URL}/services/ai-automation`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -127,6 +177,7 @@ export default function AIAutomationPage() {
         description="Transform your marketing with AI and automation. AI content generation, ChatGPT integration, custom chatbots, workflow automation, and AI search optimization. The future of marketing is here."
         url="/services/ai-automation"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}
@@ -145,20 +196,20 @@ export default function AIAutomationPage() {
 
         {/* Animated particles effect */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+          {particles.map((p, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-[#00B4D8] rounded-full opacity-20"
               initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
+                x: p.x,
+                y: p.y,
               }}
               animate={{
-                y: [null, Math.random() * window.innerHeight],
+                y: [null, p.targetY],
                 opacity: [0.2, 0.5, 0.2],
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: p.duration,
                 repeat: Infinity,
                 ease: 'linear',
               }}
@@ -522,31 +573,10 @@ export default function AIAutomationPage() {
             AI & Automation FAQs
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              {
-                q: 'What types of tasks can AI automate for my business?',
-                a: "AI can automate content creation, customer service responses, data entry, report generation, social media posting, email marketing, appointment scheduling, and much more. We'll identify the highest-impact opportunities for your specific business.",
-              },
-              {
-                q: 'Is AI automation expensive to implement?',
-                a: 'Costs vary based on complexity, but most AI automations pay for themselves within 2-3 months through time savings. We offer solutions for businesses of all sizes, starting with simple automations that deliver quick wins.',
-              },
-              {
-                q: 'How long does AI implementation take?',
-                a: 'Simple automations can be live within 1-2 weeks. More complex integrations typically take 4-8 weeks. We always start with a quick-win project so you see value fast.',
-              },
-              {
-                q: 'Will AI replace my employees?',
-                a: 'AI is designed to augment your team, not replace them. It handles repetitive tasks so your people can focus on high-value work that requires human creativity and judgment.',
-              },
-              {
-                q: 'How do you ensure AI quality and accuracy?',
-                a: 'We implement quality checks, human review processes, and continuous monitoring. AI systems are trained on your specific data and refined over time to improve accuracy.',
-              },
-            ].map((faq, idx) => (
+            {faqs.map((faq, idx) => (
               <div key={idx} className="border border-gray-200 rounded-lg p-6 bg-white">
-                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.q}</h3>
-                <p className="text-gray-600">{faq.a}</p>
+                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
           </div>

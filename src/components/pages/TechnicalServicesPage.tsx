@@ -27,6 +27,12 @@ import {
   FileText,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 
 export default function TechnicalServicesPage() {
   const heroRef = useRef(null);
@@ -142,6 +148,16 @@ export default function TechnicalServicesPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Technical Services',
+      description: 'Technical excellence since 2002. Performance optimization, security hardening, technical SEO, migrations, integrations.',
+      url: `${BASE_URL}/technical-services`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -149,6 +165,7 @@ export default function TechnicalServicesPage() {
         description="Technical excellence since 2002. Performance optimization, security hardening, technical SEO, migrations, integrations. 40-70% faster load times. Same-day emergency support."
         url="/technical-services"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}

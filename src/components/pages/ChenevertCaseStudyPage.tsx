@@ -23,6 +23,7 @@ import {
   Building2,
 } from 'lucide-react';
 import SEO from '../SEO';
+import { generateArticleSchema, BASE_URL } from '../../utils/seo';
 
 export default function ChenevertCaseStudyPage() {
   const heroRef = useRef(null);
@@ -47,6 +48,18 @@ export default function ChenevertCaseStudyPage() {
   const isRelatedInView = useInView(relatedRef, { once: true });
   const isCtaInView = useInView(ctaRef, { once: true });
 
+  const schemas = [
+    generateArticleSchema({
+      headline: "Chenevert's Home & Hardware Case Study | 200% Lead Increase | ThinkMents",
+      description: "See how ThinkMents helped Chenevert's achieve 200% lead increase, 340% traffic growth, and page 1 Google rankings. Retail marketing success story in Texas.",
+      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1080&fit=crop",
+      datePublished: "2023-01-01",
+      dateModified: new Date().toISOString().split('T')[0],
+      author: "ThinkMents",
+      url: `${BASE_URL}/case-studies/chenevert`,
+    }),
+  ];
+
   return (
     <>
       <SEO
@@ -54,6 +67,7 @@ export default function ChenevertCaseStudyPage() {
         description="See how ThinkMents helped Chenevert's achieve 200% lead increase, 340% traffic growth, and page 1 Google rankings. Retail marketing success story in Texas."
         url="/case-studies/chenevert"
         type="article"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}

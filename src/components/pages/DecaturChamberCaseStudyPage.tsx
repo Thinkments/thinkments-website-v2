@@ -37,6 +37,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
+import { generateArticleSchema, BASE_URL } from '../../utils/seo';
 
 export default function DecaturChamberCaseStudyPage() {
   const solutions = [
@@ -255,6 +256,18 @@ export default function DecaturChamberCaseStudyPage() {
     },
   ];
 
+  const schemas = [
+    generateArticleSchema({
+      headline: "Decatur Chamber of Commerce Case Study | Website & Digital Hub | ThinkMents",
+      description: "How ThinkMents created a comprehensive digital hub for Decatur Chamber of Commerce, connecting businesses and growing community engagement.",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop",
+      datePublished: "2023-01-01",
+      dateModified: new Date().toISOString().split('T')[0],
+      author: "ThinkMents",
+      url: `${BASE_URL}/case-studies/decatur-chamber`,
+    }),
+  ];
+
   return (
     <>
       <SEO
@@ -262,6 +275,7 @@ export default function DecaturChamberCaseStudyPage() {
         description="How ThinkMents created a comprehensive digital hub for Decatur Chamber of Commerce, connecting businesses and growing community engagement."
         url="/case-studies/decatur-chamber"
         type="article"
+        structuredData={schemas}
       />
 
       {/* Breadcrumb Navigation */}

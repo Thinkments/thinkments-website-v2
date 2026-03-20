@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
 import {
   Code,
   ShoppingCart,
   Search,
   MousePointer,
   Share2,
-  Camera,
   Video,
   Box,
   Cpu,
@@ -83,7 +81,7 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
     development: [
       {
         name: 'Web Development',
-        path: 'https://websitedesign.thinkments.com/',
+        path: '/web-development',
         icon: Code,
         gradient: 'from-blue-500 to-cyan-500',
         desc: 'Custom websites & web apps',
@@ -143,7 +141,7 @@ export default function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuPr
       },
       {
         name: 'Video Production',
-        path: 'https://websitedesign.thinkments.com/',
+        path: '/video-photography',
         icon: Video,
         gradient: 'from-red-600 to-orange-600',
         desc: 'Professional videography',
@@ -231,7 +229,7 @@ export const ServicesMegaMenuMobile = ({ isOpen }: { isOpen: boolean }) => {
     {
       title: 'Development',
       items: [
-        { name: 'Web Development', path: 'https://websitedesign.thinkments.com/' },
+        { name: 'Web Development', path: '/web-development' },
         { name: 'E-Commerce', path: '/store' },
         { name: 'Web Design', path: '/web-design' },
       ],

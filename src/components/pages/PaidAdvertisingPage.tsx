@@ -20,7 +20,6 @@ import {
   Image as ImageIcon,
   BarChart3,
 } from 'lucide-react';
-} from 'lucide-react';
 import SEO from '../SEO';
 import {
   generateServiceSchema,
@@ -155,32 +154,30 @@ export default function PaidAdvertisingPage() {
     },
   ];
 
-  ];
-
   const faqs = [
     {
-      q: 'How much should I spend on paid advertising?',
-      a: "Budget depends on your goals, industry, and competition. Most small businesses start with $1,000-$3,000/month. We'll help you determine the right budget based on your target cost per acquisition and growth goals.",
+      question: 'How much should I spend on paid advertising?',
+      answer: "Budget depends on your goals, industry, and competition. Most small businesses start with $1,000-$3,000/month. We'll help you determine the right budget based on your target cost per acquisition and growth goals.",
     },
     {
-      q: 'Which platform is best for my business?',
-      a: "Google Ads is great for capturing existing demand (people searching for your services). Facebook/Instagram work well for building awareness and reaching new audiences. LinkedIn is ideal for B2B. We'll recommend the right mix for your specific situation.",
+      question: 'Which platform is best for my business?',
+      answer: "Google Ads is great for capturing existing demand (people searching for your services). Facebook/Instagram work well for building awareness and reaching new audiences. LinkedIn is ideal for B2B. We'll recommend the right mix for your specific situation.",
     },
     {
-      q: 'How long before I see results?',
-      a: "You'll see traffic immediately, but meaningful data takes 2-4 weeks. We recommend at least 90 days to properly test, optimize, and scale campaigns for best results.",
+      question: 'How long before I see results?',
+      answer: "You'll see traffic immediately, but meaningful data takes 2-4 weeks. We recommend at least 90 days to properly test, optimize, and scale campaigns for best results.",
     },
     {
-      q: 'Do you charge a percentage of ad spend?',
-      a: 'No. We charge a flat management fee so our incentives align with your success—we focus on efficiency, not spending more of your money.',
+      question: 'Do you charge a percentage of ad spend?',
+      answer: 'No. We charge a flat management fee so our incentives align with your success—we focus on efficiency, not spending more of your money.',
     },
     {
-      q: "What's your approach to campaign optimization?",
-      a: "We continuously test ad copy, audiences, and bidding strategies. We analyze data daily, make weekly optimizations, and provide monthly strategy reviews to ensure we're maximizing your ROI.",
+      question: "What's your approach to campaign optimization?",
+      answer: "We continuously test ad copy, audiences, and bidding strategies. We analyze data daily, make weekly optimizations, and provide monthly strategy reviews to ensure we're maximizing your ROI.",
     },
     {
-      q: "Can I see what you're doing with my campaigns?",
-      a: 'Absolutely. You get full transparency with access to your ad accounts, weekly updates, and monthly performance reports. We believe you should own your data and understand exactly where your money goes.',
+      question: "Can I see what you're doing with my campaigns?",
+      answer: 'Absolutely. You get full transparency with access to your ad accounts, weekly updates, and monthly performance reports. We believe you should own your data and understand exactly where your money goes.',
     },
   ];
 
@@ -680,8 +677,8 @@ export default function PaidAdvertisingPage() {
                 key={idx}
                 className="border border-gray-200 rounded-lg p-6 hover:border-[#00B4D8] transition-colors"
               >
-                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.q}</h3>
-                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>

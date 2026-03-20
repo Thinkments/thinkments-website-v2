@@ -32,8 +32,8 @@ import {
   UserCircle,
   LogOut,
   HelpCircle,
-  Zap,
   Mic,
+  Brain,
 } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
@@ -50,6 +50,8 @@ import InvoicesExpenses from './InvoicesExpenses';
 import PodcastManager from './PodcastManager';
 import PublishingSystem from './PublishingSystem';
 import SystemArchitecture from './SystemArchitecture';
+import EcommerceWebDesigner from './EcommerceWebDesigner';
+import AdminCenterManager from './AdminCenterManager';
 
 interface NavigationItem {
   id: string;
@@ -97,6 +99,7 @@ const navigationItems: NavigationItem[] = [
       { id: 'new-blog-post', label: 'New Blog Post' },
       { id: 'new-page', label: 'New Page' },
       { id: 'bulk-generator', label: 'Bulk Generator' },
+      { id: 'web-designer', label: 'Web Architect' },
     ],
   },
   {
@@ -207,6 +210,15 @@ const navigationItems: NavigationItem[] = [
     children: [
       { id: 'invoices', label: 'Invoices' },
       { id: 'expenses', label: 'Expenses' },
+    ],
+  },
+  {
+    id: 'system-intelligence',
+    label: 'Intelligence',
+    icon: Brain,
+    children: [
+      { id: 'admin-manager', label: 'Admin Manager' },
+      { id: 'system-architecture', label: 'Arch. Mapper' },
     ],
   },
   {
@@ -598,6 +610,13 @@ export default function AdminPanel() {
               {/* Render Podcast Manager (all podcast views) */}
               {activeItem.startsWith('podcast-') && <PodcastManager />}
 
+              {/* Render Web Designer */}
+              {activeItem === 'web-designer' && <EcommerceWebDesigner />}
+
+              {/* Render Admin Manager & System Architecture */}
+              {activeItem === 'admin-manager' && <AdminCenterManager />}
+              {activeItem === 'system-architecture' && <SystemArchitecture />}
+
               {/* Placeholder Content */}
               {!activeItem && (
                 <div className="flex items-center justify-center h-full min-h-[500px]">
@@ -640,6 +659,9 @@ export default function AdminPanel() {
                 activeItem !== 'reviews' &&
                 activeItem !== 'uptime-monitor' &&
                 activeItem !== 'invoices' &&
+                activeItem !== 'web-designer' &&
+                activeItem !== 'admin-manager' &&
+                activeItem !== 'system-architecture' &&
                 !activeItem.startsWith('podcast-') && (
                   <div className="flex items-center justify-center h-full min-h-[500px]">
                     <div className="text-center">

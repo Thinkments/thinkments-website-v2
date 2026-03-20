@@ -25,6 +25,12 @@ import {
   BookOpen,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 
 export default function ContentMarketingPage() {
   const heroRef = useRef(null);
@@ -119,6 +125,16 @@ export default function ContentMarketingPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Content Marketing Services',
+      description: 'Strategic content that ranks and converts since 2002. Blog writing, content strategy, email campaigns, video scripts.',
+      url: `${BASE_URL}/content-marketing`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -126,6 +142,7 @@ export default function ContentMarketingPage() {
         description="Strategic content that ranks and converts since 2002. Blog writing, content strategy, email campaigns, video scripts. 1,000+ articles with top 10 rankings."
         url="/content-marketing"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero */}

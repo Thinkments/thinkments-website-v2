@@ -30,9 +30,9 @@ import {
   Bot,
   ExternalLink,
   Users,
-  BarChart,
 } from 'lucide-react';
 import SEO from '../SEO';
+import { generateLocalBusinessSchema } from '../../utils/seo';
 import Breadcrumb from '../Breadcrumb';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 
@@ -244,6 +244,10 @@ export default function CaseStudiesPage() {
       ? allCaseStudies
       : allCaseStudies.filter((cs) => cs.category === activeCategory);
 
+  const schemas = [
+    generateLocalBusinessSchema()
+  ];
+
   return (
     <>
       <SEO
@@ -251,6 +255,7 @@ export default function CaseStudiesPage() {
         description="See how ThinkMents has helped businesses generate $500M+ in value. Detailed case studies showing measurable success across healthcare, technology, real estate, and more."
         url="/case-studies"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Breadcrumb Navigation */}

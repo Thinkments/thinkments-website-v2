@@ -33,6 +33,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import SEO from '../SEO';
+import { generateArticleSchema, BASE_URL } from '../../utils/seo';
 
 export default function CASACaseStudyPage() {
   const solutions = [
@@ -172,6 +173,18 @@ export default function CASACaseStudyPage() {
     },
   ];
 
+  const schemas = [
+    generateArticleSchema({
+      headline: "CASA of Wise County Case Study | Website Rebuild Success | ThinkMents",
+      description: "How ThinkMents rebuilt CASA of Wise County's website and email system, transforming their digital presence and volunteer recruitment.",
+      image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&h=1080&fit=crop",
+      datePublished: "2023-01-01",
+      dateModified: new Date().toISOString().split('T')[0],
+      author: "ThinkMents",
+      url: `${BASE_URL}/case-studies/casa-wise-county`,
+    }),
+  ];
+
   return (
     <>
       <SEO
@@ -179,6 +192,7 @@ export default function CASACaseStudyPage() {
         description="How ThinkMents rebuilt CASA of Wise County's website and email system, transforming their digital presence and volunteer recruitment."
         url="/case-studies/casa-wise-county"
         type="article"
+        structuredData={schemas}
       />
 
       {/* Breadcrumb Navigation */}

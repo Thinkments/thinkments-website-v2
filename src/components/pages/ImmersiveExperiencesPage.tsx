@@ -29,6 +29,12 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import SEO from '../SEO';
+import {
+  generateServiceSchema,
+  generateLocalBusinessSchema,
+  generateFAQSchema,
+  BASE_URL
+} from '../../utils/seo';
 
 export default function ImmersiveExperiencesPage() {
   const heroRef = useRef(null);
@@ -142,6 +148,16 @@ export default function ImmersiveExperiencesPage() {
     },
   ];
 
+  const schemas = [
+    generateServiceSchema({
+      name: 'Immersive Experiences & Virtual Tours',
+      description: 'Pioneers in virtual tours since 2002. Google Street View Trusted photographers. Created first virtual tour in North Texas.',
+      url: `${BASE_URL}/immersive-experiences`,
+    }),
+    generateLocalBusinessSchema(),
+    generateFAQSchema(faqs),
+  ];
+
   return (
     <>
       <SEO
@@ -149,6 +165,7 @@ export default function ImmersiveExperiencesPage() {
         description="Pioneers in virtual tours since 2002. Google Street View Trusted photographers. Created first virtual tour in North Texas, first arena seat preview with Mark Cuban. 20+ years innovation."
         url="/immersive-experiences"
         type="website"
+        structuredData={schemas}
       />
 
       {/* Hero Section */}
