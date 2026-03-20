@@ -90,185 +90,229 @@ Respond in strict JSON format with exactly this field based on the user's brief:
     };
 
     return (
-        <div className="space-y-6">
-            <div>
-                <h2 className="text-2xl font-bold mb-2">Web Architect Agent</h2>
-                <p className="text-muted-foreground">
-                    An AI graphic designer that autonomously generates modern, conversion-optimized e-commerce layouts.
-                </p>
+        <div className="relative space-y-6">
+            {/* Ambient bg */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute -top-10 left-1/3 w-96 h-64 bg-purple-600/6 rounded-full blur-[120px]" />
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-6">
-                {/* Input Section */}
-                <div className="lg:col-span-4 space-y-6">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2">
-                                <LayoutTemplate className="h-5 w-5 text-purple-500" />
-                                Project Brief
-                            </CardTitle>
-                            <CardDescription>Tell the agent what to build</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
+            {/* Header */}
+            <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-2">
+                    <div className={`w-2 h-2 rounded-full ${isGenerating ? 'bg-yellow-400 animate-pulse' : generatedDesign ? 'bg-green-400' : 'bg-purple-400 animate-pulse'}`} />
+                    <span className={`text-xs font-mono uppercase tracking-widest ${isGenerating ? 'text-yellow-400' : generatedDesign ? 'text-green-400' : 'text-purple-400'}`}>
+                        {isGenerating ? 'Generating...' : generatedDesign ? 'Design Ready' : 'Web Architect Agent'}
+                    </span>
+                </div>
+                <h2 className="text-3xl font-bold text-white mb-1">Web Architect Agent</h2>
+                <p className="text-slate-400">AI graphic designer — generates modern, conversion-optimized e-commerce layouts.</p>
+            </div>
+
+            <div className="relative z-10 grid lg:grid-cols-12 gap-6">
+                {/* ── Input Panel ── */}
+                <div className="lg:col-span-4">
+                    <div className="rounded-2xl border border-white/10 bg-[#090f1a] shadow-[0_0_40px_rgba(147,51,234,0.08)] overflow-hidden">
+                        {/* Panel header */}
+                        <div className="px-5 py-4 border-b border-white/8 flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                                <LayoutTemplate className="h-4 w-4 text-purple-400" />
+                            </div>
                             <div>
-                                <Label htmlFor="businessName">Brand / Business Name *</Label>
-                                <Input
-                                    id="businessName"
+                                <p className="text-sm font-semibold text-white">Project Brief</p>
+                                <p className="text-xs text-slate-500">Tell the agent what to build</p>
+                            </div>
+                        </div>
+
+                        <div className="p-5 space-y-4">
+                            <div>
+                                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5 block">Brand / Business Name *</label>
+                                <input
                                     value={businessName}
                                     onChange={(e) => setBusinessName(e.target.value)}
                                     placeholder="e.g., Luminous Skincare"
-                                    className="mt-1"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(147,51,234,0.2)] transition-all"
                                 />
                             </div>
 
                             <div>
-                                <Label htmlFor="industry">Industry / Niche *</Label>
-                                <Input
-                                    id="industry"
+                                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5 block">Industry / Niche *</label>
+                                <input
                                     value={industry}
                                     onChange={(e) => setIndustry(e.target.value)}
                                     placeholder="e.g., Beauty, Streetwear, Electronics"
-                                    className="mt-1"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(147,51,234,0.2)] transition-all"
                                 />
                             </div>
 
                             <div>
-                                <Label htmlFor="aesthetic">Aesthetic Direction *</Label>
+                                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5 block">Aesthetic Direction *</label>
                                 <Select value={aesthetic} onValueChange={setAesthetic}>
-                                    <SelectTrigger id="aesthetic" className="mt-1">
+                                    <SelectTrigger className="bg-white/5 border border-white/10 text-white rounded-lg focus:border-purple-500/50">
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="minimal">Minimalist & Clean</SelectItem>
-                                        <SelectItem value="luxury">Luxury & Editorial</SelectItem>
-                                        <SelectItem value="bold">Bold & Dynamic</SelectItem>
-                                        <SelectItem value="nature">Organic & Natural</SelectItem>
+                                        <SelectItem value="minimal">Minimalist &amp; Clean</SelectItem>
+                                        <SelectItem value="luxury">Luxury &amp; Editorial</SelectItem>
+                                        <SelectItem value="bold">Bold &amp; Dynamic</SelectItem>
+                                        <SelectItem value="nature">Organic &amp; Natural</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
 
                             <div>
-                                <Label htmlFor="description">Core Products / Vibe (Optional)</Label>
-                                <Textarea
-                                    id="description"
+                                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5 block">Core Products / Vibe <span className="normal-case text-slate-600">(Optional)</span></label>
+                                <textarea
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     placeholder="e.g., sustainable organic cotton basics for everyday wear."
-                                    className="mt-1"
                                     rows={3}
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_10px_rgba(147,51,234,0.2)] transition-all resize-none"
                                 />
                             </div>
 
-                            <Button
-                                onClick={handleGenerate}
-                                disabled={isGenerating}
-                                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg"
-                                size="lg"
-                            >
-                                {isGenerating ? (
-                                    <>
-                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                        Designing...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Sparkles className="mr-2 h-4 w-4" />
-                                        Generate E-commerce Site
-                                    </>
-                                )}
-                            </Button>
-                        </CardContent>
-                    </Card>
+                            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
+                                <button
+                                    onClick={handleGenerate}
+                                    disabled={isGenerating}
+                                    className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold text-sm shadow-[0_0_25px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                >
+                                    {isGenerating ? (
+                                        <><Loader2 className="h-4 w-4 animate-spin" />Designing...</>
+                                    ) : (
+                                        <><Sparkles className="h-4 w-4" />Generate E-commerce Site</>
+                                    )}
+                                </button>
+                            </motion.div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Output Section */}
-                <div className="lg:col-span-8 space-y-6">
+                {/* ── Output Panel ── */}
+                <div className="lg:col-span-8">
                     {generatedDesign ? (
-                        <Card className="h-full border-purple-200 shadow-xl overflow-hidden">
-                            <CardHeader className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/5 flex flex-row items-center justify-between py-4">
+                        <div className="rounded-2xl overflow-hidden border border-purple-500/30 bg-[#090f1a] shadow-[0_0_60px_rgba(147,51,234,0.15)] h-full">
+                            {/* Output header */}
+                            <div className="bg-[#0f172a]/80 backdrop-blur-xl border-b border-white/8 flex flex-row items-center justify-between px-5 py-3">
                                 <div className="flex items-center gap-2">
-                                    <CheckCircle2 className="h-5 w-5 text-green-500" />
-                                    <CardTitle>Generated Design</CardTitle>
+                                    <CheckCircle2 className="h-4 w-4 text-green-400" />
+                                    <span className="text-sm font-semibold text-white">Generated Design</span>
+                                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 ml-1">LIVE</span>
                                 </div>
-                                <div className="flex bg-white/10 p-1 rounded-lg">
+                                <div className="flex bg-white/8 p-1 rounded-lg gap-1">
                                     <button
                                         onClick={() => setActiveTab('preview')}
-                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                                            activeTab === 'preview' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow-lg border border-white/5 text-purple-600' : 'text-slate-500 hover:text-slate-300'
+                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                                            activeTab === 'preview'
+                                                ? 'bg-purple-600/30 border border-purple-500/40 text-purple-300 shadow-[0_0_10px_rgba(147,51,234,0.3)]'
+                                                : 'text-slate-500 hover:text-slate-300'
                                         }`}
                                     >
-                                        <MonitorSmartphone className="w-4 h-4" />
+                                        <MonitorSmartphone className="w-3.5 h-3.5" />
                                         Preview
                                     </button>
                                     <button
                                         onClick={() => setActiveTab('code')}
-                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                                            activeTab === 'code' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow-lg border border-white/5 text-purple-600' : 'text-slate-500 hover:text-slate-300'
+                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                                            activeTab === 'code'
+                                                ? 'bg-purple-600/30 border border-purple-500/40 text-purple-300 shadow-[0_0_10px_rgba(147,51,234,0.3)]'
+                                                : 'text-slate-500 hover:text-slate-300'
                                         }`}
                                     >
-                                        <Code className="w-4 h-4" />
+                                        <Code className="w-3.5 h-3.5" />
                                         Code
                                     </button>
                                 </div>
-                            </CardHeader>
-                            <CardContent className="p-0 flex-1 bg-white/5">
-                                {activeTab === 'preview' ? (
-                                    <div className="w-full h-full min-h-[500px] border-4 border-white/10 rounded-b-xl overflow-hidden flex flex-col relative bg-white">
-                                        {/* Browser Toolbar Mock */}
-                                        <div className="h-8 bg-slate-800 flex items-center px-4 gap-2 border-b border-black/20 shrink-0">
-                                            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                                            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                            <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                                            <div className="flex-1 bg-slate-900 h-5 rounded mx-2 text-[10px] flex items-center px-2 text-slate-400 font-mono">
-                                                https://{businessName.toLowerCase().replace(/\s+/g, '') || 'preview'}.com
-                                            </div>
+                            </div>
+
+                            {activeTab === 'preview' ? (
+                                <div className="w-full min-h-[500px] flex flex-col">
+                                    <div className="h-9 bg-slate-900 flex items-center px-4 gap-2 border-b border-white/10 shrink-0">
+                                        <div className="flex gap-1.5">
+                                            <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                                            <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                                            <div className="w-3 h-3 rounded-full bg-green-400/80" />
                                         </div>
-                                        <iframe 
-                                            srcDoc={generatedDesign.htmlCode} 
-                                            className="w-full flex-1 border-0" 
-                                            title="Generative Preview"
-                                        />
+                                        <div className="flex-1 bg-slate-800 h-6 rounded mx-3 text-[10px] flex items-center px-3 text-slate-500 font-mono border border-white/5">
+                                            🔒 https://{businessName.toLowerCase().replace(/\s+/g, '') || 'preview'}.com
+                                        </div>
                                     </div>
-                                ) : (
-                                    <div className="p-4 h-full bg-[#1E1E1E]">
-                                        <div className="flex justify-end mb-2 space-x-2">
-                                            <Button size="sm" variant="secondary" className="bg-purple-600/20 text-purple-300 hover:bg-purple-600/40 border-0" onClick={handleAssignToTeam}>
-                                                <Send className="w-4 h-4 mr-2" />
-                                                Assign to Web Team
-                                            </Button>
-                                            <Button size="sm" variant="secondary" className="bg-[#0f172a]/40 backdrop-blur-xl/10 text-white hover:bg-[#0f172a]/40 backdrop-blur-xl/20 border-0" onClick={() => {
+                                    <iframe
+                                        srcDoc={generatedDesign.htmlCode}
+                                        className="w-full flex-1 border-0 min-h-[460px]"
+                                        title="Generative Preview"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="p-4 bg-[#0d1117] min-h-[500px] flex flex-col">
+                                    <div className="flex justify-end mb-3 gap-2">
+                                        <button className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-purple-600/20 border border-purple-500/30 text-purple-300 hover:bg-purple-600/35 transition-colors"
+                                            onClick={handleAssignToTeam}>
+                                            <Send className="w-3.5 h-3.5" />
+                                            Assign to Web Team
+                                        </button>
+                                        <button className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 transition-colors"
+                                            onClick={() => {
                                                 navigator.clipboard.writeText(generatedDesign.htmlCode);
                                                 toast.success('Code copied to clipboard!');
                                             }}>
-                                                Copy HTML
-                                            </Button>
-                                        </div>
-                                        <textarea 
-                                            readOnly 
-                                            value={generatedDesign.htmlCode} 
-                                            className="w-full h-[450px] bg-transparent text-gray-300 font-mono text-sm border-0 focus:ring-0 resize-none outline-none"
-                                        />
+                                            Copy HTML
+                                        </button>
                                     </div>
-                                )}
-                            </CardContent>
-                        </Card>
+                                    <textarea
+                                        readOnly
+                                        value={generatedDesign.htmlCode}
+                                        className="flex-1 w-full h-[440px] bg-transparent text-green-300/90 font-mono text-xs border-0 focus:ring-0 resize-none outline-none leading-relaxed"
+                                    />
+                                </div>
+                            )}
+                        </div>
                     ) : (
-                        <Card className="h-full border-dashed border-2 flex items-center justify-center min-h-[500px] bg-white/5/50">
-                            <CardContent className="flex flex-col items-center justify-center text-center p-8">
-                                <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-6 shadow-inner">
-                                    <Palette className="h-10 w-10 text-purple-400" />
+                        /* ── Zero / Idle State ── */
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#090f1a] shadow-[0_0_80px_rgba(147,51,234,0.08)] min-h-[500px] flex items-center justify-center"
+                        >
+                            {/* Hex grid bg */}
+                            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
+                                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70'%3E%3Cpolygon points='30,5 55,20 55,50 30,65 5,50 5,20' fill='none' stroke='%23a855f7' strokeWidth='1'/%3E%3C/svg%3E")`,
+                                backgroundSize: '60px 70px'
+                            }} />
+                            <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-600/8 rounded-full blur-[100px] pointer-events-none" />
+                            <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-pink-600/6 rounded-full blur-[80px] pointer-events-none" />
+
+                            <div className="relative text-center px-8 py-16">
+                                <div className="relative inline-block mb-8">
+                                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                                        className="absolute inset-0 rounded-full border border-purple-500/30 border-dashed" />
+                                    <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+                                        className="absolute -inset-5 rounded-full border border-pink-500/15 border-dashed" />
+                                    <div className="relative w-20 h-20 bg-gradient-to-br from-purple-600 via-fuchsia-700 to-pink-700 rounded-full flex items-center justify-center shadow-[0_0_35px_rgba(147,51,234,0.5)]">
+                                        <ShoppingCart className="h-10 w-10 text-white" />
+                                    </div>
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-200 mb-2">Awaiting Instructions</h3>
-                                <p className="text-muted-foreground max-w-sm mb-6">
-                                    Fill out the project brief on the left. The Web Architect agent will generate a stunning, functional e-commerce design in seconds.
+
+                                <h3 className="text-2xl font-bold text-white mb-3">Web Architect Standing By</h3>
+                                <p className="text-slate-400 max-w-sm mx-auto mb-8 leading-relaxed">
+                                    Fill out the project brief. The AI will generate a fully functional, conversion-optimized e-commerce site in seconds.
                                 </p>
-                                <div className="flex gap-2 text-sm text-gray-400">
-                                    <span className="flex items-center bg-[#0f172a]/40 backdrop-blur-xl px-3 py-1 rounded-full shadow-lg border border-white/5 border"><ImageIcon className="w-3 h-3 mr-1" /> Images</span>
-                                    <span className="flex items-center bg-[#0f172a]/40 backdrop-blur-xl px-3 py-1 rounded-full shadow-lg border border-white/5 border"><Code className="w-3 h-3 mr-1" /> Code</span>
-                                    <span className="flex items-center bg-[#0f172a]/40 backdrop-blur-xl px-3 py-1 rounded-full shadow-lg border border-white/5 border"><Palette className="w-3 h-3 mr-1" /> Branding</span>
+
+                                <div className="flex flex-wrap justify-center gap-2 text-xs">
+                                    {[
+                                        { icon: ImageIcon, label: 'Hero Imagery' },
+                                        { icon: ShoppingCart, label: 'Product Grid' },
+                                        { icon: Code, label: 'Full HTML' },
+                                        { icon: Palette, label: 'Brand Colors' },
+                                    ].map((item, i) => (
+                                        <motion.span key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
+                                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300">
+                                            <item.icon className="w-3 h-3" />
+                                            {item.label}
+                                        </motion.span>
+                                    ))}
                                 </div>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </motion.div>
                     )}
                 </div>
             </div>
