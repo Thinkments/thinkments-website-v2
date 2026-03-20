@@ -154,16 +154,16 @@ interface KeywordRowProps {
 
 const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) => {
   const getPositionColor = (position: number) => {
-    if (position <= 3) return 'bg-green-100 text-green-700 border-green-200';
+    if (position <= 3) return 'bg-emerald-500/10 text-green-700 border-green-200';
     if (position <= 10) return 'bg-[#00B4D8]/10 text-[#00B4D8] border-[#00B4D8]/20';
-    if (position <= 20) return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-    return 'bg-gray-100 text-gray-600 border-gray-200';
+    if (position <= 20) return 'bg-amber-500/10 text-yellow-700 border-yellow-200';
+    return 'bg-white/10 text-slate-400 border-white/10';
   };
 
   const getDifficultyColor = (difficulty: string) => {
-    if (difficulty === 'easy') return 'bg-green-100 text-green-700';
-    if (difficulty === 'medium') return 'bg-yellow-100 text-yellow-700';
-    return 'bg-red-100 text-red-700';
+    if (difficulty === 'easy') return 'bg-emerald-500/10 text-green-700';
+    if (difficulty === 'medium') return 'bg-amber-500/10 text-yellow-700';
+    return 'bg-rose-500/10 text-rose-300';
   };
 
   const renderSparkline = (data: number[]) => {
@@ -195,7 +195,7 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
 
   return (
     <>
-      <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer">
+      <tr className="border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
         <td className="py-4 px-4" onClick={onToggle}>
           <div className="flex items-center space-x-2">
             {expanded ? (
@@ -203,7 +203,7 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
             ) : (
               <ChevronDown className="w-4 h-4 text-gray-400" />
             )}
-            <span className="font-medium text-[#1E3A5F]">{keyword.keyword}</span>
+            <span className="font-medium text-white">{keyword.keyword}</span>
           </div>
         </td>
         <td className="py-4 px-4">
@@ -211,7 +211,7 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
             #{keyword.currentPosition}
           </Badge>
         </td>
-        <td className="py-4 px-4 text-gray-600">#{keyword.previousPosition}</td>
+        <td className="py-4 px-4 text-slate-400">#{keyword.previousPosition}</td>
         <td className="py-4 px-4">
           {keyword.change > 0 ? (
             <div className="flex items-center space-x-1 text-green-600">
@@ -219,7 +219,7 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
               <span className="font-semibold">{keyword.change}</span>
             </div>
           ) : keyword.change < 0 ? (
-            <div className="flex items-center space-x-1 text-red-600">
+            <div className="flex items-center space-x-1 text-rose-400">
               <ArrowDown className="w-4 h-4" />
               <span className="font-semibold">{Math.abs(keyword.change)}</span>
             </div>
@@ -230,31 +230,31 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
             </div>
           )}
         </td>
-        <td className="py-4 px-4 text-gray-600">{keyword.searchVolume.toLocaleString()}</td>
+        <td className="py-4 px-4 text-slate-400">{keyword.searchVolume.toLocaleString()}</td>
         <td className="py-4 px-4">
           <Badge className={`${getDifficultyColor(keyword.difficulty)} text-xs capitalize`}>
             {keyword.difficulty}
           </Badge>
         </td>
-        <td className="py-4 px-4 text-sm text-gray-600 font-mono">{keyword.rankingUrl}</td>
-        <td className="py-4 px-4 text-sm text-gray-500">{keyword.lastChecked}</td>
+        <td className="py-4 px-4 text-sm text-slate-400 font-mono">{keyword.rankingUrl}</td>
+        <td className="py-4 px-4 text-sm text-slate-500">{keyword.lastChecked}</td>
         <td className="py-4 px-4">{renderSparkline(keyword.trend)}</td>
         <td className="py-4 px-4">
           <div className="flex items-center space-x-2">
-            <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-              <Edit2 className="w-4 h-4 text-gray-600" />
+            <button className="p-2 hover:bg-white/10 rounded transition-colors">
+              <Edit2 className="w-4 h-4 text-slate-400" />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-              <Trash2 className="w-4 h-4 text-red-600" />
+            <button className="p-2 hover:bg-white/10 rounded transition-colors">
+              <Trash2 className="w-4 h-4 text-rose-400" />
             </button>
           </div>
         </td>
       </tr>
       {expanded && (
-        <tr className="bg-gray-50 border-b border-gray-100">
+        <tr className="bg-white/5 border-b border-white/5">
           <td colSpan={10} className="p-6">
             <div className="space-y-4">
-              <h4 className="font-semibold text-[#1E3A5F] mb-3">Historical Performance</h4>
+              <h4 className="font-semibold text-white mb-3">Historical Performance</h4>
               <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={historicalData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -282,18 +282,18 @@ const KeywordRow: React.FC<KeywordRowProps> = ({ keyword, expanded, onToggle }) 
 
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div>
-                  <h5 className="text-sm font-semibold text-gray-700 mb-2">SERP Features</h5>
+                  <h5 className="text-sm font-semibold text-slate-300 mb-2">SERP Features</h5>
                   <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-blue-100 text-blue-700">Featured Snippet</Badge>
+                    <Badge className="bg-indigo-500/10 text-indigo-300">Featured Snippet</Badge>
                     <Badge className="bg-purple-100 text-purple-700">People Also Ask</Badge>
-                    <Badge className="bg-green-100 text-green-700">Local Pack</Badge>
+                    <Badge className="bg-emerald-500/10 text-green-700">Local Pack</Badge>
                   </div>
                 </div>
                 <div>
-                  <h5 className="text-sm font-semibold text-gray-700 mb-2">Competing URLs</h5>
+                  <h5 className="text-sm font-semibold text-slate-300 mb-2">Competing URLs</h5>
                   <div className="space-y-1">
-                    <div className="text-sm text-gray-600">competitor1.com/digital-marketing</div>
-                    <div className="text-sm text-gray-600">competitor2.com/services</div>
+                    <div className="text-sm text-slate-400">competitor1.com/digital-marketing</div>
+                    <div className="text-sm text-slate-400">competitor2.com/services</div>
                   </div>
                 </div>
               </div>
@@ -349,11 +349,11 @@ export default function RankTracker() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Rank Tracker</h1>
-            <p className="text-gray-600">
+            <h1 className="text-whitexl font-bold text-white mb-2">Rank Tracker</h1>
+            <p className="text-slate-400">
               Monitor and track your keyword rankings across search engines
             </p>
           </div>
@@ -373,7 +373,7 @@ export default function RankTracker() {
                 onClick={() => setActiveTab(tab.id as 'overview' | 'competitors' | 'alerts')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
                     ? 'bg-[#00B4D8] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-white/10 text-slate-300 hover:bg-white/20'
                   }`}
               >
                 <Icon className="w-4 h-4" />
@@ -387,11 +387,11 @@ export default function RankTracker() {
         <div className="flex items-center space-x-4 flex-wrap gap-3">
           {/* Website Selector */}
           <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-600">Website:</span>
+            <span className="text-sm text-slate-400">Website:</span>
             <select
               value={selectedWebsite}
               onChange={(e) => setSelectedWebsite(e.target.value)}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
             >
               {websites.map((site) => (
                 <option key={site.id} value={site.id}>
@@ -407,7 +407,7 @@ export default function RankTracker() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
             >
               {locations.map((location) => (
                 <option key={location} value={location}>
@@ -418,10 +418,10 @@ export default function RankTracker() {
           </div>
 
           {/* Device Toggle */}
-          <div className="flex items-center bg-gray-100 rounded-lg p-1">
+          <div className="flex items-center bg-white/10 rounded-lg p-1">
             <button
               onClick={() => setDeviceType('desktop')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'desktop' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'desktop' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                 }`}
             >
               <Monitor className="w-4 h-4" />
@@ -429,7 +429,7 @@ export default function RankTracker() {
             </button>
             <button
               onClick={() => setDeviceType('mobile')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'mobile' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${deviceType === 'mobile' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                 }`}
             >
               <Smartphone className="w-4 h-4" />
@@ -440,7 +440,7 @@ export default function RankTracker() {
           {/* Date Range */}
           <div className="flex items-center space-x-2">
             <Calendar className="w-4 h-4 text-gray-400" />
-            <select className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
+            <select className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
               <option>Last 7 days</option>
               <option>Last 30 days</option>
               <option>Last 90 days</option>
@@ -463,61 +463,61 @@ export default function RankTracker() {
           <>
             {/* Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Total Keywords</div>
-                <div className="text-3xl font-bold text-[#1E3A5F]">{stats.totalKeywords}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Total Keywords</div>
+                <div className="text-whitexl font-bold text-white">{stats.totalKeywords}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Top 3</div>
-                <div className="text-3xl font-bold text-green-600">{stats.top3.count}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Top 3</div>
+                <div className="text-whitexl font-bold text-green-600">{stats.top3.count}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <ArrowUp className="w-3 h-3 mr-1" />
                   {stats.top3.change}%
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Top 10</div>
-                <div className="text-3xl font-bold text-[#00B4D8]">{stats.top10.count}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Top 10</div>
+                <div className="text-whitexl font-bold text-[#00B4D8]">{stats.top10.count}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <ArrowUp className="w-3 h-3 mr-1" />
                   {stats.top10.change}%
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Avg Position</div>
-                <div className="text-3xl font-bold text-[#1E3A5F]">{stats.avgPosition.value}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Avg Position</div>
+                <div className="text-whitexl font-bold text-white">{stats.avgPosition.value}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <ArrowUp className="w-3 h-3 mr-1" />
                   {Math.abs(stats.avgPosition.change)}
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Improved</div>
-                <div className="text-3xl font-bold text-green-600">{stats.improved}</div>
-                <div className="text-xs text-gray-500 mt-1">keywords</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Improved</div>
+                <div className="text-whitexl font-bold text-green-600">{stats.improved}</div>
+                <div className="text-xs text-slate-500 mt-1">keywords</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Declined</div>
-                <div className="text-3xl font-bold text-red-600">{stats.declined}</div>
-                <div className="text-xs text-gray-500 mt-1">keywords</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Declined</div>
+                <div className="text-whitexl font-bold text-rose-400">{stats.declined}</div>
+                <div className="text-xs text-slate-500 mt-1">keywords</div>
               </Card>
             </div>
 
             {/* Main Chart */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">
+                  <h2 className="text-xl font-bold text-white mb-1">
                     Average Position Over Time
                   </h2>
-                  <p className="text-sm text-gray-600">Lower numbers indicate better rankings</p>
+                  <p className="text-sm text-slate-400">Lower numbers indicate better rankings</p>
                 </div>
-                <Badge className="bg-blue-100 text-blue-700">Last 30 days</Badge>
+                <Badge className="bg-indigo-500/10 text-indigo-300">Last 30 days</Badge>
               </div>
 
               <ResponsiveContainer width="100%" height={300}>
@@ -549,9 +549,9 @@ export default function RankTracker() {
             </Card>
 
             {/* Keyword Table */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-[#1E3A5F]">Keyword Rankings</h2>
+                <h2 className="text-xl font-bold text-white">Keyword Rankings</h2>
                 <Button
                   onClick={() => setShowAddKeywordModal(true)}
                   className="bg-[#00B4D8] hover:bg-[#0096b8] text-white"
@@ -578,7 +578,7 @@ export default function RankTracker() {
                   <select
                     value={filterPosition}
                     onChange={(e) => setFilterPosition(e.target.value)}
-                    className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+                    className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
                   >
                     <option value="all">All Positions</option>
                     <option value="1-3">Position 1-3</option>
@@ -593,35 +593,35 @@ export default function RankTracker() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <tr className="border-b border-white/10">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Keyword
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Current
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Previous
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Change
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Volume
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Difficulty
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         URL
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Last Checked
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Trend
                       </th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                         Actions
                       </th>
                     </tr>
@@ -645,11 +645,11 @@ export default function RankTracker() {
         {/* Competitors Tab */}
         {activeTab === 'competitors' && (
           <div className="space-y-6">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Competitor Analysis</h2>
-                  <p className="text-sm text-gray-600">Compare your rankings with competitors</p>
+                  <h2 className="text-xl font-bold text-white mb-1">Competitor Analysis</h2>
+                  <p className="text-sm text-slate-400">Compare your rankings with competitors</p>
                 </div>
                 <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                   <Plus className="w-4 h-4 mr-2" />
@@ -659,7 +659,7 @@ export default function RankTracker() {
 
               <div className="space-y-4">
                 {competitorData.map((competitor, index) => (
-                  <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                  <div key={index} className="p-4 bg-white/5 rounded-lg">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-full flex items-center justify-center">
@@ -668,17 +668,17 @@ export default function RankTracker() {
                           </span>
                         </div>
                         <div>
-                          <div className="font-semibold text-[#1E3A5F]">{competitor.domain}</div>
-                          <div className="text-sm text-gray-600">
+                          <div className="font-semibold text-white">{competitor.domain}</div>
+                          <div className="text-sm text-slate-400">
                             {competitor.keywords} tracked keywords
                           </div>
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-[#1E3A5F]">
+                        <div className="text-2xl font-bold text-white">
                           {competitor.avgPosition}
                         </div>
-                        <div className="text-sm text-gray-600">Avg Position</div>
+                        <div className="text-sm text-slate-400">Avg Position</div>
                       </div>
                     </div>
                   </div>
@@ -687,9 +687,9 @@ export default function RankTracker() {
             </Card>
 
             <div className="grid grid-cols-2 gap-6">
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Your Ranking Opportunities</h3>
-                <p className="text-sm text-gray-600 mb-4">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Your Ranking Opportunities</h3>
+                <p className="text-sm text-slate-400 mb-4">
                   Keywords you rank for that competitors don't
                 </p>
                 <div className="space-y-2">
@@ -700,7 +700,7 @@ export default function RankTracker() {
                   ].map((kw, i) => (
                     <div
                       key={i}
-                      className="p-3 bg-green-50 rounded-lg flex items-center justify-between"
+                      className="p-3 bg-emerald-900/20 rounded-lg flex items-center justify-between"
                     >
                       <span className="text-sm font-medium text-green-700">{kw}</span>
                       <Badge className="bg-green-600 text-white">#5</Badge>
@@ -709,9 +709,9 @@ export default function RankTracker() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Content Gaps</h3>
-                <p className="text-sm text-gray-600 mb-4">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Content Gaps</h3>
+                <p className="text-sm text-slate-400 mb-4">
                   Keywords competitors rank for that you don't
                 </p>
                 <div className="space-y-2">
@@ -719,9 +719,9 @@ export default function RankTracker() {
                     (kw, i) => (
                       <div
                         key={i}
-                        className="p-3 bg-red-50 rounded-lg flex items-center justify-between"
+                        className="p-3 bg-rose-900/20 rounded-lg flex items-center justify-between"
                       >
-                        <span className="text-sm font-medium text-red-700">{kw}</span>
+                        <span className="text-sm font-medium text-rose-300">{kw}</span>
                         <Badge className="bg-gray-400 text-white">Not Ranking</Badge>
                       </div>
                     ),
@@ -735,11 +735,11 @@ export default function RankTracker() {
         {/* Alerts Tab */}
         {activeTab === 'alerts' && (
           <div className="space-y-6">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Ranking Alerts</h2>
-                  <p className="text-sm text-gray-600">
+                  <h2 className="text-xl font-bold text-white mb-1">Ranking Alerts</h2>
+                  <p className="text-sm text-slate-400">
                     Get notified when rankings change significantly
                   </p>
                 </div>
@@ -750,18 +750,18 @@ export default function RankTracker() {
               </div>
 
               <div className="space-y-4">
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-white/5 rounded-lg">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-3">
                       <AlertCircle className="w-5 h-5 text-[#FF6B35]" />
-                      <span className="font-semibold text-[#1E3A5F]">Large Ranking Drop Alert</span>
+                      <span className="font-semibold text-white">Large Ranking Drop Alert</span>
                     </div>
-                    <Badge className="bg-green-100 text-green-700">Active</Badge>
+                    <Badge className="bg-emerald-500/10 text-green-700">Active</Badge>
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <p className="text-sm text-slate-400 mb-3">
                     Alert when any keyword drops more than 5 positions
                   </p>
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
+                  <div className="flex items-center space-x-4 text-sm text-slate-400">
                     <div className="flex items-center space-x-2">
                       <Bell className="w-4 h-4" />
                       <span>Email: john@thinkments.com</span>
@@ -769,18 +769,18 @@ export default function RankTracker() {
                   </div>
                 </div>
 
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-white/5 rounded-lg">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-3">
                       <TrendingUp className="w-5 h-5 text-green-600" />
-                      <span className="font-semibold text-[#1E3A5F]">Top 3 Achievement</span>
+                      <span className="font-semibold text-white">Top 3 Achievement</span>
                     </div>
-                    <Badge className="bg-green-100 text-green-700">Active</Badge>
+                    <Badge className="bg-emerald-500/10 text-green-700">Active</Badge>
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">
+                  <p className="text-sm text-slate-400 mb-3">
                     Celebrate when keywords reach top 3 positions
                   </p>
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
+                  <div className="flex items-center space-x-4 text-sm text-slate-400">
                     <div className="flex items-center space-x-2">
                       <Bell className="w-4 h-4" />
                       <span>Email: team@thinkments.com</span>
@@ -790,8 +790,8 @@ export default function RankTracker() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="font-bold text-[#1E3A5F] mb-4">Recent Alerts</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="font-bold text-white mb-4">Recent Alerts</h3>
               <div className="space-y-3">
                 {[
                   {
@@ -816,8 +816,8 @@ export default function RankTracker() {
                   <div
                     key={index}
                     className={`p-4 rounded-lg border ${alert.type === 'positive'
-                        ? 'bg-green-50 border-green-200'
-                        : 'bg-red-50 border-red-200'
+                        ? 'bg-emerald-900/20 border-green-200'
+                        : 'bg-rose-900/20 border-red-200'
                       }`}
                   >
                     <div className="flex items-center justify-between">
@@ -825,17 +825,17 @@ export default function RankTracker() {
                         {alert.type === 'positive' ? (
                           <TrendingUp className="w-5 h-5 text-green-600" />
                         ) : (
-                          <TrendingDown className="w-5 h-5 text-red-600" />
+                          <TrendingDown className="w-5 h-5 text-rose-400" />
                         )}
                         <div>
-                          <div className="font-medium text-[#1E3A5F]">{alert.keyword}</div>
-                          <div className="text-sm text-gray-600">
+                          <div className="font-medium text-white">{alert.keyword}</div>
+                          <div className="text-sm text-slate-400">
                             {alert.type === 'positive' ? 'Improved' : 'Dropped'} by{' '}
                             {Math.abs(alert.change)} positions
                           </div>
                         </div>
                       </div>
-                      <div className="text-sm text-gray-500">{alert.time}</div>
+                      <div className="text-sm text-slate-500">{alert.time}</div>
                     </div>
                   </div>
                 ))}
@@ -862,20 +862,20 @@ export default function RankTracker() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-6">
+              <Card className="w-full max-w-2xl bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Add Keywords to Track</h2>
+                  <h2 className="text-2xl font-bold text-white">Add Keywords to Track</h2>
                   <button
                     onClick={() => setShowAddKeywordModal(false)}
-                    className="p-2 hover:bg-gray-100 rounded transition-colors"
+                    className="p-2 hover:bg-white/10 rounded transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-600" />
+                    <X className="w-5 h-5 text-slate-400" />
                   </button>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Keywords (one per line for bulk add)
                     </label>
                     <Textarea
@@ -886,7 +886,7 @@ export default function RankTracker() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Target URL (optional)
                     </label>
                     <Input placeholder="/services/digital-marketing" />
@@ -894,10 +894,10 @@ export default function RankTracker() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Location
                       </label>
-                      <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                      <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                         {locations.map((loc) => (
                           <option key={loc} value={loc}>
                             {loc}
@@ -906,7 +906,7 @@ export default function RankTracker() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Tags/Group
                       </label>
                       <Input placeholder="e.g., Services, Local" />
@@ -917,7 +917,7 @@ export default function RankTracker() {
                     <Button
                       variant="outline"
                       onClick={() => setShowAddKeywordModal(false)}
-                      className="border-gray-300"
+                      className="border-white/20"
                     >
                       Cancel
                     </Button>

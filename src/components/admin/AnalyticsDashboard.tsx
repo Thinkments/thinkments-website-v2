@@ -332,14 +332,14 @@ export default function AnalyticsDashboard() {
   ];
 
   const getBounceRateColor = (rate: number) => {
-    if (rate < 40) return 'text-green-600 bg-green-100';
-    if (rate < 60) return 'text-yellow-600 bg-yellow-100';
-    return 'text-red-600 bg-red-100';
+    if (rate < 40) return 'text-green-600 bg-emerald-500/10';
+    if (rate < 60) return 'text-yellow-600 bg-amber-500/10';
+    return 'text-rose-400 bg-rose-500/10';
   };
 
   const getTrendIcon = (trend: 'up' | 'down' | 'flat') => {
     if (trend === 'up') return <TrendingUp className="w-4 h-4 text-green-600" />;
-    if (trend === 'down') return <TrendingDown className="w-4 h-4 text-red-600" />;
+    if (trend === 'down') return <TrendingDown className="w-4 h-4 text-rose-400" />;
     return <Minus className="w-4 h-4 text-gray-400" />;
   };
 
@@ -373,8 +373,8 @@ export default function AnalyticsDashboard() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Analytics Dashboard</h1>
-            <p className="text-gray-600">Track performance across all clients</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">Analytics Dashboard</h1>
+            <p className="text-slate-400">Track performance across all clients</p>
           </div>
           <div className="flex items-center space-x-3">
             <Button variant="outline">
@@ -389,15 +389,15 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Filters */}
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="pt-6">
             <div className="flex items-center space-x-4">
               <div className="flex-1">
-                <label className="block text-xs font-medium text-gray-700 mb-1">Client</label>
+                <label className="block text-xs font-medium text-slate-300 mb-1">Client</label>
                 <select
                   value={selectedClient}
                   onChange={(e) => setSelectedClient(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                 >
                   <option value="all">All Clients</option>
                   {clients.map((client) => (
@@ -409,11 +409,11 @@ export default function AnalyticsDashboard() {
               </div>
 
               <div className="flex-1">
-                <label className="block text-xs font-medium text-gray-700 mb-1">Date Range</label>
+                <label className="block text-xs font-medium text-slate-300 mb-1">Date Range</label>
                 <select
                   value={dateRange}
                   onChange={(e) => setDateRange(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                 >
                   <option value="7">Last 7 days</option>
                   <option value="30">Last 30 days</option>
@@ -423,11 +423,11 @@ export default function AnalyticsDashboard() {
               </div>
 
               <div className="flex-1">
-                <label className="block text-xs font-medium text-gray-700 mb-1">Compare To</label>
+                <label className="block text-xs font-medium text-slate-300 mb-1">Compare To</label>
                 <select
                   value={compareMode}
                   onChange={(e) => setCompareMode(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                 >
                   <option value="previous">Previous Period</option>
                   <option value="year">Same Period Last Year</option>
@@ -452,14 +452,14 @@ export default function AnalyticsDashboard() {
           {/* Summary Cards */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {allClientsMetrics.map((metric, index) => (
-              <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+              <Card key={index} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
-                  <p className="text-xs text-gray-600 mb-2">{metric.label}</p>
-                  <p className="text-2xl font-bold text-[#1E3A5F] mb-2">{metric.value}</p>
+                  <p className="text-xs text-slate-400 mb-2">{metric.label}</p>
+                  <p className="text-2xl font-bold text-white mb-2">{metric.value}</p>
                   <div className="flex items-center justify-between">
                     <div
                       className={`flex items-center text-xs ${
-                        metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                        metric.trend === 'up' ? 'text-green-600' : 'text-rose-400'
                       }`}
                     >
                       {getTrendIcon(metric.trend)}
@@ -473,7 +473,7 @@ export default function AnalyticsDashboard() {
           </div>
 
           {/* AI Insights Panel */}
-          <Card className="border-0 shadow-md border-l-4 border-[#00B4D8]">
+          <Card className="border-0 shadow-2xl border border-white/5 border-l-4 border-[#00B4D8]">
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
                 <Sparkles className="w-5 h-5 mr-2 text-[#00B4D8]" />
@@ -483,7 +483,7 @@ export default function AnalyticsDashboard() {
             <CardContent>
               <div className="space-y-3">
                 {insights.map((insight, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                  <div key={idx} className="flex items-start space-x-3 p-3 bg-white/5 rounded-lg">
                     {insight.type === 'positive' && (
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                     )}
@@ -491,11 +491,11 @@ export default function AnalyticsDashboard() {
                       <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                     )}
                     {insight.type === 'opportunity' && (
-                      <Zap className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Zap className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                     )}
                     <div className="flex-1">
-                      <p className="font-semibold text-gray-900 text-sm">{insight.title}</p>
-                      <p className="text-sm text-gray-600">{insight.description}</p>
+                      <p className="font-semibold text-gray-100 text-sm">{insight.title}</p>
+                      <p className="text-sm text-slate-400">{insight.description}</p>
                     </div>
                     <Button size="sm" variant="outline">
                       {insight.action}
@@ -508,13 +508,13 @@ export default function AnalyticsDashboard() {
 
           {/* View Toggle */}
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-[#1E3A5F]">Client Performance</h2>
+            <h2 className="text-xl font-bold text-white">Client Performance</h2>
             <div className="flex items-center space-x-2">
-              <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+              <div className="flex border border-white/20 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setViewMode('table')}
                   className={`px-3 py-1.5 text-sm ${
-                    viewMode === 'table' ? 'bg-[#00B4D8] text-white' : 'bg-white text-gray-600'
+                    viewMode === 'table' ? 'bg-[#00B4D8] text-white' : 'bg-[#0f172a]/40 backdrop-blur-xl text-slate-400'
                   }`}
                 >
                   <List className="w-4 h-4" />
@@ -522,7 +522,7 @@ export default function AnalyticsDashboard() {
                 <button
                   onClick={() => setViewMode('heatmap')}
                   className={`px-3 py-1.5 text-sm ${
-                    viewMode === 'heatmap' ? 'bg-[#00B4D8] text-white' : 'bg-white text-gray-600'
+                    viewMode === 'heatmap' ? 'bg-[#00B4D8] text-white' : 'bg-[#0f172a]/40 backdrop-blur-xl text-slate-400'
                   }`}
                 >
                   <Grid3x3 className="w-4 h-4" />
@@ -533,56 +533,56 @@ export default function AnalyticsDashboard() {
 
           {/* Client Performance Table */}
           {viewMode === 'table' && (
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="p-0">
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50 border-b border-gray-200">
+                    <thead className="bg-white/5 border-b border-white/10">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Client
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Visitors
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Organic
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Conversions
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Bounce Rate
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Trend
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                           Actions
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+                    <tbody className="bg-[#0f172a]/40 backdrop-blur-xl divide-y divide-gray-200">
                       {clients.map((client) => (
-                        <tr key={client.id} className="hover:bg-gray-50 cursor-pointer">
+                        <tr key={client.id} className="hover:bg-white/5 cursor-pointer">
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center space-x-3">
                               <div className="w-8 h-8 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-lg flex items-center justify-center">
                                 <span className="text-white font-bold text-sm">{client.logo}</span>
                               </div>
-                              <span className="font-medium text-gray-900">{client.name}</span>
+                              <span className="font-medium text-gray-100">{client.name}</span>
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="text-gray-900">
+                            <span className="text-gray-100">
                               {client.visitors.toLocaleString()}
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="text-gray-900">{client.organic.toLocaleString()}</span>
+                            <span className="text-gray-100">{client.organic.toLocaleString()}</span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="text-gray-900">{client.conversions}</span>
+                            <span className="text-gray-100">{client.conversions}</span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <Badge className={getBounceRateColor(client.bounceRate)}>
@@ -594,7 +594,7 @@ export default function AnalyticsDashboard() {
                               {getTrendIcon(client.trend)}
                               <span
                                 className={
-                                  client.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                                  client.trend === 'up' ? 'text-green-600' : 'text-rose-400'
                                 }
                               >
                                 {Math.abs(client.trendValue)}%
@@ -626,7 +626,7 @@ export default function AnalyticsDashboard() {
 
           {/* Top Performers & Needs Attention */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <CardTitle className="text-lg flex items-center">
                   <Award className="w-5 h-5 mr-2 text-green-600" />
@@ -638,18 +638,18 @@ export default function AnalyticsDashboard() {
                   {clients.slice(0, 3).map((client, idx) => (
                     <div
                       key={client.id}
-                      className="flex items-center justify-between p-3 bg-green-50 rounded-lg"
+                      className="flex items-center justify-between p-3 bg-emerald-900/20 rounded-lg"
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-lg font-bold text-green-600">#{idx + 1}</span>
                         <div>
-                          <p className="font-semibold text-gray-900">{client.name}</p>
-                          <p className="text-sm text-gray-600">Best Traffic Growth</p>
+                          <p className="font-semibold text-gray-100">{client.name}</p>
+                          <p className="text-sm text-slate-400">Best Traffic Growth</p>
                         </div>
                       </div>
                       <div className="text-right">
                         <p className="font-bold text-green-600">+{client.trendValue}%</p>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-slate-400">
                           {client.visitors.toLocaleString()} visitors
                         </p>
                       </div>
@@ -659,7 +659,7 @@ export default function AnalyticsDashboard() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <CardTitle className="text-lg flex items-center">
                   <AlertCircle className="w-5 h-5 mr-2 text-orange-600" />
@@ -668,19 +668,19 @@ export default function AnalyticsDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  <div className="p-3 bg-orange-50 rounded-lg">
+                  <div className="p-3 bg-orange-900/20 rounded-lg">
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <p className="font-semibold text-gray-900">Best Dental</p>
+                        <p className="font-semibold text-gray-100">Best Dental</p>
                         <p className="text-sm text-orange-700">Traffic dropped 12% this month</p>
                       </div>
                       <Button size="sm">Investigate</Button>
                     </div>
                   </div>
-                  <div className="p-3 bg-yellow-50 rounded-lg">
+                  <div className="p-3 bg-amber-900/20 rounded-lg">
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <p className="font-semibold text-gray-900">Mobile Performance</p>
+                        <p className="font-semibold text-gray-100">Mobile Performance</p>
                         <p className="text-sm text-yellow-700">
                           3 clients with high mobile bounce rate
                         </p>
@@ -699,11 +699,11 @@ export default function AnalyticsDashboard() {
       {selectedClient !== 'all' && (
         <div className="space-y-6">
           {/* Client Header */}
-          <Card className="border-0 shadow-md bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white">
+          <Card className="border-0 shadow-2xl border border-white/5 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                  <div className="w-16 h-16 bg-[#0f172a]/40 backdrop-blur-xl/20 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-2xl">
                       {clients.find((c) => c.id === selectedClient)?.logo}
                     </span>
@@ -726,7 +726,7 @@ export default function AnalyticsDashboard() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="text-white border-white hover:bg-white/10"
+                    className="text-white border-white hover:bg-[#0f172a]/40 backdrop-blur-xl/10"
                   >
                     <RefreshCw className="w-4 h-4 mr-2" />
                     Refresh Data
@@ -734,7 +734,7 @@ export default function AnalyticsDashboard() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="text-white border-white hover:bg-white/10"
+                    className="text-white border-white hover:bg-[#0f172a]/40 backdrop-blur-xl/10"
                   >
                     <Maximize2 className="w-4 h-4 mr-2" />
                     Full Screen
@@ -760,7 +760,7 @@ export default function AnalyticsDashboard() {
                 className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${
                   activeSection === section.id
                     ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                    : 'bg-[#0f172a]/40 backdrop-blur-xl text-slate-400 hover:bg-white/5 border border-white/10'
                 }`}
               >
                 <section.icon className="w-4 h-4" />
@@ -775,13 +775,13 @@ export default function AnalyticsDashboard() {
               {/* Metric Cards */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {singleClientMetrics.map((metric, index) => (
-                  <Card key={index} className="border-0 shadow-md">
+                  <Card key={index} className="border-0 shadow-2xl border border-white/5">
                     <CardContent className="pt-6">
-                      <p className="text-xs text-gray-600 mb-2">{metric.label}</p>
-                      <p className="text-2xl font-bold text-[#1E3A5F] mb-2">{metric.value}</p>
+                      <p className="text-xs text-slate-400 mb-2">{metric.label}</p>
+                      <p className="text-2xl font-bold text-white mb-2">{metric.value}</p>
                       <div
                         className={`flex items-center text-xs ${
-                          metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
+                          metric.trend === 'up' ? 'text-green-600' : 'text-rose-400'
                         }`}
                       >
                         {getTrendIcon(metric.trend)}
@@ -793,12 +793,12 @@ export default function AnalyticsDashboard() {
               </div>
 
               {/* Main Traffic Chart */}
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-lg">Traffic Overview</CardTitle>
                     <div className="flex items-center space-x-2">
-                      <select className="px-3 py-1 border border-gray-300 rounded-lg text-sm">
+                      <select className="px-3 py-1 border border-white/20 rounded-lg text-sm">
                         <option>All Traffic</option>
                         <option>Organic Only</option>
                         <option>Direct Only</option>
@@ -812,10 +812,10 @@ export default function AnalyticsDashboard() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <div className="h-64 bg-white/10 rounded-lg flex items-center justify-center">
                     <div className="text-center">
                       <BarChart3 className="w-16 h-16 mx-auto mb-2 text-gray-400" />
-                      <p className="text-gray-500">Interactive traffic chart would appear here</p>
+                      <p className="text-slate-500">Interactive traffic chart would appear here</p>
                     </div>
                   </div>
                 </CardContent>
@@ -828,19 +828,19 @@ export default function AnalyticsDashboard() {
             <div className="space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Pie Chart */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Source Breakdown</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Pie chart visualization</p>
+                    <div className="h-64 bg-white/10 rounded-lg flex items-center justify-center">
+                      <p className="text-slate-500">Pie chart visualization</p>
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Top Referrers */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Top Referrers</CardTitle>
                   </CardHeader>
@@ -849,10 +849,10 @@ export default function AnalyticsDashboard() {
                       {['google.com', 'facebook.com', 'reddit.com'].map((referrer, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                          className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
                         >
-                          <span className="text-sm font-medium text-gray-900">{referrer}</span>
-                          <span className="text-sm text-gray-600">
+                          <span className="text-sm font-medium text-gray-100">{referrer}</span>
+                          <span className="text-sm text-slate-400">
                             {(1234 - idx * 200).toLocaleString()} sessions
                           </span>
                         </div>
@@ -863,45 +863,45 @@ export default function AnalyticsDashboard() {
               </div>
 
               {/* Source Details Table */}
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle className="text-lg">Source Details</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <div className="overflow-x-auto">
                     <table className="w-full">
-                      <thead className="bg-gray-50 border-b border-gray-200">
+                      <thead className="bg-white/5 border-b border-white/10">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Source
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Sessions
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             % of Total
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Bounce Rate
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Conversions
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Conv Rate
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
+                      <tbody className="bg-[#0f172a]/40 backdrop-blur-xl divide-y divide-gray-200">
                         {trafficSources.map((source, idx) => (
-                          <tr key={idx} className="hover:bg-gray-50">
-                            <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                          <tr key={idx} className="hover:bg-white/5">
+                            <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-100">
                               {source.source}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-gray-900">
+                            <td className="px-6 py-4 whitespace-nowrap text-gray-100">
                               {source.sessions.toLocaleString()}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-gray-900">
+                            <td className="px-6 py-4 whitespace-nowrap text-gray-100">
                               {source.percentage}%
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
@@ -909,10 +909,10 @@ export default function AnalyticsDashboard() {
                                 {source.bounceRate}%
                               </Badge>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-gray-900">
+                            <td className="px-6 py-4 whitespace-nowrap text-gray-100">
                               {source.conversions}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-gray-900">
+                            <td className="px-6 py-4 whitespace-nowrap text-gray-100">
                               {source.convRate}%
                             </td>
                           </tr>
@@ -928,63 +928,63 @@ export default function AnalyticsDashboard() {
           {/* Organic Search Section */}
           {activeSection === 'organic' && (
             <div className="space-y-6">
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle className="text-lg">Organic Traffic Trend</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <p className="text-gray-500">Organic traffic chart with algorithm updates</p>
+                  <div className="h-64 bg-white/10 rounded-lg flex items-center justify-center">
+                    <p className="text-slate-500">Organic traffic chart with algorithm updates</p>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle className="text-lg">Keyword Performance</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <div className="overflow-x-auto">
                     <table className="w-full">
-                      <thead className="bg-gray-50 border-b border-gray-200">
+                      <thead className="bg-white/5 border-b border-white/10">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Keyword
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Position
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Sessions
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Clicks
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Impressions
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             CTR
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
+                      <tbody className="bg-[#0f172a]/40 backdrop-blur-xl divide-y divide-gray-200">
                         {topKeywords.map((keyword, idx) => (
-                          <tr key={idx} className="hover:bg-gray-50">
-                            <td className="px-6 py-4 font-medium text-gray-900">
+                          <tr key={idx} className="hover:bg-white/5">
+                            <td className="px-6 py-4 font-medium text-gray-100">
                               {keyword.keyword}
                             </td>
                             <td className="px-6 py-4">
-                              <Badge className="bg-blue-100 text-blue-700">
+                              <Badge className="bg-indigo-500/10 text-indigo-300">
                                 #{keyword.position}
                               </Badge>
                             </td>
-                            <td className="px-6 py-4 text-gray-900">{keyword.sessions}</td>
-                            <td className="px-6 py-4 text-gray-900">{keyword.clicks}</td>
-                            <td className="px-6 py-4 text-gray-900">
+                            <td className="px-6 py-4 text-gray-100">{keyword.sessions}</td>
+                            <td className="px-6 py-4 text-gray-100">{keyword.clicks}</td>
+                            <td className="px-6 py-4 text-gray-100">
                               {keyword.impressions.toLocaleString()}
                             </td>
-                            <td className="px-6 py-4 text-gray-900">{keyword.ctr}%</td>
+                            <td className="px-6 py-4 text-gray-100">{keyword.ctr}%</td>
                           </tr>
                         ))}
                       </tbody>
@@ -999,7 +999,7 @@ export default function AnalyticsDashboard() {
           {activeSection === 'audience' && (
             <div className="space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Devices</CardTitle>
                   </CardHeader>
@@ -1012,17 +1012,17 @@ export default function AnalyticsDashboard() {
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <item.icon className="w-4 h-4 text-gray-600" />
-                            <span className="text-sm font-medium text-gray-900">{item.device}</span>
+                            <item.icon className="w-4 h-4 text-slate-400" />
+                            <span className="text-sm font-medium text-gray-100">{item.device}</span>
                           </div>
-                          <span className="text-sm text-gray-600">{item.percentage}%</span>
+                          <span className="text-sm text-slate-400">{item.percentage}%</span>
                         </div>
                       ))}
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Geography</CardTitle>
                   </CardHeader>
@@ -1030,8 +1030,8 @@ export default function AnalyticsDashboard() {
                     <div className="space-y-3">
                       {['United States', 'Canada', 'United Kingdom'].map((country, idx) => (
                         <div key={idx} className="flex items-center justify-between">
-                          <span className="text-sm font-medium text-gray-900">{country}</span>
-                          <span className="text-sm text-gray-600">
+                          <span className="text-sm font-medium text-gray-100">{country}</span>
+                          <span className="text-sm text-slate-400">
                             {(5000 - idx * 1000).toLocaleString()}
                           </span>
                         </div>
@@ -1040,21 +1040,21 @@ export default function AnalyticsDashboard() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">New vs Returning</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-900">New Visitors</span>
-                        <span className="text-sm text-gray-600">62%</span>
+                        <span className="text-sm font-medium text-gray-100">New Visitors</span>
+                        <span className="text-sm text-slate-400">62%</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-900">
+                        <span className="text-sm font-medium text-gray-100">
                           Returning Visitors
                         </span>
-                        <span className="text-sm text-gray-600">38%</span>
+                        <span className="text-sm text-slate-400">38%</span>
                       </div>
                     </div>
                   </CardContent>
@@ -1066,52 +1066,52 @@ export default function AnalyticsDashboard() {
           {/* Behavior Section */}
           {activeSection === 'behavior' && (
             <div className="space-y-6">
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle className="text-lg">Top Pages</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <div className="overflow-x-auto">
                     <table className="w-full">
-                      <thead className="bg-gray-50 border-b border-gray-200">
+                      <thead className="bg-white/5 border-b border-white/10">
                         <tr>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Page URL
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Page Views
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Unique Views
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Avg Time
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Bounce Rate
                           </th>
-                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
+                          <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase">
                             Exit Rate
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
+                      <tbody className="bg-[#0f172a]/40 backdrop-blur-xl divide-y divide-gray-200">
                         {topPages.map((page, idx) => (
-                          <tr key={idx} className="hover:bg-gray-50">
-                            <td className="px-6 py-4 font-medium text-gray-900">{page.url}</td>
-                            <td className="px-6 py-4 text-gray-900">
+                          <tr key={idx} className="hover:bg-white/5">
+                            <td className="px-6 py-4 font-medium text-gray-100">{page.url}</td>
+                            <td className="px-6 py-4 text-gray-100">
                               {page.pageViews.toLocaleString()}
                             </td>
-                            <td className="px-6 py-4 text-gray-900">
+                            <td className="px-6 py-4 text-gray-100">
                               {page.uniqueViews.toLocaleString()}
                             </td>
-                            <td className="px-6 py-4 text-gray-900">{page.avgTime}</td>
+                            <td className="px-6 py-4 text-gray-100">{page.avgTime}</td>
                             <td className="px-6 py-4">
                               <Badge className={getBounceRateColor(page.bounceRate)}>
                                 {page.bounceRate}%
                               </Badge>
                             </td>
-                            <td className="px-6 py-4 text-gray-900">{page.exitRate}%</td>
+                            <td className="px-6 py-4 text-gray-100">{page.exitRate}%</td>
                           </tr>
                         ))}
                       </tbody>
@@ -1126,50 +1126,50 @@ export default function AnalyticsDashboard() {
           {activeSection === 'conversions' && (
             <div className="space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardContent className="pt-6">
                     <div className="flex items-center justify-between mb-2">
                       <Target className="w-8 h-8 text-green-600" />
                       <TrendingUp className="w-5 h-5 text-green-600" />
                     </div>
-                    <p className="text-xs text-gray-600 mb-1">Total Conversions</p>
-                    <p className="text-3xl font-bold text-[#1E3A5F]">89</p>
+                    <p className="text-xs text-slate-400 mb-1">Total Conversions</p>
+                    <p className="text-whitexl font-bold text-white">89</p>
                     <p className="text-xs text-green-600 mt-1">+23.4% from last period</p>
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardContent className="pt-6">
                     <div className="flex items-center justify-between mb-2">
-                      <Phone className="w-8 h-8 text-blue-600" />
+                      <Phone className="w-8 h-8 text-indigo-400" />
                       <TrendingUp className="w-5 h-5 text-green-600" />
                     </div>
-                    <p className="text-xs text-gray-600 mb-1">Phone Calls</p>
-                    <p className="text-3xl font-bold text-[#1E3A5F]">34</p>
+                    <p className="text-xs text-slate-400 mb-1">Phone Calls</p>
+                    <p className="text-whitexl font-bold text-white">34</p>
                     <p className="text-xs text-green-600 mt-1">+12.1% from last period</p>
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardContent className="pt-6">
                     <div className="flex items-center justify-between mb-2">
                       <Mail className="w-8 h-8 text-purple-600" />
                       <TrendingUp className="w-5 h-5 text-green-600" />
                     </div>
-                    <p className="text-xs text-gray-600 mb-1">Form Submissions</p>
-                    <p className="text-3xl font-bold text-[#1E3A5F]">55</p>
+                    <p className="text-xs text-slate-400 mb-1">Form Submissions</p>
+                    <p className="text-whitexl font-bold text-white">55</p>
                     <p className="text-xs text-green-600 mt-1">+31.8% from last period</p>
                   </CardContent>
                 </Card>
               </div>
 
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle className="text-lg">Conversion Funnel</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <p className="text-gray-500">Visual conversion funnel diagram</p>
+                  <div className="h-64 bg-white/10 rounded-lg flex items-center justify-center">
+                    <p className="text-slate-500">Visual conversion funnel diagram</p>
                   </div>
                 </CardContent>
               </Card>
@@ -1177,12 +1177,12 @@ export default function AnalyticsDashboard() {
           )}
 
           {/* Quick Actions */}
-          <Card className="border-0 shadow-md bg-blue-50 border-l-4 border-[#00B4D8]">
+          <Card className="border-0 shadow-2xl border border-white/5 bg-indigo-900/20 border-l-4 border-[#00B4D8]">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Export & Share</h3>
-                  <p className="text-sm text-gray-600">Download or share this dashboard</p>
+                  <h3 className="font-semibold text-gray-100 mb-1">Export & Share</h3>
+                  <p className="text-sm text-slate-400">Download or share this dashboard</p>
                 </div>
                 <div className="flex space-x-2">
                   <Button variant="outline" size="sm">

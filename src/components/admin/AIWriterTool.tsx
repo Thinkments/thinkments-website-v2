@@ -217,11 +217,11 @@ Please write the copy now.`;
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Section Type</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Section Type</label>
               <select
                 value={sectionType}
                 onChange={(e) => setSectionType(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               >
                 <option value="hero">Hero Section</option>
                 <option value="about">About Section</option>
@@ -232,8 +232,8 @@ Please write the copy now.`;
                 <option value="footer">Footer Copy</option>
               </select>
             </div>
-            <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-sm text-blue-800">
+            <div className="p-3 bg-indigo-900/20 rounded-lg border border-blue-200">
+              <p className="text-sm text-indigo-300">
                 <strong>Tip:</strong> Hero sections work best at 50-100 words
               </p>
             </div>
@@ -251,7 +251,7 @@ Please write the copy now.`;
               <FileText className="w-4 h-4 mr-2" />
               Generate Outline
             </Button>
-            <div className="p-3 bg-green-50 rounded-lg border border-green-200">
+            <div className="p-3 bg-emerald-900/20 rounded-lg border border-green-200">
               <p className="text-sm text-green-800">
                 <strong>SEO Optimized:</strong> Target 1,500-2,000 words for best ranking
               </p>
@@ -263,11 +263,11 @@ Please write the copy now.`;
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email Type</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Email Type</label>
               <select
                 value={emailType}
                 onChange={(e) => setEmailType(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               >
                 <option value="newsletter">Newsletter</option>
                 <option value="sales">Sales Email</option>
@@ -292,7 +292,7 @@ Please write the copy now.`;
         return (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Platform</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Platform</label>
               <div className="grid grid-cols-2 gap-2">
                 {['Facebook', 'Instagram', 'LinkedIn', 'Twitter/X'].map((platform) => (
                   <button
@@ -301,7 +301,7 @@ Please write the copy now.`;
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       socialPlatform === platform.toLowerCase()
                         ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-white/10 text-slate-300 hover:bg-white/20'
                     }`}
                   >
                     {platform}
@@ -333,13 +333,13 @@ Please write the copy now.`;
         {/* Library Header */}
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" onClick={() => setShowLibrary(false)} className="text-gray-600">
+            <Button variant="ghost" onClick={() => setShowLibrary(false)} className="text-slate-400">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Writer
             </Button>
             <div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F]">Content Library</h2>
-              <p className="text-gray-600">Saved and generated content</p>
+              <h2 className="text-2xl font-bold text-white">Content Library</h2>
+              <p className="text-slate-400">Saved and generated content</p>
             </div>
           </div>
           <div className="flex space-x-3">
@@ -348,7 +348,7 @@ Please write the copy now.`;
               <input
                 type="text"
                 placeholder="Search content..."
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                className="pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               />
             </div>
             <Button variant="outline">
@@ -386,14 +386,14 @@ Please write the copy now.`;
               client: 'ThinkMents',
             },
           ].map((item, idx) => (
-            <Card key={idx} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+            <Card key={idx} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <CardTitle className="text-sm font-semibold text-[#1E3A5F] mb-2">
+                    <CardTitle className="text-sm font-semibold text-white mb-2">
                       {item.title}
                     </CardTitle>
-                    <div className="flex items-center space-x-2 text-xs text-gray-500">
+                    <div className="flex items-center space-x-2 text-xs text-slate-500">
                       <Badge className="bg-[#00B4D8]/10 text-[#00B4D8] border-[#00B4D8]/20">
                         {item.type}
                       </Badge>
@@ -404,7 +404,7 @@ Please write the copy now.`;
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-3">
+                <p className="text-sm text-slate-400 mb-4 line-clamp-3">
                   Sample content preview would appear here showing the first few lines of the
                   generated content...
                 </p>
@@ -417,7 +417,7 @@ Please write the copy now.`;
                     <Edit3 className="w-4 h-4 mr-1" />
                     Edit
                   </Button>
-                  <Button size="sm" variant="outline" className="text-red-500 hover:text-red-600">
+                  <Button size="sm" variant="outline" className="text-red-500 hover:text-rose-400">
                     <Trash2 className="w-4 h-4" />
                   </Button>
                 </div>
@@ -435,8 +435,8 @@ Please write the copy now.`;
       <div className="mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F]">AI Writer</h1>
-            <p className="text-gray-600 mt-1">Generate on-brand copy for any purpose</p>
+            <h1 className="text-whitexl font-bold text-white">AI Writer</h1>
+            <p className="text-slate-400 mt-1">Generate on-brand copy for any purpose</p>
             <div className="mt-3 flex items-center space-x-2">
               <Badge className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                 Current Tone: Professional & Friendly
@@ -455,7 +455,7 @@ Please write the copy now.`;
             <Button
               variant="outline"
               onClick={() => setShowBrandSettings(true)}
-              className="text-gray-600"
+              className="text-slate-400"
             >
               <Settings className="w-4 h-4 mr-2" />
               Brand Settings
@@ -477,8 +477,8 @@ Please write the copy now.`;
                 onClick={() => setContentType(type.id as ContentType)}
                 className={`p-4 rounded-lg text-center transition-all ${
                   contentType === type.id
-                    ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white shadow-md'
-                    : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[#00B4D8]'
+                    ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white shadow-2xl border border-white/5'
+                    : 'bg-[#0f172a]/40 backdrop-blur-xl border-2 border-white/10 text-slate-300 hover:border-[#00B4D8]'
                 }`}
               >
                 <Icon className="w-6 h-6 mx-auto mb-2" />
@@ -494,19 +494,19 @@ Please write the copy now.`;
         {/* LEFT PANEL - Input & Controls */}
         <div className="space-y-4">
           {/* Client Selector */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg">Project Details</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Select Client
                 </label>
                 <select
                   value={selectedClient}
                   onChange={(e) => setSelectedClient(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                 >
                   <option>ThinkMents</option>
                   <option>Client A - Local Restaurant</option>
@@ -518,7 +518,7 @@ Please write the copy now.`;
           </Card>
 
           {/* Brief Section */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg">What do you need?</CardTitle>
             </CardHeader>
@@ -528,23 +528,23 @@ Please write the copy now.`;
                 onChange={(e) => setBrief(e.target.value)}
                 placeholder="Describe what you want to write. E.g., 'A homepage hero section about our web design services for small businesses in Texas'"
                 rows={5}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
               />
             </CardContent>
           </Card>
 
           {/* Tone & Style */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg">Tone & Style</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Tone</label>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Tone</label>
                 <select
                   value={tone}
                   onChange={(e) => setTone(e.target.value as ToneType)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                 >
                   {toneOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -561,13 +561,13 @@ Please write the copy now.`;
                   onChange={(e) => setMatchBrand(e.target.checked)}
                   className="w-4 h-4 text-[#00B4D8] rounded"
                 />
-                <span className="text-sm text-gray-700">Match brand default tone</span>
+                <span className="text-sm text-slate-300">Match brand default tone</span>
               </label>
             </CardContent>
           </Card>
 
           {/* Length Control */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg">Length</CardTitle>
             </CardHeader>
@@ -580,14 +580,14 @@ Please write the copy now.`;
                     className={`py-3 rounded-lg text-sm font-medium transition-colors capitalize ${
                       length === len
                         ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-white/10 text-slate-300 hover:bg-white/20'
                     }`}
                   >
                     {len}
                   </button>
                 ))}
               </div>
-              <div className="mt-3 text-sm text-gray-600 text-center">
+              <div className="mt-3 text-sm text-slate-400 text-center">
                 Target:{' '}
                 {length === 'short' ? '100-200' : length === 'medium' ? '200-500' : '500-1000'}{' '}
                 words
@@ -596,7 +596,7 @@ Please write the copy now.`;
           </Card>
 
           {/* Keywords */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg">Keywords (SEO)</CardTitle>
             </CardHeader>
@@ -606,7 +606,7 @@ Please write the copy now.`;
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
                 placeholder="web design, digital marketing, Texas"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               />
               <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
                 <Target className="w-4 h-4 mr-2" />
@@ -616,7 +616,7 @@ Please write the copy now.`;
           </Card>
 
           {/* Additional Options */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg">Additional Options</CardTitle>
             </CardHeader>
@@ -628,7 +628,7 @@ Please write the copy now.`;
                   onChange={(e) => setIncludeCTA(e.target.checked)}
                   className="w-4 h-4 text-[#00B4D8] rounded"
                 />
-                <span className="text-sm text-gray-700">Include call-to-action</span>
+                <span className="text-sm text-slate-300">Include call-to-action</span>
               </label>
 
               <label className="flex items-center space-x-2 cursor-pointer">
@@ -638,15 +638,15 @@ Please write the copy now.`;
                   onChange={(e) => setIncludeStats(e.target.checked)}
                   className="w-4 h-4 text-[#00B4D8] rounded"
                 />
-                <span className="text-sm text-gray-700">Include statistics/data</span>
+                <span className="text-sm text-slate-300">Include statistics/data</span>
               </label>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Localize for</label>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Localize for</label>
                 <select
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                 >
                   <option value="">No specific location</option>
                   <option value="decatur">Decatur, TX</option>
@@ -657,13 +657,13 @@ Please write the copy now.`;
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Reading Level
                 </label>
                 <select
                   value={readingLevel}
                   onChange={(e) => setReadingLevel(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                  className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                 >
                   <option value="simple">Simple (Grade 6-8)</option>
                   <option value="standard">Standard (Grade 9-12)</option>
@@ -706,7 +706,7 @@ Please write the copy now.`;
         {/* RIGHT PANEL - Output */}
         <div className="space-y-4">
           {/* Generated Content Display */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Generated Content</CardTitle>
@@ -723,7 +723,7 @@ Please write the copy now.`;
                     >
                       <ArrowLeft className="w-4 h-4" />
                     </Button>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-slate-400">
                       V{currentVersion + 1} / {versions.length}
                     </span>
                     <Button
@@ -744,32 +744,32 @@ Please write the copy now.`;
             <CardContent>
               {generatedContent ? (
                 <div className="space-y-4">
-                  <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 min-h-[300px]">
-                    <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">
+                  <div className="bg-white/5 rounded-lg p-6 border border-white/10 min-h-[300px]">
+                    <p className="text-gray-200 whitespace-pre-wrap leading-relaxed">
                       {generatedContent}
                     </p>
                   </div>
 
                   {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+                  <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-[#1E3A5F]">{wordCount}</p>
-                      <p className="text-xs text-gray-600">Words</p>
+                      <p className="text-2xl font-bold text-white">{wordCount}</p>
+                      <p className="text-xs text-slate-400">Words</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-[#1E3A5F]">{charCount}</p>
-                      <p className="text-xs text-gray-600">Characters</p>
+                      <p className="text-2xl font-bold text-white">{charCount}</p>
+                      <p className="text-xs text-slate-400">Characters</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-[#1E3A5F]">
+                      <p className="text-2xl font-bold text-white">
                         {Math.ceil(wordCount / 200)}m
                       </p>
-                      <p className="text-xs text-gray-600">Read time</p>
+                      <p className="text-xs text-slate-400">Read time</p>
                     </div>
                   </div>
 
                   {/* Flesch Score */}
-                  <div className="p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div className="p-3 bg-emerald-900/20 rounded-lg border border-green-200">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <BarChart3 className="w-4 h-4 text-green-600" />
@@ -793,7 +793,7 @@ Please write the copy now.`;
           {generatedContent && (
             <>
               {/* Action Buttons */}
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="pt-6">
                   <div className="grid grid-cols-2 gap-3">
                     <Button
@@ -839,7 +839,7 @@ Please write the copy now.`;
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                   >
-                    <Card className="border-0 shadow-md">
+                    <Card className="border-0 shadow-2xl border border-white/5">
                       <CardHeader>
                         <CardTitle className="text-lg">Refine Content</CardTitle>
                       </CardHeader>
@@ -899,8 +899,8 @@ Please write the copy now.`;
                           </Button>
                         </div>
 
-                        <div className="pt-3 border-t border-gray-200">
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <div className="pt-3 border-t border-white/10">
+                          <label className="block text-sm font-medium text-slate-300 mb-2">
                             Custom Instruction
                           </label>
                           <div className="flex space-x-2">
@@ -909,7 +909,7 @@ Please write the copy now.`;
                               value={customInstruction}
                               onChange={(e) => setCustomInstruction(e.target.value)}
                               placeholder="E.g., 'Add a metaphor about growth'"
-                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                              className="flex-1 px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                             />
                             <Button
                               onClick={() => {
@@ -947,47 +947,47 @@ Please write the copy now.`;
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
-              <div className="p-6 border-b border-gray-200">
-                <h2 className="text-2xl font-bold text-[#1E3A5F]">Brand Voice Settings</h2>
-                <p className="text-gray-600 mt-1">Configure how AI writes for your brand</p>
+              <div className="p-6 border-b border-white/10">
+                <h2 className="text-2xl font-bold text-white">Brand Voice Settings</h2>
+                <p className="text-slate-400 mt-1">Configure how AI writes for your brand</p>
               </div>
 
               <div className="p-6 space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Brand Name</label>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Brand Name</label>
                   <input
                     type="text"
                     defaultValue="ThinkMents Digital Marketing"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Industry/Niche
                   </label>
                   <input
                     type="text"
                     defaultValue="Digital Marketing & Web Design"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Target Audience
                   </label>
                   <textarea
                     defaultValue="Small business owners in Texas looking to grow their online presence"
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-slate-300 mb-3">
                     Brand Personality Traits
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -1010,47 +1010,47 @@ Please write the copy now.`;
                           )}
                           className="w-4 h-4 text-[#00B4D8] rounded"
                         />
-                        <span className="text-sm text-gray-700">{trait}</span>
+                        <span className="text-sm text-slate-300">{trait}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Words to Always Use
                   </label>
                   <input
                     type="text"
                     placeholder="growth, innovative, results, partnership"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Words to Never Use
                   </label>
                   <input
                     type="text"
                     placeholder="cheap, easy, simple"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Example Copy (Reference)
                   </label>
                   <textarea
                     placeholder="Paste existing copy that represents your brand voice well..."
                     rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
                   />
                 </div>
               </div>
 
-              <div className="p-6 border-t border-gray-200 flex justify-end space-x-3">
+              <div className="p-6 border-t border-white/10 flex justify-end space-x-3">
                 <Button variant="outline" onClick={() => setShowBrandSettings(false)}>
                   Cancel
                 </Button>

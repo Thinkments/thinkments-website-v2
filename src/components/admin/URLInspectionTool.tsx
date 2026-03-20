@@ -111,20 +111,20 @@ export default function URLInspectionTool() {
       case 'error':
         return <XCircle className="w-5 h-5 text-red-500" />;
       default:
-        return <Globe className="w-5 h-5 text-gray-500" />;
+        return <Globe className="w-5 h-5 text-slate-500" />;
     }
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'success':
-        return 'bg-green-100 text-green-800 border-green-200';
+        return 'bg-emerald-500/10 text-green-800 border-green-200';
       case 'warning':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+        return 'bg-amber-500/10 text-yellow-800 border-yellow-200';
       case 'error':
-        return 'bg-red-100 text-red-800 border-red-200';
+        return 'bg-rose-500/10 text-red-800 border-red-200';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-white/10 text-gray-200 border-white/10';
     }
   };
 
@@ -132,7 +132,7 @@ export default function URLInspectionTool() {
     <div className="p-6 max-w-7xl mx-auto space-y-6">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
+          <h1 className="text-whitexl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
             URL Inspection Tool
           </h1>
           <p className="text-muted-foreground mt-2">
@@ -201,7 +201,7 @@ export default function URLInspectionTool() {
                         href={`https://thinkments.com${analysis.url}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-1 text-sm font-normal text-blue-600 hover:underline"
+                        className="inline-flex items-center space-x-1 text-sm font-normal text-indigo-400 hover:underline"
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span>View Page</span>
@@ -301,7 +301,7 @@ export default function URLInspectionTool() {
                         <div>
                           <h4 className="font-medium mb-2">Search Preview</h4>
                           <div className="border rounded-lg p-4 bg-muted/50">
-                            <div className="text-blue-600 hover:underline cursor-pointer text-lg">
+                            <div className="text-indigo-400 hover:underline cursor-pointer text-lg">
                               {analysis.seo.title}
                             </div>
                             <div className="text-green-700 text-sm">
@@ -485,7 +485,7 @@ export default function URLInspectionTool() {
                         <CardContent>
                           <div className="space-y-2">
                             {analysis.warnings.map((warning, index) => (
-                              <Alert key={index} className="border-yellow-200 bg-yellow-50">
+                              <Alert key={index} className="border-yellow-200 bg-amber-900/20">
                                 <AlertDescription>{warning}</AlertDescription>
                               </Alert>
                             ))}
@@ -498,7 +498,7 @@ export default function URLInspectionTool() {
                     {analysis.suggestions.length > 0 && (
                       <Card>
                         <CardHeader>
-                          <CardTitle className="flex items-center space-x-2 text-blue-600">
+                          <CardTitle className="flex items-center space-x-2 text-indigo-400">
                             <Eye className="w-5 h-5" />
                             <span>Suggestions ({analysis.suggestions.length})</span>
                           </CardTitle>
@@ -506,7 +506,7 @@ export default function URLInspectionTool() {
                         <CardContent>
                           <div className="space-y-2">
                             {analysis.suggestions.map((suggestion, index) => (
-                              <Alert key={index} className="border-blue-200 bg-blue-50">
+                              <Alert key={index} className="border-blue-200 bg-indigo-900/20">
                                 <AlertDescription>{suggestion}</AlertDescription>
                               </Alert>
                             ))}

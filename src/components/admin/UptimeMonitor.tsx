@@ -109,11 +109,11 @@ export default function UptimeMonitor() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Website Health Monitor</h1>
-            <p className="text-gray-600">Monitor uptime, speed, and performance of your websites</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">Website Health Monitor</h1>
+            <p className="text-slate-400">Monitor uptime, speed, and performance of your websites</p>
           </div>
         </div>
 
@@ -126,7 +126,7 @@ export default function UptimeMonitor() {
               <select
                 value={selectedWebsite}
                 onChange={(e) => setSelectedWebsite(e.target.value)}
-                className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+                className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
               >
                 {websites.map((site) => (
                   <option key={site.id} value={site.id}>
@@ -137,11 +137,11 @@ export default function UptimeMonitor() {
             </div>
 
             {/* Tab Toggle */}
-            <div className="flex items-center bg-gray-100 rounded-lg p-1">
+            <div className="flex items-center bg-white/10 rounded-lg p-1">
               <button
                 onClick={() => setActiveTab('uptime')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === 'uptime' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                  activeTab === 'uptime' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                 }`}
               >
                 <Activity className="w-4 h-4" />
@@ -150,7 +150,7 @@ export default function UptimeMonitor() {
               <button
                 onClick={() => setActiveTab('speed')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${
-                  activeTab === 'speed' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                  activeTab === 'speed' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                 }`}
               >
                 <Zap className="w-4 h-4" />
@@ -161,17 +161,17 @@ export default function UptimeMonitor() {
 
           <div className="flex items-center space-x-3">
             {/* Status Indicator */}
-            <div className="flex items-center space-x-2 px-4 py-2 bg-green-50 rounded-lg">
+            <div className="flex items-center space-x-2 px-4 py-2 bg-emerald-900/20 rounded-lg">
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-3 h-3 bg-green-500 rounded-full"
+                className="w-3 h-3 bg-emerald-900/200 rounded-full"
               />
               <span className="font-bold text-green-700 uppercase">Online</span>
             </div>
 
             {/* Last Checked */}
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-slate-400">
               Last checked: <span className="font-medium">2 min ago</span>
             </div>
 
@@ -191,70 +191,70 @@ export default function UptimeMonitor() {
           <>
             {/* Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <CheckCircle className="w-4 h-4 text-green-600" />
-                  <div className="text-sm text-gray-600">Status</div>
+                  <div className="text-sm text-slate-400">Status</div>
                 </div>
                 <div className="text-xl font-bold text-green-600 uppercase">Online</div>
-                <div className="text-xs text-gray-500 mt-1">{stats.statusDuration}</div>
+                <div className="text-xs text-slate-500 mt-1">{stats.statusDuration}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <TrendingUp className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Uptime (30d)</div>
+                  <div className="text-sm text-slate-400">Uptime (30d)</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.uptime}%</div>
+                <div className="text-2xl font-bold text-white">{stats.uptime}%</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Clock className="w-4 h-4 text-red-600" />
-                  <div className="text-sm text-gray-600">Downtime (30d)</div>
+                  <Clock className="w-4 h-4 text-rose-400" />
+                  <div className="text-sm text-slate-400">Downtime (30d)</div>
                 </div>
-                <div className="text-2xl font-bold text-red-600">{stats.totalDowntime}</div>
+                <div className="text-2xl font-bold text-rose-400">{stats.totalDowntime}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Zap className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Avg Response</div>
+                  <div className="text-sm text-slate-400">Avg Response</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.avgResponseTime}ms</div>
+                <div className="text-2xl font-bold text-white">{stats.avgResponseTime}ms</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <AlertCircle className="w-4 h-4 text-[#FF6B35]" />
-                  <div className="text-sm text-gray-600">Incidents</div>
+                  <div className="text-sm text-slate-400">Incidents</div>
                 </div>
                 <div className="text-2xl font-bold text-[#FF6B35]">{stats.incidentsThisMonth}</div>
-                <div className="text-xs text-gray-500 mt-1">this month</div>
+                <div className="text-xs text-slate-500 mt-1">this month</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Shield className="w-4 h-4 text-green-600" />
-                  <div className="text-sm text-gray-600">SSL Certificate</div>
+                  <div className="text-sm text-slate-400">SSL Certificate</div>
                 </div>
                 <div className="text-sm font-bold text-green-600">Valid</div>
-                <div className="text-xs text-gray-500 mt-1">Until {stats.sslValid}</div>
+                <div className="text-xs text-slate-500 mt-1">Until {stats.sslValid}</div>
               </Card>
             </div>
 
             {/* Uptime Chart */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Uptime History</h2>
-                  <p className="text-sm text-gray-600">Daily uptime percentage</p>
+                  <h2 className="text-xl font-bold text-white mb-1">Uptime History</h2>
+                  <p className="text-sm text-slate-400">Daily uptime percentage</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <select
                     value={timeRange}
                     onChange={(e) => setTimeRange(e.target.value)}
-                    className="px-3 py-1.5 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+                    className="px-3 py-1.5 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
                   >
                     <option value="7">7 days</option>
                     <option value="30">30 days</option>
@@ -275,11 +275,11 @@ export default function UptimeMonitor() {
             </Card>
 
             {/* Response Time Chart */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Response Time</h2>
-                  <p className="text-sm text-gray-600">Average response time over 24 hours</p>
+                  <h2 className="text-xl font-bold text-white mb-1">Response Time</h2>
+                  <p className="text-sm text-slate-400">Average response time over 24 hours</p>
                 </div>
               </div>
 
@@ -314,13 +314,13 @@ export default function UptimeMonitor() {
             </Card>
 
             {/* Incident Log */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Incident Log</h2>
-                  <p className="text-sm text-gray-600">Recent downtime incidents</p>
+                  <h2 className="text-xl font-bold text-white mb-1">Incident Log</h2>
+                  <p className="text-sm text-slate-400">Recent downtime incidents</p>
                 </div>
-                <Button variant="outline" size="sm" className="border-gray-300">
+                <Button variant="outline" size="sm" className="border-white/20">
                   <Download className="w-3 h-3 mr-2" />
                   Export Report
                 </Button>
@@ -329,35 +329,35 @@ export default function UptimeMonitor() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <tr className="border-b border-white/10">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Date/Time
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Duration
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Type
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Root Cause
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Status
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {incidents.map((incident) => (
-                      <tr key={incident.id} className="border-b border-gray-100 hover:bg-gray-50">
-                        <td className="py-4 px-4 text-gray-700">{incident.date}</td>
-                        <td className="py-4 px-4 font-medium text-red-600">{incident.duration}</td>
+                      <tr key={incident.id} className="border-b border-white/5 hover:bg-white/5">
+                        <td className="py-4 px-4 text-slate-300">{incident.date}</td>
+                        <td className="py-4 px-4 font-medium text-rose-400">{incident.duration}</td>
                         <td className="py-4 px-4">
-                          <Badge className="bg-red-100 text-red-700">{incident.type}</Badge>
+                          <Badge className="bg-rose-500/10 text-rose-300">{incident.type}</Badge>
                         </td>
-                        <td className="py-4 px-4 text-gray-600">{incident.cause}</td>
+                        <td className="py-4 px-4 text-slate-400">{incident.cause}</td>
                         <td className="py-4 px-4">
-                          <Badge className="bg-green-100 text-green-700 capitalize">
+                          <Badge className="bg-emerald-500/10 text-green-700 capitalize">
                             {incident.status}
                           </Badge>
                         </td>
@@ -369,34 +369,34 @@ export default function UptimeMonitor() {
             </Card>
 
             {/* Multi-Site Overview */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="mb-6">
-                <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">All Monitored Sites</h2>
-                <p className="text-sm text-gray-600">Quick overview of all websites</p>
+                <h2 className="text-xl font-bold text-white mb-1">All Monitored Sites</h2>
+                <p className="text-sm text-slate-400">Quick overview of all websites</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {allSites.map((site) => (
                   <div
                     key={site.id}
-                    className="p-4 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                    className="p-4 bg-white/5 rounded-lg border border-white/10 hover:shadow-2xl border border-white/5 transition-shadow"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="font-semibold text-[#1E3A5F]">{site.name}</span>
+                      <span className="font-semibold text-white">{site.name}</span>
                       <div
                         className={`w-3 h-3 rounded-full ${
-                          site.status === 'online' ? 'bg-green-500' : 'bg-red-500'
+                          site.status === 'online' ? 'bg-emerald-900/200' : 'bg-rose-900/200'
                         }`}
                       />
                     </div>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center justify-between">
-                        <span className="text-gray-600">Uptime:</span>
+                        <span className="text-slate-400">Uptime:</span>
                         <span className="font-medium text-green-600">{site.uptime}%</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-gray-600">Response:</span>
-                        <span className="font-medium text-gray-700">{site.responseTime}ms</span>
+                        <span className="text-slate-400">Response:</span>
+                        <span className="font-medium text-slate-300">{site.responseTime}ms</span>
                       </div>
                     </div>
                   </div>
@@ -411,11 +411,11 @@ export default function UptimeMonitor() {
           <>
             {/* Speed Scores */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-3">
                     <Smartphone className="w-6 h-6 text-[#00B4D8]" />
-                    <h3 className="text-xl font-bold text-[#1E3A5F]">Mobile Speed</h3>
+                    <h3 className="text-xl font-bold text-white">Mobile Speed</h3>
                   </div>
                   <Button size="sm" className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                     Run Test
@@ -445,22 +445,22 @@ export default function UptimeMonitor() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center flex-col">
-                      <div className="text-4xl font-bold text-[#1E3A5F]">
+                      <div className="text-4xl font-bold text-white">
                         {stats.speedScoreMobile}
                       </div>
-                      <div className="text-sm text-gray-600">/ 100</div>
+                      <div className="text-sm text-slate-400">/ 100</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-center text-sm text-gray-600">Last tested: 2 hours ago</div>
+                <div className="text-center text-sm text-slate-400">Last tested: 2 hours ago</div>
               </Card>
 
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-3">
                     <MonitorIcon className="w-6 h-6 text-[#00B4D8]" />
-                    <h3 className="text-xl font-bold text-[#1E3A5F]">Desktop Speed</h3>
+                    <h3 className="text-xl font-bold text-white">Desktop Speed</h3>
                   </div>
                   <Button size="sm" className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                     Run Test
@@ -490,46 +490,46 @@ export default function UptimeMonitor() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center flex-col">
-                      <div className="text-4xl font-bold text-[#1E3A5F]">
+                      <div className="text-4xl font-bold text-white">
                         {stats.speedScoreDesktop}
                       </div>
-                      <div className="text-sm text-gray-600">/ 100</div>
+                      <div className="text-sm text-slate-400">/ 100</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-center text-sm text-gray-600">Last tested: 2 hours ago</div>
+                <div className="text-center text-sm text-slate-400">Last tested: 2 hours ago</div>
               </Card>
             </div>
 
             {/* Core Web Vitals */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Core Web Vitals</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
+              <h3 className="text-xl font-bold text-white mb-6">Core Web Vitals</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                  <div className="text-sm text-gray-600 mb-2">Largest Contentful Paint (LCP)</div>
-                  <div className="text-3xl font-bold text-green-700 mb-1">1.2s</div>
+                <div className="p-4 bg-emerald-900/20 rounded-lg border border-green-200">
+                  <div className="text-sm text-slate-400 mb-2">Largest Contentful Paint (LCP)</div>
+                  <div className="text-whitexl font-bold text-green-700 mb-1">1.2s</div>
                   <Badge className="bg-green-600 text-white">Good</Badge>
                 </div>
 
-                <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                  <div className="text-sm text-gray-600 mb-2">First Input Delay (FID)</div>
-                  <div className="text-3xl font-bold text-green-700 mb-1">45ms</div>
+                <div className="p-4 bg-emerald-900/20 rounded-lg border border-green-200">
+                  <div className="text-sm text-slate-400 mb-2">First Input Delay (FID)</div>
+                  <div className="text-whitexl font-bold text-green-700 mb-1">45ms</div>
                   <Badge className="bg-green-600 text-white">Good</Badge>
                 </div>
 
-                <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                  <div className="text-sm text-gray-600 mb-2">Cumulative Layout Shift (CLS)</div>
-                  <div className="text-3xl font-bold text-yellow-700 mb-1">0.08</div>
+                <div className="p-4 bg-amber-900/20 rounded-lg border border-yellow-200">
+                  <div className="text-sm text-slate-400 mb-2">Cumulative Layout Shift (CLS)</div>
+                  <div className="text-whitexl font-bold text-yellow-700 mb-1">0.08</div>
                   <Badge className="bg-yellow-600 text-white">Needs Improvement</Badge>
                 </div>
               </div>
             </Card>
 
             {/* Performance Recommendations */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Performance Recommendations</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">Performance Recommendations</h3>
 
               <div className="space-y-4">
                 {[
@@ -562,26 +562,26 @@ export default function UptimeMonitor() {
                     description: 'Enable gzip or brotli compression on server',
                   },
                 ].map((rec, index) => (
-                  <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                  <div key={index} className="p-4 bg-white/5 rounded-lg border border-white/10">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center space-x-3">
                         <Badge
                           className={`${
                             rec.priority === 'high'
-                              ? 'bg-red-100 text-red-700'
+                              ? 'bg-rose-500/10 text-rose-300'
                               : rec.priority === 'medium'
-                                ? 'bg-yellow-100 text-yellow-700'
-                                : 'bg-gray-100 text-gray-700'
+                                ? 'bg-amber-500/10 text-yellow-700'
+                                : 'bg-white/10 text-slate-300'
                           } capitalize`}
                         >
                           {rec.priority}
                         </Badge>
-                        <Badge className="bg-blue-100 text-blue-700">{rec.category}</Badge>
+                        <Badge className="bg-indigo-500/10 text-indigo-300">{rec.category}</Badge>
                       </div>
                       <span className="text-sm font-medium text-green-600">{rec.impact}</span>
                     </div>
-                    <h4 className="font-semibold text-[#1E3A5F] mb-1">{rec.title}</h4>
-                    <p className="text-sm text-gray-600">{rec.description}</p>
+                    <h4 className="font-semibold text-white mb-1">{rec.title}</h4>
+                    <p className="text-sm text-slate-400">{rec.description}</p>
                   </div>
                 ))}
               </div>
@@ -590,11 +590,11 @@ export default function UptimeMonitor() {
         )}
 
         {/* Alerts Configuration */}
-        <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mt-8">
+        <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mt-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Alert Configuration</h2>
-              <p className="text-sm text-gray-600">Set up notifications for issues</p>
+              <h2 className="text-xl font-bold text-white mb-1">Alert Configuration</h2>
+              <p className="text-sm text-slate-400">Set up notifications for issues</p>
             </div>
             <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
               <Bell className="w-3 h-3 mr-2" />
@@ -604,37 +604,37 @@ export default function UptimeMonitor() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                 <div>
-                  <div className="font-semibold text-[#1E3A5F]">Site Goes Down</div>
-                  <div className="text-sm text-gray-600">Immediate notification</div>
+                  <div className="font-semibold text-white">Site Goes Down</div>
+                  <div className="text-sm text-slate-400">Immediate notification</div>
                 </div>
                 <button className="relative w-12 h-6 bg-[#00B4D8] rounded-full">
-                  <div className="absolute top-1 right-1 w-4 h-4 bg-white rounded-full" />
+                  <div className="absolute top-1 right-1 w-4 h-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-full" />
                 </button>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                 <div>
-                  <div className="font-semibold text-[#1E3A5F]">Response Time {'>'} 500ms</div>
-                  <div className="text-sm text-gray-600">Performance alert</div>
+                  <div className="font-semibold text-white">Response Time {'>'} 500ms</div>
+                  <div className="text-sm text-slate-400">Performance alert</div>
                 </div>
                 <button className="relative w-12 h-6 bg-[#00B4D8] rounded-full">
-                  <div className="absolute top-1 right-1 w-4 h-4 bg-white rounded-full" />
+                  <div className="absolute top-1 right-1 w-4 h-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-full" />
                 </button>
               </div>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-slate-300 mb-2">
                   Email Recipients
                 </label>
                 <Input placeholder="team@thinkments.com, alerts@thinkments.com" />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-slate-300 mb-2">
                   Slack Webhook URL
                 </label>
                 <Input placeholder="https://hooks.slack.com/services/..." />

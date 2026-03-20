@@ -57,7 +57,7 @@ export default function LiveAgentFeeds() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 mb-6">
       {/* Liquidation Node */}
-      <Card className="border-0 shadow-md h-full bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <Card className="border-0 shadow-2xl border border-white/5 h-full bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <CardHeader className="pb-3 border-b border-white/10 flex flex-row items-center justify-between">
           <CardTitle className="text-lg font-semibold flex items-center gap-2 text-white">
             <TrendingDown className="w-5 h-5 text-red-400" />
@@ -75,14 +75,14 @@ export default function LiveAgentFeeds() {
                   key={item.id}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10"
+                  className="flex justify-between items-center p-3 rounded-lg bg-[#0f172a]/40 backdrop-blur-xl/5 border border-white/10"
                 >
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-white">{item.asset}</span>
                       <span
                         className={`text-xs px-2 py-0.5 rounded-sm font-semibold ${
-                          item.side === 'LONG' ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'
+                          item.side === 'LONG' ? 'bg-rose-900/200/20 text-red-400' : 'bg-emerald-900/200/20 text-green-400'
                         }`}
                       >
                         {item.side} REKT
@@ -104,10 +104,10 @@ export default function LiveAgentFeeds() {
       </Card>
 
       {/* Obsidian Ledger */}
-      <Card className="border-0 shadow-md h-full bg-gradient-to-br from-zinc-900 to-zinc-800 text-white">
+      <Card className="border-0 shadow-2xl border border-white/5 h-full bg-gradient-to-br from-zinc-900 to-zinc-800 text-white">
         <CardHeader className="pb-3 border-b border-white/10 flex flex-row items-center justify-between">
           <CardTitle className="text-lg font-semibold flex items-center gap-2 text-white">
-            <Activity className="w-5 h-5 text-emerald-400" />
+            <Activity className="w-5 h-5 text-whitemerald-400" />
             Obsidian Ledger
           </CardTitle>
           <button onClick={fetchFeeds} className="text-white/50 hover:text-white transition-colors">
@@ -122,12 +122,12 @@ export default function LiveAgentFeeds() {
                   key={item.id}
                   initial={{ opacity: 0, x: 10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10"
+                  className="flex justify-between items-center p-3 rounded-lg bg-[#0f172a]/40 backdrop-blur-xl/5 border border-white/10"
                 >
                   <div className="min-w-0 flex-1 mr-4">
                     <div className="flex items-center gap-2">
                       <span className="font-bold truncate text-white">{item.amount.toLocaleString()} {item.token}</span>
-                      <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
+                      <span className="text-xs bg-emerald-500/20 text-whitemerald-400 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
                         {item.blockchain}
                       </span>
                     </div>
@@ -136,7 +136,7 @@ export default function LiveAgentFeeds() {
                     </div>
                   </div>
                   <div className="text-right shrink-0">
-                    <div className="font-mono font-medium text-lg text-emerald-300">{formatUsd(item.usdValue)}</div>
+                    <div className="font-mono font-medium text-lg text-whitemerald-300">{formatUsd(item.usdValue)}</div>
                     <div className="text-xs text-white/40">{new Date(item.timestamp).toLocaleTimeString()}</div>
                   </div>
                 </motion.div>

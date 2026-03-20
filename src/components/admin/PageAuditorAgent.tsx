@@ -98,9 +98,9 @@ export default function PageAuditorAgent() {
             <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
               <ShieldCheck className="w-6 h-6 text-purple-600" />
             </div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F]">Page Auditor Agent</h1>
+            <h1 className="text-whitexl font-bold text-white">Page Auditor Agent</h1>
           </div>
-          <p className="text-gray-600">
+          <p className="text-slate-400">
             Automatically scan your site for incomplete pages, missing content, and lingering placeholders.
           </p>
         </div>
@@ -131,59 +131,59 @@ export default function PageAuditorAgent() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="pt-6">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm font-medium text-gray-500 mb-1">Total Pages Scanned</p>
-                <h3 className="text-2xl font-bold text-[#1E3A5F]">{lastScan ? '142' : '0'}</h3>
+                <p className="text-sm font-medium text-slate-500 mb-1">Total Pages Scanned</p>
+                <h3 className="text-2xl font-bold text-white">{lastScan ? '142' : '0'}</h3>
               </div>
-              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <FileText className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-indigo-900/20 rounded-lg flex items-center justify-center">
+                <FileText className="w-5 h-5 text-indigo-400" />
               </div>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="pt-6">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm font-medium text-gray-500 mb-1">Issues Found</p>
-                <h3 className="text-2xl font-bold text-red-600">
+                <p className="text-sm font-medium text-slate-500 mb-1">Issues Found</p>
+                <h3 className="text-2xl font-bold text-rose-400">
                   {issues.length > 0 ? issues.length : '0'}
                 </h3>
               </div>
-              <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
-                <AlertCircle className="w-5 h-5 text-red-600" />
+              <div className="w-10 h-10 bg-rose-900/20 rounded-lg flex items-center justify-center">
+                <AlertCircle className="w-5 h-5 text-rose-400" />
               </div>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="pt-6">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm font-medium text-gray-500 mb-1">High Severity</p>
+                <p className="text-sm font-medium text-slate-500 mb-1">High Severity</p>
                 <h3 className="text-2xl font-bold text-orange-600">
                   {issues.filter(i => i.severity === 'high').length}
                 </h3>
               </div>
-              <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-orange-900/20 rounded-lg flex items-center justify-center">
                 <AlertTriangle className="w-5 h-5 text-orange-600" />
               </div>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="pt-6">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm font-medium text-gray-500 mb-1">Tasks Logged</p>
+                <p className="text-sm font-medium text-slate-500 mb-1">Tasks Logged</p>
                 <h3 className="text-2xl font-bold text-green-600">
                   {issues.filter(i => i.status === 'logged').length}
                 </h3>
               </div>
-              <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-emerald-900/20 rounded-lg flex items-center justify-center">
                 <CheckCircle2 className="w-5 h-5 text-green-600" />
               </div>
             </div>
@@ -192,8 +192,8 @@ export default function PageAuditorAgent() {
       </div>
 
       {/* Main Content */}
-      <Card className="border-0 shadow-md">
-        <div className="p-4 border-b border-gray-100 flex items-center justify-between">
+      <Card className="border-0 shadow-2xl border border-white/5">
+        <div className="p-4 border-b border-white/5 flex items-center justify-between">
           <div className="flex items-center space-x-4 flex-1">
             <div className="relative w-72">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -210,7 +210,7 @@ export default function PageAuditorAgent() {
             </Button>
           </div>
           {lastScan && (
-            <div className="text-sm text-gray-500 flex items-center">
+            <div className="text-sm text-slate-500 flex items-center">
               <Clock className="w-4 h-4 mr-2" />
               Last scanned: {lastScan}
             </div>
@@ -221,8 +221,8 @@ export default function PageAuditorAgent() {
           {issues.length === 0 && !isScanning ? (
             <div className="text-center py-16 px-4">
               <ShieldCheck className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Ready to Scan</h3>
-              <p className="text-gray-500 mb-6 max-w-sm mx-auto">
+              <h3 className="text-lg font-medium text-gray-100 mb-2">Ready to Scan</h3>
+              <p className="text-slate-500 mb-6 max-w-sm mx-auto">
                 No issues detected yet. Run a full site audit to identify pages missing crucial content, images, or metadata.
               </p>
               <Button onClick={mockScan} className="bg-purple-600 hover:bg-purple-700 text-white">
@@ -232,8 +232,8 @@ export default function PageAuditorAgent() {
           ) : isScanning ? (
             <div className="text-center py-16 px-4">
               <RefreshCw className="w-12 h-12 text-purple-600 mx-auto mb-4 animate-spin" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Analyzing React Components...</h3>
-              <p className="text-gray-500">Checking for missing images and incomplete text...</p>
+              <h3 className="text-lg font-medium text-gray-100 mb-2">Analyzing React Components...</h3>
+              <p className="text-slate-500">Checking for missing images and incomplete text...</p>
             </div>
           ) : (
             <div className="divide-y divide-gray-100">
@@ -249,7 +249,7 @@ export default function PageAuditorAgent() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="p-6 hover:bg-gray-50 transition-colors"
+                    className="p-6 hover:bg-white/5 transition-colors"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex items-start space-x-4">
@@ -262,11 +262,11 @@ export default function PageAuditorAgent() {
                         </div>
                         <div>
                           <div className="flex items-center space-x-3 mb-1">
-                            <h4 className="text-lg font-medium text-gray-900">{issue.title}</h4>
+                            <h4 className="text-lg font-medium text-gray-100">{issue.title}</h4>
                             <Badge variant="outline" className={`
-                              ${issue.type === 'missing-images' ? 'border-red-200 text-red-700 bg-red-50' : ''}
-                              ${issue.type === 'placeholder-text' ? 'border-orange-200 text-orange-700 bg-orange-50' : ''}
-                              ${issue.type === 'incomplete-seo' ? 'border-blue-200 text-blue-700 bg-blue-50' : ''}
+                              ${issue.type === 'missing-images' ? 'border-red-200 text-rose-300 bg-rose-900/20' : ''}
+                              ${issue.type === 'placeholder-text' ? 'border-orange-200 text-orange-700 bg-orange-900/20' : ''}
+                              ${issue.type === 'incomplete-seo' ? 'border-blue-200 text-indigo-300 bg-indigo-900/20' : ''}
                             `}>
                               {issue.type.replace('-', ' ')}
                             </Badge>
@@ -276,7 +276,7 @@ export default function PageAuditorAgent() {
                               {issue.url} <ExternalLink className="w-3 h-3 ml-1" />
                             </a>
                           </div>
-                          <p className="text-gray-600 text-sm max-w-2xl bg-white p-3 rounded-lg border border-gray-100 font-mono">
+                          <p className="text-slate-400 text-sm max-w-2xl bg-[#0f172a]/40 backdrop-blur-xl p-3 rounded-lg border border-white/5 font-mono">
                             {issue.description}
                           </p>
                         </div>
@@ -291,7 +291,7 @@ export default function PageAuditorAgent() {
                             Log to Task Board
                           </Button>
                         ) : (
-                          <Badge className="bg-green-100 text-green-700 border-none px-3 py-1.5 flex items-center">
+                          <Badge className="bg-emerald-500/10 text-green-700 border-none px-3 py-1.5 flex items-center">
                             <CheckCircle2 className="w-4 h-4 mr-2" />
                             Logged to Board
                           </Badge>

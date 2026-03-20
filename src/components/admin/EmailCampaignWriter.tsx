@@ -285,93 +285,106 @@ Please write the email.`;
 
   if (viewMode === 'campaigns') {
     return (
-      <div>
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+      <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6 relative z-10">
+        <div className="mb-8 flex items-center justify-between border-b border-white/5 pb-6">
+          <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               onClick={() => setViewMode('builder')}
-              className="text-gray-600"
+              className="text-slate-400 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Builder
+              Back
             </Button>
+            <div className="h-8 w-px bg-white/10"></div>
             <div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F]">My Campaigns</h2>
-              <p className="text-gray-600">Manage your email campaigns</p>
+              <h2 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300 tracking-tight">Campaign Matrix</h2>
+              <p className="text-indigo-400/60 font-mono text-sm mt-1 flex items-center gap-2">
+                <Activity className="w-3 h-3 animate-pulse" /> Active Broadcast Channels
+              </p>
             </div>
           </div>
           <Button
             onClick={() => setViewMode('builder')}
-            className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(79,70,229,0.25)] transition-all font-bold tracking-wide border border-indigo-400/30 h-10 px-6"
           >
-            <Plus className="w-4 h-4 mr-2" />
-            New Campaign
+            <Zap className="w-4 h-4 mr-2" />
+            INITIALIZE BROADCAST
           </Button>
         </div>
 
         <div className="space-y-4">
-          {mockCampaigns.map((campaign) => (
-            <Card
-              key={campaign.id}
-              className="border-0 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <h3 className="text-lg font-semibold text-[#1E3A5F]">{campaign.name}</h3>
-                      <Badge
-                        className={
-                          campaign.status === 'sent'
-                            ? 'bg-green-500/10 text-green-600 border-green-500/20'
-                            : campaign.status === 'scheduled'
-                              ? 'bg-blue-500/10 text-blue-600 border-blue-500/20'
-                              : 'bg-gray-500/10 text-gray-600 border-gray-500/20'
-                        }
-                      >
-                        {campaign.status}
-                      </Badge>
-                    </div>
-                    <p className="text-gray-600 mb-3">{campaign.subject}</p>
-                    <div className="flex items-center space-x-6 text-sm text-gray-500">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{new Date(campaign.date).toLocaleDateString()}</span>
+          <AnimatePresence>
+            {mockCampaigns.map((campaign, idx) => (
+              <motion.div
+                key={campaign.id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ scale: 1.01, x: 10 }}
+              >
+                <Card className="border-0 bg-slate-900/40 backdrop-blur-xl shadow-2xl border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900/60 transition-all overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-3 mb-2">
+                          <h3 className="text-xl font-bold text-white tracking-wide">{campaign.name}</h3>
+                          <Badge
+                            className={
+                              campaign.status === 'sent'
+                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.1)]'
+                                : campaign.status === 'scheduled'
+                                  ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)]'
+                                  : 'bg-white/5 text-slate-400 border border-white/10'
+                            }
+                          >
+                            <span className="uppercase text-[10px] tracking-widest">{campaign.status}</span>
+                          </Badge>
+                        </div>
+                        <p className="text-indigo-200/70 font-mono text-sm mb-4 border-l-2 border-indigo-500/30 pl-3 py-1 bg-indigo-500/5 inline-block">
+                          SUBJ: {campaign.subject}
+                        </p>
+                        <div className="flex items-center space-x-6 text-sm text-slate-400">
+                          <div className="flex items-center space-x-2 bg-black/20 px-3 py-1.5 rounded-md border border-white/5">
+                            <Calendar className="w-4 h-4 text-blue-400" />
+                            <span className="font-mono">{new Date(campaign.date).toLocaleDateString()}</span>
+                          </div>
+                          {campaign.openRate && (
+                            <>
+                              <div className="flex items-center space-x-2 bg-black/20 px-3 py-1.5 rounded-md border border-white/5">
+                                <Eye className="w-4 h-4 text-emerald-400" />
+                                <span className="font-mono">{campaign.openRate}% <span className="text-slate-500 text-xs uppercase tracking-widest ml-1">Open</span></span>
+                              </div>
+                              <div className="flex items-center space-x-2 bg-black/20 px-3 py-1.5 rounded-md border border-white/5">
+                                <TrendingUp className="w-4 h-4 text-amber-400" />
+                                <span className="font-mono">{campaign.clickRate}% <span className="text-slate-500 text-xs uppercase tracking-widest ml-1">Click</span></span>
+                              </div>
+                            </>
+                          )}
+                        </div>
                       </div>
-                      {campaign.openRate && (
-                        <>
-                          <div className="flex items-center space-x-1">
-                            <Eye className="w-4 h-4" />
-                            <span>{campaign.openRate}% open rate</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <TrendingUp className="w-4 h-4" />
-                            <span>{campaign.clickRate}% click rate</span>
-                          </div>
-                        </>
-                      )}
+                      <div className="flex space-x-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                        <Button size="sm" variant="outline" className="bg-white/5 border-white/10 text-slate-300 hover:text-white hover:bg-white/10">
+                          <Copy className="w-4 h-4 mr-1" />
+                          Clone
+                        </Button>
+                        <Button size="sm" variant="outline" className="bg-white/5 border-white/10 text-slate-300 hover:text-white hover:bg-white/10">
+                          <Edit3 className="w-4 h-4 mr-1" />
+                          Edit Code
+                        </Button>
+                        <Button size="sm" variant="outline" className="text-rose-400 hover:text-red-300 border-rose-500/20 bg-rose-500/5 hover:bg-rose-500/10">
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="outline">
-                      <Copy className="w-4 h-4 mr-1" />
-                      Duplicate
-                    </Button>
-                    <Button size="sm" variant="outline">
-                      <Edit3 className="w-4 h-4 mr-1" />
-                      Edit
-                    </Button>
-                    <Button size="sm" variant="outline" className="text-red-500 hover:text-red-600">
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
@@ -411,14 +424,14 @@ Please write the email.`;
             <Button
               variant="ghost"
               onClick={() => setViewMode('builder')}
-              className="text-gray-600"
+              className="text-slate-400"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Builder
             </Button>
             <div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F]">Email Templates</h2>
-              <p className="text-gray-600">Reusable email templates for faster campaign creation</p>
+              <h2 className="text-2xl font-bold text-white">Email Templates</h2>
+              <p className="text-slate-400">Reusable email templates for faster campaign creation</p>
             </div>
           </div>
           <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
@@ -433,7 +446,7 @@ Please write the email.`;
             (cat) => (
               <button
                 key={cat}
-                className="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-[#00B4D8] hover:bg-[#00B4D8]/5 text-sm whitespace-nowrap transition-colors"
+                className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/10 rounded-lg hover:border-[#00B4D8] hover:bg-[#00B4D8]/5 text-sm whitespace-nowrap transition-colors"
               >
                 {cat}
               </button>
@@ -444,12 +457,12 @@ Please write the email.`;
         {/* Templates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {mockTemplates.map((temp) => (
-            <Card key={temp.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+            <Card key={temp.id} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <h3 className="font-semibold text-[#1E3A5F] mb-1">{temp.name}</h3>
-                    <Badge className="bg-gray-100 text-gray-600 text-xs">{temp.category}</Badge>
+                    <h3 className="font-semibold text-white mb-1">{temp.name}</h3>
+                    <Badge className="bg-white/10 text-slate-400 text-xs">{temp.category}</Badge>
                   </div>
                   <Button size="sm" variant="ghost">
                     <Eye className="w-4 h-4" />
@@ -458,16 +471,16 @@ Please write the email.`;
               </CardHeader>
               <CardContent>
                 {/* Template Preview */}
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4 min-h-[120px]">
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 mb-4 min-h-[120px]">
                   <div className="space-y-2">
                     <div className="h-3 bg-gray-300 rounded w-3/4"></div>
-                    <div className="h-2 bg-gray-200 rounded w-full"></div>
-                    <div className="h-2 bg-gray-200 rounded w-5/6"></div>
+                    <div className="h-2 bg-white/20 rounded w-full"></div>
+                    <div className="h-2 bg-white/20 rounded w-5/6"></div>
                     <div className="h-6 bg-[#00B4D8]/20 rounded w-1/2 mt-3"></div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
                   <span>Used {temp.uses} times</span>
                   <span>Last: {new Date(temp.lastUsed).toLocaleDateString()}</span>
                 </div>
@@ -535,14 +548,14 @@ Please write the email.`;
             <Button
               variant="ghost"
               onClick={() => setViewMode('builder')}
-              className="text-gray-600"
+              className="text-slate-400"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Builder
             </Button>
             <div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F]">Email Sequence Builder</h2>
-              <p className="text-gray-600">Create automated drip campaigns and welcome series</p>
+              <h2 className="text-2xl font-bold text-white">Email Sequence Builder</h2>
+              <p className="text-slate-400">Create automated drip campaigns and welcome series</p>
             </div>
           </div>
           <div className="flex space-x-2">
@@ -558,20 +571,20 @@ Please write the email.`;
         </div>
 
         {/* Sequence Timeline */}
-        <Card className="border-0 shadow-md mb-6">
+        <Card className="border-0 shadow-2xl border border-white/5 mb-6">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Welcome Series</CardTitle>
               <div className="flex items-center space-x-2">
-                <Badge className="bg-green-500/10 text-green-600 border-green-500/20">Active</Badge>
-                <span className="text-sm text-gray-600">4 emails • 21 day sequence</span>
+                <Badge className="bg-emerald-900/200/10 text-green-600 border-green-500/20">Active</Badge>
+                <span className="text-sm text-slate-400">4 emails • 21 day sequence</span>
               </div>
             </div>
           </CardHeader>
           <CardContent>
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200" />
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-white/20" />
 
               {/* Sequence Emails */}
               <div className="space-y-6">
@@ -586,7 +599,7 @@ Please write the email.`;
                       <div
                         className={`w-16 h-16 rounded-full flex items-center justify-center ${email.status === 'active'
                             ? 'bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F]'
-                            : 'bg-gray-200'
+                            : 'bg-white/20'
                           }`}
                       >
                         <Mail
@@ -600,20 +613,20 @@ Please write the email.`;
                     </div>
 
                     {/* Email Card */}
-                    <Card className="flex-1 border-2 border-gray-200 hover:border-[#00B4D8] transition-colors">
+                    <Card className="flex-1 border-2 border-white/10 hover:border-[#00B4D8] transition-colors">
                       <CardContent className="p-4">
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-1">
-                              <h4 className="font-semibold text-[#1E3A5F]">
+                              <h4 className="font-semibold text-white">
                                 Email {index + 1}: {email.title}
                               </h4>
-                              <Badge className="bg-blue-50 text-blue-600 text-xs">
+                              <Badge className="bg-indigo-900/20 text-indigo-400 text-xs">
                                 <Clock className="w-3 h-3 mr-1" />
                                 {email.delay}
                               </Badge>
                             </div>
-                            <p className="text-sm text-gray-600">{email.subject}</p>
+                            <p className="text-sm text-slate-400">{email.subject}</p>
                           </div>
                           <div className="flex space-x-1">
                             <Button size="sm" variant="ghost">
@@ -627,16 +640,16 @@ Please write the email.`;
 
                         {/* Stats Preview (for active emails) */}
                         {email.status === 'active' && index === 0 && (
-                          <div className="flex items-center space-x-4 mt-3 pt-3 border-t border-gray-200">
-                            <div className="flex items-center space-x-1 text-xs text-gray-600">
+                          <div className="flex items-center space-x-4 mt-3 pt-3 border-t border-white/10">
+                            <div className="flex items-center space-x-1 text-xs text-slate-400">
                               <Eye className="w-3 h-3" />
                               <span>34.2% opened</span>
                             </div>
-                            <div className="flex items-center space-x-1 text-xs text-gray-600">
+                            <div className="flex items-center space-x-1 text-xs text-slate-400">
                               <MousePointer className="w-3 h-3" />
                               <span>9.8% clicked</span>
                             </div>
-                            <div className="flex items-center space-x-1 text-xs text-gray-600">
+                            <div className="flex items-center space-x-1 text-xs text-slate-400">
                               <Users className="w-3 h-3" />
                               <span>245 sent</span>
                             </div>
@@ -658,7 +671,7 @@ Please write the email.`;
 
               {/* Add Email Button */}
               <div className="relative flex items-start space-x-4 mt-6">
-                <div className="w-16 h-16 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full border-2 border-dashed border-white/20 flex items-center justify-center">
                   <Plus className="w-6 h-6 text-gray-400" />
                 </div>
                 <div className="flex-1">
@@ -673,15 +686,15 @@ Please write the email.`;
         </Card>
 
         {/* Sequence Settings */}
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardHeader>
             <CardTitle>Sequence Settings</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Trigger</label>
-                <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                <label className="block text-sm font-medium text-slate-300 mb-2">Trigger</label>
+                <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                   <option>New subscriber signs up</option>
                   <option>Form submission</option>
                   <option>Purchase completed</option>
@@ -689,10 +702,10 @@ Please write the email.`;
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Stop Conditions
                 </label>
-                <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                   <option>Completes sequence</option>
                   <option>Unsubscribes</option>
                   <option>Makes a purchase</option>
@@ -708,14 +721,14 @@ Please write the email.`;
                 className="w-4 h-4 text-[#00B4D8] rounded"
                 defaultChecked
               />
-              <label htmlFor="skip-weekends" className="text-sm text-gray-700">
+              <label htmlFor="skip-weekends" className="text-sm text-slate-300">
                 Skip weekends (don&apos;t send on Sat/Sun)
               </label>
             </div>
 
             <div className="flex items-center space-x-2">
               <input type="checkbox" id="optimal-time" className="w-4 h-4 text-[#00B4D8] rounded" />
-              <label htmlFor="optimal-time" className="text-sm text-gray-700">
+              <label htmlFor="optimal-time" className="text-sm text-slate-300">
                 Send at optimal time for each recipient
               </label>
             </div>
@@ -734,18 +747,18 @@ Please write the email.`;
             <Button
               variant="ghost"
               onClick={() => setViewMode('campaigns')}
-              className="text-gray-600"
+              className="text-slate-400"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Campaigns
             </Button>
             <div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F]">Campaign Analytics</h2>
-              <p className="text-gray-600">Performance insights and email metrics</p>
+              <h2 className="text-2xl font-bold text-white">Campaign Analytics</h2>
+              <p className="text-slate-400">Performance insights and email metrics</p>
             </div>
           </div>
           <div className="flex space-x-2">
-            <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+            <select className="px-3 py-2 border border-white/20 rounded-lg text-sm">
               <option>Last 30 days</option>
               <option>Last 90 days</option>
               <option>Last 6 months</option>
@@ -760,30 +773,30 @@ Please write the email.`;
 
         {/* Overview Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Total Sent</p>
-                  <p className="text-3xl font-bold text-[#1E3A5F]">12,458</p>
+                  <p className="text-sm text-slate-400 mb-1">Total Sent</p>
+                  <p className="text-whitexl font-bold text-white">12,458</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingUp className="w-3 h-3 text-green-600" />
                     <span className="text-xs text-green-600">+12.5% vs last month</span>
                   </div>
                 </div>
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Send className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                  <Send className="w-6 h-6 text-indigo-400" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Avg Open Rate</p>
-                  <p className="text-3xl font-bold text-[#00B4D8]">31.2%</p>
+                  <p className="text-sm text-slate-400 mb-1">Avg Open Rate</p>
+                  <p className="text-whitexl font-bold text-[#00B4D8]">31.2%</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingUp className="w-3 h-3 text-green-600" />
                     <span className="text-xs text-green-600">+2.3%</span>
@@ -796,36 +809,36 @@ Please write the email.`;
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Avg Click Rate</p>
-                  <p className="text-3xl font-bold text-[#FF6B35]">9.7%</p>
+                  <p className="text-sm text-slate-400 mb-1">Avg Click Rate</p>
+                  <p className="text-whitexl font-bold text-[#FF6B35]">9.7%</p>
                   <div className="flex items-center space-x-1 mt-2">
-                    <TrendingDown className="w-3 h-3 text-red-600" />
-                    <span className="text-xs text-red-600">-0.8%</span>
+                    <TrendingDown className="w-3 h-3 text-rose-400" />
+                    <span className="text-xs text-rose-400">-0.8%</span>
                   </div>
                 </div>
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
                   <MousePointer className="w-6 h-6 text-orange-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Conversion Rate</p>
-                  <p className="text-3xl font-bold text-green-600">4.2%</p>
+                  <p className="text-sm text-slate-400 mb-1">Conversion Rate</p>
+                  <p className="text-whitexl font-bold text-green-600">4.2%</p>
                   <div className="flex items-center space-x-1 mt-2">
                     <TrendingUp className="w-3 h-3 text-green-600" />
                     <span className="text-xs text-green-600">+1.1%</span>
                   </div>
                 </div>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                   <Target className="w-6 h-6 text-green-600" />
                 </div>
               </div>
@@ -834,7 +847,7 @@ Please write the email.`;
         </div>
 
         {/* Performance Chart */}
-        <Card className="border-0 shadow-md mb-6">
+        <Card className="border-0 shadow-2xl border border-white/5 mb-6">
           <CardHeader>
             <CardTitle>Performance Over Time</CardTitle>
           </CardHeader>
@@ -846,7 +859,7 @@ Please write the email.`;
                     className="w-full bg-gradient-to-t from-[#00B4D8] to-[#1E3A5F] rounded-t hover:opacity-80 transition-opacity cursor-pointer"
                     style={{ height: `${(val / 40) * 100}%` }}
                   />
-                  <span className="text-xs text-gray-600 mt-2">
+                  <span className="text-xs text-slate-400 mt-2">
                     {
                       [
                         'Jan',
@@ -872,7 +885,7 @@ Please write the email.`;
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Top Performing Emails */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Star className="w-5 h-5 text-yellow-500" />
@@ -886,9 +899,9 @@ Please write the email.`;
                   { subject: 'New Blog Post: SEO Tips', opens: 38.7, clicks: 12.8 },
                   { subject: 'Client Success Story', opens: 36.5, clicks: 11.3 },
                 ].map((email, idx) => (
-                  <div key={idx} className="p-3 bg-gray-50 rounded-lg">
-                    <p className="font-medium text-sm text-gray-900 mb-2">{email.subject}</p>
-                    <div className="flex items-center space-x-4 text-xs text-gray-600">
+                  <div key={idx} className="p-3 bg-white/5 rounded-lg">
+                    <p className="font-medium text-sm text-gray-100 mb-2">{email.subject}</p>
+                    <div className="flex items-center space-x-4 text-xs text-slate-400">
                       <div className="flex items-center space-x-1">
                         <Eye className="w-3 h-3" />
                         <span>{email.opens}% opens</span>
@@ -905,24 +918,24 @@ Please write the email.`;
           </Card>
 
           {/* Engagement by Type */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle>Engagement by Email Type</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {[
-                  { type: 'Newsletter', rate: 32.5, color: 'bg-blue-500' },
-                  { type: 'Sales', rate: 28.1, color: 'bg-orange-500' },
-                  { type: 'Welcome', rate: 45.3, color: 'bg-green-500' },
+                  { type: 'Newsletter', rate: 32.5, color: 'bg-indigo-900/200' },
+                  { type: 'Sales', rate: 28.1, color: 'bg-orange-900/200' },
+                  { type: 'Welcome', rate: 45.3, color: 'bg-emerald-900/200' },
                   { type: 'Follow-up', rate: 38.2, color: 'bg-purple-500' },
                 ].map((item, idx) => (
                   <div key={idx}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-gray-700">{item.type}</span>
-                      <span className="text-sm font-bold text-gray-900">{item.rate}%</span>
+                      <span className="text-sm font-medium text-slate-300">{item.type}</span>
+                      <span className="text-sm font-bold text-gray-100">{item.rate}%</span>
                     </div>
-                    <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
                       <div
                         className={`h-full ${item.color} rounded-full`}
                         style={{ width: `${item.rate}%` }}
@@ -939,46 +952,60 @@ Please write the email.`;
   }
 
   return (
-    <div>
+    <div className="relative z-10 w-full min-h-screen">
+      {/* Global Ambient Glows */}
+      <div className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] bg-blue-600/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none" />
+      
       {/* Header */}
-      <div className="mb-6">
-        <div className="flex items-start justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F]">Email Campaign Writer</h1>
-            <p className="text-gray-600 mt-1">Create on-brand emails with AI assistance</p>
+      <div className="mb-8 relative z-10 border-b border-white/5 pb-6">
+        <div className="flex items-start justify-between flex-wrap gap-4">
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-blue-500/10 rounded-xl border border-blue-500/20 relative group hidden sm:block">
+              <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Mail className="w-8 h-8 text-blue-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">
+                Comms Payload Engine
+              </h1>
+              <p className="text-sm text-blue-300/70 font-medium tracking-wide flex items-center gap-2">
+                Automated ESP Subsystem <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 uppercase tracking-widest">Active</span>
+              </p>
+            </div>
           </div>
-          <div className="flex space-x-3">
+          <div className="flex space-x-2">
             <Button
               variant="outline"
               onClick={() => setViewMode('templates')}
-              className="text-gray-600"
+              className="bg-white/5 border-white/10 text-slate-300 hover:text-white"
             >
-              <Layers className="w-4 h-4 mr-2" />
+              <Layers className="w-4 h-4 mr-2 text-indigo-400" />
               Templates
             </Button>
             <Button
               variant="outline"
               onClick={() => setViewMode('sequence')}
-              className="text-gray-600"
+              className="bg-white/5 border-white/10 text-slate-300 hover:text-white"
             >
-              <Clock className="w-4 h-4 mr-2" />
+              <Clock className="w-4 h-4 mr-2 text-emerald-400" />
               Sequences
             </Button>
             <Button
               variant="outline"
               onClick={() => setViewMode('analytics')}
-              className="text-gray-600"
+              className="bg-white/5 border-white/10 text-slate-300 hover:text-white"
             >
-              <BarChart3 className="w-4 h-4 mr-2" />
-              Analytics
+              <BarChart3 className="w-4 h-4 mr-2 text-amber-400" />
+              Metrics
             </Button>
             <Button
               variant="outline"
               onClick={() => setViewMode('campaigns')}
-              className="border-[#00B4D8] text-[#00B4D8]"
+              className="bg-blue-500/10 border-blue-500/30 text-blue-400 hover:bg-blue-500/20"
             >
               <FolderOpen className="w-4 h-4 mr-2" />
-              Campaigns
+              Matrix DB
             </Button>
             <Button
               onClick={() => {
@@ -988,10 +1015,10 @@ Please write the email.`;
                 setGeneratedSubjects([]);
                 setViewMode('builder');
               }}
-              className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white border border-indigo-400/30 shadow-[0_0_15px_rgba(79,70,229,0.3)] font-bold tracking-wide"
             >
-              <Plus className="w-4 h-4 mr-2" />
-              New Campaign
+              <Zap className="w-4 h-4 mr-2" />
+              NEW COMMS
             </Button>
           </div>
         </div>
@@ -1007,13 +1034,13 @@ Please write the email.`;
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= stepNum
                         ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                        : 'bg-gray-200 text-gray-500'
+                        : 'bg-white/20 text-slate-500'
                       }`}
                   >
                     {step > stepNum ? <Check className="w-5 h-5" /> : stepNum}
                   </div>
                   <span
-                    className={`text-sm font-medium ${step >= stepNum ? 'text-[#1E3A5F]' : 'text-gray-500'
+                    className={`text-sm font-medium ${step >= stepNum ? 'text-white' : 'text-slate-500'
                       }`}
                   >
                     {stepNum === 1 ? 'Campaign Details' : 'Audience'}
@@ -1023,7 +1050,7 @@ Please write the email.`;
                   <div
                     className={`flex-1 h-1 rounded ${step > stepNum
                         ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F]'
-                        : 'bg-gray-200'
+                        : 'bg-white/20'
                       }`}
                   />
                 )}
@@ -1035,24 +1062,24 @@ Please write the email.`;
 
       {/* Step 1: Campaign Details */}
       {step === 1 && (
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardHeader>
             <CardTitle>Campaign Details</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Campaign Name</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Campaign Name</label>
               <input
                 type="text"
                 value={campaignName}
                 onChange={(e) => setCampaignName(e.target.value)}
                 placeholder="e.g., May Newsletter 2024"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">Email Type</label>
+              <label className="block text-sm font-medium text-slate-300 mb-3">Email Type</label>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {emailTypes.map((type) => {
                   const Icon = type.icon;
@@ -1064,15 +1091,15 @@ Please write the email.`;
                       onClick={() => setEmailType(type.id as EmailType)}
                       className={`p-4 rounded-lg border-2 text-left transition-all ${emailType === type.id
                           ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                          : 'border-gray-200 hover:border-[#00B4D8]/50'
+                          : 'border-white/10 hover:border-[#00B4D8]/50'
                         }`}
                     >
                       <Icon
                         className={`w-6 h-6 mb-2 ${emailType === type.id ? 'text-[#00B4D8]' : 'text-gray-400'
                           }`}
                       />
-                      <p className="font-medium text-sm text-gray-900 mb-1">{type.label}</p>
-                      <p className="text-xs text-gray-500">{type.desc}</p>
+                      <p className="font-medium text-sm text-gray-100 mb-1">{type.label}</p>
+                      <p className="text-xs text-slate-500">{type.desc}</p>
                     </motion.button>
                   );
                 })}
@@ -1080,18 +1107,18 @@ Please write the email.`;
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Client/Brand</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Client/Brand</label>
               <select
                 value={selectedClient}
                 onChange={(e) => setSelectedClient(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
               >
                 <option>ThinkMents</option>
                 <option>Client A - Restaurant</option>
                 <option>Client B - Real Estate</option>
                 <option>Client C - Healthcare</option>
               </select>
-              <p className="text-xs text-gray-500 mt-2 flex items-center">
+              <p className="text-xs text-slate-500 mt-2 flex items-center">
                 <Check className="w-3 h-3 mr-1 text-green-600" />
                 Brand voice settings loaded
               </p>
@@ -1113,13 +1140,13 @@ Please write the email.`;
 
       {/* Step 2: Audience */}
       {step === 2 && (
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardHeader>
             <CardTitle>Target Audience</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Who is this email for?
               </label>
               <textarea
@@ -1127,12 +1154,12 @@ Please write the email.`;
                 onChange={(e) => setAudience(e.target.value)}
                 placeholder="Describe your target audience (e.g., small business owners in Texas looking to improve their online presence)"
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
+                className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-slate-300 mb-3">
                 Audience Presets
               </label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -1147,7 +1174,7 @@ Please write the email.`;
                   <button
                     key={preset}
                     onClick={() => setAudience(preset)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg hover:border-[#00B4D8] hover:bg-[#00B4D8]/5 text-sm transition-colors"
+                    className="px-4 py-2 border border-white/20 rounded-lg hover:border-[#00B4D8] hover:bg-[#00B4D8]/5 text-sm transition-colors"
                   >
                     {preset}
                   </button>
@@ -1178,13 +1205,13 @@ Please write the email.`;
           {/* LEFT PANEL - Content Input */}
           <div className="space-y-6">
             {/* Subject Line Section */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <CardTitle className="text-lg">Subject Line</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     What&apos;s the main topic?
                   </label>
                   <input
@@ -1192,7 +1219,7 @@ Please write the email.`;
                     value={mainTopic}
                     onChange={(e) => setMainTopic(e.target.value)}
                     placeholder="e.g., New blog post about SEO tips"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   />
                 </div>
 
@@ -1221,13 +1248,13 @@ Please write the email.`;
                         key={subject.id}
                         className={`p-3 border-2 rounded-lg cursor-pointer transition-all ${selectedSubject === subject.text
                             ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                            : 'border-gray-200 hover:border-[#00B4D8]/50'
+                            : 'border-white/10 hover:border-[#00B4D8]/50'
                           }`}
                         onClick={() => setSelectedSubject(subject.text)}
                       >
                         <div className="flex items-start justify-between mb-1">
-                          <p className="text-sm text-gray-900 flex-1">{subject.text}</p>
-                          <Badge className="bg-gray-100 text-gray-600 text-xs">
+                          <p className="text-sm text-gray-100 flex-1">{subject.text}</p>
+                          <Badge className="bg-white/10 text-slate-400 text-xs">
                             {subject.charCount} chars
                           </Badge>
                         </div>
@@ -1243,7 +1270,7 @@ Please write the email.`;
                 )}
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Preview Text (inbox preview)
                   </label>
                   <input
@@ -1251,20 +1278,20 @@ Please write the email.`;
                     value={previewText}
                     onChange={(e) => setPreviewText(e.target.value)}
                     placeholder="Brief preview shown in email clients..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   />
                 </div>
               </CardContent>
             </Card>
 
             {/* Email Body Section */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <CardTitle className="text-lg">Email Body</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Describe what you want to communicate
                   </label>
                   <textarea
@@ -1272,12 +1299,12 @@ Please write the email.`;
                     onChange={(e) => setEmailDescription(e.target.value)}
                     placeholder="Tell us what this email should cover. Be as detailed as you like..."
                     rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent resize-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Key Points to Include
                   </label>
                   <div className="space-y-2">
@@ -1288,7 +1315,7 @@ Please write the email.`;
                           value={point}
                           onChange={(e) => updateKeyPoint(index, e.target.value)}
                           placeholder={`Key point ${index + 1}`}
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                          className="flex-1 px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                         />
                         {keyPoints.length > 1 && (
                           <Button
@@ -1310,13 +1337,13 @@ Please write the email.`;
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Call-to-Action Goal
                   </label>
                   <select
                     value={ctaGoal}
                     onChange={(e) => setCtaGoal(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   >
                     <option value="visit-website">Visit website</option>
                     <option value="book-call">Book a call</option>
@@ -1329,7 +1356,7 @@ Please write the email.`;
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Email Length
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -1339,14 +1366,14 @@ Please write the email.`;
                         onClick={() => setEmailLength(len)}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors capitalize ${emailLength === len
                             ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            : 'bg-white/10 text-slate-300 hover:bg-white/20'
                           }`}
                       >
                         {len}
                       </button>
                     ))}
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-xs text-slate-500 mt-2">
                     {emailLength === 'short' && 'Under 200 words'}
                     {emailLength === 'medium' && '200-400 words'}
                     {emailLength === 'long' && '400+ words'}
@@ -1375,7 +1402,7 @@ Please write the email.`;
 
             {/* AI Refinement */}
             {generatedBody && (
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle className="text-lg">AI Refinement</CardTitle>
                 </CardHeader>
@@ -1411,7 +1438,7 @@ Please write the email.`;
                   </div>
 
                   {/* Quick Save Options */}
-                  <div className="mt-4 pt-4 border-t border-gray-200">
+                  <div className="mt-4 pt-4 border-t border-white/10">
                     <Button
                       size="sm"
                       variant="outline"
@@ -1426,7 +1453,7 @@ Please write the email.`;
             )}
 
             {/* Personalization Tokens */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <button
                   onClick={() => setShowTokens(!showTokens)}
@@ -1451,14 +1478,14 @@ Please write the email.`;
                     ].map((token) => (
                       <button
                         key={token}
-                        className="px-3 py-2 bg-gray-100 rounded-lg hover:bg-[#00B4D8]/10 hover:border-[#00B4D8] border border-transparent transition-colors text-sm font-mono"
+                        className="px-3 py-2 bg-white/10 rounded-lg hover:bg-[#00B4D8]/10 hover:border-[#00B4D8] border border-transparent transition-colors text-sm font-mono"
                       >
                         {token}
                       </button>
                     ))}
                   </div>
-                  <div className="mt-3 p-2 bg-blue-50 rounded border border-blue-200">
-                    <p className="text-xs text-blue-800">
+                  <div className="mt-3 p-2 bg-indigo-900/20 rounded border border-blue-200">
+                    <p className="text-xs text-indigo-300">
                       Preview: &quot;Hi {'{FirstName}'}&quot; → &quot;Hi John&quot;
                     </p>
                   </div>
@@ -1469,17 +1496,17 @@ Please write the email.`;
 
           {/* RIGHT PANEL - Email Preview */}
           <div className="space-y-6">
-            <Card className="border-0 shadow-md sticky top-6">
+            <Card className="border-0 shadow-2xl border border-white/5 sticky top-6">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">Email Preview</CardTitle>
                   <div className="flex items-center space-x-2">
-                    <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
+                    <div className="flex space-x-1 bg-white/10 rounded-lg p-1">
                       <button
                         onClick={() => setDevice('desktop')}
                         className={`p-2 rounded transition-colors ${device === 'desktop'
-                            ? 'bg-white text-[#00B4D8] shadow-sm'
-                            : 'text-gray-500'
+                            ? 'bg-[#0f172a]/40 backdrop-blur-xl text-[#00B4D8] shadow-lg border border-white/5'
+                            : 'text-slate-500'
                           }`}
                       >
                         <Monitor className="w-4 h-4" />
@@ -1487,8 +1514,8 @@ Please write the email.`;
                       <button
                         onClick={() => setDevice('mobile')}
                         className={`p-2 rounded transition-colors ${device === 'mobile'
-                            ? 'bg-white text-[#00B4D8] shadow-sm'
-                            : 'text-gray-500'
+                            ? 'bg-[#0f172a]/40 backdrop-blur-xl text-[#00B4D8] shadow-lg border border-white/5'
+                            : 'text-slate-500'
                           }`}
                       >
                         <Smartphone className="w-4 h-4" />
@@ -1504,13 +1531,13 @@ Please write the email.`;
               <CardContent>
                 {/* Template Selector */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     Email Template
                   </label>
                   <select
                     value={template}
                     onChange={(e) => setTemplate(e.target.value as TemplateType)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent"
                   >
                     <option value="clean">Clean & Simple</option>
                     <option value="modern">Modern with Header Image</option>
@@ -1521,27 +1548,27 @@ Please write the email.`;
 
                 {/* Email Preview Window */}
                 <div
-                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden ${device === 'mobile' ? 'max-w-sm mx-auto' : ''
+                  className={`bg-[#0f172a]/40 backdrop-blur-xl border border-white/10 rounded-lg overflow-hidden ${device === 'mobile' ? 'max-w-sm mx-auto' : ''
                     }`}
                 >
                   {/* Email Header */}
-                  <div className="bg-gray-50 p-4 border-b border-gray-200">
+                  <div className="bg-white/5 p-4 border-b border-white/10">
                     <div className="flex items-center space-x-3 mb-2">
                       <div className="w-10 h-10 bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] rounded-full flex items-center justify-center">
                         <span className="text-white font-bold text-sm">TM</span>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-sm font-semibold text-gray-100">
                           ThinkMents Digital Marketing
                         </p>
-                        <p className="text-xs text-gray-500 truncate">info@thinkments.com</p>
+                        <p className="text-xs text-slate-500 truncate">info@thinkments.com</p>
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-gray-100">
                         {selectedSubject || 'Your email subject will appear here'}
                       </p>
-                      {previewText && <p className="text-xs text-gray-500">{previewText}</p>}
+                      {previewText && <p className="text-xs text-slate-500">{previewText}</p>}
                     </div>
                   </div>
 
@@ -1550,12 +1577,12 @@ Please write the email.`;
                     {generatedBody ? (
                       <div className="prose prose-sm max-w-none">
                         <div
-                          className="whitespace-pre-wrap text-sm text-gray-800 leading-relaxed"
+                          className="whitespace-pre-wrap text-sm text-gray-200 leading-relaxed"
                           dangerouslySetInnerHTML={{
                             __html: generatedBody
                               .replace(
                                 /\{FirstName\}/g,
-                                '<span class="bg-yellow-100 px-1 rounded">{FirstName}</span>',
+                                '<span class="bg-amber-500/10 px-1 rounded">{FirstName}</span>',
                               )
                               .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                               .replace(
@@ -1574,8 +1601,8 @@ Please write the email.`;
                   </div>
 
                   {/* Email Footer */}
-                  <div className="bg-gray-50 p-4 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 text-center">
+                  <div className="bg-white/5 p-4 border-t border-white/10">
+                    <p className="text-xs text-slate-500 text-center">
                       ThinkMents Digital Marketing | Decatur, TX
                     </p>
                     <p className="text-xs text-gray-400 text-center mt-2">
@@ -1614,8 +1641,8 @@ Please write the email.`;
                       </Button>
                     </div>
 
-                    <div className="pt-2 border-t border-gray-200">
-                      <p className="text-xs text-gray-600 mb-2">Send to:</p>
+                    <div className="pt-2 border-t border-white/10">
+                      <p className="text-xs text-slate-400 mb-2">Send to:</p>
                       <div className="space-y-1">
                         {['Mailchimp', 'Constant Contact', 'SendGrid'].map((platform) => (
                           <Button
@@ -1626,7 +1653,7 @@ Please write the email.`;
                             disabled
                           >
                             <span>{platform}</span>
-                            <Badge className="bg-gray-200 text-gray-600 text-xs">Soon</Badge>
+                            <Badge className="bg-white/20 text-slate-400 text-xs">Soon</Badge>
                           </Button>
                         ))}
                       </div>
@@ -1637,7 +1664,7 @@ Please write the email.`;
             </Card>
 
             {/* A/B Testing */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">A/B Testing</CardTitle>
@@ -1648,43 +1675,43 @@ Please write the email.`;
                       onChange={(e) => setShowABTest(e.target.checked)}
                       className="w-4 h-4 text-[#00B4D8] rounded"
                     />
-                    <span className="text-sm text-gray-700">Enable</span>
+                    <span className="text-sm text-slate-300">Enable</span>
                   </label>
                 </div>
               </CardHeader>
               {showABTest && (
                 <CardContent className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
                       Version A Subject
                     </label>
                     <input
                       type="text"
                       defaultValue={selectedSubject}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
                       Version B Subject
                     </label>
                     <input
                       type="text"
                       placeholder="Alternative subject line..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
                       Test Percentage: 50%
                     </label>
                     <input type="range" min="10" max="50" defaultValue="50" className="w-full" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
                       Winner Criteria
                     </label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                    <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                       <option>Open Rate</option>
                       <option>Click Rate</option>
                     </select>

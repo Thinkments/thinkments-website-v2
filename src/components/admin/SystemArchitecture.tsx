@@ -34,11 +34,11 @@ export default function SystemArchitecture() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">System Architecture</h1>
-            <p className="text-gray-600">ThinkMents admin panel to live website data flow</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">System Architecture</h1>
+            <p className="text-slate-400">ThinkMents admin panel to live website data flow</p>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export default function SystemArchitecture() {
               onClick={() => setActiveFlow(tab.id as 'overview' | 'blog-publish' | 'data-flow')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeFlow === tab.id
                   ? 'bg-[#00B4D8] text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
                 }`}
             >
               {tab.label}
@@ -69,8 +69,8 @@ export default function SystemArchitecture() {
         {activeFlow === 'overview' && (
           <div className="space-y-8">
             {/* Architecture Diagram */}
-            <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-8 text-center">
+            <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-8 text-center">
                 Complete System Architecture
               </h2>
 
@@ -95,10 +95,10 @@ export default function SystemArchitecture() {
                       return (
                         <div
                           key={i}
-                          className="bg-gray-50 rounded-lg p-3 flex items-center space-x-2"
+                          className="bg-white/5 rounded-lg p-3 flex items-center space-x-2"
                         >
                           <Icon className="w-4 h-4 text-[#00B4D8]" />
-                          <span className="text-sm font-medium text-gray-700">{item.label}</span>
+                          <span className="text-sm font-medium text-slate-300">{item.label}</span>
                         </div>
                       );
                     })}
@@ -126,8 +126,8 @@ export default function SystemArchitecture() {
                       { endpoint: 'POST /api/forms/submit' },
                       { endpoint: 'GET /api/analytics/*' },
                     ].map((item, i) => (
-                      <div key={i} className="bg-gray-50 rounded-lg p-2">
-                        <code className="text-xs text-gray-700">{item.endpoint}</code>
+                      <div key={i} className="bg-white/5 rounded-lg p-2">
+                        <code className="text-xs text-slate-300">{item.endpoint}</code>
                       </div>
                     ))}
                   </div>
@@ -154,12 +154,12 @@ export default function SystemArchitecture() {
                     ].map((item, i) => {
                       const Icon = item.icon;
                       return (
-                        <div key={i} className="bg-gray-50 rounded-lg p-3">
+                        <div key={i} className="bg-white/5 rounded-lg p-3">
                           <div className="flex items-center space-x-2 mb-1">
                             <Icon className="w-4 h-4 text-green-600" />
-                            <span className="text-sm font-medium text-gray-700">{item.label}</span>
+                            <span className="text-sm font-medium text-slate-300">{item.label}</span>
                           </div>
-                          <span className="text-xs text-gray-500">{item.desc}</span>
+                          <span className="text-xs text-slate-500">{item.desc}</span>
                         </div>
                       );
                     })}
@@ -179,19 +179,19 @@ export default function SystemArchitecture() {
                   </div>
 
                   <div className="space-y-2">
-                    <div className="bg-gray-50 rounded-lg p-3">
+                    <div className="bg-white/5 rounded-lg p-3">
                       <div className="flex items-center space-x-2 mb-2">
                         <GitBranch className="w-4 h-4 text-purple-600" />
-                        <span className="text-sm font-medium text-gray-700">GitHub Push</span>
+                        <span className="text-sm font-medium text-slate-300">GitHub Push</span>
                       </div>
                     </div>
 
-                    <div className="bg-gray-50 rounded-lg p-3">
+                    <div className="bg-white/5 rounded-lg p-3">
                       <div className="flex items-center space-x-2 mb-2">
                         <Zap className="w-4 h-4 text-purple-600" />
-                        <span className="text-sm font-medium text-gray-700">Netlify Build</span>
+                        <span className="text-sm font-medium text-slate-300">Netlify Build</span>
                       </div>
-                      <ul className="text-xs text-gray-600 space-y-1 ml-6">
+                      <ul className="text-xs text-slate-400 space-y-1 ml-6">
                         <li>• Pull content</li>
                         <li>• Build static site</li>
                         <li>• Optimize images</li>
@@ -199,10 +199,10 @@ export default function SystemArchitecture() {
                       </ul>
                     </div>
 
-                    <div className="bg-gray-50 rounded-lg p-3">
+                    <div className="bg-white/5 rounded-lg p-3">
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-600" />
-                        <span className="text-sm font-medium text-gray-700">Deploy to CDN</span>
+                        <span className="text-sm font-medium text-slate-300">Deploy to CDN</span>
                       </div>
                     </div>
                   </div>
@@ -211,8 +211,8 @@ export default function SystemArchitecture() {
             </Card>
 
             {/* Third-Party Integrations */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Third-Party Integrations</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">Third-Party Integrations</h3>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
@@ -247,14 +247,14 @@ export default function SystemArchitecture() {
                 ].map((integration, i) => {
                   const Icon = integration.icon;
                   return (
-                    <div key={i} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <div key={i} className="bg-white/5 rounded-lg p-4 border border-white/10">
                       <div
                         className={`w-10 h-10 bg-${integration.color}-100 rounded-lg flex items-center justify-center mb-3`}
                       >
-                        <Icon className="w-5 h-5 text-gray-700" />
+                        <Icon className="w-5 h-5 text-slate-300" />
                       </div>
-                      <h4 className="font-semibold text-[#1E3A5F] mb-1">{integration.name}</h4>
-                      <p className="text-sm text-gray-600">{integration.desc}</p>
+                      <h4 className="font-semibold text-white mb-1">{integration.name}</h4>
+                      <p className="text-sm text-slate-400">{integration.desc}</p>
                     </div>
                   );
                 })}
@@ -263,14 +263,14 @@ export default function SystemArchitecture() {
 
             {/* Security & Performance */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                    <Lock className="w-5 h-5 text-red-600" />
+                  <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center">
+                    <Lock className="w-5 h-5 text-rose-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#1E3A5F]">Security Measures</h3>
+                  <h3 className="text-xl font-bold text-white">Security Measures</h3>
                 </div>
-                <ul className="space-y-2 text-gray-700">
+                <ul className="space-y-2 text-slate-300">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
                     <span className="text-sm">Authentication & authorization (JWT tokens)</span>
@@ -294,14 +294,14 @@ export default function SystemArchitecture() {
                 </ul>
               </Card>
 
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-blue-600" />
+                  <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-indigo-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#1E3A5F]">Performance Features</h3>
+                  <h3 className="text-xl font-bold text-white">Performance Features</h3>
                 </div>
-                <ul className="space-y-2 text-gray-700">
+                <ul className="space-y-2 text-slate-300">
                   <li className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
                     <span className="text-sm">CDN distribution (Netlify Edge Network)</span>
@@ -330,8 +330,8 @@ export default function SystemArchitecture() {
 
         {/* Blog Publishing Flow */}
         {activeFlow === 'blog-publish' && (
-          <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-            <h2 className="text-2xl font-bold text-[#1E3A5F] mb-8 text-center">
+          <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+            <h2 className="text-2xl font-bold text-white mb-8 text-center">
               Blog Post Publishing Data Flow
             </h2>
 
@@ -348,14 +348,14 @@ export default function SystemArchitecture() {
                     1
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">
+                    <h3 className="font-bold text-white mb-2">
                       User Clicks "Publish" in Admin
                     </h3>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <p className="text-sm text-gray-700 mb-3">
+                    <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                      <p className="text-sm text-slate-300 mb-3">
                         Admin panel sends POST request to API server:
                       </p>
-                      <code className="text-xs bg-white p-3 rounded block text-gray-800 overflow-x-auto">
+                      <code className="text-xs bg-[#0f172a]/40 backdrop-blur-xl p-3 rounded block text-gray-200 overflow-x-auto">
                         POST https://api.thinkments.com/api/content/publish
                         <br />
                         {'{'}
@@ -391,9 +391,9 @@ export default function SystemArchitecture() {
                     2
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">API Server Processes Request</h3>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-white mb-2">API Server Processes Request</h3>
+                    <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                      <ul className="space-y-2 text-sm text-slate-300">
                         <li className="flex items-center space-x-2">
                           <CheckCircle className="w-4 h-4 text-green-600" />
                           <span>Validates content (required fields, formatting)</span>
@@ -429,22 +429,22 @@ export default function SystemArchitecture() {
                     3
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">GitHub & Netlify Integration</h3>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <h3 className="font-bold text-white mb-2">GitHub & Netlify Integration</h3>
+                    <div className="bg-white/5 rounded-lg p-4 border border-white/10">
                       <div className="space-y-3">
                         <div>
                           <Badge className="bg-purple-100 text-purple-700 mb-2">
                             GitHub Commit
                           </Badge>
-                          <p className="text-sm text-gray-700">
+                          <p className="text-sm text-slate-300">
                             Content pushed to repository triggers automatic webhook
                           </p>
                         </div>
                         <div>
-                          <Badge className="bg-blue-100 text-blue-700 mb-2">
+                          <Badge className="bg-indigo-500/10 text-indigo-300 mb-2">
                             Netlify Build Started
                           </Badge>
-                          <p className="text-sm text-gray-700">
+                          <p className="text-sm text-slate-300">
                             Build process initiated automatically
                           </p>
                         </div>
@@ -467,39 +467,39 @@ export default function SystemArchitecture() {
                     4
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">Netlify Build Process</h3>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <h3 className="font-bold text-white mb-2">Netlify Build Process</h3>
+                    <div className="bg-white/5 rounded-lg p-4 border border-white/10">
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2 text-sm">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                          <span className="text-gray-700">Pulls latest content from GitHub</span>
-                          <span className="text-xs text-gray-500">(~5s)</span>
+                          <div className="w-2 h-2 bg-indigo-900/200 rounded-full" />
+                          <span className="text-slate-300">Pulls latest content from GitHub</span>
+                          <span className="text-xs text-slate-500">(~5s)</span>
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                          <span className="text-gray-700">
+                          <div className="w-2 h-2 bg-indigo-900/200 rounded-full" />
+                          <span className="text-slate-300">
                             Runs Vite build (React + TypeScript)
                           </span>
-                          <span className="text-xs text-gray-500">(~20-40s)</span>
+                          <span className="text-xs text-slate-500">(~20-40s)</span>
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                          <span className="text-gray-700">Generates sitemap.xml</span>
-                          <span className="text-xs text-gray-500">(~2s)</span>
+                          <div className="w-2 h-2 bg-indigo-900/200 rounded-full" />
+                          <span className="text-slate-300">Generates sitemap.xml</span>
+                          <span className="text-xs text-slate-500">(~2s)</span>
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                          <span className="text-gray-700">Optimizes and compresses assets</span>
-                          <span className="text-xs text-gray-500">(~10s)</span>
+                          <div className="w-2 h-2 bg-indigo-900/200 rounded-full" />
+                          <span className="text-slate-300">Optimizes and compresses assets</span>
+                          <span className="text-xs text-slate-500">(~10s)</span>
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
-                          <div className="w-2 h-2 bg-green-500 rounded-full" />
-                          <span className="text-gray-700">Deploys to global CDN</span>
-                          <span className="text-xs text-gray-500">(~5-10s)</span>
+                          <div className="w-2 h-2 bg-emerald-900/200 rounded-full" />
+                          <span className="text-slate-300">Deploys to global CDN</span>
+                          <span className="text-xs text-slate-500">(~5-10s)</span>
                         </div>
                       </div>
-                      <div className="mt-3 pt-3 border-t border-gray-300">
-                        <p className="text-sm font-semibold text-gray-700">
+                      <div className="mt-3 pt-3 border-t border-white/20">
+                        <p className="text-sm font-semibold text-slate-300">
                           Total Build Time: ~30-90 seconds
                         </p>
                       </div>
@@ -521,11 +521,11 @@ export default function SystemArchitecture() {
                     5
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">Post-Deployment Actions</h3>
-                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-white mb-2">Post-Deployment Actions</h3>
+                    <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                      <ul className="space-y-2 text-sm text-slate-300">
                         <li className="flex items-center space-x-2">
-                          <Globe className="w-4 h-4 text-blue-600" />
+                          <Globe className="w-4 h-4 text-indigo-400" />
                           <span>Ping Google Search Console for indexing</span>
                         </li>
                         <li className="flex items-center space-x-2">
@@ -558,8 +558,8 @@ export default function SystemArchitecture() {
                     6
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-[#1E3A5F] mb-2">Admin Shows Success</h3>
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <h3 className="font-bold text-white mb-2">Admin Shows Success</h3>
+                    <div className="bg-emerald-900/20 rounded-lg p-4 border border-green-200">
                       <div className="flex items-center space-x-2 mb-3">
                         <CheckCircle className="w-5 h-5 text-green-600" />
                         <span className="font-semibold text-green-900">
@@ -581,15 +581,15 @@ export default function SystemArchitecture() {
 
         {/* Data Flow Diagram */}
         {activeFlow === 'data-flow' && (
-          <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-            <h2 className="text-2xl font-bold text-[#1E3A5F] mb-8 text-center">
+          <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+            <h2 className="text-2xl font-bold text-white mb-8 text-center">
               Content Data Flow Architecture
             </h2>
 
             <div className="space-y-8">
               {/* Content Types Flow */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   Content Types & Storage
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -618,14 +618,14 @@ export default function SystemArchitecture() {
                   ].map((item, i) => {
                     const Icon = item.icon;
                     return (
-                      <div key={i} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                      <div key={i} className="bg-white/5 rounded-lg p-4 border border-white/10">
                         <div
                           className={`w-10 h-10 bg-${item.color}-100 rounded-lg flex items-center justify-center mb-3`}
                         >
-                          <Icon className="w-5 h-5 text-gray-700" />
+                          <Icon className="w-5 h-5 text-slate-300" />
                         </div>
-                        <h4 className="font-semibold text-[#1E3A5F] mb-2">{item.type}</h4>
-                        <div className="text-sm text-gray-600 space-y-1">
+                        <h4 className="font-semibold text-white mb-2">{item.type}</h4>
+                        <div className="text-sm text-slate-400 space-y-1">
                           <p>
                             <strong>Storage:</strong> {item.storage}
                           </p>
@@ -641,10 +641,10 @@ export default function SystemArchitecture() {
 
               {/* API Endpoints */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   API Endpoints Reference
                 </h3>
-                <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                <div className="bg-white/5 rounded-lg p-6 border border-white/10">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
                       {
@@ -676,19 +676,19 @@ export default function SystemArchitecture() {
                       },
                       { method: 'GET', endpoint: '/api/status/sync', desc: 'Check sync status' },
                     ].map((api, i) => (
-                      <div key={i} className="bg-white rounded-lg p-3 border border-gray-200">
+                      <div key={i} className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg p-3 border border-white/10">
                         <div className="flex items-center space-x-2 mb-1">
                           <Badge
                             className={`${api.method === 'POST'
-                                ? 'bg-green-100 text-green-700'
-                                : 'bg-blue-100 text-blue-700'
+                                ? 'bg-emerald-500/10 text-green-700'
+                                : 'bg-indigo-500/10 text-indigo-300'
                               } text-xs`}
                           >
                             {api.method}
                           </Badge>
-                          <code className="text-xs text-gray-700">{api.endpoint}</code>
+                          <code className="text-xs text-slate-300">{api.endpoint}</code>
                         </div>
-                        <p className="text-xs text-gray-600 mt-1">{api.desc}</p>
+                        <p className="text-xs text-slate-400 mt-1">{api.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -697,10 +697,10 @@ export default function SystemArchitecture() {
 
               {/* Build Pipeline */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   Build & Deployment Pipeline
                 </h3>
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-gray-200">
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-white/10">
                   <div className="flex items-center justify-between">
                     {[
                       { label: 'Git Push', icon: GitBranch },
@@ -712,10 +712,10 @@ export default function SystemArchitecture() {
                       return (
                         <React.Fragment key={i}>
                           <div className="flex flex-col items-center">
-                            <div className="w-16 h-16 bg-white rounded-full border-4 border-[#00B4D8] flex items-center justify-center mb-2">
+                            <div className="w-16 h-16 bg-[#0f172a]/40 backdrop-blur-xl rounded-full border-4 border-[#00B4D8] flex items-center justify-center mb-2">
                               <Icon className="w-6 h-6 text-[#00B4D8]" />
                             </div>
-                            <span className="text-sm font-medium text-gray-700">{step.label}</span>
+                            <span className="text-sm font-medium text-slate-300">{step.label}</span>
                           </div>
                           {i < 3 && <ArrowRight className="w-8 h-8 text-[#00B4D8]" />}
                         </React.Fragment>

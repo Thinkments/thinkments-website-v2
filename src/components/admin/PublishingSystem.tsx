@@ -94,13 +94,13 @@ export default function PublishingSystem() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">
+            <h1 className="text-whitexl font-bold text-white mb-2">
               Publishing System Documentation
             </h1>
-            <p className="text-gray-600">Complete publishing workflows and system architecture</p>
+            <p className="text-slate-400">Complete publishing workflows and system architecture</p>
           </div>
         </div>
 
@@ -119,7 +119,7 @@ export default function PublishingSystem() {
                 onClick={() => setActiveDemo(tab.id as 'button-states' | 'blog-publish' | 'site-status' | 'architecture')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeDemo === tab.id
                     ? 'bg-[#00B4D8] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-white/10 text-slate-300 hover:bg-white/20'
                   }`}
               >
                 <Icon className="w-4 h-4" />
@@ -135,41 +135,41 @@ export default function PublishingSystem() {
         {/* Button States Demo */}
         {activeDemo === 'button-states' && (
           <div className="space-y-8">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Universal Button States</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Universal Button States</h2>
 
               {/* Primary Buttons */}
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">Primary Buttons</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Primary Buttons</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Default</div>
+                    <div className="text-sm text-slate-400 mb-2">Default</div>
                     <Button className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                       Publish
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Hover</div>
+                    <div className="text-sm text-slate-400 mb-2">Hover</div>
                     <Button className="w-full bg-[#0096b8] text-white shadow-lg">Publish</Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Loading</div>
+                    <div className="text-sm text-slate-400 mb-2">Loading</div>
                     <Button className="w-full bg-[#00B4D8] text-white" disabled>
                       <Loader className="w-4 h-4 mr-2 animate-spin" />
                       Publishing...
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Success</div>
+                    <div className="text-sm text-slate-400 mb-2">Success</div>
                     <Button className="w-full bg-green-600 text-white">
                       <CheckCircle className="w-4 h-4 mr-2" />
                       Published!
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Disabled</div>
+                    <div className="text-sm text-slate-400 mb-2">Disabled</div>
                     <Button
-                      className="w-full bg-gray-300 text-gray-500 cursor-not-allowed"
+                      className="w-full bg-gray-300 text-slate-500 cursor-not-allowed"
                       disabled
                     >
                       Publish
@@ -180,16 +180,16 @@ export default function PublishingSystem() {
 
               {/* Secondary Buttons */}
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">Secondary Buttons</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Secondary Buttons</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Default</div>
+                    <div className="text-sm text-slate-400 mb-2">Default</div>
                     <Button variant="outline" className="w-full border-[#00B4D8] text-[#00B4D8]">
                       Save Draft
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Hover</div>
+                    <div className="text-sm text-slate-400 mb-2">Hover</div>
                     <Button
                       variant="outline"
                       className="w-full border-[#00B4D8] text-[#00B4D8] bg-[#E6F7FA]"
@@ -198,7 +198,7 @@ export default function PublishingSystem() {
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Loading</div>
+                    <div className="text-sm text-slate-400 mb-2">Loading</div>
                     <Button
                       variant="outline"
                       className="w-full border-[#00B4D8] text-[#00B4D8]"
@@ -209,10 +209,10 @@ export default function PublishingSystem() {
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Disabled</div>
+                    <div className="text-sm text-slate-400 mb-2">Disabled</div>
                     <Button
                       variant="outline"
-                      className="w-full border-gray-300 text-gray-400 cursor-not-allowed"
+                      className="w-full border-white/20 text-gray-400 cursor-not-allowed"
                       disabled
                     >
                       Save Draft
@@ -223,28 +223,28 @@ export default function PublishingSystem() {
 
               {/* Danger Buttons */}
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">Danger Buttons</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Danger Buttons</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Default</div>
-                    <Button variant="outline" className="w-full border-red-600 text-red-600">
+                    <div className="text-sm text-slate-400 mb-2">Default</div>
+                    <Button variant="outline" className="w-full border-red-600 text-rose-400">
                       Delete
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Hover</div>
+                    <div className="text-sm text-slate-400 mb-2">Hover</div>
                     <Button
                       variant="outline"
-                      className="w-full border-red-600 text-red-600 bg-red-50"
+                      className="w-full border-red-600 text-rose-400 bg-rose-900/20"
                     >
                       Delete
                     </Button>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-600 mb-2">Loading</div>
+                    <div className="text-sm text-slate-400 mb-2">Loading</div>
                     <Button
                       variant="outline"
-                      className="w-full border-red-600 text-red-600"
+                      className="w-full border-red-600 text-rose-400"
                       disabled
                     >
                       <Loader className="w-4 h-4 mr-2 animate-spin" />
@@ -256,22 +256,22 @@ export default function PublishingSystem() {
 
               {/* Icon Buttons */}
               <div>
-                <h3 className="text-lg font-semibold text-[#1E3A5F] mb-4">Icon Buttons</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Icon Buttons</h3>
                 <div className="flex items-center space-x-4">
-                  <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors group relative">
-                    <Eye className="w-5 h-5 text-gray-600 group-hover:text-[#00B4D8]" />
+                  <button className="p-2 rounded-lg hover:bg-white/10 transition-colors group relative">
+                    <Eye className="w-5 h-5 text-slate-400 group-hover:text-[#00B4D8]" />
                     <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                       Preview
                     </div>
                   </button>
-                  <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors group relative">
-                    <Copy className="w-5 h-5 text-gray-600 group-hover:text-[#00B4D8]" />
+                  <button className="p-2 rounded-lg hover:bg-white/10 transition-colors group relative">
+                    <Copy className="w-5 h-5 text-slate-400 group-hover:text-[#00B4D8]" />
                     <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                       Copy Link
                     </div>
                   </button>
-                  <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors group relative">
-                    <Share2 className="w-5 h-5 text-gray-600 group-hover:text-[#00B4D8]" />
+                  <button className="p-2 rounded-lg hover:bg-white/10 transition-colors group relative">
+                    <Share2 className="w-5 h-5 text-slate-400 group-hover:text-[#00B4D8]" />
                     <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                       Share
                     </div>
@@ -284,40 +284,40 @@ export default function PublishingSystem() {
             </Card>
 
             {/* Site Sync Status Indicator */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Site Sync Status Indicator</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Site Sync Status Indicator</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="p-4 bg-white/5 rounded-lg border border-white/10">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full" />
+                    <div className="w-3 h-3 bg-emerald-900/200 rounded-full" />
                     <span className="font-semibold text-green-700">Live</span>
                   </div>
-                  <p className="text-sm text-gray-600">All changes published, site is in sync</p>
+                  <p className="text-sm text-slate-400">All changes published, site is in sync</p>
                 </div>
 
-                <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                <div className="p-4 bg-amber-900/20 rounded-lg border border-yellow-200">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-amber-900/200 rounded-full animate-pulse" />
                     <span className="font-semibold text-yellow-700">Pending</span>
                   </div>
-                  <p className="text-sm text-gray-600">Unpublished changes exist (5 items)</p>
+                  <p className="text-sm text-slate-400">Unpublished changes exist (5 items)</p>
                 </div>
 
-                <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="p-4 bg-indigo-900/20 rounded-lg border border-blue-200">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse" />
-                    <span className="font-semibold text-blue-700">Publishing</span>
+                    <div className="w-3 h-3 bg-indigo-900/200 rounded-full animate-pulse" />
+                    <span className="font-semibold text-indigo-300">Publishing</span>
                   </div>
-                  <p className="text-sm text-gray-600">Currently pushing changes to live site</p>
+                  <p className="text-sm text-slate-400">Currently pushing changes to live site</p>
                 </div>
 
-                <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+                <div className="p-4 bg-rose-900/20 rounded-lg border border-red-200">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full" />
-                    <span className="font-semibold text-red-700">Error</span>
+                    <div className="w-3 h-3 bg-rose-900/200 rounded-full" />
+                    <span className="font-semibold text-rose-300">Error</span>
                   </div>
-                  <p className="text-sm text-gray-600">Publishing failed, needs attention</p>
+                  <p className="text-sm text-slate-400">Publishing failed, needs attention</p>
                 </div>
               </div>
             </Card>
@@ -328,22 +328,22 @@ export default function PublishingSystem() {
         {activeDemo === 'blog-publish' && (
           <div className="space-y-6">
             {/* Publishing Demo */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Blog Post Publishing Flow</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Blog Post Publishing Flow</h2>
 
               <div className="max-w-2xl mx-auto">
                 {/* Action Bar */}
-                <div className="bg-gray-50 rounded-lg p-4 mb-6 flex items-center justify-between">
+                <div className="bg-white/5 rounded-lg p-4 mb-6 flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Save className="w-4 h-4 mr-2" />
                       Save Draft
                     </Button>
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Eye className="w-4 h-4 mr-2" />
                       Preview
                     </Button>
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Calendar className="w-4 h-4 mr-2" />
                       Schedule
                     </Button>
@@ -379,20 +379,20 @@ export default function PublishingSystem() {
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200"
+                      className="bg-indigo-900/20 rounded-lg p-4 mb-6 border border-blue-200"
                     >
                       <div className="flex items-center space-x-3 mb-3">
                         <Loader className="w-5 h-5 text-[#00B4D8] animate-spin" />
-                        <span className="font-semibold text-[#1E3A5F]">{publishStep}</span>
+                        <span className="font-semibold text-white">{publishStep}</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-white/20 rounded-full h-2">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${publishProgress}%` }}
                           className="bg-[#00B4D8] h-2 rounded-full transition-all"
                         />
                       </div>
-                      <div className="text-sm text-gray-600 mt-2">{publishProgress}% complete</div>
+                      <div className="text-sm text-slate-400 mt-2">{publishProgress}% complete</div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -404,7 +404,7 @@ export default function PublishingSystem() {
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      className="bg-green-50 rounded-lg p-4 mb-6 border border-green-200"
+                      className="bg-emerald-900/20 rounded-lg p-4 mb-6 border border-green-200"
                     >
                       <div className="flex items-center space-x-3 mb-3">
                         <CheckCircle className="w-5 h-5 text-green-600" />
@@ -423,8 +423,8 @@ export default function PublishingSystem() {
             </Card>
 
             {/* Pre-Publish Checklist */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Pre-Publish Checklist</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-4">Pre-Publish Checklist</h3>
 
               <div className="space-y-3">
                 {[
@@ -434,30 +434,30 @@ export default function PublishingSystem() {
                   { label: 'At least one category selected', status: 'complete' },
                   { label: 'SEO score: 85/100', status: 'warning' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                  <div key={i} className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg">
                     {item.status === 'complete' ? (
                       <CheckCircle className="w-5 h-5 text-green-600" />
                     ) : (
                       <AlertTriangle className="w-5 h-5 text-yellow-600" />
                     )}
-                    <span className="text-sm font-medium text-gray-700">{item.label}</span>
+                    <span className="text-sm font-medium text-slate-300">{item.label}</span>
                   </div>
                 ))}
               </div>
             </Card>
 
             {/* Validation Errors Example */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Validation Error Example</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-4">Validation Error Example</h3>
 
-              <div className="bg-red-50 rounded-lg p-4 border border-red-200">
+              <div className="bg-rose-900/20 rounded-lg p-4 border border-red-200">
                 <div className="flex items-start space-x-3 mb-4">
-                  <XCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                  <XCircle className="w-5 h-5 text-rose-400 mt-0.5" />
                   <div>
-                    <div className="font-semibold text-red-900 mb-2">
+                    <div className="font-semibold text-rose-200 mb-2">
                       Cannot publish - please fix the following issues:
                     </div>
-                    <ul className="space-y-2 text-sm text-red-700">
+                    <ul className="space-y-2 text-sm text-rose-300">
                       <li className="flex items-center space-x-2">
                         <ChevronRight className="w-4 h-4" />
                         <span>Featured image is required</span>
@@ -473,7 +473,7 @@ export default function PublishingSystem() {
                     </ul>
                   </div>
                 </div>
-                <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
+                <Button variant="outline" className="border-red-600 text-rose-400 hover:bg-rose-900/20">
                   Fix Issues
                 </Button>
               </div>
@@ -486,28 +486,28 @@ export default function PublishingSystem() {
           <div className="space-y-6">
             {/* Overview Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-1">Total Content</div>
-                <div className="text-3xl font-bold text-[#1E3A5F]">247</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-1">Total Content</div>
+                <div className="text-whitexl font-bold text-white">247</div>
               </Card>
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-1">Published</div>
-                <div className="text-3xl font-bold text-green-600">198</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-1">Published</div>
+                <div className="text-whitexl font-bold text-green-600">198</div>
               </Card>
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-1">Pending</div>
-                <div className="text-3xl font-bold text-yellow-600">32</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-1">Pending</div>
+                <div className="text-whitexl font-bold text-yellow-600">32</div>
               </Card>
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-1">Drafts</div>
-                <div className="text-3xl font-bold text-gray-600">17</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-1">Drafts</div>
+                <div className="text-whitexl font-bold text-slate-400">17</div>
               </Card>
             </div>
 
             {/* Content Sync Table */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-[#1E3A5F]">Content Sync Status</h2>
+                <h2 className="text-2xl font-bold text-white">Content Sync Status</h2>
                 <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                   <RefreshCw className="w-4 h-4 mr-2" />
                   Sync All
@@ -517,20 +517,20 @@ export default function PublishingSystem() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200 bg-gray-50">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <tr className="border-b border-white/10 bg-white/5">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Type
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Title
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Status
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Last Modified
                       </th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                         Actions
                       </th>
                     </tr>
@@ -568,11 +568,11 @@ export default function PublishingSystem() {
                         modified: '2 days ago',
                       },
                     ].map((item, i) => (
-                      <tr key={i} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={i} className="border-b border-white/5 hover:bg-white/5">
                         <td className="py-4 px-4">
-                          <Badge className="bg-blue-100 text-blue-700">{item.type}</Badge>
+                          <Badge className="bg-indigo-500/10 text-indigo-300">{item.type}</Badge>
                         </td>
-                        <td className="py-4 px-4 font-medium text-[#1E3A5F]">{item.title}</td>
+                        <td className="py-4 px-4 font-medium text-white">{item.title}</td>
                         <td className="py-4 px-4">
                           {item.status === 'synced' && (
                             <div className="flex items-center space-x-2 text-green-600">
@@ -587,19 +587,19 @@ export default function PublishingSystem() {
                             </div>
                           )}
                           {item.status === 'draft' && (
-                            <div className="flex items-center space-x-2 text-gray-600">
+                            <div className="flex items-center space-x-2 text-slate-400">
                               <Info className="w-4 h-4" />
                               <span className="text-sm">Draft</span>
                             </div>
                           )}
                           {item.status === 'error' && (
-                            <div className="flex items-center space-x-2 text-red-600">
+                            <div className="flex items-center space-x-2 text-rose-400">
                               <XCircle className="w-4 h-4" />
                               <span className="text-sm">Error</span>
                             </div>
                           )}
                         </td>
-                        <td className="py-4 px-4 text-sm text-gray-600">{item.modified}</td>
+                        <td className="py-4 px-4 text-sm text-slate-400">{item.modified}</td>
                         <td className="py-4 px-4">
                           <div className="flex items-center justify-end space-x-2">
                             {item.status === 'out-of-sync' && (
@@ -610,7 +610,7 @@ export default function PublishingSystem() {
                                 Publish
                               </Button>
                             )}
-                            <Button variant="outline" size="sm" className="border-gray-300">
+                            <Button variant="outline" size="sm" className="border-white/20">
                               View
                             </Button>
                           </div>
@@ -623,8 +623,8 @@ export default function PublishingSystem() {
             </Card>
 
             {/* Publishing History */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Recent Publishing History</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-4">Recent Publishing History</h3>
 
               <div className="space-y-3">
                 {[
@@ -653,19 +653,19 @@ export default function PublishingSystem() {
                     status: 'success',
                   },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                  <div key={i} className="flex items-start space-x-3 p-3 bg-white/5 rounded-lg">
                     {item.status === 'success' ? (
                       <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
                     ) : (
-                      <XCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                      <XCircle className="w-5 h-5 text-rose-400 mt-0.5" />
                     )}
                     <div className="flex-1">
-                      <div className="font-medium text-[#1E3A5F]">{item.action}</div>
-                      <div className="text-sm text-gray-600 mt-1">
+                      <div className="font-medium text-white">{item.action}</div>
+                      <div className="text-sm text-slate-400 mt-1">
                         by {item.user} · {item.time}
                       </div>
                     </div>
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       <ExternalLink className="w-3 h-3 mr-1" />
                       View
                     </Button>
@@ -678,12 +678,12 @@ export default function PublishingSystem() {
 
         {/* Architecture Diagram */}
         {activeDemo === 'architecture' && (
-          <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-            <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">System Architecture Overview</h2>
+          <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+            <h2 className="text-2xl font-bold text-white mb-6">System Architecture Overview</h2>
 
-            <div className="bg-gray-50 rounded-lg p-8">
+            <div className="bg-white/5 rounded-lg p-8">
               {/* Will be implemented in the next component */}
-              <div className="text-center text-gray-600">
+              <div className="text-center text-slate-400">
                 See SystemArchitecture.tsx for detailed architecture diagram
               </div>
             </div>
@@ -708,8 +708,8 @@ export default function PublishingSystem() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-lg bg-white rounded-lg shadow-2xl p-6">
-                <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">Ready to Publish?</h3>
+              <Card className="w-full max-w-lg bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6">
+                <h3 className="text-2xl font-bold text-white mb-4">Ready to Publish?</h3>
 
                 <div className="mb-6">
                   <img
@@ -727,7 +727,7 @@ export default function PublishingSystem() {
                     ].map((item, i) => (
                       <div key={i} className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-600" />
-                        <span className="text-sm text-gray-700">{item.label}</span>
+                        <span className="text-sm text-slate-300">{item.label}</span>
                       </div>
                     ))}
                   </div>
@@ -737,7 +737,7 @@ export default function PublishingSystem() {
                   <Button
                     variant="outline"
                     onClick={() => setShowConfirmation(false)}
-                    className="border-gray-300"
+                    className="border-white/20"
                   >
                     Cancel
                   </Button>
@@ -772,15 +772,15 @@ export default function PublishingSystem() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-lg bg-white rounded-lg shadow-2xl p-6">
+              <Card className="w-full max-w-lg bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                  <h3 className="text-2xl font-bold text-white mb-2">
                     Successfully Published!
                   </h3>
-                  <p className="text-gray-600">Your blog post is now live on thinkments.com</p>
+                  <p className="text-slate-400">Your blog post is now live on thinkments.com</p>
                 </div>
 
                 <div className="space-y-3">
@@ -790,15 +790,15 @@ export default function PublishingSystem() {
                   </Button>
 
                   <div className="grid grid-cols-3 gap-2">
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Share2 className="w-4 h-4 mr-1" />
                       Facebook
                     </Button>
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Share2 className="w-4 h-4 mr-1" />
                       Twitter
                     </Button>
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Share2 className="w-4 h-4 mr-1" />
                       LinkedIn
                     </Button>
@@ -806,7 +806,7 @@ export default function PublishingSystem() {
 
                   <Button
                     variant="outline"
-                    className="w-full border-gray-300"
+                    className="w-full border-white/20"
                     onClick={() => setShowPostPublish(false)}
                   >
                     Back to Dashboard

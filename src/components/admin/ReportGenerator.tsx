@@ -228,11 +228,11 @@ export default function ReportGenerator() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Report Generator</h1>
-            <p className="text-gray-600">
+            <h1 className="text-whitexl font-bold text-white mb-2">Report Generator</h1>
+            <p className="text-slate-400">
               Create professional client reports with custom metrics and branding
             </p>
           </div>
@@ -253,7 +253,7 @@ export default function ReportGenerator() {
                 onClick={() => setActiveView(view.id as 'builder' | 'scheduled' | 'history' | 'templates')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeView === view.id
                     ? 'bg-[#00B4D8] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-white/10 text-slate-300 hover:bg-white/20'
                   }`}
               >
                 <Icon className="w-4 h-4" />
@@ -270,7 +270,7 @@ export default function ReportGenerator() {
         {activeView === 'builder' && (
           <div className="max-w-6xl mx-auto">
             {/* Progress Steps */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between">
                 {steps.map((step, index) => {
                   const Icon = step.icon;
@@ -282,10 +282,10 @@ export default function ReportGenerator() {
                       <div className="flex items-center space-x-3">
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${isCompleted
-                              ? 'bg-green-500 text-white'
+                              ? 'bg-emerald-900/200 text-white'
                               : isActive
                                 ? 'bg-[#00B4D8] text-white'
-                                : 'bg-gray-200 text-gray-500'
+                                : 'bg-white/20 text-slate-500'
                             }`}
                         >
                           {isCompleted ? (
@@ -295,9 +295,9 @@ export default function ReportGenerator() {
                           )}
                         </div>
                         <div>
-                          <div className="text-xs text-gray-500">Step {step.number}</div>
+                          <div className="text-xs text-slate-500">Step {step.number}</div>
                           <div
-                            className={`font-semibold ${isActive ? 'text-[#1E3A5F]' : 'text-gray-600'
+                            className={`font-semibold ${isActive ? 'text-white' : 'text-slate-400'
                               }`}
                           >
                             {step.title}
@@ -306,7 +306,7 @@ export default function ReportGenerator() {
                       </div>
                       {index < steps.length - 1 && (
                         <div
-                          className={`flex-1 h-1 mx-4 rounded ${isCompleted ? 'bg-green-500' : 'bg-gray-200'
+                          className={`flex-1 h-1 mx-4 rounded ${isCompleted ? 'bg-emerald-900/200' : 'bg-white/20'
                             }`}
                         />
                       )}
@@ -326,21 +326,21 @@ export default function ReportGenerator() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                 >
-                  <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+                  <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                    <h2 className="text-2xl font-bold text-white mb-6">
                       Client & Report Basics
                     </h2>
 
                     <div className="space-y-6">
                       {/* Client Selector */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-slate-300 mb-2">
                           Select Client *
                         </label>
                         <select
                           value={selectedClient}
                           onChange={(e) => setSelectedClient(e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                          className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
                         >
                           <option value="">Choose a client...</option>
                           {clients.map((client) => (
@@ -353,7 +353,7 @@ export default function ReportGenerator() {
 
                       {/* Report Title */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-slate-300 mb-2">
                           Report Title *
                         </label>
                         <Input
@@ -367,7 +367,7 @@ export default function ReportGenerator() {
                       {/* Date Range */}
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-slate-300 mb-2">
                             Start Date *
                           </label>
                           <Input
@@ -378,7 +378,7 @@ export default function ReportGenerator() {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-slate-300 mb-2">
                             End Date *
                           </label>
                           <Input
@@ -392,7 +392,7 @@ export default function ReportGenerator() {
 
                       {/* Report Type */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-slate-300 mb-3">
                           Report Type *
                         </label>
                         <div className="grid grid-cols-2 gap-4">
@@ -401,17 +401,17 @@ export default function ReportGenerator() {
                               key={type.id}
                               onClick={() => setReportType(type.id)}
                               className={`p-4 rounded-lg border-2 text-left transition-all ${reportType === type.id
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-center justify-between mb-2">
-                                <span className="font-semibold text-[#1E3A5F]">{type.name}</span>
+                                <span className="font-semibold text-white">{type.name}</span>
                                 {reportType === type.id && (
                                   <Check className="w-5 h-5 text-[#00B4D8]" />
                                 )}
                               </div>
-                              <p className="text-sm text-gray-600">{type.description}</p>
+                              <p className="text-sm text-slate-400">{type.description}</p>
                             </button>
                           ))}
                         </div>
@@ -429,9 +429,9 @@ export default function ReportGenerator() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                 >
-                  <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
+                  <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                     <div className="flex items-center justify-between mb-6">
-                      <h2 className="text-2xl font-bold text-[#1E3A5F]">
+                      <h2 className="text-2xl font-bold text-white">
                         Select Metrics to Include
                       </h2>
                       <Badge className="bg-[#00B4D8] text-white">
@@ -441,11 +441,11 @@ export default function ReportGenerator() {
 
                     <div className="space-y-6">
                       {/* Traffic Metrics */}
-                      <div className="border border-gray-200 rounded-lg p-6">
+                      <div className="border border-white/10 rounded-lg p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-3">
                             <Activity className="w-5 h-5 text-[#00B4D8]" />
-                            <h3 className="font-bold text-[#1E3A5F]">Traffic Metrics</h3>
+                            <h3 className="font-bold text-white">Traffic Metrics</h3>
                           </div>
                           <button
                             onClick={() => selectAllInSection('traffic')}
@@ -462,8 +462,8 @@ export default function ReportGenerator() {
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
                               className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-start space-x-3">
@@ -475,10 +475,10 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                  <div className="font-medium text-white text-sm">
                                     {metric.label}
                                   </div>
-                                  <div className="text-xs text-gray-500 mt-0.5">
+                                  <div className="text-xs text-slate-500 mt-0.5">
                                     {metric.description}
                                   </div>
                                 </div>
@@ -489,11 +489,11 @@ export default function ReportGenerator() {
                       </div>
 
                       {/* SEO Metrics */}
-                      <div className="border border-gray-200 rounded-lg p-6">
+                      <div className="border border-white/10 rounded-lg p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-3">
                             <TrendingUp className="w-5 h-5 text-[#00B4D8]" />
-                            <h3 className="font-bold text-[#1E3A5F]">SEO Metrics</h3>
+                            <h3 className="font-bold text-white">SEO Metrics</h3>
                           </div>
                           <button
                             onClick={() => selectAllInSection('seo')}
@@ -510,8 +510,8 @@ export default function ReportGenerator() {
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
                               className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-start space-x-3">
@@ -523,10 +523,10 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                  <div className="font-medium text-white text-sm">
                                     {metric.label}
                                   </div>
-                                  <div className="text-xs text-gray-500 mt-0.5">
+                                  <div className="text-xs text-slate-500 mt-0.5">
                                     {metric.description}
                                   </div>
                                 </div>
@@ -537,11 +537,11 @@ export default function ReportGenerator() {
                       </div>
 
                       {/* Conversions */}
-                      <div className="border border-gray-200 rounded-lg p-6">
+                      <div className="border border-white/10 rounded-lg p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-3">
                             <Target className="w-5 h-5 text-[#00B4D8]" />
-                            <h3 className="font-bold text-[#1E3A5F]">Conversions</h3>
+                            <h3 className="font-bold text-white">Conversions</h3>
                           </div>
                           <button
                             onClick={() => selectAllInSection('conversions')}
@@ -558,8 +558,8 @@ export default function ReportGenerator() {
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
                               className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-start space-x-3">
@@ -571,10 +571,10 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                  <div className="font-medium text-white text-sm">
                                     {metric.label}
                                   </div>
-                                  <div className="text-xs text-gray-500 mt-0.5">
+                                  <div className="text-xs text-slate-500 mt-0.5">
                                     {metric.description}
                                   </div>
                                 </div>
@@ -585,11 +585,11 @@ export default function ReportGenerator() {
                       </div>
 
                       {/* Google Business Profile */}
-                      <div className="border border-gray-200 rounded-lg p-6">
+                      <div className="border border-white/10 rounded-lg p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-3">
                             <MapPin className="w-5 h-5 text-[#00B4D8]" />
-                            <h3 className="font-bold text-[#1E3A5F]">Google Business Profile</h3>
+                            <h3 className="font-bold text-white">Google Business Profile</h3>
                           </div>
                           <button
                             onClick={() => selectAllInSection('gbp')}
@@ -606,8 +606,8 @@ export default function ReportGenerator() {
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
                               className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-start space-x-3">
@@ -619,10 +619,10 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                  <div className="font-medium text-white text-sm">
                                     {metric.label}
                                   </div>
-                                  <div className="text-xs text-gray-500 mt-0.5">
+                                  <div className="text-xs text-slate-500 mt-0.5">
                                     {metric.description}
                                   </div>
                                 </div>
@@ -633,11 +633,11 @@ export default function ReportGenerator() {
                       </div>
 
                       {/* Social Media */}
-                      <div className="border border-gray-200 rounded-lg p-6">
+                      <div className="border border-white/10 rounded-lg p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-3">
                             <Share2 className="w-5 h-5 text-[#00B4D8]" />
-                            <h3 className="font-bold text-[#1E3A5F]">Social Media</h3>
+                            <h3 className="font-bold text-white">Social Media</h3>
                           </div>
                           <button
                             onClick={() => selectAllInSection('social')}
@@ -654,8 +654,8 @@ export default function ReportGenerator() {
                               key={metric.id}
                               onClick={() => toggleMetric(metric.id)}
                               className={`p-3 rounded-lg border cursor-pointer transition-all ${selectedMetrics.includes(metric.id)
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-start space-x-3">
@@ -667,10 +667,10 @@ export default function ReportGenerator() {
                                   )}
                                 </div>
                                 <div>
-                                  <div className="font-medium text-[#1E3A5F] text-sm">
+                                  <div className="font-medium text-white text-sm">
                                     {metric.label}
                                   </div>
-                                  <div className="text-xs text-gray-500 mt-0.5">
+                                  <div className="text-xs text-slate-500 mt-0.5">
                                     {metric.description}
                                   </div>
                                 </div>
@@ -692,25 +692,25 @@ export default function ReportGenerator() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                 >
-                  <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Customize Appearance</h2>
+                  <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                    <h2 className="text-2xl font-bold text-white mb-6">Customize Appearance</h2>
 
                     <div className="space-y-6">
                       {/* Logo Upload */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-slate-300 mb-2">
                           Logo (White-Label)
                         </label>
-                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
+                        <div className="border-2 border-dashed border-white/20 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
                           <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                          <p className="text-sm font-medium text-gray-700">Click to upload logo</p>
-                          <p className="text-xs text-gray-500 mt-1">PNG, JPG up to 5MB</p>
+                          <p className="text-sm font-medium text-slate-300">Click to upload logo</p>
+                          <p className="text-xs text-slate-500 mt-1">PNG, JPG up to 5MB</p>
                         </div>
                       </div>
 
                       {/* Color Scheme */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-slate-300 mb-3">
                           Color Scheme
                         </label>
                         <div className="grid grid-cols-2 gap-4">
@@ -719,12 +719,12 @@ export default function ReportGenerator() {
                               key={scheme.id}
                               onClick={() => setColorScheme(scheme.id)}
                               className={`p-4 rounded-lg border-2 text-left transition-all ${colorScheme === scheme.id
-                                  ? 'border-[#00B4D8] bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
+                                  ? 'border-[#00B4D8] bg-indigo-900/20'
+                                  : 'border-white/10 hover:border-white/20'
                                 }`}
                             >
                               <div className="flex items-center justify-between mb-2">
-                                <span className="font-semibold text-[#1E3A5F]">{scheme.name}</span>
+                                <span className="font-semibold text-white">{scheme.name}</span>
                                 {colorScheme === scheme.id && (
                                   <Check className="w-5 h-5 text-[#00B4D8]" />
                                 )}
@@ -746,7 +746,7 @@ export default function ReportGenerator() {
 
                       {/* Header Text */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-slate-300 mb-2">
                           Header Text
                         </label>
                         <Input
@@ -758,7 +758,7 @@ export default function ReportGenerator() {
 
                       {/* Footer Text */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-slate-300 mb-2">
                           Footer Text
                         </label>
                         <Input
@@ -770,10 +770,10 @@ export default function ReportGenerator() {
 
                       {/* Toggles */}
                       <div className="space-y-4">
-                        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                           <div>
-                            <div className="font-semibold text-[#1E3A5F]">Include Cover Page</div>
-                            <div className="text-sm text-gray-600">
+                            <div className="font-semibold text-white">Include Cover Page</div>
+                            <div className="text-sm text-slate-400">
                               Add a professional cover page
                             </div>
                           </div>
@@ -783,18 +783,18 @@ export default function ReportGenerator() {
                               }`}
                           >
                             <div
-                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${includeCover ? 'translate-x-7' : 'translate-x-1'
+                              className={`absolute top-1 w-4 h-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-full transition-transform ${includeCover ? 'translate-x-7' : 'translate-x-1'
                                 }`}
                             />
                           </button>
                         </div>
 
-                        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                           <div>
-                            <div className="font-semibold text-[#1E3A5F]">
+                            <div className="font-semibold text-white">
                               Include Executive Summary
                             </div>
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm text-slate-400">
                               Add a summary of key insights
                             </div>
                           </div>
@@ -804,7 +804,7 @@ export default function ReportGenerator() {
                               }`}
                           >
                             <div
-                              className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${includeExecutive ? 'translate-x-7' : 'translate-x-1'
+                              className={`absolute top-1 w-4 h-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-full transition-transform ${includeExecutive ? 'translate-x-7' : 'translate-x-1'
                                 }`}
                             />
                           </button>
@@ -826,14 +826,14 @@ export default function ReportGenerator() {
                   <div className="grid grid-cols-3 gap-8">
                     {/* Preview */}
                     <div className="col-span-2">
-                      <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                      <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                         <div className="flex items-center justify-between mb-4">
-                          <h2 className="text-xl font-bold text-[#1E3A5F]">Report Preview</h2>
-                          <Badge className="bg-gray-100 text-gray-700">Live Preview</Badge>
+                          <h2 className="text-xl font-bold text-white">Report Preview</h2>
+                          <Badge className="bg-white/10 text-slate-300">Live Preview</Badge>
                         </div>
 
                         {/* Mock Report Preview */}
-                        <div className="border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
+                        <div className="border border-white/10 rounded-lg overflow-hidden bg-white/5">
                           <div className="h-[600px] overflow-y-auto p-8 space-y-6">
                             {/* Cover Page */}
                             {includeCover && (
@@ -855,11 +855,11 @@ export default function ReportGenerator() {
 
                             {/* Executive Summary */}
                             {includeExecutive && (
-                              <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
+                              <div className="bg-[#0f172a]/40 backdrop-blur-xl p-6 rounded-lg border border-white/10">
+                                <h3 className="text-xl font-bold text-white mb-4">
                                   Executive Summary
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className="text-slate-400 leading-relaxed">
                                   This report provides a comprehensive overview of your digital
                                   marketing performance for the selected period. Key highlights
                                   include significant growth in organic traffic, improved conversion
@@ -869,8 +869,8 @@ export default function ReportGenerator() {
                             )}
 
                             {/* Sample Metrics */}
-                            <div className="bg-white p-6 rounded-lg border border-gray-200">
-                              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
+                            <div className="bg-[#0f172a]/40 backdrop-blur-xl p-6 rounded-lg border border-white/10">
+                              <h3 className="text-xl font-bold text-white mb-4">
                                 Key Performance Indicators
                               </h3>
                               <div className="grid grid-cols-2 gap-4">
@@ -884,9 +884,9 @@ export default function ReportGenerator() {
                                   ];
                                   const metric = allMetrics.find((m) => m.id === metricId);
                                   return (
-                                    <div key={index} className="p-4 bg-gray-50 rounded-lg">
-                                      <div className="text-sm text-gray-600">{metric?.label}</div>
-                                      <div className="text-2xl font-bold text-[#1E3A5F] mt-1">
+                                    <div key={index} className="p-4 bg-white/5 rounded-lg">
+                                      <div className="text-sm text-slate-400">{metric?.label}</div>
+                                      <div className="text-2xl font-bold text-white mt-1">
                                         {Math.floor(Math.random() * 10000).toLocaleString()}
                                       </div>
                                       <div className="text-xs text-green-600 mt-1">
@@ -899,12 +899,12 @@ export default function ReportGenerator() {
                             </div>
 
                             {/* Chart Placeholder */}
-                            <div className="bg-white p-6 rounded-lg border border-gray-200">
-                              <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">
+                            <div className="bg-[#0f172a]/40 backdrop-blur-xl p-6 rounded-lg border border-white/10">
+                              <h3 className="text-xl font-bold text-white mb-4">
                                 Traffic Trends
                               </h3>
                               <div className="h-48 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg flex items-center justify-center">
-                                <div className="text-center text-gray-500">
+                                <div className="text-center text-slate-500">
                                   <Activity className="w-12 h-12 mx-auto mb-2" />
                                   <div className="text-sm">Chart will appear here</div>
                                 </div>
@@ -928,8 +928,8 @@ export default function ReportGenerator() {
 
                     {/* Export Options */}
                     <div className="space-y-4">
-                      <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                        <h3 className="font-bold text-[#1E3A5F] mb-4">Export Report</h3>
+                      <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                        <h3 className="font-bold text-white mb-4">Export Report</h3>
 
                         <div className="space-y-3">
                           <Button className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white justify-start">
@@ -939,16 +939,16 @@ export default function ReportGenerator() {
 
                           <Button
                             variant="outline"
-                            className="w-full border-[#1E3A5F] text-[#1E3A5F] justify-start"
+                            className="w-full border-[#1E3A5F] text-white justify-start"
                           >
                             <FileText className="w-4 h-4 mr-3" />
                             Export to Google Doc
                           </Button>
 
-                          <div className="border-t border-gray-200 my-4" />
+                          <div className="border-t border-white/10 my-4" />
 
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-slate-300 mb-2">
                               Send to Client
                             </label>
                             <Input type="email" placeholder="client@example.com" className="mb-2" />
@@ -960,10 +960,10 @@ export default function ReportGenerator() {
                         </div>
                       </Card>
 
-                      <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                        <h3 className="font-bold text-[#1E3A5F] mb-4">Save as Template</h3>
+                      <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                        <h3 className="font-bold text-white mb-4">Save as Template</h3>
                         <Input placeholder="Template name" className="mb-3" />
-                        <Button variant="outline" className="w-full border-gray-300">
+                        <Button variant="outline" className="w-full border-white/20">
                           <Copy className="w-4 h-4 mr-2" />
                           Save Template
                         </Button>
@@ -980,13 +980,13 @@ export default function ReportGenerator() {
                 variant="outline"
                 onClick={handlePrevious}
                 disabled={currentStep === 1}
-                className="border-gray-300"
+                className="border-white/20"
               >
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Previous
               </Button>
 
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-slate-400">
                 Step {currentStep} of {steps.length}
               </div>
 
@@ -1004,11 +1004,11 @@ export default function ReportGenerator() {
 
         {/* Scheduled Reports View */}
         {activeView === 'scheduled' && (
-          <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Scheduled Reports</h2>
-                <p className="text-sm text-gray-600">Automated report generation and delivery</p>
+                <h2 className="text-2xl font-bold text-white mb-1">Scheduled Reports</h2>
+                <p className="text-sm text-slate-400">Automated report generation and delivery</p>
               </div>
               <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                 <Plus className="w-4 h-4 mr-2" />
@@ -1019,61 +1019,61 @@ export default function ReportGenerator() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                  <tr className="border-b border-white/10">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Report Name
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Client
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Frequency
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Next Send
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Recipients
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Status
                     </th>
-                    <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                       Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {scheduledReports.map((report) => (
-                    <tr key={report.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-4 font-medium text-[#1E3A5F]">{report.name}</td>
-                      <td className="py-4 px-4 text-gray-600">{report.client}</td>
+                    <tr key={report.id} className="border-b border-white/5 hover:bg-white/5">
+                      <td className="py-4 px-4 font-medium text-white">{report.name}</td>
+                      <td className="py-4 px-4 text-slate-400">{report.client}</td>
                       <td className="py-4 px-4">
-                        <Badge className="bg-blue-100 text-blue-700">{report.frequency}</Badge>
+                        <Badge className="bg-indigo-500/10 text-indigo-300">{report.frequency}</Badge>
                       </td>
-                      <td className="py-4 px-4 text-gray-600">{report.nextSend}</td>
-                      <td className="py-4 px-4 text-sm text-gray-600">{report.recipients}</td>
+                      <td className="py-4 px-4 text-slate-400">{report.nextSend}</td>
+                      <td className="py-4 px-4 text-sm text-slate-400">{report.recipients}</td>
                       <td className="py-4 px-4">
                         {report.status === 'active' ? (
-                          <Badge className="bg-green-100 text-green-700">Active</Badge>
+                          <Badge className="bg-emerald-500/10 text-green-700">Active</Badge>
                         ) : (
-                          <Badge className="bg-yellow-100 text-yellow-700">Paused</Badge>
+                          <Badge className="bg-amber-500/10 text-yellow-700">Paused</Badge>
                         )}
                       </td>
                       <td className="py-4 px-4">
                         <div className="flex items-center justify-end space-x-2">
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors">
+                          <button className="p-2 hover:bg-white/10 rounded transition-colors">
                             {report.status === 'active' ? (
-                              <Pause className="w-4 h-4 text-gray-600" />
+                              <Pause className="w-4 h-4 text-slate-400" />
                             ) : (
                               <Play className="w-4 h-4 text-green-600" />
                             )}
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors">
+                          <button className="p-2 hover:bg-white/10 rounded transition-colors">
                             <Edit2 className="w-4 h-4 text-[#00B4D8]" />
                           </button>
-                          <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-                            <Trash2 className="w-4 h-4 text-red-600" />
+                          <button className="p-2 hover:bg-white/10 rounded transition-colors">
+                            <Trash2 className="w-4 h-4 text-rose-400" />
                           </button>
                         </div>
                       </td>
@@ -1087,11 +1087,11 @@ export default function ReportGenerator() {
 
         {/* Report History View */}
         {activeView === 'history' && (
-          <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Report History</h2>
-                <p className="text-sm text-gray-600">Previously generated reports</p>
+                <h2 className="text-2xl font-bold text-white mb-1">Report History</h2>
+                <p className="text-sm text-slate-400">Previously generated reports</p>
               </div>
               <div className="relative w-64">
                 <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -1102,54 +1102,54 @@ export default function ReportGenerator() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                  <tr className="border-b border-white/10">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Report Name
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Client
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Date Generated
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Sent To
                     </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                       Size
                     </th>
-                    <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                    <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                       Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {reportHistory.map((report) => (
-                    <tr key={report.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-4 font-medium text-[#1E3A5F]">{report.name}</td>
-                      <td className="py-4 px-4 text-gray-600">{report.client}</td>
-                      <td className="py-4 px-4 text-gray-600">{report.date}</td>
-                      <td className="py-4 px-4 text-sm text-gray-600">{report.sentTo}</td>
-                      <td className="py-4 px-4 text-sm text-gray-500">{report.size}</td>
+                    <tr key={report.id} className="border-b border-white/5 hover:bg-white/5">
+                      <td className="py-4 px-4 font-medium text-white">{report.name}</td>
+                      <td className="py-4 px-4 text-slate-400">{report.client}</td>
+                      <td className="py-4 px-4 text-slate-400">{report.date}</td>
+                      <td className="py-4 px-4 text-sm text-slate-400">{report.sentTo}</td>
+                      <td className="py-4 px-4 text-sm text-slate-500">{report.size}</td>
                       <td className="py-4 px-4">
                         <div className="flex items-center justify-end space-x-2">
                           <button
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-white/10 rounded transition-colors"
                             title="Download"
                           >
                             <Download className="w-4 h-4 text-[#00B4D8]" />
                           </button>
                           <button
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-white/10 rounded transition-colors"
                             title="Resend"
                           >
                             <Send className="w-4 h-4 text-green-600" />
                           </button>
                           <button
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-white/10 rounded transition-colors"
                             title="Duplicate"
                           >
-                            <Copy className="w-4 h-4 text-gray-600" />
+                            <Copy className="w-4 h-4 text-slate-400" />
                           </button>
                         </div>
                       </td>
@@ -1164,11 +1164,11 @@ export default function ReportGenerator() {
         {/* Templates View */}
         {activeView === 'templates' && (
           <div>
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Report Templates</h2>
-                  <p className="text-sm text-gray-600">Reusable report configurations</p>
+                  <h2 className="text-2xl font-bold text-white mb-1">Report Templates</h2>
+                  <p className="text-sm text-slate-400">Reusable report configurations</p>
                 </div>
                 <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                   <Plus className="w-4 h-4 mr-2" />
@@ -1181,17 +1181,17 @@ export default function ReportGenerator() {
               {templates.map((template) => (
                 <Card
                   key={template.id}
-                  className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+                  className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 hover:shadow-2xl border border-white/5 transition-shadow"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-lg flex items-center justify-center">
                       <FileText className="w-6 h-6 text-white" />
                     </div>
-                    <Badge className="bg-gray-100 text-gray-700">{template.metrics} metrics</Badge>
+                    <Badge className="bg-white/10 text-slate-300">{template.metrics} metrics</Badge>
                   </div>
 
-                  <h3 className="font-bold text-[#1E3A5F] mb-2">{template.name}</h3>
-                  <p className="text-sm text-gray-600 mb-4">Last used: {template.lastUsed}</p>
+                  <h3 className="font-bold text-white mb-2">{template.name}</h3>
+                  <p className="text-sm text-slate-400 mb-4">Last used: {template.lastUsed}</p>
 
                   <div className="flex items-center space-x-2">
                     <Button
@@ -1202,11 +1202,11 @@ export default function ReportGenerator() {
                       <Copy className="w-3 h-3 mr-2" />
                       Use
                     </Button>
-                    <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-                      <Edit2 className="w-4 h-4 text-gray-600" />
+                    <button className="p-2 hover:bg-white/10 rounded transition-colors">
+                      <Edit2 className="w-4 h-4 text-slate-400" />
                     </button>
-                    <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-                      <Trash2 className="w-4 h-4 text-red-600" />
+                    <button className="p-2 hover:bg-white/10 rounded transition-colors">
+                      <Trash2 className="w-4 h-4 text-rose-400" />
                     </button>
                   </div>
                 </Card>

@@ -138,8 +138,8 @@ export default function MediaLibrary() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-[#1E3A5F]">Media Library</h1>
-          <p className="text-gray-600 mt-1">Manage your images and media files</p>
+          <h1 className="text-whitexl font-bold text-white">Media Library</h1>
+          <p className="text-slate-400 mt-1">Manage your images and media files</p>
         </div>
         <Button className="bg-[#00B4D8] hover:bg-[#0096b8]" onClick={handleUploadMockMedia}>
           <Upload className="w-4 h-4 mr-2" />
@@ -148,17 +148,17 @@ export default function MediaLibrary() {
       </div>
 
       {/* Upload Zone */}
-      <Card className="border-2 border-dashed border-gray-300 hover:border-[#00B4D8] transition-colors cursor-pointer">
+      <Card className="border-2 border-dashed border-white/20 hover:border-[#00B4D8] transition-colors cursor-pointer">
         <CardContent className="p-12 text-center">
           <Upload className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-          <h3 className="text-lg font-medium text-[#1E3A5F] mb-2">Drop files here to upload</h3>
-          <p className="text-gray-600 mb-4">or click to browse from your computer</p>
-          <p className="text-sm text-gray-500">Supports: JPG, PNG, GIF, SVG, WebP (Max 10MB)</p>
+          <h3 className="text-lg font-medium text-white mb-2">Drop files here to upload</h3>
+          <p className="text-slate-400 mb-4">or click to browse from your computer</p>
+          <p className="text-sm text-slate-500">Supports: JPG, PNG, GIF, SVG, WebP (Max 10MB)</p>
         </CardContent>
       </Card>
 
       {/* Controls */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardContent className="p-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
             {/* Search */}
@@ -199,7 +199,7 @@ export default function MediaLibrary() {
                 </SelectContent>
               </Select>
 
-              <div className="flex border border-gray-200 rounded-lg">
+              <div className="flex border border-white/10 rounded-lg">
                 <Button
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
                   size="sm"
@@ -230,7 +230,7 @@ export default function MediaLibrary() {
                 >
                   <Check className="w-3 h-3" />
                 </button>
-                <span className="text-sm font-medium text-[#1E3A5F]">
+                <span className="text-sm font-medium text-white">
                   {selectedMedia.length} item{selectedMedia.length > 1 ? 's' : ''} selected
                 </span>
               </div>
@@ -243,7 +243,7 @@ export default function MediaLibrary() {
                   <Folder className="w-4 h-4 mr-2" />
                   Move to Folder
                 </Button>
-                <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
+                <Button variant="outline" size="sm" className="text-rose-400 hover:text-rose-300">
                   <Trash2 className="w-4 h-4 mr-2" />
                   Delete
                 </Button>
@@ -254,7 +254,7 @@ export default function MediaLibrary() {
       </Card>
 
       {/* Media Grid/List */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardContent className="p-6">
           {viewMode === 'grid' ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -264,7 +264,7 @@ export default function MediaLibrary() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="group relative aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-pointer"
+                  className="group relative aspect-square bg-white/10 rounded-lg overflow-hidden cursor-pointer"
                   onClick={() => handleViewMedia(media)}
                 >
                   <img
@@ -285,7 +285,7 @@ export default function MediaLibrary() {
                       }}
                       className={`w-5 h-5 rounded border-2 flex items-center justify-center ${selectedMedia.includes(media.id)
                           ? 'bg-[#00B4D8] border-[#00B4D8] text-white'
-                          : 'bg-white border-gray-300'
+                          : 'bg-[#0f172a]/40 backdrop-blur-xl border-white/20'
                         }`}
                     >
                       {selectedMedia.includes(media.id) && <Check className="w-3 h-3" />}
@@ -334,7 +334,7 @@ export default function MediaLibrary() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:border-[#00B4D8] hover:bg-gray-50 transition-colors cursor-pointer"
+                  className="flex items-center space-x-4 p-4 border border-white/10 rounded-lg hover:border-[#00B4D8] hover:bg-white/5 transition-colors cursor-pointer"
                   onClick={() => handleViewMedia(media)}
                 >
                   <button
@@ -344,7 +344,7 @@ export default function MediaLibrary() {
                     }}
                     className={`w-5 h-5 rounded border-2 flex items-center justify-center ${selectedMedia.includes(media.id)
                         ? 'bg-[#00B4D8] border-[#00B4D8] text-white'
-                        : 'border-gray-300'
+                        : 'border-white/20'
                       }`}
                   >
                     {selectedMedia.includes(media.id) && <Check className="w-3 h-3" />}
@@ -355,14 +355,14 @@ export default function MediaLibrary() {
                     className="w-16 h-16 object-cover rounded"
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-[#1E3A5F] truncate">{media.name}</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="font-medium text-white truncate">{media.name}</p>
+                    <p className="text-sm text-slate-500">
                       {media.dimensions} • {media.size}
                     </p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="text-right">
-                      <p className="text-sm text-gray-600">{media.uploadDate}</p>
+                      <p className="text-sm text-slate-400">{media.uploadDate}</p>
                       {media.usedIn.length > 0 && (
                         <Badge variant="outline" className="text-xs">
                           Used in {media.usedIn.length} pages
@@ -397,13 +397,13 @@ export default function MediaLibrary() {
           {activeMedia && (
             <>
               <SheetHeader>
-                <SheetTitle className="text-[#1E3A5F]">Media Details</SheetTitle>
+                <SheetTitle className="text-white">Media Details</SheetTitle>
                 <SheetDescription>View and edit media information</SheetDescription>
               </SheetHeader>
 
               <div className="mt-6 space-y-6">
                 {/* Preview */}
-                <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <div className="relative aspect-video bg-white/10 rounded-lg overflow-hidden">
                   <img
                     src={activeMedia.url}
                     alt={activeMedia.altText}
@@ -421,19 +421,19 @@ export default function MediaLibrary() {
                 <Card>
                   <CardContent className="p-4 space-y-3">
                     <div>
-                      <Label className="text-xs text-gray-500">File Name</Label>
+                      <Label className="text-xs text-slate-500">File Name</Label>
                       <Input value={activeMedia.name} className="mt-1" />
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-500">Dimensions</Label>
+                      <Label className="text-xs text-slate-500">Dimensions</Label>
                       <p className="text-sm mt-1">{activeMedia.dimensions}</p>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-500">File Size</Label>
+                      <Label className="text-xs text-slate-500">File Size</Label>
                       <p className="text-sm mt-1">{activeMedia.size}</p>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-500">Upload Date</Label>
+                      <Label className="text-xs text-slate-500">Upload Date</Label>
                       <p className="text-sm mt-1">{activeMedia.uploadDate}</p>
                     </div>
                   </CardContent>
@@ -478,7 +478,7 @@ export default function MediaLibrary() {
                 {/* Compression */}
                 <Card className="bg-[#00B4D8]/5">
                   <CardContent className="p-4">
-                    <h4 className="font-medium text-[#1E3A5F] mb-3">Image Optimization</h4>
+                    <h4 className="font-medium text-white mb-3">Image Optimization</h4>
                     <Select defaultValue="medium">
                       <SelectTrigger>
                         <SelectValue />
@@ -501,9 +501,9 @@ export default function MediaLibrary() {
                       {activeMedia.usedIn.map((page, index) => (
                         <div
                           key={index}
-                          className="p-3 bg-gray-50 rounded-lg flex items-center justify-between"
+                          className="p-3 bg-white/5 rounded-lg flex items-center justify-between"
                         >
-                          <span className="text-sm text-gray-700">{page}</span>
+                          <span className="text-sm text-slate-300">{page}</span>
                           <Button variant="ghost" size="sm" className="text-[#00B4D8]">
                             View
                           </Button>
@@ -511,7 +511,7 @@ export default function MediaLibrary() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-sm text-gray-500 mt-2">Not used in any pages yet</p>
+                    <p className="text-sm text-slate-500 mt-2">Not used in any pages yet</p>
                   )}
                 </div>
 
@@ -521,7 +521,7 @@ export default function MediaLibrary() {
                     <Download className="w-4 h-4 mr-2" />
                     Download
                   </Button>
-                  <Button variant="outline" className="flex-1 text-red-600 hover:text-red-700" onClick={handleDeleteMedia}>
+                  <Button variant="outline" className="flex-1 text-rose-400 hover:text-rose-300" onClick={handleDeleteMedia}>
                     <Trash2 className="w-4 h-4 mr-2" />
                     Delete
                   </Button>

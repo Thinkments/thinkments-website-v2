@@ -181,7 +181,7 @@ Sitemap: https://thinkments.com/sitemap.xml`;
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl mb-2">SEO Configuration Manager</h1>
+            <h1 className="text-whitexl mb-2">SEO Configuration Manager</h1>
             <p className="text-muted-foreground">
               Manage your robots.txt and business schema configurations. Edit, export, and deploy
               your SEO files.
@@ -195,10 +195,10 @@ Sitemap: https://thinkments.com/sitemap.xml`;
       </div>
 
       {/* Local Mode Alert */}
-      <Alert className="mb-6 border-blue-200 bg-blue-50">
-        <AlertTriangle className="h-4 w-4 text-blue-600" />
+      <Alert className="mb-6 border-blue-200 bg-indigo-900/20">
+        <AlertTriangle className="h-4 w-4 text-indigo-400" />
         <AlertDescription>
-          <span className="text-blue-800">
+          <span className="text-indigo-300">
             <strong>Local Mode:</strong> Changes are saved to your browser. Download and deploy
             files manually to your website.
           </span>

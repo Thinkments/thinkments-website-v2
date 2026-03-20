@@ -64,11 +64,11 @@ export default function UIStatesGuide() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">UI States & User Flows</h1>
-            <p className="text-gray-600">Complete component library with interactive states</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">UI States & User Flows</h1>
+            <p className="text-slate-400">Complete component library with interactive states</p>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ export default function UIStatesGuide() {
               onClick={() => setActiveSection(section.id as 'buttons' | 'forms' | 'notifications' | 'workflows' | 'sync' | 'errors' | 'confirmations' | 'collaboration')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${activeSection === section.id
                   ? 'bg-[#00B4D8] text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
                 }`}
             >
               {section.label}
@@ -104,20 +104,20 @@ export default function UIStatesGuide() {
         {activeSection === 'buttons' && (
           <div className="space-y-8">
             {/* Primary Buttons */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Primary Buttons (Teal #00B4D8)
               </h2>
 
               <div className="space-y-6">
                 {/* Default State */}
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Default State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Default State</div>
                   <div className="flex items-center space-x-4">
                     <Button className="bg-[#00B4D8] hover:bg-[#00B4D8] text-white cursor-default">
                       Publish
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       bg-[#00B4D8] text-white
                     </code>
                   </div>
@@ -125,12 +125,12 @@ export default function UIStatesGuide() {
 
                 {/* Hover State */}
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Hover State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Hover State</div>
                   <div className="flex items-center space-x-4">
                     <Button className="bg-[#0096b8] text-white shadow-lg cursor-default">
                       Publish
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       bg-[#0096b8] shadow-lg
                     </code>
                   </div>
@@ -138,7 +138,7 @@ export default function UIStatesGuide() {
 
                 {/* Active/Pressed State */}
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">
                     Active/Pressed State
                   </div>
                   <div className="flex items-center space-x-4">
@@ -148,7 +148,7 @@ export default function UIStatesGuide() {
                     >
                       Publish
                     </motion.button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       bg-[#007A94] scale-0.95
                     </code>
                   </div>
@@ -156,26 +156,26 @@ export default function UIStatesGuide() {
 
                 {/* Disabled State */}
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Disabled State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Disabled State</div>
                   <div className="flex items-center space-x-4">
-                    <Button className="bg-gray-300 text-gray-500 cursor-not-allowed" disabled>
+                    <Button className="bg-gray-300 text-slate-500 cursor-not-allowed" disabled>
                       Publish
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
-                      bg-gray-300 text-gray-500 cursor-not-allowed
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
+                      bg-gray-300 text-slate-500 cursor-not-allowed
                     </code>
                   </div>
                 </div>
 
                 {/* Loading State */}
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Loading State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Loading State</div>
                   <div className="flex items-center space-x-4">
                     <Button className="bg-[#00B4D8] text-white" disabled>
                       <Loader className="w-4 h-4 mr-2 animate-spin" />
                       Publishing...
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       spinner + "Publishing..."
                     </code>
                   </div>
@@ -183,13 +183,13 @@ export default function UIStatesGuide() {
 
                 {/* Success State */}
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Success State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Success State</div>
                   <div className="flex items-center space-x-4">
                     <Button className="bg-green-600 text-white cursor-default">
                       <CheckCircle className="w-4 h-4 mr-2" />
                       Published!
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       bg-green-600 + checkmark
                     </code>
                   </div>
@@ -198,26 +198,26 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Secondary Buttons */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Secondary Buttons (Outline)
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Default State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Default State</div>
                   <div className="flex items-center space-x-4">
                     <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8]">
                       Save Draft
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       border-[#00B4D8] text-[#00B4D8]
                     </code>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Hover State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Hover State</div>
                   <div className="flex items-center space-x-4">
                     <Button
                       variant="outline"
@@ -225,18 +225,18 @@ export default function UIStatesGuide() {
                     >
                       Save Draft
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">bg-[#E6F7FA]</code>
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">bg-[#E6F7FA]</code>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Loading State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Loading State</div>
                   <div className="flex items-center space-x-4">
                     <Button variant="outline" className="border-[#00B4D8] text-[#00B4D8]" disabled>
                       <Loader className="w-4 h-4 mr-2 animate-spin" />
                       Saving...
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       spinner + disabled
                     </code>
                   </div>
@@ -245,48 +245,48 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Danger Buttons */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Danger Buttons (Delete Actions)
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Default State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Default State</div>
                   <div className="flex items-center space-x-4">
                     <Button
                       variant="outline"
-                      className="border-red-600 text-red-600"
+                      className="border-red-600 text-rose-400"
                       onClick={() => setDeleteState('confirm')}
                     >
                       <Trash2 className="w-4 h-4 mr-2" />
                       Delete
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
-                      border-red-600 text-red-600
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
+                      border-red-600 text-rose-400
                     </code>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Hover State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Hover State</div>
                   <div className="flex items-center space-x-4">
-                    <Button variant="outline" className="border-red-600 text-red-600 bg-red-50">
+                    <Button variant="outline" className="border-red-600 text-rose-400 bg-rose-900/20">
                       <Trash2 className="w-4 h-4 mr-2" />
                       Delete
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">bg-red-50</code>
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">bg-rose-900/20</code>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Confirmation State</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Confirmation State</div>
                   <div className="flex items-center space-x-4">
                     <Button className="bg-red-600 text-white">
                       <AlertCircle className="w-4 h-4 mr-2" />
                       Click Again to Confirm
                     </Button>
-                    <code className="text-xs bg-gray-100 px-3 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-3 py-1 rounded">
                       bg-red-600 + warning text
                     </code>
                   </div>
@@ -295,8 +295,8 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Icon Buttons */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Icon Buttons</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Icon Buttons</h2>
 
               <div className="flex items-center space-x-4">
                 {[
@@ -308,8 +308,8 @@ export default function UIStatesGuide() {
                   const Icon = item.icon;
                   return (
                     <div key={i} className="group relative">
-                      <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                        <Icon className="w-5 h-5 text-gray-600 group-hover:text-[#00B4D8]" />
+                      <button className="p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <Icon className="w-5 h-5 text-slate-400 group-hover:text-[#00B4D8]" />
                       </button>
                       <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                         {item.label}
@@ -321,24 +321,24 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Button Sizes */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Button Sizes</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Button Sizes</h2>
 
               <div className="flex items-end space-x-4">
                 <div>
-                  <div className="text-xs text-gray-600 mb-2">Small</div>
+                  <div className="text-xs text-slate-400 mb-2">Small</div>
                   <Button size="sm" className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                     Small Button
                   </Button>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-600 mb-2">Medium (Default)</div>
+                  <div className="text-xs text-slate-400 mb-2">Medium (Default)</div>
                   <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                     Medium Button
                   </Button>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-600 mb-2">Large</div>
+                  <div className="text-xs text-slate-400 mb-2">Large</div>
                   <Button size="lg" className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                     Large Button
                   </Button>
@@ -352,19 +352,19 @@ export default function UIStatesGuide() {
         {activeSection === 'forms' && (
           <div className="space-y-8">
             {/* Text Inputs */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Text Input States</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Text Input States</h2>
 
               <div className="space-y-6 max-w-md">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Default/Empty State
                   </label>
                   <Input placeholder="Enter your title..." />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Focused State
                   </label>
                   <Input
@@ -375,28 +375,28 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Filled State
                   </label>
                   <Input value="SEO Best Practices 2025" readOnly />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Error State
                   </label>
                   <Input
                     placeholder="Enter your title..."
                     className="border-red-600 focus:ring-red-600"
                   />
-                  <div className="flex items-center space-x-1 mt-1 text-red-600 text-sm">
+                  <div className="flex items-center space-x-1 mt-1 text-rose-400 text-sm">
                     <AlertCircle className="w-4 h-4" />
                     <span>Title is required</span>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Success/Valid State
                   </label>
                   <div className="relative">
@@ -406,12 +406,12 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Disabled State
                   </label>
                   <Input
                     placeholder="Cannot edit..."
-                    className="bg-gray-100 cursor-not-allowed"
+                    className="bg-white/10 cursor-not-allowed"
                     disabled
                   />
                 </div>
@@ -419,15 +419,15 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Dropdowns */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Dropdown/Select States</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Dropdown/Select States</h2>
 
               <div className="space-y-6 max-w-md">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Closed Default
                   </label>
-                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                  <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                     <option>Select a category...</option>
                     <option>SEO</option>
                     <option>Marketing</option>
@@ -436,10 +436,10 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Multi-Select with Tags
                   </label>
-                  <div className="border border-gray-300 rounded-lg p-2">
+                  <div className="border border-white/20 rounded-lg p-2">
                     <div className="flex flex-wrap gap-2 mb-2">
                       {['SEO', 'Marketing', 'Content'].map((tag, i) => (
                         <Badge key={i} className="bg-[#00B4D8] text-white">
@@ -455,49 +455,49 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Checkboxes and Toggles */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Checkboxes & Toggles</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Checkboxes & Toggles</h2>
 
               <div className="space-y-6">
                 <div className="flex items-center space-x-8">
                   <label className="flex items-center space-x-2 cursor-pointer">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300 text-[#00B4D8] focus:ring-[#00B4D8]"
+                      className="rounded border-white/20 text-[#00B4D8] focus:ring-[#00B4D8]"
                     />
-                    <span className="text-sm text-gray-700">Unchecked</span>
+                    <span className="text-sm text-slate-300">Unchecked</span>
                   </label>
 
                   <label className="flex items-center space-x-2 cursor-pointer">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300 text-[#00B4D8] focus:ring-[#00B4D8]"
+                      className="rounded border-white/20 text-[#00B4D8] focus:ring-[#00B4D8]"
                       defaultChecked
                     />
-                    <span className="text-sm text-gray-700">Checked</span>
+                    <span className="text-sm text-slate-300">Checked</span>
                   </label>
 
                   <label className="flex items-center space-x-2 cursor-not-allowed opacity-50">
-                    <input type="checkbox" className="rounded border-gray-300" disabled />
-                    <span className="text-sm text-gray-700">Disabled</span>
+                    <input type="checkbox" className="rounded border-white/20" disabled />
+                    <span className="text-sm text-slate-300">Disabled</span>
                   </label>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Toggle Switch</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Toggle Switch</div>
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
                       <button className="relative w-12 h-6 bg-gray-300 rounded-full transition-colors">
-                        <div className="absolute top-1 left-1 w-4 h-4 bg-white rounded-full" />
+                        <div className="absolute top-1 left-1 w-4 h-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-full" />
                       </button>
-                      <span className="text-sm text-gray-700">Off</span>
+                      <span className="text-sm text-slate-300">Off</span>
                     </div>
 
                     <div className="flex items-center space-x-2">
                       <button className="relative w-12 h-6 bg-[#00B4D8] rounded-full transition-colors">
-                        <div className="absolute top-1 right-1 w-4 h-4 bg-white rounded-full" />
+                        <div className="absolute top-1 right-1 w-4 h-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-full" />
                       </button>
-                      <span className="text-sm text-gray-700">On</span>
+                      <span className="text-sm text-slate-300">On</span>
                     </div>
                   </div>
                 </div>
@@ -505,14 +505,14 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* File Upload */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">File Upload States</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">File Upload States</h2>
 
               <div className="space-y-6">
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Default Drop Zone</div>
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Default Drop Zone</div>
                   <div
-                    className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer"
+                    className="border-2 border-dashed border-white/20 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer"
                     onDragOver={(e) => {
                       e.preventDefault();
                       setDragOver(true);
@@ -524,63 +524,63 @@ export default function UIStatesGuide() {
                     }}
                   >
                     <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-lg font-medium text-gray-700 mb-2">
+                    <p className="text-lg font-medium text-slate-300 mb-2">
                       Drag and drop your file here
                     </p>
-                    <p className="text-sm text-gray-500">or click to browse</p>
+                    <p className="text-sm text-slate-500">or click to browse</p>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Drag Hover State</div>
-                  <div className="border-2 border-dashed border-[#00B4D8] bg-blue-50 rounded-lg p-8 text-center">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Drag Hover State</div>
+                  <div className="border-2 border-dashed border-[#00B4D8] bg-indigo-900/20 rounded-lg p-8 text-center">
                     <Upload className="w-12 h-12 text-[#00B4D8] mx-auto mb-4" />
                     <p className="text-lg font-medium text-[#00B4D8] mb-2">Drop file here</p>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Uploading State</div>
-                  <div className="border border-gray-300 rounded-lg p-4">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Uploading State</div>
+                  <div className="border border-white/20 rounded-lg p-4">
                     <div className="flex items-center space-x-3 mb-3">
                       <Loader className="w-5 h-5 text-[#00B4D8] animate-spin" />
-                      <span className="text-sm font-medium text-gray-700">
+                      <span className="text-sm font-medium text-slate-300">
                         Uploading image.jpg...
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="w-full bg-white/20 rounded-full h-2">
                       <div className="bg-[#00B4D8] h-2 rounded-full" style={{ width: '65%' }} />
                     </div>
-                    <div className="text-sm text-gray-600 mt-2">65% complete</div>
+                    <div className="text-sm text-slate-400 mt-2">65% complete</div>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Upload Complete</div>
-                  <div className="border border-green-200 bg-green-50 rounded-lg p-4">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Upload Complete</div>
+                  <div className="border border-green-200 bg-emerald-900/20 rounded-lg p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-600" />
                         <div>
-                          <div className="text-sm font-medium text-gray-700">image.jpg</div>
-                          <div className="text-xs text-gray-500">2.3 MB</div>
+                          <div className="text-sm font-medium text-slate-300">image.jpg</div>
+                          <div className="text-xs text-slate-500">2.3 MB</div>
                         </div>
                       </div>
-                      <button className="p-2 hover:bg-green-100 rounded transition-colors">
-                        <X className="w-4 h-4 text-gray-600" />
+                      <button className="p-2 hover:bg-emerald-500/10 rounded transition-colors">
+                        <X className="w-4 h-4 text-slate-400" />
                       </button>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Error State</div>
-                  <div className="border border-red-200 bg-red-50 rounded-lg p-4">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Error State</div>
+                  <div className="border border-red-200 bg-rose-900/20 rounded-lg p-4">
                     <div className="flex items-center space-x-3">
-                      <XCircle className="w-5 h-5 text-red-600" />
+                      <XCircle className="w-5 h-5 text-rose-400" />
                       <div>
-                        <div className="text-sm font-medium text-red-900">Upload failed</div>
-                        <div className="text-xs text-red-700">File size exceeds 5MB limit</div>
+                        <div className="text-sm font-medium text-rose-200">Upload failed</div>
+                        <div className="text-xs text-rose-300">File size exceeds 5MB limit</div>
                       </div>
                     </div>
                   </div>
@@ -594,8 +594,8 @@ export default function UIStatesGuide() {
         {activeSection === 'notifications' && (
           <div className="space-y-8">
             {/* Toast Notifications */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Toast Notifications</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Toast Notifications</h2>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -631,7 +631,7 @@ export default function UIStatesGuide() {
 
                 <div className="space-y-4 mt-6">
                   {/* Success Toast Example */}
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 shadow-lg max-w-md">
+                  <div className="bg-emerald-900/20 border border-green-200 rounded-lg p-4 shadow-lg max-w-md">
                     <div className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
@@ -647,23 +647,23 @@ export default function UIStatesGuide() {
                   </div>
 
                   {/* Error Toast Example */}
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 shadow-lg max-w-md">
+                  <div className="bg-rose-900/20 border border-red-200 rounded-lg p-4 shadow-lg max-w-md">
                     <div className="flex items-start space-x-3">
-                      <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                      <XCircle className="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
-                        <div className="font-semibold text-red-900">Error</div>
-                        <div className="text-sm text-red-700 mt-1">
+                        <div className="font-semibold text-rose-200">Error</div>
+                        <div className="text-sm text-rose-300 mt-1">
                           Failed to save. Please try again.
                         </div>
                       </div>
-                      <button className="text-red-600 hover:text-red-800">
+                      <button className="text-rose-400 hover:text-red-800">
                         <X className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
 
                   {/* Warning Toast Example */}
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 shadow-lg max-w-md">
+                  <div className="bg-amber-900/20 border border-yellow-200 rounded-lg p-4 shadow-lg max-w-md">
                     <div className="flex items-start space-x-3">
                       <AlertTriangle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
@@ -679,16 +679,16 @@ export default function UIStatesGuide() {
                   </div>
 
                   {/* Info Toast Example */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-lg max-w-md">
+                  <div className="bg-indigo-900/20 border border-blue-200 rounded-lg p-4 shadow-lg max-w-md">
                     <div className="flex items-start space-x-3">
-                      <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Info className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
-                        <div className="font-semibold text-blue-900">Info</div>
-                        <div className="text-sm text-blue-700 mt-1">
+                        <div className="font-semibold text-indigo-200">Info</div>
+                        <div className="text-sm text-indigo-300 mt-1">
                           Your report is being generated...
                         </div>
                       </div>
-                      <button className="text-blue-600 hover:text-blue-800">
+                      <button className="text-indigo-400 hover:text-indigo-300">
                         <X className="w-4 h-4" />
                       </button>
                     </div>
@@ -698,8 +698,8 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Modal Dialogs */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Modal Dialogs</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Modal Dialogs</h2>
 
               <div className="space-y-6">
                 <div>
@@ -712,15 +712,15 @@ export default function UIStatesGuide() {
                 </div>
 
                 {/* Confirmation Modal Example */}
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
-                  <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-6">
-                    <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Delete Blog Post?</h3>
-                    <p className="text-gray-600 mb-6">
+                <div className="border-2 border-dashed border-white/20 rounded-lg p-6">
+                  <div className="max-w-md mx-auto bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6">
+                    <h3 className="text-xl font-bold text-white mb-4">Delete Blog Post?</h3>
+                    <p className="text-slate-400 mb-6">
                       Are you sure you want to delete "{'"SEO Best Practices 2025"'}? This action
                       cannot be undone.
                     </p>
                     <div className="flex items-center justify-end space-x-3">
-                      <Button variant="outline" className="border-gray-300">
+                      <Button variant="outline" className="border-white/20">
                         Cancel
                       </Button>
                       <Button className="bg-red-600 hover:bg-red-700 text-white">Delete</Button>
@@ -729,20 +729,20 @@ export default function UIStatesGuide() {
                 </div>
 
                 {/* Success Modal Example */}
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
-                  <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-6 text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="border-2 border-dashed border-white/20 rounded-lg p-6">
+                  <div className="max-w-md mx-auto bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6 text-center">
+                    <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Success!</h3>
-                    <p className="text-gray-600 mb-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">Success!</h3>
+                    <p className="text-slate-400 mb-6">
                       Your blog post has been published to thinkments.com
                     </p>
                     <div className="space-y-3">
                       <Button className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                         View Live Post
                       </Button>
-                      <Button variant="outline" className="w-full border-gray-300">
+                      <Button variant="outline" className="w-full border-white/20">
                         Create Another Post
                       </Button>
                     </div>
@@ -752,25 +752,25 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Loading States */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Loading States</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Loading States</h2>
 
               <div className="space-y-6">
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Spinner (Centered)</div>
-                  <div className="border border-gray-200 rounded-lg p-12 flex items-center justify-center">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Spinner (Centered)</div>
+                  <div className="border border-white/10 rounded-lg p-12 flex items-center justify-center">
                     <Loader className="w-8 h-8 text-[#00B4D8] animate-spin" />
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Progress Bar</div>
-                  <div className="border border-gray-200 rounded-lg p-6">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Progress Bar</div>
+                  <div className="border border-white/10 rounded-lg p-6">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-700">Publishing...</span>
+                      <span className="text-sm font-medium text-slate-300">Publishing...</span>
                       <span className="text-sm font-semibold text-[#00B4D8]">75%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="w-full bg-white/20 rounded-full h-2">
                       <div
                         className="bg-[#00B4D8] h-2 rounded-full transition-all"
                         style={{ width: '75%' }}
@@ -780,28 +780,28 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">
                     Skeleton Placeholder
                   </div>
-                  <div className="border border-gray-200 rounded-lg p-6 space-y-3">
-                    <div className="h-4 bg-gray-200 rounded animate-pulse" />
-                    <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
-                    <div className="h-4 bg-gray-200 rounded animate-pulse w-1/2" />
+                  <div className="border border-white/10 rounded-lg p-6 space-y-3">
+                    <div className="h-4 bg-white/20 rounded animate-pulse" />
+                    <div className="h-4 bg-white/20 rounded animate-pulse w-3/4" />
+                    <div className="h-4 bg-white/20 rounded animate-pulse w-1/2" />
                   </div>
                 </div>
               </div>
             </Card>
 
             {/* Empty States */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Empty States</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Empty States</h2>
 
-              <div className="border border-gray-200 rounded-lg p-12 text-center">
-                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="border border-white/10 rounded-lg p-12 text-center">
+                <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <FileText className="w-12 h-12 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-2">No blog posts yet</h3>
-                <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                <h3 className="text-xl font-bold text-white mb-2">No blog posts yet</h3>
+                <p className="text-slate-400 mb-6 max-w-md mx-auto">
                   Get started by creating your first blog post to share with your audience.
                 </p>
                 <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
@@ -816,8 +816,8 @@ export default function UIStatesGuide() {
         {/* SECTION 4: USER FLOWS */}
         {activeSection === 'workflows' && (
           <div className="space-y-8">
-            <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-8 text-center">
+            <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-8 text-center">
                 Blog Post Publishing Flow
               </h2>
 
@@ -874,19 +874,19 @@ export default function UIStatesGuide() {
                         {item.step}
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-[#1E3A5F] text-lg mb-1">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
+                        <h3 className="font-bold text-white text-lg mb-1">{item.title}</h3>
+                        <p className="text-slate-400">{item.description}</p>
                       </div>
                     </div>
-                    {i < 6 && <div className="ml-6 mt-4 mb-4 border-l-2 border-gray-300 h-8" />}
+                    {i < 6 && <div className="ml-6 mt-4 mb-4 border-l-2 border-white/20 h-8" />}
                   </div>
                 ))}
               </div>
             </Card>
 
             {/* Scheduled Publishing Flow */}
-            <Card className="p-8 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-8 text-center">
+            <Card className="p-8 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-8 text-center">
                 Scheduled Publishing Flow
               </h2>
 
@@ -939,11 +939,11 @@ export default function UIStatesGuide() {
                         {item.step}
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-[#1E3A5F] mb-1">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.description}</p>
+                        <h3 className="font-bold text-white mb-1">{item.title}</h3>
+                        <p className="text-sm text-slate-400">{item.description}</p>
                       </div>
                     </div>
-                    {i < 7 && <div className="ml-5 mt-3 mb-3 border-l-2 border-gray-300 h-6" />}
+                    {i < 7 && <div className="ml-5 mt-3 mb-3 border-l-2 border-white/20 h-6" />}
                   </div>
                 ))}
               </div>
@@ -954,15 +954,15 @@ export default function UIStatesGuide() {
         {/* SECTION 5: SYNC STATUS */}
         {activeSection === 'sync' && (
           <div className="space-y-8">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Connection Status Indicators
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="bg-emerald-900/20 border border-green-200 rounded-lg p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full" />
+                    <div className="w-3 h-3 bg-emerald-900/200 rounded-full" />
                     <div>
                       <div className="font-semibold text-green-900">Connected</div>
                       <div className="text-sm text-green-700">Live connection to site</div>
@@ -970,9 +970,9 @@ export default function UIStatesGuide() {
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <div className="bg-amber-900/20 border border-yellow-200 rounded-lg p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-amber-900/200 rounded-full animate-pulse" />
                     <div>
                       <div className="font-semibold text-yellow-900">Syncing...</div>
                       <div className="text-sm text-yellow-700">Pushing changes to site</div>
@@ -980,25 +980,25 @@ export default function UIStatesGuide() {
                   </div>
                 </div>
 
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-rose-900/20 border border-red-200 rounded-lg p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full" />
+                    <div className="w-3 h-3 bg-rose-900/200 rounded-full" />
                     <div className="flex-1">
-                      <div className="font-semibold text-red-900">Offline</div>
-                      <div className="text-sm text-red-700">Connection issue</div>
+                      <div className="font-semibold text-rose-200">Offline</div>
+                      <div className="text-sm text-rose-300">Connection issue</div>
                     </div>
-                    <Button size="sm" variant="outline" className="border-red-600 text-red-600">
+                    <Button size="sm" variant="outline" className="border-red-600 text-rose-400">
                       Retry
                     </Button>
                   </div>
                 </div>
 
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="bg-indigo-900/20 border border-blue-200 rounded-lg p-4">
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <CheckCircle className="w-5 h-5 text-indigo-400" />
                     <div>
-                      <div className="font-semibold text-blue-900">All changes saved</div>
-                      <div className="text-sm text-blue-700">Last synced: 2 min ago</div>
+                      <div className="font-semibold text-indigo-200">All changes saved</div>
+                      <div className="text-sm text-indigo-300">Last synced: 2 min ago</div>
                     </div>
                   </div>
                 </div>
@@ -1006,13 +1006,13 @@ export default function UIStatesGuide() {
             </Card>
 
             {/* Build Status */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Build/Deploy Status (Netlify)
               </h2>
 
               <div className="space-y-4">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="bg-emerald-900/20 border border-green-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <Globe className="w-5 h-5 text-green-600" />
@@ -1025,7 +1025,7 @@ export default function UIStatesGuide() {
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <div className="bg-amber-900/20 border border-yellow-200 rounded-lg p-4">
                   <div className="flex items-center space-x-3 mb-3">
                     <Loader className="w-5 h-5 text-yellow-600 animate-spin" />
                     <div className="flex-1">
@@ -1041,19 +1041,19 @@ export default function UIStatesGuide() {
                   </div>
                 </div>
 
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-rose-900/20 border border-red-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <XCircle className="w-5 h-5 text-red-600" />
+                      <XCircle className="w-5 h-5 text-rose-400" />
                       <div>
-                        <div className="font-semibold text-red-900">Deploy failed</div>
-                        <div className="text-sm text-red-700">
+                        <div className="font-semibold text-rose-200">Deploy failed</div>
+                        <div className="text-sm text-rose-300">
                           Build error in sitemap generation
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Button size="sm" variant="outline" className="border-gray-300">
+                      <Button size="sm" variant="outline" className="border-white/20">
                         View Log
                       </Button>
                       <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white">
@@ -1070,15 +1070,15 @@ export default function UIStatesGuide() {
         {/* SECTION 6: ERROR HANDLING */}
         {activeSection === 'errors' && (
           <div className="space-y-8">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Network Error State</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Network Error State</h2>
 
-              <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+              <div className="bg-rose-900/20 border-2 border-red-200 rounded-lg p-6">
                 <div className="flex items-start space-x-4">
-                  <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
+                  <AlertCircle className="w-6 h-6 text-rose-400 flex-shrink-0 mt-1" />
                   <div className="flex-1">
-                    <h3 className="font-bold text-red-900 text-lg mb-2">Connection Lost</h3>
-                    <p className="text-red-700 mb-4">
+                    <h3 className="font-bold text-rose-200 text-lg mb-2">Connection Lost</h3>
+                    <p className="text-rose-300 mb-4">
                       Your work is saved locally. We'll sync when connection is restored.
                     </p>
                     <div className="flex items-center space-x-3">
@@ -1086,41 +1086,41 @@ export default function UIStatesGuide() {
                         <RefreshCw className="w-4 h-4 mr-2" />
                         Retry Connection
                       </Button>
-                      <div className="text-sm text-red-600">Auto-retry in 30s...</div>
+                      <div className="text-sm text-rose-400">Auto-retry in 30s...</div>
                     </div>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Validation Errors</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Validation Errors</h2>
 
               <div className="space-y-6">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-rose-900/20 border border-red-200 rounded-lg p-4">
                   <div className="flex items-start space-x-3 mb-4">
-                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-red-900 mb-2">Fix 3 errors to continue</h3>
-                      <ul className="space-y-1 text-sm text-red-700">
+                      <h3 className="font-semibold text-rose-200 mb-2">Fix 3 errors to continue</h3>
+                      <ul className="space-y-1 text-sm text-rose-300">
                         <li>• Title is required</li>
                         <li>• Featured image must be uploaded</li>
                         <li>• Meta description cannot be empty</li>
                       </ul>
                     </div>
                   </div>
-                  <Button size="sm" variant="outline" className="border-red-600 text-red-600">
+                  <Button size="sm" variant="outline" className="border-red-600 text-rose-400">
                     Scroll to First Error
                   </Button>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Title *
                     </label>
                     <Input className="border-red-600 focus:ring-red-600" />
-                    <div className="flex items-center space-x-1 mt-1 text-red-600 text-sm">
+                    <div className="flex items-center space-x-1 mt-1 text-rose-400 text-sm">
                       <AlertCircle className="w-4 h-4" />
                       <span>This field is required</span>
                     </div>
@@ -1129,26 +1129,26 @@ export default function UIStatesGuide() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Publish Failure</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Publish Failure</h2>
 
               <div className="max-w-md mx-auto">
-                <div className="bg-white rounded-lg shadow-xl p-6">
+                <div className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6">
                   <div className="flex items-start space-x-3 mb-4">
-                    <XCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
+                    <XCircle className="w-6 h-6 text-rose-400 flex-shrink-0" />
                     <div>
-                      <h3 className="font-bold text-red-900 text-lg">Failed to Publish</h3>
-                      <p className="text-sm text-red-700 mt-1">
+                      <h3 className="font-bold text-rose-200 text-lg">Failed to Publish</h3>
+                      <p className="text-sm text-rose-300 mt-1">
                         Unable to connect to server. Please check your internet connection.
                       </p>
                     </div>
                   </div>
 
                   <details className="mb-4">
-                    <summary className="text-sm font-medium text-gray-700 cursor-pointer">
+                    <summary className="text-sm font-medium text-slate-300 cursor-pointer">
                       Error details
                     </summary>
-                    <div className="mt-2 text-xs bg-gray-100 p-3 rounded font-mono text-gray-600">
+                    <div className="mt-2 text-xs bg-white/10 p-3 rounded font-mono text-slate-400">
                       Network Error: ERR_CONNECTION_REFUSED
                     </div>
                   </details>
@@ -1157,7 +1157,7 @@ export default function UIStatesGuide() {
                     <Button className="flex-1 bg-[#00B4D8] hover:bg-[#0096b8] text-white">
                       Try Again
                     </Button>
-                    <Button variant="outline" className="flex-1 border-gray-300">
+                    <Button variant="outline" className="flex-1 border-white/20">
                       Save as Draft
                     </Button>
                   </div>
@@ -1174,21 +1174,21 @@ export default function UIStatesGuide() {
         {/* SECTION 7: CONFIRMATIONS */}
         {activeSection === 'confirmations' && (
           <div className="space-y-8">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Delete Confirmation Patterns
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">
                     Click Again to Confirm
                   </div>
                   <div className="flex items-center space-x-4">
                     {deleteState === 'default' ? (
                       <Button
                         variant="outline"
-                        className="border-red-600 text-red-600"
+                        className="border-red-600 text-rose-400"
                         onClick={() => setDeleteState('confirm')}
                       >
                         <Trash2 className="w-4 h-4 mr-2" />
@@ -1207,16 +1207,16 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Modal Confirmation</div>
-                  <div className="max-w-md bg-white rounded-lg shadow-xl p-6 border-2 border-dashed border-gray-300">
-                    <h3 className="text-xl font-bold text-[#1E3A5F] mb-2">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Modal Confirmation</div>
+                  <div className="max-w-md bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6 border-2 border-dashed border-white/20">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       Delete "SEO Best Practices 2025"?
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-slate-400 mb-6">
                       This action cannot be undone. This will permanently delete the blog post.
                     </p>
                     <div className="flex items-center justify-end space-x-3">
-                      <Button variant="outline" className="border-gray-300">
+                      <Button variant="outline" className="border-white/20">
                         Cancel
                       </Button>
                       <Button className="bg-red-600 hover:bg-red-700 text-white">
@@ -1228,31 +1228,31 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">
                     Type to Confirm (Critical)
                   </div>
-                  <div className="max-w-md bg-white rounded-lg shadow-xl p-6 border-2 border-dashed border-gray-300">
-                    <h3 className="text-xl font-bold text-[#1E3A5F] mb-2">
+                  <div className="max-w-md bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6 border-2 border-dashed border-white/20">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       Delete All Client Data?
                     </h3>
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+                    <div className="bg-rose-900/20 border border-red-200 rounded-lg p-3 mb-4">
                       <div className="flex items-start space-x-2">
-                        <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                        <div className="text-sm text-red-700">
+                        <AlertTriangle className="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                        <div className="text-sm text-rose-300">
                           This will permanently delete all client data, reports, and analytics. This
                           cannot be undone.
                         </div>
                       </div>
                     </div>
                     <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Type <code className="bg-gray-200 px-2 py-0.5 rounded">DELETE</code> to
+                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                        Type <code className="bg-white/20 px-2 py-0.5 rounded">DELETE</code> to
                         confirm:
                       </label>
                       <Input placeholder="Type DELETE here..." />
                     </div>
                     <div className="flex items-center justify-end space-x-3">
-                      <Button variant="outline" className="border-gray-300">
+                      <Button variant="outline" className="border-white/20">
                         Cancel
                       </Button>
                       <Button className="bg-red-600 hover:bg-red-700 text-white" disabled>
@@ -1264,11 +1264,11 @@ export default function UIStatesGuide() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Publish Confirmation</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Publish Confirmation</h2>
 
-              <div className="max-w-lg mx-auto bg-white rounded-lg shadow-xl p-6 border-2 border-dashed border-gray-300">
-                <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">Ready to Publish?</h3>
+              <div className="max-w-lg mx-auto bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6 border-2 border-dashed border-white/20">
+                <h3 className="text-2xl font-bold text-white mb-4">Ready to Publish?</h3>
 
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=200&fit=crop"
@@ -1288,13 +1288,13 @@ export default function UIStatesGuide() {
                       <CheckCircle
                         className={`w-4 h-4 ${item.isWarning ? 'text-yellow-600' : 'text-green-600'}`}
                       />
-                      <span className="text-sm text-gray-700">{item.label}</span>
+                      <span className="text-sm text-slate-300">{item.label}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="flex items-center justify-end space-x-3">
-                  <Button variant="outline" className="border-gray-300">
+                  <Button variant="outline" className="border-white/20">
                     Cancel
                   </Button>
                   <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
@@ -1305,10 +1305,10 @@ export default function UIStatesGuide() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Unsaved Changes Warning</h2>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">Unsaved Changes Warning</h2>
 
-              <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-6 border-2 border-dashed border-gray-300">
+              <div className="max-w-md mx-auto bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-xl p-6 border-2 border-dashed border-white/20">
                 <div className="flex items-start space-x-3 mb-4">
                   <AlertTriangle className="w-6 h-6 text-yellow-600 flex-shrink-0" />
                   <div>
@@ -1326,11 +1326,11 @@ export default function UIStatesGuide() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="w-full border-red-600 text-red-600 hover:bg-red-50"
+                    className="w-full border-red-600 text-rose-400 hover:bg-rose-900/20"
                   >
                     Leave Without Saving
                   </Button>
-                  <Button variant="outline" className="w-full border-gray-300">
+                  <Button variant="outline" className="w-full border-white/20">
                     Cancel
                   </Button>
                 </div>
@@ -1342,17 +1342,17 @@ export default function UIStatesGuide() {
         {/* SECTION 8: COLLABORATION */}
         {activeSection === 'collaboration' && (
           <div className="space-y-8">
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Real-Time Collaboration Indicators
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">
                     Currently Being Edited Banner
                   </div>
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                  <div className="bg-amber-900/20 border border-yellow-200 rounded-lg p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center">
@@ -1377,24 +1377,24 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Locked Content</div>
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
-                    <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <AlertCircle className="w-8 h-8 text-gray-600" />
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Locked Content</div>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-6 text-center">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <AlertCircle className="w-8 h-8 text-slate-400" />
                     </div>
-                    <h3 className="font-bold text-gray-900 mb-2">Content Locked</h3>
-                    <p className="text-sm text-gray-600 mb-4">
+                    <h3 className="font-bold text-gray-100 mb-2">Content Locked</h3>
+                    <p className="text-sm text-slate-400 mb-4">
                       This content is currently locked by John Doe
                     </p>
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       Request Access
                     </Button>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">Activity Feed</div>
-                  <div className="border border-gray-200 rounded-lg divide-y">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">Activity Feed</div>
+                  <div className="border border-white/10 rounded-lg divide-y">
                     {[
                       {
                         user: 'Jane Smith',
@@ -1415,7 +1415,7 @@ export default function UIStatesGuide() {
                         avatar: 'SW',
                       },
                     ].map((activity, i) => (
-                      <div key={i} className="p-4 hover:bg-gray-50">
+                      <div key={i} className="p-4 hover:bg-white/5">
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center flex-shrink-0">
                             <span className="text-white text-sm font-semibold">
@@ -1423,11 +1423,11 @@ export default function UIStatesGuide() {
                             </span>
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm text-gray-900">
+                            <p className="text-sm text-gray-100">
                               <span className="font-semibold">{activity.user}</span>{' '}
                               {activity.action}
                             </p>
-                            <p className="text-xs text-gray-500">{activity.time}</p>
+                            <p className="text-xs text-slate-500">{activity.time}</p>
                           </div>
                         </div>
                       </div>
@@ -1436,7 +1436,7 @@ export default function UIStatesGuide() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-semibold text-gray-700 mb-3">
+                  <div className="text-sm font-semibold text-slate-300 mb-3">
                     Team Members Online
                   </div>
                   <div className="flex items-center space-x-3">
@@ -1445,10 +1445,10 @@ export default function UIStatesGuide() {
                         <div className="w-10 h-10 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center">
                           <span className="text-white text-sm font-semibold">{initials}</span>
                         </div>
-                        <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full" />
+                        <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-900/200 border-2 border-white rounded-full" />
                       </div>
                     ))}
-                    <div className="text-sm text-gray-600 ml-2">+3 more online</div>
+                    <div className="text-sm text-slate-400 ml-2">+3 more online</div>
                   </div>
                 </div>
               </div>
@@ -1468,12 +1468,12 @@ export default function UIStatesGuide() {
           >
             <div
               className={`${toastType === 'success'
-                  ? 'bg-green-50 border-green-200'
+                  ? 'bg-emerald-900/20 border-green-200'
                   : toastType === 'error'
-                    ? 'bg-red-50 border-red-200'
+                    ? 'bg-rose-900/20 border-red-200'
                     : toastType === 'warning'
-                      ? 'bg-yellow-50 border-yellow-200'
-                      : 'bg-blue-50 border-blue-200'
+                      ? 'bg-amber-900/20 border-yellow-200'
+                      : 'bg-indigo-900/20 border-blue-200'
                 } border rounded-lg p-4 shadow-2xl min-w-[320px]`}
             >
               <div className="flex items-start space-x-3">
@@ -1481,21 +1481,21 @@ export default function UIStatesGuide() {
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                 )}
                 {toastType === 'error' && (
-                  <XCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                  <XCircle className="w-5 h-5 text-rose-400 flex-shrink-0" />
                 )}
                 {toastType === 'warning' && (
                   <AlertTriangle className="w-5 h-5 text-yellow-600 flex-shrink-0" />
                 )}
-                {toastType === 'info' && <Info className="w-5 h-5 text-blue-600 flex-shrink-0" />}
+                {toastType === 'info' && <Info className="w-5 h-5 text-indigo-400 flex-shrink-0" />}
                 <div className="flex-1">
                   <div
                     className={`font-semibold ${toastType === 'success'
                         ? 'text-green-900'
                         : toastType === 'error'
-                          ? 'text-red-900'
+                          ? 'text-rose-200'
                           : toastType === 'warning'
                             ? 'text-yellow-900'
-                            : 'text-blue-900'
+                            : 'text-indigo-200'
                       }`}
                   >
                     {toastType === 'success' && 'Success!'}
@@ -1507,10 +1507,10 @@ export default function UIStatesGuide() {
                     className={`text-sm mt-1 ${toastType === 'success'
                         ? 'text-green-700'
                         : toastType === 'error'
-                          ? 'text-red-700'
+                          ? 'text-rose-300'
                           : toastType === 'warning'
                             ? 'text-yellow-700'
-                            : 'text-blue-700'
+                            : 'text-indigo-300'
                       }`}
                   >
                     {toastType === 'success' && 'Blog post published successfully!'}
@@ -1524,10 +1524,10 @@ export default function UIStatesGuide() {
                   className={`${toastType === 'success'
                       ? 'text-green-600 hover:text-green-800'
                       : toastType === 'error'
-                        ? 'text-red-600 hover:text-red-800'
+                        ? 'text-rose-400 hover:text-red-800'
                         : toastType === 'warning'
                           ? 'text-yellow-600 hover:text-yellow-800'
-                          : 'text-blue-600 hover:text-blue-800'
+                          : 'text-indigo-400 hover:text-indigo-300'
                     }`}
                 >
                   <X className="w-4 h-4" />

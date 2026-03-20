@@ -222,11 +222,11 @@ export default function ReviewsManagement() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Reviews Management</h1>
-            <p className="text-gray-600">
+            <h1 className="text-whitexl font-bold text-white mb-2">Reviews Management</h1>
+            <p className="text-slate-400">
               Monitor and respond to customer reviews across all platforms
             </p>
           </div>
@@ -247,7 +247,7 @@ export default function ReviewsManagement() {
                 onClick={() => setActiveTab(tab.id as 'reviews' | 'templates' | 'requests' | 'sentiment')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
                   ? 'bg-[#00B4D8] text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
                   }`}
               >
                 <Icon className="w-4 h-4" />
@@ -263,7 +263,7 @@ export default function ReviewsManagement() {
           <select
             value={selectedClient}
             onChange={(e) => setSelectedClient(e.target.value)}
-            className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+            className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
           >
             {clients.map((client) => (
               <option key={client.id} value={client.id}>
@@ -273,12 +273,12 @@ export default function ReviewsManagement() {
           </select>
 
           {/* Platform Filter */}
-          <div className="flex items-center bg-gray-100 rounded-lg p-1">
+          <div className="flex items-center bg-white/10 rounded-lg p-1">
             {platforms.map((platform) => (
               <button
                 key={platform}
                 onClick={() => setSelectedPlatform(platform)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedPlatform === platform ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedPlatform === platform ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                   }`}
               >
                 {platform}
@@ -289,7 +289,7 @@ export default function ReviewsManagement() {
           {/* Date Range */}
           <div className="flex items-center space-x-2">
             <Calendar className="w-4 h-4 text-gray-400" />
-            <select className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
+            <select className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
               <option>Last 30 days</option>
               <option>Last 90 days</option>
               <option>Last year</option>
@@ -298,17 +298,17 @@ export default function ReviewsManagement() {
           </div>
 
           {/* View Toggle */}
-          <div className="flex items-center bg-gray-100 rounded-lg p-1 ml-auto">
+          <div className="flex items-center bg-white/10 rounded-lg p-1 ml-auto">
             <button
               onClick={() => setFilterView('all')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filterView === 'all' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filterView === 'all' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                 }`}
             >
               All Reviews
             </button>
             <button
               onClick={() => setFilterView('needs-response')}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filterView === 'needs-response' ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${filterView === 'needs-response' ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                 }`}
             >
               Needs Response
@@ -327,63 +327,63 @@ export default function ReviewsManagement() {
           <>
             {/* Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Overall Rating</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Overall Rating</div>
                 <div className="flex items-center space-x-2">
-                  <div className="text-3xl font-bold text-[#1E3A5F]">{stats.overallRating}</div>
+                  <div className="text-whitexl font-bold text-white">{stats.overallRating}</div>
                   <StarRating rating={Math.round(stats.overallRating)} size="sm" />
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Total Reviews</div>
-                <div className="text-3xl font-bold text-[#1E3A5F]">{stats.totalReviews}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Total Reviews</div>
+                <div className="text-whitexl font-bold text-white">{stats.totalReviews}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">This Month</div>
-                <div className="text-3xl font-bold text-[#00B4D8]">{stats.thisMonth.count}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">This Month</div>
+                <div className="text-whitexl font-bold text-[#00B4D8]">{stats.thisMonth.count}</div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   {stats.thisMonth.change}%
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Avg Response Time</div>
-                <div className="text-3xl font-bold text-[#1E3A5F]">{stats.avgResponseTime}</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Avg Response Time</div>
+                <div className="text-whitexl font-bold text-white">{stats.avgResponseTime}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Response Rate</div>
-                <div className="text-3xl font-bold text-green-600">{stats.responseRate}%</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Response Rate</div>
+                <div className="text-whitexl font-bold text-green-600">{stats.responseRate}%</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <div className="text-sm text-gray-600 mb-2">Positive</div>
-                <div className="text-3xl font-bold text-green-600">{stats.sentiment.positive}%</div>
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <div className="text-sm text-slate-400 mb-2">Positive</div>
+                <div className="text-whitexl font-bold text-green-600">{stats.sentiment.positive}%</div>
               </Card>
             </div>
 
             {/* Rating Breakdown */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
-              <h3 className="font-bold text-[#1E3A5F] mb-4">Rating Distribution</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
+              <h3 className="font-bold text-white mb-4">Rating Distribution</h3>
               <div className="space-y-3">
                 {ratingDistribution.map((item) => (
                   <div key={item.stars} className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2 w-24">
-                      <span className="text-sm font-medium text-gray-700">{item.stars}</span>
+                      <span className="text-sm font-medium text-slate-300">{item.stars}</span>
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     </div>
                     <div className="flex-1">
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-white/20 rounded-full h-2">
                         <div
                           className="bg-yellow-400 h-2 rounded-full transition-all"
                           style={{ width: `${(item.count / totalRatings) * 100}%` }}
                         />
                       </div>
                     </div>
-                    <div className="text-sm font-medium text-gray-700 w-16 text-right">
+                    <div className="text-sm font-medium text-slate-300 w-16 text-right">
                       {item.count}
                     </div>
                   </div>
@@ -392,9 +392,9 @@ export default function ReviewsManagement() {
             </Card>
 
             {/* Reviews Feed */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-[#1E3A5F]">Recent Reviews</h2>
+                <h2 className="text-xl font-bold text-white">Recent Reviews</h2>
 
                 {/* Search */}
                 <div className="relative w-64">
@@ -410,7 +410,7 @@ export default function ReviewsManagement() {
 
               <div className="space-y-4">
                 {filteredReviews.map((review) => (
-                  <div key={review.id} className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+                  <div key={review.id} className="p-6 bg-white/5 rounded-lg border border-white/10">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-start space-x-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] rounded-full flex items-center justify-center">
@@ -418,13 +418,13 @@ export default function ReviewsManagement() {
                         </div>
                         <div>
                           <div className="flex items-center space-x-3 mb-2">
-                            <span className="font-semibold text-[#1E3A5F]">{review.reviewer}</span>
+                            <span className="font-semibold text-white">{review.reviewer}</span>
                             <Badge
                               className={`${review.platform === 'Google'
-                                ? 'bg-blue-100 text-blue-700'
+                                ? 'bg-indigo-500/10 text-indigo-300'
                                 : review.platform === 'Facebook'
                                   ? 'bg-indigo-100 text-indigo-700'
-                                  : 'bg-red-100 text-red-700'
+                                  : 'bg-rose-500/10 text-rose-300'
                                 }`}
                             >
                               {review.platform}
@@ -432,7 +432,7 @@ export default function ReviewsManagement() {
                           </div>
                           <div className="flex items-center space-x-3 mb-2">
                             <StarRating rating={review.rating} size="sm" />
-                            <span className="text-sm text-gray-500">{review.date}</span>
+                            <span className="text-sm text-slate-500">{review.date}</span>
                           </div>
                         </div>
                       </div>
@@ -442,17 +442,17 @@ export default function ReviewsManagement() {
                       )}
                     </div>
 
-                    <p className="text-gray-700 mb-4 leading-relaxed">{review.text}</p>
+                    <p className="text-slate-300 mb-4 leading-relaxed">{review.text}</p>
 
                     {review.responded && review.response && (
-                      <div className="pl-6 border-l-4 border-[#00B4D8] bg-blue-50 p-4 rounded-lg mb-4">
+                      <div className="pl-6 border-l-4 border-[#00B4D8] bg-indigo-900/20 p-4 rounded-lg mb-4">
                         <div className="flex items-center space-x-2 mb-2">
                           <MessageSquare className="w-4 h-4 text-[#00B4D8]" />
-                          <span className="text-sm font-semibold text-[#1E3A5F]">
+                          <span className="text-sm font-semibold text-white">
                             Your Response:
                           </span>
                         </div>
-                        <p className="text-sm text-gray-700">{review.response}</p>
+                        <p className="text-sm text-slate-300">{review.response}</p>
                       </div>
                     )}
 
@@ -491,8 +491,8 @@ export default function ReviewsManagement() {
           <>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Response Templates</h2>
-                <p className="text-sm text-gray-600">
+                <h2 className="text-2xl font-bold text-white mb-1">Response Templates</h2>
+                <p className="text-sm text-slate-400">
                   Save time with pre-written response templates
                 </p>
               </div>
@@ -509,24 +509,24 @@ export default function ReviewsManagement() {
               {templates.map((template) => (
                 <Card
                   key={template.id}
-                  className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm"
+                  className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-bold text-[#1E3A5F] mb-2">{template.name}</h3>
+                      <h3 className="font-bold text-white mb-2">{template.name}</h3>
                       <StarRating rating={template.rating} size="sm" />
                     </div>
                     <div className="flex items-center space-x-2">
-                      <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-                        <Edit2 className="w-4 h-4 text-gray-600" />
+                      <button className="p-2 hover:bg-white/10 rounded transition-colors">
+                        <Edit2 className="w-4 h-4 text-slate-400" />
                       </button>
-                      <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-                        <Trash2 className="w-4 h-4 text-red-600" />
+                      <button className="p-2 hover:bg-white/10 rounded transition-colors">
+                        <Trash2 className="w-4 h-4 text-rose-400" />
                       </button>
                     </div>
                   </div>
 
-                  <p className="text-sm text-gray-700 mb-4 p-4 bg-gray-50 rounded-lg">
+                  <p className="text-sm text-slate-300 mb-4 p-4 bg-white/5 rounded-lg">
                     {template.text}
                   </p>
 
@@ -548,26 +548,26 @@ export default function ReviewsManagement() {
         {activeTab === 'requests' && (
           <div className="max-w-4xl mx-auto">
             <div className="mb-6 text-center">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">Review Request Tools</h2>
-              <p className="text-gray-600">
+              <h2 className="text-2xl font-bold text-white mb-2">Review Request Tools</h2>
+              <p className="text-slate-400">
                 Generate links and campaigns to request reviews from customers
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Review Link Generator */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#00B4D8] rounded-lg flex items-center justify-center">
                     <LinkIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[#1E3A5F]">Review Link</h3>
-                    <p className="text-sm text-gray-600">Short URL for easy sharing</p>
+                    <h3 className="font-bold text-white">Review Link</h3>
+                    <p className="text-sm text-slate-400">Short URL for easy sharing</p>
                   </div>
                 </div>
 
-                <div className="p-4 bg-gray-50 rounded-lg mb-4">
+                <div className="p-4 bg-white/5 rounded-lg mb-4">
                   <code className="text-sm text-[#00B4D8]">reviews.thinkments.com/123abc</code>
                 </div>
 
@@ -576,31 +576,31 @@ export default function ReviewsManagement() {
                     <Copy className="w-4 h-4 mr-2" />
                     Copy Link
                   </Button>
-                  <Button variant="outline" className="border-gray-300">
+                  <Button variant="outline" className="border-white/20">
                     <QrCode className="w-4 h-4" />
                   </Button>
                 </div>
               </Card>
 
               {/* QR Code */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-[#1E3A5F] rounded-lg flex items-center justify-center">
                     <QrCode className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[#1E3A5F]">QR Code</h3>
-                    <p className="text-sm text-gray-600">For printed materials</p>
+                    <h3 className="font-bold text-white">QR Code</h3>
+                    <p className="text-sm text-slate-400">For printed materials</p>
                   </div>
                 </div>
 
-                <div className="bg-gray-100 rounded-lg p-8 flex items-center justify-center mb-4">
-                  <div className="w-40 h-40 bg-white rounded-lg flex items-center justify-center border-2 border-gray-300">
+                <div className="bg-white/10 rounded-lg p-8 flex items-center justify-center mb-4">
+                  <div className="w-40 h-40 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg flex items-center justify-center border-2 border-white/20">
                     <QrCode className="w-24 h-24 text-gray-400" />
                   </div>
                 </div>
 
-                <Button variant="outline" className="w-full border-gray-300">
+                <Button variant="outline" className="w-full border-white/20">
                   <Download className="w-4 h-4 mr-2" />
                   Download QR Code
                 </Button>
@@ -608,22 +608,22 @@ export default function ReviewsManagement() {
             </div>
 
             {/* Email Template */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-6">
               <div className="flex items-center space-x-3 mb-4">
                 <Mail className="w-5 h-5 text-[#00B4D8]" />
-                <h3 className="font-bold text-[#1E3A5F]">Email Template</h3>
+                <h3 className="font-bold text-white">Email Template</h3>
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Subject Line
                   </label>
                   <Input value="We'd love your feedback!" readOnly />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Email Body
                   </label>
                   <Textarea
@@ -641,21 +641,21 @@ export default function ReviewsManagement() {
             </Card>
 
             {/* SMS Template */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
               <div className="flex items-center space-x-3 mb-4">
                 <MessageCircle className="w-5 h-5 text-[#00B4D8]" />
-                <h3 className="font-bold text-[#1E3A5F]">SMS Template</h3>
+                <h3 className="font-bold text-white">SMS Template</h3>
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">Message</label>
                   <Textarea
                     value="Hi [Name]! Thanks for working with ThinkMents. We'd love your feedback! Leave us a review: reviews.thinkments.com/123abc"
                     rows={4}
                     readOnly
                   />
-                  <div className="text-xs text-gray-500 mt-1">160 characters</div>
+                  <div className="text-xs text-slate-500 mt-1">160 characters</div>
                 </div>
 
                 <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
@@ -671,12 +671,12 @@ export default function ReviewsManagement() {
         {activeTab === 'sentiment' && (
           <>
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Sentiment Analysis</h2>
-              <p className="text-sm text-gray-600">Track customer sentiment trends over time</p>
+              <h2 className="text-2xl font-bold text-white mb-1">Sentiment Analysis</h2>
+              <p className="text-sm text-slate-400">Track customer sentiment trends over time</p>
             </div>
 
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
-              <h3 className="font-bold text-[#1E3A5F] mb-4">Sentiment Trend</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
+              <h3 className="font-bold text-white mb-4">Sentiment Trend</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={sentimentTrend}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -711,8 +711,8 @@ export default function ReviewsManagement() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Top Praised Aspects */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Top Praised Aspects</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Top Praised Aspects</h3>
                 <div className="space-y-3">
                   {[
                     { aspect: 'Customer Service', mentions: 45 },
@@ -723,7 +723,7 @@ export default function ReviewsManagement() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between p-3 bg-green-50 rounded-lg"
+                      className="flex items-center justify-between p-3 bg-emerald-900/20 rounded-lg"
                     >
                       <span className="font-medium text-green-700">{item.aspect}</span>
                       <Badge className="bg-green-600 text-white">{item.mentions} mentions</Badge>
@@ -733,8 +733,8 @@ export default function ReviewsManagement() {
               </Card>
 
               {/* Common Complaints */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Areas for Improvement</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Areas for Improvement</h3>
                 <div className="space-y-3">
                   {[
                     { aspect: 'Onboarding Process', mentions: 5 },
@@ -743,9 +743,9 @@ export default function ReviewsManagement() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between p-3 bg-red-50 rounded-lg"
+                      className="flex items-center justify-between p-3 bg-rose-900/20 rounded-lg"
                     >
-                      <span className="font-medium text-red-700">{item.aspect}</span>
+                      <span className="font-medium text-rose-300">{item.aspect}</span>
                       <Badge className="bg-red-600 text-white">{item.mentions} mentions</Badge>
                     </div>
                   ))}
@@ -777,34 +777,34 @@ export default function ReviewsManagement() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-3xl bg-white rounded-lg shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
+              <Card className="w-full max-w-3xl bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Respond to Review</h2>
+                  <h2 className="text-2xl font-bold text-white">Respond to Review</h2>
                   <button
                     onClick={() => {
                       setShowResponseModal(false);
                       setSelectedReview(null);
                       setResponseText('');
                     }}
-                    className="p-2 hover:bg-gray-100 rounded transition-colors"
+                    className="p-2 hover:bg-white/10 rounded transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-600" />
+                    <X className="w-5 h-5 text-slate-400" />
                   </button>
                 </div>
 
                 {/* Original Review */}
-                <div className="p-4 bg-gray-50 rounded-lg mb-6">
+                <div className="p-4 bg-white/5 rounded-lg mb-6">
                   <div className="flex items-center space-x-3 mb-3">
-                    <span className="font-semibold text-[#1E3A5F]">{selectedReview.reviewer}</span>
+                    <span className="font-semibold text-white">{selectedReview.reviewer}</span>
                     <StarRating rating={selectedReview.rating} size="sm" />
-                    <Badge className="bg-blue-100 text-blue-700">{selectedReview.platform}</Badge>
+                    <Badge className="bg-indigo-500/10 text-indigo-300">{selectedReview.platform}</Badge>
                   </div>
-                  <p className="text-gray-700">{selectedReview.text}</p>
+                  <p className="text-slate-300">{selectedReview.text}</p>
                 </div>
 
                 {/* AI Response Buttons */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  <label className="block text-sm font-semibold text-slate-300 mb-3">
                     AI-Powered Response Suggestions
                   </label>
                   <div className="flex items-center space-x-2 flex-wrap gap-2">
@@ -842,7 +842,7 @@ export default function ReviewsManagement() {
 
                 {/* Response Textarea */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Your Response
                   </label>
                   <Textarea
@@ -852,7 +852,7 @@ export default function ReviewsManagement() {
                     rows={6}
                     className="w-full"
                   />
-                  <div className="text-xs text-gray-500 mt-1 text-right">
+                  <div className="text-xs text-slate-500 mt-1 text-right">
                     {responseText.length} / 1000 characters
                   </div>
                 </div>
@@ -860,15 +860,15 @@ export default function ReviewsManagement() {
                 {/* Preview */}
                 {responseText && (
                   <div className="mb-6">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Preview
                     </label>
-                    <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-[#00B4D8]">
+                    <div className="p-4 bg-indigo-900/20 rounded-lg border-l-4 border-[#00B4D8]">
                       <div className="flex items-center space-x-2 mb-2">
                         <MessageSquare className="w-4 h-4 text-[#00B4D8]" />
-                        <span className="text-sm font-semibold text-[#1E3A5F]">Your Response:</span>
+                        <span className="text-sm font-semibold text-white">Your Response:</span>
                       </div>
-                      <p className="text-sm text-gray-700">{responseText}</p>
+                      <p className="text-sm text-slate-300">{responseText}</p>
                     </div>
                   </div>
                 )}
@@ -881,7 +881,7 @@ export default function ReviewsManagement() {
                       setSelectedReview(null);
                       setResponseText('');
                     }}
-                    className="border-gray-300"
+                    className="border-white/20"
                   >
                     Cancel
                   </Button>

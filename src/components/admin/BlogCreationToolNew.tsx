@@ -163,13 +163,13 @@ export default function BlogCreationToolNew() {
   const getStatusBadgeClass = (status: string) => {
     switch (status) {
       case 'published':
-        return 'bg-green-500/10 text-green-500 border-green-500/20';
+        return 'bg-emerald-900/200/10 text-green-500 border-green-500/20';
       case 'draft':
-        return 'bg-gray-500/10 text-gray-500 border-gray-500/20';
+        return 'bg-white/50/10 text-slate-500 border-gray-500/20';
       case 'scheduled':
-        return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
+        return 'bg-indigo-900/200/10 text-blue-500 border-blue-500/20';
       default:
-        return 'bg-gray-500/10 text-gray-500 border-gray-500/20';
+        return 'bg-white/50/10 text-slate-500 border-gray-500/20';
     }
   };
 
@@ -236,8 +236,8 @@ export default function BlogCreationToolNew() {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h1 className="text-3xl font-bold text-[#1E3A5F]">Blog Posts</h1>
-                <p className="text-gray-600 mt-1">Manage all your blog content</p>
+                <h1 className="text-whitexl font-bold text-white">Blog Posts</h1>
+                <p className="text-slate-400 mt-1">Manage all your blog content</p>
               </div>
               <Button onClick={handleCreateNew} className="bg-[#00B4D8] hover:bg-[#0096b8]">
                 <Plus className="w-4 h-4 mr-2" />
@@ -247,63 +247,63 @@ export default function BlogCreationToolNew() {
 
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-600">Total Posts</p>
-                      <p className="text-3xl font-bold text-[#1E3A5F]">{blogPosts.length}</p>
+                      <p className="text-sm text-slate-400">Total Posts</p>
+                      <p className="text-whitexl font-bold text-white">{blogPosts.length}</p>
                     </div>
                     <div className="w-12 h-12 bg-[#1E3A5F]/10 rounded-lg flex items-center justify-center">
-                      <FileText className="w-6 h-6 text-[#1E3A5F]" />
+                      <FileText className="w-6 h-6 text-white" />
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-600">Published</p>
-                      <p className="text-3xl font-bold text-green-600">
+                      <p className="text-sm text-slate-400">Published</p>
+                      <p className="text-whitexl font-bold text-green-600">
                         {blogPosts.filter((p) => p.status === 'published').length}
                       </p>
                     </div>
-                    <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-emerald-900/200/10 rounded-lg flex items-center justify-center">
                       <CheckCircle className="w-6 h-6 text-green-600" />
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-600">Drafts</p>
-                      <p className="text-3xl font-bold text-gray-600">
+                      <p className="text-sm text-slate-400">Drafts</p>
+                      <p className="text-whitexl font-bold text-slate-400">
                         {blogPosts.filter((p) => p.status === 'draft').length}
                       </p>
                     </div>
-                    <div className="w-12 h-12 bg-gray-500/10 rounded-lg flex items-center justify-center">
-                      <Edit className="w-6 h-6 text-gray-600" />
+                    <div className="w-12 h-12 bg-white/50/10 rounded-lg flex items-center justify-center">
+                      <Edit className="w-6 h-6 text-slate-400" />
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-600">Scheduled</p>
-                      <p className="text-3xl font-bold text-blue-600">
+                      <p className="text-sm text-slate-400">Scheduled</p>
+                      <p className="text-whitexl font-bold text-indigo-400">
                         {blogPosts.filter((p) => p.status === 'scheduled').length}
                       </p>
                     </div>
-                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
-                      <Calendar className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-indigo-900/200/10 rounded-lg flex items-center justify-center">
+                      <Calendar className="w-6 h-6 text-indigo-400" />
                     </div>
                   </div>
                 </CardContent>
@@ -311,7 +311,7 @@ export default function BlogCreationToolNew() {
             </div>
 
             {/* Filters */}
-            <Card className="border-0 shadow-md mb-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6">
               <CardContent className="p-4">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
                   <div className="flex items-center space-x-3 flex-1">
@@ -349,27 +349,27 @@ export default function BlogCreationToolNew() {
             </Card>
 
             {/* Blog Posts Table */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200 bg-gray-50">
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                    <tr className="border-b border-white/10 bg-white/5">
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-slate-300">
                         Title
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-slate-300">
                         Category
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-slate-300">
                         Status
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-slate-300">
                         Author
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-slate-300">
                         Date
                       </th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold text-gray-700">
+                      <th className="px-6 py-4 text-right text-sm font-semibold text-slate-300">
                         Actions
                       </th>
                     </tr>
@@ -377,7 +377,7 @@ export default function BlogCreationToolNew() {
                   <tbody>
                     {filteredBlogPosts.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
+                        <td colSpan={6} className="px-6 py-12 text-center text-slate-500">
                           <FileText className="w-12 h-12 mx-auto mb-3 text-gray-300" />
                           <p className="text-lg">No blog posts found</p>
                           <p className="text-sm mt-1">
@@ -392,16 +392,16 @@ export default function BlogCreationToolNew() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.05 }}
-                          className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors"
+                          className="border-b border-white/5 hover:bg-white/5/50 transition-colors"
                         >
                           <td className="px-6 py-4">
                             <div>
-                              <p className="font-medium text-gray-900">{post.title}</p>
-                              <p className="text-sm text-gray-500">/{post.slug}</p>
+                              <p className="font-medium text-gray-100">{post.title}</p>
+                              <p className="text-sm text-slate-500">/{post.slug}</p>
                             </div>
                           </td>
                           <td className="px-6 py-4">
-                            <Badge variant="outline" className="border-gray-300">
+                            <Badge variant="outline" className="border-white/20">
                               {post.category}
                             </Badge>
                           </td>
@@ -410,14 +410,14 @@ export default function BlogCreationToolNew() {
                               {post.status.charAt(0).toUpperCase() + post.status.slice(1)}
                             </Badge>
                           </td>
-                          <td className="px-6 py-4 text-sm text-gray-600">{post.author}</td>
-                          <td className="px-6 py-4 text-sm text-gray-600">{post.date}</td>
+                          <td className="px-6 py-4 text-sm text-slate-400">{post.author}</td>
+                          <td className="px-6 py-4 text-sm text-slate-400">{post.date}</td>
                           <td className="px-6 py-4">
                             <div className="flex items-center justify-end space-x-2">
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="hover:bg-blue-50 hover:text-blue-600"
+                                className="hover:bg-indigo-900/20 hover:text-indigo-400"
                                 title="Edit"
                                 onClick={() => {
                                   setEditingPost(post.id);
@@ -438,7 +438,7 @@ export default function BlogCreationToolNew() {
                                 variant="ghost"
                                 size="sm"
                                 className={`${post.status === 'published'
-                                  ? 'hover:bg-orange-50 hover:text-orange-600'
+                                  ? 'hover:bg-orange-900/20 hover:text-orange-600'
                                   : 'hover:bg-[#00B4D8]/10 hover:text-[#00B4D8] text-[#00B4D8]'
                                   }`}
                                 title={post.status === 'published' ? 'Unpublish' : 'Publish'}
@@ -449,7 +449,7 @@ export default function BlogCreationToolNew() {
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="hover:bg-red-50 hover:text-red-600"
+                                className="hover:bg-rose-900/20 hover:text-rose-400"
                                 title="Delete"
                                 onClick={() => handleDelete(post.id)}
                               >
@@ -519,24 +519,24 @@ export default function BlogCreationToolNew() {
                   variant="ghost"
                   size="sm"
                   onClick={handleBackToList}
-                  className="hover:bg-gray-100"
+                  className="hover:bg-white/10"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to List
                 </Button>
                 <div>
-                  <h1 className="text-3xl font-bold text-[#1E3A5F]">
+                  <h1 className="text-whitexl font-bold text-white">
                     {editingPost ? 'Edit Blog Post' : 'Create New Blog Post'}
                   </h1>
-                  <p className="text-gray-600 mt-1">Write and publish your content</p>
+                  <p className="text-slate-400 mt-1">Write and publish your content</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Button variant="outline" className="border-gray-300">
+                <Button variant="outline" className="border-white/20">
                   <Eye className="w-4 h-4 mr-2" />
                   Preview
                 </Button>
-                <Button variant="outline" className="border-gray-300">
+                <Button variant="outline" className="border-white/20">
                   <Save className="w-4 h-4 mr-2" />
                   Save Draft
                 </Button>
@@ -548,11 +548,11 @@ export default function BlogCreationToolNew() {
             </div>
 
             {/* Simple Create Form Placeholder */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="p-8">
-                <div className="text-center text-gray-500">
+                <div className="text-center text-slate-500">
                   <FileText className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-                  <h2 className="text-2xl font-bold text-gray-700 mb-2">Blog Creation Form</h2>
+                  <h2 className="text-2xl font-bold text-slate-300 mb-2">Blog Creation Form</h2>
                   <p>This is the blog creation/editing interface</p>
                   <p className="text-sm mt-2">
                     (Full blog creation form available in the original BlogCreationTool)

@@ -233,8 +233,8 @@ export default function LayoutAndThemeManager() {
       <div className="mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F]">Layout & Themes</h1>
-            <p className="text-gray-600 mt-1">Customize your website&apos;s look with one click</p>
+            <h1 className="text-whitexl font-bold text-white">Layout & Themes</h1>
+            <p className="text-slate-400 mt-1">Customize your website&apos;s look with one click</p>
           </div>
           <div className="flex items-center space-x-3">
             <Button
@@ -245,7 +245,7 @@ export default function LayoutAndThemeManager() {
               <ExternalLink className="w-4 h-4 mr-2" />
               Preview Site
             </Button>
-            <Button variant="outline" className="text-gray-600">
+            <Button variant="outline" className="text-slate-400">
               <RotateCcw className="w-4 h-4 mr-2" />
               Reset to Default
             </Button>
@@ -254,11 +254,11 @@ export default function LayoutAndThemeManager() {
       </div>
 
       {/* Main Tabs */}
-      <div className="flex space-x-2 mb-6 border-b border-gray-200">
+      <div className="flex space-x-2 mb-6 border-b border-white/10">
         <button
           onClick={() => setActiveTab('layouts')}
           className={`px-6 py-3 font-medium transition-colors relative ${
-            activeTab === 'layouts' ? 'text-[#1E3A5F]' : 'text-gray-500 hover:text-gray-700'
+            activeTab === 'layouts' ? 'text-white' : 'text-slate-500 hover:text-slate-300'
           }`}
         >
           <div className="flex items-center space-x-2">
@@ -275,7 +275,7 @@ export default function LayoutAndThemeManager() {
         <button
           onClick={() => setActiveTab('themes')}
           className={`px-6 py-3 font-medium transition-colors relative ${
-            activeTab === 'themes' ? 'text-[#1E3A5F]' : 'text-gray-500 hover:text-gray-700'
+            activeTab === 'themes' ? 'text-white' : 'text-slate-500 hover:text-slate-300'
           }`}
         >
           <div className="flex items-center space-x-2">
@@ -304,7 +304,7 @@ export default function LayoutAndThemeManager() {
                 transition={{ duration: 0.3 }}
               >
                 {/* Page Type Selector */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Select Page Type</CardTitle>
                   </CardHeader>
@@ -324,8 +324,8 @@ export default function LayoutAndThemeManager() {
                           onClick={() => setSelectedPageType(type.id as PageType)}
                           className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                             selectedPageType === type.id
-                              ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white shadow-md'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                              ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white shadow-2xl border border-white/5'
+                              : 'bg-white/10 text-slate-300 hover:bg-white/20'
                           }`}
                         >
                           {type.label}
@@ -337,19 +337,19 @@ export default function LayoutAndThemeManager() {
 
                 {/* AI Recommendation */}
                 {showAIRecommendation && (
-                  <Card className="border-0 shadow-md bg-gradient-to-r from-[#00B4D8]/5 to-[#1E3A5F]/5">
+                  <Card className="border-0 shadow-2xl border border-white/5 bg-gradient-to-r from-[#00B4D8]/5 to-[#1E3A5F]/5">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center">
                           <Sparkles className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-semibold text-[#1E3A5F] mb-2">AI Recommendation</h3>
-                          <p className="text-sm text-gray-700 mb-3">
+                          <h3 className="font-semibold text-white mb-2">AI Recommendation</h3>
+                          <p className="text-sm text-slate-300 mb-3">
                             Based on your brand identity and industry, we recommend the{' '}
                             <strong>Classic Hero</strong> layout for your Homepage
                           </p>
-                          <button className="text-sm text-[#00B4D8] hover:text-[#1E3A5F] font-medium flex items-center space-x-1">
+                          <button className="text-sm text-[#00B4D8] hover:text-white font-medium flex items-center space-x-1">
                             <span>Why this layout?</span>
                             <ChevronRight className="w-4 h-4" />
                           </button>
@@ -366,7 +366,7 @@ export default function LayoutAndThemeManager() {
                 )}
 
                 {/* Layout Options Grid */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Available Layouts</CardTitle>
                   </CardHeader>
@@ -379,7 +379,7 @@ export default function LayoutAndThemeManager() {
                           className={`relative border-2 rounded-lg p-4 cursor-pointer transition-all ${
                             selectedLayout === layout.id
                               ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                              : 'border-gray-200 hover:border-[#00B4D8]/50'
+                              : 'border-white/10 hover:border-[#00B4D8]/50'
                           }`}
                           onClick={() => setSelectedLayout(layout.id)}
                         >
@@ -393,14 +393,14 @@ export default function LayoutAndThemeManager() {
 
                           {/* Layout Info */}
                           <div className="flex items-start justify-between mb-2">
-                            <h4 className="font-semibold text-[#1E3A5F]">{layout.name}</h4>
+                            <h4 className="font-semibold text-white">{layout.name}</h4>
                             {layout.isActive && (
-                              <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
+                              <Badge className="bg-emerald-900/200/10 text-green-600 border-green-500/20">
                                 Active
                               </Badge>
                             )}
                           </div>
-                          <p className="text-sm text-gray-600 mb-3">{layout.description}</p>
+                          <p className="text-sm text-slate-400 mb-3">{layout.description}</p>
 
                           {/* Action Buttons */}
                           <div className="flex space-x-2">
@@ -444,7 +444,7 @@ export default function LayoutAndThemeManager() {
                 transition={{ duration: 0.3 }}
               >
                 {/* Current Theme Preview */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Current Theme</CardTitle>
                   </CardHeader>
@@ -457,10 +457,10 @@ export default function LayoutAndThemeManager() {
                       {Object.entries(themePresets[0].colors).map(([name, color]) => (
                         <div key={name} className="text-center">
                           <div
-                            className="w-full h-16 rounded-lg shadow-md mb-2"
+                            className="w-full h-16 rounded-lg shadow-2xl border border-white/5 mb-2"
                             style={{ backgroundColor: color }}
                           />
-                          <p className="text-xs text-gray-600 capitalize">{name}</p>
+                          <p className="text-xs text-slate-400 capitalize">{name}</p>
                           <p className="text-xs font-mono text-gray-400">{color}</p>
                         </div>
                       ))}
@@ -469,22 +469,22 @@ export default function LayoutAndThemeManager() {
                 </Card>
 
                 {/* AI Theme Recommendations */}
-                <Card className="border-0 shadow-md bg-gradient-to-r from-[#00B4D8]/5 to-[#1E3A5F]/5">
+                <Card className="border-0 shadow-2xl border border-white/5 bg-gradient-to-r from-[#00B4D8]/5 to-[#1E3A5F]/5">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#00B4D8] to-[#1E3A5F] flex items-center justify-center">
                         <Sparkles className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-[#1E3A5F] mb-2">AI Theme Suggestions</h3>
-                        <p className="text-sm text-gray-700 mb-4">
+                        <h3 className="font-semibold text-white mb-2">AI Theme Suggestions</h3>
+                        <p className="text-sm text-slate-300 mb-4">
                           Based on your brand colors and target audience, try these combinations:
                         </p>
                         <div className="grid grid-cols-3 gap-3">
                           {themePresets.slice(1, 4).map((theme) => (
                             <div
                               key={theme.id}
-                              className="p-3 bg-white rounded-lg border border-gray-200 hover:border-[#00B4D8] transition-colors cursor-pointer"
+                              className="p-3 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 hover:border-[#00B4D8] transition-colors cursor-pointer"
                             >
                               <div className="flex space-x-1 mb-2">
                                 {Object.values(theme.colors)
@@ -497,7 +497,7 @@ export default function LayoutAndThemeManager() {
                                     />
                                   ))}
                               </div>
-                              <p className="text-xs font-medium text-gray-900">{theme.name}</p>
+                              <p className="text-xs font-medium text-gray-100">{theme.name}</p>
                             </div>
                           ))}
                         </div>
@@ -515,7 +515,7 @@ export default function LayoutAndThemeManager() {
                 </Card>
 
                 {/* Theme Presets Grid */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader className="flex flex-row items-center justify-between">
                     <CardTitle className="text-lg">Theme Presets</CardTitle>
                     <Button
@@ -537,7 +537,7 @@ export default function LayoutAndThemeManager() {
                           className={`relative border-2 rounded-lg p-4 cursor-pointer transition-all ${
                             selectedTheme === theme.id
                               ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                              : 'border-gray-200 hover:border-[#00B4D8]/50'
+                              : 'border-white/10 hover:border-[#00B4D8]/50'
                           }`}
                           onClick={() => setSelectedTheme(theme.id)}
                         >
@@ -546,7 +546,7 @@ export default function LayoutAndThemeManager() {
                             {Object.values(theme.colors).map((color, idx) => (
                               <div
                                 key={idx}
-                                className="w-full h-12 rounded shadow-sm"
+                                className="w-full h-12 rounded shadow-lg border border-white/5"
                                 style={{ backgroundColor: color }}
                               />
                             ))}
@@ -554,9 +554,9 @@ export default function LayoutAndThemeManager() {
 
                           {/* Theme Info */}
                           <div className="flex items-center justify-between mb-3">
-                            <h4 className="font-semibold text-[#1E3A5F]">{theme.name}</h4>
+                            <h4 className="font-semibold text-white">{theme.name}</h4>
                             {theme.isActive && (
-                              <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
+                              <Badge className="bg-emerald-900/200/10 text-green-600 border-green-500/20">
                                 Active
                               </Badge>
                             )}
@@ -595,7 +595,7 @@ export default function LayoutAndThemeManager() {
 
                 {/* Custom Theme Builder */}
                 {showCustomTheme && (
-                  <Card className="border-0 shadow-md">
+                  <Card className="border-0 shadow-2xl border border-white/5">
                     <CardHeader>
                       <CardTitle className="text-lg">Custom Theme Builder</CardTitle>
                     </CardHeader>
@@ -605,18 +605,18 @@ export default function LayoutAndThemeManager() {
                         {['Primary', 'Accent', 'Secondary', 'Background', 'Text'].map(
                           (colorName) => (
                             <div key={colorName} className="flex items-center space-x-4">
-                              <label className="w-32 text-sm font-medium text-gray-700">
+                              <label className="w-32 text-sm font-medium text-slate-300">
                                 {colorName} Color
                               </label>
                               <input
                                 type="color"
                                 defaultValue="#1E3A5F"
-                                className="w-16 h-10 rounded border border-gray-300 cursor-pointer"
+                                className="w-16 h-10 rounded border border-white/20 cursor-pointer"
                               />
                               <input
                                 type="text"
                                 defaultValue="#1E3A5F"
-                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono"
+                                className="flex-1 px-3 py-2 border border-white/20 rounded-lg text-sm font-mono"
                               />
                             </div>
                           ),
@@ -624,10 +624,10 @@ export default function LayoutAndThemeManager() {
 
                         {/* Font Selectors */}
                         <div className="flex items-center space-x-4">
-                          <label className="w-32 text-sm font-medium text-gray-700">
+                          <label className="w-32 text-sm font-medium text-slate-300">
                             Heading Font
                           </label>
-                          <select className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                          <select className="flex-1 px-3 py-2 border border-white/20 rounded-lg text-sm">
                             <option>Inter</option>
                             <option>Roboto</option>
                             <option>Poppins</option>
@@ -636,10 +636,10 @@ export default function LayoutAndThemeManager() {
                         </div>
 
                         <div className="flex items-center space-x-4">
-                          <label className="w-32 text-sm font-medium text-gray-700">
+                          <label className="w-32 text-sm font-medium text-slate-300">
                             Body Font
                           </label>
-                          <select className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                          <select className="flex-1 px-3 py-2 border border-white/20 rounded-lg text-sm">
                             <option>Inter</option>
                             <option>Roboto</option>
                             <option>Open Sans</option>
@@ -650,7 +650,7 @@ export default function LayoutAndThemeManager() {
                         {/* Sliders */}
                         <div className="space-y-3">
                           <div>
-                            <label className="text-sm font-medium text-gray-700 mb-2 block">
+                            <label className="text-sm font-medium text-slate-300 mb-2 block">
                               Border Radius: 8px
                             </label>
                             <input
@@ -663,7 +663,7 @@ export default function LayoutAndThemeManager() {
                           </div>
 
                           <div>
-                            <label className="text-sm font-medium text-gray-700 mb-2 block">
+                            <label className="text-sm font-medium text-slate-300 mb-2 block">
                               Shadow Intensity: Medium
                             </label>
                             <input
@@ -677,7 +677,7 @@ export default function LayoutAndThemeManager() {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex space-x-3 pt-4 border-t border-gray-200">
+                        <div className="flex space-x-3 pt-4 border-t border-white/10">
                           <Button className="flex-1 bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                             <Check className="w-4 h-4 mr-2" />
                             Save as New Theme
@@ -693,7 +693,7 @@ export default function LayoutAndThemeManager() {
                 )}
 
                 {/* Theme History */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <button
                       onClick={() => setShowHistory(!showHistory)}
@@ -717,13 +717,13 @@ export default function LayoutAndThemeManager() {
                         ].map((item, idx) => (
                           <div
                             key={idx}
-                            className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                            className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
                           >
                             <div className="flex items-center space-x-3">
                               <Clock className="w-4 h-4 text-gray-400" />
                               <div>
-                                <p className="text-sm font-medium text-gray-900">{item.theme}</p>
-                                <p className="text-xs text-gray-500">{item.date}</p>
+                                <p className="text-sm font-medium text-gray-100">{item.theme}</p>
+                                <p className="text-xs text-slate-500">{item.date}</p>
                               </div>
                             </div>
                             <Button size="sm" variant="outline">
@@ -737,7 +737,7 @@ export default function LayoutAndThemeManager() {
                 </Card>
 
                 {/* Export/Import */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Export & Share</CardTitle>
                   </CardHeader>
@@ -766,11 +766,11 @@ export default function LayoutAndThemeManager() {
         {/* Right Sidebar - Live Preview & Settings */}
         <div className="space-y-6">
           {/* Live Preview Panel */}
-          <Card className="border-0 shadow-md sticky top-6">
+          <Card className="border-0 shadow-2xl border border-white/5 sticky top-6">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Live Preview</CardTitle>
-                <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
+                <div className="flex space-x-1 bg-white/10 rounded-lg p-1">
                   {(['desktop', 'tablet', 'mobile'] as DeviceType[]).map((device) => {
                     const Icon = getDeviceIcon(device);
                     return (
@@ -779,8 +779,8 @@ export default function LayoutAndThemeManager() {
                         onClick={() => setPreviewDevice(device)}
                         className={`p-2 rounded transition-colors ${
                           previewDevice === device
-                            ? 'bg-white text-[#00B4D8] shadow-sm'
-                            : 'text-gray-500 hover:text-gray-700'
+                            ? 'bg-[#0f172a]/40 backdrop-blur-xl text-[#00B4D8] shadow-lg border border-white/5'
+                            : 'text-slate-500 hover:text-slate-300'
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -792,9 +792,9 @@ export default function LayoutAndThemeManager() {
             </CardHeader>
             <CardContent>
               {/* Preview Window */}
-              <div className="bg-gray-100 rounded-lg p-4 mb-4">
+              <div className="bg-white/10 rounded-lg p-4 mb-4">
                 <div
-                  className={`bg-white rounded shadow-lg mx-auto transition-all ${
+                  className={`bg-[#0f172a]/40 backdrop-blur-xl rounded shadow-lg mx-auto transition-all ${
                     previewDevice === 'desktop'
                       ? 'w-full h-64'
                       : previewDevice === 'tablet'
@@ -812,7 +812,7 @@ export default function LayoutAndThemeManager() {
               </div>
 
               {/* Page Selector */}
-              <select className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm mb-4">
+              <select className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm mb-4">
                 <option>Homepage</option>
                 <option>Services</option>
                 <option>About</option>
@@ -832,7 +832,7 @@ export default function LayoutAndThemeManager() {
           </Card>
 
           {/* Settings */}
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
                 <SettingsIcon className="w-5 h-5 mr-2" />
@@ -847,19 +847,19 @@ export default function LayoutAndThemeManager() {
                     defaultChecked
                     className="w-4 h-4 text-[#00B4D8] rounded"
                   />
-                  <span className="text-sm text-gray-700">Apply theme to all pages</span>
+                  <span className="text-sm text-slate-300">Apply theme to all pages</span>
                 </label>
                 <label className="flex items-center space-x-3 cursor-pointer">
                   <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                  <span className="text-sm text-gray-700">Enable seasonal auto-themes</span>
+                  <span className="text-sm text-slate-300">Enable seasonal auto-themes</span>
                 </label>
-                <div className="pt-4 border-t border-gray-200">
-                  <label className="text-sm font-medium text-gray-700 mb-2 block">
+                <div className="pt-4 border-t border-white/10">
+                  <label className="text-sm font-medium text-slate-300 mb-2 block">
                     Schedule Theme Change
                   </label>
                   <input
                     type="date"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                   />
                 </div>
               </div>

@@ -98,11 +98,11 @@ export default function TaskBoard() {
         <div>
           <div className="flex items-center space-x-3 mb-2">
             <div className="w-10 h-10 bg-[#1E3A5F]/10 rounded-lg flex items-center justify-center">
-              <CheckSquare className="w-6 h-6 text-[#1E3A5F]" />
+              <CheckSquare className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F]">Task Board</h1>
+            <h1 className="text-whitexl font-bold text-white">Task Board</h1>
           </div>
-          <p className="text-gray-600">
+          <p className="text-slate-400">
             Manage projects and agent-reported tasks in a centralized team board.
           </p>
         </div>
@@ -128,15 +128,15 @@ export default function TaskBoard() {
         {columns.map(column => {
           const columnTasks = tasks.filter(t => t.status === column.id && t.title.toLowerCase().includes(searchQuery.toLowerCase()));
           return (
-            <div key={column.id} className="w-80 flex-shrink-0 flex flex-col bg-gray-50/50 rounded-xl p-4 border border-gray-100">
+            <div key={column.id} className="w-80 flex-shrink-0 flex flex-col bg-white/5/50 rounded-xl p-4 border border-white/5">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-gray-700 flex items-center">
+                <h3 className="font-semibold text-slate-300 flex items-center">
                   {column.title}
-                  <span className="ml-2 bg-white text-gray-500 text-xs px-2 py-0.5 rounded-full shadow-sm border border-gray-200">
+                  <span className="ml-2 bg-[#0f172a]/40 backdrop-blur-xl text-slate-500 text-xs px-2 py-0.5 rounded-full shadow-lg border border-white/5 border border-white/10">
                     {columnTasks.length}
                   </span>
                 </h3>
-                <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-gray-400 hover:text-gray-600">
+                <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-gray-400 hover:text-slate-400">
                   <MoreVertical className="w-4 h-4" />
                 </Button>
               </div>
@@ -150,13 +150,13 @@ export default function TaskBoard() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       whileHover={{ scale: 1.02 }}
-                      className="bg-white rounded-lg p-4 shadow-sm border border-gray-200 cursor-grab hover:shadow-md transition-all"
+                      className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg p-4 shadow-lg border border-white/5 border border-white/10 cursor-grab hover:shadow-2xl border border-white/5 transition-all"
                     >
                       <div className="flex justify-between items-start mb-2">
                         <Badge variant="outline" className={`
-                          ${task.priority === 'high' ? 'bg-red-50 text-red-700 border-red-200' : ''}
-                          ${task.priority === 'medium' ? 'bg-orange-50 text-orange-700 border-orange-200' : ''}
-                          ${task.priority === 'low' ? 'bg-green-50 text-green-700 border-green-200' : ''}
+                          ${task.priority === 'high' ? 'bg-rose-900/20 text-rose-300 border-red-200' : ''}
+                          ${task.priority === 'medium' ? 'bg-orange-900/20 text-orange-700 border-orange-200' : ''}
+                          ${task.priority === 'low' ? 'bg-emerald-900/20 text-green-700 border-green-200' : ''}
                         `}>
                           {task.priority}
                         </Badge>
@@ -167,17 +167,17 @@ export default function TaskBoard() {
                         )}
                       </div>
                       
-                      <h4 className="font-medium text-gray-900 mb-1 leading-snug">{task.title}</h4>
-                      <p className="text-xs text-gray-500 line-clamp-2 mb-3">{task.description}</p>
+                      <h4 className="font-medium text-gray-100 mb-1 leading-snug">{task.title}</h4>
+                      <p className="text-xs text-slate-500 line-clamp-2 mb-3">{task.description}</p>
                       
-                      <div className="flex items-center justify-between text-xs text-gray-400 mt-auto pt-3 border-t border-gray-100">
+                      <div className="flex items-center justify-between text-xs text-gray-400 mt-auto pt-3 border-t border-white/5">
                         <div className="flex items-center space-x-3">
                           <span className="flex items-center" title="Due Date">
                             <Calendar className="w-3 h-3 mr-1" />
                             {new Date(task.dueDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                           </span>
                         </div>
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white flex items-center justify-center font-medium shadow-sm" title={task.assignee}>
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#00B4D8] text-white flex items-center justify-center font-medium shadow-lg border border-white/5" title={task.assignee}>
                           {task.assignee.charAt(0)}
                         </div>
                       </div>
@@ -186,7 +186,7 @@ export default function TaskBoard() {
                 </AnimatePresence>
                 
                 {columnTasks.length === 0 && (
-                  <div className="h-24 border-2 border-dashed border-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                  <div className="h-24 border-2 border-dashed border-white/10 rounded-lg flex items-center justify-center text-gray-400 text-sm">
                     No tasks
                   </div>
                 )}

@@ -304,18 +304,18 @@ export default function AutomatedClientReporting() {
   const getStatusColor = (status: ClientStatus) => {
     switch (status) {
       case 'active':
-        return 'bg-green-100 text-green-700';
+        return 'bg-emerald-500/10 text-green-700';
       case 'paused':
-        return 'bg-yellow-100 text-yellow-700';
+        return 'bg-amber-500/10 text-yellow-700';
       case 'never-sent':
-        return 'bg-red-100 text-red-700';
+        return 'bg-rose-500/10 text-rose-300';
     }
   };
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-green-600';
     if (score >= 50) return 'text-yellow-600';
-    return 'text-red-600';
+    return 'text-rose-400';
   };
 
   const toggleSection = (sectionId: string) => {
@@ -330,9 +330,9 @@ export default function AutomatedClientReporting() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Client Reports</h1>
-            <p className="text-gray-600">Automated reporting that demonstrates your value</p>
-            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
+            <h1 className="text-whitexl font-bold text-white mb-2">Client Reports</h1>
+            <p className="text-slate-400">Automated reporting that demonstrates your value</p>
+            <div className="flex items-center space-x-4 mt-2 text-sm text-slate-500">
               <span className="flex items-center">
                 <Send className="w-4 h-4 mr-1" />
                 {stats.reportsSentThisMonth} reports sent this month
@@ -363,30 +363,30 @@ export default function AutomatedClientReporting() {
 
         {/* Summary Cards */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+          <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Users className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                  <Users className="w-5 h-5 text-indigo-400" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.activeClients}</p>
-              <p className="text-sm text-gray-600 mb-2">Active Clients</p>
+              <p className="text-2xl font-bold text-white mb-1">{stats.activeClients}</p>
+              <p className="text-sm text-slate-400 mb-2">Active Clients</p>
               <a href="#" className="text-xs text-[#00B4D8] hover:underline">
                 Manage Clients →
               </a>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+          <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                   <Send className="w-5 h-5 text-green-600" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.reportsSentThisMonth}</p>
-              <p className="text-sm text-gray-600 mb-2">Reports Sent</p>
+              <p className="text-2xl font-bold text-white mb-1">{stats.reportsSentThisMonth}</p>
+              <p className="text-sm text-slate-400 mb-2">Reports Sent</p>
               <div className="flex items-center text-xs text-green-600">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 +12% vs last month
@@ -394,31 +394,31 @@ export default function AutomatedClientReporting() {
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+          <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-orange-600" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.scheduledReports}</p>
-              <p className="text-sm text-gray-600 mb-2">Scheduled Reports</p>
+              <p className="text-2xl font-bold text-white mb-1">{stats.scheduledReports}</p>
+              <p className="text-sm text-slate-400 mb-2">Scheduled Reports</p>
               <a href="#" className="text-xs text-[#00B4D8] hover:underline">
                 View Schedule →
               </a>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+          <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                   <BarChart3 className="w-5 h-5 text-purple-600" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.averageScore}</p>
-              <p className="text-sm text-gray-600 mb-2">Avg Client Score</p>
-              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+              <p className="text-2xl font-bold text-white mb-1">{stats.averageScore}</p>
+              <p className="text-sm text-slate-400 mb-2">Avg Client Score</p>
+              <div className="w-full bg-white/20 rounded-full h-2 mt-2">
                 <div
                   className="bg-purple-600 h-2 rounded-full"
                   style={{ width: `${stats.averageScore}%` }}
@@ -427,15 +427,15 @@ export default function AutomatedClientReporting() {
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+          <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center">
                   <Award className="w-5 h-5 text-yellow-600" />
                 </div>
               </div>
-              <p className="text-2xl font-bold text-[#1E3A5F] mb-1">{stats.winsThisMonth}</p>
-              <p className="text-sm text-gray-600 mb-2">Wins This Month</p>
+              <p className="text-2xl font-bold text-white mb-1">{stats.winsThisMonth}</p>
+              <p className="text-sm text-slate-400 mb-2">Wins This Month</p>
               <a href="#" className="text-xs text-[#00B4D8] hover:underline">
                 View All Wins →
               </a>
@@ -459,14 +459,14 @@ export default function AutomatedClientReporting() {
             onClick={() => setActiveTab(tab.id as TabType)}
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                : 'bg-[#0f172a]/40 backdrop-blur-xl text-slate-400 hover:bg-white/5 border border-white/10'
               }`}
           >
             {tab.icon && <tab.icon className="w-4 h-4" />}
             <span>{tab.label}</span>
             {tab.count !== undefined && (
               <Badge
-                className={`${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+                className={`${activeTab === tab.id ? 'bg-[#0f172a]/40 backdrop-blur-xl/20 text-white' : 'bg-white/20 text-slate-300'}`}
               >
                 {tab.count}
               </Badge>
@@ -481,7 +481,7 @@ export default function AutomatedClientReporting() {
         {/* All Clients Tab */}
         {activeTab === 'clients' && (
           <div>
-            <Card className="border-0 shadow-md mb-4">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-4">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="relative flex-1 max-w-md">
@@ -491,7 +491,7 @@ export default function AutomatedClientReporting() {
                       placeholder="Search clients..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                      className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
                     />
                   </div>
                   <div className="flex items-center space-x-2">
@@ -512,7 +512,7 @@ export default function AutomatedClientReporting() {
               {clients.map((client) => (
                 <Card
                   key={client.id}
-                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                  className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow"
                 >
                   <CardContent className="p-6">
                     <div className="grid grid-cols-12 gap-4 items-center">
@@ -521,8 +521,8 @@ export default function AutomatedClientReporting() {
                           <span className="text-white font-bold text-lg">{client.logo}</span>
                         </div>
                         <div>
-                          <p className="font-semibold text-gray-900">{client.name}</p>
-                          <p className="text-xs text-gray-500">
+                          <p className="font-semibold text-gray-100">{client.name}</p>
+                          <p className="text-xs text-slate-500">
                             {client.recipients.length} recipient
                             {client.recipients.length !== 1 ? 's' : ''}
                           </p>
@@ -530,20 +530,20 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div className="col-span-2">
-                        <p className="text-xs text-gray-600 mb-1">Frequency</p>
-                        <Badge className="bg-blue-100 text-blue-700 capitalize">
+                        <p className="text-xs text-slate-400 mb-1">Frequency</p>
+                        <Badge className="bg-indigo-500/10 text-indigo-300 capitalize">
                           {client.frequency}
                         </Badge>
                       </div>
 
                       <div className="col-span-2">
-                        <p className="text-xs text-gray-600 mb-1">Last Sent</p>
-                        <p className="text-sm text-gray-900">{client.lastSent || 'Never'}</p>
+                        <p className="text-xs text-slate-400 mb-1">Last Sent</p>
+                        <p className="text-sm text-gray-100">{client.lastSent || 'Never'}</p>
                       </div>
 
                       <div className="col-span-2">
-                        <p className="text-xs text-gray-600 mb-1">Next Scheduled</p>
-                        <p className="text-sm text-gray-900">
+                        <p className="text-xs text-slate-400 mb-1">Next Scheduled</p>
+                        <p className="text-sm text-gray-100">
                           {client.nextScheduled || 'Not scheduled'}
                         </p>
                       </div>
@@ -559,7 +559,7 @@ export default function AutomatedClientReporting() {
                           <span className={`text-xl font-bold ${getScoreColor(client.avgScore)}`}>
                             {client.avgScore}
                           </span>
-                          <span className="text-xs text-gray-500">score</span>
+                          <span className="text-xs text-slate-500">score</span>
                         </div>
                       </div>
 
@@ -568,16 +568,16 @@ export default function AutomatedClientReporting() {
                           <Button size="sm" variant="ghost">
                             <MoreVertical className="w-4 h-4" />
                           </Button>
-                          <div className="absolute right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg py-1 hidden group-hover:block z-10 whitespace-nowrap">
-                            <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
+                          <div className="absolute right-0 top-full mt-1 bg-[#0f172a]/40 backdrop-blur-xl border border-white/10 rounded-lg shadow-lg py-1 hidden group-hover:block z-10 whitespace-nowrap">
+                            <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
                               <Send className="w-3 h-3 mr-2" />
                               Generate Now
                             </button>
-                            <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
+                            <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
                               <Settings className="w-3 h-3 mr-2" />
                               Edit Settings
                             </button>
-                            <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
+                            <button className="w-full px-4 py-2 text-left text-sm hover:bg-white/10 flex items-center">
                               <Eye className="w-3 h-3 mr-2" />
                               View History
                             </button>
@@ -595,12 +595,12 @@ export default function AutomatedClientReporting() {
         {/* Report Builder Tab */}
         {activeTab === 'builder' && (
           <div>
-            <Card className="border-0 shadow-md mb-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h2 className="text-xl font-bold text-[#1E3A5F]">Create New Report</h2>
-                    <p className="text-sm text-gray-600">Step {builderStep} of 6</p>
+                    <h2 className="text-xl font-bold text-white">Create New Report</h2>
+                    <p className="text-sm text-slate-400">Step {builderStep} of 6</p>
                   </div>
                   {builderStep > 1 && (
                     <Button
@@ -618,7 +618,7 @@ export default function AutomatedClientReporting() {
                   {[1, 2, 3, 4, 5, 6].map((step) => (
                     <React.Fragment key={step}>
                       <div
-                        className={`flex-1 h-2 rounded-full ${builderStep >= step ? 'bg-[#00B4D8]' : 'bg-gray-200'
+                        className={`flex-1 h-2 rounded-full ${builderStep >= step ? 'bg-[#00B4D8]' : 'bg-white/20'
                           }`}
                       />
                     </React.Fragment>
@@ -631,10 +631,10 @@ export default function AutomatedClientReporting() {
                   {builderStep === 1 && (
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Select Client
                         </label>
-                        <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                        <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                           <option>Choose a client...</option>
                           {clients.map((client) => (
                             <option key={client.id} value={client.id}>
@@ -644,9 +644,9 @@ export default function AutomatedClientReporting() {
                         </select>
                       </div>
 
-                      <Card className="border-0 bg-blue-50">
+                      <Card className="border-0 bg-indigo-900/20">
                         <CardContent className="pt-4">
-                          <p className="text-sm text-blue-900">
+                          <p className="text-sm text-indigo-200">
                             Or create a template that can be used for all clients
                           </p>
                           <Button className="mt-3" variant="outline">
@@ -670,16 +670,16 @@ export default function AutomatedClientReporting() {
                   {builderStep === 2 && (
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                        <label className="block text-sm font-medium text-gray-100 mb-3">
                           Report Period
                         </label>
                         <div className="grid grid-cols-4 gap-3">
                           {['Last Week', 'Last Month', 'Last Quarter', 'Custom'].map((period) => (
                             <button
                               key={period}
-                              className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#00B4D8] hover:bg-blue-50 transition-colors"
+                              className="p-4 border-2 border-white/20 rounded-lg hover:border-[#00B4D8] hover:bg-indigo-900/20 transition-colors"
                             >
-                              <Calendar className="w-5 h-5 mx-auto mb-2 text-gray-600" />
+                              <Calendar className="w-5 h-5 mx-auto mb-2 text-slate-400" />
                               <span className="text-sm font-medium">{period}</span>
                             </button>
                           ))}
@@ -687,10 +687,10 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Compare To
                         </label>
-                        <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                        <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                           <option>Previous Period</option>
                           <option>Same Period Last Year</option>
                           <option>None</option>
@@ -711,7 +711,7 @@ export default function AutomatedClientReporting() {
                   {builderStep === 3 && (
                     <div className="space-y-6">
                       <div className="flex items-center justify-between mb-4">
-                        <label className="text-sm font-medium text-gray-900">
+                        <label className="text-sm font-medium text-gray-100">
                           Report Sections (drag to reorder)
                         </label>
                         <Button size="sm" variant="outline">
@@ -724,7 +724,7 @@ export default function AutomatedClientReporting() {
                         {reportSections.map((section) => (
                           <Card
                             key={section.id}
-                            className={`border-2 ${section.enabled ? 'border-[#00B4D8] bg-blue-50' : 'border-gray-200'} cursor-pointer`}
+                            className={`border-2 ${section.enabled ? 'border-[#00B4D8] bg-indigo-900/20' : 'border-white/10'} cursor-pointer`}
                           >
                             <CardContent className="p-4">
                               <div className="flex items-center space-x-3">
@@ -735,12 +735,12 @@ export default function AutomatedClientReporting() {
                                   onChange={() => toggleSection(section.id)}
                                   className="w-5 h-5 text-[#00B4D8] rounded"
                                 />
-                                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg flex items-center justify-center">
                                   <section.icon className="w-5 h-5 text-[#00B4D8]" />
                                 </div>
                                 <div className="flex-1">
-                                  <p className="font-medium text-gray-900">{section.title}</p>
-                                  <p className="text-xs text-gray-600">{section.description}</p>
+                                  <p className="font-medium text-gray-100">{section.title}</p>
+                                  <p className="text-xs text-slate-400">{section.description}</p>
                                 </div>
                               </div>
                             </CardContent>
@@ -761,7 +761,7 @@ export default function AutomatedClientReporting() {
                   {/* Step 4: Customize Content */}
                   {builderStep === 4 && (
                     <div className="space-y-6">
-                      <Card className="border-0 shadow-sm">
+                      <Card className="border-0 shadow-lg border border-white/5">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center">
                             <Sparkles className="w-5 h-5 mr-2 text-[#00B4D8]" />
@@ -786,20 +786,20 @@ export default function AutomatedClientReporting() {
 
                           <div className="grid grid-cols-2 gap-3">
                             <div>
-                              <label className="block text-xs font-medium text-gray-700 mb-1">
+                              <label className="block text-xs font-medium text-slate-300 mb-1">
                                 Tone
                               </label>
-                              <select className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                              <select className="w-full px-3 py-2 text-sm border border-white/20 rounded-lg">
                                 <option>Professional</option>
                                 <option>Friendly</option>
                                 <option>Technical</option>
                               </select>
                             </div>
                             <div>
-                              <label className="block text-xs font-medium text-gray-700 mb-1">
+                              <label className="block text-xs font-medium text-slate-300 mb-1">
                                 Length
                               </label>
-                              <select className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg">
+                              <select className="w-full px-3 py-2 text-sm border border-white/20 rounded-lg">
                                 <option>Brief</option>
                                 <option>Standard</option>
                                 <option>Detailed</option>
@@ -810,13 +810,13 @@ export default function AutomatedClientReporting() {
                       </Card>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Custom Notes
                         </label>
                         <textarea
                           rows={4}
                           placeholder="Add custom commentary or notes to this report..."
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
 
@@ -834,16 +834,16 @@ export default function AutomatedClientReporting() {
                   {builderStep === 5 && (
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                        <label className="block text-sm font-medium text-gray-100 mb-3">
                           Report Template
                         </label>
                         <div className="grid grid-cols-3 gap-4">
                           {['Clean', 'Modern', 'Bold', 'Minimal', 'Executive'].map((style) => (
                             <button
                               key={style}
-                              className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#00B4D8] hover:bg-blue-50 transition-colors"
+                              className="p-4 border-2 border-white/20 rounded-lg hover:border-[#00B4D8] hover:bg-indigo-900/20 transition-colors"
                             >
-                              <div className="aspect-video bg-gray-200 rounded mb-2" />
+                              <div className="aspect-video bg-white/20 rounded mb-2" />
                               <span className="text-sm font-medium">{style}</span>
                             </button>
                           ))}
@@ -851,25 +851,25 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Branding
                         </label>
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3">
-                            <div className="w-16 h-16 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
+                            <div className="w-16 h-16 border-2 border-dashed border-white/20 rounded-lg flex items-center justify-center">
                               <Upload className="w-5 h-5 text-gray-400" />
                             </div>
                             <div className="flex-1">
-                              <p className="text-sm font-medium text-gray-900">Agency Logo</p>
-                              <p className="text-xs text-gray-600">ThinkMents logo will be used</p>
+                              <p className="text-sm font-medium text-gray-100">Agency Logo</p>
+                              <p className="text-xs text-slate-400">ThinkMents logo will be used</p>
                             </div>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <div className="w-16 h-16 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
+                            <div className="w-16 h-16 border-2 border-dashed border-white/20 rounded-lg flex items-center justify-center">
                               <Upload className="w-5 h-5 text-gray-400" />
                             </div>
                             <div className="flex-1">
-                              <p className="text-sm font-medium text-gray-900">
+                              <p className="text-sm font-medium text-gray-100">
                                 Client Logo (Optional)
                               </p>
                               <Button size="sm" variant="outline" className="mt-1">
@@ -882,39 +882,39 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Colors
                         </label>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">
+                            <label className="block text-xs text-slate-400 mb-1">
                               Primary Color
                             </label>
                             <div className="flex items-center space-x-2">
                               <input
                                 type="color"
                                 value="#1E3A5F"
-                                className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                                className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                               />
                               <input
                                 type="text"
                                 value="#1E3A5F"
-                                className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg font-mono"
+                                className="flex-1 px-3 py-2 text-sm border border-white/20 rounded-lg font-mono"
                               />
                             </div>
                           </div>
                           <div>
-                            <label className="block text-xs text-gray-600 mb-1">Accent Color</label>
+                            <label className="block text-xs text-slate-400 mb-1">Accent Color</label>
                             <div className="flex items-center space-x-2">
                               <input
                                 type="color"
                                 value="#00B4D8"
-                                className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                                className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                               />
                               <input
                                 type="text"
                                 value="#00B4D8"
-                                className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg font-mono"
+                                className="flex-1 px-3 py-2 text-sm border border-white/20 rounded-lg font-mono"
                               />
                             </div>
                           </div>
@@ -928,7 +928,7 @@ export default function AutomatedClientReporting() {
                             className="w-4 h-4 text-[#00B4D8] rounded"
                             defaultChecked
                           />
-                          <span className="text-sm font-medium text-gray-900">
+                          <span className="text-sm font-medium text-gray-100">
                             Include Cover Page
                           </span>
                         </label>
@@ -936,13 +936,13 @@ export default function AutomatedClientReporting() {
                           <input
                             type="text"
                             defaultValue="Monthly Marketing Report"
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 text-sm border border-white/20 rounded-lg"
                             placeholder="Cover title"
                           />
                           <input
                             type="text"
                             defaultValue="December 2024"
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 text-sm border border-white/20 rounded-lg"
                             placeholder="Cover subtitle"
                           />
                         </div>
@@ -961,7 +961,7 @@ export default function AutomatedClientReporting() {
                   {/* Step 6: Preview & Send */}
                   {builderStep === 6 && (
                     <div className="space-y-6">
-                      <Card className="border-0 shadow-sm bg-green-50">
+                      <Card className="border-0 shadow-lg border border-white/5 bg-emerald-900/20">
                         <CardContent className="pt-4">
                           <div className="flex items-center space-x-3">
                             <CheckCircle className="w-6 h-6 text-green-600" />
@@ -989,13 +989,13 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Email Recipients
                         </label>
                         <input
                           type="email"
                           placeholder="recipient@example.com"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-2"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg mb-2"
                         />
                         <Button size="sm" variant="outline">
                           <Plus className="w-3 h-3 mr-2" />
@@ -1004,24 +1004,24 @@ export default function AutomatedClientReporting() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Email Subject
                         </label>
                         <input
                           type="text"
                           defaultValue="Your Monthly Marketing Report - December 2024"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Email Body
                         </label>
                         <textarea
                           rows={4}
                           defaultValue="Hi there,&#10;&#10;Please find your monthly marketing report attached. We're excited to share the great results we've achieved together this month!&#10;&#10;Best regards,&#10;ThinkMents Team"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                         <Button size="sm" variant="outline" className="mt-2">
                           <Sparkles className="w-3 h-3 mr-2" />
@@ -1031,7 +1031,7 @@ export default function AutomatedClientReporting() {
 
                       <div className="flex items-center space-x-2">
                         <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                        <label className="text-sm text-gray-700">
+                        <label className="text-sm text-slate-300">
                           Include executive summary in email body
                         </label>
                       </div>
@@ -1058,7 +1058,7 @@ export default function AutomatedClientReporting() {
         {activeTab === 'templates' && (
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-[#1E3A5F]">Report Templates</h2>
+              <h2 className="text-xl font-bold text-white">Report Templates</h2>
               <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                 <Plus className="w-4 h-4 mr-2" />
                 Create Template
@@ -1069,19 +1069,19 @@ export default function AutomatedClientReporting() {
               {templates.map((template) => (
                 <Card
                   key={template.id}
-                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                  className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow"
                 >
                   <CardContent className="p-6">
-                    <div className="aspect-video bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                    <div className="aspect-video bg-white/20 rounded-lg mb-4 flex items-center justify-center">
                       <FileText className="w-12 h-12 text-gray-400" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{template.name}</h3>
-                    <p className="text-sm text-gray-600 mb-4">{template.description}</p>
+                    <h3 className="font-semibold text-gray-100 mb-2">{template.name}</h3>
+                    <p className="text-sm text-slate-400 mb-4">{template.description}</p>
                     <div className="flex items-center justify-between mb-4">
-                      <Badge className="bg-blue-100 text-blue-700">
+                      <Badge className="bg-indigo-500/10 text-indigo-300">
                         {template.sections.length} sections
                       </Badge>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-slate-500">
                         Used by {template.usedByCount} clients
                       </span>
                     </div>
@@ -1107,7 +1107,7 @@ export default function AutomatedClientReporting() {
         {/* Wins Tab */}
         {activeTab === 'wins' && (
           <div>
-            <Card className="border-0 shadow-md bg-yellow-50 border-l-4 border-yellow-500 mb-6">
+            <Card className="border-0 shadow-2xl border border-white/5 bg-amber-900/20 border-l-4 border-yellow-500 mb-6">
               <CardContent className="pt-4">
                 <div className="flex items-center space-x-3">
                   <Award className="w-6 h-6 text-yellow-600" />
@@ -1123,19 +1123,19 @@ export default function AutomatedClientReporting() {
 
             <div className="space-y-4">
               {wins.map((win) => (
-                <Card key={win.id} className="border-0 shadow-md">
+                <Card key={win.id} className="border-0 shadow-2xl border border-white/5">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-2">
                           <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                          <Badge className="bg-blue-100 text-blue-700">{win.clientName}</Badge>
-                          <Badge className="bg-green-100 text-green-700">{win.type}</Badge>
+                          <Badge className="bg-indigo-500/10 text-indigo-300">{win.clientName}</Badge>
+                          <Badge className="bg-emerald-500/10 text-green-700">{win.type}</Badge>
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        <h3 className="text-lg font-semibold text-gray-100 mb-2">
                           {win.description}
                         </h3>
-                        <div className="flex items-center space-x-4 text-sm text-gray-600">
+                        <div className="flex items-center space-x-4 text-sm text-slate-400">
                           <span>
                             {win.metric}: <strong className="text-green-600">{win.change}</strong>
                           </span>
@@ -1165,13 +1165,13 @@ export default function AutomatedClientReporting() {
 
         {/* Placeholder for other tabs */}
         {['scheduled', 'history'].includes(activeTab) && (
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="p-12 text-center">
               <Calendar className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-              <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {activeTab === 'scheduled' ? 'Scheduled Reports' : 'Report History'}
               </h3>
-              <p className="text-gray-600">Content for this tab is being loaded...</p>
+              <p className="text-slate-400">Content for this tab is being loaded...</p>
             </CardContent>
           </Card>
         )}
@@ -1192,11 +1192,11 @@ export default function AutomatedClientReporting() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
+              className="bg-[#0f172a]/40 backdrop-blur-xl rounded-xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
             >
-              <div className="p-6 border-b border-gray-200">
+              <div className="p-6 border-b border-white/10">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Report Preview</h2>
+                  <h2 className="text-2xl font-bold text-white">Report Preview</h2>
                   <div className="flex items-center space-x-2">
                     <Button size="sm" variant="outline">
                       <Download className="w-4 h-4 mr-2" />
@@ -1209,10 +1209,10 @@ export default function AutomatedClientReporting() {
                 </div>
               </div>
               <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 120px)' }}>
-                <div className="aspect-[8.5/11] bg-gray-100 rounded-lg flex items-center justify-center">
+                <div className="aspect-[8.5/11] bg-white/10 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <FileText className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                    <p className="text-gray-600">Report preview would appear here</p>
+                    <p className="text-slate-400">Report preview would appear here</p>
                   </div>
                 </div>
               </div>

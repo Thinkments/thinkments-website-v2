@@ -280,10 +280,10 @@ export default function NotFoundPageEditor() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">404 Page Editor</h1>
-            <p className="text-gray-600">Customize your error page to keep visitors engaged</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">404 Page Editor</h1>
+            <p className="text-slate-400">Customize your error page to keep visitors engaged</p>
             {lastSaved && (
-              <p className="text-sm text-gray-500 mt-1 flex items-center">
+              <p className="text-sm text-slate-500 mt-1 flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
                 Last saved: {lastSaved}
               </p>
@@ -310,11 +310,11 @@ export default function NotFoundPageEditor() {
         </div>
 
         {hasUnsavedChanges && (
-          <Card className="border-0 shadow-md bg-amber-50 border-l-4 border-amber-500">
+          <Card className="border-0 shadow-2xl border border-white/5 bg-amber-50 border-l-4 border-amber-500">
             <CardContent className="pt-4 pb-4">
               <div className="flex items-center space-x-2">
-                <Settings className="w-5 h-5 text-amber-600" />
-                <p className="text-sm text-amber-900">You have unsaved changes</p>
+                <Settings className="w-5 h-5 text-whitember-600" />
+                <p className="text-sm text-whitember-900">You have unsaved changes</p>
               </div>
             </CardContent>
           </Card>
@@ -338,7 +338,7 @@ export default function NotFoundPageEditor() {
                 onClick={() => setActiveTab(tab.id as TabType)}
                 className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors flex items-center space-x-2 ${activeTab === tab.id
                   ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-[#0f172a]/40 backdrop-blur-xl text-slate-400 hover:bg-white/5 border border-white/10'
                   }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -353,13 +353,13 @@ export default function NotFoundPageEditor() {
             {activeTab === 'content' && (
               <div className="space-y-6">
                 {/* Error Code Display */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Error Code Display</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium text-gray-900">
+                      <label className="text-sm font-medium text-gray-100">
                         Show &quot;404&quot; text
                       </label>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -369,20 +369,20 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('show404Text', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
 
                     {settings.show404Text && (
                       <>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             404 Text Style
                           </label>
                           <select
                             value={settings.text404Style}
                             onChange={(e) => updateSetting('text404Style', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg"
                           >
                             <option value="gradient">Gradient (brand colors)</option>
                             <option value="solid">Solid color</option>
@@ -393,7 +393,7 @@ export default function NotFoundPageEditor() {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Font Size: {settings.text404Size}px
                           </label>
                           <input
@@ -407,13 +407,13 @@ export default function NotFoundPageEditor() {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Animation
                           </label>
                           <select
                             value={settings.text404Animation}
                             onChange={(e) => updateSetting('text404Animation', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg"
                           >
                             <option value="none">None</option>
                             <option value="pulse">Pulse</option>
@@ -427,25 +427,25 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* Headline */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Headline</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Headline Text
                       </label>
                       <input
                         type="text"
                         value={settings.headline}
                         onChange={(e) => updateSetting('headline', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Font Size: {settings.headlineSize}px
                       </label>
                       <input
@@ -459,25 +459,25 @@ export default function NotFoundPageEditor() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Color</label>
+                      <label className="block text-sm font-medium text-gray-100 mb-2">Color</label>
                       <div className="flex items-center space-x-2">
                         <input
                           type="color"
                           value={settings.headlineColor}
                           onChange={(e) => updateSetting('headlineColor', e.target.value)}
-                          className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                          className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                         />
                         <input
                           type="text"
                           value={settings.headlineColor}
                           onChange={(e) => updateSetting('headlineColor', e.target.value)}
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                          className="flex-1 px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Alignment
                       </label>
                       <div className="flex space-x-2">
@@ -490,8 +490,8 @@ export default function NotFoundPageEditor() {
                             key={align.value}
                             onClick={() => updateSetting('headlineAlign', align.value)}
                             className={`flex-1 p-3 border-2 rounded-lg flex items-center justify-center ${settings.headlineAlign === align.value
-                              ? 'border-[#00B4D8] bg-blue-50'
-                              : 'border-gray-300 hover:border-gray-400'
+                              ? 'border-[#00B4D8] bg-indigo-900/20'
+                              : 'border-white/20 hover:border-gray-400'
                               }`}
                           >
                             <align.icon className="w-5 h-5" />
@@ -503,25 +503,25 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* Subtext */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Subtext</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Subtext
                       </label>
                       <textarea
                         value={settings.subtext}
                         onChange={(e) => updateSetting('subtext', e.target.value)}
                         rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Font Size: {settings.subtextSize}px
                       </label>
                       <input
@@ -535,19 +535,19 @@ export default function NotFoundPageEditor() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">Color</label>
+                      <label className="block text-sm font-medium text-gray-100 mb-2">Color</label>
                       <div className="flex items-center space-x-2">
                         <input
                           type="color"
                           value={settings.subtextColor}
                           onChange={(e) => updateSetting('subtextColor', e.target.value)}
-                          className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                          className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                         />
                         <input
                           type="text"
                           value={settings.subtextColor}
                           onChange={(e) => updateSetting('subtextColor', e.target.value)}
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                          className="flex-1 px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                         />
                       </div>
                     </div>
@@ -555,7 +555,7 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* Custom Message */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">Custom Message (Optional)</CardTitle>
@@ -566,7 +566,7 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('showCustomMessage', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
@@ -577,9 +577,9 @@ export default function NotFoundPageEditor() {
                         onChange={(e) => updateSetting('customMessage', e.target.value)}
                         placeholder="Add a personal touch, joke, or game invitation..."
                         rows={2}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       />
-                      <p className="text-xs text-gray-500 mt-2">
+                      <p className="text-xs text-slate-500 mt-2">
                         Example: &quot;While you&apos;re here, why not play a game?&quot;
                       </p>
                     </CardContent>
@@ -592,7 +592,7 @@ export default function NotFoundPageEditor() {
             {activeTab === 'interactive' && (
               <div className="space-y-6">
                 {/* Pong Game */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg flex items-center">
@@ -606,68 +606,68 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('enablePongGame', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
                   {settings.enablePongGame && (
                     <CardContent className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Game Title
                         </label>
                         <input
                           type="text"
                           value={settings.pongGameTitle}
                           onChange={(e) => updateSetting('pongGameTitle', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
 
                       <div className="grid grid-cols-3 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Ball Color
                           </label>
                           <input
                             type="color"
                             value={settings.pongBallColor}
                             onChange={(e) => updateSetting('pongBallColor', e.target.value)}
-                            className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+                            className="w-full h-10 border border-white/20 rounded cursor-pointer"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Paddle Color
                           </label>
                           <input
                             type="color"
                             value={settings.pongPaddleColor}
                             onChange={(e) => updateSetting('pongPaddleColor', e.target.value)}
-                            className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+                            className="w-full h-10 border border-white/20 rounded cursor-pointer"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Background
                           </label>
                           <input
                             type="color"
                             value={settings.pongBgColor}
                             onChange={(e) => updateSetting('pongBgColor', e.target.value)}
-                            className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+                            className="w-full h-10 border border-white/20 rounded cursor-pointer"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Game Speed
                         </label>
                         <select
                           value={settings.pongSpeed}
                           onChange={(e) => updateSetting('pongSpeed', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         >
                           <option value="slow">Slow</option>
                           <option value="normal">Normal</option>
@@ -676,7 +676,7 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Winning Score
                         </label>
                         <select
@@ -684,7 +684,7 @@ export default function NotFoundPageEditor() {
                           onChange={(e) =>
                             updateSetting('pongWinningScore', parseInt(e.target.value) as 3 | 5 | 10)
                           }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         >
                           <option value="3">3 points</option>
                           <option value="5">5 points</option>
@@ -693,7 +693,7 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium text-gray-900">
+                        <label className="text-sm font-medium text-gray-100">
                           Show Instructions
                         </label>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -705,7 +705,7 @@ export default function NotFoundPageEditor() {
                             }
                             className="sr-only peer"
                           />
-                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                          <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                         </label>
                       </div>
                     </CardContent>
@@ -714,18 +714,18 @@ export default function NotFoundPageEditor() {
 
                 {/* Alternative Games */}
                 {!settings.enablePongGame && (
-                  <Card className="border-0 shadow-md">
+                  <Card className="border-0 shadow-2xl border border-white/5">
                     <CardHeader>
                       <CardTitle className="text-lg">Alternative Games</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Select Game
                       </label>
                       <select
                         value={settings.alternativeGame}
                         onChange={(e) => updateSetting('alternativeGame', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       >
                         <option value="none">None</option>
                         <option value="snake">Snake</option>
@@ -738,7 +738,7 @@ export default function NotFoundPageEditor() {
                 )}
 
                 {/* Search Bar */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg flex items-center">
@@ -752,27 +752,27 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('enableSearchBar', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
                   {settings.enableSearchBar && (
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Search Placeholder
                       </label>
                       <input
                         type="text"
                         value={settings.searchPlaceholder}
                         onChange={(e) => updateSetting('searchPlaceholder', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       />
                     </CardContent>
                   )}
                 </Card>
 
                 {/* Easter Egg */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg flex items-center">
@@ -786,13 +786,13 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('enableEasterEgg', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
                   {settings.enableEasterEgg && (
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Hidden Message
                       </label>
                       <input
@@ -800,9 +800,9 @@ export default function NotFoundPageEditor() {
                         value={settings.easterEggMessage}
                         onChange={(e) => updateSetting('easterEggMessage', e.target.value)}
                         placeholder="🎉 You found the secret!"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       />
-                      <p className="text-xs text-gray-500 mt-2">
+                      <p className="text-xs text-slate-500 mt-2">
                         Revealed when user enters: ↑ ↑ ↓ ↓ ← → ← → B A
                       </p>
                     </CardContent>
@@ -815,7 +815,7 @@ export default function NotFoundPageEditor() {
             {activeTab === 'navigation' && (
               <div className="space-y-6">
                 {/* Quick Links */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">Quick Links</CardTitle>
@@ -826,26 +826,26 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('enableQuickLinks', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
                   {settings.enableQuickLinks && (
                     <CardContent className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Section Title
                         </label>
                         <input
                           type="text"
                           value={settings.quickLinksTitle}
                           onChange={(e) => updateSetting('quickLinksTitle', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Number of Links to Show
                         </label>
                         <select
@@ -853,7 +853,7 @@ export default function NotFoundPageEditor() {
                           onChange={(e) =>
                             updateSetting('numberOfLinks', parseInt(e.target.value))
                           }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         >
                           <option value="3">3 links</option>
                           <option value="4">4 links</option>
@@ -862,14 +862,14 @@ export default function NotFoundPageEditor() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-3">
+                        <label className="block text-sm font-medium text-gray-100 mb-3">
                           Link Items (drag to reorder)
                         </label>
                         <div className="space-y-2">
                           {settings.quickLinks.slice(0, settings.numberOfLinks).map((link, idx) => (
                             <div
                               key={link.id}
-                              className="border-2 border-gray-200 rounded-lg p-3 hover:border-gray-300"
+                              className="border-2 border-white/10 rounded-lg p-3 hover:border-white/20"
                             >
                               <div className="flex items-center space-x-2 mb-2">
                                 <GripVertical className="w-4 h-4 text-gray-400 cursor-move" />
@@ -882,7 +882,7 @@ export default function NotFoundPageEditor() {
                                     updateSetting('quickLinks', newLinks);
                                   }}
                                   placeholder="Link text"
-                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded"
+                                  className="flex-1 px-2 py-1 text-sm border border-white/20 rounded"
                                 />
                                 <input
                                   type="text"
@@ -893,9 +893,9 @@ export default function NotFoundPageEditor() {
                                     updateSetting('quickLinks', newLinks);
                                   }}
                                   placeholder="URL"
-                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded font-mono"
+                                  className="flex-1 px-2 py-1 text-sm border border-white/20 rounded font-mono"
                                 />
-                                <Button size="sm" variant="ghost" className="text-red-600">
+                                <Button size="sm" variant="ghost" className="text-rose-400">
                                   <Trash2 className="w-4 h-4" />
                                 </Button>
                               </div>
@@ -914,7 +914,7 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* CTA Buttons */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Call-to-Action Buttons</CardTitle>
                   </CardHeader>
@@ -922,7 +922,7 @@ export default function NotFoundPageEditor() {
                     {/* Primary Button */}
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-medium text-gray-900">Primary Button</label>
+                        <label className="text-sm font-medium text-gray-100">Primary Button</label>
                         <label className="relative inline-flex items-center cursor-pointer">
                           <input
                             type="checkbox"
@@ -930,7 +930,7 @@ export default function NotFoundPageEditor() {
                             onChange={(e) => updateSetting('showPrimaryButton', e.target.checked)}
                             className="sr-only peer"
                           />
-                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                          <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                         </label>
                       </div>
                       {settings.showPrimaryButton && (
@@ -940,14 +940,14 @@ export default function NotFoundPageEditor() {
                             value={settings.primaryButtonText}
                             onChange={(e) => updateSetting('primaryButtonText', e.target.value)}
                             placeholder="Button text"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                           />
                           <input
                             type="text"
                             value={settings.primaryButtonUrl}
                             onChange={(e) => updateSetting('primaryButtonUrl', e.target.value)}
                             placeholder="URL"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm font-mono"
                           />
                         </div>
                       )}
@@ -956,7 +956,7 @@ export default function NotFoundPageEditor() {
                     {/* Secondary Button */}
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-medium text-gray-900">
+                        <label className="text-sm font-medium text-gray-100">
                           Secondary Button
                         </label>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -966,7 +966,7 @@ export default function NotFoundPageEditor() {
                             onChange={(e) => updateSetting('showSecondaryButton', e.target.checked)}
                             className="sr-only peer"
                           />
-                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                          <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                         </label>
                       </div>
                       {settings.showSecondaryButton && (
@@ -976,14 +976,14 @@ export default function NotFoundPageEditor() {
                             value={settings.secondaryButtonText}
                             onChange={(e) => updateSetting('secondaryButtonText', e.target.value)}
                             placeholder="Button text"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                           />
                           <input
                             type="text"
                             value={settings.secondaryButtonUrl}
                             onChange={(e) => updateSetting('secondaryButtonUrl', e.target.value)}
                             placeholder="URL"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm font-mono"
                           />
                         </div>
                       )}
@@ -992,7 +992,7 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* Go Back Button */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">Go Back Button</CardTitle>
@@ -1003,20 +1003,20 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('showGoBackButton', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
                   {settings.showGoBackButton && (
                     <CardContent>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Button Text
                       </label>
                       <input
                         type="text"
                         value={settings.goBackButtonText}
                         onChange={(e) => updateSetting('goBackButtonText', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       />
                     </CardContent>
                   )}
@@ -1027,7 +1027,7 @@ export default function NotFoundPageEditor() {
             {/* Contact Information Tab */}
             {activeTab === 'contact' && (
               <div className="space-y-6">
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-lg">Contact Section</CardTitle>
@@ -1038,28 +1038,28 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('showContactSection', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardHeader>
                   {settings.showContactSection && (
                     <CardContent className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Section Title
                         </label>
                         <input
                           type="text"
                           value={settings.contactSectionTitle}
                           onChange={(e) => updateSetting('contactSectionTitle', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
 
                       {/* Phone */}
                       <div className="border-t pt-4">
                         <div className="flex items-center justify-between mb-3">
-                          <label className="text-sm font-medium text-gray-900 flex items-center">
+                          <label className="text-sm font-medium text-gray-100 flex items-center">
                             <Phone className="w-4 h-4 mr-2 text-[#00B4D8]" />
                             Phone Number
                           </label>
@@ -1070,7 +1070,7 @@ export default function NotFoundPageEditor() {
                               onChange={(e) => updateSetting('showPhone', e.target.checked)}
                               className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                            <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                           </label>
                         </div>
                         {settings.showPhone && (
@@ -1079,7 +1079,7 @@ export default function NotFoundPageEditor() {
                               type="text"
                               value={settings.phoneNumber}
                               onChange={(e) => updateSetting('phoneNumber', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                              className="w-full px-3 py-2 border border-white/20 rounded-lg"
                             />
                             <label className="flex items-center space-x-2 text-sm">
                               <input
@@ -1090,7 +1090,7 @@ export default function NotFoundPageEditor() {
                                 }
                                 className="w-4 h-4 text-[#00B4D8] rounded"
                               />
-                              <span className="text-gray-700">Enable click-to-call</span>
+                              <span className="text-slate-300">Enable click-to-call</span>
                             </label>
                           </div>
                         )}
@@ -1099,7 +1099,7 @@ export default function NotFoundPageEditor() {
                       {/* Email */}
                       <div className="border-t pt-4">
                         <div className="flex items-center justify-between mb-3">
-                          <label className="text-sm font-medium text-gray-900 flex items-center">
+                          <label className="text-sm font-medium text-gray-100 flex items-center">
                             <Mail className="w-4 h-4 mr-2 text-[#00B4D8]" />
                             Email Address
                           </label>
@@ -1110,7 +1110,7 @@ export default function NotFoundPageEditor() {
                               onChange={(e) => updateSetting('showEmail', e.target.checked)}
                               className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                            <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                           </label>
                         </div>
                         {settings.showEmail && (
@@ -1119,7 +1119,7 @@ export default function NotFoundPageEditor() {
                               type="email"
                               value={settings.emailAddress}
                               onChange={(e) => updateSetting('emailAddress', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                              className="w-full px-3 py-2 border border-white/20 rounded-lg"
                             />
                             <label className="flex items-center space-x-2 text-sm">
                               <input
@@ -1128,7 +1128,7 @@ export default function NotFoundPageEditor() {
                                 onChange={(e) => updateSetting('emailMailto', e.target.checked)}
                                 className="w-4 h-4 text-[#00B4D8] rounded"
                               />
-                              <span className="text-gray-700">Enable mailto link</span>
+                              <span className="text-slate-300">Enable mailto link</span>
                             </label>
                           </div>
                         )}
@@ -1137,7 +1137,7 @@ export default function NotFoundPageEditor() {
                       {/* Live Chat */}
                       <div className="border-t pt-4">
                         <div className="flex items-center justify-between">
-                          <label className="text-sm font-medium text-gray-900 flex items-center">
+                          <label className="text-sm font-medium text-gray-100 flex items-center">
                             <MessageCircle className="w-4 h-4 mr-2 text-[#00B4D8]" />
                             Live Chat Button
                           </label>
@@ -1148,7 +1148,7 @@ export default function NotFoundPageEditor() {
                               onChange={(e) => updateSetting('showLiveChat', e.target.checked)}
                               className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                            <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                           </label>
                         </div>
                       </div>
@@ -1162,13 +1162,13 @@ export default function NotFoundPageEditor() {
             {activeTab === 'design' && (
               <div className="space-y-6">
                 {/* Background */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Background</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Background Type
                       </label>
                       <div className="grid grid-cols-4 gap-2">
@@ -1182,8 +1182,8 @@ export default function NotFoundPageEditor() {
                             key={type.value}
                             onClick={() => updateSetting('backgroundType', type.value)}
                             className={`p-3 border-2 rounded-lg flex flex-col items-center justify-center space-y-1 ${settings.backgroundType === type.value
-                              ? 'border-[#00B4D8] bg-blue-50'
-                              : 'border-gray-300 hover:border-gray-400'
+                              ? 'border-[#00B4D8] bg-indigo-900/20'
+                              : 'border-white/20 hover:border-gray-400'
                               }`}
                           >
                             <type.icon className="w-5 h-5" />
@@ -1195,7 +1195,7 @@ export default function NotFoundPageEditor() {
 
                     {settings.backgroundType === 'solid' && (
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Color
                         </label>
                         <div className="flex items-center space-x-2">
@@ -1203,13 +1203,13 @@ export default function NotFoundPageEditor() {
                             type="color"
                             value={settings.solidColor}
                             onChange={(e) => updateSetting('solidColor', e.target.value)}
-                            className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                            className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                           />
                           <input
                             type="text"
                             value={settings.solidColor}
                             onChange={(e) => updateSetting('solidColor', e.target.value)}
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                            className="flex-1 px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                           />
                         </div>
                       </div>
@@ -1219,36 +1219,36 @@ export default function NotFoundPageEditor() {
                       <div className="space-y-3">
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">
+                            <label className="block text-sm font-medium text-gray-100 mb-2">
                               Color 1
                             </label>
                             <input
                               type="color"
                               value={settings.gradientColor1}
                               onChange={(e) => updateSetting('gradientColor1', e.target.value)}
-                              className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+                              className="w-full h-10 border border-white/20 rounded cursor-pointer"
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-900 mb-2">
+                            <label className="block text-sm font-medium text-gray-100 mb-2">
                               Color 2
                             </label>
                             <input
                               type="color"
                               value={settings.gradientColor2}
                               onChange={(e) => updateSetting('gradientColor2', e.target.value)}
-                              className="w-full h-10 border border-gray-300 rounded cursor-pointer"
+                              className="w-full h-10 border border-white/20 rounded cursor-pointer"
                             />
                           </div>
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Direction
                           </label>
                           <select
                             value={settings.gradientDirection}
                             onChange={(e) => updateSetting('gradientDirection', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg"
                           >
                             <option value="to bottom">Top to Bottom</option>
                             <option value="to right">Left to Right</option>
@@ -1262,7 +1262,7 @@ export default function NotFoundPageEditor() {
                     {settings.backgroundType === 'image' && (
                       <div className="space-y-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Image URL
                           </label>
                           <input
@@ -1270,11 +1270,11 @@ export default function NotFoundPageEditor() {
                             value={settings.backgroundImage}
                             onChange={(e) => updateSetting('backgroundImage', e.target.value)}
                             placeholder="https://..."
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Overlay Opacity: {settings.imageOverlayOpacity}%
                           </label>
                           <input
@@ -1293,13 +1293,13 @@ export default function NotFoundPageEditor() {
 
                     {settings.backgroundType === 'pattern' && (
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Pattern
                         </label>
                         <select
                           value={settings.pattern}
                           onChange={(e) => updateSetting('pattern', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         >
                           <option value="none">None</option>
                           <option value="dots">Dots</option>
@@ -1312,13 +1312,13 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* Color Scheme */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Color Scheme</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium text-gray-900">Use Brand Colors</label>
+                      <label className="text-sm font-medium text-gray-100">Use Brand Colors</label>
                       <label className="relative inline-flex items-center cursor-pointer">
                         <input
                           type="checkbox"
@@ -1326,14 +1326,14 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('useBrandColors', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
 
                     {!settings.useBrandColors && (
                       <div className="space-y-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Primary Color
                           </label>
                           <div className="flex items-center space-x-2">
@@ -1343,7 +1343,7 @@ export default function NotFoundPageEditor() {
                               onChange={(e) =>
                                 updateSetting('primaryColorOverride', e.target.value)
                               }
-                              className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                              className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                             />
                             <input
                               type="text"
@@ -1351,12 +1351,12 @@ export default function NotFoundPageEditor() {
                               onChange={(e) =>
                                 updateSetting('primaryColorOverride', e.target.value)
                               }
-                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                              className="flex-1 px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                             />
                           </div>
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Accent Color
                           </label>
                           <div className="flex items-center space-x-2">
@@ -1364,13 +1364,13 @@ export default function NotFoundPageEditor() {
                               type="color"
                               value={settings.accentColorOverride}
                               onChange={(e) => updateSetting('accentColorOverride', e.target.value)}
-                              className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                              className="w-12 h-10 border border-white/20 rounded cursor-pointer"
                             />
                             <input
                               type="text"
                               value={settings.accentColorOverride}
                               onChange={(e) => updateSetting('accentColorOverride', e.target.value)}
-                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+                              className="flex-1 px-3 py-2 border border-white/20 rounded-lg font-mono text-sm"
                             />
                           </div>
                         </div>
@@ -1380,13 +1380,13 @@ export default function NotFoundPageEditor() {
                 </Card>
 
                 {/* Layout */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Layout</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Content Alignment
                       </label>
                       <div className="flex space-x-2">
@@ -1399,8 +1399,8 @@ export default function NotFoundPageEditor() {
                             key={align.value}
                             onClick={() => updateSetting('contentAlignment', align.value)}
                             className={`flex-1 p-3 border-2 rounded-lg flex items-center justify-center ${settings.contentAlignment === align.value
-                              ? 'border-[#00B4D8] bg-blue-50'
-                              : 'border-gray-300 hover:border-gray-400'
+                              ? 'border-[#00B4D8] bg-indigo-900/20'
+                              : 'border-white/20 hover:border-gray-400'
                               }`}
                           >
                             <align.icon className="w-5 h-5" />
@@ -1410,7 +1410,7 @@ export default function NotFoundPageEditor() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Content Max Width: {settings.contentMaxWidth}px
                       </label>
                       <input
@@ -1425,7 +1425,7 @@ export default function NotFoundPageEditor() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <label className="text-sm font-medium text-gray-900">
+                      <label className="text-sm font-medium text-gray-100">
                         Vertical Centering
                       </label>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -1435,26 +1435,26 @@ export default function NotFoundPageEditor() {
                           onChange={(e) => updateSetting('verticalCentering', e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
+                        <div className="w-11 h-6 bg-white/20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B4D8]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#0f172a]/40 backdrop-blur-xl after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B4D8]"></div>
                       </label>
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Animations */}
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Animations</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Page Load Animation
                       </label>
                       <select
                         value={settings.pageLoadAnimation}
                         onChange={(e) => updateSetting('pageLoadAnimation', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg"
                       >
                         <option value="none">None</option>
                         <option value="fade">Fade In</option>
@@ -1483,7 +1483,7 @@ export default function NotFoundPageEditor() {
                   >
                     <ZoomOut className="w-4 h-4" />
                   </Button>
-                  <span className="text-sm text-gray-600">{zoomLevel}%</span>
+                  <span className="text-sm text-slate-400">{zoomLevel}%</span>
                   <Button
                     size="sm"
                     variant="ghost"
@@ -1503,8 +1503,8 @@ export default function NotFoundPageEditor() {
                     key={device.type}
                     onClick={() => setDeviceType(device.type as DeviceType)}
                     className={`flex-1 p-2 border-2 rounded-lg flex items-center justify-center ${deviceType === device.type
-                      ? 'border-[#00B4D8] bg-blue-50'
-                      : 'border-gray-300 hover:border-gray-400'
+                      ? 'border-[#00B4D8] bg-indigo-900/20'
+                      : 'border-white/20 hover:border-gray-400'
                       }`}
                   >
                     <device.icon className="w-4 h-4" />
@@ -1514,7 +1514,7 @@ export default function NotFoundPageEditor() {
             </CardHeader>
             <CardContent>
               <div
-                className="border-2 border-gray-300 rounded-lg overflow-hidden bg-gray-100"
+                className="border-2 border-white/20 rounded-lg overflow-hidden bg-white/10"
                 style={{
                   transform: `scale(${getZoomScale()})`,
                   transformOrigin: 'top center',
@@ -1522,7 +1522,7 @@ export default function NotFoundPageEditor() {
                 }}
               >
                 <div
-                  className="bg-white h-full overflow-auto"
+                  className="bg-[#0f172a]/40 backdrop-blur-xl h-full overflow-auto"
                   style={{
                     width: getDeviceWidth(),
                     margin: '0 auto',
@@ -1602,7 +1602,7 @@ export default function NotFoundPageEditor() {
                             <input
                               type="text"
                               placeholder={settings.searchPlaceholder}
-                              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm"
+                              className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg text-sm"
                             />
                           </div>
                         </div>

@@ -117,13 +117,13 @@ export default function ClientPortalManager() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
-        return 'bg-green-100 text-green-700';
+        return 'bg-emerald-500/10 text-green-700';
       case 'invited':
-        return 'bg-yellow-100 text-yellow-700';
+        return 'bg-amber-500/10 text-yellow-700';
       case 'disabled':
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-slate-300';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-slate-300';
     }
   };
 
@@ -137,9 +137,9 @@ export default function ClientPortalManager() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Client Portals</h1>
-            <p className="text-gray-600">Give clients 24/7 access to their marketing data</p>
-            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
+            <h1 className="text-whitexl font-bold text-white mb-2">Client Portals</h1>
+            <p className="text-slate-400">Give clients 24/7 access to their marketing data</p>
+            <div className="flex items-center space-x-4 mt-2 text-sm text-slate-500">
               <span className="flex items-center">
                 <Users className="w-4 h-4 mr-1" />
                 {stats.activePortals} active portals
@@ -166,14 +166,14 @@ export default function ClientPortalManager() {
         </div>
 
         {/* Demo Toggle */}
-        <Card className="border-0 shadow-md bg-blue-50 border-l-4 border-blue-500">
+        <Card className="border-0 shadow-2xl border border-white/5 bg-indigo-900/20 border-l-4 border-blue-500">
           <CardContent className="pt-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <Eye className="w-6 h-6 text-blue-600" />
+                <Eye className="w-6 h-6 text-indigo-400" />
                 <div>
-                  <p className="font-semibold text-blue-900">Preview Client Portal</p>
-                  <p className="text-sm text-blue-700">
+                  <p className="font-semibold text-indigo-200">Preview Client Portal</p>
+                  <p className="text-sm text-indigo-300">
                     See what your clients see when they log in
                   </p>
                 </div>
@@ -188,7 +188,7 @@ export default function ClientPortalManager() {
       </div>
 
       {/* Search & Filters */}
-      <Card className="border-0 shadow-md mb-4">
+      <Card className="border-0 shadow-2xl border border-white/5 mb-4">
         <CardContent className="pt-6">
           <div className="flex items-center justify-between">
             <div className="relative flex-1 max-w-md">
@@ -198,7 +198,7 @@ export default function ClientPortalManager() {
                 placeholder="Search clients..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
               />
             </div>
             <div className="flex items-center space-x-2">
@@ -218,7 +218,7 @@ export default function ClientPortalManager() {
       {/* Client List */}
       <div className="space-y-3">
         {clients.map((client) => (
-          <Card key={client.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+          <Card key={client.id} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
               <div className="grid grid-cols-12 gap-4 items-center">
                 <div className="col-span-3 flex items-center space-x-3">
@@ -226,35 +226,35 @@ export default function ClientPortalManager() {
                     <span className="text-white font-bold text-lg">{client.logo}</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">{client.name}</p>
-                    <p className="text-xs text-gray-500">{client.email}</p>
+                    <p className="font-semibold text-gray-100">{client.name}</p>
+                    <p className="text-xs text-slate-500">{client.email}</p>
                   </div>
                 </div>
 
                 <div className="col-span-2">
-                  <p className="text-xs text-gray-600 mb-1">Portal URL</p>
+                  <p className="text-xs text-slate-400 mb-1">Portal URL</p>
                   <div className="flex items-center space-x-2">
-                    <code className="text-xs bg-gray-100 px-2 py-1 rounded">
+                    <code className="text-xs bg-white/10 px-2 py-1 rounded">
                       /{client.portalUrl}
                     </code>
-                    <button className="text-gray-400 hover:text-gray-600">
+                    <button className="text-gray-400 hover:text-slate-400">
                       <Copy className="w-3 h-3" />
                     </button>
                   </div>
                 </div>
 
                 <div className="col-span-2">
-                  <p className="text-xs text-gray-600 mb-1">Status</p>
+                  <p className="text-xs text-slate-400 mb-1">Status</p>
                   <Badge className={getStatusColor(client.status)}>{client.status}</Badge>
                 </div>
 
                 <div className="col-span-2">
-                  <p className="text-xs text-gray-600 mb-1">Last Login</p>
-                  <p className="text-sm text-gray-900">{client.lastLogin || 'Never'}</p>
+                  <p className="text-xs text-slate-400 mb-1">Last Login</p>
+                  <p className="text-sm text-gray-100">{client.lastLogin || 'Never'}</p>
                 </div>
 
                 <div className="col-span-1">
-                  <p className="text-xs text-gray-600 mb-1">Logins</p>
+                  <p className="text-xs text-slate-400 mb-1">Logins</p>
                   <p className="text-lg font-bold text-[#00B4D8]">{client.loginsThisMonth}</p>
                 </div>
 
@@ -275,9 +275,9 @@ export default function ClientPortalManager() {
 
               {/* Services */}
               <div className="mt-3 flex items-center space-x-2">
-                <span className="text-xs text-gray-500">Services:</span>
+                <span className="text-xs text-slate-500">Services:</span>
                 {client.services.map((service) => (
-                  <Badge key={service} className="bg-blue-100 text-blue-700 text-xs">
+                  <Badge key={service} className="bg-indigo-500/10 text-indigo-300 text-xs">
                     {service}
                   </Badge>
                 ))}
@@ -302,11 +302,11 @@ export default function ClientPortalManager() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-hidden"
+              className="bg-[#0f172a]/40 backdrop-blur-xl rounded-xl max-w-3xl w-full max-h-[90vh] overflow-hidden"
             >
-              <div className="p-6 border-b border-gray-200">
+              <div className="p-6 border-b border-white/10">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Add New Client Portal</h2>
+                  <h2 className="text-2xl font-bold text-white">Add New Client Portal</h2>
                   <Button size="sm" variant="ghost" onClick={() => setShowAddModal(false)}>
                     <X className="w-5 h-5" />
                   </Button>
@@ -316,55 +316,55 @@ export default function ClientPortalManager() {
                 <div className="space-y-6">
                   {/* Client Information */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-4">Client Information</h3>
+                    <h3 className="font-semibold text-gray-100 mb-4">Client Information</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Business Name
                         </label>
                         <input
                           type="text"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Primary Contact Name
                         </label>
                         <input
                           type="text"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Email Address
                         </label>
                         <input
                           type="email"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Phone Number
                         </label>
                         <input
                           type="tel"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Website URL
                         </label>
                         <input
                           type="url"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Client Logo
                         </label>
                         <Button variant="outline" size="sm">
@@ -377,39 +377,39 @@ export default function ClientPortalManager() {
 
                   {/* Portal Access */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-4">Portal Access</h3>
+                    <h3 className="font-semibold text-gray-100 mb-4">Portal Access</h3>
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Portal URL Slug
                         </label>
                         <div className="flex items-center space-x-2">
-                          <span className="text-sm text-gray-500">thinkments.com/portal/</span>
+                          <span className="text-sm text-slate-500">thinkments.com/portal/</span>
                           <input
                             type="text"
                             placeholder="client-name"
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                            className="flex-1 px-3 py-2 border border-white/20 rounded-lg"
                           />
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Username (Email)
                           </label>
                           <input
                             type="email"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                            className="w-full px-3 py-2 border border-white/20 rounded-lg"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-2">
+                          <label className="block text-sm font-medium text-gray-100 mb-2">
                             Password
                           </label>
                           <div className="flex space-x-2">
                             <input
                               type="password"
-                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                              className="flex-1 px-3 py-2 border border-white/20 rounded-lg"
                             />
                             <Button size="sm" variant="outline">
                               <RefreshCw className="w-3 h-3 mr-2" />
@@ -423,7 +423,7 @@ export default function ClientPortalManager() {
 
                   {/* Services Enabled */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-4">Services Enabled</h3>
+                    <h3 className="font-semibold text-gray-100 mb-4">Services Enabled</h3>
                     <div className="grid grid-cols-2 gap-3">
                       {[
                         'SEO Reporting',
@@ -437,7 +437,7 @@ export default function ClientPortalManager() {
                       ].map((service) => (
                         <label key={service} className="flex items-center space-x-2">
                           <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                          <span className="text-sm text-gray-700">{service}</span>
+                          <span className="text-sm text-slate-300">{service}</span>
                         </label>
                       ))}
                     </div>
@@ -445,7 +445,7 @@ export default function ClientPortalManager() {
 
                   {/* Data Connections */}
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-4">Data Connections</h3>
+                    <h3 className="font-semibold text-gray-100 mb-4">Data Connections</h3>
                     <div className="space-y-2">
                       {[
                         { name: 'Google Analytics', icon: BarChart3 },
@@ -455,11 +455,11 @@ export default function ClientPortalManager() {
                       ].map((connection) => (
                         <div
                           key={connection.name}
-                          className="flex items-center justify-between p-3 border border-gray-200 rounded-lg"
+                          className="flex items-center justify-between p-3 border border-white/10 rounded-lg"
                         >
                           <div className="flex items-center space-x-3">
-                            <connection.icon className="w-5 h-5 text-gray-600" />
-                            <span className="text-sm font-medium text-gray-900">
+                            <connection.icon className="w-5 h-5 text-slate-400" />
+                            <span className="text-sm font-medium text-gray-100">
                               {connection.name}
                             </span>
                           </div>
@@ -473,7 +473,7 @@ export default function ClientPortalManager() {
                   </div>
                 </div>
               </div>
-              <div className="p-6 border-t border-gray-200 flex justify-between">
+              <div className="p-6 border-t border-white/10 flex justify-between">
                 <Button variant="outline" onClick={() => setShowAddModal(false)}>
                   Cancel
                 </Button>
@@ -500,7 +500,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Client Portal Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
+      <header className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 sticky top-0 z-40">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -508,8 +508,8 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                 <span className="text-white font-bold">{client.logo}</span>
               </div>
               <div>
-                <h1 className="font-bold text-gray-900">{client.name}</h1>
-                <p className="text-xs text-gray-500">Welcome back!</p>
+                <h1 className="font-bold text-gray-100">{client.name}</h1>
+                <p className="text-xs text-slate-500">Welcome back!</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -517,7 +517,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                 <Eye className="w-3 h-3 mr-2" />
                 Exit Preview
               </Button>
-              <Bell className="w-5 h-5 text-gray-600 cursor-pointer" />
+              <Bell className="w-5 h-5 text-slate-400 cursor-pointer" />
               <Button size="sm" variant="outline">
                 <LogIn className="w-3 h-3 mr-2" />
                 Logout
@@ -529,7 +529,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
 
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className="w-64 bg-white border-r border-gray-200 min-h-screen">
+        <aside className="w-64 bg-[#0f172a]/40 backdrop-blur-xl border-r border-white/10 min-h-screen">
           <nav className="p-4 space-y-1">
             {[
               { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -547,8 +547,8 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
                 className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${activeSection === item.id
-                    ? 'bg-gradient-to-r from-[#00B4D8]/10 to-[#1E3A5F]/10 text-[#1E3A5F]'
-                    : 'text-gray-600 hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-[#00B4D8]/10 to-[#1E3A5F]/10 text-white'
+                    : 'text-slate-400 hover:bg-white/10'
                   }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -563,7 +563,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
           {activeSection === 'dashboard' && (
             <div className="space-y-6">
               {/* Welcome Banner */}
-              <Card className="border-0 shadow-md bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white">
+              <Card className="border-0 shadow-2xl border border-white/5 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white">
                 <CardContent className="pt-6">
                   <h2 className="text-2xl font-bold mb-2">Welcome back, {client.name}!</h2>
                   <p className="text-blue-100">Last login: December 9, 2024 at 10:30 AM</p>
@@ -571,13 +571,13 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
               </Card>
 
               {/* Performance Score */}
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="pt-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-600 mb-2">Your Marketing Score</p>
+                      <p className="text-sm text-slate-400 mb-2">Your Marketing Score</p>
                       <div className="flex items-baseline space-x-2">
-                        <span className="text-5xl font-bold text-green-600">85</span>
+                        <span className="text-whitexl font-bold text-green-600">85</span>
                         <span className="text-2xl text-gray-400">/100</span>
                       </div>
                       <div className="flex items-center space-x-2 mt-2">
@@ -622,15 +622,15 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                     color: 'orange',
                   },
                 ].map((stat) => (
-                  <Card key={stat.label} className="border-0 shadow-md">
+                  <Card key={stat.label} className="border-0 shadow-2xl border border-white/5">
                     <CardContent className="pt-6">
                       <div
                         className={`w-10 h-10 bg-${stat.color}-100 rounded-lg flex items-center justify-center mb-3`}
                       >
                         <stat.icon className={`w-5 h-5 text-${stat.color}-600`} />
                       </div>
-                      <p className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</p>
-                      <p className="text-xs text-gray-600 mb-2">{stat.label}</p>
+                      <p className="text-2xl font-bold text-gray-100 mb-1">{stat.value}</p>
+                      <p className="text-xs text-slate-400 mb-2">{stat.label}</p>
                       <p className="text-xs text-green-600 font-medium flex items-center">
                         <TrendingUp className="w-3 h-3 mr-1" />
                         {stat.change}
@@ -641,7 +641,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
               </div>
 
               {/* Wins This Month */}
-              <Card className="border-0 shadow-md bg-yellow-50 border-l-4 border-yellow-500">
+              <Card className="border-0 shadow-2xl border border-white/5 bg-amber-900/20 border-l-4 border-yellow-500">
                 <CardContent className="pt-6">
                   <div className="flex items-start space-x-3 mb-4">
                     <Award className="w-6 h-6 text-yellow-600" />
@@ -670,7 +670,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
 
               {/* Recent Activity & Quick Actions */}
               <div className="grid grid-cols-2 gap-6">
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Recent Activity</CardTitle>
                   </CardHeader>
@@ -699,12 +699,12 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                         },
                       ].map((activity, idx) => (
                         <div key={idx} className="flex items-start space-x-3">
-                          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <activity.icon className="w-4 h-4 text-blue-600" />
+                          <div className="w-8 h-8 bg-indigo-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <activity.icon className="w-4 h-4 text-indigo-400" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm text-gray-900">{activity.text}</p>
-                            <p className="text-xs text-gray-500">{activity.time}</p>
+                            <p className="text-sm text-gray-100">{activity.text}</p>
+                            <p className="text-xs text-slate-500">{activity.time}</p>
                           </div>
                         </div>
                       ))}
@@ -712,7 +712,7 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-md">
+                <Card className="border-0 shadow-2xl border border-white/5">
                   <CardHeader>
                     <CardTitle className="text-lg">Quick Actions</CardTitle>
                   </CardHeader>
@@ -743,13 +743,13 @@ function ClientPortalView({ onBack, client }: { onBack: () => void; client: Clie
 
           {/* Other sections placeholders */}
           {activeSection !== 'dashboard' && (
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardContent className="p-12 text-center">
                 <FileText className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}
                 </h3>
-                <p className="text-gray-600">Content for this section would appear here</p>
+                <p className="text-slate-400">Content for this section would appear here</p>
               </CardContent>
             </Card>
           )}

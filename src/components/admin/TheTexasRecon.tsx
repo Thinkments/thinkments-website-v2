@@ -160,7 +160,7 @@ export default function TheTexasRecon() {
                   <span className="text-red-400 flex items-center"><Code className="w-3 h-3 mr-1" /> OSINT ENGINE RUNNING</span>
                   <span className="text-slate-400">{scanProgress}%</span>
                 </div>
-                <Progress value={scanProgress} className="h-1.5 bg-slate-800 [&>div]:bg-red-500 [&>div]:shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
+                <Progress value={scanProgress} className="h-1.5 bg-slate-800 [&>div]:bg-rose-900/200 [&>div]:shadow-[0_0_10px_rgba(239,68,68,0.8)]" />
                 <p className="text-center font-mono text-xs text-slate-500 mt-3 animate-pulse">
                   {scanStatus}
                 </p>
@@ -246,7 +246,7 @@ export default function TheTexasRecon() {
                             <vuln.icon className={`w-4 h-4 mr-2 ${vuln.severity === 'High' ? 'text-red-500' : vuln.severity === 'Medium' ? 'text-orange-500' : 'text-slate-400'}`} />
                             <span className="text-sm font-bold text-white">{vuln.type}</span>
                           </div>
-                          <Badge variant={vuln.severity === 'High' ? "destructive" : "secondary"} className={vuln.severity === 'High' ? "bg-red-500/10 text-red-400 border-red-500/20" : "bg-slate-800 text-slate-300"}>
+                          <Badge variant={vuln.severity === 'High' ? "destructive" : "secondary"} className={vuln.severity === 'High' ? "bg-rose-900/200/10 text-red-400 border-red-500/20" : "bg-slate-800 text-slate-300"}>
                             {vuln.severity}
                           </Badge>
                         </div>

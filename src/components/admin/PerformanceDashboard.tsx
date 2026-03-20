@@ -170,37 +170,37 @@ const MetricCard: React.FC<MetricCardProps> = ({
   const isNeutral = change === 0;
 
   return (
-    <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+    <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 hover:shadow-2xl border border-white/5 transition-shadow">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm text-gray-600 mb-2">{title}</p>
-          <h3 className="text-3xl font-bold text-[#1E3A5F] mb-3">{value}</h3>
+          <p className="text-sm text-slate-400 mb-2">{title}</p>
+          <h3 className="text-whitexl font-bold text-white mb-3">{value}</h3>
           <div className="flex items-center space-x-1">
             {isNeutral ? (
               <Minus className="w-4 h-4 text-gray-400" />
             ) : isPositive ? (
               <ArrowUpRight className="w-4 h-4 text-green-600" />
             ) : (
-              <ArrowDownRight className="w-4 h-4 text-red-600" />
+              <ArrowDownRight className="w-4 h-4 text-rose-400" />
             )}
             <span
               className={`text-sm font-semibold ${
-                isNeutral ? 'text-gray-600' : isPositive ? 'text-green-600' : 'text-red-600'
+                isNeutral ? 'text-slate-400' : isPositive ? 'text-green-600' : 'text-rose-400'
               }`}
             >
               {Math.abs(change)}%
             </span>
-            <span className="text-sm text-gray-500">vs previous period</span>
+            <span className="text-sm text-slate-500">vs previous period</span>
           </div>
         </div>
         <div
           className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-            isPositive ? 'bg-green-100' : isNeutral ? 'bg-gray-100' : 'bg-red-100'
+            isPositive ? 'bg-emerald-500/10' : isNeutral ? 'bg-white/10' : 'bg-rose-500/10'
           }`}
         >
           <Icon
             className={`w-6 h-6 ${
-              isPositive ? 'text-green-600' : isNeutral ? 'text-gray-600' : 'text-red-600'
+              isPositive ? 'text-green-600' : isNeutral ? 'text-slate-400' : 'text-rose-400'
             }`}
           />
         </div>
@@ -250,11 +250,11 @@ export default function PerformanceDashboard() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Performance Dashboard</h1>
-            <p className="text-gray-600">
+            <h1 className="text-whitexl font-bold text-white mb-2">Performance Dashboard</h1>
+            <p className="text-slate-400">
               Real-time analytics and insights for your digital properties
             </p>
           </div>
@@ -264,10 +264,10 @@ export default function PerformanceDashboard() {
             <div className="flex items-center space-x-3">
               <div className="relative">
                 <Activity className="w-8 h-8 text-green-600" />
-                <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-900/200 rounded-full animate-pulse" />
               </div>
               <div>
-                <p className="text-sm text-gray-600">Active Users</p>
+                <p className="text-sm text-slate-400">Active Users</p>
                 <p className="text-2xl font-bold text-green-600">47</p>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function PerformanceDashboard() {
             <select
               value={selectedWebsite}
               onChange={(e) => setSelectedWebsite(e.target.value)}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
             >
               {websites.map((site) => (
                 <option key={site.id} value={site.id}>
@@ -298,7 +298,7 @@ export default function PerformanceDashboard() {
             <select
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value)}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
             >
               {dateRanges.map((range) => (
                 <option key={range.value} value={range.value}>
@@ -314,7 +314,7 @@ export default function PerformanceDashboard() {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
               compareEnabled
                 ? 'bg-[#00B4D8] text-white'
-                : 'bg-white border border-gray-300 text-[#1E3A5F]'
+                : 'bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 text-white'
             }`}
           >
             {compareEnabled ? '✓' : ''} Compare to previous period
@@ -324,7 +324,7 @@ export default function PerformanceDashboard() {
           <Button
             onClick={handleRefresh}
             variant="outline"
-            className="ml-auto border-gray-300 text-[#1E3A5F] hover:bg-[#F8F9FA]"
+            className="ml-auto border-white/20 text-white hover:bg-[#F8F9FA]"
           >
             <RefreshCw className="w-4 h-4 mr-2" />
             Refresh Data
@@ -352,11 +352,11 @@ export default function PerformanceDashboard() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           {/* Traffic Over Time Chart */}
-          <Card className="lg:col-span-2 p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <Card className="lg:col-span-2 p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Traffic Over Time</h2>
-                <p className="text-sm text-gray-600">Sessions by date</p>
+                <h2 className="text-xl font-bold text-white mb-1">Traffic Over Time</h2>
+                <p className="text-sm text-slate-400">Sessions by date</p>
               </div>
               <Badge className="bg-[#00B4D8] text-white">Last 30 days</Badge>
             </div>
@@ -413,10 +413,10 @@ export default function PerformanceDashboard() {
           </Card>
 
           {/* Traffic Sources Breakdown */}
-          <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Traffic Sources</h2>
-              <p className="text-sm text-gray-600">Click to filter dashboard</p>
+              <h2 className="text-xl font-bold text-white mb-1">Traffic Sources</h2>
+              <p className="text-sm text-slate-400">Click to filter dashboard</p>
             </div>
 
             <ResponsiveContainer width="100%" height={200}>
@@ -453,7 +453,7 @@ export default function PerformanceDashboard() {
                   }
                   className={`flex items-center justify-between p-2 rounded-lg cursor-pointer transition-all ${
                     selectedSource === null || selectedSource === source.name
-                      ? 'bg-gray-50 hover:bg-gray-100'
+                      ? 'bg-white/5 hover:bg-white/10'
                       : 'opacity-40'
                   }`}
                 >
@@ -462,13 +462,13 @@ export default function PerformanceDashboard() {
                       className="w-3 h-3 rounded-full"
                       style={{ backgroundColor: source.color }}
                     />
-                    <span className="text-sm font-medium text-[#1E3A5F]">{source.name}</span>
+                    <span className="text-sm font-medium text-white">{source.name}</span>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm font-bold text-[#1E3A5F]">
+                    <div className="text-sm font-bold text-white">
                       {source.value.toLocaleString()}
                     </div>
-                    <div className="text-xs text-gray-500">{source.percentage}%</div>
+                    <div className="text-xs text-slate-500">{source.percentage}%</div>
                   </div>
                 </div>
               ))}
@@ -486,11 +486,11 @@ export default function PerformanceDashboard() {
         </div>
 
         {/* Top Pages Table */}
-        <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+        <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Top Pages</h2>
-              <p className="text-sm text-gray-600">Most visited pages on your website</p>
+              <h2 className="text-xl font-bold text-white mb-1">Top Pages</h2>
+              <p className="text-sm text-slate-400">Most visited pages on your website</p>
             </div>
             <Button
               variant="outline"
@@ -504,24 +504,24 @@ export default function PerformanceDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                     Page Title
                   </th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">URL</th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">URL</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                     Views
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                     Unique Views
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                     Avg Time
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                     Bounce Rate
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                     Trend
                   </th>
                 </tr>
@@ -530,29 +530,29 @@ export default function PerformanceDashboard() {
                 {topPages.map((page, index) => (
                   <tr
                     key={index}
-                    className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                    className="border-b border-white/5 hover:bg-white/5 transition-colors"
                   >
                     <td className="py-4 px-4">
-                      <div className="font-medium text-[#1E3A5F]">{page.title}</div>
+                      <div className="font-medium text-white">{page.title}</div>
                     </td>
                     <td className="py-4 px-4">
-                      <div className="text-sm text-gray-600 font-mono">{page.url}</div>
+                      <div className="text-sm text-slate-400 font-mono">{page.url}</div>
                     </td>
-                    <td className="py-4 px-4 text-right font-semibold text-[#1E3A5F]">
+                    <td className="py-4 px-4 text-right font-semibold text-white">
                       {page.views.toLocaleString()}
                     </td>
-                    <td className="py-4 px-4 text-right text-gray-600">
+                    <td className="py-4 px-4 text-right text-slate-400">
                       {page.uniqueViews.toLocaleString()}
                     </td>
-                    <td className="py-4 px-4 text-right text-gray-600">{page.avgTime}</td>
+                    <td className="py-4 px-4 text-right text-slate-400">{page.avgTime}</td>
                     <td className="py-4 px-4 text-right">
                       <span
                         className={`inline-flex items-center px-2 py-1 rounded text-xs font-semibold ${
                           parseInt(page.bounceRate) < 35
-                            ? 'bg-green-100 text-green-700'
+                            ? 'bg-emerald-500/10 text-green-700'
                             : parseInt(page.bounceRate) < 45
-                              ? 'bg-yellow-100 text-yellow-700'
-                              : 'bg-red-100 text-red-700'
+                              ? 'bg-amber-500/10 text-yellow-700'
+                              : 'bg-rose-500/10 text-rose-300'
                         }`}
                       >
                         {page.bounceRate}
@@ -571,29 +571,29 @@ export default function PerformanceDashboard() {
         {/* Goals and Geographic Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Goals/Conversions */}
-          <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Goals & Conversions</h2>
-              <p className="text-sm text-gray-600">Track your conversion objectives</p>
+              <h2 className="text-xl font-bold text-white mb-1">Goals & Conversions</h2>
+              <p className="text-sm text-slate-400">Track your conversion objectives</p>
             </div>
 
             <div className="space-y-4">
               {goals.map((goal, index) => (
-                <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                <div key={index} className="p-4 bg-white/5 rounded-lg">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-3">
                       <Target className="w-5 h-5 text-[#00B4D8]" />
-                      <span className="font-semibold text-[#1E3A5F]">{goal.name}</span>
+                      <span className="font-semibold text-white">{goal.name}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       {goal.change > 0 ? (
                         <TrendingUp className="w-4 h-4 text-green-600" />
                       ) : (
-                        <TrendingDown className="w-4 h-4 text-red-600" />
+                        <TrendingDown className="w-4 h-4 text-rose-400" />
                       )}
                       <span
                         className={`text-sm font-semibold ${
-                          goal.change > 0 ? 'text-green-600' : 'text-red-600'
+                          goal.change > 0 ? 'text-green-600' : 'text-rose-400'
                         }`}
                       >
                         {goal.change > 0 ? '+' : ''}
@@ -604,14 +604,14 @@ export default function PerformanceDashboard() {
 
                   <div className="flex items-center justify-between mb-2">
                     <div>
-                      <span className="text-2xl font-bold text-[#1E3A5F]">{goal.completions}</span>
-                      <span className="text-sm text-gray-600 ml-2">/ {goal.target} goal</span>
+                      <span className="text-2xl font-bold text-white">{goal.completions}</span>
+                      <span className="text-sm text-slate-400 ml-2">/ {goal.target} goal</span>
                     </div>
                     <Badge className="bg-[#00B4D8] text-white">{goal.conversionRate}</Badge>
                   </div>
 
                   {/* Progress bar */}
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-white/20 rounded-full h-2">
                     <div
                       className="bg-[#00B4D8] h-2 rounded-full transition-all"
                       style={{ width: `${(goal.completions / goal.target) * 100}%` }}
@@ -623,17 +623,17 @@ export default function PerformanceDashboard() {
           </Card>
 
           {/* Geographic Breakdown */}
-          <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+          <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Geographic Breakdown</h2>
-              <p className="text-sm text-gray-600">Top locations by sessions</p>
+              <h2 className="text-xl font-bold text-white mb-1">Geographic Breakdown</h2>
+              <p className="text-sm text-slate-400">Top locations by sessions</p>
             </div>
 
             <div className="space-y-3">
               {geoData.map((location, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <div className="flex items-center space-x-3 flex-1">
                     <div className="flex items-center justify-center w-8 h-8 bg-[#1E3A5F] text-white rounded-full font-bold text-sm">
@@ -641,14 +641,14 @@ export default function PerformanceDashboard() {
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-4 h-4 text-[#00B4D8]" />
-                      <span className="font-medium text-[#1E3A5F]">{location.city}</span>
+                      <span className="font-medium text-white">{location.city}</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-[#1E3A5F]">
+                    <div className="font-bold text-white">
                       {location.sessions.toLocaleString()}
                     </div>
-                    <div className="text-xs text-gray-500">{location.percentage}%</div>
+                    <div className="text-xs text-slate-500">{location.percentage}%</div>
                   </div>
                 </div>
               ))}
@@ -661,10 +661,10 @@ export default function PerformanceDashboard() {
         </div>
 
         {/* Device Breakdown */}
-        <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+        <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
           <div className="mb-6">
-            <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Device Breakdown</h2>
-            <p className="text-sm text-gray-600">Sessions by device type</p>
+            <h2 className="text-xl font-bold text-white mb-1">Device Breakdown</h2>
+            <p className="text-sm text-slate-400">Sessions by device type</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -709,13 +709,13 @@ export default function PerformanceDashboard() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-[#1E3A5F]">{device.name}</span>
-                        <span className="text-sm font-bold text-[#1E3A5F]">
+                        <span className="font-semibold text-white">{device.name}</span>
+                        <span className="text-sm font-bold text-white">
                           {device.percentage}%
                         </span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <div className="flex-1 bg-gray-200 rounded-full h-2">
+                        <div className="flex-1 bg-white/20 rounded-full h-2">
                           <div
                             className="h-2 rounded-full transition-all"
                             style={{
@@ -724,7 +724,7 @@ export default function PerformanceDashboard() {
                             }}
                           />
                         </div>
-                        <span className="text-sm text-gray-600 font-medium min-w-[80px] text-right">
+                        <span className="text-sm text-slate-400 font-medium min-w-[80px] text-right">
                           {device.value.toLocaleString()} sessions
                         </span>
                       </div>
@@ -737,15 +737,15 @@ export default function PerformanceDashboard() {
         </Card>
 
         {/* Real-Time Active Pages */}
-        <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mt-8">
+        <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mt-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Real-Time Activity</h2>
-              <p className="text-sm text-gray-600">Current active users by page</p>
+              <h2 className="text-xl font-bold text-white mb-1">Real-Time Activity</h2>
+              <p className="text-sm text-slate-400">Current active users by page</p>
             </div>
             <div className="flex items-center space-x-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm text-gray-600">Live</span>
+              <span className="w-2 h-2 bg-emerald-900/200 rounded-full animate-pulse" />
+              <span className="text-sm text-slate-400">Live</span>
             </div>
           </div>
 
@@ -761,7 +761,7 @@ export default function PerformanceDashboard() {
                 key={index}
                 className="flex items-center justify-between p-3 bg-gradient-to-r from-green-50 to-transparent rounded-lg"
               >
-                <span className="text-sm font-medium text-[#1E3A5F] font-mono">{item.page}</span>
+                <span className="text-sm font-medium text-white font-mono">{item.page}</span>
                 <div className="flex items-center space-x-2">
                   <Activity className="w-4 h-4 text-green-600" />
                   <span className="text-sm font-bold text-green-600">{item.users} active</span>

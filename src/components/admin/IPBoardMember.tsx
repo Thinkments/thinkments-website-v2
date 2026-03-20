@@ -73,7 +73,7 @@ Return your analysis in strict JSON format matching exactly this schema:
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-3xl font-bold mb-2 flex items-center gap-2">
+                <h2 className="text-whitexl font-bold mb-2 flex items-center gap-2">
                     <Scale className="text-blue-500 w-8 h-8" />
                     IP Board Member
                 </h2>
@@ -156,73 +156,73 @@ Return your analysis in strict JSON format matching exactly this schema:
                 <div className="lg:col-span-8 space-y-6">
                     {analysisResult ? (
                         <Card className="h-full border-blue-200 shadow-xl overflow-hidden">
-                            <CardHeader className="bg-slate-50 border-b border-gray-100 py-4">
+                            <CardHeader className="bg-slate-50 border-b border-white/5 py-4">
                                 <div className="flex items-center gap-2">
-                                    <Scale className="h-5 w-5 text-blue-600" />
+                                    <Scale className="h-5 w-5 text-indigo-400" />
                                     <CardTitle>Counsel's Recommendation</CardTitle>
                                 </div>
                             </CardHeader>
                             <CardContent className="p-6 space-y-6">
-                                <p className="text-gray-700 text-lg font-medium border-l-4 border-blue-500 pl-4 py-1">
+                                <p className="text-slate-300 text-lg font-medium border-l-4 border-blue-500 pl-4 py-1">
                                     {analysisResult.summary}
                                 </p>
 
                                 <div className="grid gap-4 mt-6">
                                     {/* Patents */}
-                                    <div className={`p-4 rounded-lg border ${analysisResult.patent.recommended ? 'bg-amber-50 border-amber-200' : 'bg-gray-50 border-gray-200'}`}>
+                                    <div className={`p-4 rounded-lg border ${analysisResult.patent.recommended ? 'bg-amber-50 border-amber-200' : 'bg-white/5 border-white/10'}`}>
                                         <div className="flex items-center gap-2 mb-2">
-                                            <Lightbulb className={`h-5 w-5 ${analysisResult.patent.recommended ? 'text-amber-600' : 'text-gray-400'}`} />
+                                            <Lightbulb className={`h-5 w-5 ${analysisResult.patent.recommended ? 'text-whitember-600' : 'text-gray-400'}`} />
                                             <h3 className="font-bold text-lg">Patents</h3>
                                             {analysisResult.patent.recommended ? (
-                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-amber-100 text-amber-800 rounded-full">Recommended</span>
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-amber-100 text-whitember-800 rounded-full">Recommended</span>
                                             ) : (
-                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-gray-200 text-gray-600 rounded-full">Not Advised</span>
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-white/20 text-slate-400 rounded-full">Not Advised</span>
                                             )}
                                         </div>
-                                        <p className="text-gray-700 text-sm">{analysisResult.patent.reasoning}</p>
+                                        <p className="text-slate-300 text-sm">{analysisResult.patent.reasoning}</p>
                                     </div>
 
                                     {/* Trademarks */}
-                                    <div className={`p-4 rounded-lg border ${analysisResult.trademark.recommended ? 'bg-blue-50 border-blue-200' : 'bg-gray-50 border-gray-200'}`}>
+                                    <div className={`p-4 rounded-lg border ${analysisResult.trademark.recommended ? 'bg-indigo-900/20 border-blue-200' : 'bg-white/5 border-white/10'}`}>
                                         <div className="flex items-center gap-2 mb-2">
-                                            <Bookmark className={`h-5 w-5 ${analysisResult.trademark.recommended ? 'text-blue-600' : 'text-gray-400'}`} />
+                                            <Bookmark className={`h-5 w-5 ${analysisResult.trademark.recommended ? 'text-indigo-400' : 'text-gray-400'}`} />
                                             <h3 className="font-bold text-lg">Trademarks</h3>
                                             {analysisResult.trademark.recommended ? (
-                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Recommended</span>
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-indigo-500/10 text-indigo-300 rounded-full">Recommended</span>
                                             ) : (
-                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-gray-200 text-gray-600 rounded-full">Not Advised</span>
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-white/20 text-slate-400 rounded-full">Not Advised</span>
                                             )}
                                         </div>
-                                        <p className="text-gray-700 text-sm">{analysisResult.trademark.reasoning}</p>
+                                        <p className="text-slate-300 text-sm">{analysisResult.trademark.reasoning}</p>
                                     </div>
 
                                     {/* Copyright */}
-                                    <div className={`p-4 rounded-lg border ${analysisResult.copyright.recommended ? 'bg-emerald-50 border-emerald-200' : 'bg-gray-50 border-gray-200'}`}>
+                                    <div className={`p-4 rounded-lg border ${analysisResult.copyright.recommended ? 'bg-emerald-50 border-emerald-200' : 'bg-white/5 border-white/10'}`}>
                                         <div className="flex items-center gap-2 mb-2">
-                                            <FileText className={`h-5 w-5 ${analysisResult.copyright.recommended ? 'text-emerald-600' : 'text-gray-400'}`} />
+                                            <FileText className={`h-5 w-5 ${analysisResult.copyright.recommended ? 'text-whitemerald-600' : 'text-gray-400'}`} />
                                             <h3 className="font-bold text-lg">Copyright</h3>
                                             {analysisResult.copyright.recommended ? (
-                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full">Implicitly Protected</span>
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-emerald-100 text-whitemerald-800 rounded-full">Implicitly Protected</span>
                                             ) : (
-                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-gray-200 text-gray-600 rounded-full">Standard Protection Only</span>
+                                                <span className="ml-auto text-xs font-bold px-2 py-1 bg-white/20 text-slate-400 rounded-full">Standard Protection Only</span>
                                             )}
                                         </div>
-                                        <p className="text-gray-700 text-sm">{analysisResult.copyright.reasoning}</p>
+                                        <p className="text-slate-300 text-sm">{analysisResult.copyright.reasoning}</p>
                                     </div>
                                 </div>
                                 
-                                <div className="mt-8 pt-6 border-t border-gray-100 text-xs text-gray-400">
+                                <div className="mt-8 pt-6 border-t border-white/5 text-xs text-gray-400">
                                     *Disclaimer: This is AI-generated preliminary advice and does not constitute formal legal counsel. Always consult a certified IP attorney before filing.
                                 </div>
                             </CardContent>
                         </Card>
                     ) : (
-                        <Card className="h-full border-dashed border-2 flex items-center justify-center min-h-[500px] bg-gray-50/50">
+                        <Card className="h-full border-dashed border-2 flex items-center justify-center min-h-[500px] bg-white/5/50">
                             <CardContent className="flex flex-col items-center justify-center text-center p-8">
-                                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6 shadow-inner">
+                                <div className="w-20 h-20 bg-indigo-500/10 rounded-full flex items-center justify-center mb-6 shadow-inner">
                                     <Scale className="h-10 w-10 text-blue-500" />
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-800 mb-2">Awaiting Disclosure</h3>
+                                <h3 className="text-xl font-semibold text-gray-200 mb-2">Awaiting Disclosure</h3>
                                 <p className="text-muted-foreground max-w-sm mb-6">
                                     Provide the details of your concept on the left. The IP Board Member will analyze the scope of possible patent, trademark, and copyright protections.
                                 </p>

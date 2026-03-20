@@ -115,7 +115,7 @@ Respond in strict JSON format with exactly these fields based on the user's brie
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
+            text-whitelign: center;
             padding: 2rem;
         }
         .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
@@ -153,7 +153,7 @@ Respond in strict JSON format with exactly these fields based on the user's brie
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-3xl font-bold mb-2">Web Architect Agent</h2>
+                <h2 className="text-whitexl font-bold mb-2">Web Architect Agent</h2>
                 <p className="text-muted-foreground">
                     An AI graphic designer that autonomously generates modern, conversion-optimized e-commerce layouts.
                 </p>
@@ -246,16 +246,16 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                 <div className="lg:col-span-8 space-y-6">
                     {generatedDesign ? (
                         <Card className="h-full border-purple-200 shadow-xl overflow-hidden">
-                            <CardHeader className="bg-white border-b border-gray-100 flex flex-row items-center justify-between py-4">
+                            <CardHeader className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/5 flex flex-row items-center justify-between py-4">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-500" />
                                     <CardTitle>Generated Design</CardTitle>
                                 </div>
-                                <div className="flex bg-gray-100 p-1 rounded-lg">
+                                <div className="flex bg-white/10 p-1 rounded-lg">
                                     <button
                                         onClick={() => setActiveTab('preview')}
                                         className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                                            activeTab === 'preview' ? 'bg-white shadow-sm text-purple-600' : 'text-gray-500 hover:text-gray-700'
+                                            activeTab === 'preview' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow-lg border border-white/5 text-purple-600' : 'text-slate-500 hover:text-slate-300'
                                         }`}
                                     >
                                         <MonitorSmartphone className="w-4 h-4" />
@@ -264,7 +264,7 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                     <button
                                         onClick={() => setActiveTab('code')}
                                         className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                                            activeTab === 'code' ? 'bg-white shadow-sm text-purple-600' : 'text-gray-500 hover:text-gray-700'
+                                            activeTab === 'code' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow-lg border border-white/5 text-purple-600' : 'text-slate-500 hover:text-slate-300'
                                         }`}
                                     >
                                         <Code className="w-4 h-4" />
@@ -272,15 +272,15 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                     </button>
                                 </div>
                             </CardHeader>
-                            <CardContent className="p-0 flex-1 bg-gray-50">
+                            <CardContent className="p-0 flex-1 bg-white/5">
                                 {activeTab === 'preview' ? (
-                                    <div className="w-full h-full min-h-[500px] border-4 border-gray-200 rounded-b-xl overflow-hidden flex flex-col relative" style={{ fontFamily: generatedDesign.font, backgroundColor: generatedDesign.secondaryColor }}>
+                                    <div className="w-full h-full min-h-[500px] border-4 border-white/10 rounded-b-xl overflow-hidden flex flex-col relative" style={{ fontFamily: generatedDesign.font, backgroundColor: generatedDesign.secondaryColor }}>
                                         {/* Browser Toolbar Mock */}
-                                        <div className="h-8 bg-gray-200 flex items-center px-4 gap-2 border-b border-gray-300">
+                                        <div className="h-8 bg-white/20 flex items-center px-4 gap-2 border-b border-white/20">
                                             <div className="w-3 h-3 rounded-full bg-red-400"></div>
                                             <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                                             <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                                            <div className="flex-1 bg-white/50 h-5 rounded mx-2 text-[10px] flex items-center px-2 text-gray-500">
+                                            <div className="flex-1 bg-[#0f172a]/40 backdrop-blur-xl/50 h-5 rounded mx-2 text-[10px] flex items-center px-2 text-slate-500">
                                                 https://{businessName.toLowerCase().replace(/\s+/g, '')}.com
                                             </div>
                                         </div>
@@ -290,14 +290,14 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                             <div className="font-bold text-xl tracking-tight flex items-center gap-2" style={{ color: generatedDesign.primaryColor }}>
                                                 {businessName || 'Brand'}
                                             </div>
-                                            <div className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
+                                            <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
                                                 <span>New Arrivals</span>
                                                 <span>Best Sellers</span>
                                                 <span>Collections</span>
                                                 <span>About Us</span>
                                             </div>
                                             <div className="flex gap-4">
-                                                <ShoppingCart className="w-5 h-5 text-gray-600" />
+                                                <ShoppingCart className="w-5 h-5 text-slate-400" />
                                             </div>
                                         </div>
 
@@ -344,7 +344,7 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                                                 <Send className="w-4 h-4 mr-2" />
                                                 Assign to Web Team
                                             </Button>
-                                            <Button size="sm" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 border-0" onClick={() => {
+                                            <Button size="sm" variant="secondary" className="bg-[#0f172a]/40 backdrop-blur-xl/10 text-white hover:bg-[#0f172a]/40 backdrop-blur-xl/20 border-0" onClick={() => {
                                                 navigator.clipboard.writeText(getHtmlCode());
                                                 toast.success('Code copied to clipboard!');
                                             }}>
@@ -361,19 +361,19 @@ Respond in strict JSON format with exactly these fields based on the user's brie
                             </CardContent>
                         </Card>
                     ) : (
-                        <Card className="h-full border-dashed border-2 flex items-center justify-center min-h-[500px] bg-gray-50/50">
+                        <Card className="h-full border-dashed border-2 flex items-center justify-center min-h-[500px] bg-white/5/50">
                             <CardContent className="flex flex-col items-center justify-center text-center p-8">
                                 <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-6 shadow-inner">
                                     <Palette className="h-10 w-10 text-purple-400" />
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-800 mb-2">Awaiting Instructions</h3>
+                                <h3 className="text-xl font-semibold text-gray-200 mb-2">Awaiting Instructions</h3>
                                 <p className="text-muted-foreground max-w-sm mb-6">
                                     Fill out the project brief on the left. The Web Architect agent will generate a stunning, functional e-commerce design in seconds.
                                 </p>
                                 <div className="flex gap-2 text-sm text-gray-400">
-                                    <span className="flex items-center bg-white px-3 py-1 rounded-full shadow-sm border"><ImageIcon className="w-3 h-3 mr-1" /> Images</span>
-                                    <span className="flex items-center bg-white px-3 py-1 rounded-full shadow-sm border"><Code className="w-3 h-3 mr-1" /> Code</span>
-                                    <span className="flex items-center bg-white px-3 py-1 rounded-full shadow-sm border"><Palette className="w-3 h-3 mr-1" /> Branding</span>
+                                    <span className="flex items-center bg-[#0f172a]/40 backdrop-blur-xl px-3 py-1 rounded-full shadow-lg border border-white/5 border"><ImageIcon className="w-3 h-3 mr-1" /> Images</span>
+                                    <span className="flex items-center bg-[#0f172a]/40 backdrop-blur-xl px-3 py-1 rounded-full shadow-lg border border-white/5 border"><Code className="w-3 h-3 mr-1" /> Code</span>
+                                    <span className="flex items-center bg-[#0f172a]/40 backdrop-blur-xl px-3 py-1 rounded-full shadow-lg border border-white/5 border"><Palette className="w-3 h-3 mr-1" /> Branding</span>
                                 </div>
                             </CardContent>
                         </Card>

@@ -65,11 +65,11 @@ interface Lead {
 
 
 const pipelineStages = [
-  { id: 'new', label: 'New', color: 'bg-blue-500', count: 0 },
-  { id: 'contacted', label: 'Contacted', color: 'bg-yellow-500', count: 0 },
-  { id: 'qualified', label: 'Qualified', color: 'bg-orange-500', count: 0 },
+  { id: 'new', label: 'New', color: 'bg-indigo-900/200', count: 0 },
+  { id: 'contacted', label: 'Contacted', color: 'bg-amber-900/200', count: 0 },
+  { id: 'qualified', label: 'Qualified', color: 'bg-orange-900/200', count: 0 },
   { id: 'proposal', label: 'Proposal Sent', color: 'bg-[#00B4D8]', count: 0 },
-  { id: 'won', label: 'Won', color: 'bg-green-500', count: 0 },
+  { id: 'won', label: 'Won', color: 'bg-emerald-900/200', count: 0 },
   { id: 'lost', label: 'Lost', color: 'bg-gray-400', count: 0 },
 ];
 
@@ -173,14 +173,14 @@ export default function LeadDashboard() {
 
   const getScoreBadge = (score: string) => {
     const configs = {
-      hot: { color: 'bg-red-100 text-red-700 border-red-200', label: 'Hot', icon: Flame },
+      hot: { color: 'bg-rose-500/10 text-rose-300 border-red-200', label: 'Hot', icon: Flame },
       warm: {
-        color: 'bg-orange-100 text-orange-700 border-orange-200',
+        color: 'bg-orange-500/10 text-orange-700 border-orange-200',
         label: 'Warm',
         icon: TrendingUp,
       },
       cold: {
-        color: 'bg-blue-100 text-blue-700 border-blue-200',
+        color: 'bg-indigo-500/10 text-indigo-300 border-blue-200',
         label: 'Cold',
         icon: TrendingDown,
       },
@@ -197,12 +197,12 @@ export default function LeadDashboard() {
 
   const getStatusBadge = (status: string) => {
     const statusConfig: Record<string, { label: string; color: string }> = {
-      new: { label: 'New', color: 'bg-blue-100 text-blue-700' },
-      contacted: { label: 'Contacted', color: 'bg-yellow-100 text-yellow-700' },
-      qualified: { label: 'Qualified', color: 'bg-orange-100 text-orange-700' },
+      new: { label: 'New', color: 'bg-indigo-500/10 text-indigo-300' },
+      contacted: { label: 'Contacted', color: 'bg-amber-500/10 text-yellow-700' },
+      qualified: { label: 'Qualified', color: 'bg-orange-500/10 text-orange-700' },
       proposal: { label: 'Proposal Sent', color: 'bg-[#00B4D8]/20 text-[#00B4D8]' },
-      won: { label: 'Won', color: 'bg-green-100 text-green-700' },
-      lost: { label: 'Lost', color: 'bg-gray-100 text-gray-700' },
+      won: { label: 'Won', color: 'bg-emerald-500/10 text-green-700' },
+      lost: { label: 'Lost', color: 'bg-white/10 text-slate-300' },
     };
     const config = statusConfig[status];
     return <Badge className={`${config.color} border-0`}>{config.label}</Badge>;
@@ -231,21 +231,21 @@ export default function LeadDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-[#1E3A5F]">Lead Dashboard</h1>
-          <p className="text-gray-600 mt-1">Track and manage your sales pipeline</p>
+          <h1 className="text-whitexl font-bold text-white">Lead Dashboard</h1>
+          <p className="text-slate-400 mt-1">Track and manage your sales pipeline</p>
         </div>
 
         {/* Quick Actions */}
         <div className="flex items-center space-x-3">
-          <Button variant="outline" className="border-gray-300">
+          <Button variant="outline" className="border-white/20">
             <Upload className="w-4 h-4 mr-2" />
             Import CSV
           </Button>
-          <Button variant="outline" className="border-gray-300">
+          <Button variant="outline" className="border-white/20">
             <Download className="w-4 h-4 mr-2" />
             Export
           </Button>
-          <Button variant="outline" className="border-gray-300">
+          <Button variant="outline" className="border-white/20">
             <Mail className="w-4 h-4 mr-2" />
             Bulk Email
           </Button>
@@ -258,16 +258,16 @@ export default function LeadDashboard() {
 
       {/* Stats Row */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Total Leads</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">{totalLeads}</p>
+                <p className="text-sm text-slate-400 mb-1">Total Leads</p>
+                <p className="text-whitexl font-bold text-white">{totalLeads}</p>
                 <div className="flex items-center mt-2 text-sm">
                   <ArrowUpRight className="w-4 h-4 text-green-600 mr-1" />
                   <span className="text-green-600 font-medium">+12%</span>
-                  <span className="text-gray-500 ml-1">vs last month</span>
+                  <span className="text-slate-500 ml-1">vs last month</span>
                 </div>
               </div>
               <div className="w-12 h-12 bg-[#00B4D8]/10 rounded-lg flex items-center justify-center">
@@ -277,15 +277,15 @@ export default function LeadDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Hot Leads</p>
-                <p className="text-3xl font-bold text-[#FF6B35]">{hotLeads}</p>
+                <p className="text-sm text-slate-400 mb-1">Hot Leads</p>
+                <p className="text-whitexl font-bold text-[#FF6B35]">{hotLeads}</p>
                 <div className="flex items-center mt-2">
                   <Flame className="w-4 h-4 text-[#FF6B35] mr-1" />
-                  <span className="text-sm text-gray-600">Needs attention</span>
+                  <span className="text-sm text-slate-400">Needs attention</span>
                 </div>
               </div>
               <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center">
@@ -295,16 +295,16 @@ export default function LeadDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Leads This Week</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">{leadsThisWeek}</p>
+                <p className="text-sm text-slate-400 mb-1">Leads This Week</p>
+                <p className="text-whitexl font-bold text-white">{leadsThisWeek}</p>
                 <div className="flex items-center mt-2 text-sm">
                   <ArrowUpRight className="w-4 h-4 text-green-600 mr-1" />
                   <span className="text-green-600 font-medium">+8%</span>
-                  <span className="text-gray-500 ml-1">trending up</span>
+                  <span className="text-slate-500 ml-1">trending up</span>
                 </div>
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -314,24 +314,24 @@ export default function LeadDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Conversion Rate</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">{conversionRate}%</p>
+                <p className="text-sm text-slate-400 mb-1">Conversion Rate</p>
+                <p className="text-whitexl font-bold text-white">{conversionRate}%</p>
                 <div className="flex items-center mt-2">
                   <div className="flex-1 max-w-[100px]">
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-green-500 rounded-full transition-all"
+                        className="h-full bg-emerald-900/200 rounded-full transition-all"
                         style={{ width: `${conversionRate}%` }}
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                 <Target className="w-6 h-6 text-green-600" />
               </div>
             </div>
@@ -340,9 +340,9 @@ export default function LeadDashboard() {
       </div>
 
       {/* Lead Pipeline */}
-      <Card className="border-0 shadow-md mb-6">
+      <Card className="border-0 shadow-2xl border border-white/5 mb-6">
         <CardHeader>
-          <CardTitle className="text-[#1E3A5F]">Lead Pipeline</CardTitle>
+          <CardTitle className="text-white">Lead Pipeline</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4 overflow-x-auto pb-4">
@@ -352,26 +352,26 @@ export default function LeadDashboard() {
                   className={`${stage.color} text-white rounded-t-lg p-3 flex items-center justify-between`}
                 >
                   <span className="font-semibold">{stage.label}</span>
-                  <Badge className="bg-white/20 text-white border-0">{stage.count}</Badge>
+                  <Badge className="bg-[#0f172a]/40 backdrop-blur-xl/20 text-white border-0">{stage.count}</Badge>
                 </div>
-                <div className="bg-gray-50 rounded-b-lg p-3 space-y-3 min-h-[300px] border-2 border-t-0 border-gray-200">
+                <div className="bg-white/5 rounded-b-lg p-3 space-y-3 min-h-[300px] border-2 border-t-0 border-white/10">
                   {leads
                     .filter((lead) => lead.status === stage.id)
                     .map((lead) => (
                       <motion.div
                         key={lead.id}
                         whileHover={{ scale: 1.02 }}
-                        className="bg-white rounded-lg p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                        className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg p-4 shadow-lg border border-white/5 cursor-pointer hover:shadow-2xl border border-white/5 transition-shadow"
                         onClick={() => openDetailPanel(lead)}
                       >
                         <div className="flex items-start justify-between mb-2">
                           <div>
-                            <p className="font-semibold text-[#1E3A5F] text-sm">{lead.name}</p>
-                            <p className="text-xs text-gray-600">{lead.company}</p>
+                            <p className="font-semibold text-white text-sm">{lead.name}</p>
+                            <p className="text-xs text-slate-400">{lead.company}</p>
                           </div>
                           {getScoreBadge(lead.leadScore)}
                         </div>
-                        <div className="space-y-1 text-xs text-gray-600">
+                        <div className="space-y-1 text-xs text-slate-400">
                           <div className="flex items-center">
                             <Globe className="w-3 h-3 mr-1" />
                             {lead.sourcePage}
@@ -399,10 +399,10 @@ export default function LeadDashboard() {
       </Card>
 
       {/* Lead Table */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="text-[#1E3A5F]">All Leads</CardTitle>
+            <CardTitle className="text-white">All Leads</CardTitle>
 
             {/* Filters */}
             <div className="flex items-center space-x-3">
@@ -452,7 +452,7 @@ export default function LeadDashboard() {
                   <th className="text-left p-4">
                     <input
                       type="checkbox"
-                      className="w-4 h-4 rounded border-gray-300"
+                      className="w-4 h-4 rounded border-white/20"
                       onChange={(e) => {
                         if (e.target.checked) {
                           setSelectedLeads(filteredLeads.map((l) => l.id));
@@ -462,17 +462,17 @@ export default function LeadDashboard() {
                       }}
                     />
                   </th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Name</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Email</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Phone</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">
+                  <th className="text-left p-4 text-sm font-semibold text-white">Name</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Email</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Phone</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">
                     Source Page
                   </th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Lead Score</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Status</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Date</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Value</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Actions</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Lead Score</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Status</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Date</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Value</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -482,28 +482,28 @@ export default function LeadDashboard() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.05 }}
-                    className="border-t border-gray-100 hover:bg-[#F8F9FA] transition-colors"
+                    className="border-t border-white/5 hover:bg-[#F8F9FA] transition-colors"
                   >
                     <td className="p-4">
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300"
+                        className="w-4 h-4 rounded border-white/20"
                         checked={selectedLeads.includes(lead.id)}
                         onChange={() => toggleLeadSelection(lead.id)}
                       />
                     </td>
                     <td className="p-4">
                       <div>
-                        <p className="font-semibold text-[#1E3A5F]">{lead.name}</p>
-                        {lead.company && <p className="text-sm text-gray-600">{lead.company}</p>}
+                        <p className="font-semibold text-white">{lead.name}</p>
+                        {lead.company && <p className="text-sm text-slate-400">{lead.company}</p>}
                       </div>
                     </td>
-                    <td className="p-4 text-sm text-gray-600">{lead.email}</td>
-                    <td className="p-4 text-sm text-gray-600">{lead.phone}</td>
-                    <td className="p-4 text-sm text-gray-600">{lead.sourcePage}</td>
+                    <td className="p-4 text-sm text-slate-400">{lead.email}</td>
+                    <td className="p-4 text-sm text-slate-400">{lead.phone}</td>
+                    <td className="p-4 text-sm text-slate-400">{lead.sourcePage}</td>
                     <td className="p-4">{getScoreBadge(lead.leadScore)}</td>
                     <td className="p-4">{getStatusBadge(lead.status)}</td>
-                    <td className="p-4 text-sm text-gray-600">
+                    <td className="p-4 text-sm text-slate-400">
                       {new Date(lead.date).toLocaleDateString()}
                     </td>
                     <td className="p-4 text-sm font-semibold text-green-600">
@@ -523,7 +523,7 @@ export default function LeadDashboard() {
                         <Button
                           size="sm"
                           variant="ghost"
-                          className="text-red-600 hover:text-red-700"
+                          className="text-rose-400 hover:text-rose-300"
                           onClick={(e) => handleDeleteLead(lead.id, e)}
                         >
                           <Trash2 className="w-4 h-4" />
@@ -554,7 +554,7 @@ export default function LeadDashboard() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25 }}
-              className="fixed right-0 top-0 h-full w-full max-w-2xl bg-white shadow-2xl z-50 overflow-y-auto"
+              className="fixed right-0 top-0 h-full w-full max-w-2xl bg-[#0f172a]/40 backdrop-blur-xl shadow-2xl z-50 overflow-y-auto"
             >
               {/* Header */}
               <div className="sticky top-0 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white p-6 z-10">
@@ -564,7 +564,7 @@ export default function LeadDashboard() {
                     variant="ghost"
                     size="sm"
                     onClick={() => setShowDetailPanel(false)}
-                    className="text-white hover:bg-white/20"
+                    className="text-white hover:bg-[#0f172a]/40 backdrop-blur-xl/20"
                   >
                     <X className="w-5 h-5" />
                   </Button>
@@ -582,31 +582,31 @@ export default function LeadDashboard() {
 
               <div className="p-6 space-y-6">
                 {/* Contact Information */}
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-lg border border-white/5">
                   <CardHeader>
-                    <CardTitle className="text-[#1E3A5F] text-lg">Contact Information</CardTitle>
+                    <CardTitle className="text-white text-lg">Contact Information</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <Mail className="w-5 h-5 text-gray-400" />
                       <div>
-                        <p className="text-xs text-gray-600">Email</p>
-                        <p className="font-medium text-[#1E3A5F]">{selectedLead.email}</p>
+                        <p className="text-xs text-slate-400">Email</p>
+                        <p className="font-medium text-white">{selectedLead.email}</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Phone className="w-5 h-5 text-gray-400" />
                       <div>
-                        <p className="text-xs text-gray-600">Phone</p>
-                        <p className="font-medium text-[#1E3A5F]">{selectedLead.phone}</p>
+                        <p className="text-xs text-slate-400">Phone</p>
+                        <p className="font-medium text-white">{selectedLead.phone}</p>
                       </div>
                     </div>
                     {selectedLead.company && (
                       <div className="flex items-center space-x-3">
                         <Building2 className="w-5 h-5 text-gray-400" />
                         <div>
-                          <p className="text-xs text-gray-600">Company</p>
-                          <p className="font-medium text-[#1E3A5F]">{selectedLead.company}</p>
+                          <p className="text-xs text-slate-400">Company</p>
+                          <p className="font-medium text-white">{selectedLead.company}</p>
                         </div>
                       </div>
                     )}
@@ -614,13 +614,13 @@ export default function LeadDashboard() {
                 </Card>
 
                 {/* Lead Details */}
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-lg border border-white/5">
                   <CardHeader>
-                    <CardTitle className="text-[#1E3A5F] text-lg">Lead Information</CardTitle>
+                    <CardTitle className="text-white text-lg">Lead Information</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <Label className="text-xs text-gray-600">Lead Score</Label>
+                      <Label className="text-xs text-slate-400">Lead Score</Label>
                       <Select defaultValue={selectedLead.leadScore}>
                         <SelectTrigger className="mt-2">
                           <SelectValue />
@@ -634,7 +634,7 @@ export default function LeadDashboard() {
                     </div>
 
                     <div>
-                      <Label className="text-xs text-gray-600">Status</Label>
+                      <Label className="text-xs text-slate-400">Status</Label>
                       <Select defaultValue={selectedLead.status}>
                         <SelectTrigger className="mt-2">
                           <SelectValue />
@@ -651,7 +651,7 @@ export default function LeadDashboard() {
                     </div>
 
                     <div>
-                      <Label className="text-xs text-gray-600">Assigned To</Label>
+                      <Label className="text-xs text-slate-400">Assigned To</Label>
                       <Select defaultValue={selectedLead.assignedTo || 'unassigned'}>
                         <SelectTrigger className="mt-2">
                           <SelectValue />
@@ -665,7 +665,7 @@ export default function LeadDashboard() {
                     </div>
 
                     <div>
-                      <Label className="text-xs text-gray-600">Follow-up Date</Label>
+                      <Label className="text-xs text-slate-400">Follow-up Date</Label>
                       <Input
                         type="date"
                         defaultValue={selectedLead.followUpDate}
@@ -674,7 +674,7 @@ export default function LeadDashboard() {
                     </div>
 
                     <div>
-                      <Label className="text-xs text-gray-600">Estimated Value</Label>
+                      <Label className="text-xs text-slate-400">Estimated Value</Label>
                       <Input
                         type="number"
                         defaultValue={selectedLead.estimatedValue}
@@ -686,36 +686,36 @@ export default function LeadDashboard() {
                 </Card>
 
                 {/* Source Information */}
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-lg border border-white/5">
                   <CardHeader>
-                    <CardTitle className="text-[#1E3A5F] text-lg">Source Information</CardTitle>
+                    <CardTitle className="text-white text-lg">Source Information</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Source Page:</span>
-                      <span className="font-medium text-[#1E3A5F]">{selectedLead.sourcePage}</span>
+                      <span className="text-slate-400">Source Page:</span>
+                      <span className="font-medium text-white">{selectedLead.sourcePage}</span>
                     </div>
                     {selectedLead.utmSource && (
                       <>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-600">UTM Source:</span>
+                          <span className="text-slate-400">UTM Source:</span>
                           <Badge variant="outline">{selectedLead.utmSource}</Badge>
                         </div>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-600">UTM Medium:</span>
+                          <span className="text-slate-400">UTM Medium:</span>
                           <Badge variant="outline">{selectedLead.utmMedium}</Badge>
                         </div>
                         {selectedLead.utmCampaign && (
                           <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-600">UTM Campaign:</span>
+                            <span className="text-slate-400">UTM Campaign:</span>
                             <Badge variant="outline">{selectedLead.utmCampaign}</Badge>
                           </div>
                         )}
                       </>
                     )}
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Lead Date:</span>
-                      <span className="font-medium text-[#1E3A5F]">
+                      <span className="text-slate-400">Lead Date:</span>
+                      <span className="font-medium text-white">
                         {new Date(selectedLead.date).toLocaleDateString()}
                       </span>
                     </div>
@@ -723,9 +723,9 @@ export default function LeadDashboard() {
                 </Card>
 
                 {/* Interaction Timeline */}
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-lg border border-white/5">
                   <CardHeader>
-                    <CardTitle className="text-[#1E3A5F] text-lg">Interaction Timeline</CardTitle>
+                    <CardTitle className="text-white text-lg">Interaction Timeline</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -738,9 +738,9 @@ export default function LeadDashboard() {
                         };
                         const Icon = icons[interaction.type];
                         const colors = {
-                          email: 'bg-blue-100 text-blue-600',
-                          call: 'bg-green-100 text-green-600',
-                          note: 'bg-orange-100 text-orange-600',
+                          email: 'bg-indigo-500/10 text-indigo-400',
+                          call: 'bg-emerald-500/10 text-green-600',
+                          note: 'bg-orange-500/10 text-orange-600',
                           meeting: 'bg-purple-100 text-purple-600',
                         };
 
@@ -753,14 +753,14 @@ export default function LeadDashboard() {
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center justify-between">
-                                <p className="text-sm font-medium text-[#1E3A5F] capitalize">
+                                <p className="text-sm font-medium text-white capitalize">
                                   {interaction.type}
                                 </p>
-                                <span className="text-xs text-gray-500">
+                                <span className="text-xs text-slate-500">
                                   {new Date(interaction.date).toLocaleDateString()}
                                 </span>
                               </div>
-                              <p className="text-sm text-gray-600 mt-1">
+                              <p className="text-sm text-slate-400 mt-1">
                                 {interaction.description}
                               </p>
                             </div>
@@ -772,9 +772,9 @@ export default function LeadDashboard() {
                 </Card>
 
                 {/* Notes Section */}
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-lg border border-white/5">
                   <CardHeader>
-                    <CardTitle className="text-[#1E3A5F] text-lg">Add Note</CardTitle>
+                    <CardTitle className="text-white text-lg">Add Note</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Textarea

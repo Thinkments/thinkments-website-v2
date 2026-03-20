@@ -34,12 +34,12 @@ export default function BulkPageGenerator() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-[#1E3A5F]">Bulk Page Generator</h1>
-        <p className="text-gray-600 mt-1">Create multiple pages at once from a template</p>
+        <h1 className="text-whitexl font-bold text-white">Bulk Page Generator</h1>
+        <p className="text-slate-400 mt-1">Create multiple pages at once from a template</p>
       </div>
 
       {/* Progress Steps */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             {steps.map((s, index) => (
@@ -50,8 +50,8 @@ export default function BulkPageGenerator() {
                       s.number === step
                         ? 'bg-[#00B4D8] text-white'
                         : s.number < step
-                          ? 'bg-green-500 text-white'
-                          : 'bg-gray-200 text-gray-500'
+                          ? 'bg-emerald-900/200 text-white'
+                          : 'bg-white/20 text-slate-500'
                     }`}
                   >
                     {s.number < step ? (
@@ -64,7 +64,7 @@ export default function BulkPageGenerator() {
                 </div>
                 {index < steps.length - 1 && (
                   <div
-                    className={`flex-1 h-1 mx-4 ${s.number < step ? 'bg-green-500' : 'bg-gray-200'}`}
+                    className={`flex-1 h-1 mx-4 ${s.number < step ? 'bg-emerald-900/200' : 'bg-white/20'}`}
                   />
                 )}
               </React.Fragment>
@@ -74,11 +74,11 @@ export default function BulkPageGenerator() {
       </Card>
 
       {/* Step Content */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardContent className="p-8">
           {step === 1 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-[#1E3A5F]">Choose Base Template</h2>
+              <h2 className="text-xl font-semibold text-white">Choose Base Template</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {templates.map((template) => (
                   <div
@@ -86,12 +86,12 @@ export default function BulkPageGenerator() {
                     className={`p-6 border-2 rounded-lg cursor-pointer transition-all ${
                       selectedTemplate === template.id
                         ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-white/10 hover:border-white/20'
                     }`}
                     onClick={() => setSelectedTemplate(template.id)}
                   >
-                    <h3 className="font-semibold text-[#1E3A5F] mb-2">{template.name}</h3>
-                    <p className="text-sm text-gray-600">{template.description}</p>
+                    <h3 className="font-semibold text-white mb-2">{template.name}</h3>
+                    <p className="text-sm text-slate-400">{template.description}</p>
                   </div>
                 ))}
               </div>
@@ -100,19 +100,19 @@ export default function BulkPageGenerator() {
 
           {step === 2 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-[#1E3A5F]">Define Variables</h2>
+              <h2 className="text-xl font-semibold text-white">Define Variables</h2>
               <div className="space-y-4">
                 {['{city}', '{state}', '{phone}', '{address}'].map((variable) => (
                   <div key={variable} className="flex items-center space-x-4">
                     <Badge variant="outline" className="text-[#00B4D8]">
                       {variable}
                     </Badge>
-                    <span className="text-sm text-gray-600">Will be replaced in template</span>
+                    <span className="text-sm text-slate-400">Will be replaced in template</span>
                   </div>
                 ))}
               </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm text-gray-700 mb-2">
+              <div className="p-4 bg-white/5 rounded-lg">
+                <p className="text-sm text-slate-300 mb-2">
                   <strong>Preview:</strong>
                 </p>
                 <p className="text-sm">
@@ -128,7 +128,7 @@ export default function BulkPageGenerator() {
           {step === 3 && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold text-[#1E3A5F]">Input Data</h2>
+                <h2 className="text-xl font-semibold text-white">Input Data</h2>
                 <Button variant="outline" size="sm">
                   Import from CSV
                 </Button>
@@ -171,8 +171,8 @@ export default function BulkPageGenerator() {
 
           {step === 4 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-[#1E3A5F]">Review & Generate</h2>
-              <div className="flex items-center justify-between p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h2 className="text-xl font-semibold text-white">Review & Generate</h2>
+              <div className="flex items-center justify-between p-4 bg-amber-900/20 border border-yellow-200 rounded-lg">
                 <div className="flex items-center space-x-3">
                   <AlertTriangle className="w-5 h-5 text-yellow-600" />
                   <span className="text-sm text-yellow-800">
@@ -190,13 +190,13 @@ export default function BulkPageGenerator() {
                       <input
                         type="checkbox"
                         defaultChecked
-                        className="w-4 h-4 rounded border-gray-300 text-[#00B4D8] focus:ring-[#00B4D8]"
+                        className="w-4 h-4 rounded border-white/20 text-[#00B4D8] focus:ring-[#00B4D8]"
                       />
                       <div>
-                        <p className="font-medium text-[#1E3A5F]">
+                        <p className="font-medium text-white">
                           Digital Marketing {data.city}, {data.state}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-slate-500">
                           /digital-marketing-{data.city.toLowerCase()}
                         </p>
                       </div>
@@ -208,7 +208,7 @@ export default function BulkPageGenerator() {
                 ))}
               </div>
               <div className="flex items-center justify-between pt-6 border-t">
-                <p className="text-sm text-gray-600">{sampleData.length} pages will be created</p>
+                <p className="text-sm text-slate-400">{sampleData.length} pages will be created</p>
                 <Button className="bg-[#00B4D8]" onClick={() => toast.success('Pages generated!')}>
                   Generate All Pages
                 </Button>

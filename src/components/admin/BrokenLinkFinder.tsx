@@ -208,26 +208,26 @@ export default function BrokenLinkFinder() {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high':
-        return 'bg-red-500';
+        return 'bg-rose-900/200';
       case 'medium':
-        return 'bg-yellow-500';
+        return 'bg-amber-900/200';
       case 'low':
-        return 'bg-green-500';
+        return 'bg-emerald-900/200';
       default:
-        return 'bg-gray-500';
+        return 'bg-white/50';
     }
   };
 
   const getOutreachStatusColor = (status: string) => {
     switch (status) {
       case 'link-placed':
-        return 'bg-green-100 text-green-700';
+        return 'bg-emerald-500/10 text-green-700';
       case 'responded':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-indigo-500/10 text-indigo-300';
       case 'sent':
-        return 'bg-yellow-100 text-yellow-700';
+        return 'bg-amber-500/10 text-yellow-700';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-slate-300';
     }
   };
 
@@ -237,8 +237,8 @@ export default function BrokenLinkFinder() {
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Broken Link Finder & Fixer</h1>
-            <p className="text-gray-600">Find, fix, and prevent broken links across your website</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">Broken Link Finder & Fixer</h1>
+            <p className="text-slate-400">Find, fix, and prevent broken links across your website</p>
           </div>
           <div className="flex items-center space-x-3">
             {!gscConnected && (
@@ -269,54 +269,54 @@ export default function BrokenLinkFinder() {
 
         {/* Summary Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-2xl font-bold text-red-600">247</p>
-                  <p className="text-sm text-gray-600">Broken Links</p>
+                  <p className="text-2xl font-bold text-rose-400">247</p>
+                  <p className="text-sm text-slate-400">Broken Links</p>
                 </div>
-                <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
+                <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center">
+                  <AlertCircle className="w-5 h-5 text-rose-400" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-2xl font-bold text-green-600">189</p>
-                  <p className="text-sm text-gray-600">Fixed This Month</p>
+                  <p className="text-sm text-slate-400">Fixed This Month</p>
                 </div>
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-green-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-2xl font-bold text-blue-600">42</p>
-                  <p className="text-sm text-gray-600">Link Opportunities</p>
+                  <p className="text-2xl font-bold text-indigo-400">42</p>
+                  <p className="text-sm text-slate-400">Link Opportunities</p>
                 </div>
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Target className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                  <Target className="w-5 h-5 text-indigo-400" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-2xl font-bold text-purple-600">23</p>
-                  <p className="text-sm text-gray-600">Outreach Sent</p>
+                  <p className="text-sm text-slate-400">Outreach Sent</p>
                 </div>
                 <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                   <Mail className="w-5 h-5 text-purple-600" />
@@ -328,7 +328,7 @@ export default function BrokenLinkFinder() {
 
         {/* GSC Connection Banner */}
         {gscConnected && (
-          <Card className="border-0 shadow-md bg-green-50 border-l-4 border-green-500">
+          <Card className="border-0 shadow-2xl border border-white/5 bg-emerald-900/20 border-l-4 border-green-500">
             <CardContent className="pt-4 pb-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -368,20 +368,20 @@ export default function BrokenLinkFinder() {
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
               activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                : 'bg-[#0f172a]/40 backdrop-blur-xl text-slate-400 hover:bg-white/5 border border-white/10'
             }`}
           >
             {tab.label}
             {tab.count !== undefined && (
               <Badge
-                className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}
+                className={`ml-2 ${activeTab === tab.id ? 'bg-[#0f172a]/40 backdrop-blur-xl/20 text-white' : 'bg-white/20 text-slate-300'}`}
               >
                 {tab.count}
               </Badge>
             )}
             {tab.badge && (
               <Badge
-                className={`ml-2 ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-700'}`}
+                className={`ml-2 ${activeTab === tab.id ? 'bg-[#0f172a]/40 backdrop-blur-xl/20 text-white' : 'bg-indigo-500/10 text-indigo-300'}`}
               >
                 {tab.badge}
               </Badge>
@@ -440,7 +440,7 @@ export default function BrokenLinkFinder() {
       )}
 
       {/* Filters */}
-      <Card className="border-0 shadow-md mb-6">
+      <Card className="border-0 shadow-2xl border border-white/5 mb-6">
         <CardContent className="pt-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
             <div className="flex items-center space-x-3 flex-1">
@@ -451,13 +451,13 @@ export default function BrokenLinkFinder() {
                   placeholder="Search links..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                  className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
                 />
               </div>
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg"
+                className="px-3 py-2 border border-white/20 rounded-lg"
               >
                 <option value="all">All Links</option>
                 <option value="internal">Internal Only</option>
@@ -493,7 +493,7 @@ export default function BrokenLinkFinder() {
             </div>
 
             {brokenLinks.map((link) => (
-              <Card key={link.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+              <Card key={link.id} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
                     <input
@@ -513,23 +513,23 @@ export default function BrokenLinkFinder() {
                             <Badge
                               className={
                                 link.type === 'internal'
-                                  ? 'bg-blue-100 text-blue-700'
+                                  ? 'bg-indigo-500/10 text-indigo-300'
                                   : 'bg-purple-100 text-purple-700'
                               }
                             >
                               {link.type}
                             </Badge>
-                            <Badge className="bg-red-100 text-red-700">{link.statusCode}</Badge>
+                            <Badge className="bg-rose-500/10 text-rose-300">{link.statusCode}</Badge>
                           </div>
                           <div className="space-y-2">
                             <div>
-                              <p className="text-xs text-gray-600 mb-1">Broken URL:</p>
-                              <p className="font-mono text-sm text-red-600 break-all">
+                              <p className="text-xs text-slate-400 mb-1">Broken URL:</p>
+                              <p className="font-mono text-sm text-rose-400 break-all">
                                 {link.brokenUrl}
                               </p>
                             </div>
                             <div>
-                              <p className="text-xs text-gray-600 mb-1">Found on:</p>
+                              <p className="text-xs text-slate-400 mb-1">Found on:</p>
                               <a
                                 href={link.sourceUrl}
                                 className="text-sm text-[#00B4D8] hover:underline flex items-center"
@@ -539,10 +539,10 @@ export default function BrokenLinkFinder() {
                               </a>
                             </div>
                             <div>
-                              <p className="text-xs text-gray-600 mb-1">Link Text:</p>
-                              <p className="text-sm text-gray-900">&quot;{link.linkText}&quot;</p>
+                              <p className="text-xs text-slate-400 mb-1">Link Text:</p>
+                              <p className="text-sm text-gray-100">&quot;{link.linkText}&quot;</p>
                             </div>
-                            <div className="flex items-center space-x-4 text-xs text-gray-500">
+                            <div className="flex items-center space-x-4 text-xs text-slate-500">
                               <span className="flex items-center">
                                 <Clock className="w-3 h-3 mr-1" />
                                 First found: {link.firstFound}
@@ -557,14 +557,14 @@ export default function BrokenLinkFinder() {
                       </div>
 
                       {link.suggestedFix && (
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
+                        <div className="bg-emerald-900/20 border border-green-200 rounded-lg p-3 mb-3">
                           <div className="flex items-start space-x-2">
                             <Sparkles className="w-4 h-4 text-green-600 mt-0.5" />
                             <div className="flex-1">
                               <p className="text-xs font-medium text-green-800 mb-1">
                                 AI Suggested Fix:
                               </p>
-                              <p className="text-sm text-gray-900">
+                              <p className="text-sm text-gray-100">
                                 Redirect to: {link.suggestedFix}
                               </p>
                             </div>
@@ -599,7 +599,7 @@ export default function BrokenLinkFinder() {
                           <Edit3 className="w-4 h-4 mr-2" />
                           Fix Manually
                         </Button>
-                        <Button size="sm" variant="outline" className="text-gray-600">
+                        <Button size="sm" variant="outline" className="text-slate-400">
                           <X className="w-4 h-4 mr-2" />
                           Ignore
                         </Button>
@@ -616,13 +616,13 @@ export default function BrokenLinkFinder() {
         {activeTab === 'gsc-data' && (
           <div>
             {!gscConnected ? (
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardContent className="p-12 text-center">
                   <Globe className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                  <h3 className="text-xl font-semibold text-[#1E3A5F] mb-2">
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     Connect Google Search Console
                   </h3>
-                  <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                  <p className="text-slate-400 mb-6 max-w-md mx-auto">
                     Connect your Google Search Console account to see crawl errors, 404s, and
                     indexing issues directly from Google.
                   </p>
@@ -637,11 +637,11 @@ export default function BrokenLinkFinder() {
               </Card>
             ) : (
               <div className="space-y-4">
-                <Card className="border-0 shadow-md bg-blue-50 border-l-4 border-blue-500">
+                <Card className="border-0 shadow-2xl border border-white/5 bg-indigo-900/20 border-l-4 border-blue-500">
                   <CardContent className="pt-4 pb-4">
                     <div className="flex items-center space-x-2">
-                      <Info className="w-5 h-5 text-blue-600" />
-                      <p className="text-sm text-blue-900">
+                      <Info className="w-5 h-5 text-indigo-400" />
+                      <p className="text-sm text-indigo-200">
                         Showing issues reported by Google Search Console. These are high-priority as
                         they affect how Google crawls your site.
                       </p>
@@ -669,16 +669,16 @@ export default function BrokenLinkFinder() {
                     priority: 'medium',
                   },
                 ].map((issue, idx) => (
-                  <Card key={idx} className="border-0 shadow-md">
+                  <Card key={idx} className="border-0 shadow-2xl border border-white/5">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Badge className="bg-red-500 text-white">Google Flagged</Badge>
-                            <Badge className="bg-orange-100 text-orange-700">{issue.type}</Badge>
+                            <Badge className="bg-rose-900/200 text-white">Google Flagged</Badge>
+                            <Badge className="bg-orange-500/10 text-orange-700">{issue.type}</Badge>
                           </div>
-                          <p className="font-mono text-sm text-gray-900 mb-2">{issue.url}</p>
-                          <p className="text-xs text-gray-600">
+                          <p className="font-mono text-sm text-gray-100 mb-2">{issue.url}</p>
+                          <p className="text-xs text-slate-400">
                             Last crawled by Google: {issue.lastCrawled}
                           </p>
                         </div>
@@ -703,14 +703,14 @@ export default function BrokenLinkFinder() {
         {/* Internal Link Opportunities Tab */}
         {activeTab === 'internal-links' && (
           <div>
-            <Card className="border-0 shadow-md mb-6 bg-blue-50 border-l-4 border-blue-500">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6 bg-indigo-900/20 border-l-4 border-blue-500">
               <CardContent className="pt-4 pb-4">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <Sparkles className="w-5 h-5 text-blue-600" />
+                    <Sparkles className="w-5 h-5 text-indigo-400" />
                     <div>
-                      <p className="font-semibold text-blue-900">AI-Powered Link Suggestions</p>
-                      <p className="text-sm text-blue-700">
+                      <p className="font-semibold text-indigo-200">AI-Powered Link Suggestions</p>
+                      <p className="text-sm text-indigo-300">
                         Found {internalLinkOpportunities.length} opportunities to improve internal
                         linking
                       </p>
@@ -729,32 +729,32 @@ export default function BrokenLinkFinder() {
 
             <div className="space-y-4">
               {internalLinkOpportunities.map((opp) => (
-                <Card key={opp.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card key={opp.id} className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-3">
-                          <Badge className="bg-green-100 text-green-700">
+                          <Badge className="bg-emerald-500/10 text-green-700">
                             {opp.relevanceScore}% Relevant
                           </Badge>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">From Page:</p>
-                            <p className="text-sm font-medium text-gray-900">{opp.sourcePage}</p>
+                            <p className="text-xs text-slate-400 mb-1">From Page:</p>
+                            <p className="text-sm font-medium text-gray-100">{opp.sourcePage}</p>
                           </div>
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">To Page:</p>
-                            <p className="text-sm font-medium text-gray-900">{opp.targetPage}</p>
+                            <p className="text-xs text-slate-400 mb-1">To Page:</p>
+                            <p className="text-sm font-medium text-gray-100">{opp.targetPage}</p>
                           </div>
                         </div>
                         <div className="mt-3">
-                          <p className="text-xs text-gray-600 mb-1">Suggested Anchor Text:</p>
-                          <Badge className="bg-blue-100 text-blue-700">{opp.anchorText}</Badge>
+                          <p className="text-xs text-slate-400 mb-1">Suggested Anchor Text:</p>
+                          <Badge className="bg-indigo-500/10 text-indigo-300">{opp.anchorText}</Badge>
                         </div>
-                        <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-                          <p className="text-xs text-gray-600 mb-1">Why this link makes sense:</p>
-                          <p className="text-sm text-gray-700">{opp.context}</p>
+                        <div className="mt-3 p-3 bg-white/5 rounded-lg">
+                          <p className="text-xs text-slate-400 mb-1">Why this link makes sense:</p>
+                          <p className="text-sm text-slate-300">{opp.context}</p>
                         </div>
                       </div>
                     </div>
@@ -781,7 +781,7 @@ export default function BrokenLinkFinder() {
             </div>
 
             {/* Orphan Pages Section */}
-            <Card className="border-0 shadow-md mt-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mt-6">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <AlertCircle className="w-5 h-5 mr-2 text-orange-600" />
@@ -791,22 +791,22 @@ export default function BrokenLinkFinder() {
               <CardContent>
                 <div className="space-y-3">
                   {['/services/consulting', '/blog/old-post-2022'].map((page, idx) => (
-                    <div key={idx} className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                    <div key={idx} className="p-3 bg-orange-900/20 border border-orange-200 rounded-lg">
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
-                          <p className="font-medium text-gray-900 mb-2">{page}</p>
+                          <p className="font-medium text-gray-100 mb-2">{page}</p>
                           <div className="space-y-2">
                             <div className="text-sm">
-                              <p className="text-xs text-gray-600 mb-1">
+                              <p className="text-xs text-slate-400 mb-1">
                                 Suggested pages to link from:
                               </p>
                               <div className="flex flex-wrap gap-2">
-                                <Badge className="bg-blue-100 text-blue-700">/services</Badge>
-                                <Badge className="bg-blue-100 text-blue-700">/about</Badge>
+                                <Badge className="bg-indigo-500/10 text-indigo-300">/services</Badge>
+                                <Badge className="bg-indigo-500/10 text-indigo-300">/about</Badge>
                               </div>
                             </div>
                             <div className="text-sm">
-                              <p className="text-xs text-gray-600 mb-1">Suggested anchor text:</p>
+                              <p className="text-xs text-slate-400 mb-1">Suggested anchor text:</p>
                               <Badge className="bg-purple-100 text-purple-700">
                                 business consulting services
                               </Badge>
@@ -829,10 +829,10 @@ export default function BrokenLinkFinder() {
         {/* Competitor Analysis Tab */}
         {activeTab === 'competitor' && (
           <div>
-            <Card className="border-0 shadow-md mb-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-[#1E3A5F]">Competitor Domains</h3>
+                  <h3 className="font-semibold text-white">Competitor Domains</h3>
                   <Button
                     size="sm"
                     onClick={() => setShowCompetitorModal(true)}
@@ -859,7 +859,7 @@ export default function BrokenLinkFinder() {
               {competitorBrokenLinks.map((link) => (
                 <Card
                   key={link.id}
-                  className="border-0 shadow-md hover:shadow-lg transition-shadow"
+                  className="border-0 shadow-2xl border border-white/5 hover:shadow-lg transition-shadow"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
@@ -874,7 +874,7 @@ export default function BrokenLinkFinder() {
                         </div>
                         <div className="space-y-3">
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">Their Page:</p>
+                            <p className="text-xs text-slate-400 mb-1">Their Page:</p>
                             <a
                               href={link.pageUrl}
                               className="text-sm text-[#00B4D8] hover:underline flex items-center"
@@ -884,18 +884,18 @@ export default function BrokenLinkFinder() {
                             </a>
                           </div>
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">Broken Link:</p>
-                            <p className="font-mono text-sm text-red-600 break-all">
+                            <p className="text-xs text-slate-400 mb-1">Broken Link:</p>
+                            <p className="font-mono text-sm text-rose-400 break-all">
                               {link.brokenUrl}
                             </p>
                           </div>
                           <div>
-                            <p className="text-xs text-gray-600 mb-1">Topic:</p>
-                            <p className="text-sm text-gray-900">{link.topic}</p>
+                            <p className="text-xs text-slate-400 mb-1">Topic:</p>
+                            <p className="text-sm text-gray-100">{link.topic}</p>
                           </div>
                           {link.yourMatchingPage && (
-                            <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                              <p className="text-xs text-gray-600 mb-1">Your Matching Page:</p>
+                            <div className="p-3 bg-emerald-900/20 border border-green-200 rounded-lg">
+                              <p className="text-xs text-slate-400 mb-1">Your Matching Page:</p>
                               <p className="text-sm font-medium text-green-700">
                                 {link.yourMatchingPage}
                               </p>
@@ -925,19 +925,19 @@ export default function BrokenLinkFinder() {
 
                     {/* Outreach Template Preview */}
                     {link.outreachStatus === 'not-sent' && (
-                      <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-                        <p className="text-xs text-gray-600 mb-2">Outreach Email Template:</p>
-                        <div className="text-sm text-gray-700 space-y-2">
+                      <div className="mt-4 p-4 bg-white/5 border border-white/10 rounded-lg">
+                        <p className="text-xs text-slate-400 mb-2">Outreach Email Template:</p>
+                        <div className="text-sm text-slate-300 space-y-2">
                           <p>Hi [Name],</p>
                           <p>
                             I noticed your page{' '}
-                            <span className="font-mono bg-white px-1">{link.pageUrl}</span> has a
+                            <span className="font-mono bg-[#0f172a]/40 backdrop-blur-xl px-1">{link.pageUrl}</span> has a
                             broken link to{' '}
-                            <span className="font-mono bg-white px-1">{link.brokenUrl}</span>.
+                            <span className="font-mono bg-[#0f172a]/40 backdrop-blur-xl px-1">{link.brokenUrl}</span>.
                           </p>
                           <p>
                             I have a similar resource at{' '}
-                            <span className="font-mono bg-white px-1">{link.yourMatchingPage}</span>{' '}
+                            <span className="font-mono bg-[#0f172a]/40 backdrop-blur-xl px-1">{link.yourMatchingPage}</span>{' '}
                             that might be a good replacement.
                           </p>
                           <p>
@@ -958,13 +958,13 @@ export default function BrokenLinkFinder() {
         {/* Anchor Text Tab */}
         {activeTab === 'anchor-text' && (
           <div>
-            <Card className="border-0 shadow-md mb-6 bg-amber-50 border-l-4 border-amber-500">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6 bg-amber-50 border-l-4 border-amber-500">
               <CardContent className="pt-4 pb-4">
                 <div className="flex items-center space-x-3">
-                  <AlertTriangle className="w-5 h-5 text-amber-600" />
+                  <AlertTriangle className="w-5 h-5 text-whitember-600" />
                   <div>
-                    <p className="font-semibold text-amber-900">Anchor Text Issues Found</p>
-                    <p className="text-sm text-amber-700">
+                    <p className="font-semibold text-whitember-900">Anchor Text Issues Found</p>
+                    <p className="text-sm text-whitember-700">
                       Generic anchor text like &quot;click here&quot; and &quot;read more&quot;
                       should be replaced with descriptive text
                     </p>
@@ -975,41 +975,41 @@ export default function BrokenLinkFinder() {
 
             <div className="space-y-4">
               {anchorTextData.map((anchor, idx) => (
-                <Card key={idx} className="border-0 shadow-md">
+                <Card key={idx} className="border-0 shadow-2xl border border-white/5">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-3">
-                          <p className="text-lg font-semibold text-gray-900">
+                          <p className="text-lg font-semibold text-gray-100">
                             &quot;{anchor.text}&quot;
                           </p>
                           <Badge
                             className={
                               anchor.priority === 'high'
-                                ? 'bg-red-500 text-white'
-                                : 'bg-yellow-500 text-white'
+                                ? 'bg-rose-900/200 text-white'
+                                : 'bg-amber-900/200 text-white'
                             }
                           >
                             {anchor.issue}
                           </Badge>
                         </div>
-                        <div className="flex items-center space-x-4 text-sm text-gray-600 mb-3">
+                        <div className="flex items-center space-x-4 text-sm text-slate-400 mb-3">
                           <span>Used {anchor.count} times</span>
                           <span>·</span>
                           <span>Across 23 pages</span>
                         </div>
-                        <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <div className="p-3 bg-emerald-900/20 border border-green-200 rounded-lg">
                           <p className="text-xs font-medium text-green-800 mb-2">
                             AI Suggested Alternatives:
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <Badge className="bg-white text-gray-700 border border-green-300">
+                            <Badge className="bg-[#0f172a]/40 backdrop-blur-xl text-slate-300 border border-green-300">
                               learn about our SEO services
                             </Badge>
-                            <Badge className="bg-white text-gray-700 border border-green-300">
+                            <Badge className="bg-[#0f172a]/40 backdrop-blur-xl text-slate-300 border border-green-300">
                               explore digital marketing solutions
                             </Badge>
-                            <Badge className="bg-white text-gray-700 border border-green-300">
+                            <Badge className="bg-[#0f172a]/40 backdrop-blur-xl text-slate-300 border border-green-300">
                               view our portfolio
                             </Badge>
                           </div>
@@ -1038,24 +1038,24 @@ export default function BrokenLinkFinder() {
 
         {/* Link Flow Map Tab */}
         {activeTab === 'link-flow' && (
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <CardTitle>Link Equity Flow Visualization</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300 mb-6">
+              <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg flex items-center justify-center border-2 border-dashed border-white/20 mb-6">
                 <div className="text-center">
                   <Network className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                  <p className="text-gray-600">Interactive link flow diagram</p>
-                  <p className="text-sm text-gray-500">Powered by D3.js visualization</p>
+                  <p className="text-slate-400">Interactive link flow diagram</p>
+                  <p className="text-sm text-slate-500">Powered by D3.js visualization</p>
                 </div>
               </div>
 
               {/* Insights */}
               <div className="space-y-4">
-                <h3 className="font-semibold text-[#1E3A5F]">Link Flow Insights</h3>
+                <h3 className="font-semibold text-white">Link Flow Insights</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Card className="border-0 shadow-sm bg-yellow-50">
+                  <Card className="border-0 shadow-lg border border-white/5 bg-amber-900/20">
                     <CardContent className="pt-4">
                       <div className="flex items-start space-x-3">
                         <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5" />
@@ -1070,15 +1070,15 @@ export default function BrokenLinkFinder() {
                       </div>
                     </CardContent>
                   </Card>
-                  <Card className="border-0 shadow-sm bg-blue-50">
+                  <Card className="border-0 shadow-lg border border-white/5 bg-indigo-900/20">
                     <CardContent className="pt-4">
                       <div className="flex items-start space-x-3">
-                        <Info className="w-5 h-5 text-blue-600 mt-0.5" />
+                        <Info className="w-5 h-5 text-indigo-400 mt-0.5" />
                         <div>
-                          <p className="font-medium text-blue-900 mb-1">
+                          <p className="font-medium text-indigo-200 mb-1">
                             Blog posts don&apos;t link to services
                           </p>
-                          <p className="text-sm text-blue-700">
+                          <p className="text-sm text-indigo-300">
                             Connect content to conversion pages
                           </p>
                         </div>
@@ -1094,12 +1094,12 @@ export default function BrokenLinkFinder() {
         {/* Monitoring Tab */}
         {activeTab === 'monitoring' && (
           <div>
-            <Card className="border-0 shadow-md mb-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-2">Automated Monitoring</h3>
-                    <p className="text-sm text-gray-600">
+                    <h3 className="font-semibold text-white mb-2">Automated Monitoring</h3>
+                    <p className="text-sm text-slate-400">
                       {monitoringEnabled
                         ? 'Monitoring is active · Next scan in 6 hours'
                         : 'Enable monitoring to get automatic alerts'}
@@ -1131,17 +1131,17 @@ export default function BrokenLinkFinder() {
 
             {/* Monitoring Settings */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle>Schedule Settings</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Scan Frequency
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                      <select className="w-full px-3 py-2 border border-white/20 rounded-lg">
                         <option>Daily</option>
                         <option>Weekly</option>
                         <option>Monthly</option>
@@ -1149,17 +1149,17 @@ export default function BrokenLinkFinder() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Watched URLs
                       </label>
                       <div className="space-y-2 mb-3">
                         {['/services/seo', '/contact', '/'].map((url) => (
                           <div
                             key={url}
-                            className="flex items-center justify-between p-2 bg-gray-50 rounded"
+                            className="flex items-center justify-between p-2 bg-white/5 rounded"
                           >
                             <span className="text-sm font-mono">{url}</span>
-                            <button className="text-red-600 hover:text-red-700">
+                            <button className="text-rose-400 hover:text-rose-300">
                               <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
@@ -1174,7 +1174,7 @@ export default function BrokenLinkFinder() {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-md">
+              <Card className="border-0 shadow-2xl border border-white/5">
                 <CardHeader>
                   <CardTitle>Alert Settings</CardTitle>
                 </CardHeader>
@@ -1187,18 +1187,18 @@ export default function BrokenLinkFinder() {
                           className="w-4 h-4 text-[#00B4D8] rounded"
                           defaultChecked
                         />
-                        <span className="text-sm text-gray-900">Email notifications</span>
+                        <span className="text-sm text-gray-100">Email notifications</span>
                       </label>
                       <input
                         type="email"
                         placeholder="admin@thinkments.com"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                        className="w-full px-3 py-2 border border-white/20 rounded-lg text-sm"
                       />
                     </div>
                     <div>
                       <label className="flex items-center space-x-2 mb-3">
                         <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                        <span className="text-sm text-gray-900">Slack integration</span>
+                        <span className="text-sm text-gray-100">Slack integration</span>
                       </label>
                       <Button size="sm" variant="outline" className="w-full">
                         <Slack className="w-4 h-4 mr-2" />
@@ -1206,7 +1206,7 @@ export default function BrokenLinkFinder() {
                       </Button>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-gray-100 mb-2">
                         Alert When:
                       </label>
                       <div className="space-y-2">
@@ -1216,7 +1216,7 @@ export default function BrokenLinkFinder() {
                             className="w-4 h-4 text-[#00B4D8] rounded"
                             defaultChecked
                           />
-                          <span className="text-sm text-gray-700">New broken link found</span>
+                          <span className="text-sm text-slate-300">New broken link found</span>
                         </label>
                         <label className="flex items-center space-x-2">
                           <input
@@ -1224,15 +1224,15 @@ export default function BrokenLinkFinder() {
                             className="w-4 h-4 text-[#00B4D8] rounded"
                             defaultChecked
                           />
-                          <span className="text-sm text-gray-700">Fixed link breaks again</span>
+                          <span className="text-sm text-slate-300">Fixed link breaks again</span>
                         </label>
                         <label className="flex items-center space-x-2">
                           <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                          <span className="text-sm text-gray-700">New redirect chain detected</span>
+                          <span className="text-sm text-slate-300">New redirect chain detected</span>
                         </label>
                         <label className="flex items-center space-x-2">
                           <input type="checkbox" className="w-4 h-4 text-[#00B4D8] rounded" />
-                          <span className="text-sm text-gray-700">External site removes link</span>
+                          <span className="text-sm text-slate-300">External site removes link</span>
                         </label>
                       </div>
                     </div>
@@ -1242,7 +1242,7 @@ export default function BrokenLinkFinder() {
             </div>
 
             {/* Integration Options */}
-            <Card className="border-0 shadow-md mt-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mt-6">
               <CardHeader>
                 <CardTitle>Integrations</CardTitle>
               </CardHeader>
@@ -1256,11 +1256,11 @@ export default function BrokenLinkFinder() {
                   ].map((integration) => (
                     <Card
                       key={integration.name}
-                      className="border-2 border-gray-200 hover:border-[#00B4D8] cursor-pointer"
+                      className="border-2 border-white/10 hover:border-[#00B4D8] cursor-pointer"
                     >
                       <CardContent className="pt-6 text-center">
                         <integration.icon className="w-8 h-8 mx-auto mb-2 text-gray-400" />
-                        <p className="text-sm font-medium text-gray-900 mb-2">{integration.name}</p>
+                        <p className="text-sm font-medium text-gray-100 mb-2">{integration.name}</p>
                         <Button size="sm" variant="outline" className="w-full">
                           {integration.connected ? 'Connected' : 'Connect'}
                         </Button>
@@ -1276,7 +1276,7 @@ export default function BrokenLinkFinder() {
         {/* History Tab */}
         {activeTab === 'history' && (
           <div>
-            <Card className="border-0 shadow-md mb-6">
+            <Card className="border-0 shadow-2xl border border-white/5 mb-6">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Link Health Trends</CardTitle>
@@ -1294,17 +1294,17 @@ export default function BrokenLinkFinder() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video bg-gradient-to-br from-blue-50 to-green-50 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
+                <div className="aspect-video bg-gradient-to-br from-blue-50 to-green-50 rounded-lg flex items-center justify-center border-2 border-dashed border-white/20">
                   <div className="text-center">
                     <BarChart3 className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                    <p className="text-gray-600">Broken links trend chart</p>
+                    <p className="text-slate-400">Broken links trend chart</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Timeline */}
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-2xl border border-white/5">
               <CardHeader>
                 <CardTitle>Change History</CardTitle>
               </CardHeader>
@@ -1332,23 +1332,23 @@ export default function BrokenLinkFinder() {
                     },
                   ].map((event, idx) => (
                     <div key={idx} className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        {event.type === 'fix' && <CheckCircle className="w-6 h-6 text-blue-600" />}
+                      <div className="flex-shrink-0 w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center">
+                        {event.type === 'fix' && <CheckCircle className="w-6 h-6 text-indigo-400" />}
                         {event.type === 'redirect' && (
-                          <ArrowRight className="w-6 h-6 text-blue-600" />
+                          <ArrowRight className="w-6 h-6 text-indigo-400" />
                         )}
                         {event.type === 'generate' && (
-                          <Sparkles className="w-6 h-6 text-blue-600" />
+                          <Sparkles className="w-6 h-6 text-indigo-400" />
                         )}
-                        {event.type === 'import' && <Upload className="w-6 h-6 text-blue-600" />}
+                        {event.type === 'import' && <Upload className="w-6 h-6 text-indigo-400" />}
                       </div>
-                      <div className="flex-1 border-b border-gray-200 pb-4">
+                      <div className="flex-1 border-b border-white/10 pb-4">
                         <div className="flex items-start justify-between">
                           <div>
-                            <p className="font-medium text-gray-900">{event.action}</p>
-                            <p className="text-sm text-gray-600">{event.date}</p>
+                            <p className="font-medium text-gray-100">{event.action}</p>
+                            <p className="text-sm text-slate-400">{event.date}</p>
                           </div>
-                          <Badge className="bg-blue-100 text-blue-700">{event.count}</Badge>
+                          <Badge className="bg-indigo-500/10 text-indigo-300">{event.count}</Badge>
                         </div>
                       </div>
                     </div>
@@ -1375,15 +1375,15 @@ export default function BrokenLinkFinder() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/40 backdrop-blur-xl rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                    <h2 className="text-2xl font-bold text-white mb-2">
                       Recover from Internet Archive
                     </h2>
-                    <p className="text-gray-600 font-mono text-sm">
+                    <p className="text-slate-400 font-mono text-sm">
                       {selectedBrokenLink.brokenUrl}
                     </p>
                   </div>
@@ -1393,11 +1393,11 @@ export default function BrokenLinkFinder() {
                 </div>
 
                 <div className="mb-6">
-                  <Card className="border-0 shadow-md bg-blue-50">
+                  <Card className="border-0 shadow-2xl border border-white/5 bg-indigo-900/20">
                     <CardContent className="pt-4 pb-4">
                       <div className="flex items-center space-x-3">
-                        <CheckCircle className="w-5 h-5 text-blue-600" />
-                        <p className="text-sm text-blue-900">
+                        <CheckCircle className="w-5 h-5 text-indigo-400" />
+                        <p className="text-sm text-indigo-200">
                           Found {archivedVersions.length} archived versions in Wayback Machine
                         </p>
                       </div>
@@ -1409,16 +1409,16 @@ export default function BrokenLinkFinder() {
                   {archivedVersions.map((version, idx) => (
                     <Card
                       key={idx}
-                      className="border-2 border-gray-200 hover:border-[#00B4D8] cursor-pointer"
+                      className="border-2 border-white/10 hover:border-[#00B4D8] cursor-pointer"
                     >
                       <CardContent className="p-4">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-2">
-                              <Calendar className="w-4 h-4 text-gray-600" />
-                              <p className="font-semibold text-gray-900">{version.date}</p>
+                              <Calendar className="w-4 h-4 text-slate-400" />
+                              <p className="font-semibold text-gray-100">{version.date}</p>
                             </div>
-                            <p className="text-sm text-gray-700 mb-3">{version.preview}</p>
+                            <p className="text-sm text-slate-300 mb-3">{version.preview}</p>
                             <div className="flex space-x-2">
                               <Button size="sm" variant="outline">
                                 <Eye className="w-4 h-4 mr-2" />
@@ -1470,15 +1470,15 @@ export default function BrokenLinkFinder() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f172a]/40 backdrop-blur-xl rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#1E3A5F] mb-2">
+                    <h2 className="text-2xl font-bold text-white mb-2">
                       Generate Client Report
                     </h2>
-                    <p className="text-gray-600">Step {wizardStep} of 3</p>
+                    <p className="text-slate-400">Step {wizardStep} of 3</p>
                   </div>
                   <Button variant="ghost" size="sm" onClick={() => setShowReportWizard(false)}>
                     <X className="w-5 h-5" />
@@ -1489,16 +1489,16 @@ export default function BrokenLinkFinder() {
                 <div className="mb-6">
                   <div className="flex items-center space-x-2 mb-2">
                     <div
-                      className={`flex-1 h-2 rounded-full ${wizardStep >= 1 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 1 ? 'bg-[#00B4D8]' : 'bg-white/20'}`}
                     />
                     <div
-                      className={`flex-1 h-2 rounded-full ${wizardStep >= 2 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 2 ? 'bg-[#00B4D8]' : 'bg-white/20'}`}
                     />
                     <div
-                      className={`flex-1 h-2 rounded-full ${wizardStep >= 3 ? 'bg-[#00B4D8]' : 'bg-gray-200'}`}
+                      className={`flex-1 h-2 rounded-full ${wizardStep >= 3 ? 'bg-[#00B4D8]' : 'bg-white/20'}`}
                     />
                   </div>
-                  <div className="flex justify-between text-xs text-gray-600">
+                  <div className="flex justify-between text-xs text-slate-400">
                     <span>Report Type</span>
                     <span>Customize</span>
                     <span>Generate</span>
@@ -1508,7 +1508,7 @@ export default function BrokenLinkFinder() {
                 {/* Step 1 */}
                 {wizardStep === 1 && (
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-4">Select report type:</h3>
+                    <h3 className="font-semibold text-white mb-4">Select report type:</h3>
                     <div className="space-y-3 mb-6">
                       {[
                         {
@@ -1527,7 +1527,7 @@ export default function BrokenLinkFinder() {
                       ].map((type, idx) => (
                         <label
                           key={idx}
-                          className="flex items-start space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-[#00B4D8] cursor-pointer"
+                          className="flex items-start space-x-3 p-4 border-2 border-white/10 rounded-lg hover:border-[#00B4D8] cursor-pointer"
                         >
                           <input
                             type="radio"
@@ -1536,8 +1536,8 @@ export default function BrokenLinkFinder() {
                             defaultChecked={idx === 2}
                           />
                           <div>
-                            <p className="font-medium text-gray-900">{type.label}</p>
-                            <p className="text-sm text-gray-600">{type.desc}</p>
+                            <p className="font-medium text-gray-100">{type.label}</p>
+                            <p className="text-sm text-slate-400">{type.desc}</p>
                           </div>
                         </label>
                       ))}
@@ -1557,20 +1557,20 @@ export default function BrokenLinkFinder() {
                 {/* Step 2 */}
                 {wizardStep === 2 && (
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-4">Customize report:</h3>
+                    <h3 className="font-semibold text-white mb-4">Customize report:</h3>
                     <div className="space-y-4 mb-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Report Title
                         </label>
                         <input
                           type="text"
                           defaultValue="Link Health Report - December 2024"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                          className="w-full px-3 py-2 border border-white/20 rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Include Sections
                         </label>
                         <div className="space-y-2">
@@ -1588,13 +1588,13 @@ export default function BrokenLinkFinder() {
                                 className="w-4 h-4 text-[#00B4D8] rounded"
                                 defaultChecked
                               />
-                              <span className="text-sm text-gray-700">{section}</span>
+                              <span className="text-sm text-slate-300">{section}</span>
                             </label>
                           ))}
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-2">
+                        <label className="block text-sm font-medium text-gray-100 mb-2">
                           Custom Logo
                         </label>
                         <Button size="sm" variant="outline">
@@ -1622,11 +1622,11 @@ export default function BrokenLinkFinder() {
                 {/* Step 3 */}
                 {wizardStep === 3 && (
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-2">Report Generated!</h3>
-                    <p className="text-gray-600 mb-6">Your white-label PDF report is ready</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">Report Generated!</h3>
+                    <p className="text-slate-400 mb-6">Your white-label PDF report is ready</p>
                     <div className="flex justify-center space-x-3">
                       <Button className="bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white">
                         <Download className="w-4 h-4 mr-2" />

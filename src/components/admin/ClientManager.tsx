@@ -61,11 +61,11 @@ interface Client {
 
 
 const serviceIcons = {
-  Web: { label: 'Website', color: 'bg-blue-100 text-blue-700' },
-  SEO: { label: 'SEO', color: 'bg-green-100 text-green-700' },
+  Web: { label: 'Website', color: 'bg-indigo-500/10 text-indigo-300' },
+  SEO: { label: 'SEO', color: 'bg-emerald-500/10 text-green-700' },
   GBP: { label: 'GBP', color: 'bg-purple-100 text-purple-700' },
-  Video: { label: 'Video', color: 'bg-red-100 text-red-700' },
-  Tours: { label: 'Tours', color: 'bg-orange-100 text-orange-700' },
+  Video: { label: 'Video', color: 'bg-rose-500/10 text-rose-300' },
+  Tours: { label: 'Tours', color: 'bg-orange-500/10 text-orange-700' },
   Social: { label: 'Social', color: 'bg-pink-100 text-pink-700' },
 };
 
@@ -219,9 +219,9 @@ export default function ClientManager() {
 
   const getStatusBadge = (status: string) => {
     const configs = {
-      active: { icon: CheckCircle, color: 'bg-green-100 text-green-700', label: 'Active' },
-      paused: { icon: PauseCircle, color: 'bg-yellow-100 text-yellow-700', label: 'Paused' },
-      churned: { icon: XCircle, color: 'bg-red-100 text-red-700', label: 'Churned' },
+      active: { icon: CheckCircle, color: 'bg-emerald-500/10 text-green-700', label: 'Active' },
+      paused: { icon: PauseCircle, color: 'bg-amber-500/10 text-yellow-700', label: 'Paused' },
+      churned: { icon: XCircle, color: 'bg-rose-500/10 text-rose-300', label: 'Churned' },
     };
     const config = configs[status as keyof typeof configs];
     const Icon = config.icon;
@@ -237,18 +237,18 @@ export default function ClientManager() {
     <div className="p-8">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-[#1E3A5F]">Client Manager</h1>
-        <p className="text-gray-600 mt-1">Manage your active clients and contracts</p>
+        <h1 className="text-whitexl font-bold text-white">Client Manager</h1>
+        <p className="text-slate-400 mt-1">Manage your active clients and contracts</p>
       </div>
 
       {/* Stats Row */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Total Active Clients</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">{activeClients.length}</p>
+                <p className="text-sm text-slate-400 mb-1">Total Active Clients</p>
+                <p className="text-whitexl font-bold text-white">{activeClients.length}</p>
               </div>
               <div className="w-12 h-12 bg-[#00B4D8]/10 rounded-lg flex items-center justify-center">
                 <Users className="w-6 h-6 text-[#00B4D8]" />
@@ -257,26 +257,26 @@ export default function ClientManager() {
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Monthly Recurring Revenue</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">${totalMRR.toLocaleString()}</p>
+                <p className="text-sm text-slate-400 mb-1">Monthly Recurring Revenue</p>
+                <p className="text-whitexl font-bold text-white">${totalMRR.toLocaleString()}</p>
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
                 <DollarSign className="w-6 h-6 text-green-600" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Contracts Expiring Soon</p>
-                <p className="text-3xl font-bold text-[#FF6B35]">{expiringContracts.length}</p>
+                <p className="text-sm text-slate-400 mb-1">Contracts Expiring Soon</p>
+                <p className="text-whitexl font-bold text-[#FF6B35]">{expiringContracts.length}</p>
               </div>
               <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center">
                 <AlertTriangle className="w-6 h-6 text-[#FF6B35]" />
@@ -285,12 +285,12 @@ export default function ClientManager() {
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Average Client Tenure</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">{avgTenure}m</p>
+                <p className="text-sm text-slate-400 mb-1">Average Client Tenure</p>
+                <p className="text-whitexl font-bold text-white">{avgTenure}m</p>
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-purple-600" />
@@ -304,7 +304,7 @@ export default function ClientManager() {
       {expiringContracts.length > 0 && (
         <Card className="border-2 border-[#FF6B35] bg-[#FF6B35]/5 mb-6">
           <CardHeader>
-            <CardTitle className="text-[#1E3A5F] flex items-center space-x-2">
+            <CardTitle className="text-white flex items-center space-x-2">
               <AlertTriangle className="w-5 h-5 text-[#FF6B35]" />
               <span>Contract Renewals - Next 30 Days</span>
             </CardTitle>
@@ -316,22 +316,22 @@ export default function ClientManager() {
                 return (
                   <div
                     key={client.id}
-                    className="flex items-center justify-between bg-white p-4 rounded-lg"
+                    className="flex items-center justify-between bg-[#0f172a]/40 backdrop-blur-xl p-4 rounded-lg"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-lg flex items-center justify-center">
                         <Building2 className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold text-[#1E3A5F]">{client.businessName}</p>
-                        <p className="text-sm text-gray-600">
+                        <p className="font-semibold text-white">{client.businessName}</p>
+                        <p className="text-sm text-slate-400">
                           Renewal: {new Date(client.renewalDate).toLocaleDateString()}
                         </p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
                       <Badge
-                        className={`${daysUntil <= 7 ? 'bg-red-100 text-red-700' : 'bg-orange-100 text-orange-700'} border-0`}
+                        className={`${daysUntil <= 7 ? 'bg-rose-500/10 text-rose-300' : 'bg-orange-500/10 text-orange-700'} border-0`}
                       >
                         {daysUntil} days
                       </Badge>
@@ -349,7 +349,7 @@ export default function ClientManager() {
       )}
 
       {/* Toolbar */}
-      <Card className="border-0 shadow-md mb-6">
+      <Card className="border-0 shadow-2xl border border-white/5 mb-6">
         <CardContent className="p-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center space-x-3 flex-1 min-w-[300px]">
@@ -377,12 +377,12 @@ export default function ClientManager() {
             </div>
 
             <div className="flex items-center space-x-2">
-              <div className="flex items-center space-x-1 bg-gray-100 rounded-lg p-1">
+              <div className="flex items-center space-x-1 bg-white/10 rounded-lg p-1">
                 <Button
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setViewMode('grid')}
-                  className={viewMode === 'grid' ? 'bg-white shadow-sm' : ''}
+                  className={viewMode === 'grid' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow-lg border border-white/5' : ''}
                 >
                   <LayoutGrid className="w-4 h-4" />
                 </Button>
@@ -390,7 +390,7 @@ export default function ClientManager() {
                   variant={viewMode === 'list' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setViewMode('list')}
-                  className={viewMode === 'list' ? 'bg-white shadow-sm' : ''}
+                  className={viewMode === 'list' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow-lg border border-white/5' : ''}
                 >
                   <List className="w-4 h-4" />
                 </Button>
@@ -414,7 +414,7 @@ export default function ClientManager() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="border-0 shadow-md hover:shadow-xl transition-shadow">
+              <Card className="border-0 shadow-2xl border border-white/5 hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
@@ -423,8 +423,8 @@ export default function ClientManager() {
                         <Building2 className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-[#1E3A5F]">{client.businessName}</h3>
-                        <p className="text-sm text-gray-600">{client.contactName}</p>
+                        <h3 className="font-bold text-white">{client.businessName}</h3>
+                        <p className="text-sm text-slate-400">{client.contactName}</p>
                       </div>
                     </div>
                     {getStatusBadge(client.status)}
@@ -445,27 +445,27 @@ export default function ClientManager() {
                   {/* Details */}
                   <div className="space-y-2 mb-4 text-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Monthly Retainer:</span>
-                      <span className="font-semibold text-[#1E3A5F]">
+                      <span className="text-slate-400">Monthly Retainer:</span>
+                      <span className="font-semibold text-white">
                         ${client.retainer.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Renewal Date:</span>
-                      <span className="font-semibold text-[#1E3A5F]">
+                      <span className="text-slate-400">Renewal Date:</span>
+                      <span className="font-semibold text-white">
                         {new Date(client.renewalDate).toLocaleDateString()}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Last Contact:</span>
-                      <span className="font-semibold text-[#1E3A5F]">
+                      <span className="text-slate-400">Last Contact:</span>
+                      <span className="font-semibold text-white">
                         {new Date(client.lastContact).toLocaleDateString()}
                       </span>
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center space-x-2 pt-4 border-t border-gray-100">
+                  <div className="flex items-center space-x-2 pt-4 border-t border-white/5">
                     <Button
                       size="sm"
                       variant="outline"
@@ -497,23 +497,23 @@ export default function ClientManager() {
 
       {/* Client Table View */}
       {viewMode === 'list' && (
-        <Card className="border-0 shadow-md overflow-hidden">
+        <Card className="border-0 shadow-2xl border border-white/5 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-[#F8F9FA]">
                 <tr>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">
+                  <th className="text-left p-4 text-sm font-semibold text-white">
                     Client Name
                   </th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Status</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Services</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Retainer</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Start Date</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Renewal</th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">
+                  <th className="text-left p-4 text-sm font-semibold text-white">Status</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Services</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Retainer</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Start Date</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Renewal</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">
                     Last Contact
                   </th>
-                  <th className="text-left p-4 text-sm font-semibold text-[#1E3A5F]">Actions</th>
+                  <th className="text-left p-4 text-sm font-semibold text-white">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -523,7 +523,7 @@ export default function ClientManager() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.05 }}
-                    className="border-t border-gray-100 hover:bg-[#F8F9FA] transition-colors"
+                    className="border-t border-white/5 hover:bg-[#F8F9FA] transition-colors"
                   >
                     <td className="p-4">
                       <div className="flex items-center space-x-3">
@@ -531,8 +531,8 @@ export default function ClientManager() {
                           <Building2 className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#1E3A5F]">{client.businessName}</p>
-                          <p className="text-sm text-gray-600">{client.contactName}</p>
+                          <p className="font-semibold text-white">{client.businessName}</p>
+                          <p className="text-sm text-slate-400">{client.contactName}</p>
                         </div>
                       </div>
                     </td>
@@ -549,16 +549,16 @@ export default function ClientManager() {
                         ))}
                       </div>
                     </td>
-                    <td className="p-4 font-semibold text-[#1E3A5F]">
+                    <td className="p-4 font-semibold text-white">
                       ${client.retainer.toLocaleString()}
                     </td>
-                    <td className="p-4 text-sm text-gray-600">
+                    <td className="p-4 text-sm text-slate-400">
                       {new Date(client.contractStart).toLocaleDateString()}
                     </td>
-                    <td className="p-4 text-sm text-gray-600">
+                    <td className="p-4 text-sm text-slate-400">
                       {new Date(client.renewalDate).toLocaleDateString()}
                     </td>
-                    <td className="p-4 text-sm text-gray-600">
+                    <td className="p-4 text-sm text-slate-400">
                       {new Date(client.lastContact).toLocaleDateString()}
                     </td>
                     <td className="p-4">
@@ -597,10 +597,10 @@ export default function ClientManager() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-2xl z-50 p-6"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl z-50 p-6"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-[#1E3A5F]">
+                <h2 className="text-2xl font-bold text-white">
                   {editMode ? 'Edit Client' : 'Add New Client'}
                 </h2>
                 <Button variant="ghost" size="sm" onClick={() => setShowAddModal(false)}>
@@ -674,9 +674,9 @@ export default function ClientManager() {
                 {/* Logo Upload */}
                 <div>
                   <Label>Client Logo</Label>
-                  <div className="mt-2 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
+                  <div className="mt-2 border-2 border-dashed border-white/20 rounded-lg p-6 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
                     <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
-                    <p className="text-sm text-gray-600">Drop logo here or click to upload</p>
+                    <p className="text-sm text-slate-400">Drop logo here or click to upload</p>
                     <p className="text-xs text-gray-400 mt-1">PNG, JPG up to 2MB</p>
                   </div>
                 </div>
@@ -693,7 +693,7 @@ export default function ClientManager() {
                         className={`p-3 rounded-lg border-2 transition-all text-sm font-medium ${
                           formData.services?.includes(key)
                             ? 'border-[#00B4D8] bg-[#00B4D8]/10 text-[#00B4D8]'
-                            : 'border-gray-200 hover:border-gray-300'
+                            : 'border-white/10 hover:border-white/20'
                         }`}
                       >
                         <CheckCircle
@@ -712,7 +712,7 @@ export default function ClientManager() {
                   <div>
                     <Label htmlFor="retainer">Monthly Retainer *</Label>
                     <div className="relative mt-2">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
                         $
                       </span>
                       <Input
@@ -788,7 +788,7 @@ export default function ClientManager() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center justify-end space-x-3 pt-4 border-t border-gray-200">
+                <div className="flex items-center justify-end space-x-3 pt-4 border-t border-white/10">
                   <Button variant="outline" onClick={() => setShowAddModal(false)}>
                     Cancel
                   </Button>
@@ -821,13 +821,13 @@ export default function ClientManager() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-2xl z-50"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl z-50"
             >
               {/* Header */}
               <div className="sticky top-0 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white p-6 rounded-t-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                    <div className="w-16 h-16 bg-[#0f172a]/40 backdrop-blur-xl/20 rounded-lg flex items-center justify-center">
                       <Building2 className="w-8 h-8 text-white" />
                     </div>
                     <div>
@@ -841,7 +841,7 @@ export default function ClientManager() {
                       variant="ghost"
                       size="sm"
                       onClick={() => setShowDetailModal(false)}
-                      className="text-white hover:bg-white/20"
+                      className="text-white hover:bg-[#0f172a]/40 backdrop-blur-xl/20"
                     >
                       <X className="w-5 h-5" />
                     </Button>
@@ -850,7 +850,7 @@ export default function ClientManager() {
               </div>
 
               {/* Tabs */}
-              <div className="border-b border-gray-200 px-6">
+              <div className="border-b border-white/10 px-6">
                 <div className="flex space-x-6">
                   {['overview', 'services', 'documents', 'invoices', 'communication', 'notes'].map(
                     (tab) => (
@@ -860,7 +860,7 @@ export default function ClientManager() {
                         className={`py-3 px-2 border-b-2 transition-colors capitalize ${
                           activeTab === tab
                             ? 'border-[#00B4D8] text-[#00B4D8] font-semibold'
-                            : 'border-transparent text-gray-600 hover:text-[#00B4D8]'
+                            : 'border-transparent text-slate-400 hover:text-[#00B4D8]'
                         }`}
                       >
                         {tab}
@@ -878,24 +878,24 @@ export default function ClientManager() {
                     <div className="grid grid-cols-3 gap-4">
                       <Card className="border-0 bg-[#F8F9FA]">
                         <CardContent className="p-4">
-                          <p className="text-sm text-gray-600 mb-1">Monthly Retainer</p>
-                          <p className="text-2xl font-bold text-[#1E3A5F]">
+                          <p className="text-sm text-slate-400 mb-1">Monthly Retainer</p>
+                          <p className="text-2xl font-bold text-white">
                             ${selectedClient.retainer.toLocaleString()}
                           </p>
                         </CardContent>
                       </Card>
                       <Card className="border-0 bg-[#F8F9FA]">
                         <CardContent className="p-4">
-                          <p className="text-sm text-gray-600 mb-1">Contract Length</p>
-                          <p className="text-2xl font-bold text-[#1E3A5F]">
+                          <p className="text-sm text-slate-400 mb-1">Contract Length</p>
+                          <p className="text-2xl font-bold text-white">
                             {selectedClient.contractLength}
                           </p>
                         </CardContent>
                       </Card>
                       <Card className="border-0 bg-[#F8F9FA]">
                         <CardContent className="p-4">
-                          <p className="text-sm text-gray-600 mb-1">Days to Renewal</p>
-                          <p className="text-2xl font-bold text-[#1E3A5F]">
+                          <p className="text-sm text-slate-400 mb-1">Days to Renewal</p>
+                          <p className="text-2xl font-bold text-white">
                             {getDaysUntilRenewal(selectedClient.renewalDate)}
                           </p>
                         </CardContent>
@@ -903,30 +903,30 @@ export default function ClientManager() {
                     </div>
 
                     {/* Contact Information */}
-                    <Card className="border-0 shadow-sm">
+                    <Card className="border-0 shadow-lg border border-white/5">
                       <CardHeader>
-                        <CardTitle className="text-[#1E3A5F]">Contact Information</CardTitle>
+                        <CardTitle className="text-white">Contact Information</CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-3">
                         <div className="flex items-center space-x-3">
                           <Mail className="w-5 h-5 text-gray-400" />
                           <div>
-                            <p className="text-sm text-gray-600">Email</p>
-                            <p className="font-medium text-[#1E3A5F]">{selectedClient.email}</p>
+                            <p className="text-sm text-slate-400">Email</p>
+                            <p className="font-medium text-white">{selectedClient.email}</p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
                           <Phone className="w-5 h-5 text-gray-400" />
                           <div>
-                            <p className="text-sm text-gray-600">Phone</p>
-                            <p className="font-medium text-[#1E3A5F]">{selectedClient.phone}</p>
+                            <p className="text-sm text-slate-400">Phone</p>
+                            <p className="font-medium text-white">{selectedClient.phone}</p>
                           </div>
                         </div>
                         {selectedClient.website && (
                           <div className="flex items-center space-x-3">
                             <Globe className="w-5 h-5 text-gray-400" />
                             <div>
-                              <p className="text-sm text-gray-600">Website</p>
+                              <p className="text-sm text-slate-400">Website</p>
                               <a
                                 href={selectedClient.website}
                                 target="_blank"
@@ -942,8 +942,8 @@ export default function ClientManager() {
                           <div className="flex items-center space-x-3">
                             <MapPin className="w-5 h-5 text-gray-400" />
                             <div>
-                              <p className="text-sm text-gray-600">Address</p>
-                              <p className="font-medium text-[#1E3A5F]">{selectedClient.address}</p>
+                              <p className="text-sm text-slate-400">Address</p>
+                              <p className="font-medium text-white">{selectedClient.address}</p>
                             </div>
                           </div>
                         )}
@@ -951,9 +951,9 @@ export default function ClientManager() {
                     </Card>
 
                     {/* Services */}
-                    <Card className="border-0 shadow-sm">
+                    <Card className="border-0 shadow-lg border border-white/5">
                       <CardHeader>
-                        <CardTitle className="text-[#1E3A5F]">Active Services</CardTitle>
+                        <CardTitle className="text-white">Active Services</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <div className="flex flex-wrap gap-3">
@@ -970,9 +970,9 @@ export default function ClientManager() {
                     </Card>
 
                     {/* Quick Links */}
-                    <Card className="border-0 shadow-sm">
+                    <Card className="border-0 shadow-lg border border-white/5">
                       <CardHeader>
-                        <CardTitle className="text-[#1E3A5F]">Quick Links</CardTitle>
+                        <CardTitle className="text-white">Quick Links</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <div className="grid grid-cols-2 gap-3">
@@ -1001,7 +1001,7 @@ export default function ClientManager() {
                 {activeTab !== 'overview' && (
                   <div className="text-center py-12">
                     <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">
+                    <p className="text-slate-400">
                       {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} content coming
                       soon...
                     </p>

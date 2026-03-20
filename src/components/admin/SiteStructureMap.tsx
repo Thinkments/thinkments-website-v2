@@ -246,7 +246,7 @@ export default function SiteStructureMap() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: level * 0.1 }}
-          className={`flex items-center space-x-3 p-3 rounded-lg border border-gray-200 bg-white hover:shadow-md transition-shadow ${
+          className={`flex items-center space-x-3 p-3 rounded-lg border border-white/10 bg-[#0f172a]/40 backdrop-blur-xl hover:shadow-2xl border border-white/5 transition-shadow ${
             level > 0 ? 'ml-8' : ''
           }`}
         >
@@ -254,12 +254,12 @@ export default function SiteStructureMap() {
           {hasChildren && (
             <button
               onClick={() => toggleNode(node.id)}
-              className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              className="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
             >
               {isExpanded ? (
-                <ChevronDown className="w-4 h-4 text-gray-600" />
+                <ChevronDown className="w-4 h-4 text-slate-400" />
               ) : (
-                <ChevronRight className="w-4 h-4 text-gray-600" />
+                <ChevronRight className="w-4 h-4 text-slate-400" />
               )}
             </button>
           )}
@@ -274,22 +274,22 @@ export default function SiteStructureMap() {
           {/* Node Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center space-x-2">
-              <h4 className="font-medium text-gray-900 truncate">{node.title}</h4>
+              <h4 className="font-medium text-gray-100 truncate">{node.title}</h4>
               {node.count && (
                 <Badge variant="outline" className="text-xs">
                   {node.count} items
                 </Badge>
               )}
             </div>
-            <p className="text-sm text-gray-500 truncate">{node.url}</p>
+            <p className="text-sm text-slate-500 truncate">{node.url}</p>
           </div>
 
           {/* Status Badge */}
           <Badge
             className={`text-xs ${
               node.status === 'published'
-                ? 'bg-green-500/10 text-green-600 border-green-500/20'
-                : 'bg-gray-500/10 text-gray-600 border-gray-500/20'
+                ? 'bg-emerald-900/200/10 text-green-600 border-green-500/20'
+                : 'bg-white/50/10 text-slate-400 border-gray-500/20'
             }`}
           >
             {node.status}
@@ -300,7 +300,7 @@ export default function SiteStructureMap() {
             href={node.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 p-2 rounded-md hover:bg-gray-100 transition-colors"
+            className="flex-shrink-0 p-2 rounded-md hover:bg-white/10 transition-colors"
             title="View page"
           >
             <ExternalLink className="w-4 h-4 text-gray-400" />
@@ -325,14 +325,14 @@ export default function SiteStructureMap() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-[#1E3A5F]">Site Structure Map</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-whitexl font-bold text-white">Site Structure Map</h1>
+        <p className="text-slate-400 mt-1">
           Visual hierarchy of all pages and content on thinkments.com
         </p>
       </div>
 
       {/* Controls */}
-      <Card className="mb-6 border-0 shadow-md">
+      <Card className="mb-6 border-0 shadow-2xl border border-white/5">
         <CardContent className="p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -351,7 +351,7 @@ export default function SiteStructureMap() {
             </div>
 
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600">Zoom:</span>
+              <span className="text-sm text-slate-400">Zoom:</span>
               <Button
                 variant="outline"
                 size="sm"
@@ -360,7 +360,7 @@ export default function SiteStructureMap() {
               >
                 <Minus className="w-4 h-4" />
               </Button>
-              <span className="text-sm font-medium text-gray-900 min-w-[50px] text-center">
+              <span className="text-sm font-medium text-gray-100 min-w-[50px] text-center">
                 {Math.round(zoomLevel * 100)}%
               </span>
               <Button
@@ -377,35 +377,35 @@ export default function SiteStructureMap() {
       </Card>
 
       {/* Legend */}
-      <Card className="mb-6 border-0 shadow-md">
+      <Card className="mb-6 border-0 shadow-2xl border border-white/5">
         <CardContent className="p-4">
           <div className="flex flex-wrap gap-4">
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 rounded bg-gradient-to-br from-blue-500 to-blue-600"></div>
-              <span className="text-sm text-gray-600">Page</span>
+              <span className="text-sm text-slate-400">Page</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 rounded bg-gradient-to-br from-purple-500 to-purple-600"></div>
-              <span className="text-sm text-gray-600">Blog Post</span>
+              <span className="text-sm text-slate-400">Blog Post</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 rounded bg-gradient-to-br from-green-500 to-green-600"></div>
-              <span className="text-sm text-gray-600">Product</span>
+              <span className="text-sm text-slate-400">Product</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 rounded bg-gradient-to-br from-orange-500 to-orange-600"></div>
-              <span className="text-sm text-gray-600">Category</span>
+              <span className="text-sm text-slate-400">Category</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 rounded bg-gradient-to-br from-teal-500 to-teal-600"></div>
-              <span className="text-sm text-gray-600">Service</span>
+              <span className="text-sm text-slate-400">Service</span>
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Site Map */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardContent className="p-6">
           <div
             style={{
@@ -421,48 +421,48 @@ export default function SiteStructureMap() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Total Pages</p>
-                <p className="text-3xl font-bold text-[#1E3A5F]">110</p>
+                <p className="text-sm text-slate-400">Total Pages</p>
+                <p className="text-whitexl font-bold text-white">110</p>
               </div>
               <FileText className="w-10 h-10 text-blue-500 opacity-20" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Blog Posts</p>
-                <p className="text-3xl font-bold text-purple-600">50</p>
+                <p className="text-sm text-slate-400">Blog Posts</p>
+                <p className="text-whitexl font-bold text-purple-600">50</p>
               </div>
               <MessageSquare className="w-10 h-10 text-purple-500 opacity-20" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Services</p>
-                <p className="text-3xl font-bold text-teal-600">12</p>
+                <p className="text-sm text-slate-400">Services</p>
+                <p className="text-whitexl font-bold text-teal-600">12</p>
               </div>
               <Search className="w-10 h-10 text-teal-500 opacity-20" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-0 shadow-md">
+        <Card className="border-0 shadow-2xl border border-white/5">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Case Studies</p>
-                <p className="text-3xl font-bold text-green-600">4</p>
+                <p className="text-sm text-slate-400">Case Studies</p>
+                <p className="text-whitexl font-bold text-green-600">4</p>
               </div>
               <Users className="w-10 h-10 text-green-500 opacity-20" />
             </div>

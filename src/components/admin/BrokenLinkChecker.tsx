@@ -28,6 +28,19 @@ import {
   TrendingUp,
   Network,
   Mail,
+  Settings,
+  Upload,
+  Target,
+  Sparkles,
+  ArrowLeft,
+  FileText,
+  Activity,
+  ArrowRight,
+  Users,
+  Plus,
+  Check,
+  Info,
+  Calendar,
   PlayCircle,
   StopCircle,
   Loader2,
@@ -257,18 +270,18 @@ Return a generated JSON array of highly realistic broken links. The array must c
       case 'low':
         return 'bg-emerald-900/200';
       default:
-        return 'bg-white/50';
+        return 'bg-[#0f172a]/40 backdrop-blur-xl/50';
     }
   };
 
   const getSourceBadge = (source: SourceType) => {
     switch (source) {
       case 'ahrefs':
-        return <Badge className="bg-orange-500/10 text-orange-700">Ahrefs</Badge>;
+        return <Badge className="bg-orange-900/200/10 text-orange-700">Ahrefs</Badge>;
       case 'gsc':
         return <Badge className="bg-indigo-500/10 text-indigo-300">Google</Badge>;
       case 'scan':
-        return <Badge className="bg-white/10 text-slate-300">Scan</Badge>;
+        return <Badge className="bg-[#0f172a]/40 backdrop-blur-xl/10 text-slate-300">Scan</Badge>;
     }
   };
 
@@ -279,7 +292,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
       case 'in-progress':
         return 'bg-indigo-500/10 text-indigo-300';
       case 'todo':
-        return 'bg-white/10 text-slate-300';
+        return 'bg-[#0f172a]/40 backdrop-blur-xl/10 text-slate-300';
       default:
         return '';
     }
@@ -300,7 +313,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
               <Network className="w-8 h-8 text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)]" />
             </div>
             <div>
-              <h1 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">Pathfinder Matrix</h1>
+              <h1 className="text-whitexl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight mb-1">Pathfinder Matrix</h1>
               <p className="text-sm text-indigo-300/70 font-medium tracking-wide flex items-center gap-2">
                 Link Integrity & Orphan Operations <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 uppercase tracking-widest">Deep Scan</span>
               </p>
@@ -309,12 +322,12 @@ Return a generated JSON array of highly realistic broken links. The array must c
           
           <div className="flex items-center space-x-3 bg-black/40 p-2 rounded-2xl border border-white/5 shadow-inner">
             {!gscConnected && (
-              <Button variant="outline" onClick={() => setShowGSCModal(true)} className="bg-white/5 border-white/10 hover:bg-white/10 text-slate-300 font-bold text-xs h-10 rounded-xl">
+              <Button variant="outline" onClick={() => setShowGSCModal(true)} className="bg-[#0f172a]/40 backdrop-blur-xl/5 border-white/10 hover:bg-[#0f172a]/40 backdrop-blur-xl/10 text-slate-300 font-bold text-xs h-10 rounded-xl">
                 <Globe className="w-4 h-4 mr-2" />
                 Auth GSC
               </Button>
             )}
-            <Button variant="outline" onClick={() => setShowAhrefsModal(true)} className="bg-white/5 border-white/10 hover:bg-white/10 text-slate-300 font-bold text-xs h-10 rounded-xl">
+            <Button variant="outline" onClick={() => setShowAhrefsModal(true)} className="bg-[#0f172a]/40 backdrop-blur-xl/5 border-white/10 hover:bg-[#0f172a]/40 backdrop-blur-xl/10 text-slate-300 font-bold text-xs h-10 rounded-xl">
               <FileDown className="w-4 h-4 mr-2" />
               Ahrefs Import
             </Button>
@@ -378,19 +391,19 @@ Return a generated JSON array of highly realistic broken links. The array must c
                           Analyzing Vector: {Math.floor((scanProgress / 100) * stats.totalLinks)} / {stats.totalLinks}
                         </span>
                       </div>
-                      <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-emerald-600 drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
+                      <span className="text-whitexl font-black text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-emerald-600 drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]">
                         {scanProgress}%
                       </span>
                     </div>
 
                     <div className="h-3 w-full bg-slate-900 rounded-full overflow-hidden border border-green-500/20 p-[1px] relative shadow-inner">
                       <motion.div
-                        className="h-full bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] relative"
+                        className="h-full bg-emerald-900/200 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.8)] relative"
                         initial={{ width: 0 }}
                         animate={{ width: `${scanProgress}%` }}
                         transition={{ duration: 0.5 }}
                       >
-                        <div className="absolute top-0 right-0 bottom-0 w-8 bg-white/40 blur-[2px]" />
+                        <div className="absolute top-0 right-0 bottom-0 w-8 bg-[#0f172a]/40 backdrop-blur-xl/40 blur-[2px]" />
                       </motion.div>
                     </div>
 
@@ -509,7 +522,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-900/200/10 rounded-lg flex items-center justify-center">
                     <Repeat className="w-5 h-5 text-orange-600" />
                   </div>
                 </div>
@@ -543,7 +556,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
             >
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-orange-900/200/10 rounded-lg flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-orange-600" />
                   </div>
                 </div>
@@ -575,13 +588,13 @@ Return a generated JSON array of highly realistic broken links. The array must c
               >
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-orange-900/200/10 rounded-lg flex items-center justify-center">
                       <Upload className="w-5 h-5 text-orange-600" />
                     </div>
                   </div>
                   <p className="text-2xl font-bold text-orange-600 mb-1">{stats.ahrefsImported}</p>
                   <p className="text-sm text-slate-400 mb-2">Imported Issues</p>
-                  <Badge className="bg-orange-500/10 text-orange-700 text-xs">Ahrefs</Badge>
+                  <Badge className="bg-orange-900/200/10 text-orange-700 text-xs">Ahrefs</Badge>
                 </CardContent>
               </Card>
             )}
@@ -658,7 +671,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 <h3 className="font-semibold text-white mb-3">Link Health Score</h3>
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-green-100 to-green-200 mb-3">
-                    <span className="text-3xl font-bold text-green-700">85</span>
+                    <span className="text-whitexl font-bold text-green-700">85</span>
                   </div>
                   <p className="text-sm text-slate-400">Good health</p>
                   <div className="flex items-center justify-center space-x-1 mt-2">
@@ -731,13 +744,13 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 onClick={() => setActiveTab(tab.id as TabType)}
                 className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${activeTab === tab.id
                   ? 'bg-gradient-to-r from-[#00B4D8] to-[#1E3A5F] text-white'
-                  : 'bg-[#0f172a]/50 backdrop-blur-md text-slate-400 hover:bg-white/5 border border-white/10'
+                  : 'bg-[#0f172a]/50 backdrop-blur-md text-slate-400 hover:bg-[#0f172a]/40 backdrop-blur-xl/5 border border-white/10'
                   }`}
               >
                 {tab.label}
                 {tab.count !== undefined && (
                   <Badge
-                    className={`ml-2 ${activeTab === tab.id ? 'bg-[#0f172a]/50 backdrop-blur-md/20 text-white' : 'bg-white/20 text-slate-300'}`}
+                    className={`ml-2 ${activeTab === tab.id ? 'bg-[#0f172a]/50 backdrop-blur-md/20 text-white' : 'bg-[#0f172a]/40 backdrop-blur-xl/20 text-slate-300'}`}
                   >
                     {tab.count}
                   </Badge>
@@ -923,7 +936,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                     </div>
                                     <div className="min-w-0">
                                       <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Source Node</p>
-                                      <a href={link.sourceUrl} className="font-mono text-sm text-emerald-400 hover:text-emerald-300 truncate block">
+                                      <a href={link.sourceUrl} className="font-mono text-sm text-whitemerald-400 hover:text-whitemerald-300 truncate block">
                                         {link.sourceUrl}
                                       </a>
                                     </div>
@@ -970,10 +983,10 @@ Return a generated JSON array of highly realistic broken links. The array must c
                                   className="w-full bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3 mb-2"
                                 >
                                   <div className="flex items-center gap-2 mb-2">
-                                    <Sparkles className="w-3 h-3 text-emerald-400" />
-                                    <span className="text-[10px] tracking-widest uppercase font-bold text-emerald-400">AI Fix Match</span>
+                                    <Sparkles className="w-3 h-3 text-whitemerald-400" />
+                                    <span className="text-[10px] tracking-widest uppercase font-bold text-whitemerald-400">AI Fix Match</span>
                                   </div>
-                                  <p className="font-mono text-xs text-emerald-200 truncate mb-3" title={link.suggestedFix}>
+                                  <p className="font-mono text-xs text-whitemerald-200 truncate mb-3" title={link.suggestedFix}>
                                     {link.suggestedFix}
                                   </p>
                                   <Button size="sm" className="w-full h-8 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-[0_0_15px_rgba(16,185,129,0.3)]">
@@ -1025,7 +1038,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                         <Badge className="bg-orange-900/200 text-white">{chain.hops} hops</Badge>
                         <Badge className="bg-amber-500/10 text-yellow-700">Should be 1 hop</Badge>
                       </div>
-                      <div className="bg-white/5 border-2 border-white/10 rounded-lg p-4">
+                      <div className="bg-[#0f172a]/40 backdrop-blur-xl/5 border-2 border-white/10 rounded-lg p-4">
                         <p className="text-sm font-medium text-slate-300 mb-3">Redirect Path:</p>
                         <div className="flex flex-wrap items-center gap-2">
                           {chain.redirectPath.map((url, idx) => (
@@ -1228,7 +1241,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                           <p className="text-xs text-slate-400 mb-1">Suggested Anchor Text:</p>
                           <Badge className="bg-indigo-500/10 text-indigo-300">{opp.anchorText}</Badge>
                         </div>
-                        <div className="p-3 bg-white/5 rounded-lg">
+                        <div className="p-3 bg-[#0f172a]/40 backdrop-blur-xl/5 rounded-lg">
                           <p className="text-xs text-slate-400 mb-1">Why this link makes sense:</p>
                           <p className="text-sm text-slate-300">{opp.context}</p>
                         </div>
@@ -1359,7 +1372,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 {/* Preview */}
                 <div className="mb-6">
                   <h3 className="font-semibold text-white mb-4">Import Preview</h3>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <div className="bg-[#0f172a]/40 backdrop-blur-xl/5 border border-white/10 rounded-lg p-4">
                     <p className="text-sm text-slate-300 mb-2">First 10 rows preview:</p>
                     <div className="text-xs font-mono text-slate-400">
                       <p>/services/seo → /old-page → 404 → 23 domains</p>
@@ -1432,7 +1445,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                 <div className="mb-6">
                   <div className="bg-indigo-900/20 border border-blue-200 rounded-lg p-4 mb-4">
                     <h3 className="font-medium text-indigo-200 mb-2">What you&apos;ll get:</h3>
-                    <ul className="space-y-1 text-sm text-blue-800">
+                    <ul className="space-y-1 text-sm text-indigo-300">
                       <li className="flex items-start">
                         <Check className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
                         404 errors Google has found
@@ -1506,7 +1519,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                     {[1, 2, 3, 4].map((step) => (
                       <div
                         key={step}
-                        className={`flex-1 h-2 rounded-full ${aiWizardStep >= step ? 'bg-[#00B4D8]' : 'bg-white/20'
+                        className={`flex-1 h-2 rounded-full ${aiWizardStep >= step ? 'bg-[#00B4D8]' : 'bg-[#0f172a]/40 backdrop-blur-xl/20'
                           }`}
                       />
                     ))}
@@ -1530,7 +1543,7 @@ Return a generated JSON array of highly realistic broken links. The array must c
                             <p className="font-semibold text-indigo-200 mb-2">
                               Analyzing URL structure and context...
                             </p>
-                            <div className="space-y-2 text-sm text-blue-800">
+                            <div className="space-y-2 text-sm text-indigo-300">
                               <div className="flex items-center">
                                 <CheckCircle className="w-4 h-4 mr-2 text-green-600" />
                                 Analyzed URL structure
@@ -1576,10 +1589,10 @@ Return a generated JSON array of highly realistic broken links. The array must c
                               Related Existing Pages:
                             </p>
                             <div className="flex flex-wrap gap-2">
-                              <Badge className="bg-white/10 text-slate-300">
+                              <Badge className="bg-[#0f172a]/40 backdrop-blur-xl/10 text-slate-300">
                                 /services/digital-marketing
                               </Badge>
-                              <Badge className="bg-white/10 text-slate-300">
+                              <Badge className="bg-[#0f172a]/40 backdrop-blur-xl/10 text-slate-300">
                                 /blog/social-media-tips
                               </Badge>
                             </div>

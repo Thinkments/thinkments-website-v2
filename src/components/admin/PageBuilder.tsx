@@ -113,8 +113,8 @@ export default function PageBuilder() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-[#1E3A5F]">Page Builder</h1>
-          <p className="text-gray-600 mt-1">Create custom pages with drag-and-drop blocks</p>
+          <h1 className="text-whitexl font-bold text-white">Page Builder</h1>
+          <p className="text-slate-400 mt-1">Create custom pages with drag-and-drop blocks</p>
         </div>
         <div className="flex items-center space-x-3">
           <Button variant="outline">
@@ -130,9 +130,9 @@ export default function PageBuilder() {
       </div>
 
       {/* Page Setup */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardHeader>
-          <CardTitle className="text-[#1E3A5F]">Page Setup</CardTitle>
+          <CardTitle className="text-white">Page Setup</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -149,7 +149,7 @@ export default function PageBuilder() {
             <div>
               <Label htmlFor="pageSlug">URL Slug</Label>
               <div className="flex items-center mt-2">
-                <span className="px-3 py-2 bg-gray-100 border border-r-0 border-gray-200 rounded-l-lg text-sm text-gray-600">
+                <span className="px-3 py-2 bg-white/10 border border-r-0 border-white/10 rounded-l-lg text-sm text-slate-400">
                   thinkments.com/
                 </span>
                 <Input
@@ -166,9 +166,9 @@ export default function PageBuilder() {
       </Card>
 
       {/* Template Selection */}
-      <Card className="border-0 shadow-md">
+      <Card className="border-0 shadow-2xl border border-white/5">
         <CardHeader>
-          <CardTitle className="text-[#1E3A5F]">Choose Template</CardTitle>
+          <CardTitle className="text-white">Choose Template</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -176,7 +176,7 @@ export default function PageBuilder() {
               <motion.div
                 key={template.id}
                 whileHover={{ scale: 1.05 }}
-                className={`relative cursor-pointer rounded-lg border-2 overflow-hidden ${selectedTemplate === template.id ? 'border-[#00B4D8]' : 'border-gray-200'
+                className={`relative cursor-pointer rounded-lg border-2 overflow-hidden ${selectedTemplate === template.id ? 'border-[#00B4D8]' : 'border-white/10'
                   }`}
                 onClick={() => setSelectedTemplate(template.id)}
               >
@@ -187,14 +187,14 @@ export default function PageBuilder() {
                     className="w-full h-32 object-cover"
                   />
                 ) : (
-                  <div className="w-full h-32 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-32 bg-white/10 flex items-center justify-center">
                     <template.icon className="w-12 h-12 text-gray-400" />
                   </div>
                 )}
-                <div className="p-3 bg-white">
+                <div className="p-3 bg-[#0f172a]/40 backdrop-blur-xl">
                   <div className="flex items-center space-x-2">
-                    <template.icon className="w-4 h-4 text-[#1E3A5F]" />
-                    <span className="text-sm font-medium text-[#1E3A5F]">{template.name}</span>
+                    <template.icon className="w-4 h-4 text-white" />
+                    <span className="text-sm font-medium text-white">{template.name}</span>
                   </div>
                 </div>
                 {selectedTemplate === template.id && (
@@ -218,9 +218,9 @@ export default function PageBuilder() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Sidebar - Content Blocks */}
         <div className="lg:col-span-3">
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
-              <CardTitle className="text-[#1E3A5F] text-sm">Content Blocks</CardTitle>
+              <CardTitle className="text-white text-sm">Content Blocks</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {contentBlocks.map((block) => (
@@ -244,10 +244,10 @@ export default function PageBuilder() {
 
         {/* Center - Canvas */}
         <div className="lg:col-span-6">
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle className="text-[#1E3A5F]">Page Canvas</CardTitle>
+                <CardTitle className="text-white">Page Canvas</CardTitle>
                 <div className="flex items-center space-x-2">
                   <Button
                     variant={deviceView === 'desktop' ? 'default' : 'outline'}
@@ -278,7 +278,7 @@ export default function PageBuilder() {
             </CardHeader>
             <CardContent>
               <div
-                className={`mx-auto bg-white border-2 border-dashed border-gray-300 rounded-lg min-h-[600px] ${deviceView === 'desktop'
+                className={`mx-auto bg-[#0f172a]/40 backdrop-blur-xl border-2 border-dashed border-white/20 rounded-lg min-h-[600px] ${deviceView === 'desktop'
                     ? 'w-full'
                     : deviceView === 'tablet'
                       ? 'w-[768px]'
@@ -288,10 +288,10 @@ export default function PageBuilder() {
                 {blocks.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-[600px] text-center p-8">
                     <Plus className="w-16 h-16 text-gray-300 mb-4" />
-                    <h3 className="text-lg font-medium text-gray-600 mb-2">
+                    <h3 className="text-lg font-medium text-slate-400 mb-2">
                       Start Building Your Page
                     </h3>
-                    <p className="text-gray-500">
+                    <p className="text-slate-500">
                       Drag content blocks from the left sidebar to begin
                     </p>
                   </div>
@@ -304,7 +304,7 @@ export default function PageBuilder() {
                         animate={{ opacity: 1, y: 0 }}
                         className={`group relative p-6 border-2 rounded-lg cursor-pointer transition-colors ${selectedBlock === block.id
                             ? 'border-[#00B4D8] bg-[#00B4D8]/5'
-                            : 'border-gray-200 hover:border-gray-300'
+                            : 'border-white/10 hover:border-white/20'
                           }`}
                         onClick={() => setSelectedBlock(block.id)}
                       >
@@ -316,7 +316,7 @@ export default function PageBuilder() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="opacity-0 group-hover:opacity-100 text-red-600"
+                            className="opacity-0 group-hover:opacity-100 text-rose-400"
                             onClick={(e) => {
                               e.stopPropagation();
                               removeBlock(block.id);
@@ -325,7 +325,7 @@ export default function PageBuilder() {
                             <Trash2 className="w-4 h-4" />
                           </Button>
                         </div>
-                        <div className="bg-gray-100 rounded p-4 text-center text-gray-500 text-sm">
+                        <div className="bg-white/10 rounded p-4 text-center text-slate-500 text-sm">
                           {block.type} Content Preview
                         </div>
                       </motion.div>
@@ -339,7 +339,7 @@ export default function PageBuilder() {
 
         {/* Right Sidebar - Block Settings & Page Settings */}
         <div className="lg:col-span-3 space-y-6">
-          <Card className="border-0 shadow-md">
+          <Card className="border-0 shadow-2xl border border-white/5">
             <Tabs defaultValue="page">
               <CardHeader>
                 <TabsList className="w-full">
@@ -398,7 +398,7 @@ export default function PageBuilder() {
                 <TabsContent value="block" className="mt-0">
                   {selectedBlock ? (
                     <div className="space-y-4">
-                      <p className="text-sm text-gray-600">Configure the selected block</p>
+                      <p className="text-sm text-slate-400">Configure the selected block</p>
                       <div>
                         <Label htmlFor="blockTitle" className="text-xs">
                           Block Title
@@ -421,7 +421,7 @@ export default function PageBuilder() {
                       </Button>
                     </div>
                   ) : (
-                    <div className="text-center py-8 text-gray-500 text-sm">
+                    <div className="text-center py-8 text-slate-500 text-sm">
                       Select a block to configure its settings
                     </div>
                   )}
@@ -431,14 +431,14 @@ export default function PageBuilder() {
           </Card>
 
           {/* SEO Checklist */}
-          <Card className="border-0 shadow-md bg-gradient-to-br from-[#00B4D8]/5 to-white">
+          <Card className="border-0 shadow-2xl border border-white/5 bg-gradient-to-br from-[#00B4D8]/5 to-white">
             <CardHeader>
-              <CardTitle className="text-[#1E3A5F] text-sm">SEO Checklist</CardTitle>
+              <CardTitle className="text-white text-sm">SEO Checklist</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-emerald-900/200 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -447,18 +447,18 @@ export default function PageBuilder() {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-700">Page title set</span>
+                  <span className="text-slate-300">Page title set</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-                  <span className="text-gray-700">Meta description needed</span>
+                  <div className="w-4 h-4 bg-amber-900/200 rounded-full"></div>
+                  <span className="text-slate-300">Meta description needed</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-                  <span className="text-gray-700">Featured image needed</span>
+                  <div className="w-4 h-4 bg-amber-900/200 rounded-full"></div>
+                  <span className="text-slate-300">Featured image needed</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-emerald-900/200 rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -467,7 +467,7 @@ export default function PageBuilder() {
                       />
                     </svg>
                   </div>
-                  <span className="text-gray-700">URL structure valid</span>
+                  <span className="text-slate-300">URL structure valid</span>
                 </div>
               </div>
             </CardContent>

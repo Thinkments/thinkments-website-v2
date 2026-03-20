@@ -26,7 +26,7 @@ export default function ExportInstructions() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                <Badge variant="outline" className="bg-indigo-900/20 text-indigo-300 border-blue-200">
                   <FileText className="w-3 h-3 mr-1" />
                   Robots.txt
                 </Badge>
@@ -57,7 +57,7 @@ export default function ExportInstructions() {
 
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                <Badge variant="outline" className="bg-emerald-900/20 text-green-700 border-green-200">
                   <Code className="w-3 h-3 mr-1" />
                   Business Schema
                 </Badge>

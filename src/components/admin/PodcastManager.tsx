@@ -184,26 +184,26 @@ export default function PodcastManager() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'published':
-        return 'bg-green-100 text-green-700';
+        return 'bg-emerald-500/10 text-green-700';
       case 'scheduled':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-indigo-500/10 text-indigo-300';
       case 'draft':
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-slate-300';
       case 'processing':
-        return 'bg-yellow-100 text-yellow-700';
+        return 'bg-amber-500/10 text-yellow-700';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-slate-300';
     }
   };
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Podcast Manager</h1>
-            <p className="text-gray-600">Create, manage, and analyze your podcast episodes</p>
+            <h1 className="text-whitexl font-bold text-white mb-2">Podcast Manager</h1>
+            <p className="text-slate-400">Create, manage, and analyze your podcast episodes</p>
           </div>
         </div>
 
@@ -223,7 +223,7 @@ export default function PodcastManager() {
                   onClick={() => setActiveView(tab.id as 'episodes' | 'upload' | 'analytics' | 'settings')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeView === tab.id
                       ? 'bg-[#00B4D8] text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-white/10 text-slate-300 hover:bg-white/20'
                     }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -252,30 +252,30 @@ export default function PodcastManager() {
           <>
             {/* Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Music className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Total Episodes</div>
+                  <div className="text-sm text-slate-400">Total Episodes</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.totalEpisodes}</div>
+                <div className="text-2xl font-bold text-white">{stats.totalEpisodes}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Download className="w-4 h-4 text-green-600" />
-                  <div className="text-sm text-gray-600">Total Downloads</div>
+                  <div className="text-sm text-slate-400">Total Downloads</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.totalDownloads.toLocaleString()}
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <TrendingUp className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">This Month</div>
+                  <div className="text-sm text-slate-400">This Month</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.downloadsThisMonth.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -284,27 +284,27 @@ export default function PodcastManager() {
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Clock className="w-4 h-4 text-gray-600" />
-                  <div className="text-sm text-gray-600">Avg Length</div>
+                  <Clock className="w-4 h-4 text-slate-400" />
+                  <div className="text-sm text-slate-400">Avg Length</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">{stats.avgDuration}</div>
+                <div className="text-2xl font-bold text-white">{stats.avgDuration}</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Users className="w-4 h-4 text-[#FF6B35]" />
-                  <div className="text-sm text-gray-600">Subscribers</div>
+                  <div className="text-sm text-slate-400">Subscribers</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.subscribers.toLocaleString()}
                 </div>
               </Card>
             </div>
 
             {/* Controls */}
-            <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
+            <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   {/* Search */}
@@ -319,7 +319,7 @@ export default function PodcastManager() {
                   </div>
 
                   {/* Filters */}
-                  <select className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
+                  <select className="px-4 py-2 border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
                     <option>All Status</option>
                     <option>Published</option>
                     <option>Scheduled</option>
@@ -329,20 +329,20 @@ export default function PodcastManager() {
 
                 <div className="flex items-center space-x-2">
                   {/* View Toggle */}
-                  <div className="flex items-center bg-gray-100 rounded-lg p-1">
+                  <div className="flex items-center bg-white/10 rounded-lg p-1">
                     <button
                       onClick={() => setViewMode('grid')}
-                      className={`p-2 rounded transition-all ${viewMode === 'grid' ? 'bg-white shadow' : ''
+                      className={`p-2 rounded transition-all ${viewMode === 'grid' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow' : ''
                         }`}
                     >
-                      <Grid className="w-4 h-4 text-gray-600" />
+                      <Grid className="w-4 h-4 text-slate-400" />
                     </button>
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`p-2 rounded transition-all ${viewMode === 'list' ? 'bg-white shadow' : ''
+                      className={`p-2 rounded transition-all ${viewMode === 'list' ? 'bg-[#0f172a]/40 backdrop-blur-xl shadow' : ''
                         }`}
                     >
-                      <List className="w-4 h-4 text-gray-600" />
+                      <List className="w-4 h-4 text-slate-400" />
                     </button>
                   </div>
                 </div>
@@ -355,7 +355,7 @@ export default function PodcastManager() {
                 {episodes.map((episode) => (
                   <Card
                     key={episode.id}
-                    className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-shadow"
+                    className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 overflow-hidden hover:shadow-lg transition-shadow"
                   >
                     <div className="relative">
                       <img
@@ -373,10 +373,10 @@ export default function PodcastManager() {
                       <div className="text-sm text-[#00B4D8] font-semibold mb-1">
                         Episode {episode.number}
                       </div>
-                      <h3 className="font-bold text-[#1E3A5F] mb-3 line-clamp-2">
+                      <h3 className="font-bold text-white mb-3 line-clamp-2">
                         {episode.title}
                       </h3>
-                      <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                      <div className="flex items-center justify-between text-sm text-slate-400 mb-4">
                         <div className="flex items-center space-x-1">
                           <Calendar className="w-4 h-4" />
                           <span>{episode.publishDate}</span>
@@ -394,37 +394,37 @@ export default function PodcastManager() {
                           </span>
                         </div>
                       )}
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                      <div className="flex items-center justify-between pt-4 border-t border-white/10">
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => {
                               setSelectedEpisode(episode);
                               setShowPreviewModal(true);
                             }}
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-white/10 rounded transition-colors"
                             title="Preview"
                           >
-                            <Eye className="w-4 h-4 text-gray-600" />
+                            <Eye className="w-4 h-4 text-slate-400" />
                           </button>
                           <button
                             onClick={() => setActiveView('upload')}
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-white/10 rounded transition-colors"
                             title="Edit"
                           >
-                            <Edit2 className="w-4 h-4 text-gray-600" />
+                            <Edit2 className="w-4 h-4 text-slate-400" />
                           </button>
                           <button
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-white/10 rounded transition-colors"
                             title="Copy Link"
                           >
-                            <Copy className="w-4 h-4 text-gray-600" />
+                            <Copy className="w-4 h-4 text-slate-400" />
                           </button>
                         </div>
                         <button
-                          className="p-2 hover:bg-red-50 rounded transition-colors"
+                          className="p-2 hover:bg-rose-900/20 rounded transition-colors"
                           title="Delete"
                         >
-                          <Trash2 className="w-4 h-4 text-red-600" />
+                          <Trash2 className="w-4 h-4 text-rose-400" />
                         </button>
                       </div>
                     </div>
@@ -432,37 +432,37 @@ export default function PodcastManager() {
                 ))}
               </div>
             ) : (
-              <Card className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+              <Card className="bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-gray-200 bg-gray-50">
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <tr className="border-b border-white/10 bg-white/5">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                           Episode
                         </th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                           Title
                         </th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                           Date
                         </th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                           Duration
                         </th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                           Status
                         </th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                           Downloads
                         </th>
-                        <th className="text-right py-3 px-4 text-sm font-semibold text-gray-600">
+                        <th className="text-right py-3 px-4 text-sm font-semibold text-slate-400">
                           Actions
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       {episodes.map((episode) => (
-                        <tr key={episode.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={episode.id} className="border-b border-white/5 hover:bg-white/5">
                           <td className="py-4 px-4 font-semibold text-[#00B4D8]">
                             #{episode.number}
                           </td>
@@ -473,11 +473,11 @@ export default function PodcastManager() {
                                 alt=""
                                 className="w-12 h-12 rounded object-cover"
                               />
-                              <span className="font-medium text-[#1E3A5F]">{episode.title}</span>
+                              <span className="font-medium text-white">{episode.title}</span>
                             </div>
                           </td>
-                          <td className="py-4 px-4 text-gray-600">{episode.publishDate}</td>
-                          <td className="py-4 px-4 text-gray-600">{episode.duration}</td>
+                          <td className="py-4 px-4 text-slate-400">{episode.publishDate}</td>
+                          <td className="py-4 px-4 text-slate-400">{episode.duration}</td>
                           <td className="py-4 px-4">
                             <Badge className={`${getStatusColor(episode.status)} capitalize`}>
                               {episode.status}
@@ -495,21 +495,21 @@ export default function PodcastManager() {
                                   setSelectedEpisode(episode);
                                   setShowPreviewModal(true);
                                 }}
-                                className="p-2 hover:bg-gray-100 rounded transition-colors"
+                                className="p-2 hover:bg-white/10 rounded transition-colors"
                               >
-                                <Eye className="w-4 h-4 text-gray-600" />
+                                <Eye className="w-4 h-4 text-slate-400" />
                               </button>
                               <button
                                 onClick={() => setActiveView('upload')}
-                                className="p-2 hover:bg-gray-100 rounded transition-colors"
+                                className="p-2 hover:bg-white/10 rounded transition-colors"
                               >
-                                <Edit2 className="w-4 h-4 text-gray-600" />
+                                <Edit2 className="w-4 h-4 text-slate-400" />
                               </button>
-                              <button className="p-2 hover:bg-gray-100 rounded transition-colors">
-                                <Copy className="w-4 h-4 text-gray-600" />
+                              <button className="p-2 hover:bg-white/10 rounded transition-colors">
+                                <Copy className="w-4 h-4 text-slate-400" />
                               </button>
-                              <button className="p-2 hover:bg-red-50 rounded transition-colors">
-                                <Trash2 className="w-4 h-4 text-red-600" />
+                              <button className="p-2 hover:bg-rose-900/20 rounded transition-colors">
+                                <Trash2 className="w-4 h-4 text-rose-400" />
                               </button>
                             </div>
                           </td>
@@ -529,15 +529,15 @@ export default function PodcastManager() {
             {/* Left Column - Episode Details */}
             <div className="lg:col-span-2 space-y-6">
               {/* Audio Upload */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Audio File</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-4">Audio File</h3>
 
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer bg-gray-50">
+                <div className="border-2 border-dashed border-white/20 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer bg-white/5">
                   <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-lg font-medium text-gray-700 mb-2">
+                  <p className="text-lg font-medium text-slate-300 mb-2">
                     Drag and drop your audio file here
                   </p>
-                  <p className="text-sm text-gray-500 mb-4">or click to browse</p>
+                  <p className="text-sm text-slate-500 mb-4">or click to browse</p>
                   <p className="text-xs text-gray-400">
                     Supported formats: MP3, WAV, M4A (max 500MB)
                   </p>
@@ -546,12 +546,12 @@ export default function PodcastManager() {
                 {uploadProgress > 0 && (
                   <div className="mt-4">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-700">Uploading...</span>
+                      <span className="text-sm font-medium text-slate-300">Uploading...</span>
                       <span className="text-sm font-semibold text-[#00B4D8]">
                         {uploadProgress}%
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="w-full bg-white/20 rounded-full h-2">
                       <div
                         className="bg-[#00B4D8] h-2 rounded-full transition-all"
                         style={{ width: `${uploadProgress}%` }}
@@ -561,18 +561,18 @@ export default function PodcastManager() {
                 )}
 
                 {/* Audio Preview (after upload) */}
-                <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                <div className="mt-6 p-4 bg-white/5 rounded-lg">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-3">
                       <button className="w-10 h-10 bg-[#00B4D8] rounded-full flex items-center justify-center text-white hover:bg-[#0096b8] transition-colors">
                         <Play className="w-5 h-5" />
                       </button>
                       <div>
-                        <div className="font-medium text-[#1E3A5F]">episode-audio.mp3</div>
-                        <div className="text-sm text-gray-600">Duration: 45:32</div>
+                        <div className="font-medium text-white">episode-audio.mp3</div>
+                        <div className="text-sm text-slate-400">Duration: 45:32</div>
                       </div>
                     </div>
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       Replace
                     </Button>
                   </div>
@@ -582,12 +582,12 @@ export default function PodcastManager() {
               </Card>
 
               {/* Episode Information */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Episode Information</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-4">Episode Information</h3>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Episode Title *
                     </label>
                     <Input placeholder="Enter episode title..." />
@@ -595,13 +595,13 @@ export default function PodcastManager() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Episode Number
                       </label>
                       <Input type="number" placeholder="25" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Season (Optional)
                       </label>
                       <Input type="number" placeholder="1" />
@@ -610,13 +610,13 @@ export default function PodcastManager() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Publish Date
                       </label>
                       <Input type="date" defaultValue="2025-01-05" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Publish Time
                       </label>
                       <Input type="time" defaultValue="09:00" />
@@ -624,15 +624,15 @@ export default function PodcastManager() {
                   </div>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                    <span className="text-sm text-gray-700">Publish immediately</span>
+                    <input type="checkbox" className="rounded border-white/20" />
+                    <span className="text-sm text-slate-300">Publish immediately</span>
                   </label>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Episode Type
                     </label>
-                    <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                    <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                       <option>Full Episode</option>
                       <option>Trailer</option>
                       <option>Bonus Content</option>
@@ -642,9 +642,9 @@ export default function PodcastManager() {
               </Card>
 
               {/* Description */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-[#1E3A5F]">Description & Show Notes</h3>
+                  <h3 className="text-xl font-bold text-white">Description & Show Notes</h3>
                   <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
                     <Sparkles className="w-3 h-3 mr-2" />
                     AI Assist
@@ -653,7 +653,7 @@ export default function PodcastManager() {
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Short Description (for podcast apps)
                     </label>
                     <Textarea
@@ -661,25 +661,25 @@ export default function PodcastManager() {
                       rows={3}
                       className="resize-none"
                     />
-                    <div className="text-xs text-gray-500 mt-1">250 characters remaining</div>
+                    <div className="text-xs text-slate-500 mt-1">250 characters remaining</div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Full Show Notes
                     </label>
-                    <div className="border border-gray-300 rounded-lg">
-                      <div className="flex items-center space-x-2 p-2 border-b border-gray-200 bg-gray-50">
-                        <button className="p-1.5 hover:bg-gray-200 rounded">
+                    <div className="border border-white/20 rounded-lg">
+                      <div className="flex items-center space-x-2 p-2 border-b border-white/10 bg-white/5">
+                        <button className="p-1.5 hover:bg-white/20 rounded">
                           <strong className="text-sm">B</strong>
                         </button>
-                        <button className="p-1.5 hover:bg-gray-200 rounded">
+                        <button className="p-1.5 hover:bg-white/20 rounded">
                           <em className="text-sm">I</em>
                         </button>
-                        <button className="p-1.5 hover:bg-gray-200 rounded">
+                        <button className="p-1.5 hover:bg-white/20 rounded">
                           <LinkIcon className="w-4 h-4" />
                         </button>
-                        <button className="p-1.5 hover:bg-gray-200 rounded">
+                        <button className="p-1.5 hover:bg-white/20 rounded">
                           <List className="w-4 h-4" />
                         </button>
                       </div>
@@ -692,13 +692,13 @@ export default function PodcastManager() {
                   </div>
 
                   <div className="flex items-center space-x-2">
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       Generate from Transcript
                     </Button>
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       Summarize Episode
                     </Button>
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       Create Social Captions
                     </Button>
                   </div>
@@ -706,14 +706,14 @@ export default function PodcastManager() {
               </Card>
 
               {/* Guest Information */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <button
                   onClick={() => setShowGuests(!showGuests)}
                   className="flex items-center justify-between w-full mb-4"
                 >
-                  <h3 className="text-xl font-bold text-[#1E3A5F]">Guest Information</h3>
+                  <h3 className="text-xl font-bold text-white">Guest Information</h3>
                   <ChevronDown
-                    className={`w-5 h-5 text-gray-600 transition-transform ${showGuests ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-slate-400 transition-transform ${showGuests ? 'rotate-180' : ''}`}
                   />
                 </button>
 
@@ -725,33 +725,33 @@ export default function PodcastManager() {
                       exit={{ height: 0, opacity: 0 }}
                       className="space-y-4"
                     >
-                      <div className="p-4 bg-gray-50 rounded-lg">
+                      <div className="p-4 bg-white/5 rounded-lg">
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-slate-300 mb-2">
                               Guest Name
                             </label>
                             <Input placeholder="John Doe" />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-slate-300 mb-2">
                               Title/Role
                             </label>
                             <Input placeholder="CEO, Company Name" />
                           </div>
                         </div>
                         <div className="mb-4">
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label className="block text-sm font-semibold text-slate-300 mb-2">
                             Bio
                           </label>
                           <Textarea placeholder="Guest bio..." rows={3} />
                         </div>
                         <div className="flex items-center justify-between">
-                          <Button variant="outline" size="sm" className="border-gray-300">
+                          <Button variant="outline" size="sm" className="border-white/20">
                             <ImageIcon className="w-3 h-3 mr-2" />
                             Upload Photo
                           </Button>
-                          <button className="text-sm text-red-600 hover:underline">
+                          <button className="text-sm text-rose-400 hover:underline">
                             Remove Guest
                           </button>
                         </div>
@@ -771,14 +771,14 @@ export default function PodcastManager() {
               </Card>
 
               {/* Chapters */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <button
                   onClick={() => setShowChapters(!showChapters)}
                   className="flex items-center justify-between w-full mb-4"
                 >
-                  <h3 className="text-xl font-bold text-[#1E3A5F]">Chapters/Timestamps</h3>
+                  <h3 className="text-xl font-bold text-white">Chapters/Timestamps</h3>
                   <ChevronDown
-                    className={`w-5 h-5 text-gray-600 transition-transform ${showChapters ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-slate-400 transition-transform ${showChapters ? 'rotate-180' : ''}`}
                   />
                 </button>
 
@@ -797,13 +797,13 @@ export default function PodcastManager() {
                       ].map((chapter, i) => (
                         <div
                           key={i}
-                          className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
+                          className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg"
                         >
                           <GripVertical className="w-4 h-4 text-gray-400 cursor-move" />
                           <Input value={chapter.time} className="w-32" />
                           <Input value={chapter.title} className="flex-1" />
-                          <button className="p-2 hover:bg-gray-200 rounded transition-colors">
-                            <Trash2 className="w-4 h-4 text-red-600" />
+                          <button className="p-2 hover:bg-white/20 rounded transition-colors">
+                            <Trash2 className="w-4 h-4 text-rose-400" />
                           </button>
                         </div>
                       ))}
@@ -817,7 +817,7 @@ export default function PodcastManager() {
                           <Plus className="w-3 h-3 mr-2" />
                           Add Chapter
                         </Button>
-                        <Button variant="outline" size="sm" className="border-gray-300">
+                        <Button variant="outline" size="sm" className="border-white/20">
                           Import from Transcript
                         </Button>
                       </div>
@@ -830,32 +830,32 @@ export default function PodcastManager() {
             {/* Right Column - Media & Settings */}
             <div className="space-y-6">
               {/* Episode Artwork */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Episode Artwork</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-4">Episode Artwork</h3>
 
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#00B4D8] transition-colors cursor-pointer mb-4">
+                <div className="border-2 border-dashed border-white/20 rounded-lg p-6 text-center hover:border-[#00B4D8] transition-colors cursor-pointer mb-4">
                   <ImageIcon className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                  <p className="text-sm font-medium text-gray-700 mb-1">Upload episode cover</p>
-                  <p className="text-xs text-gray-500">3000x3000 recommended</p>
+                  <p className="text-sm font-medium text-slate-300 mb-1">Upload episode cover</p>
+                  <p className="text-xs text-slate-500">3000x3000 recommended</p>
                 </div>
 
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" className="rounded border-gray-300" defaultChecked />
-                  <span className="text-sm text-gray-700">Use default show artwork</span>
+                  <input type="checkbox" className="rounded border-white/20" defaultChecked />
+                  <span className="text-sm text-slate-300">Use default show artwork</span>
                 </label>
               </Card>
 
               {/* Tags & Categories */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Tags & Categories</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-4">Tags & Categories</h3>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Tags</label>
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">Tags</label>
                     <Input placeholder="Add tags..." />
                     <div className="flex flex-wrap gap-2 mt-2">
                       {['Marketing', 'SEO', 'Digital'].map((tag, i) => (
-                        <Badge key={i} className="bg-blue-100 text-blue-700">
+                        <Badge key={i} className="bg-indigo-500/10 text-indigo-300">
                           {tag}
                           <X className="w-3 h-3 ml-1 cursor-pointer" />
                         </Badge>
@@ -864,10 +864,10 @@ export default function PodcastManager() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Category
                     </label>
-                    <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                    <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                       <option>Business</option>
                       <option>Marketing</option>
                       <option>Technology</option>
@@ -875,39 +875,39 @@ export default function PodcastManager() {
                   </div>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                    <span className="text-sm text-gray-700">Explicit content</span>
+                    <input type="checkbox" className="rounded border-white/20" />
+                    <span className="text-sm text-slate-300">Explicit content</span>
                   </label>
                 </div>
               </Card>
 
               {/* SEO & Visibility */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">SEO & Visibility</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-4">SEO & Visibility</h3>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       URL Slug
                     </label>
                     <Input placeholder="episode-slug" />
                   </div>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded border-gray-300" defaultChecked />
-                    <span className="text-sm text-gray-700">Publish to website</span>
+                    <input type="checkbox" className="rounded border-white/20" defaultChecked />
+                    <span className="text-sm text-slate-300">Publish to website</span>
                   </label>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded border-gray-300" defaultChecked />
-                    <span className="text-sm text-gray-700">Add to RSS feed</span>
+                    <input type="checkbox" className="rounded border-white/20" defaultChecked />
+                    <span className="text-sm text-slate-300">Add to RSS feed</span>
                   </label>
                 </div>
               </Card>
 
               {/* Transcript */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-4">Transcript</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-4">Transcript</h3>
 
                 <div className="space-y-3">
                   <Button className="w-full bg-[#00B4D8] hover:bg-[#0096b8] text-white">
@@ -915,14 +915,14 @@ export default function PodcastManager() {
                     Auto-Generate Transcript
                   </Button>
 
-                  <Button variant="outline" className="w-full border-gray-300">
+                  <Button variant="outline" className="w-full border-white/20">
                     <Upload className="w-4 h-4 mr-2" />
                     Upload Transcript File
                   </Button>
 
                   <label className="flex items-center space-x-2">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                    <span className="text-sm text-gray-700">Show on website</span>
+                    <input type="checkbox" className="rounded border-white/20" />
+                    <span className="text-sm text-slate-300">Show on website</span>
                   </label>
                 </div>
               </Card>
@@ -933,15 +933,15 @@ export default function PodcastManager() {
                   <CheckCircle className="w-4 h-4 mr-2" />
                   Publish Now
                 </Button>
-                <Button variant="outline" className="w-full border-gray-300">
+                <Button variant="outline" className="w-full border-white/20">
                   <Calendar className="w-4 h-4 mr-2" />
                   Schedule
                 </Button>
-                <Button variant="outline" className="w-full border-gray-300">
+                <Button variant="outline" className="w-full border-white/20">
                   <Eye className="w-4 h-4 mr-2" />
                   Preview
                 </Button>
-                <Button variant="outline" className="w-full border-gray-300">
+                <Button variant="outline" className="w-full border-white/20">
                   Save as Draft
                 </Button>
               </div>
@@ -954,48 +954,48 @@ export default function PodcastManager() {
           <>
             {/* Top Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Download className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Total Downloads</div>
+                  <div className="text-sm text-slate-400">Total Downloads</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">128,400</div>
+                <div className="text-2xl font-bold text-white">128,400</div>
                 <div className="text-xs text-green-600 mt-1">Last 30 days</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Headphones className="w-4 h-4 text-[#FF6B35]" />
-                  <div className="text-sm text-gray-600">Unique Listeners</div>
+                  <div className="text-sm text-slate-400">Unique Listeners</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">45,200</div>
+                <div className="text-2xl font-bold text-white">45,200</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Clock className="w-4 h-4 text-green-600" />
-                  <div className="text-sm text-gray-600">Avg Listen Time</div>
+                  <div className="text-sm text-slate-400">Avg Listen Time</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">32:15</div>
+                <div className="text-2xl font-bold text-white">32:15</div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <CheckCircle className="w-4 h-4 text-green-600" />
-                  <div className="text-sm text-gray-600">Completion Rate</div>
+                  <div className="text-sm text-slate-400">Completion Rate</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">78%</div>
+                <div className="text-2xl font-bold text-white">78%</div>
               </Card>
             </div>
 
             {/* Downloads Chart */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Downloads Over Time</h2>
-                  <p className="text-sm text-gray-600">Total downloads for all episodes</p>
+                  <h2 className="text-xl font-bold text-white mb-1">Downloads Over Time</h2>
+                  <p className="text-sm text-slate-400">Total downloads for all episodes</p>
                 </div>
-                <select className="px-3 py-1.5 border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                <select className="px-3 py-1.5 border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                   <option>Last 7 days</option>
                   <option>Last 30 days</option>
                   <option>Last 90 days</option>
@@ -1028,8 +1028,8 @@ export default function PodcastManager() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               {/* Platform Breakdown */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Listening Platforms</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-6">Listening Platforms</h3>
 
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
@@ -1058,17 +1058,17 @@ export default function PodcastManager() {
                           className="w-3 h-3 rounded-full"
                           style={{ backgroundColor: platform.color }}
                         />
-                        <span className="text-sm font-medium text-[#1E3A5F]">{platform.name}</span>
+                        <span className="text-sm font-medium text-white">{platform.name}</span>
                       </div>
-                      <span className="text-sm font-bold text-gray-700">{platform.value}%</span>
+                      <span className="text-sm font-bold text-slate-300">{platform.value}%</span>
                     </div>
                   ))}
                 </div>
               </Card>
 
               {/* Geographic */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Top Locations</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="text-xl font-bold text-white mb-6">Top Locations</h3>
 
                 <div className="space-y-3">
                   {[
@@ -1080,14 +1080,14 @@ export default function PodcastManager() {
                   ].map((location, i) => (
                     <div key={i}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-[#1E3A5F]">
+                        <span className="text-sm font-medium text-white">
                           {location.country}
                         </span>
-                        <span className="text-sm font-bold text-gray-700">
+                        <span className="text-sm font-bold text-slate-300">
                           {location.downloads.toLocaleString()}
                         </span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-white/20 rounded-full h-2">
                         <div
                           className="bg-[#00B4D8] h-2 rounded-full transition-all"
                           style={{ width: `${location.percentage}%` }}
@@ -1100,52 +1100,52 @@ export default function PodcastManager() {
             </div>
 
             {/* Top Episodes */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Top Performing Episodes</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">Top Performing Episodes</h3>
 
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                    <tr className="border-b border-white/10">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Rank
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Episode
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Downloads
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Avg Duration
                       </th>
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-slate-400">
                         Completion
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {topEpisodes.map((episode) => (
-                      <tr key={episode.rank} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={episode.rank} className="border-b border-white/5 hover:bg-white/5">
                         <td className="py-4 px-4">
                           <div className="w-8 h-8 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center font-bold text-white">
                             {episode.rank}
                           </div>
                         </td>
-                        <td className="py-4 px-4 font-medium text-[#1E3A5F]">{episode.title}</td>
+                        <td className="py-4 px-4 font-medium text-white">{episode.title}</td>
                         <td className="py-4 px-4 font-semibold text-green-600">
                           {episode.downloads.toLocaleString()}
                         </td>
-                        <td className="py-4 px-4 text-gray-700">{episode.avgDuration}</td>
+                        <td className="py-4 px-4 text-slate-300">{episode.avgDuration}</td>
                         <td className="py-4 px-4">
                           <div className="flex items-center space-x-2">
-                            <div className="flex-1 w-20 bg-gray-200 rounded-full h-2">
+                            <div className="flex-1 w-20 bg-white/20 rounded-full h-2">
                               <div
-                                className="bg-green-500 h-2 rounded-full"
+                                className="bg-emerald-900/200 h-2 rounded-full"
                                 style={{ width: `${episode.completion}%` }}
                               />
                             </div>
-                            <span className="text-sm font-semibold text-gray-700">
+                            <span className="text-sm font-semibold text-slate-300">
                               {episode.completion}%
                             </span>
                           </div>
@@ -1163,19 +1163,19 @@ export default function PodcastManager() {
         {activeView === 'settings' && (
           <div className="max-w-4xl space-y-6">
             {/* Show Information */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Podcast Information</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">Podcast Information</h3>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Podcast Title *
                   </label>
                   <Input placeholder="ThinkMents Marketing Podcast" />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Description
                   </label>
                   <Textarea placeholder="Your podcast description..." rows={4} />
@@ -1183,13 +1183,13 @@ export default function PodcastManager() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Host Name
                     </label>
                     <Input placeholder="John Doe" />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Owner Email
                     </label>
                     <Input type="email" placeholder="podcast@thinkments.com" />
@@ -1197,14 +1197,14 @@ export default function PodcastManager() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Show Artwork (3000x3000)
                   </label>
                   <div className="flex items-center space-x-4">
-                    <div className="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <div className="w-24 h-24 bg-white/20 rounded-lg flex items-center justify-center">
                       <ImageIcon className="w-8 h-8 text-gray-400" />
                     </div>
-                    <Button variant="outline" className="border-gray-300">
+                    <Button variant="outline" className="border-white/20">
                       <Upload className="w-4 h-4 mr-2" />
                       Upload Artwork
                     </Button>
@@ -1214,12 +1214,12 @@ export default function PodcastManager() {
             </Card>
 
             {/* RSS Feed */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">RSS Feed</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">RSS Feed</h3>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     RSS Feed URL
                   </label>
                   <div className="flex items-center space-x-2">
@@ -1228,13 +1228,13 @@ export default function PodcastManager() {
                       readOnly
                       className="flex-1"
                     />
-                    <Button variant="outline" size="sm" className="border-gray-300">
+                    <Button variant="outline" size="sm" className="border-white/20">
                       <Copy className="w-4 h-4" />
                     </Button>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-2 p-3 bg-green-50 rounded-lg border border-green-200">
+                <div className="flex items-center space-x-2 p-3 bg-emerald-900/20 rounded-lg border border-green-200">
                   <CheckCircle className="w-5 h-5 text-green-600" />
                   <span className="text-sm font-medium text-green-700">
                     Feed is valid and active
@@ -1244,8 +1244,8 @@ export default function PodcastManager() {
             </Card>
 
             {/* Distribution */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Platform Distribution</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">Platform Distribution</h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -1256,29 +1256,29 @@ export default function PodcastManager() {
                 ].map((platform, i) => {
                   const Icon = platform.icon;
                   return (
-                    <div key={i} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <div key={i} className="p-4 bg-white/5 rounded-lg border border-white/10">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center space-x-3">
                           <div
                             className={`w-10 h-10 bg-${platform.color}-100 rounded-lg flex items-center justify-center`}
                           >
-                            <Icon className="w-5 h-5 text-gray-700" />
+                            <Icon className="w-5 h-5 text-slate-300" />
                           </div>
-                          <span className="font-semibold text-[#1E3A5F]">{platform.name}</span>
+                          <span className="font-semibold text-white">{platform.name}</span>
                         </div>
                         <Badge
                           className={`${platform.status === 'connected'
-                              ? 'bg-green-100 text-green-700'
+                              ? 'bg-emerald-500/10 text-green-700'
                               : platform.status === 'pending'
-                                ? 'bg-yellow-100 text-yellow-700'
-                                : 'bg-gray-100 text-gray-700'
+                                ? 'bg-amber-500/10 text-yellow-700'
+                                : 'bg-white/10 text-slate-300'
                             } capitalize`}
                         >
                           {platform.status}
                         </Badge>
                       </div>
                       {platform.status === 'connected' ? (
-                        <Button variant="outline" size="sm" className="w-full border-gray-300">
+                        <Button variant="outline" size="sm" className="w-full border-white/20">
                           <ExternalLink className="w-3 h-3 mr-2" />
                           View on Platform
                         </Button>
@@ -1297,15 +1297,15 @@ export default function PodcastManager() {
             </Card>
 
             {/* Embed Settings */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-6">Embed Player</h3>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-6">Embed Player</h3>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Player Style
                   </label>
-                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                  <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                     <option>Standard Player</option>
                     <option>Mini Player</option>
                     <option>Full Player</option>
@@ -1313,7 +1313,7 @@ export default function PodcastManager() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-slate-300 mb-2">
                     Embed Code
                   </label>
                   <Textarea
@@ -1321,7 +1321,7 @@ export default function PodcastManager() {
                     readOnly
                     rows={3}
                   />
-                  <Button variant="outline" size="sm" className="mt-2 border-gray-300">
+                  <Button variant="outline" size="sm" className="mt-2 border-white/20">
                     <Copy className="w-3 h-3 mr-2" />
                     Copy Code
                   </Button>
@@ -1352,17 +1352,17 @@ export default function PodcastManager() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-6">
+              <Card className="w-full max-w-2xl bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Episode Preview</h2>
+                  <h2 className="text-2xl font-bold text-white">Episode Preview</h2>
                   <button
                     onClick={() => {
                       setShowPreviewModal(false);
                       setSelectedEpisode(null);
                     }}
-                    className="p-2 hover:bg-gray-100 rounded transition-colors"
+                    className="p-2 hover:bg-white/10 rounded transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-600" />
+                    <X className="w-5 h-5 text-slate-400" />
                   </button>
                 </div>
 
@@ -1377,18 +1377,18 @@ export default function PodcastManager() {
                     <div className="text-sm text-[#00B4D8] font-semibold mb-2">
                       Episode {selectedEpisode.number}
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1E3A5F] mb-4">
+                    <h3 className="text-2xl font-bold text-white mb-4">
                       {selectedEpisode.title}
                     </h3>
                   </div>
 
                   {/* Audio Player */}
-                  <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="bg-white/5 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-4">
                       <button className="w-12 h-12 bg-[#00B4D8] rounded-full flex items-center justify-center text-white hover:bg-[#0096b8] transition-colors">
                         <Play className="w-6 h-6" />
                       </button>
-                      <div className="text-sm font-medium text-gray-700">
+                      <div className="text-sm font-medium text-slate-300">
                         00:00 / {selectedEpisode.duration}
                       </div>
                     </div>
@@ -1402,7 +1402,7 @@ export default function PodcastManager() {
                       <Share2 className="w-4 h-4 mr-2" />
                       Share Episode
                     </Button>
-                    <Button variant="outline" className="flex-1 border-gray-300">
+                    <Button variant="outline" className="flex-1 border-white/20">
                       <Copy className="w-4 h-4 mr-2" />
                       Copy Link
                     </Button>

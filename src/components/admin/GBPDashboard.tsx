@@ -148,11 +148,11 @@ export default function GBPDashboard() {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200 px-8 py-6">
+      <div className="bg-[#0f172a]/40 backdrop-blur-xl border-b border-white/10 px-8 py-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Google Business Profile</h1>
-            <p className="text-gray-600">
+            <h1 className="text-whitexl font-bold text-white mb-2">Google Business Profile</h1>
+            <p className="text-slate-400">
               Manage your Google Business Profile listings and performance
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function GBPDashboard() {
                 onClick={() => setActiveTab(tab.id as 'overview' | 'posts' | 'qa' | 'insights')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 ${activeTab === tab.id
                     ? 'bg-[#00B4D8] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-white/10 text-slate-300 hover:bg-white/20'
                   }`}
               >
                 <Icon className="w-4 h-4" />
@@ -191,7 +191,7 @@ export default function GBPDashboard() {
             <select
               value={selectedProfile}
               onChange={(e) => setSelectedProfile(e.target.value)}
-              className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
+              className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer"
             >
               {profiles.map((profile) => (
                 <option key={profile.id} value={profile.id}>
@@ -204,7 +204,7 @@ export default function GBPDashboard() {
           {/* Date Range */}
           <div className="flex items-center space-x-2">
             <Calendar className="w-4 h-4 text-gray-400" />
-            <select className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
+            <select className="px-4 py-2 bg-[#0f172a]/40 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#00B4D8] cursor-pointer">
               <option>Last 7 days</option>
               <option>Last 30 days</option>
               <option>Last 90 days</option>
@@ -212,7 +212,7 @@ export default function GBPDashboard() {
           </div>
 
           {/* Status Badge */}
-          <Badge className="bg-green-100 text-green-700 flex items-center space-x-2">
+          <Badge className="bg-emerald-500/10 text-green-700 flex items-center space-x-2">
             <CheckCircle className="w-4 h-4" />
             <span>Verified</span>
           </Badge>
@@ -232,12 +232,12 @@ export default function GBPDashboard() {
           <>
             {/* Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Eye className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Total Views</div>
+                  <div className="text-sm text-slate-400">Total Views</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.totalViews.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -246,12 +246,12 @@ export default function GBPDashboard() {
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Search className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Searches</div>
+                  <div className="text-sm text-slate-400">Searches</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.searches.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -260,12 +260,12 @@ export default function GBPDashboard() {
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <MapPin className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Map Views</div>
+                  <div className="text-sm text-slate-400">Map Views</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.mapViews.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -274,12 +274,12 @@ export default function GBPDashboard() {
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <MousePointerClick className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Website Clicks</div>
+                  <div className="text-sm text-slate-400">Website Clicks</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.websiteClicks.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -288,12 +288,12 @@ export default function GBPDashboard() {
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Navigation className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Directions</div>
+                  <div className="text-sm text-slate-400">Directions</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.directions.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -302,12 +302,12 @@ export default function GBPDashboard() {
                 </div>
               </Card>
 
-              <Card className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="p-4 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center space-x-2 mb-2">
                   <Phone className="w-4 h-4 text-[#00B4D8]" />
-                  <div className="text-sm text-gray-600">Phone Calls</div>
+                  <div className="text-sm text-slate-400">Phone Calls</div>
                 </div>
-                <div className="text-2xl font-bold text-[#1E3A5F]">
+                <div className="text-2xl font-bold text-white">
                   {stats.phoneCalls.value.toLocaleString()}
                 </div>
                 <div className="text-xs text-green-600 mt-1 flex items-center">
@@ -318,19 +318,19 @@ export default function GBPDashboard() {
             </div>
 
             {/* Performance Chart */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm mb-8">
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-xl font-bold text-[#1E3A5F] mb-1">Performance Over Time</h2>
-                  <p className="text-sm text-gray-600">Track your GBP metrics</p>
+                  <h2 className="text-xl font-bold text-white mb-1">Performance Over Time</h2>
+                  <p className="text-sm text-slate-400">Track your GBP metrics</p>
                 </div>
 
-                <div className="flex items-center bg-gray-100 rounded-lg p-1">
+                <div className="flex items-center bg-white/10 rounded-lg p-1">
                   {(['views', 'searches', 'actions'] as const).map((metric) => (
                     <button
                       key={metric}
                       onClick={() => setMetricView(metric)}
-                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${metricView === metric ? 'bg-white text-[#1E3A5F] shadow' : 'text-gray-600'
+                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all capitalize ${metricView === metric ? 'bg-[#0f172a]/40 backdrop-blur-xl text-white shadow' : 'text-slate-400'
                         }`}
                     >
                       {metric}
@@ -353,9 +353,9 @@ export default function GBPDashboard() {
             {/* Profile Overview and Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Profile Overview */}
-              <Card className="lg:col-span-1 p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+              <Card className="lg:col-span-1 p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-[#1E3A5F]">Profile Overview</h3>
+                  <h3 className="font-bold text-white">Profile Overview</h3>
                   <Button variant="outline" size="sm" className="border-[#00B4D8] text-[#00B4D8]">
                     <Edit2 className="w-3 h-3 mr-2" />
                     Edit
@@ -364,35 +364,35 @@ export default function GBPDashboard() {
 
                 <div className="space-y-4">
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Business Name</div>
-                    <div className="text-[#1E3A5F]">{profile.name}</div>
+                    <div className="text-sm font-semibold text-slate-300 mb-1">Business Name</div>
+                    <div className="text-white">{profile.name}</div>
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Address</div>
-                    <div className="text-sm text-gray-600">{profile.address}</div>
+                    <div className="text-sm font-semibold text-slate-300 mb-1">Address</div>
+                    <div className="text-sm text-slate-400">{profile.address}</div>
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Phone</div>
-                    <div className="text-sm text-gray-600">{profile.phone}</div>
+                    <div className="text-sm font-semibold text-slate-300 mb-1">Phone</div>
+                    <div className="text-sm text-slate-400">{profile.phone}</div>
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Website</div>
+                    <div className="text-sm font-semibold text-slate-300 mb-1">Website</div>
                     <div className="text-sm text-[#00B4D8]">{profile.website}</div>
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Hours</div>
-                    <div className="text-sm text-gray-600">{profile.hours}</div>
+                    <div className="text-sm font-semibold text-slate-300 mb-1">Hours</div>
+                    <div className="text-sm text-slate-400">{profile.hours}</div>
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-2">Categories</div>
+                    <div className="text-sm font-semibold text-slate-300 mb-2">Categories</div>
                     <div className="flex flex-wrap gap-2">
                       {profile.categories.map((cat, i) => (
-                        <Badge key={i} className="bg-blue-100 text-blue-700 text-xs">
+                        <Badge key={i} className="bg-indigo-500/10 text-indigo-300 text-xs">
                           {cat}
                         </Badge>
                       ))}
@@ -402,8 +402,8 @@ export default function GBPDashboard() {
               </Card>
 
               {/* Search Type Distribution */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">How Customers Find You</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">How Customers Find You</h3>
 
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
@@ -432,17 +432,17 @@ export default function GBPDashboard() {
                           className="w-3 h-3 rounded-full"
                           style={{ backgroundColor: type.color }}
                         />
-                        <span className="text-sm font-medium text-[#1E3A5F]">{type.name}</span>
+                        <span className="text-sm font-medium text-white">{type.name}</span>
                       </div>
-                      <span className="text-sm font-bold text-gray-700">{type.value}%</span>
+                      <span className="text-sm font-bold text-slate-300">{type.value}%</span>
                     </div>
                   ))}
                 </div>
               </Card>
 
               {/* View Source Distribution */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Where Customers View</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Where Customers View</h3>
 
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
@@ -471,9 +471,9 @@ export default function GBPDashboard() {
                           className="w-3 h-3 rounded-full"
                           style={{ backgroundColor: source.color }}
                         />
-                        <span className="text-sm font-medium text-[#1E3A5F]">{source.name}</span>
+                        <span className="text-sm font-medium text-white">{source.name}</span>
                       </div>
-                      <span className="text-sm font-bold text-gray-700">{source.value}%</span>
+                      <span className="text-sm font-bold text-slate-300">{source.value}%</span>
                     </div>
                   ))}
                 </div>
@@ -487,8 +487,8 @@ export default function GBPDashboard() {
           <>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Posts & Updates</h2>
-                <p className="text-sm text-gray-600">Engage with customers through posts</p>
+                <h2 className="text-2xl font-bold text-white mb-1">Posts & Updates</h2>
+                <p className="text-sm text-slate-400">Engage with customers through posts</p>
               </div>
               <Button
                 onClick={() => setShowPostCreator(true)}
@@ -503,16 +503,16 @@ export default function GBPDashboard() {
               {posts.map((post) => (
                 <Card
                   key={post.id}
-                  className="overflow-hidden bg-white rounded-lg border border-gray-200 shadow-sm"
+                  className="overflow-hidden bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5"
                 >
                   <img src={post.image} alt="Post" className="w-full h-48 object-cover" />
                   <div className="p-4">
-                    <Badge className="bg-blue-100 text-blue-700 text-xs mb-3 capitalize">
+                    <Badge className="bg-indigo-500/10 text-indigo-300 text-xs mb-3 capitalize">
                       {post.type}
                     </Badge>
-                    <p className="text-sm text-gray-700 mb-4">{post.text}</p>
+                    <p className="text-sm text-slate-300 mb-4">{post.text}</p>
 
-                    <div className="flex items-center justify-between text-sm text-gray-600">
+                    <div className="flex items-center justify-between text-sm text-slate-400">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
                           <Eye className="w-4 h-4" />
@@ -534,7 +534,7 @@ export default function GBPDashboard() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1 text-xs border-red-200 text-red-600"
+                        className="flex-1 text-xs border-red-200 text-rose-400"
                       >
                         <X className="w-3 h-3 mr-2" />
                         Delete
@@ -552,8 +552,8 @@ export default function GBPDashboard() {
           <>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Questions & Answers</h2>
-                <p className="text-sm text-gray-600">Respond to customer questions</p>
+                <h2 className="text-2xl font-bold text-white mb-1">Questions & Answers</h2>
+                <p className="text-sm text-slate-400">Respond to customer questions</p>
               </div>
               <Badge className="bg-[#FF6B35] text-white">
                 {questions.filter((q) => !q.answered).length} Unanswered
@@ -564,7 +564,7 @@ export default function GBPDashboard() {
               {questions.map((q) => (
                 <Card
                   key={q.id}
-                  className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm"
+                  className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
@@ -573,25 +573,25 @@ export default function GBPDashboard() {
                           <span className="text-white font-semibold text-sm">{q.askedBy[0]}</span>
                         </div>
                         <div>
-                          <div className="font-medium text-[#1E3A5F]">{q.askedBy}</div>
-                          <div className="text-xs text-gray-500">{q.date}</div>
+                          <div className="font-medium text-white">{q.askedBy}</div>
+                          <div className="text-xs text-slate-500">{q.date}</div>
                         </div>
                       </div>
-                      <p className="text-gray-700 mb-4">{q.question}</p>
+                      <p className="text-slate-300 mb-4">{q.question}</p>
 
                       {q.answered && q.answer && (
-                        <div className="pl-6 border-l-4 border-[#00B4D8] bg-blue-50 p-4 rounded-lg">
-                          <div className="text-sm font-semibold text-[#1E3A5F] mb-2">
+                        <div className="pl-6 border-l-4 border-[#00B4D8] bg-indigo-900/20 p-4 rounded-lg">
+                          <div className="text-sm font-semibold text-white mb-2">
                             Your Answer:
                           </div>
-                          <p className="text-sm text-gray-700">{q.answer}</p>
+                          <p className="text-sm text-slate-300">{q.answer}</p>
                         </div>
                       )}
                     </div>
 
                     <Badge
                       className={
-                        q.answered ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                        q.answered ? 'bg-emerald-500/10 text-green-700' : 'bg-amber-500/10 text-yellow-700'
                       }
                     >
                       {q.answered ? 'Answered' : 'Unanswered'}
@@ -627,14 +627,14 @@ export default function GBPDashboard() {
         {activeTab === 'insights' && (
           <>
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-[#1E3A5F] mb-1">Detailed Insights</h2>
-              <p className="text-sm text-gray-600">Deep dive into your GBP performance</p>
+              <h2 className="text-2xl font-bold text-white mb-1">Detailed Insights</h2>
+              <p className="text-sm text-slate-400">Deep dive into your GBP performance</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               {/* Customer Actions */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Customer Actions Breakdown</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Customer Actions Breakdown</h3>
                 <div className="space-y-4">
                   {[
                     { action: 'Website Visits', count: 456, color: '#00B4D8', percentage: 42 },
@@ -643,10 +643,10 @@ export default function GBPDashboard() {
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-[#1E3A5F]">{item.action}</span>
-                        <span className="text-sm font-bold text-gray-700">{item.count}</span>
+                        <span className="text-sm font-medium text-white">{item.action}</span>
+                        <span className="text-sm font-bold text-slate-300">{item.count}</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-white/20 rounded-full h-2">
                         <div
                           className="h-2 rounded-full transition-all"
                           style={{
@@ -661,27 +661,27 @@ export default function GBPDashboard() {
               </Card>
 
               {/* Photo Views */}
-              <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                <h3 className="font-bold text-[#1E3A5F] mb-4">Photo Views Comparison</h3>
+              <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+                <h3 className="font-bold text-white mb-4">Photo Views Comparison</h3>
                 <div className="space-y-6">
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-[#1E3A5F]">Your Photos</span>
+                      <span className="text-sm font-medium text-white">Your Photos</span>
                       <span className="text-2xl font-bold text-[#00B4D8]">3,245</span>
                     </div>
-                    <p className="text-xs text-gray-600">High-quality photos increase engagement</p>
+                    <p className="text-xs text-slate-400">High-quality photos increase engagement</p>
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-[#1E3A5F]">Customer Photos</span>
-                      <span className="text-2xl font-bold text-gray-700">1,892</span>
+                      <span className="text-sm font-medium text-white">Customer Photos</span>
+                      <span className="text-2xl font-bold text-slate-300">1,892</span>
                     </div>
-                    <p className="text-xs text-gray-600">Authentic customer content builds trust</p>
+                    <p className="text-xs text-slate-400">Authentic customer content builds trust</p>
                   </div>
 
-                  <div className="pt-4 border-t border-gray-200">
-                    <Badge className="bg-green-100 text-green-700">
+                  <div className="pt-4 border-t border-white/10">
+                    <Badge className="bg-emerald-500/10 text-green-700">
                       58% more views on your photos
                     </Badge>
                   </div>
@@ -690,14 +690,14 @@ export default function GBPDashboard() {
             </div>
 
             {/* Popular Times */}
-            <Card className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-              <h3 className="font-bold text-[#1E3A5F] mb-4">Popular Times</h3>
-              <p className="text-sm text-gray-600 mb-6">When customers typically visit</p>
+            <Card className="p-6 bg-[#0f172a]/40 backdrop-blur-xl rounded-lg border border-white/10 shadow-lg border border-white/5">
+              <h3 className="font-bold text-white mb-4">Popular Times</h3>
+              <p className="text-sm text-slate-400 mb-6">When customers typically visit</p>
 
               <div className="grid grid-cols-7 gap-4">
                 {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-xs font-medium text-gray-600 mb-2">{day}</div>
+                    <div className="text-xs font-medium text-slate-400 mb-2">{day}</div>
                     <div className="space-y-1">
                       {[60, 80, 100, 95, 85, 40, 30][i] && (
                         <div
@@ -710,7 +710,7 @@ export default function GBPDashboard() {
                 ))}
               </div>
 
-              <div className="mt-4 text-center text-sm text-gray-600">
+              <div className="mt-4 text-center text-sm text-slate-400">
                 Peak hours: 2PM - 5PM on weekdays
               </div>
             </Card>
@@ -735,23 +735,23 @@ export default function GBPDashboard() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
+              <Card className="w-full max-w-2xl bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Create Post</h2>
+                  <h2 className="text-2xl font-bold text-white">Create Post</h2>
                   <button
                     onClick={() => setShowPostCreator(false)}
-                    className="p-2 hover:bg-gray-100 rounded transition-colors"
+                    className="p-2 hover:bg-white/10 rounded transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-600" />
+                    <X className="w-5 h-5 text-slate-400" />
                   </button>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Post Type
                     </label>
-                    <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                    <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                       <option value="update">What's New</option>
                       <option value="event">Event</option>
                       <option value="offer">Offer</option>
@@ -759,16 +759,16 @@ export default function GBPDashboard() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Image</label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">Image</label>
+                    <div className="border-2 border-dashed border-white/20 rounded-lg p-8 text-center hover:border-[#00B4D8] transition-colors cursor-pointer">
                       <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                      <p className="text-sm font-medium text-gray-700">Click to upload image</p>
-                      <p className="text-xs text-gray-500 mt-1">PNG, JPG up to 5MB</p>
+                      <p className="text-sm font-medium text-slate-300">Click to upload image</p>
+                      <p className="text-xs text-slate-500 mt-1">PNG, JPG up to 5MB</p>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Post Text
                     </label>
                     <Textarea
@@ -776,15 +776,15 @@ export default function GBPDashboard() {
                       rows={4}
                       className="w-full"
                     />
-                    <div className="text-xs text-gray-500 mt-1 text-right">0 / 1500 characters</div>
+                    <div className="text-xs text-slate-500 mt-1 text-right">0 / 1500 characters</div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Button Text
                       </label>
-                      <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
+                      <select className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8]">
                         <option>Learn More</option>
                         <option>Book</option>
                         <option>Order Online</option>
@@ -792,7 +792,7 @@ export default function GBPDashboard() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">
                         Button URL
                       </label>
                       <Input placeholder="https://..." />
@@ -803,7 +803,7 @@ export default function GBPDashboard() {
                     <Button
                       variant="outline"
                       onClick={() => setShowPostCreator(false)}
-                      className="border-gray-300"
+                      className="border-white/20"
                     >
                       Cancel
                     </Button>
@@ -843,31 +843,31 @@ export default function GBPDashboard() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <Card className="w-full max-w-2xl bg-white rounded-lg shadow-2xl p-6">
+              <Card className="w-full max-w-2xl bg-[#0f172a]/40 backdrop-blur-xl rounded-lg shadow-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F]">Answer Question</h2>
+                  <h2 className="text-2xl font-bold text-white">Answer Question</h2>
                   <button
                     onClick={() => {
                       setShowAnswerModal(false);
                       setSelectedQuestion(null);
                     }}
-                    className="p-2 hover:bg-gray-100 rounded transition-colors"
+                    className="p-2 hover:bg-white/10 rounded transition-colors"
                   >
-                    <X className="w-5 h-5 text-gray-600" />
+                    <X className="w-5 h-5 text-slate-400" />
                   </button>
                 </div>
 
-                <div className="p-4 bg-gray-50 rounded-lg mb-6">
-                  <div className="text-sm font-semibold text-gray-700 mb-2">Question:</div>
-                  <div className="text-gray-900">{selectedQuestion.question}</div>
-                  <div className="text-xs text-gray-500 mt-2">
+                <div className="p-4 bg-white/5 rounded-lg mb-6">
+                  <div className="text-sm font-semibold text-slate-300 mb-2">Question:</div>
+                  <div className="text-gray-100">{selectedQuestion.question}</div>
+                  <div className="text-xs text-slate-500 mt-2">
                     Asked by {selectedQuestion.askedBy} on {selectedQuestion.date}
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">
                       Your Answer
                     </label>
                     <Textarea placeholder="Write a helpful answer..." rows={5} className="w-full" />
@@ -880,7 +880,7 @@ export default function GBPDashboard() {
                         setShowAnswerModal(false);
                         setSelectedQuestion(null);
                       }}
-                      className="border-gray-300"
+                      className="border-white/20"
                     >
                       Cancel
                     </Button>
