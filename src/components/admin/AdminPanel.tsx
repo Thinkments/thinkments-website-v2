@@ -261,69 +261,84 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="flex h-screen bg-[#F8F9FA] overflow-hidden">
+    <div className="flex h-screen bg-[#030712] text-slate-300 overflow-hidden relative selection:bg-indigo-500/30">
+      {/* Global Ambient Background */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-indigo-900/20 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
+
       {/* Sidebar */}
       <motion.aside
         initial={false}
         animate={{ width: sidebarCollapsed ? 80 : 280 }}
-        className="bg-[#1E3A5F] text-white flex flex-col shadow-2xl relative z-20"
+        className="bg-black/40 backdrop-blur-2xl border-r border-white/5 flex flex-col relative z-20 shadow-[4px_0_24px_rgba(0,0,0,0.5)]"
       >
         {/* Logo */}
-        <div className="h-16 flex items-center justify-center px-4 border-b border-white/10">
+        <div className="h-16 flex items-center justify-center px-4 border-b border-white/5 bg-white/[0.02]">
           {!sidebarCollapsed ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-3 w-full px-2"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.4)]">
+                <Zap className="w-4 h-4 text-white" />
               </div>
-              <div>
-                <div className="font-bold text-sm">ThinkMents</div>
-                <div className="text-xs text-[#00B4D8]">Admin Panel</div>
+              <div className="flex-1 overflow-hidden">
+                <div className="font-black text-sm text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-wide truncate">THINKMENTS</div>
+                <div className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mt-0.5 truncate">Command Center</div>
               </div>
             </motion.div>
           ) : (
-            <div className="w-8 h-8 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.4)]">
+              <Zap className="w-4 h-4 text-white" />
             </div>
           )}
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto py-4 px-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-          <div className="space-y-1">
-            {navigationItems.map((item) => (
-              <div key={item.id}>
+        <nav className="flex-1 overflow-y-auto py-6 px-3 custom-scrollbar">
+          <div className="space-y-1.5">
+            {navigationItems.map((item) => {
+              const isActive = activeItem === item.id || item.children?.some(c => c.id === activeItem);
+              const isExpanded = expandedSections.includes(item.id);
+              
+              return (
+              <div key={item.id} className="relative">
+                {/* Active Indicator Glow */}
+                {isActive && sidebarCollapsed && (
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
+                )}
+                
                 {/* Parent Item */}
                 <button
                   onClick={() => handleNavClick(item.id, !!item.children)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all ${
-                    activeItem === item.id
-                      ? 'bg-[#00B4D8] text-white'
-                      : 'text-white/80 hover:bg-white/10 hover:text-white'
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all group ${
+                    isActive && !item.children
+                      ? 'bg-gradient-to-r from-indigo-500/20 to-purple-500/10 text-white border border-indigo-500/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]'
+                      : isActive && item.children 
+                      ? 'bg-white/5 text-white'
+                      : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center space-x-3 min-w-0">
-                    <item.icon className="w-5 h-5 flex-shrink-0" />
+                    <item.icon className={`w-5 h-5 flex-shrink-0 transition-colors ${isActive ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300'}`} />
                     {!sidebarCollapsed && (
-                      <span className="text-sm font-medium truncate">{item.label}</span>
+                      <span className="text-sm font-semibold tracking-wide truncate">{item.label}</span>
                     )}
                   </div>
                   {!sidebarCollapsed && (
                     <div className="flex items-center space-x-2 flex-shrink-0">
                       {item.badge && (
-                        <Badge className="bg-[#FF6B35] text-white text-xs px-1.5 py-0 min-w-[20px] h-5 flex items-center justify-center">
+                        <Badge className="bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px] px-1.5 py-0 h-5 flex items-center justify-center font-bold">
                           {item.badge}
                         </Badge>
                       )}
                       {item.children && (
                         <motion.div
-                          animate={{ rotate: expandedSections.includes(item.id) ? 0 : -90 }}
+                          animate={{ rotate: isExpanded ? 0 : -90 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <ChevronDown className="w-4 h-4" />
+                          <ChevronDown className={`w-4 h-4 ${isActive ? 'text-indigo-400' : 'text-slate-600'}`} />
                         </motion.div>
                       )}
                     </div>
@@ -333,7 +348,7 @@ export default function AdminPanel() {
                 {/* Children Items */}
                 {item.children && !sidebarCollapsed && (
                   <AnimatePresence>
-                    {expandedSections.includes(item.id) && (
+                    {isExpanded && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
@@ -341,20 +356,23 @@ export default function AdminPanel() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-white/10 pl-4">
+                        <div className="ml-5 mt-1.5 mb-2 space-y-1 border-l border-white/10 pl-4 py-1 relative">
                           {item.children.map((child) => (
                             <button
                               key={child.id}
                               onClick={() => setActiveItem(child.id)}
-                              className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all ${
+                              className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all relative ${
                                 activeItem === child.id
-                                  ? 'bg-[#00B4D8] text-white'
-                                  : 'text-white/70 hover:bg-white/10 hover:text-white'
+                                  ? 'text-indigo-300 bg-indigo-500/10'
+                                  : 'text-slate-500 hover:text-slate-300 hover:bg-white/5'
                               }`}
                             >
+                              {activeItem === child.id && (
+                                <div className="absolute -left-[17px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+                              )}
                               <span className="truncate">{child.label}</span>
                               {child.badge && (
-                                <Badge className="bg-[#FF6B35] text-white text-xs px-1.5 py-0 min-w-[20px] h-5 flex items-center justify-center">
+                                <Badge className="bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[9px] px-1.5 py-0 h-4 flex items-center justify-center font-bold">
                                   {child.badge}
                                 </Badge>
                               )}
@@ -366,134 +384,77 @@ export default function AdminPanel() {
                   </AnimatePresence>
                 )}
               </div>
-            ))}
+            )})}
           </div>
         </nav>
 
         {/* Sidebar Footer */}
         {!sidebarCollapsed && (
-          <div className="p-4 border-t border-white/10">
-            <div className="bg-gradient-to-r from-[#00B4D8]/20 to-[#FF6B35]/20 rounded-lg p-3 border border-[#00B4D8]/30">
-              <div className="flex items-start space-x-2">
-                <Zap className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" />
-                <div className="text-xs">
-                  <div className="font-semibold text-white mb-1">Need Help?</div>
-                  <div className="text-white/70">Check our documentation</div>
-                </div>
-              </div>
+          <div className="p-4 border-t border-white/5 bg-black/20">
+            <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl p-4 border border-indigo-500/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] text-center relative overflow-hidden group">
+              <div className="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Brain className="w-6 h-6 text-indigo-400 mx-auto mb-2 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
+              <div className="text-[10px] font-bold text-white uppercase tracking-widest mb-1">M.A.C.E. ONLINE</div>
+              <div className="text-[10px] text-slate-400">All Agents Active</div>
             </div>
           </div>
         )}
       </motion.aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 z-10 relative">
         {/* Header */}
-        <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shadow-sm">
+        <header className="h-20 bg-black/20 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-8 z-30 sticky top-0">
           {/* Left Section */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className="text-[#1E3A5F] hover:bg-[#F8F9FA]"
+              className="text-slate-400 hover:text-white hover:bg-white/10 rounded-xl"
             >
               <Menu className="w-5 h-5" />
             </Button>
 
-            {/* Search Bar */}
-            <div className="relative w-96">
-              <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+            {/* Omni-Search */}
+            <div className="relative w-96 max-w-xl hidden md:block group">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity" />
+              <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500 z-10" />
               <Input
                 type="text"
-                placeholder="Search anything..."
-                className="pl-10 bg-[#F8F9FA] border-0 focus:ring-2 focus:ring-[#00B4D8]"
+                placeholder="Search matrix, leads, or invoke commands (/)"
+                className="pl-11 bg-black/40 border border-white/10 text-slate-300 placeholder:text-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 relative z-10 transition-all shadow-inner h-11 text-sm font-medium"
               />
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1 z-10">
+                <kbd className="px-1.5 pt-0.5 pb-1 text-[10px] font-mono text-slate-500 bg-white/5 border border-white/10 rounded hidden sm:inline-block">Ctrl</kbd>
+                <kbd className="px-1.5 pt-0.5 pb-1 text-[10px] font-mono text-slate-500 bg-white/5 border border-white/10 rounded hidden sm:inline-block">K</kbd>
+              </div>
             </div>
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center space-x-3">
-            {/* Quick Create Button */}
-            <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
+          <div className="flex items-center space-x-4">
+            <Button className="bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-400/30 shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] rounded-xl font-bold tracking-wide h-10 px-5 hidden sm:flex">
               <Plus className="w-4 h-4 mr-2" />
-              Quick Create
+              Initiate Node
             </Button>
+
+            <div className="h-6 w-px bg-white/10 mx-2 hidden sm:block" />
 
             {/* Notifications */}
             <div className="relative">
               <Button
                 variant="ghost"
-                size="sm"
+                size="icon"
                 onClick={() => {
                   setShowNotifications(!showNotifications);
                   setShowUserMenu(false);
                 }}
-                className="text-[#1E3A5F] hover:bg-[#F8F9FA] relative"
+                className="text-slate-400 hover:text-white hover:bg-white/10 relative rounded-xl h-10 w-10"
               >
                 <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#FF6B35] rounded-full text-xs text-white flex items-center justify-center">
-                  5
-                </span>
+                <span className="absolute top-2 right-2.5 w-2 h-2 bg-rose-500 rounded-full shadow-[0_0_8px_rgba(244,63,94,0.8)] animate-pulse" />
               </Button>
-
-              {/* Notifications Dropdown */}
-              <AnimatePresence>
-                {showNotifications && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden z-50"
-                  >
-                    <div className="p-4 bg-[#1E3A5F] text-white">
-                      <h3 className="font-semibold">Notifications</h3>
-                      <p className="text-xs text-white/70 mt-1">You have 5 unread notifications</p>
-                    </div>
-                    <div className="max-h-96 overflow-y-auto">
-                      {[
-                        { title: 'New lead submitted', time: '5 min ago', type: 'lead' },
-                        { title: 'Client review posted', time: '1 hour ago', type: 'review' },
-                        { title: 'Task deadline approaching', time: '2 hours ago', type: 'task' },
-                        { title: 'New blog comment', time: '3 hours ago', type: 'comment' },
-                        { title: 'Invoice payment received', time: '5 hours ago', type: 'payment' },
-                      ].map((notification, index) => (
-                        <div
-                          key={index}
-                          className="p-4 border-b border-gray-100 hover:bg-[#F8F9FA] cursor-pointer transition-colors"
-                        >
-                          <div className="flex items-start space-x-3">
-                            <div
-                              className={`w-2 h-2 rounded-full mt-2 ${
-                                notification.type === 'lead'
-                                  ? 'bg-[#00B4D8]'
-                                  : notification.type === 'review'
-                                    ? 'bg-[#FF6B35]'
-                                    : notification.type === 'task'
-                                      ? 'bg-yellow-500'
-                                      : notification.type === 'payment'
-                                        ? 'bg-green-500'
-                                        : 'bg-gray-400'
-                              }`}
-                            />
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-[#1E3A5F]">
-                                {notification.title}
-                              </p>
-                              <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="p-3 bg-[#F8F9FA] text-center">
-                      <button className="text-sm text-[#00B4D8] hover:underline">
-                        View all notifications
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
 
             {/* User Profile */}
@@ -503,218 +464,102 @@ export default function AdminPanel() {
                   setShowUserMenu(!showUserMenu);
                   setShowNotifications(false);
                 }}
-                className="flex items-center space-x-2 hover:bg-[#F8F9FA] rounded-lg px-2 py-1 transition-colors"
+                className="flex items-center space-x-3 hover:bg-white/5 rounded-xl p-1.5 pr-3 transition-colors border border-transparent hover:border-white/10"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold">JD</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center border border-white/20 shadow-sm relative overflow-hidden">
+                  <div className="absolute inset-0 bg-white/20 mix-blend-overlay" />
+                  <span className="text-white text-xs font-black tracking-wider z-10">TX</span>
                 </div>
-                <ChevronDown className="w-4 h-4 text-gray-400" />
+                <div className="hidden md:block text-left">
+                  <div className="text-sm font-bold text-white leading-none">Apex Admin</div>
+                  <div className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mt-1">Level 9 Auth</div>
+                </div>
+                <ChevronDown className="w-4 h-4 text-slate-500 hidden sm:block" />
               </button>
-
-              {/* User Menu Dropdown */}
-              <AnimatePresence>
-                {showUserMenu && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden z-50"
-                  >
-                    <div className="p-4 bg-gradient-to-r from-[#1E3A5F] to-[#00B4D8] text-white">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                          <span className="text-white text-lg font-semibold">JD</span>
-                        </div>
-                        <div>
-                          <div className="font-semibold">John Doe</div>
-                          <div className="text-xs text-white/80">Admin User</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="p-2">
-                      <button className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-[#F8F9FA] text-[#1E3A5F] transition-colors">
-                        <UserCircle className="w-5 h-5" />
-                        <span className="text-sm">My Profile</span>
-                      </button>
-                      <button className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-[#F8F9FA] text-[#1E3A5F] transition-colors">
-                        <Settings className="w-5 h-5" />
-                        <span className="text-sm">Settings</span>
-                      </button>
-                      <button className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-[#F8F9FA] text-[#1E3A5F] transition-colors">
-                        <HelpCircle className="w-5 h-5" />
-                        <span className="text-sm">Help & Support</span>
-                      </button>
-                      <div className="border-t border-gray-200 my-2" />
-                      <button className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-red-50 text-red-600 transition-colors">
-                        <LogOut className="w-5 h-5" />
-                        <span className="text-sm">Sign Out</span>
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-auto relative">
           <div
             className={
-              activeItem === 'client-manager' ||
-              activeItem === 'lead-dashboard' ||
-              activeItem === 'performance-dashboard' ||
-              activeItem === 'report-generator' ||
-              activeItem === 'rank-tracker' ||
-              activeItem === 'gbp-dashboard' ||
-              activeItem === 'reviews' ||
-              activeItem === 'uptime-monitor' ||
-              activeItem === 'invoices' ||
-              activeItem.startsWith('podcast-')
-                ? ''
-                : 'p-8'
+              [
+                'client-manager', 'lead-dashboard', 'performance-dashboard', 
+                'report-generator', 'rank-tracker', 'gbp-dashboard', 
+                'reviews', 'uptime-monitor', 'invoices'
+              ].includes(activeItem) || activeItem.startsWith('podcast-')
+                ? 'min-h-full'
+                : 'p-6 md:p-8 min-h-full'
             }
           >
-            <div
-              className={
-                activeItem === 'client-manager' ||
-                activeItem === 'lead-dashboard' ||
-                activeItem === 'performance-dashboard' ||
-                activeItem === 'report-generator' ||
-                activeItem === 'rank-tracker' ||
-                activeItem === 'gbp-dashboard' ||
-                activeItem === 'reviews' ||
-                activeItem === 'uptime-monitor' ||
-                activeItem === 'invoices' ||
-                activeItem.startsWith('podcast-')
-                  ? ''
-                  : 'max-w-7xl mx-auto'
-              }
-            >
-              {/* Render Dashboard Overview */}
-              {activeItem === 'dashboard' && <DashboardOverview onNavigate={(id) => setActiveItem(id)} />}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeItem}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className={
+                  [
+                    'client-manager', 'lead-dashboard', 'performance-dashboard', 
+                    'report-generator', 'rank-tracker', 'gbp-dashboard', 
+                    'reviews', 'uptime-monitor', 'invoices'
+                  ].includes(activeItem) || activeItem.startsWith('podcast-')
+                    ? 'w-full h-full'
+                    : 'max-w-screen-2xl mx-auto'
+                }
+              >
+                {/* Render Views */}
+                {activeItem === 'dashboard' && <DashboardOverview onNavigate={(id) => setActiveItem(id)} />}
+                {activeItem === 'client-manager' && <ClientManager />}
+                {activeItem === 'lead-dashboard' && <LeadDashboard />}
+                {activeItem === 'performance-dashboard' && <PerformanceDashboard />}
+                {activeItem === 'report-generator' && <ReportGenerator />}
+                {activeItem === 'rank-tracker' && <RankTracker />}
+                {activeItem === 'gbp-dashboard' && <GBPDashboard />}
+                {activeItem === 'reviews' && <ReviewsManagement />}
+                {activeItem === 'uptime-monitor' && <UptimeMonitor />}
+                {activeItem === 'invoices' && <InvoicesExpenses />}
+                {activeItem.startsWith('podcast-') && <PodcastManager />}
+                {activeItem === 'web-designer' && <EcommerceWebDesigner />}
+                {activeItem === 'admin-manager' && <AdminCenterManager />}
+                {activeItem === 'system-architecture' && <SystemArchitecture />}
+                {activeItem === 'task-board' && <TaskBoard />}
+                {activeItem === 'page-auditor' && <PageAuditorAgent />}
+                {activeItem === 'project-lone-star' && <ProjectLoneStar />}
 
-              {/* Render Client Manager */}
-              {activeItem === 'client-manager' && <ClientManager />}
-
-              {/* Render Lead Dashboard */}
-              {activeItem === 'lead-dashboard' && <LeadDashboard />}
-
-              {/* Render Performance Dashboard */}
-              {activeItem === 'performance-dashboard' && <PerformanceDashboard />}
-
-              {/* Render Report Generator */}
-              {activeItem === 'report-generator' && <ReportGenerator />}
-
-              {/* Render Rank Tracker */}
-              {activeItem === 'rank-tracker' && <RankTracker />}
-
-              {/* Render GBP Dashboard */}
-              {activeItem === 'gbp-dashboard' && <GBPDashboard />}
-
-              {/* Render Reviews Management */}
-              {activeItem === 'reviews' && <ReviewsManagement />}
-
-              {/* Render Uptime Monitor */}
-              {activeItem === 'uptime-monitor' && <UptimeMonitor />}
-
-              {/* Render Invoices/Expenses */}
-              {activeItem === 'invoices' && <InvoicesExpenses />}
-
-              {/* Render Podcast Manager (all podcast views) */}
-              {activeItem.startsWith('podcast-') && <PodcastManager />}
-
-              {/* Render Web Designer */}
-              {activeItem === 'web-designer' && <EcommerceWebDesigner />}
-
-              {/* Render Admin Manager & System Architecture */}
-              {activeItem === 'admin-manager' && <AdminCenterManager />}
-              {activeItem === 'system-architecture' && <SystemArchitecture />}
-
-              {/* Render Task Board & Page Auditor */}
-              {activeItem === 'task-board' && <TaskBoard />}
-              {activeItem === 'page-auditor' && <PageAuditorAgent />}
-              {activeItem === 'project-lone-star' && <ProjectLoneStar />}
-
-              {/* Placeholder Content */}
-              {!activeItem && (
-                <div className="flex items-center justify-center h-full min-h-[500px]">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Layers className="w-12 h-12 text-white" />
-                    </div>
-                    <h2 className="text-3xl font-bold text-[#1E3A5F] mb-3">
-                      Welcome to ThinkMents Admin Panel
-                    </h2>
-                    <p className="text-gray-600 text-lg mb-6 max-w-md">
-                      Select a section from the sidebar to get started managing your digital
-                      marketing agency.
-                    </p>
-                    <div className="flex items-center justify-center space-x-3">
-                      <Button className="bg-[#00B4D8] hover:bg-[#0096b8] text-white">
-                        <LayoutDashboard className="w-4 h-4 mr-2" />
-                        Go to Dashboard
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white"
-                      >
-                        <HelpCircle className="w-4 h-4 mr-2" />
-                        Quick Tour
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Placeholder for other sections */}
-              {activeItem &&
-                activeItem !== 'dashboard' &&
-                activeItem !== 'client-manager' &&
-                activeItem !== 'lead-dashboard' &&
-                activeItem !== 'performance-dashboard' &&
-                activeItem !== 'report-generator' &&
-                activeItem !== 'rank-tracker' &&
-                activeItem !== 'gbp-dashboard' &&
-                activeItem !== 'reviews' &&
-                activeItem !== 'uptime-monitor' &&
-                activeItem !== 'invoices' &&
-                activeItem !== 'web-designer' &&
-                activeItem !== 'admin-manager' &&
-                activeItem !== 'system-architecture' &&
-                activeItem !== 'task-board' &&
-                activeItem !== 'page-auditor' &&
-                activeItem !== 'project-lone-star' &&
-                !activeItem.startsWith('podcast-') && (
-                  <div className="flex items-center justify-center h-full min-h-[500px]">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-gradient-to-br from-[#00B4D8] to-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Layers className="w-12 h-12 text-white" />
+                {/* Placeholder Content */}
+                {(!activeItem || 
+                  (!['dashboard', 'client-manager', 'lead-dashboard', 'performance-dashboard', 'report-generator', 'rank-tracker', 'gbp-dashboard', 'reviews', 'uptime-monitor', 'invoices', 'web-designer', 'admin-manager', 'system-architecture', 'task-board', 'page-auditor', 'project-lone-star'].includes(activeItem) && !activeItem.startsWith('podcast-'))) && (
+                  <div className="flex items-center justify-center h-[calc(100vh-120px)]">
+                    <div className="text-center max-w-md w-full relative">
+                      <div className="absolute inset-0 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none" />
+                      
+                      <div className="w-24 h-24 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 relative shadow-2xl overflow-hidden backdrop-blur-xl group">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity" />
+                        <Layers className="w-10 h-10 text-indigo-400 group-hover:scale-110 transition-transform" />
                       </div>
-                      <h2 className="text-3xl font-bold text-[#1E3A5F] mb-3 capitalize">
-                        {activeItem.replace(/-/g, ' ')}
+                      
+                      <h2 className="text-3xl font-black text-white mb-3 tracking-wide">
+                        {activeItem ? activeItem.replace(/-/g, ' ').toUpperCase() : 'SYSTEM WAITING'}
                       </h2>
-                      <p className="text-gray-600 text-lg mb-6 max-w-md">
-                        This section is under construction.
+                      <p className="text-slate-400 text-sm font-medium mb-8">
+                        {activeItem ? 'This interface module is currently offline or under active construction.' : 'Select an active node from the sidebar to initialize operations.'}
                       </p>
+                      
+                      <Button className="bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 rounded-xl font-bold shadow-lg" onClick={() => setActiveItem('dashboard')}>
+                        <LayoutDashboard className="w-4 h-4 mr-2" />
+                        Return to Command Matrix
+                      </Button>
                     </div>
                   </div>
                 )}
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </main>
       </div>
-
-      {/* Click outside to close dropdowns */}
-      {(showNotifications || showUserMenu) && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => {
-            setShowNotifications(false);
-            setShowUserMenu(false);
-          }}
-        />
-      )}
     </div>
   );
 }
