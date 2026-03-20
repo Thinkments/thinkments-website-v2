@@ -1,0 +1,6 @@
+src/components/admin/SEOBulkFixer.tsx(200,28): error TS2339: Property 'duplicates' does not exist on type 'ScanResult'.
+src/components/admin/SEOBulkFixer.tsx(220,28): error TS2339: Property 'duplicates' does not exist on type 'ScanResult'.
+src/components/pages/AboutPage.tsx(34,44): error TS2307: Cannot find module '../utils/seo' or its corresponding type declarations.
+src/components/pages/CaseStudyDetailTemplate.tsx(555,45): error TS2304: Cannot find name 'BarChart'.
+src/components/pages/StrategicSEOPage.tsx(847,16): error TS2304: Cannot find name 'Award'.
+src/netlify/functions/seo-scanner.ts(193,50): error TS18046: 'i.current' is of type 'unknown'.
