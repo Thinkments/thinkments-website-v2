@@ -1,0 +1,9 @@
+12:47:38 PM - Projects in this build: 
+    * tsconfig.app.json
+    * tsconfig.node.json
+    * tsconfig.json
+
+12:47:38 PM - Project 'tsconfig.app.json' is being forcibly rebuilt
+
+12:47:38 PM - Building project 'C:/Users/dad/thinkments-website-v2/tsconfig.app.json'...
+

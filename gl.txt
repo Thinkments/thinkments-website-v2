@@ -1,0 +1,5 @@
+81443ab feat: implement AutomatedClientReporting component with client management, report builder, templates, scheduling, and wins overview.
+32e48dc - Removed duplicate icon imports in `AutomatedClientReporting.tsx`.
+f9acd75 feat: Add a TypeScript type-checking script and a Netlify function for CRUD operations on data files.
+b90812e fix: resolve ESM __dirname transpilation error in Netlify functions
+b8f81bb feat: initialize global CSS with theme variables, dark mode support, base typography, and Tailwind configuration.

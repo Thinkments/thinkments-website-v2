@@ -2,7 +2,7 @@ import ts from 'typescript';
 import fs from 'fs';
 
 try {
-  const configPath = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.app.json');
+  const configPath = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.node.json');
   const configFile = ts.readConfigFile(configPath, ts.sys.readFile);
   const parsed = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
   const program = ts.createProgram(parsed.fileNames, parsed.options);

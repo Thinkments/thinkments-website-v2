@@ -56,6 +56,7 @@ import AdminCenterManager from './AdminCenterManager';
 import TaskBoard from './TaskBoard';
 import PageAuditorAgent from './PageAuditorAgent';
 import DashboardOverview from './DashboardOverview';
+import ProjectLoneStar from './ProjectLoneStar';
 
 interface NavigationItem {
   id: string;
@@ -215,6 +216,11 @@ const navigationItems: NavigationItem[] = [
       { id: 'invoices', label: 'Invoices' },
       { id: 'expenses', label: 'Expenses' },
     ],
+  },
+  {
+    id: 'project-lone-star',
+    label: 'Lone Star Directive',
+    icon: Zap,
   },
   {
     id: 'system-intelligence',
@@ -628,6 +634,7 @@ export default function AdminPanel() {
               {/* Render Task Board & Page Auditor */}
               {activeItem === 'task-board' && <TaskBoard />}
               {activeItem === 'page-auditor' && <PageAuditorAgent />}
+              {activeItem === 'project-lone-star' && <ProjectLoneStar />}
 
               {/* Placeholder Content */}
               {!activeItem && (
@@ -677,6 +684,7 @@ export default function AdminPanel() {
                 activeItem !== 'system-architecture' &&
                 activeItem !== 'task-board' &&
                 activeItem !== 'page-auditor' &&
+                activeItem !== 'project-lone-star' &&
                 !activeItem.startsWith('podcast-') && (
                   <div className="flex items-center justify-center h-full min-h-[500px]">
                     <div className="text-center">

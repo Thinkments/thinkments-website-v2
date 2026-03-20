@@ -13,12 +13,12 @@ import {
   Globe,
   Database,
   Building2,
-  Users,
   Briefcase,
   Layers,
-  Search,
   CheckCircle,
 } from 'lucide-react';
+import TheProspector from './TheProspector';
+import TheTexasCartographer from './TheTexasCartographer';
 
 const TEXAS_HUBS = [
   { name: 'Dallas-Fort Worth', penetration: 12, leadsFound: 1450, status: 'Active Campaign' },
@@ -252,26 +252,14 @@ export default function ProjectLoneStar() {
       )}
 
       {activeView === 'prospector' && (
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="p-12 text-center">
-          <Target className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-700 mb-2">The Prospector Agent</h2>
-          <p className="text-gray-500 max-w-md mx-auto">
-            This module is currently initializing. The Prospector will scan the Texas business registry to identify
-            high-value targets with poor digital presence.
-          </p>
-          <Button className="mt-6">Initialize Prospector Component</Button>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <TheProspector />
         </motion.div>
       )}
 
       {activeView === 'cartographer' && (
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="p-12 text-center">
-          <Globe className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-700 mb-2">The Texas Cartographer</h2>
-          <p className="text-gray-500 max-w-md mx-auto">
-            This module is currently initializing. The Texas Cartographer will programmatically generate
-            highly-optimized landing pages for every city and county in Texas.
-          </p>
-          <Button className="mt-6">Initialize Cartographer Component</Button>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <TheTexasCartographer />
         </motion.div>
       )}
     </div>

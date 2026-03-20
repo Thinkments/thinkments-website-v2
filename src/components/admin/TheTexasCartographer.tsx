@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { Globe, Plus, Map, PlayCircle, Settings, FileText, CheckCircle2, TrendingUp, Compass, Target } from 'lucide-react';
+import { Globe, PlayCircle, FileText, CheckCircle2, TrendingUp, Compass, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface CityPage {

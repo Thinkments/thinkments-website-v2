@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { Search, MapPin, Database, Filter, Target, Zap, AlertCircle, Share, ExternalLink, Globe } from 'lucide-react';
+import { MapPin, Database, Target, Zap, AlertCircle, Globe, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface Lead {
