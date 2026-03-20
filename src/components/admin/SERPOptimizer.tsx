@@ -223,150 +223,105 @@ export default function SERPOptimizer() {
   ];
 
   return (
-    <div>
+    <div className="relative">
+      {/* Deep ambient bg */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-20 left-1/3 w-96 h-96 bg-indigo-600/8 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-600/5 rounded-full blur-[100px]" />
+      </div>
+
       {/* Header */}
-      <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />\n      <div className="mb-6 relative z-10">
+      <div className="relative z-10 mb-6">
+        <div className="flex items-center gap-2 mb-2">
+          <div className={`w-2 h-2 rounded-full ${isScanning ? 'bg-yellow-400 animate-pulse' : pages.length > 0 ? 'bg-green-400' : 'bg-indigo-400 animate-pulse'}`} />
+          <span className={`text-xs font-mono uppercase tracking-widest ${isScanning ? 'text-yellow-400' : pages.length > 0 ? 'text-green-400' : 'text-indigo-400'}`}>
+            {isScanning ? 'Scanning Live...' : pages.length > 0 ? `${pages.length} Pages Indexed` : 'SERP Intelligence Engine'}
+          </span>
+        </div>
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h1 className="text-2xl font-bold text-white mb-2">SERP Preview & Optimizer</h1>
-            <p className="text-slate-400">Control how your pages appear in Google search results</p>
+            <h1 className="text-3xl font-bold text-white mb-1">SERP Preview &amp; Optimizer</h1>
+            <p className="text-slate-400">Control exactly how your pages appear in Google search results.</p>
           </div>
-          <div className="flex items-center space-x-3">
-            <Button
-              onClick={handleScan}
-              disabled={isScanning}
-              className="bg-gradient-to-r from-indigo-600 to-purple-900 text-white"
-            >
-              {isScanning ? (
-                <>
-                  <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                  Scanning...
-                </>
-              ) : (
-                <>
-                  <Search className="w-4 h-4 mr-2" />
-                  Scan All Pages
-                </>
-              )}
-            </Button>
+          <div className="flex items-center gap-3">
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                onClick={handleScan}
+                disabled={isScanning}
+                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_35px_rgba(79,70,229,0.5)] transition-all duration-300 border-0"
+              >
+                {isScanning ? (
+                  <><RefreshCw className="w-4 h-4 mr-2 animate-spin" />Scanning...</>
+                ) : (
+                  <><Search className="w-4 h-4 mr-2" />Scan All Pages</>
+                )}
+              </Button>
+            </motion.div>
           </div>
         </div>
 
-        {/* Summary Badges */}
-        <div className="flex items-center space-x-3">
-          <Badge className="bg-indigo-500/10 text-indigo-300 px-3 py-1">
-            <FileText className="w-4 h-4 mr-1" />
-            {totalPages} Total Pages
-          </Badge>
-          <Badge className="bg-rose-500/10 text-rose-300 px-3 py-1">
-            <AlertCircle className="w-4 h-4 mr-1" />
-            {pagesWithIssues} Pages with Issues
-          </Badge>
-        </div>
+        {/* Summary pills */}
+        {pages.length > 0 && (
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">
+              <FileText className="w-3.5 h-3.5" />{totalPages} Total Pages
+            </span>
+            <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-300 text-sm">
+              <AlertCircle className="w-3.5 h-3.5" />{pagesWithIssues} With Issues
+            </span>
+          </div>
+        )}
       </div>
+
+      {/* Zero state — shown before first scan */}
+      {pages.length === 0 && !isScanning && (
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#090f1a] shadow-[0_0_60px_rgba(79,70,229,0.1)] mb-6 py-20 px-8 text-center">
+          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70'%3E%3Cpolygon points='30,5 55,20 55,50 30,65 5,50 5,20' fill='none' stroke='%236366f1' strokeWidth='1'/%3E%3C/svg%3E")`, backgroundSize: '60px 70px' }} />
+          <div className="relative inline-block mb-6">
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} className="absolute inset-0 rounded-full border border-indigo-500/30 border-dashed" />
+            <div className="relative w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-800 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(79,70,229,0.5)]">
+              <Search className="w-10 h-10 text-white" />
+            </div>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-3">No Pages Indexed Yet</h2>
+          <p className="text-slate-400 max-w-md mx-auto mb-8">Run a scan to pull live SERP data for your entire domain. The engine will map every page's title, description, score, and outstanding issues.</p>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="inline-block">
+            <Button onClick={handleScan} disabled={isScanning}
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 text-base rounded-xl shadow-[0_0_25px_rgba(79,70,229,0.4)] hover:shadow-[0_0_40px_rgba(79,70,229,0.6)] border-0 transition-all duration-300">
+              <Search className="w-5 h-5 mr-2" />Scan All Pages
+            </Button>
+          </motion.div>
+        </motion.div>
+      )}
 
       {/* Issue Summary Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-6">
-        {/* Missing Titles */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-3">
-              <AlertCircle className="w-5 h-5 text-rose-400" />
+      {pages.length > 0 && (
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-6">
+        {[
+          { icon: AlertCircle, label: 'Missing Titles', value: issueStats.missingTitles, severity: 'rose', badge: 'Critical' },
+          { icon: FileText, label: 'Missing Desc', value: issueStats.missingDescriptions, severity: 'rose', badge: 'Critical' },
+          { icon: ArrowUpDown, label: 'Titles Too Long', value: issueStats.titlesTooLong, severity: 'amber', badge: 'Warning' },
+          { icon: ArrowUpDown, label: 'Titles Too Short', value: issueStats.titlesTooShort, severity: 'amber', badge: 'Warning' },
+          { icon: AlertTriangle, label: 'Desc Too Long', value: issueStats.descriptionsTooLong, severity: 'amber', badge: 'Warning' },
+          { icon: Copy, label: 'Duplicate Titles', value: issueStats.duplicateTitles, severity: 'orange', badge: 'Fix' },
+          { icon: Code, label: 'No Schema', value: issueStats.missingSchema, severity: 'orange', badge: 'SEO' },
+          { icon: Share2, label: 'No Open Graph', value: issueStats.missingOG, severity: 'slate', badge: 'Social' },
+        ].map((item, idx) => (
+          <motion.div key={idx}
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.05 }}
+            whileHover={{ y: -2, boxShadow: '0 0 20px rgba(99,102,241,0.2)' }}
+            className="relative rounded-xl border border-white/8 bg-[#0f172a]/60 backdrop-blur-sm p-4 cursor-pointer transition-all duration-200 hover:border-indigo-500/30">
+            <div className={`w-9 h-9 rounded-lg bg-${item.severity}-500/15 flex items-center justify-center mb-3`}>
+              <item.icon className={`w-4 h-4 text-${item.severity}-400`} />
             </div>
-            <p className="text-2xl font-bold text-white mb-1">{issueStats.missingTitles}</p>
-            <p className="text-xs text-slate-400 mb-1">Missing Titles</p>
-            <Badge className="bg-rose-900/200 text-white text-xs">Critical</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Missing Descriptions */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center mb-3">
-              <FileText className="w-5 h-5 text-rose-400" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">
-              {issueStats.missingDescriptions}
-            </p>
-            <p className="text-xs text-slate-400 mb-1">Missing Desc</p>
-            <Badge className="bg-rose-900/200 text-white text-xs">Critical</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Titles Too Long */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
-              <ArrowUpDown className="w-5 h-5 text-yellow-600" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">{issueStats.titlesTooLong}</p>
-            <p className="text-xs text-slate-400 mb-1">Titles Too Long</p>
-            <Badge className="bg-amber-900/200 text-white text-xs">Warning</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Titles Too Short */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
-              <ArrowUpDown className="w-5 h-5 text-yellow-600" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">{issueStats.titlesTooShort}</p>
-            <p className="text-xs text-slate-400 mb-1">Titles Too Short</p>
-            <Badge className="bg-amber-900/200 text-white text-xs">Warning</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Descriptions Too Long */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-3">
-              <AlertTriangle className="w-5 h-5 text-yellow-600" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">
-              {issueStats.descriptionsTooLong}
-            </p>
-            <p className="text-xs text-slate-400 mb-1">Desc Too Long</p>
-            <Badge className="bg-amber-900/200 text-white text-xs">Warning</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Duplicate Titles */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
-              <Copy className="w-5 h-5 text-orange-600" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">{issueStats.duplicateTitles}</p>
-            <p className="text-xs text-slate-400 mb-1">Duplicate Titles</p>
-            <Badge className="bg-orange-900/200 text-white text-xs">Fix</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Missing Schema */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
-              <Code className="w-5 h-5 text-orange-600" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">{issueStats.missingSchema}</p>
-            <p className="text-xs text-slate-400 mb-1">No Schema</p>
-            <Badge className="bg-orange-900/200 text-white text-xs">SEO</Badge>
-          </CardContent>
-        </Card>
-
-        {/* Missing OG */}
-        <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 hover:shadow-lg transition-shadow cursor-pointer">
-          <CardContent className="pt-6">
-            <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mb-3">
-              <Share2 className="w-5 h-5 text-slate-400" />
-            </div>
-            <p className="text-2xl font-bold text-white mb-1">{issueStats.missingOG}</p>
-            <p className="text-xs text-slate-400 mb-1">No Open Graph</p>
-            <Badge className="bg-white/50 text-white text-xs">Social</Badge>
-          </CardContent>
-        </Card>
+            <p className="text-2xl font-bold text-white mb-0.5">{item.value}</p>
+            <p className="text-xs text-slate-500 mb-2 leading-tight">{item.label}</p>
+            <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full bg-${item.severity}-500/15 text-${item.severity}-400`}>{item.badge}</span>
+          </motion.div>
+        ))}
       </div>
+      )}
 
       {/* Filters & Actions */}
       <Card className="border-0 shadow-[0_0_30px_rgba(79,70,229,0.1)] border border-white/5 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 bg-[#0f172a]/80 backdrop-blur-xl relative z-10 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(79,70,229,0.2)] transition-all duration-300 mb-6">
